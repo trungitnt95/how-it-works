@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>How It Works</h1>
+            <p class="subtitle">Learn how different systems work interactively</p>
+        </header>
+        
+        <main>
+            <div class="topics-grid">
+                <div class="topic-card" onclick="navigateToTopic('money')">
+                    <div class="topic-icon">💰</div>
+                    <h2>How Money Works</h2>
+                    <p>Explore the flow of money through government, businesses, families, and banks.</p>
+                    <button class="explore-btn">Explore →</button>
+                </div>
+                
+                <div class="topic-card coming-soon">
+                    <div class="topic-icon">⚡</div>
+                    <h2>How Electricity Works</h2>
+                    <p>Coming soon: Learn about power generation and distribution.</p>
+                    <button class="explore-btn" disabled>Coming Soon</button>
+                </div>
+                
+                <div class="topic-card coming-soon">
+                    <div class="topic-icon">🌐</div>
+                    <h2>How The Internet Works</h2>
+                    <p>Coming soon: Discover how data travels across the web.</p>
+                    <button class="explore-btn" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
