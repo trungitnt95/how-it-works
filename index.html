@@ -77,7 +77,7 @@
         <!-- Tour Instruction Panel -->
         <div class="tour-panel" id="tourPanel">
             <div class="tour-content">
-                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">20</span></div>
                 <h3 id="tourTitle">Chào mừng bạn!</h3>
                 <p id="tourDescription">Hãy bắt đầu tìm hiểu dòng chảy của tiền...</p>
                 <div class="tour-actions">
@@ -88,138 +88,172 @@
             </div>
         </div>
 
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo nhóm:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (20)</button>
+            <button class="filter-btn" data-category="core">💰 Cốt lõi</button>
+            <button class="filter-btn" data-category="financial">🏦 Tài chính</button>
+            <button class="filter-btn" data-category="market">📈 Thị trường</button>
+            <button class="filter-btn" data-category="services">🛡️ Dịch vụ</button>
+            <button class="filter-btn" data-category="modern">⚡ Hiện đại</button>
+        </div>
+
         <!-- Diagram Container -->
-        <div class="diagram-container" id="diagramContainer">
+        <div class="diagram-container expanded" id="diagramContainer">
             <!-- Story Mode Narration -->
             <div class="story-narration" id="storyNarration">
                 <div class="story-text" id="storyText"></div>
             </div>
 
-            <!-- Animated Money -->
-            <div class="money-animation" id="moneyAnimation">💵</div>
-
-            <!-- Central Bank -->
-            <div class="node central-bank" data-component="central-bank" data-step="1">
+            <!-- ==================== CORE COMPONENTS (1-6) ==================== -->
+            
+            <div class="node central-bank" data-component="central-bank" data-category="core" data-step="1">
                 <div class="node-number">1</div>
                 <div class="node-icon">🏛️</div>
-                <div class="node-label">Ngân Hàng Trung Ương</div>
-                <div class="node-hint">Nơi tiền được tạo ra</div>
+                <div class="node-label">Ngân Hàng TW</div>
+                <div class="node-hint">Tạo ra tiền</div>
             </div>
 
-            <!-- Commercial Banks -->
-            <div class="node commercial-bank" data-component="commercial-bank" data-step="2">
+            <div class="node commercial-bank" data-component="commercial-bank" data-category="core" data-step="2">
                 <div class="node-number">2</div>
                 <div class="node-icon">🏦</div>
-                <div class="node-label">Ngân Hàng Thương Mại</div>
-                <div class="node-hint">Nhân bản tiền qua cho vay</div>
+                <div class="node-label">NH Thương Mại</div>
+                <div class="node-hint">Nhân bản tiền</div>
             </div>
 
-            <!-- Government -->
-            <div class="node government" data-component="government" data-step="5">
-                <div class="node-number">5</div>
+            <div class="node government" data-component="government" data-category="core" data-step="3">
+                <div class="node-number">3</div>
                 <div class="node-icon">🏢</div>
                 <div class="node-label">Chính Phủ</div>
-                <div class="node-hint">Thu thuế & chi tiêu</div>
+                <div class="node-hint">Thuế & chi tiêu</div>
             </div>
 
-            <!-- Businesses -->
-            <div class="node business" data-component="business" data-step="3">
-                <div class="node-number">3</div>
+            <div class="node business" data-component="business" data-category="core" data-step="4">
+                <div class="node-number">4</div>
                 <div class="node-icon">🏭</div>
                 <div class="node-label">Doanh Nghiệp</div>
-                <div class="node-hint">Vay vốn & trả lương</div>
+                <div class="node-hint">Sản xuất</div>
             </div>
 
-            <!-- Individuals -->
-            <div class="node individual" data-component="individual" data-step="4">
-                <div class="node-number">4</div>
+            <div class="node individual" data-component="individual" data-category="core" data-step="5">
+                <div class="node-number">5</div>
                 <div class="node-icon">👥</div>
                 <div class="node-label">Người Dân</div>
-                <div class="node-hint">Làm việc & tiêu dùng</div>
+                <div class="node-hint">Tiêu dùng</div>
             </div>
 
-            <!-- Foreign Markets -->
-            <div class="node foreign" data-component="foreign" data-step="6">
+            <div class="node foreign" data-component="foreign" data-category="core" data-step="6">
                 <div class="node-number">6</div>
                 <div class="node-icon">🌍</div>
                 <div class="node-label">Quốc Tế</div>
-                <div class="node-hint">Xuất nhập khẩu</div>
+                <div class="node-hint">XNK</div>
             </div>
 
-            <!-- Flow Arrows SVG -->
-            <svg class="flow-arrows" viewBox="0 0 1000 700">
-                <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#4CAF50"/>
-                    </marker>
-                    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#2196F3"/>
-                    </marker>
-                    <marker id="arrowhead-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="#FF9800"/>
-                    </marker>
-                </defs>
+            <!-- ==================== FINANCIAL (7-10) ==================== -->
 
-                <!-- Flow 1: Central Bank → Commercial Bank -->
-                <g class="flow-group" data-flow="1" data-from="central-bank" data-to="commercial-bank">
-                    <path class="arrow-path" d="M 200 120 C 280 80, 350 80, 420 120" marker-end="url(#arrowhead)"/>
-                    <text class="flow-label clickable" x="310" y="70" data-flow-info="cb-to-commercial">
-                        ① Phát hành tiền
-                    </text>
-                </g>
+            <div class="node stock-exchange" data-component="stock-exchange" data-category="financial" data-step="7">
+                <div class="node-number">7</div>
+                <div class="node-icon">📈</div>
+                <div class="node-label">Sàn CK</div>
+                <div class="node-hint">Cổ phiếu</div>
+            </div>
 
-                <!-- Flow 2: Commercial Bank → Business -->
-                <g class="flow-group" data-flow="2" data-from="commercial-bank" data-to="business">
-                    <path class="arrow-path" d="M 520 200 C 540 280, 530 350, 520 420" marker-end="url(#arrowhead)"/>
-                    <text class="flow-label clickable" x="555" y="310" data-flow-info="commercial-to-business">
-                        ② Cho vay
-                    </text>
-                </g>
+            <div class="node investment-fund" data-component="investment-fund" data-category="financial" data-step="8">
+                <div class="node-number">8</div>
+                <div class="node-icon">💼</div>
+                <div class="node-label">Quỹ Đầu Tư</div>
+                <div class="node-hint">Quản lý TS</div>
+            </div>
 
-                <!-- Flow 3: Business → Individual (Salary) -->
-                <g class="flow-group" data-flow="3" data-from="business" data-to="individual">
-                    <path class="arrow-path" d="M 450 480 C 380 500, 300 500, 230 480" marker-end="url(#arrowhead)"/>
-                    <text class="flow-label clickable" x="340" y="530" data-flow-info="business-to-individual">
-                        ③ Trả lương
-                    </text>
-                </g>
+            <div class="node consumer-finance" data-component="consumer-finance" data-category="financial" data-step="9">
+                <div class="node-number">9</div>
+                <div class="node-icon">💳</div>
+                <div class="node-label">Tín Dụng TD</div>
+                <div class="node-hint">Thẻ, trả góp</div>
+            </div>
 
-                <!-- Flow 4: Individual → Business (Spending) -->
-                <g class="flow-group" data-flow="4" data-from="individual" data-to="business">
-                    <path class="arrow-path blue" d="M 230 420 C 300 390, 380 390, 450 420" marker-end="url(#arrowhead-blue)"/>
-                    <text class="flow-label clickable blue" x="340" y="380" data-flow-info="individual-to-business">
-                        ④ Chi tiêu
-                    </text>
-                </g>
+            <div class="node shadow-banking" data-component="shadow-banking" data-category="financial" data-step="10">
+                <div class="node-number">10</div>
+                <div class="node-icon">🌑</div>
+                <div class="node-label">Shadow Bank</div>
+                <div class="node-hint">Cho vay ngoài</div>
+            </div>
 
-                <!-- Flow 5: Individual → Commercial Bank (Savings) -->
-                <g class="flow-group" data-flow="5" data-from="individual" data-to="commercial-bank">
-                    <path class="arrow-path blue" d="M 180 400 C 220 300, 350 220, 450 180" marker-end="url(#arrowhead-blue)"/>
-                    <text class="flow-label clickable blue" x="280" y="280" data-flow-info="individual-to-commercial">
-                        ⑤ Gửi tiết kiệm
-                    </text>
-                </g>
+            <!-- ==================== MARKETS (11-14) ==================== -->
 
-                <!-- Flow 6: All → Government (Tax) -->
-                <g class="flow-group" data-flow="6" data-from="all" data-to="government">
-                    <path class="arrow-path orange" d="M 250 450 C 400 550, 600 400, 720 200" marker-end="url(#arrowhead-orange)"/>
-                    <text class="flow-label clickable orange" x="480" y="420" data-flow-info="tax">
-                        ⑥ Nộp thuế
-                    </text>
-                </g>
+            <div class="node bond-market" data-component="bond-market" data-category="market" data-step="11">
+                <div class="node-number">11</div>
+                <div class="node-icon">📜</div>
+                <div class="node-label">Trái Phiếu</div>
+                <div class="node-hint">Cho vay DH</div>
+            </div>
 
-                <!-- Flow 7: Business → Foreign (Export) -->
-                <g class="flow-group" data-flow="7" data-from="business" data-to="foreign">
-                    <path class="arrow-path" d="M 580 460 C 650 480, 720 490, 780 480" marker-end="url(#arrowhead)"/>
-                    <text class="flow-label clickable" x="680" y="520" data-flow-info="export">
-                        ⑦ Xuất khẩu
-                    </text>
-                </g>
-            </svg>
+            <div class="node real-estate" data-component="real-estate" data-category="market" data-step="12">
+                <div class="node-number">12</div>
+                <div class="node-icon">🏠</div>
+                <div class="node-label">Bất Động Sản</div>
+                <div class="node-hint">Nhà đất</div>
+            </div>
 
-            <!-- Quick Info Tooltips -->
-            <div class="quick-tooltip" id="quickTooltip">
-                <div class="tooltip-content"></div>
+            <div class="node commodity" data-component="commodity" data-category="market" data-step="13">
+                <div class="node-number">13</div>
+                <div class="node-icon">🥇</div>
+                <div class="node-label">Hàng Hóa</div>
+                <div class="node-hint">Vàng, dầu</div>
+            </div>
+
+            <div class="node forex" data-component="forex" data-category="market" data-step="14">
+                <div class="node-number">14</div>
+                <div class="node-icon">💱</div>
+                <div class="node-label">Forex</div>
+                <div class="node-hint">Tỷ giá</div>
+            </div>
+
+            <!-- ==================== SERVICES (15-17) ==================== -->
+
+            <div class="node insurance" data-component="insurance" data-category="services" data-step="15">
+                <div class="node-number">15</div>
+                <div class="node-icon">🛡️</div>
+                <div class="node-label">Bảo Hiểm</div>
+                <div class="node-hint">Bảo vệ rủi ro</div>
+            </div>
+
+            <div class="node pension-fund" data-component="pension-fund" data-category="services" data-step="16">
+                <div class="node-number">16</div>
+                <div class="node-icon">👴</div>
+                <div class="node-label">Hưu Trí</div>
+                <div class="node-hint">BHXH</div>
+            </div>
+
+            <div class="node credit-rating" data-component="credit-rating" data-category="services" data-step="17">
+                <div class="node-number">17</div>
+                <div class="node-icon">⭐</div>
+                <div class="node-label">Xếp Hạng</div>
+                <div class="node-hint">Đánh giá</div>
+            </div>
+
+            <!-- ==================== MODERN (18-20) ==================== -->
+
+            <div class="node fintech" data-component="fintech" data-category="modern" data-step="18">
+                <div class="node-number">18</div>
+                <div class="node-icon">📱</div>
+                <div class="node-label">Fintech</div>
+                <div class="node-hint">Ví điện tử</div>
+            </div>
+
+            <div class="node crypto" data-component="crypto" data-category="modern" data-step="19">
+                <div class="node-number">19</div>
+                <div class="node-icon">₿</div>
+                <div class="node-label">Crypto</div>
+                <div class="node-hint">Bitcoin</div>
+            </div>
+
+            <div class="node startup" data-component="startup" data-category="modern" data-step="20">
+                <div class="node-number">20</div>
+                <div class="node-icon">🚀</div>
+                <div class="node-label">Startup/VC</div>
+                <div class="node-hint">Vốn mạo hiểm</div>
             </div>
         </div>
 
@@ -227,11 +261,11 @@
         <div class="action-bar">
             <button class="action-btn" id="playStoryBtn">
                 <span class="action-icon">▶️</span>
-                <span class="action-text">Xem câu chuyện tiền</span>
+                <span class="action-text">Câu chuyện tiền</span>
             </button>
-            <button class="action-btn" id="showAllFlowsBtn">
-                <span class="action-icon">🔄</span>
-                <span class="action-text">Hiện tất cả dòng tiền</span>
+            <button class="action-btn" id="showConnectionsBtn">
+                <span class="action-icon">🔗</span>
+                <span class="action-text">Hiện kết nối</span>
             </button>
             <button class="action-btn" id="resetViewBtn">
                 <span class="action-icon">🔃</span>
@@ -241,24 +275,13 @@
 
         <!-- Legend -->
         <div class="legend">
-            <h3>📖 Chú thích (Click để lọc)</h3>
+            <h3>📖 Nhóm thành phần (20 thành phần)</h3>
             <div class="legend-items">
-                <div class="legend-item active" data-filter="all">
-                    <span class="legend-color all"></span>
-                    <span>Tất cả</span>
-                </div>
-                <div class="legend-item" data-filter="green">
-                    <span class="legend-color green"></span>
-                    <span>Tiền đi ra (cho vay, trả lương)</span>
-                </div>
-                <div class="legend-item" data-filter="blue">
-                    <span class="legend-color blue"></span>
-                    <span>Tiền quay về (chi tiêu, tiết kiệm)</span>
-                </div>
-                <div class="legend-item" data-filter="orange">
-                    <span class="legend-color orange"></span>
-                    <span>Thuế</span>
-                </div>
+                <div class="legend-item"><span class="legend-color core"></span><span>Cốt lõi (1-6)</span></div>
+                <div class="legend-item"><span class="legend-color financial"></span><span>Tài chính (7-10)</span></div>
+                <div class="legend-item"><span class="legend-color market"></span><span>Thị trường (11-14)</span></div>
+                <div class="legend-item"><span class="legend-color services"></span><span>Dịch vụ (15-17)</span></div>
+                <div class="legend-item"><span class="legend-color modern"></span><span>Hiện đại (18-20)</span></div>
             </div>
         </div>
     </main>
@@ -284,10 +307,14 @@
                 <div class="tab-content" data-content="advanced"></div>
             </div>
             <div class="modal-footer">
+                <div class="connections-section">
+                    <h4>🔗 Kết nối với:</h4>
+                    <div class="connections-list" id="connectionsList"></div>
+                </div>
                 <div class="key-points" id="keyPoints"></div>
                 <div class="modal-nav">
-                    <button id="modalPrev" class="modal-nav-btn">← Thành phần trước</button>
-                    <button id="modalNext" class="modal-nav-btn">Thành phần tiếp →</button>
+                    <button id="modalPrev" class="modal-nav-btn">← Trước</button>
+                    <button id="modalNext" class="modal-nav-btn">Tiếp →</button>
                 </div>
             </div>
         </div>
@@ -297,36 +324,19 @@
     <div class="scenario-overlay" id="scenarioModal">
         <div class="scenario-content">
             <button class="modal-close" id="closeScenario">&times;</button>
-            <h2>📖 Kịch Bản Thực Tế</h2>
+            <h2>📖 Kịch Bản Thực Tế (30+ kịch bản)</h2>
             <p class="scenario-intro">Chọn một kịch bản để xem tiền chảy như thế nào:</p>
             
-            <div class="scenario-list">
-                <div class="scenario-card" data-scenario="deposit">
-                    <div class="scenario-icon">💰</div>
-                    <h3>Gửi tiền tiết kiệm</h3>
-                    <p>Bạn gửi 100 triệu VND vào ngân hàng. Chuyện gì xảy ra?</p>
-                </div>
-                <div class="scenario-card" data-scenario="loan">
-                    <div class="scenario-icon">🏠</div>
-                    <h3>Vay mua nhà</h3>
-                    <p>Bạn vay 2 tỷ để mua nhà. Tiền đi đâu?</p>
-                </div>
-                <div class="scenario-card" data-scenario="salary">
-                    <div class="scenario-icon">💼</div>
-                    <h3>Nhận lương hàng tháng</h3>
-                    <p>Công ty trả lương 20 triệu/tháng cho bạn.</p>
-                </div>
-                <div class="scenario-card" data-scenario="business">
-                    <div class="scenario-icon">🏭</div>
-                    <h3>Doanh nghiệp vay vốn</h3>
-                    <p>Công ty vay 10 tỷ để mở rộng sản xuất.</p>
-                </div>
-                <div class="scenario-card" data-scenario="inflation">
-                    <div class="scenario-icon">📈</div>
-                    <h3>Lạm phát xảy ra</h3>
-                    <p>Ngân hàng trung ương in thêm tiền.</p>
-                </div>
+            <div class="scenario-categories">
+                <button class="scenario-cat-btn active" data-cat="all">Tất cả</button>
+                <button class="scenario-cat-btn" data-cat="personal">👤 Cá nhân</button>
+                <button class="scenario-cat-btn" data-cat="business">🏭 Doanh nghiệp</button>
+                <button class="scenario-cat-btn" data-cat="investment">📈 Đầu tư</button>
+                <button class="scenario-cat-btn" data-cat="crisis">⚠️ Khủng hoảng</button>
+                <button class="scenario-cat-btn" data-cat="modern">⚡ Hiện đại</button>
             </div>
+            
+            <div class="scenario-list" id="scenarioList"></div>
         </div>
     </div>
 
@@ -334,50 +344,16 @@
     <div class="simulator-overlay" id="simulatorModal">
         <div class="simulator-content">
             <button class="modal-close" id="closeSimulator">&times;</button>
-            <h2>🧮 Mô Phỏng Nhân Tiền</h2>
-            <p class="simulator-intro">Xem cách ngân hàng "tạo ra" tiền từ tiền gửi của bạn</p>
+            <h2>🧮 Các Công Cụ Mô Phỏng</h2>
             
-            <div class="simulator-inputs">
-                <div class="input-group">
-                    <label>💵 Số tiền bạn gửi ban đầu:</label>
-                    <input type="number" id="depositAmount" value="100000000" min="1000000" step="1000000">
-                    <span class="input-hint">VND</span>
-                </div>
-                <div class="input-group">
-                    <label>📊 Tỷ lệ dự trữ bắt buộc:</label>
-                    <input type="range" id="reserveRatio" value="10" min="1" max="50">
-                    <span id="reserveValue">10%</span>
-                </div>
-                <button class="simulate-btn" id="simulateBtn">🚀 Mô phỏng</button>
+            <div class="simulator-tabs">
+                <button class="sim-tab active" data-sim="money-multiplier">💰 Nhân tiền</button>
+                <button class="sim-tab" data-sim="compound-interest">📈 Lãi kép</button>
+                <button class="sim-tab" data-sim="loan-calculator">🏠 Tính vay</button>
+                <button class="sim-tab" data-sim="inflation">📊 Lạm phát</button>
             </div>
 
-            <div class="simulator-result" id="simulatorResult">
-                <div class="result-animation" id="resultAnimation"></div>
-                <div class="result-summary">
-                    <div class="result-item">
-                        <span class="result-label">Tiền gửi ban đầu:</span>
-                        <span class="result-value" id="initialDeposit">100,000,000 VND</span>
-                    </div>
-                    <div class="result-item">
-                        <span class="result-label">Hệ số nhân tiền:</span>
-                        <span class="result-value" id="multiplier">10x</span>
-                    </div>
-                    <div class="result-item highlight">
-                        <span class="result-label">Tổng tiền tạo ra trong hệ thống:</span>
-                        <span class="result-value" id="totalMoney">1,000,000,000 VND</span>
-                    </div>
-                </div>
-                <div class="result-explanation" id="resultExplanation"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Flow Info Modal -->
-    <div class="flow-modal" id="flowModal">
-        <div class="flow-modal-content">
-            <button class="modal-close" id="closeFlowModal">&times;</button>
-            <h3 id="flowModalTitle"></h3>
-            <div id="flowModalBody"></div>
+            <div class="simulator-panels" id="simulatorPanels"></div>
         </div>
     </div>
 
@@ -389,7 +365,7 @@
 
     <footer>
         <p>Dựa trên kiến thức từ sách "Hiểu Hết Về Tiền" 📚</p>
-        <p class="footer-hint">💡 Tip: Di chuột vào các thuật ngữ <span class="glossary-word" data-term="lạm phát">in đậm</span> để xem định nghĩa</p>
+        <p class="footer-hint">💡 Click vào bất kỳ thành phần nào để xem chi tiết | 20 thành phần | 30+ kịch bản</p>
     </footer>
 
     <script src="app.js"></script>
