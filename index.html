@@ -168,6 +168,14 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
+        .topic-card.architect {
+            --card-color-1: #00d4ff;
+            --card-color-2: #7b2cbf;
+        }
+
+        .topic-card.design {
+            --card-color-1: #9b59b6;
+            --card-color-2: #3498db;
         .topic-card.power {
             --card-color-1: #ffd700;
             --card-color-2: #9b59b6;
@@ -349,6 +357,7 @@
         .topic-card:nth-child(3) { animation-delay: 0.3s; }
         .topic-card:nth-child(4) { animation-delay: 0.4s; }
         .topic-card:nth-child(5) { animation-delay: 0.5s; }
+        .topic-card:nth-child(6) { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
@@ -375,7 +384,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count">2 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count">3 có sẵn • 3 sắp ra mắt</span>
         </div>
 
         <div class="topics-grid">
@@ -403,6 +412,49 @@
                 </div>
             </div>
 
+            <!-- Solution Architect - Available -->
+            <div class="topic-card architect" onclick="location.href='solution-architect/'">
+                <div class="card-icon">🏗️</div>
+                <h3 class="card-title">Solution Architect Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Con đường từ Developer đến Solution Architect</p>
+                <p class="card-description">
+                    Khám phá vai trò của Solution Architect - người thiết kế hệ thống phần mềm.
+                    Từ requirements đến architecture patterns, từ technical skills đến soft skills.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Architecture</span>
+                    <span class="tag">Microservices</span>
+                    <span class="tag">Cloud</span>
+                    <span class="tag">Leadership</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 20 kỹ năng</span>
+                        <span class="stat">📖 6 kịch bản</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Design Patterns - Available -->
+            <div class="topic-card design" onclick="location.href='design-patterns/'">
+                <div class="card-icon">🎨</div>
+                <h3 class="card-title">Design Pattern Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">23 mẫu thiết kế kinh điển từ Gang of Four</p>
+                <p class="card-description">
+                    Khám phá các giải pháp đã được chứng minh cho các vấn đề phổ biến trong thiết kế phần mềm.
+                    Từ Singleton đến Observer, từ Factory đến Strategy - hiểu và áp dụng đúng cách.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Creational</span>
+                    <span class="tag">Structural</span>
+                    <span class="tag">Behavioral</span>
+                    <span class="tag">OOP</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 22 patterns</span>
+                        <span class="stat">📖 3 cấp độ</span>
             <!-- Power - Available -->
             <div class="topic-card power" onclick="location.href='power/'">
                 <div class="card-icon">👑</div>

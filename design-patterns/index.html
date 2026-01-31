@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Patterns - Mẫu Thiết Kế Phần Mềm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🎨 Design Patterns</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Mới bắt đầu học lập trình hoặc OOP.</p>
+                    <ul>
+                        <li>✅ Ví dụ đời thực dễ hiểu</li>
+                        <li>✅ Giải thích từng bước</li>
+                        <li>✅ Code đơn giản</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết OOP, muốn hiểu sâu hơn.</p>
+                    <ul>
+                        <li>✅ UML diagrams</li>
+                        <li>✅ Code examples đầy đủ</li>
+                        <li>✅ So sánh các patterns</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn master design patterns.</p>
+                    <ul>
+                        <li>✅ Real-world case studies</li>
+                        <li>✅ Anti-patterns</li>
+                        <li>✅ Patterns kết hợp</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>🎨 Design Patterns</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️ Cấp độ</button>
+            <button class="header-btn" id="searchBtn" title="Tìm kiếm">🔍 Tìm kiếm</button>
+            <button class="header-btn" id="bookmarkBtn" title="Đã lưu">⭐ Đã lưu</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <h2>🎯 Design Pattern là gì?</h2>
+            <p>
+                <strong>Design Patterns</strong> (Mẫu thiết kế) là các giải pháp điển hình cho những vấn đề 
+                thường gặp trong thiết kế phần mềm. Chúng giống như bản thiết kế sẵn có mà bạn có thể 
+                tùy chỉnh để giải quyết vấn đề cụ thể trong code của mình.
+            </p>
+            <p>
+                Được giới thiệu bởi "Gang of Four" (GoF) - nhóm 4 tác giả Erich Gamma, Richard Helm, 
+                Ralph Johnson và John Vlissides trong cuốn sách kinh điển năm 1994.
+            </p>
+            <div class="intro-stats">
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Patterns gốc (GoF)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Nhóm chính</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Năm kinh nghiệm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Ứng dụng thực tế</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">🏷️ Lọc theo nhóm:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (22)</button>
+            <button class="filter-btn" data-category="creational">🏗️ Creational (5)</button>
+            <button class="filter-btn" data-category="structural">🧱 Structural (7)</button>
+            <button class="filter-btn" data-category="behavioral">🎭 Behavioral (10)</button>
+        </div>
+
+        <!-- Creational Patterns Section -->
+        <section class="category-section" data-category="creational">
+            <div class="category-header">
+                <span class="category-icon">🏗️</span>
+                <div>
+                    <h2 class="category-title">Creational Patterns</h2>
+                    <p class="category-desc">Các pattern liên quan đến việc tạo đối tượng, giúp code linh hoạt và tái sử dụng</p>
+                </div>
+                <span class="category-count">5 patterns</span>
+            </div>
+            <div class="patterns-grid" id="creationalGrid">
+                <!-- Patterns will be loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Structural Patterns Section -->
+        <section class="category-section" data-category="structural">
+            <div class="category-header">
+                <span class="category-icon">🧱</span>
+                <div>
+                    <h2 class="category-title">Structural Patterns</h2>
+                    <p class="category-desc">Các pattern giải thích cách lắp ghép các đối tượng và lớp thành các cấu trúc lớn hơn</p>
+                </div>
+                <span class="category-count">7 patterns</span>
+            </div>
+            <div class="patterns-grid" id="structuralGrid">
+                <!-- Patterns will be loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Behavioral Patterns Section -->
+        <section class="category-section" data-category="behavioral">
+            <div class="category-header">
+                <span class="category-icon">🎭</span>
+                <div>
+                    <h2 class="category-title">Behavioral Patterns</h2>
+                    <p class="category-desc">Các pattern liên quan đến thuật toán và phân chia trách nhiệm giữa các đối tượng</p>
+                </div>
+                <span class="category-count">10 patterns</span>
+            </div>
+            <div class="patterns-grid" id="behavioralGrid">
+                <!-- Patterns will be loaded by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Pattern Detail Modal -->
+    <div class="modal-overlay" id="patternModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title-section">
+                    <span class="modal-icon" id="modalIcon">🏭</span>
+                    <div>
+                        <h2 class="modal-title" id="modalTitle">Pattern Name</h2>
+                        <span class="card-category" id="modalCategory">Category</span>
+                        <span class="difficulty-badge" id="modalDifficulty">Difficulty</span>
+                    </div>
+                </div>
+                <button class="close-btn" id="closeModal">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
