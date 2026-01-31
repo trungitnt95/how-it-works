@@ -354,6 +354,11 @@
             
             <div class="scenario-selection-bar">
                 <span id="selectedCount">0 kịch bản được chọn</span>
+                <div class="play-mode-toggle">
+                    <label class="mode-label">Chế độ:</label>
+                    <button class="mode-btn active" id="modeSequential" data-mode="sequential">📋 Tuần tự</button>
+                    <button class="mode-btn" id="modeParallel" data-mode="parallel">⚡ Song song</button>
+                </div>
                 <button class="run-selected-btn" id="runSelectedBtn" disabled>▶️ Chạy các kịch bản đã chọn</button>
                 <button class="clear-selection-btn" id="clearSelectionBtn">✖️ Bỏ chọn</button>
             </div>
@@ -399,6 +404,37 @@
             <div class="player-queue" id="playerQueue">
                 <h4>📋 Hàng đợi kịch bản:</h4>
                 <div class="queue-list" id="queueList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parallel Scenario Player Modal -->
+    <div class="scenario-player-overlay parallel-mode" id="parallelPlayerModal">
+        <div class="scenario-player-content parallel-player-content">
+            <button class="modal-close" id="closeParallelPlayer">&times;</button>
+            <div class="player-header">
+                <h2>⚡ Chế độ Song song - Nhiều kịch bản cùng lúc</h2>
+                <div class="parallel-step-indicator">
+                    <span id="parallelStepInfo">Bước 1</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="parallelProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parallel-grid" id="parallelGrid">
+                <!-- Scenario cards will be dynamically inserted here -->
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="parallelPrev">⬅️ Bước trước</button>
+                <button class="player-btn pause-btn" id="parallelPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="parallelNext">Bước tiếp ➡️</button>
+            </div>
+            
+            <div class="parallel-legend">
+                <h4>🎯 Các kịch bản đang chạy:</h4>
+                <div class="legend-list" id="parallelLegend"></div>
             </div>
         </div>
     </div>

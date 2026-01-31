@@ -1624,6 +1624,9 @@ let scenarioQueue = [];      // Queue for running multiple scenarios
 let currentQueueIndex = 0;   // Current position in queue
 let isPlayerActive = false;  // Is the scenario player running?
 let isPaused = false;        // Is the player paused?
+let playMode = 'sequential'; // 'sequential' or 'parallel'
+let parallelStep = 0;        // Current step in parallel mode
+let parallelMaxSteps = 0;    // Max steps across all parallel scenarios
 
 // Get current country data
 function getCountryData() {
@@ -1802,6 +1805,46 @@ function setupEventListeners() {
     if (playerOverlay) {
         playerOverlay.addEventListener('click', (e) => {
             if (e.target === playerOverlay) closeScenarioPlayer();
+        });
+    }
+    
+    // Mode toggle buttons
+    const modeSequentialBtn = document.getElementById('modeSequential');
+    const modeParallelBtn = document.getElementById('modeParallel');
+    
+    if (modeSequentialBtn) {
+        modeSequentialBtn.addEventListener('click', () => setPlayMode('sequential'));
+    }
+    if (modeParallelBtn) {
+        modeParallelBtn.addEventListener('click', () => setPlayMode('parallel'));
+    }
+    
+    // Parallel player controls
+    const closeParallelPlayerBtn = document.getElementById('closeParallelPlayer');
+    if (closeParallelPlayerBtn) {
+        closeParallelPlayerBtn.addEventListener('click', closeParallelPlayer);
+    }
+    
+    const parallelPauseBtn = document.getElementById('parallelPause');
+    if (parallelPauseBtn) {
+        parallelPauseBtn.addEventListener('click', toggleParallelPause);
+    }
+    
+    const parallelPrevBtn = document.getElementById('parallelPrev');
+    if (parallelPrevBtn) {
+        parallelPrevBtn.addEventListener('click', prevParallelStep);
+    }
+    
+    const parallelNextBtn = document.getElementById('parallelNext');
+    if (parallelNextBtn) {
+        parallelNextBtn.addEventListener('click', nextParallelStep);
+    }
+    
+    // Close parallel player overlay on click
+    const parallelPlayerOverlay = document.getElementById('parallelPlayerModal');
+    if (parallelPlayerOverlay) {
+        parallelPlayerOverlay.addEventListener('click', (e) => {
+            if (e.target === parallelPlayerOverlay) closeParallelPlayer();
         });
     }
 }
@@ -2308,6 +2351,18 @@ function endScenario() {
     currentScenario = null;
 }
 
+// ==================== PLAY MODE ====================
+function setPlayMode(mode) {
+    playMode = mode;
+    
+    // Update button states
+    const seqBtn = document.getElementById('modeSequential');
+    const parBtn = document.getElementById('modeParallel');
+    
+    if (seqBtn) seqBtn.classList.toggle('active', mode === 'sequential');
+    if (parBtn) parBtn.classList.toggle('active', mode === 'parallel');
+}
+
 // ==================== MULTI-SCENARIO PLAYER ====================
 function runSelectedScenarios() {
     if (selectedScenarios.length === 0) return;
@@ -2323,18 +2378,20 @@ function runSelectedScenarios() {
         };
     });
     
-    currentQueueIndex = 0;
-    isPlayerActive = true;
-    isPaused = false;
-    
     // Close scenario modal
     scenarioModal.classList.remove('active');
     
-    // Show player overlay
-    showScenarioPlayer();
-    
-    // Start playing
-    playCurrentQueueScenario();
+    if (playMode === 'parallel') {
+        // Run in parallel mode
+        runParallelScenarios();
+    } else {
+        // Run in sequential mode (existing behavior)
+        currentQueueIndex = 0;
+        isPlayerActive = true;
+        isPaused = false;
+        showScenarioPlayer();
+        playCurrentQueueScenario();
+    }
 }
 
 function showScenarioPlayer() {
@@ -2567,6 +2624,274 @@ function finishAllScenarios() {
     
     // Mark all as complete in queue
     renderQueueList();
+}
+
+// ==================== PARALLEL MODE ====================
+function runParallelScenarios() {
+    parallelStep = 0;
+    isPaused = false;
+    isPlayerActive = true;
+    
+    // Calculate max steps (longest scenario)
+    parallelMaxSteps = Math.max(...scenarioQueue.map(s => s.steps.length));
+    
+    // Show parallel player
+    showParallelPlayer();
+    
+    // Start playing
+    playParallelStep();
+}
+
+function showParallelPlayer() {
+    const playerOverlay = document.getElementById('parallelPlayerModal');
+    if (!playerOverlay) return;
+    
+    playerOverlay.classList.add('active');
+    
+    // Render the grid
+    renderParallelGrid();
+    renderParallelLegend();
+    updateParallelProgress();
+}
+
+function closeParallelPlayer() {
+    const playerOverlay = document.getElementById('parallelPlayerModal');
+    if (playerOverlay) {
+        playerOverlay.classList.remove('active');
+    }
+    
+    isPlayerActive = false;
+    isPaused = false;
+    parallelStep = 0;
+    
+    storyNarration.classList.remove('active');
+    nodes.forEach(node => node.classList.remove('highlighted', 'dimmed'));
+}
+
+function renderParallelGrid() {
+    const gridEl = document.getElementById('parallelGrid');
+    if (!gridEl) return;
+    
+    gridEl.innerHTML = scenarioQueue.map((scenario, idx) => {
+        const step = scenario.steps[parallelStep];
+        const isCompleted = parallelStep >= scenario.steps.length;
+        const hasCurrentStep = step && parallelStep < scenario.steps.length;
+        
+        let nodeIcon = '📍';
+        let nodeName = '';
+        
+        if (hasCurrentStep && step.node) {
+            const component = componentData[step.node];
+            if (component) {
+                nodeIcon = component.icon;
+                nodeName = component.name;
+            }
+        }
+        
+        const progress = scenario.steps.length > 0 
+            ? Math.min(100, ((parallelStep + 1) / scenario.steps.length) * 100)
+            : 100;
+        
+        return `
+            <div class="parallel-card ${hasCurrentStep ? 'active-step' : ''} ${isCompleted ? 'completed' : ''}" data-scenario-idx="${idx}">
+                <div class="parallel-card-header">
+                    <span class="parallel-card-icon">${scenario.icon}</span>
+                    <span class="parallel-card-title">${scenario.title}</span>
+                    <span class="parallel-card-step-num">
+                        ${isCompleted ? '✓ Xong' : `${Math.min(parallelStep + 1, scenario.steps.length)}/${scenario.steps.length}`}
+                    </span>
+                </div>
+                ${hasCurrentStep ? `
+                    <div class="parallel-card-node">
+                        <span class="parallel-card-node-icon">${nodeIcon}</span>
+                        <span class="parallel-card-node-name">${nodeName}</span>
+                    </div>
+                    <div class="parallel-card-text">${step.text}</div>
+                ` : isCompleted ? `
+                    <div class="parallel-card-text" style="text-align: center; color: #27ae60;">
+                        Kịch bản đã hoàn thành!
+                    </div>
+                ` : ''}
+                <div class="parallel-card-progress">
+                    <div class="parallel-card-progress-fill" style="width: ${progress}%"></div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    // Highlight nodes on the diagram
+    highlightParallelNodes();
+}
+
+function highlightParallelNodes() {
+    // Collect all active nodes from current step
+    const activeNodes = new Set();
+    
+    scenarioQueue.forEach(scenario => {
+        const step = scenario.steps[parallelStep];
+        if (step && step.node) {
+            activeNodes.add(step.node);
+        }
+    });
+    
+    // Highlight/dim nodes
+    nodes.forEach(node => {
+        node.classList.remove('highlighted', 'dimmed');
+        if (activeNodes.has(node.dataset.component)) {
+            node.classList.add('highlighted');
+        } else if (activeNodes.size > 0) {
+            node.classList.add('dimmed');
+        }
+    });
+}
+
+function renderParallelLegend() {
+    const legendEl = document.getElementById('parallelLegend');
+    if (!legendEl) return;
+    
+    legendEl.innerHTML = scenarioQueue.map((scenario, idx) => {
+        const isCompleted = parallelStep >= scenario.steps.length;
+        const isActive = parallelStep < scenario.steps.length;
+        
+        return `
+            <div class="legend-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}">
+                <span class="legend-item-icon">${scenario.icon}</span>
+                <span>${scenario.title}</span>
+            </div>
+        `;
+    }).join('');
+}
+
+function updateParallelProgress() {
+    const stepInfoEl = document.getElementById('parallelStepInfo');
+    if (stepInfoEl) {
+        stepInfoEl.textContent = `Bước ${parallelStep + 1} / ${parallelMaxSteps}`;
+    }
+    
+    const progressFillEl = document.getElementById('parallelProgressFill');
+    if (progressFillEl) {
+        const progress = ((parallelStep + 1) / parallelMaxSteps) * 100;
+        progressFillEl.style.width = `${progress}%`;
+    }
+}
+
+function playParallelStep() {
+    if (!isPlayerActive) return;
+    if (isPaused) return;
+    
+    // Check if all scenarios are complete
+    const allComplete = scenarioQueue.every(s => parallelStep >= s.steps.length);
+    if (allComplete) {
+        finishParallelScenarios();
+        return;
+    }
+    
+    // Update UI
+    renderParallelGrid();
+    renderParallelLegend();
+    updateParallelProgress();
+    
+    // Update story narration with combined text
+    updateParallelNarration();
+    
+    // Auto-advance after delay
+    setTimeout(() => {
+        if (!isPaused && isPlayerActive) {
+            parallelStep++;
+            playParallelStep();
+        }
+    }, 4000);
+}
+
+function updateParallelNarration() {
+    // Collect all current step texts
+    const activeSteps = [];
+    
+    scenarioQueue.forEach(scenario => {
+        const step = scenario.steps[parallelStep];
+        if (step) {
+            activeSteps.push({
+                icon: scenario.icon,
+                title: scenario.title,
+                text: step.text
+            });
+        }
+    });
+    
+    if (activeSteps.length > 0) {
+        storyNarration.classList.add('active');
+        const storyText = document.getElementById('storyText');
+        if (storyText) {
+            if (activeSteps.length === 1) {
+                storyText.textContent = activeSteps[0].text;
+            } else {
+                storyText.innerHTML = `<strong>Đang diễn ra ${activeSteps.length} sự kiện:</strong><br>` + 
+                    activeSteps.map(s => `${s.icon} ${s.text}`).join('<br>');
+            }
+        }
+    }
+}
+
+function toggleParallelPause() {
+    isPaused = !isPaused;
+    const pauseBtn = document.getElementById('parallelPause');
+    if (pauseBtn) {
+        pauseBtn.innerHTML = isPaused ? '▶️ Tiếp tục' : '⏸️ Tạm dừng';
+    }
+    
+    if (!isPaused) {
+        playParallelStep();
+    }
+}
+
+function prevParallelStep() {
+    if (parallelStep > 0) {
+        isPaused = true;
+        parallelStep--;
+        
+        const pauseBtn = document.getElementById('parallelPause');
+        if (pauseBtn) pauseBtn.innerHTML = '▶️ Tiếp tục';
+        
+        renderParallelGrid();
+        renderParallelLegend();
+        updateParallelProgress();
+        updateParallelNarration();
+    }
+}
+
+function nextParallelStep() {
+    const allComplete = scenarioQueue.every(s => parallelStep >= s.steps.length);
+    if (!allComplete) {
+        isPaused = true;
+        parallelStep++;
+        
+        const pauseBtn = document.getElementById('parallelPause');
+        if (pauseBtn) pauseBtn.innerHTML = '▶️ Tiếp tục';
+        
+        renderParallelGrid();
+        renderParallelLegend();
+        updateParallelProgress();
+        updateParallelNarration();
+    }
+}
+
+function finishParallelScenarios() {
+    const stepInfoEl = document.getElementById('parallelStepInfo');
+    if (stepInfoEl) {
+        stepInfoEl.textContent = '✅ Hoàn thành!';
+    }
+    
+    const progressFillEl = document.getElementById('parallelProgressFill');
+    if (progressFillEl) {
+        progressFillEl.style.width = '100%';
+    }
+    
+    storyNarration.classList.remove('active');
+    nodes.forEach(node => node.classList.remove('highlighted', 'dimmed'));
+    
+    // Update grid to show all completed
+    renderParallelGrid();
+    renderParallelLegend();
 }
 
 // ==================== STORY MODE ====================

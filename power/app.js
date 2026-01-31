@@ -1091,113 +1091,574 @@ const componentData = {
     }
 };
 
+// ==================== REGIME ROLES DATA ====================
+// Định nghĩa vai trò các giai cấp/chủ thể trong mỗi chế độ
+const regimeRoles = {
+    'primitive-commune': {
+        name: 'Công Xã Nguyên Thủy',
+        icon: '🏕️',
+        roles: [
+            { id: 'elder', name: 'Người Già', icon: '👴', power: 30, description: 'Được kính trọng vì kinh nghiệm, truyền đạt tri thức' },
+            { id: 'hunter', name: 'Thợ Săn', icon: '🏹', power: 25, description: 'Cung cấp thực phẩm, được coi trọng vì sức mạnh' },
+            { id: 'gatherer', name: 'Người Hái Lượm', icon: '🧺', power: 25, description: 'Thu thập thực phẩm, thảo dược' },
+            { id: 'shaman', name: 'Pháp Sư', icon: '🔮', power: 20, description: 'Kết nối thế giới tâm linh, chữa bệnh' }
+        ],
+        interactions: 'Tất cả bình đẳng, quyết định bằng đồng thuận'
+    },
+    'slavery-state': {
+        name: 'Nhà Nước Chiếm Hữu Nô Lệ',
+        icon: '⛓️',
+        roles: [
+            { id: 'pharaoh', name: 'Vua/Pharaoh', icon: '👑', power: 40, description: 'Quyền lực tối cao, được thần hóa' },
+            { id: 'priest', name: 'Tăng Lữ', icon: '⛪', power: 20, description: 'Kiểm soát tôn giáo, hợp pháp hóa vua' },
+            { id: 'noble', name: 'Quý Tộc/Chủ Nô', icon: '🏛️', power: 25, description: 'Sở hữu nô lệ, đất đai' },
+            { id: 'soldier', name: 'Quân Đội', icon: '⚔️', power: 10, description: 'Bảo vệ và mở rộng lãnh thổ' },
+            { id: 'slave', name: 'Nô Lệ', icon: '⛓️', power: 5, description: 'Không có quyền, bị coi như tài sản' }
+        ],
+        interactions: 'Chủ nô bóc lột nô lệ, vua kiểm soát tất cả'
+    },
+    'feudal-monarchy': {
+        name: 'Quân Chủ Phong Kiến',
+        icon: '👑',
+        roles: [
+            { id: 'king', name: 'Vua', icon: '👑', power: 25, description: 'Đứng đầu danh nghĩa, phụ thuộc lãnh chúa' },
+            { id: 'church', name: 'Giáo Hội', icon: '⛪', power: 20, description: 'Quyền lực tinh thần, sở hữu đất đai' },
+            { id: 'lord', name: 'Lãnh Chúa', icon: '🏰', power: 30, description: 'Quyền lực thực sự, có quân đội riêng' },
+            { id: 'knight', name: 'Hiệp Sĩ', icon: '🛡️', power: 15, description: 'Chiến đấu đổi lấy đất' },
+            { id: 'serf', name: 'Nông Nô', icon: '🌾', power: 10, description: 'Làm ruộng, bị gắn với đất' }
+        ],
+        interactions: 'Vua ban đất → Lãnh chúa cống nạp + quân đội. Lãnh chúa bảo vệ → Nông nô làm ruộng'
+    },
+    'absolute-monarchy': {
+        name: 'Quân Chủ Chuyên Chế',
+        icon: '🦁',
+        roles: [
+            { id: 'king', name: 'Vua', icon: '👑', power: 50, description: 'Quyền lực tuyệt đối, "Nhà nước là Trẫm"' },
+            { id: 'court', name: 'Triều Thần', icon: '🎭', power: 15, description: 'Phục vụ vua, được ban đặc quyền' },
+            { id: 'bureaucrat', name: 'Quan Liêu', icon: '📜', power: 15, description: 'Bộ máy hành chính của vua' },
+            { id: 'army', name: 'Quân Đội Thường Trực', icon: '🎖️', power: 15, description: 'Quân đội của vua, không của lãnh chúa' },
+            { id: 'peasant', name: 'Thường Dân', icon: '👥', power: 5, description: 'Đóng thuế, phục vụ' }
+        ],
+        interactions: 'Vua kiểm soát tất cả thông qua bộ máy quan liêu và quân đội'
+    },
+    'capitalism': {
+        name: 'Chủ Nghĩa Tư Bản',
+        icon: '🏭',
+        roles: [
+            { id: 'capitalist', name: 'Nhà Tư Bản', icon: '💰', power: 35, description: 'Sở hữu tư liệu sản xuất, thuê lao động' },
+            { id: 'government', name: 'Chính Phủ', icon: '🏛️', power: 25, description: 'Bảo vệ quyền sở hữu, duy trì trật tự' },
+            { id: 'worker', name: 'Công Nhân', icon: '👷', power: 15, description: 'Bán sức lao động, nhận lương' },
+            { id: 'middleclass', name: 'Tầng Lớp Trung Lưu', icon: '👔', power: 15, description: 'Quản lý, chuyên gia, tiểu thương' },
+            { id: 'consumer', name: 'Người Tiêu Dùng', icon: '🛒', power: 10, description: 'Mua hàng hóa, dịch vụ' }
+        ],
+        interactions: 'Tư bản thuê công nhân → Sản xuất hàng hóa → Bán cho người tiêu dùng → Lợi nhuận'
+    },
+    'socialism': {
+        name: 'Chủ Nghĩa Xã Hội',
+        icon: '🔴',
+        roles: [
+            { id: 'party', name: 'Đảng Cộng Sản', icon: '⭐', power: 40, description: 'Lãnh đạo nhà nước và xã hội' },
+            { id: 'state', name: 'Nhà Nước', icon: '🏛️', power: 25, description: 'Sở hữu tư liệu sản xuất chính' },
+            { id: 'worker', name: 'Công Nhân', icon: '👷', power: 20, description: 'Giai cấp lãnh đạo (lý thuyết)' },
+            { id: 'peasant', name: 'Nông Dân', icon: '🌾', power: 10, description: 'Nông nghiệp tập thể hoặc hợp tác xã' },
+            { id: 'intellectual', name: 'Trí Thức', icon: '📚', power: 5, description: 'Phục vụ xây dựng CNXH' }
+        ],
+        interactions: 'Đảng lãnh đạo → Nhà nước quản lý → Công nhân sản xuất → Phân phối theo lao động'
+    },
+    'democracy': {
+        name: 'Dân Chủ Tự Do',
+        icon: '🗳️',
+        roles: [
+            { id: 'citizen', name: 'Công Dân', icon: '🗳️', power: 30, description: 'Bỏ phiếu bầu cử, quyền tự do' },
+            { id: 'parliament', name: 'Quốc Hội', icon: '🏛️', power: 25, description: 'Đại diện nhân dân, làm luật' },
+            { id: 'executive', name: 'Chính Phủ', icon: '📋', power: 20, description: 'Thực thi pháp luật' },
+            { id: 'judiciary', name: 'Tư Pháp', icon: '⚖️', power: 15, description: 'Xét xử, bảo vệ hiến pháp' },
+            { id: 'media', name: 'Truyền Thông', icon: '📰', power: 10, description: 'Giám sát, thông tin' }
+        ],
+        interactions: 'Công dân bầu → Quốc hội làm luật → Chính phủ thực hiện → Tư pháp kiểm tra'
+    },
+    'authoritarianism': {
+        name: 'Chế Độ Độc Tài',
+        icon: '🔒',
+        roles: [
+            { id: 'dictator', name: 'Nhà Độc Tài', icon: '👤', power: 50, description: 'Quyền lực tập trung tuyệt đối' },
+            { id: 'elite', name: 'Elite Cầm Quyền', icon: '💎', power: 20, description: 'Nhóm thân cận, hưởng lợi' },
+            { id: 'military', name: 'Quân Đội/Công An', icon: '🎖️', power: 20, description: 'Đàn áp đối lập, duy trì trật tự' },
+            { id: 'propaganda', name: 'Bộ Máy Tuyên Truyền', icon: '📺', power: 5, description: 'Kiểm soát thông tin' },
+            { id: 'people', name: 'Nhân Dân', icon: '👥', power: 5, description: 'Bị kiểm soát, hạn chế tự do' }
+        ],
+        interactions: 'Độc tài kiểm soát → Elite hưởng lợi → Quân đội đàn áp → Nhân dân tuân theo'
+    },
+    'fascism': {
+        name: 'Chủ Nghĩa Phát Xít',
+        icon: '⚡',
+        roles: [
+            { id: 'fuhrer', name: 'Lãnh Tụ (Führer)', icon: '✋', power: 45, description: 'Quyền lực tuyệt đối, được sùng bái' },
+            { id: 'party', name: 'Đảng Phát Xít', icon: '⚡', power: 20, description: 'Đảng duy nhất, kiểm soát mọi mặt' },
+            { id: 'military', name: 'Quân Đội', icon: '🎖️', power: 20, description: 'Tôn vinh chiến tranh, bành trướng' },
+            { id: 'capitalist', name: 'Tư Bản Lớn', icon: '🏭', power: 10, description: 'Hợp tác với chế độ' },
+            { id: 'mass', name: 'Quần Chúng', icon: '👥', power: 5, description: 'Bị tuyên truyền, cuồng tín' }
+        ],
+        interactions: 'Lãnh tụ chỉ huy → Đảng tổ chức → Quân đội mở rộng → Quần chúng ủng hộ cuồng nhiệt'
+    }
+};
+
 // ==================== SCENARIOS DATA ====================
+// Kịch bản theo chế độ với các bước là tác động của cá nhân/tổ chức
 const scenariosData = [
+    // ===== CHẾ ĐỘ PHONG KIẾN =====
     {
-        id: 'primitive-to-feudal',
-        title: 'Từ Công Xã đến Phong Kiến',
-        icon: '🏕️→🏰',
-        category: 'primitive',
-        description: 'Hành trình từ xã hội nguyên thủy đến nhà nước phong kiến',
+        id: 'feudal-daily',
+        title: 'Một Ngày Trong Lãnh Địa Phong Kiến',
+        icon: '🏰',
+        regime: 'feudal-monarchy',
+        category: 'feudal',
+        description: 'Xem các giai cấp tương tác trong chế độ phong kiến',
         steps: [
-            { node: 'primitive-commune', narration: 'Ban đầu, con người sống bình đẳng trong công xã nguyên thủy...' },
-            { node: 'tribal-council', narration: 'Khi dân số tăng, hội đồng bộ lạc ra đời để quản lý...' },
-            { node: 'chiefdom', narration: 'Một thủ lĩnh mạnh mẽ dần tập trung quyền lực...' },
-            { node: 'slavery-state', narration: 'Nhà nước đầu tiên ra đời - dựa trên nô lệ...' },
-            { node: 'feudal-monarchy', narration: 'Cuối cùng, chế độ phong kiến thay thế chế độ nô lệ.' }
+            { 
+                actor: { name: 'Lãnh Chúa', icon: '🏰' },
+                action: 'thu tô',
+                target: { name: 'Nông Nô', icon: '🌾' },
+                narration: '🏰 Lãnh Chúa cử người đến thu tô từ Nông Nô - 30% thu hoạch',
+                effect: 'Nông nô mất 30% thu hoạch, lãnh chúa tích lũy tài sản'
+            },
+            { 
+                actor: { name: 'Nông Nô', icon: '🌾' },
+                action: 'lao dịch',
+                target: { name: 'Lãnh Chúa', icon: '🏰' },
+                narration: '🌾 Nông Nô phải làm việc 3 ngày/tuần miễn phí trên đất Lãnh Chúa',
+                effect: 'Lãnh chúa có lao động miễn phí, nông nô kiệt sức'
+            },
+            { 
+                actor: { name: 'Giáo Hội', icon: '⛪' },
+                action: 'thu thuế thập phân',
+                target: { name: 'Nông Nô', icon: '🌾' },
+                narration: '⛪ Giáo Hội thu thuế thập phân (10%) từ tất cả nông dân',
+                effect: 'Giáo hội giàu có, nông dân nghèo hơn'
+            },
+            { 
+                actor: { name: 'Lãnh Chúa', icon: '🏰' },
+                action: 'cống nạp + quân đội',
+                target: { name: 'Vua', icon: '👑' },
+                narration: '🏰 Lãnh Chúa đóng góp quân đội và tiền cho Vua khi được triệu tập',
+                effect: 'Vua có quân đội đánh trận, lãnh chúa thể hiện trung thành'
+            },
+            { 
+                actor: { name: 'Vua', icon: '👑' },
+                action: 'ban phong đất đai',
+                target: { name: 'Lãnh Chúa', icon: '🏰' },
+                narration: '👑 Vua ban thêm đất đai cho Lãnh Chúa có công',
+                effect: 'Lãnh chúa mạnh hơn, vua có thêm người trung thành'
+            }
         ]
     },
     {
-        id: 'roman-rise-fall',
-        title: 'Hưng Thịnh & Sụp Đổ của La Mã',
-        icon: '🏛️',
-        category: 'ancient',
-        description: 'Câu chuyện về đế chế hùng mạnh nhất thế giới cổ đại',
+        id: 'feudal-conflict',
+        title: 'Xung Đột Vua - Giáo Hoàng',
+        icon: '⚔️',
+        regime: 'feudal-monarchy',
+        category: 'feudal',
+        description: 'Cuộc tranh giành quyền lực giữa thế quyền và thần quyền',
         steps: [
-            { node: 'city-state', narration: 'La Mã bắt đầu chỉ là một thành bang nhỏ ở Ý...' },
-            { node: 'slavery-state', narration: 'Chinh phục và nô dịch các dân tộc khác...' },
-            { node: 'ancient-empire', narration: 'Trở thành đế chế trải khắp châu Âu, Bắc Phi, Trung Đông...' },
-            { node: 'feudal-monarchy', narration: 'Sụp đổ 476 SCN, châu Âu bước vào thời kỳ phong kiến.' }
+            { 
+                actor: { name: 'Vua Henry IV', icon: '👑' },
+                action: 'bổ nhiệm giám mục',
+                target: { name: 'Giáo Hội', icon: '⛪' },
+                narration: '👑 Vua Henry IV tự ý bổ nhiệm giám mục mà không hỏi Giáo Hoàng',
+                effect: 'Vua kiểm soát giáo hội địa phương, có thêm quyền lực'
+            },
+            { 
+                actor: { name: 'Giáo Hoàng Gregory VII', icon: '⛪' },
+                action: 'rút phép thông công',
+                target: { name: 'Vua Henry IV', icon: '👑' },
+                narration: '⛪ Giáo Hoàng ra lệnh rút phép thông công - Vua bị khai trừ khỏi Giáo Hội!',
+                effect: 'Vua mất tính hợp pháp, thần dân có quyền không tuân theo'
+            },
+            { 
+                actor: { name: 'Lãnh Chúa Đức', icon: '🏰' },
+                action: 'đe dọa nổi loạn',
+                target: { name: 'Vua Henry IV', icon: '👑' },
+                narration: '🏰 Các Lãnh Chúa nhân cơ hội đòi quyền lợi, đe dọa không công nhận Vua',
+                effect: 'Vua bị cô lập, mất quyền lực thực tế'
+            },
+            { 
+                actor: { name: 'Vua Henry IV', icon: '👑' },
+                action: 'quỳ xin tha thứ',
+                target: { name: 'Giáo Hoàng', icon: '⛪' },
+                narration: '👑 Vua phải đến Canossa, quỳ 3 ngày trong tuyết xin Giáo Hoàng tha thứ (1077)',
+                effect: 'Giáo Hoàng thể hiện quyền lực tối cao, vua bị sỉ nhục'
+            }
         ]
     },
+
+    // ===== CHẾ ĐỘ QUÂN CHỦ CHUYÊN CHẾ =====
+    {
+        id: 'absolute-france',
+        title: 'Pháp Dưới Thời Louis XIV',
+        icon: '🦁',
+        regime: 'absolute-monarchy',
+        category: 'modern',
+        description: '"Nhà nước là Trẫm" - Đỉnh cao quân chủ chuyên chế',
+        steps: [
+            { 
+                actor: { name: 'Louis XIV', icon: '👑' },
+                action: 'xây Versailles',
+                target: { name: 'Quý Tộc', icon: '🎭' },
+                narration: '👑 Vua xây cung điện Versailles và BẮT BUỘC quý tộc phải đến sống ở đó',
+                effect: 'Quý tộc rời lãnh địa, mất quyền lực địa phương, phụ thuộc vào vua'
+            },
+            { 
+                actor: { name: 'Louis XIV', icon: '👑' },
+                action: 'bổ nhiệm Intendant',
+                target: { name: 'Các Tỉnh', icon: '🗺️' },
+                narration: '👑 Vua cử quan liêu (Intendant) đến cai quản các tỉnh thay vì quý tộc',
+                effect: 'Vua kiểm soát trực tiếp địa phương, quý tộc mất quyền'
+            },
+            { 
+                actor: { name: 'Bộ Trưởng Colbert', icon: '📜' },
+                action: 'thu thuế tập trung',
+                target: { name: 'Thường Dân', icon: '👥' },
+                narration: '📜 Bộ trưởng Colbert cải cách thuế - thu trực tiếp vào ngân khố hoàng gia',
+                effect: 'Vua có tiền, xây quân đội thường trực'
+            },
+            { 
+                actor: { name: 'Quân Đội Hoàng Gia', icon: '🎖️' },
+                action: 'chiến tranh liên miên',
+                target: { name: 'Các Nước Láng Giềng', icon: '🌍' },
+                narration: '🎖️ Quân đội 400.000 người - lớn nhất châu Âu - liên tục chinh chiến',
+                effect: 'Pháp bành trướng, nhưng ngân khố cạn kiệt'
+            },
+            { 
+                actor: { name: 'Thường Dân', icon: '👥' },
+                action: 'chịu thuế nặng',
+                target: { name: 'Ngân Khố', icon: '💰' },
+                narration: '👥 Nông dân và thị dân chịu thuế nặng nề để nuôi triều đình và quân đội',
+                effect: 'Bất mãn tích tụ, gieo mầm cho cách mạng sau này'
+            }
+        ]
+    },
+
+    // ===== CÁCH MẠNG PHÁP =====
     {
         id: 'french-revolution',
         title: 'Cách Mạng Pháp 1789',
         icon: '🇫🇷',
+        regime: 'absolute-monarchy',
         category: 'modern',
-        description: 'Sự sụp đổ của quân chủ chuyên chế và sự ra đời của dân chủ',
+        description: 'Sự sụp đổ của quân chủ chuyên chế và khởi đầu kỷ nguyên mới',
         steps: [
-            { node: 'absolute-monarchy', narration: 'Vua Louis XVI cai trị với quyền lực tuyệt đối...' },
-            { node: 'church-power', narration: 'Giáo hội và quý tộc không đóng thuế...' },
-            { node: 'peasants', narration: 'Nông dân và thị dân chịu thuế nặng, đói khổ...' },
-            { node: 'capitalism', narration: 'Giai cấp tư sản giàu nhưng không có quyền lực chính trị...' },
-            { node: 'democracy', narration: 'Cách mạng bùng nổ: "Tự do, Bình đẳng, Bác ái!"' }
+            { 
+                actor: { name: 'Ngân Khố Hoàng Gia', icon: '💰' },
+                action: 'phá sản',
+                target: { name: 'Vua Louis XVI', icon: '👑' },
+                narration: '💰 Ngân khố trống rỗng sau chiến tranh. Vua phải triệu tập Hội Nghị 3 Đẳng Cấp',
+                effect: 'Vua mất kiểm soát tình hình'
+            },
+            { 
+                actor: { name: 'Đẳng Cấp Thứ Ba', icon: '👥' },
+                action: 'đòi quyền',
+                target: { name: 'Quý Tộc & Giáo Hội', icon: '🎭' },
+                narration: '👥 Tư sản và thường dân đòi bỏ phiếu theo đầu người, không theo đẳng cấp',
+                effect: '98% dân số đòi tiếng nói bình đẳng'
+            },
+            { 
+                actor: { name: 'Quốc Hội Lập Hiến', icon: '🏛️' },
+                action: 'tự tuyên bố thành lập',
+                target: { name: 'Vua', icon: '👑' },
+                narration: '🏛️ Đẳng cấp thứ ba tự thành lập Quốc Hội, thề không giải tán',
+                effect: 'Quyền lực chuyển từ vua sang quốc hội'
+            },
+            { 
+                actor: { name: 'Dân Paris', icon: '👥' },
+                action: 'tấn công Bastille',
+                target: { name: 'Chế Độ Cũ', icon: '🏰' },
+                narration: '👥 Ngày 14/7/1789: Dân Paris tấn công ngục Bastille - biểu tượng chế độ cũ!',
+                effect: 'Cách mạng bùng nổ, vua mất kiểm soát Paris'
+            },
+            { 
+                actor: { name: 'Quốc Hội', icon: '🏛️' },
+                action: 'bãi bỏ phong kiến',
+                target: { name: 'Hệ Thống Cũ', icon: '⛓️' },
+                narration: '🏛️ Quốc Hội bãi bỏ mọi đặc quyền phong kiến, tuyên bố Nhân Quyền',
+                effect: 'Chế độ phong kiến sụp đổ về mặt pháp lý'
+            },
+            { 
+                actor: { name: 'Cách Mạng', icon: '🔥' },
+                action: 'xử tử',
+                target: { name: 'Vua Louis XVI', icon: '👑' },
+                narration: '⚔️ 1793: Vua Louis XVI bị xử tử bằng máy chém guillotine',
+                effect: 'Chấm dứt 1000 năm quân chủ Pháp'
+            }
         ]
     },
+
+    // ===== CHỦ NGHĨA TƯ BẢN =====
     {
-        id: 'russian-revolution',
-        title: 'Cách Mạng Nga 1917',
+        id: 'capitalism-factory',
+        title: 'Nhà Máy Thời Cách Mạng Công Nghiệp',
+        icon: '🏭',
+        regime: 'capitalism',
+        category: 'modern',
+        description: 'Quan hệ giữa tư bản và công nhân trong nhà máy',
+        steps: [
+            { 
+                actor: { name: 'Nhà Tư Bản', icon: '💰' },
+                action: 'đầu tư mở nhà máy',
+                target: { name: 'Nền Kinh Tế', icon: '🏭' },
+                narration: '💰 Nhà tư bản bỏ vốn mua máy móc, xây nhà máy dệt',
+                effect: 'Tạo ra năng lực sản xuất mới'
+            },
+            { 
+                actor: { name: 'Nông Dân Mất Đất', icon: '🌾' },
+                action: 'di cư vào thành phố',
+                target: { name: 'Nhà Máy', icon: '🏭' },
+                narration: '🌾 Nông dân bị mất đất (enclosure) phải vào thành phố tìm việc',
+                effect: 'Hình thành giai cấp công nhân'
+            },
+            { 
+                actor: { name: 'Nhà Tư Bản', icon: '💰' },
+                action: 'thuê với lương thấp',
+                target: { name: 'Công Nhân', icon: '👷' },
+                narration: '💰 Tư bản thuê công nhân 14-16 tiếng/ngày, kể cả trẻ em, lương rẻ mạt',
+                effect: 'Công nhân bị bóc lột, tư bản tích lũy lợi nhuận'
+            },
+            { 
+                actor: { name: 'Công Nhân', icon: '👷' },
+                action: 'sản xuất hàng hóa',
+                target: { name: 'Thị Trường', icon: '🛒' },
+                narration: '👷 Công nhân vận hành máy móc, sản xuất vải với năng suất gấp 100 lần thủ công',
+                effect: 'Hàng hóa dồi dào, giá rẻ hơn'
+            },
+            { 
+                actor: { name: 'Nhà Tư Bản', icon: '💰' },
+                action: 'bán và tái đầu tư',
+                target: { name: 'Thị Trường', icon: '🌍' },
+                narration: '💰 Bán hàng thu lợi nhuận → Tái đầu tư mở rộng → Thuê thêm công nhân',
+                effect: 'Vòng xoáy tích lũy tư bản'
+            },
+            { 
+                actor: { name: 'Công Nhân', icon: '👷' },
+                action: 'đình công đòi quyền',
+                target: { name: 'Nhà Tư Bản', icon: '💰' },
+                narration: '👷 Công nhân tổ chức công đoàn, đình công đòi tăng lương, giảm giờ làm',
+                effect: 'Mâu thuẫn giai cấp bùng phát'
+            }
+        ]
+    },
+
+    // ===== CHỦ NGHĨA XÃ HỘI LIÊN XÔ =====
+    {
+        id: 'soviet-system',
+        title: 'Hệ Thống Xô Viết',
         icon: '☭',
+        regime: 'socialism',
         category: 'modern',
-        description: 'Từ Sa hoàng đến Liên Xô',
+        description: 'Cách vận hành của Liên Xô',
         steps: [
-            { node: 'absolute-monarchy', narration: 'Sa hoàng cai trị nước Nga với quyền lực tuyệt đối...' },
-            { node: 'peasants', narration: 'Nông dân Nga cực kỳ nghèo khổ...' },
-            { node: 'capitalism', narration: 'Công nhân bị bóc lột trong các nhà máy...' },
-            { node: 'socialism', narration: 'Tháng 2/1917: Lật đổ Sa hoàng...' },
-            { node: 'communism', narration: 'Tháng 10/1917: Bolshevik lên nắm quyền, thành lập Liên Xô.' }
+            { 
+                actor: { name: 'Đảng Cộng Sản', icon: '⭐' },
+                action: 'hoạch định kế hoạch 5 năm',
+                target: { name: 'Nền Kinh Tế', icon: '📊' },
+                narration: '⭐ Đảng đề ra kế hoạch 5 năm: Sản xuất bao nhiêu thép, lúa, máy móc...',
+                effect: 'Nhà nước kiểm soát toàn bộ kinh tế'
+            },
+            { 
+                actor: { name: 'Gosplan', icon: '📋' },
+                action: 'phân bổ chỉ tiêu',
+                target: { name: 'Các Nhà Máy', icon: '🏭' },
+                narration: '📋 Ủy ban Kế hoạch (Gosplan) giao chỉ tiêu cho từng nhà máy quốc doanh',
+                effect: 'Không có thị trường, không có cạnh tranh'
+            },
+            { 
+                actor: { name: 'Nhà Máy Quốc Doanh', icon: '🏭' },
+                action: 'sản xuất theo chỉ tiêu',
+                target: { name: 'Nhà Nước', icon: '🏛️' },
+                narration: '🏭 Nhà máy cố hoàn thành chỉ tiêu, đôi khi báo cáo sai để được khen',
+                effect: 'Năng suất thấp, chất lượng kém, số liệu bị thổi phồng'
+            },
+            { 
+                actor: { name: 'Nhà Nước', icon: '🏛️' },
+                action: 'phân phối hàng hóa',
+                target: { name: 'Nhân Dân', icon: '👥' },
+                narration: '🏛️ Nhà nước phân phối hàng hóa qua tem phiếu, cửa hàng nhà nước',
+                effect: 'Thiếu hàng tiêu dùng, xếp hàng dài'
+            },
+            { 
+                actor: { name: 'KGB', icon: '🔒' },
+                action: 'giám sát',
+                target: { name: 'Xã Hội', icon: '👥' },
+                narration: '🔒 Cơ quan an ninh KGB giám sát mọi hoạt động, đàn áp bất đồng',
+                effect: 'Không có tự do ngôn luận, sợ hãi lan rộng'
+            },
+            { 
+                actor: { name: 'Gorbachev', icon: '👤' },
+                action: 'cải cách Glasnost/Perestroika',
+                target: { name: 'Hệ Thống', icon: '⭐' },
+                narration: '👤 1985: Gorbachev cải cách mở cửa (Glasnost) và tái cấu trúc (Perestroika)',
+                effect: 'Hệ thống lung lay và sụp đổ 1991'
+            }
         ]
     },
+
+    // ===== CHẾ ĐỘ PHÁT XÍT =====
     {
-        id: 'rise-of-fascism',
-        title: 'Sự Trỗi Dậy của Phát Xít',
+        id: 'nazi-germany',
+        title: 'Đức Quốc Xã',
         icon: '⚡',
+        regime: 'fascism',
         category: 'modern',
-        description: 'Tại sao phát xít lên nắm quyền ở Đức và Ý',
+        description: 'Cách Hitler và đảng Quốc Xã cai trị',
         steps: [
-            { node: 'capitalism', narration: 'Khủng hoảng 1929 - thất nghiệp tràn lan...' },
-            { node: 'democracy', narration: 'Dân chủ Weimar (Đức) yếu ớt, hỗn loạn...' },
-            { node: 'socialism', narration: 'Nhiều người sợ cách mạng cộng sản...' },
-            { node: 'fascism', narration: 'Hitler và Mussolini hứa hẹn trật tự, vinh quang dân tộc...' }
+            { 
+                actor: { name: 'Hitler', icon: '✋' },
+                action: 'trở thành Thủ tướng',
+                target: { name: 'Nước Đức', icon: '🇩🇪' },
+                narration: '✋ 1933: Hitler được bổ nhiệm Thủ tướng một cách hợp pháp',
+                effect: 'Phát xít lên nắm quyền qua bầu cử'
+            },
+            { 
+                actor: { name: 'Đảng Quốc Xã', icon: '⚡' },
+                action: 'đốt Reichstag',
+                target: { name: 'Quốc Hội', icon: '🏛️' },
+                narration: '⚡ Sau vụ cháy Reichstag, Hitler ban hành sắc lệnh khẩn cấp bãi bỏ quyền tự do',
+                effect: 'Dân chủ bị hủy bỏ, độc tài bắt đầu'
+            },
+            { 
+                actor: { name: 'SS & Gestapo', icon: '🔒' },
+                action: 'đàn áp đối lập',
+                target: { name: 'Cộng Sản, Do Thái, Đối Lập', icon: '⛓️' },
+                narration: '🔒 Mật vụ Gestapo và SS bắt bớ, đưa vào trại tập trung',
+                effect: 'Khủng bố nhà nước, mọi đối lập bị tiêu diệt'
+            },
+            { 
+                actor: { name: 'Bộ Tuyên Truyền Goebbels', icon: '📺' },
+                action: 'tuyên truyền',
+                target: { name: 'Quần Chúng', icon: '👥' },
+                narration: '📺 Radio, phim, báo chí ca ngợi Hitler, gieo rắc thù hận chủng tộc',
+                effect: 'Quần chúng bị nhồi sọ, cuồng tín'
+            },
+            { 
+                actor: { name: 'Quân Đội Đức', icon: '🎖️' },
+                action: 'xâm lược',
+                target: { name: 'Châu Âu', icon: '🌍' },
+                narration: '🎖️ Wehrmacht xâm lược Ba Lan (1939), rồi cả châu Âu - Thế chiến II bắt đầu',
+                effect: 'Chiến tranh thế giới, hàng chục triệu người chết'
+            },
+            { 
+                actor: { name: 'Chế Độ Phát Xít', icon: '⚡' },
+                action: 'Holocaust',
+                target: { name: '6 Triệu Người Do Thái', icon: '✡️' },
+                narration: '💀 Diệt chủng Holocaust - 6 triệu người Do Thái bị giết hại',
+                effect: 'Tội ác chống loài người tàn bạo nhất lịch sử'
+            }
         ]
     },
+
+    // ===== DÂN CHỦ HIỆN ĐẠI =====
     {
-        id: 'cold-war',
-        title: 'Chiến Tranh Lạnh',
-        icon: '🧊',
+        id: 'democracy-election',
+        title: 'Một Chu Kỳ Bầu Cử Dân Chủ',
+        icon: '🗳️',
+        regime: 'democracy',
         category: 'contemporary',
-        description: 'Cuộc đối đầu Mỹ - Liên Xô và hai hệ thống',
+        description: 'Cách quyền lực được trao và kiểm soát',
         steps: [
-            { node: 'communism', narration: 'Liên Xô đứng đầu khối XHCN...' },
-            { node: 'capitalism', narration: 'Mỹ dẫn đầu thế giới tư bản...' },
-            { node: 'authoritarianism', narration: 'Hai bên ủng hộ các chế độ độc tài đồng minh...' },
-            { node: 'democracy', narration: '1991: Liên Xô sụp đổ, mô hình dân chủ-tư bản chiến thắng.' }
+            { 
+                actor: { name: 'Đảng Chính Trị', icon: '🏛️' },
+                action: 'đề cử ứng viên',
+                target: { name: 'Cử Tri', icon: '🗳️' },
+                narration: '🏛️ Các đảng tổ chức bầu cử sơ bộ, chọn ứng viên tranh cử',
+                effect: 'Cử tri có nhiều lựa chọn'
+            },
+            { 
+                actor: { name: 'Ứng Viên', icon: '🎤' },
+                action: 'vận động tranh cử',
+                target: { name: 'Cử Tri', icon: '🗳️' },
+                narration: '🎤 Ứng viên tranh luận, hứa hẹn chính sách, quyên tiền chiến dịch',
+                effect: 'Cử tri được nghe nhiều quan điểm'
+            },
+            { 
+                actor: { name: 'Truyền Thông', icon: '📰' },
+                action: 'đưa tin, điều tra',
+                target: { name: 'Ứng Viên', icon: '🎤' },
+                narration: '📰 Báo chí điều tra, đưa tin, phơi bày scandal của các ứng viên',
+                effect: 'Minh bạch thông tin, cử tri được biết sự thật'
+            },
+            { 
+                actor: { name: 'Công Dân', icon: '🗳️' },
+                action: 'bỏ phiếu',
+                target: { name: 'Ứng Viên', icon: '🎤' },
+                narration: '🗳️ Ngày bầu cử: Công dân đến phòng phiếu, bỏ phiếu kín',
+                effect: 'Quyền lực được trao qua lá phiếu'
+            },
+            { 
+                actor: { name: 'Chính Phủ Mới', icon: '🏛️' },
+                action: 'cầm quyền',
+                target: { name: 'Đất Nước', icon: '🌍' },
+                narration: '🏛️ Ứng viên thắng cử nhậm chức, thành lập chính phủ',
+                effect: 'Chuyển giao quyền lực hòa bình'
+            },
+            { 
+                actor: { name: 'Phe Đối Lập & Truyền Thông', icon: '📰' },
+                action: 'giám sát',
+                target: { name: 'Chính Phủ', icon: '🏛️' },
+                narration: '📰 Phe đối lập và báo chí theo dõi, phê phán chính phủ',
+                effect: 'Quyền lực bị kiểm soát, ngăn lạm quyền'
+            }
         ]
     },
+
+    // ===== TOÀN CẦU HÓA =====
     {
-        id: 'globalization-era',
-        title: 'Kỷ Nguyên Toàn Cầu Hóa',
+        id: 'globalization-trade',
+        title: 'Chuỗi Cung Ứng Toàn Cầu',
         icon: '🌐',
+        regime: 'capitalism',
         category: 'contemporary',
-        description: 'Thế giới kết nối và thách thức mới',
+        description: 'Ai được lợi, ai chịu thiệt trong toàn cầu hóa',
         steps: [
-            { node: 'democracy', narration: 'Sau 1991, dân chủ tự do lan rộng...' },
-            { node: 'capitalism', narration: 'Kinh tế thị trường trở thành mô hình phổ biến...' },
-            { node: 'globalization', narration: 'Internet và thương mại tự do kết nối thế giới...' },
-            { node: 'authoritarianism', narration: 'Nhưng một số nước quay lại độc tài...' }
-        ]
-    },
-    {
-        id: 'vietnam-history',
-        title: 'Lịch Sử Việt Nam',
-        icon: '🇻🇳',
-        category: 'feudal',
-        description: 'Hành trình của dân tộc Việt Nam',
-        steps: [
-            { node: 'tribal-council', narration: 'Thời Hùng Vương - liên minh các bộ lạc...' },
-            { node: 'feudal-monarchy', narration: 'Các triều đại phong kiến: Lý, Trần, Lê, Nguyễn...' },
-            { node: 'absolute-monarchy', narration: 'Triều Nguyễn - quân chủ chuyên chế...' },
-            { node: 'socialism', narration: '1945: Cách mạng Tháng Tám, thành lập nước VNDCCH...' }
+            { 
+                actor: { name: 'Apple (Công ty Mỹ)', icon: '🍎' },
+                action: 'thiết kế iPhone',
+                target: { name: 'Thị Trường Toàn Cầu', icon: '🌍' },
+                narration: '🍎 Apple thiết kế iPhone tại California với đội ngũ kỹ sư lương cao',
+                effect: 'Giá trị gia tăng cao ở Mỹ'
+            },
+            { 
+                actor: { name: 'Foxconn (Đài Loan)', icon: '🏭' },
+                action: 'sản xuất tại Trung Quốc',
+                target: { name: 'Công Nhân Trung Quốc', icon: '👷' },
+                narration: '🏭 Foxconn thuê 1 triệu công nhân Trung Quốc lắp ráp với lương $2/giờ',
+                effect: 'Công nhân TQ có việc làm nhưng lương thấp'
+            },
+            { 
+                actor: { name: 'Mỏ Cobalt Congo', icon: '⛏️' },
+                action: 'khai thác nguyên liệu',
+                target: { name: 'Chuỗi Cung Ứng', icon: '🔗' },
+                narration: '⛏️ Công nhân Congo khai thác Cobalt cho pin, kể cả lao động trẻ em',
+                effect: 'Nước nghèo cung cấp nguyên liệu giá rẻ'
+            },
+            { 
+                actor: { name: 'Apple', icon: '🍎' },
+                action: 'bán iPhone $1000',
+                target: { name: 'Người Tiêu Dùng', icon: '🛒' },
+                narration: '🍎 iPhone giá $1000, chi phí sản xuất ~$400, lợi nhuận khổng lồ',
+                effect: 'Cổ đông và lãnh đạo Apple giàu có'
+            },
+            { 
+                actor: { name: 'Chính Phủ Các Nước', icon: '🏛️' },
+                action: 'cạnh tranh thu hút đầu tư',
+                target: { name: 'Công Ty Đa Quốc Gia', icon: '💰' },
+                narration: '🏛️ Các nước giảm thuế, nới lỏng môi trường để thu hút nhà máy',
+                effect: 'Chạy đua xuống đáy về thuế và môi trường'
+            },
+            { 
+                actor: { name: 'Công Nhân Mỹ', icon: '👷' },
+                action: 'mất việc',
+                target: { name: 'Nền Kinh Tế Mỹ', icon: '🇺🇸' },
+                narration: '👷 Nhà máy Mỹ đóng cửa, công nhân mất việc vì sản xuất chuyển ra nước ngoài',
+                effect: 'Bất bình đẳng tăng, dân túy nổi lên'
+            }
         ]
     }
 ];
@@ -1511,17 +1972,53 @@ function updateRelatedNodes(connections) {
 // ==================== SCENARIO FUNCTIONS ====================
 function initScenarios() {
     const list = document.getElementById('scenarioList');
-    list.innerHTML = '';
     
-    scenariosData.forEach(scenario => {
-        const item = document.createElement('div');
-        item.className = 'scenario-item';
-        item.innerHTML = `
-            <h3>${scenario.icon} ${scenario.title} <span class="scenario-tag">${scenario.category}</span></h3>
-            <p>${scenario.description}</p>
+    // Get unique regimes
+    const regimes = [...new Set(scenariosData.map(s => s.regime))];
+    
+    list.innerHTML = `
+        <div class="scenario-filter">
+            <button class="scenario-filter-btn active" data-regime="all">Tất cả</button>
+            ${regimes.map(r => {
+                const regimeData = regimeRoles[r];
+                return regimeData ? `<button class="scenario-filter-btn" data-regime="${r}">${regimeData.icon} ${regimeData.name}</button>` : '';
+            }).join('')}
+        </div>
+        <div class="scenario-items" id="scenarioItems"></div>
+    `;
+    
+    renderScenarioItems('all');
+    
+    // Add filter event listeners
+    list.querySelectorAll('.scenario-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            list.querySelectorAll('.scenario-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderScenarioItems(btn.dataset.regime);
+        });
+    });
+}
+
+function renderScenarioItems(regime) {
+    const container = document.getElementById('scenarioItems');
+    const filtered = regime === 'all' ? scenariosData : scenariosData.filter(s => s.regime === regime);
+    
+    container.innerHTML = filtered.map(scenario => {
+        const regimeData = regimeRoles[scenario.regime];
+        return `
+            <div class="scenario-item" data-id="${scenario.id}">
+                <h3>${scenario.icon} ${scenario.title} <span class="scenario-tag">${scenario.category}</span></h3>
+                <p>${scenario.description}</p>
+                ${regimeData ? `<div class="scenario-regime">Chế độ: ${regimeData.icon} ${regimeData.name}</div>` : ''}
+            </div>
         `;
-        item.addEventListener('click', () => playScenario(scenario));
-        list.appendChild(item);
+    }).join('');
+    
+    container.querySelectorAll('.scenario-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const scenario = scenariosData.find(s => s.id === item.dataset.id);
+            if (scenario) playScenario(scenario);
+        });
     });
 }
 
@@ -1531,7 +2028,6 @@ function openScenarioModal() {
 
 function closeScenarioModal() {
     scenarioOverlay.classList.remove('active');
-    stopScenario();
 }
 
 function playScenario(scenario) {
@@ -1539,42 +2035,102 @@ function playScenario(scenario) {
     currentScenario = scenario;
     currentScenarioStep = 0;
     
-    storyNarration.classList.add('active');
-    playNextScenarioStep();
+    // Create playback panel if not exists
+    let playback = document.getElementById('scenarioPlayback');
+    if (!playback) {
+        playback = document.createElement('div');
+        playback.className = 'scenario-playback';
+        playback.id = 'scenarioPlayback';
+        document.body.appendChild(playback);
+    }
+    
+    playback.classList.add('active');
+    updateScenarioStep();
 }
 
-function playNextScenarioStep() {
-    if (!currentScenario || currentScenarioStep >= currentScenario.steps.length) {
-        stopScenario();
-        return;
-    }
+function updateScenarioStep() {
+    if (!currentScenario) return;
     
+    const playback = document.getElementById('scenarioPlayback');
     const step = currentScenario.steps[currentScenarioStep];
+    const totalSteps = currentScenario.steps.length;
     
-    // Highlight node
-    document.querySelectorAll('.node').forEach(n => n.classList.remove('highlighted', 'dimmed'));
-    const targetNode = document.querySelector(`.node.${step.node}`);
-    if (targetNode) {
-        targetNode.classList.add('highlighted');
-        document.querySelectorAll('.node').forEach(n => {
-            if (!n.classList.contains('highlighted')) {
-                n.classList.add('dimmed');
-            }
-        });
-    }
+    playback.innerHTML = `
+        <div class="scenario-step">
+            <div class="step-actors">
+                <div class="step-actor">
+                    <span class="step-actor-icon">${step.actor.icon}</span>
+                    <span class="step-actor-name">${step.actor.name}</span>
+                </div>
+                <span class="step-action">${step.action}</span>
+                <span class="step-arrow">→</span>
+                <div class="step-actor">
+                    <span class="step-actor-icon">${step.target.icon}</span>
+                    <span class="step-actor-name">${step.target.name}</span>
+                </div>
+            </div>
+            <div class="step-narration">
+                ${step.narration}
+                <div class="step-effect">⚡ Hệ quả: ${step.effect}</div>
+            </div>
+            <div class="scenario-controls">
+                <span class="step-counter">${currentScenarioStep + 1}/${totalSteps}</span>
+                <button class="prev-btn" ${currentScenarioStep === 0 ? 'disabled' : ''}>← Trước</button>
+                <button class="next-btn">${currentScenarioStep === totalSteps - 1 ? 'Hoàn thành' : 'Tiếp →'}</button>
+                <button class="stop-btn">✕ Dừng</button>
+            </div>
+        </div>
+    `;
     
-    // Show narration
+    // Add event listeners
+    playback.querySelector('.prev-btn').addEventListener('click', prevScenarioStep);
+    playback.querySelector('.next-btn').addEventListener('click', nextScenarioStep);
+    playback.querySelector('.stop-btn').addEventListener('click', stopScenario);
+    
+    // Update narration display
     storyNarration.textContent = step.narration;
-    
-    currentScenarioStep++;
-    setTimeout(playNextScenarioStep, 4000);
+    storyNarration.classList.add('active');
+}
+
+function prevScenarioStep() {
+    if (currentScenarioStep > 0) {
+        currentScenarioStep--;
+        updateScenarioStep();
+    }
+}
+
+function nextScenarioStep() {
+    if (currentScenarioStep < currentScenario.steps.length - 1) {
+        currentScenarioStep++;
+        updateScenarioStep();
+    } else {
+        stopScenario();
+    }
 }
 
 function stopScenario() {
     currentScenario = null;
     currentScenarioStep = 0;
     storyNarration.classList.remove('active');
+    
+    const playback = document.getElementById('scenarioPlayback');
+    if (playback) {
+        playback.classList.remove('active');
+    }
+    
     document.querySelectorAll('.node').forEach(n => n.classList.remove('highlighted', 'dimmed'));
+}
+
+function playNextScenarioStep() {
+    // This function is no longer used - kept for compatibility
+    if (!currentScenario || currentScenarioStep >= currentScenario.steps.length) {
+        stopScenario();
+        return;
+    }
+    
+    updateScenarioStep();
+    currentScenarioStep++;
+    setTimeout(playNextScenarioStep, 4000);
 }
 
 // ==================== SIMULATOR FUNCTIONS ====================

@@ -713,6 +713,174 @@ main {
     margin-left: auto;
 }
 
+.scenario-regime {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.3rem;
+}
+
+/* Scenario Filter Tabs */
+.scenario-filter {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scenario-filter-btn {
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scenario-filter-btn:hover { background: rgba(255, 255, 255, 0.2); }
+.scenario-filter-btn.active { background: #ffd700; color: #1a0a1a; border-color: #ffd700; }
+
+/* Scenario Playback Panel */
+.scenario-playback {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #2e1a2e, #3d1a3d);
+    border-top: 2px solid #ffd700;
+    padding: 1rem;
+    z-index: 1500;
+    display: none;
+}
+
+.scenario-playback.active { display: block; animation: slideUp 0.3s ease; }
+
+.scenario-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step-actors {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 200px;
+}
+
+.step-actor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.step-actor-icon { font-size: 1.5rem; }
+.step-actor-name { font-size: 0.7rem; text-align: center; }
+
+.step-action {
+    background: #ffd700;
+    color: #1a0a1a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.step-arrow { font-size: 1.5rem; color: #ffd700; }
+
+.step-narration {
+    flex: 1;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.step-effect {
+    font-size: 0.75rem;
+    color: rgba(255, 215, 0, 0.8);
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+.scenario-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.scenario-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.scenario-controls .prev-btn,
+.scenario-controls .next-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.scenario-controls .stop-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.scenario-controls button:hover { transform: scale(1.05); }
+
+.step-counter {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+}
+
+/* Role Cards in Regime Info */
+.regime-roles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.role-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+.role-name { font-weight: bold; font-size: 0.85rem; margin-bottom: 0.2rem; }
+.role-desc { font-size: 0.7rem; color: rgba(255, 255, 255, 0.6); }
+
+.role-power {
+    margin-top: 0.5rem;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.role-power-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ff6b6b);
+}
+
 /* ==================== SIMULATOR STYLES ==================== */
 .simulator-body {
     padding: 1.5rem;
