@@ -917,6 +917,126 @@ const countryData = {
 
 let selectedCountry = 'vn';
 
+// ==================== SIMULATION STATE ====================
+// Central economic state that all scenarios affect
+function createSimulationState(country) {
+    const c = countryData[country];
+    return {
+        // Monetary indicators
+        moneySupply: c.sampleAmount * 10000,
+        interestRate: c.loanRate,
+        depositRate: c.depositRate,
+        reserveRatio: c.reserveRatio,
+        
+        // Economic indicators
+        gdp: c.sampleAmount * 100000,
+        inflation: c.inflationRate,
+        unemployment: 5,
+        consumerConfidence: 70, // 0-100
+        businessConfidence: 70, // 0-100
+        
+        // Market indicators
+        stockIndex: 1000,
+        bondYield: c.loanRate - 1,
+        realEstateIndex: 100,
+        exchangeRate: 100, // Base 100
+        
+        // Banking system
+        bankReserves: c.sampleAmount * 1000,
+        npl: 2, // Non-performing loans %
+        creditGrowth: 10,
+        
+        // Tracking
+        history: [],
+        scenarioEffects: {},
+        
+        // Format helpers
+        formatMoney: c.formatMoney,
+        currency: c.currency
+    };
+}
+
+let simState = null;
+
+// Calculate step effects on simulation state
+function applyStepEffect(effect, scenarioId) {
+    if (!simState || !effect) return;
+    
+    const prevState = { ...simState };
+    
+    // Apply each effect
+    Object.entries(effect).forEach(([key, value]) => {
+        if (typeof value === 'number') {
+            if (key.endsWith('_add')) {
+                const realKey = key.replace('_add', '');
+                simState[realKey] = (simState[realKey] || 0) + value;
+            } else if (key.endsWith('_mult')) {
+                const realKey = key.replace('_mult', '');
+                simState[realKey] = (simState[realKey] || 0) * value;
+            } else if (key.endsWith('_set')) {
+                const realKey = key.replace('_set', '');
+                simState[realKey] = value;
+            } else {
+                // Default: add
+                simState[realKey] = (simState[realKey] || 0) + value;
+            }
+        }
+    });
+    
+    // Keep values in bounds
+    simState.consumerConfidence = Math.max(0, Math.min(100, simState.consumerConfidence));
+    simState.businessConfidence = Math.max(0, Math.min(100, simState.businessConfidence));
+    simState.unemployment = Math.max(0, Math.min(50, simState.unemployment));
+    simState.inflation = Math.max(-5, Math.min(100, simState.inflation));
+    simState.npl = Math.max(0, Math.min(50, simState.npl));
+    simState.stockIndex = Math.max(100, simState.stockIndex);
+    
+    // Track history
+    simState.history.push({
+        scenarioId,
+        changes: effect,
+        timestamp: Date.now()
+    });
+    
+    // Track effects by scenario
+    if (!simState.scenarioEffects[scenarioId]) {
+        simState.scenarioEffects[scenarioId] = [];
+    }
+    simState.scenarioEffects[scenarioId].push(effect);
+}
+
+// Check scenario success/failure conditions
+function checkScenarioCondition(condition, scenarioId) {
+    if (!condition || !simState) return { success: true, reason: '' };
+    
+    let success = true;
+    let reason = '';
+    
+    if (condition.requires) {
+        Object.entries(condition.requires).forEach(([key, check]) => {
+            const value = simState[key];
+            if (check.min !== undefined && value < check.min) {
+                success = false;
+                reason = check.failMessage || `${key} quá thấp (${value} < ${check.min})`;
+            }
+            if (check.max !== undefined && value > check.max) {
+                success = false;
+                reason = check.failMessage || `${key} quá cao (${value} > ${check.max})`;
+            }
+        });
+    }
+    
+    if (condition.random) {
+        const roll = Math.random() * 100;
+        if (roll > condition.random.successRate) {
+            success = false;
+            reason = condition.random.failMessage || 'Không may mắn!';
+        }
+    }
+    
+    return { success, reason };
+}
+
 const scenarios = {
     // ==================== PERSONAL (7) ====================
     deposit: {
@@ -926,13 +1046,51 @@ const scenarios = {
         desc: 'Tiền gửi ngân hàng được nhân lên như thế nào?',
         hasSimulation: true,
         getSteps: (c) => [
-            { node: 'individual', text: `👤 Bạn có ${c.formatMoney(c.sampleAmount)} tiền nhàn rỗi`, inputs: { deposit: c.sampleAmount } },
-            { node: 'commercial-bank', text: `🏦 Gửi vào ${c.centralBank}, lãi ${c.depositRate}%/năm`, inputs: { rate: c.depositRate } },
-            { node: 'commercial-bank', text: `🏦 NH giữ ${c.reserveRatio}% dự trữ, cho vay ${100-c.reserveRatio}%`, outputs: { reserve: c.sampleAmount * c.reserveRatio/100, lend: c.sampleAmount * (100-c.reserveRatio)/100 } },
-            { node: 'business', text: '🏭 Công ty vay tiền trả lương nhân viên' },
-            { node: 'individual', text: '👤 Nhân viên gửi lương vào NH khác' },
-            { node: 'commercial-bank', text: `🏦 Quá trình lặp lại → Hệ số nhân = ${Math.round(100/c.reserveRatio)}x`, outputs: { total: c.sampleAmount * 100/c.reserveRatio } }
-        ]
+            { 
+                node: 'individual', 
+                text: `👤 Bạn có ${c.formatMoney(c.sampleAmount)} tiền nhàn rỗi`, 
+                inputs: { 'Tiền gửi': c.sampleAmount },
+                effect: { consumerConfidence: 2 }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: `🏦 Gửi vào ${c.centralBank}, lãi ${c.depositRate}%/năm`, 
+                inputs: { 'Lãi suất': `${c.depositRate}%` },
+                outputs: { 'Lãi 1 năm': Math.round(c.sampleAmount * c.depositRate / 100) },
+                effect: { bankReserves: c.sampleAmount, moneySupply: c.sampleAmount }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: `🏦 NH giữ ${c.reserveRatio}% dự trữ, cho vay ${100-c.reserveRatio}%`, 
+                inputs: { 'Tỷ lệ dự trữ': `${c.reserveRatio}%` },
+                outputs: { 
+                    'Dự trữ': Math.round(c.sampleAmount * c.reserveRatio/100), 
+                    'Cho vay được': Math.round(c.sampleAmount * (100-c.reserveRatio)/100) 
+                },
+                effect: { creditGrowth: 0.5 }
+            },
+            { 
+                node: 'business', 
+                text: '🏭 Công ty vay tiền trả lương nhân viên',
+                effect: { businessConfidence: 1, unemployment: -0.1 }
+            },
+            { 
+                node: 'individual', 
+                text: '👤 Nhân viên gửi lương vào NH khác',
+                effect: { consumerConfidence: 1 }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: `🏦 Quá trình lặp lại → Hệ số nhân = ${Math.round(100/c.reserveRatio)}x`, 
+                outputs: { 'Tổng tiền tạo ra': c.sampleAmount * Math.round(100/c.reserveRatio) },
+                effect: { moneySupply: c.sampleAmount * (100/c.reserveRatio - 1) }
+            }
+        ],
+        successCondition: {
+            requires: {
+                npl: { max: 10, failMessage: 'Ngân hàng có quá nhiều nợ xấu, không thể cho vay!' }
+            }
+        }
     },
     loan: {
         title: 'Vay mua nhà',
@@ -940,41 +1098,150 @@ const scenarios = {
         icon: '🏠',
         desc: 'Vay tiền mua nhà, tiền đi đâu?',
         hasSimulation: true,
-        getSteps: (c) => [
-            { node: 'individual', text: `👤 Muốn mua nhà ${c.formatMoney(c.sampleAmount * 30)}, có sẵn ${c.formatMoney(c.sampleAmount * 10)}`, inputs: { price: c.sampleAmount * 30, down: c.sampleAmount * 10 } },
-            { node: 'commercial-bank', text: `🏦 Vay ${c.formatMoney(c.sampleAmount * 20)}, lãi ${c.loanRate}%/năm, 20 năm`, inputs: { loan: c.sampleAmount * 20, rate: c.loanRate, years: 20 } },
-            { node: 'individual', text: `👤 Trả góp hàng tháng`, outputs: { monthly: Math.round(c.sampleAmount * 20 * (c.loanRate/100/12) * Math.pow(1+c.loanRate/100/12, 240) / (Math.pow(1+c.loanRate/100/12, 240)-1)) } },
-            { node: 'real-estate', text: '🏠 Tiền đến tay người bán nhà' },
-            { node: 'business', text: '🏭 Người bán trả cho nhà thầu, vật liệu' },
-            { node: 'individual', text: `👤 Sau 20 năm trả tổng (gốc + lãi)`, outputs: { totalPaid: Math.round(c.sampleAmount * 20 * (c.loanRate/100/12) * Math.pow(1+c.loanRate/100/12, 240) / (Math.pow(1+c.loanRate/100/12, 240)-1) * 240) } }
-        ]
+        getSteps: (c) => {
+            const price = c.sampleAmount * 30;
+            const down = c.sampleAmount * 10;
+            const loanAmount = c.sampleAmount * 20;
+            const monthlyRate = c.loanRate / 100 / 12;
+            const months = 240;
+            const monthly = Math.round(loanAmount * monthlyRate * Math.pow(1+monthlyRate, months) / (Math.pow(1+monthlyRate, months)-1));
+            const totalPaid = monthly * months;
+            
+            return [
+                { 
+                    node: 'individual', 
+                    text: `👤 Muốn mua nhà ${c.formatMoney(price)}, có sẵn ${c.formatMoney(down)}`, 
+                    inputs: { 'Giá nhà': price, 'Tiền có': down },
+                    outputs: { 'Cần vay': loanAmount }
+                },
+                { 
+                    node: 'commercial-bank', 
+                    text: `🏦 Vay ${c.formatMoney(loanAmount)}, lãi ${c.loanRate}%/năm, 20 năm`, 
+                    inputs: { 'Số vay': loanAmount, 'Lãi suất': `${c.loanRate}%`, 'Kỳ hạn': '20 năm' },
+                    effect: { creditGrowth: 1, realEstateIndex: 2, moneySupply: loanAmount },
+                    condition: {
+                        requires: {
+                            interestRate: { max: 15, failMessage: 'Lãi suất quá cao, không đủ khả năng chi trả!' }
+                        }
+                    }
+                },
+                { 
+                    node: 'individual', 
+                    text: `👤 Trả góp hàng tháng ${c.formatMoney(monthly)}`, 
+                    outputs: { 'Trả hàng tháng': monthly },
+                    effect: { consumerConfidence: -2 }
+                },
+                { 
+                    node: 'real-estate', 
+                    text: '🏠 Tiền đến tay người bán nhà',
+                    effect: { realEstateIndex: 1 }
+                },
+                { 
+                    node: 'business', 
+                    text: '🏭 Người bán trả cho nhà thầu, vật liệu',
+                    effect: { gdp: price * 0.3, unemployment: -0.2 }
+                },
+                { 
+                    node: 'individual', 
+                    text: `👤 Sau 20 năm trả tổng ${c.formatMoney(totalPaid)}`, 
+                    outputs: { 'Tổng trả': totalPaid, 'Tiền lãi': totalPaid - loanAmount }
+                }
+            ];
+        }
     },
     salary: {
         title: 'Nhận lương hàng tháng',
         cat: 'personal',
         icon: '💼',
         desc: 'Dòng chảy tiền lương của bạn.',
-        getSteps: (c) => [
-            { node: 'business', text: '🏭 Công ty bán hàng, thu tiền khách' },
-            { node: 'business', text: `🏭 Cuối tháng chuyển lương ${c.formatMoney(c.sampleAmount/5)}` },
-            { node: 'individual', text: '👤 Chi tiêu: nhà, ăn, đi lại...' },
-            { node: 'commercial-bank', text: '🏦 Gửi tiết kiệm một phần' },
-            { node: 'government', text: '🏢 Thuế TNCN đã khấu trừ' }
-        ]
+        getSteps: (c) => {
+            const salary = c.sampleAmount / 5;
+            const tax = salary * 0.1;
+            const spend = salary * 0.7;
+            const save = salary * 0.2;
+            
+            return [
+                { 
+                    node: 'business', 
+                    text: '🏭 Công ty bán hàng, thu tiền khách',
+                    effect: { gdp: salary * 2 }
+                },
+                { 
+                    node: 'business', 
+                    text: `🏭 Cuối tháng chuyển lương ${c.formatMoney(salary)}`,
+                    inputs: { 'Doanh thu': salary * 2 },
+                    outputs: { 'Lương': salary },
+                    effect: { unemployment: -0.05 }
+                },
+                { 
+                    node: 'individual', 
+                    text: `👤 Chi tiêu: nhà, ăn, đi lại (~${c.formatMoney(spend)})`,
+                    outputs: { 'Chi tiêu': spend },
+                    effect: { consumerConfidence: 1, gdp: spend }
+                },
+                { 
+                    node: 'commercial-bank', 
+                    text: `🏦 Gửi tiết kiệm ${c.formatMoney(save)}`,
+                    outputs: { 'Tiết kiệm': save },
+                    effect: { bankReserves: save }
+                },
+                { 
+                    node: 'government', 
+                    text: `🏢 Thuế TNCN đã khấu trừ ${c.formatMoney(tax)}`,
+                    outputs: { 'Thuế': tax }
+                }
+            ];
+        }
     },
     'credit-card': {
         title: 'Sử dụng thẻ tín dụng',
         cat: 'personal',
         icon: '💳',
         desc: 'Quẹt thẻ, chuyện gì xảy ra?',
-        getSteps: (c) => [
-            { node: 'individual', text: `👤 Quẹt thẻ mua hàng ${c.formatMoney(c.sampleAmount/4)}` },
-            { node: 'consumer-finance', text: '💳 Ngân hàng trả tiền cho cửa hàng' },
-            { node: 'business', text: '🏭 Cửa hàng nhận tiền (trừ 2-3% phí)' },
-            { node: 'individual', text: '👤 Sau 45 ngày: Trả đủ = Miễn lãi' },
-            { node: 'consumer-finance', text: '💳 Trả tối thiểu 5% → Lãi 25%/năm!' },
-            { node: 'individual', text: '⚠️ Nếu không trả → Nợ xấu' }
-        ]
+        getSteps: (c) => {
+            const purchase = c.sampleAmount / 4;
+            const fee = purchase * 0.025;
+            const interest = purchase * 0.25;
+            
+            return [
+                { 
+                    node: 'individual', 
+                    text: `👤 Quẹt thẻ mua hàng ${c.formatMoney(purchase)}`,
+                    inputs: { 'Mua hàng': purchase },
+                    effect: { consumerConfidence: 2, gdp: purchase }
+                },
+                { 
+                    node: 'consumer-finance', 
+                    text: `💳 Ngân hàng trả tiền cho cửa hàng (phí ${fee.toFixed(0)})`,
+                    outputs: { 'Phí': fee },
+                    effect: { creditGrowth: 0.2 }
+                },
+                { 
+                    node: 'business', 
+                    text: `🏭 Cửa hàng nhận ${c.formatMoney(purchase - fee)}`,
+                    outputs: { 'Nhận thực': purchase - fee }
+                },
+                { 
+                    node: 'individual', 
+                    text: '👤 Sau 45 ngày: Trả đủ = Miễn lãi',
+                    effect: { consumerConfidence: 1 }
+                },
+                { 
+                    node: 'consumer-finance', 
+                    text: `💳 Trả tối thiểu 5% → Lãi 25%/năm = ${c.formatMoney(interest)}/năm!`,
+                    outputs: { 'Lãi nếu trễ': interest },
+                    effect: { npl: 0.1 },
+                    condition: {
+                        random: { successRate: 80, failMessage: 'Không trả được nợ, thành nợ xấu!' }
+                    }
+                },
+                { 
+                    node: 'individual', 
+                    text: '⚠️ Nếu không trả → Nợ xấu, ảnh hưởng điểm tín dụng',
+                    effect: { consumerConfidence: -3 }
+                }
+            ];
+        }
     },
     'insurance-claim': {
         title: 'Bảo hiểm chi trả',
@@ -1215,13 +1482,48 @@ const scenarios = {
         icon: '🏃',
         desc: 'Tin đồn ngân hàng sập.',
         getSteps: (c) => [
-            { node: 'individual', text: '😨 Tin đồn ngân hàng X sắp phá sản' },
-            { node: 'commercial-bank', text: '🏦 Người dân đổ xô rút tiền' },
-            { node: 'commercial-bank', text: `🏦 NH chỉ có ${c.reserveRatio}% dự trữ, không đủ!` },
-            { node: 'central-bank', text: `🏛️ ${c.centralBank} phải bơm tiền cứu` },
-            { node: 'government', text: '🏢 Chính phủ can thiệp, bảo lãnh' },
-            { node: 'commercial-bank', text: '🏦 Nếu không cứu kịp → Phá sản, lan sang NH khác' }
-        ]
+            { 
+                node: 'individual', 
+                text: '😨 Tin đồn ngân hàng X sắp phá sản',
+                effect: { consumerConfidence: -20, businessConfidence: -10 }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: '🏦 Người dân đổ xô rút tiền',
+                inputs: { 'Tỷ lệ rút': '80%' },
+                effect: { bankReserves: -c.sampleAmount * 800 },
+                condition: {
+                    requires: {
+                        consumerConfidence: { min: 20, failMessage: 'Hoảng loạn lan rộng, ngân hàng sụp đổ!' }
+                    }
+                }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: `🏦 NH chỉ có ${c.reserveRatio}% dự trữ, không đủ!`,
+                outputs: { 'Dự trữ': `${c.reserveRatio}%`, 'Cần': '80%' },
+                effect: { npl: 10, stockIndex: -100 }
+            },
+            { 
+                node: 'central-bank', 
+                text: `🏛️ ${c.centralBank} phải bơm tiền cứu`,
+                effect: { moneySupply: c.sampleAmount * 1000, interestRate: -1, bankReserves: c.sampleAmount * 500 }
+            },
+            { 
+                node: 'government', 
+                text: '🏢 Chính phủ can thiệp, bảo lãnh tiền gửi',
+                effect: { consumerConfidence: 15, businessConfidence: 10 }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: '🏦 Nếu không cứu kịp → Phá sản, lan sang NH khác',
+                outputs: { 'Rủi ro': 'Khủng hoảng hệ thống' },
+                condition: {
+                    random: { successRate: 70, failMessage: 'Cứu trợ thất bại! Ngân hàng phá sản!' }
+                }
+            }
+        ],
+        isCrisis: true
     },
     'stock-crash': {
         title: 'Sập thị trường chứng khoán',
@@ -1229,13 +1531,41 @@ const scenarios = {
         icon: '📉',
         desc: 'Thị trường giảm 30% trong 1 tháng.',
         getSteps: (c) => [
-            { node: 'foreign', text: '🌍 Khủng hoảng tài chính toàn cầu' },
-            { node: 'investment-fund', text: '💼 Quỹ ngoại bán tháo rút vốn' },
-            { node: 'stock-exchange', text: `📉 ${c.stockExchange} giảm 10% trong 1 ngày` },
-            { node: 'individual', text: '😱 NĐT hoảng loạn, bán cắt lỗ' },
-            { node: 'stock-exchange', text: '📉 Tiếp tục giảm, tổng -30%' },
-            { node: 'business', text: '🏭 Vốn hóa bốc hơi hàng nghìn tỷ' }
-        ]
+            { 
+                node: 'foreign', 
+                text: '🌍 Khủng hoảng tài chính toàn cầu',
+                effect: { businessConfidence: -15, exchangeRate: -5 }
+            },
+            { 
+                node: 'investment-fund', 
+                text: '💼 Quỹ ngoại bán tháo rút vốn',
+                inputs: { 'Vốn rút': c.formatMoney(c.sampleAmount * 500) },
+                effect: { stockIndex: -150, exchangeRate: -3 }
+            },
+            { 
+                node: 'stock-exchange', 
+                text: `📉 ${c.stockExchange} giảm 10% trong 1 ngày`,
+                outputs: { 'Giảm': '-10%' },
+                effect: { stockIndex: -100, consumerConfidence: -10 }
+            },
+            { 
+                node: 'individual', 
+                text: '😱 NĐT hoảng loạn, bán cắt lỗ',
+                effect: { consumerConfidence: -15, stockIndex: -100 }
+            },
+            { 
+                node: 'stock-exchange', 
+                text: '📉 Tiếp tục giảm, tổng -30%',
+                outputs: { 'Tổng giảm': '-30%', 'Vốn hóa mất': c.formatMoney(c.sampleAmount * 10000) },
+                effect: { stockIndex: -200 }
+            },
+            { 
+                node: 'business', 
+                text: '🏭 Vốn hóa bốc hơi hàng nghìn tỷ',
+                effect: { businessConfidence: -20, unemployment: 2, gdp: -c.sampleAmount * 1000 }
+            }
+        ],
+        isCrisis: true
     },
     'currency-crisis': {
         title: 'Khủng hoảng tỷ giá',
@@ -1243,13 +1573,45 @@ const scenarios = {
         icon: '💱',
         desc: 'Đồng nội tệ mất giá 20%.',
         getSteps: (c) => [
-            { node: 'foreign', text: '🌍 Dòng vốn ngoại rút ồ ạt' },
-            { node: 'forex', text: '💱 Cầu USD tăng vọt' },
-            { node: 'central-bank', text: `🏛️ ${c.centralBank} bán dự trữ ngoại hối` },
-            { node: 'forex', text: `💱 Dự trữ cạn, ${c.currency} mất giá 20%` },
-            { node: 'business', text: '🏭 Nợ ngoại tệ tăng 20%, nhiều DN phá sản' },
-            { node: 'individual', text: '👤 Hàng nhập khẩu đắt hơn 20%' }
-        ]
+            { 
+                node: 'foreign', 
+                text: '🌍 Dòng vốn ngoại rút ồ ạt',
+                effect: { exchangeRate: -10, businessConfidence: -10 }
+            },
+            { 
+                node: 'forex', 
+                text: '💱 Cầu USD tăng vọt',
+                effect: { exchangeRate: -5 }
+            },
+            { 
+                node: 'central-bank', 
+                text: `🏛️ ${c.centralBank} bán dự trữ ngoại hối`,
+                inputs: { 'Dự trữ bán': '$10 tỷ' },
+                effect: { exchangeRate: 3 },
+                condition: {
+                    requires: {
+                        exchangeRate: { min: 70, failMessage: 'Dự trữ ngoại hối cạn kiệt!' }
+                    }
+                }
+            },
+            { 
+                node: 'forex', 
+                text: `💱 Dự trữ cạn, ${c.currency} mất giá 20%`,
+                outputs: { 'Tỷ giá mới': '-20%' },
+                effect: { exchangeRate: -15, inflation: 5 }
+            },
+            { 
+                node: 'business', 
+                text: '🏭 Nợ ngoại tệ tăng 20%, nhiều DN phá sản',
+                effect: { npl: 8, unemployment: 3, businessConfidence: -20 }
+            },
+            { 
+                node: 'individual', 
+                text: '👤 Hàng nhập khẩu đắt hơn 20%',
+                effect: { inflation: 3, consumerConfidence: -15 }
+            }
+        ],
+        isCrisis: true
     },
     'housing-bubble': {
         title: 'Bong bóng bất động sản',
@@ -1257,13 +1619,40 @@ const scenarios = {
         icon: '🏚️',
         desc: 'Giá nhà tăng rồi sụp đổ.',
         getSteps: (c) => [
-            { node: 'commercial-bank', text: '🏦 Cho vay mua nhà dễ dàng' },
-            { node: 'real-estate', text: '🏠 Giá nhà tăng 50% trong 2 năm' },
-            { node: 'individual', text: '👤 Mọi người vay mua đầu cơ' },
-            { node: 'central-bank', text: '🏛️ NHTW tăng lãi suất kiểm soát' },
-            { node: 'real-estate', text: '🏚️ Cầu giảm, giá sụp 30%' },
-            { node: 'commercial-bank', text: '🏦 Nợ xấu BĐS tăng vọt' }
-        ]
+            { 
+                node: 'commercial-bank', 
+                text: '🏦 Cho vay mua nhà dễ dàng',
+                effect: { creditGrowth: 10, realEstateIndex: 10 }
+            },
+            { 
+                node: 'real-estate', 
+                text: '🏠 Giá nhà tăng 50% trong 2 năm',
+                outputs: { 'Tăng giá': '+50%' },
+                effect: { realEstateIndex: 50, consumerConfidence: 10 }
+            },
+            { 
+                node: 'individual', 
+                text: '👤 Mọi người vay mua đầu cơ',
+                effect: { creditGrowth: 15, npl: 2 }
+            },
+            { 
+                node: 'central-bank', 
+                text: '🏛️ NHTW tăng lãi suất kiểm soát',
+                effect: { interestRate: 3 }
+            },
+            { 
+                node: 'real-estate', 
+                text: '🏚️ Cầu giảm, giá sụp 30%',
+                outputs: { 'Giảm giá': '-30%' },
+                effect: { realEstateIndex: -40, consumerConfidence: -20 }
+            },
+            { 
+                node: 'commercial-bank', 
+                text: '🏦 Nợ xấu BĐS tăng vọt',
+                effect: { npl: 12, stockIndex: -100, businessConfidence: -15 }
+            }
+        ],
+        isCrisis: true
     },
     recession: {
         title: 'Suy thoái kinh tế',
@@ -1271,13 +1660,40 @@ const scenarios = {
         icon: '📊',
         desc: 'GDP giảm, thất nghiệp tăng.',
         getSteps: (c) => [
-            { node: 'foreign', text: '🌍 Cầu thế giới giảm' },
-            { node: 'business', text: '🏭 Đơn hàng giảm, doanh thu sụt' },
-            { node: 'business', text: '🏭 Cắt giảm nhân sự' },
-            { node: 'individual', text: '😢 Thất nghiệp tăng, thu nhập giảm' },
-            { node: 'individual', text: '👤 Chi tiêu giảm → DN khó khăn hơn' },
-            { node: 'government', text: '🏢 Thu thuế giảm, phải tăng chi kích thích' }
-        ]
+            { 
+                node: 'foreign', 
+                text: '🌍 Cầu thế giới giảm',
+                effect: { gdp: -c.sampleAmount * 500, exchangeRate: -5 }
+            },
+            { 
+                node: 'business', 
+                text: '🏭 Đơn hàng giảm, doanh thu sụt',
+                outputs: { 'Doanh thu': '-30%' },
+                effect: { gdp: -c.sampleAmount * 1000, businessConfidence: -20 }
+            },
+            { 
+                node: 'business', 
+                text: '🏭 Cắt giảm nhân sự',
+                effect: { unemployment: 5 }
+            },
+            { 
+                node: 'individual', 
+                text: '😢 Thất nghiệp tăng, thu nhập giảm',
+                outputs: { 'Thất nghiệp': '+5%' },
+                effect: { consumerConfidence: -25, unemployment: 2 }
+            },
+            { 
+                node: 'individual', 
+                text: '👤 Chi tiêu giảm → DN khó khăn hơn',
+                effect: { gdp: -c.sampleAmount * 500, businessConfidence: -10 }
+            },
+            { 
+                node: 'government', 
+                text: '🏢 Thu thuế giảm, phải tăng chi kích thích',
+                effect: { moneySupply: c.sampleAmount * 2000, interestRate: -2 }
+            }
+        ],
+        isCrisis: true
     },
     'debt-crisis': {
         title: 'Khủng hoảng nợ công',
@@ -2368,13 +2784,24 @@ function runSelectedScenarios() {
     if (selectedScenarios.length === 0) return;
     
     const c = getCountryData();
+    
+    // Initialize simulation state
+    simState = createSimulationState(selectedCountry);
+    
+    // Track scenario status (success/failure)
+    const scenarioStatus = {};
+    
     scenarioQueue = selectedScenarios.map(sel => {
         const scenario = scenarios[sel.id];
+        scenarioStatus[sel.id] = { status: 'running', failedStep: null, reason: '' };
         return {
             ...scenario,
             id: sel.id,
             order: sel.order,
-            steps: scenario.getSteps ? scenario.getSteps(c) : scenario.steps
+            steps: scenario.getSteps ? scenario.getSteps(c) : scenario.steps,
+            status: scenarioStatus[sel.id],
+            isCrisis: scenario.isCrisis || false,
+            successCondition: scenario.successCondition
         };
     });
     
@@ -2399,6 +2826,11 @@ function showScenarioPlayer() {
     if (!playerOverlay) return;
     
     playerOverlay.classList.add('active');
+    
+    // Initialize simulation dashboard
+    updateSimDashboard();
+    updateSimStatus('success', 'Bắt đầu mô phỏng...');
+    
     updatePlayerUI();
     renderQueueList();
 }
@@ -2521,6 +2953,10 @@ function playQueueStep() {
     
     const current = scenarioQueue[currentQueueIndex];
     if (!current || currentScenarioStep >= current.steps.length) {
+        // Mark scenario as complete if it hasn't failed
+        if (current && current.status.status === 'running') {
+            current.status.status = 'success';
+        }
         // Move to next scenario
         currentQueueIndex++;
         playCurrentQueueScenario();
@@ -2528,6 +2964,36 @@ function playQueueStep() {
     }
     
     const step = current.steps[currentScenarioStep];
+    
+    // Check step condition before executing
+    if (step.condition) {
+        const condResult = checkScenarioCondition(step.condition, current.id);
+        if (!condResult.success) {
+            // Step failed!
+            current.status.status = 'failed';
+            current.status.failedStep = currentScenarioStep;
+            current.status.reason = condResult.reason;
+            
+            // Update status display
+            updateSimStatus('error', `❌ ${current.title}: ${condResult.reason}`);
+            
+            // Skip to next scenario after showing failure
+            setTimeout(() => {
+                currentQueueIndex++;
+                playCurrentQueueScenario();
+            }, 3000);
+            return;
+        }
+    }
+    
+    // Apply step effect to simulation state
+    if (step.effect) {
+        applyStepEffect(step.effect, current.id);
+    }
+    
+    // Update simulation dashboard
+    updateSimDashboard();
+    updateSimStepDetail(step);
     
     // Update UI
     updatePlayerUI();
@@ -2550,6 +3016,128 @@ function playQueueStep() {
             playQueueStep();
         }
     }, 4000);
+}
+
+// Update simulation dashboard UI
+function updateSimDashboard(prefix = '') {
+    if (!simState) return;
+    
+    const updateEl = (id, value, format = 'number') => {
+        const el = document.getElementById(prefix + id);
+        if (!el) return;
+        
+        let displayValue = value;
+        let changeClass = '';
+        
+        if (format === 'money') {
+            displayValue = simState.formatMoney(Math.round(value));
+        } else if (format === 'percent') {
+            displayValue = value.toFixed(1) + '%';
+        } else if (format === 'index') {
+            displayValue = Math.round(value);
+        }
+        
+        // Check for recent changes
+        const prevValue = parseFloat(el.dataset.prevValue || value);
+        if (value > prevValue * 1.01) {
+            changeClass = 'up';
+        } else if (value < prevValue * 0.99) {
+            changeClass = 'down';
+        }
+        
+        el.textContent = displayValue;
+        el.className = 'sim-value ' + changeClass;
+        el.dataset.prevValue = value;
+        
+        // Update indicator status
+        const indicator = el.closest('.sim-indicator');
+        if (indicator) {
+            indicator.classList.remove('positive', 'negative', 'warning');
+        }
+    };
+    
+    updateEl('simMoneySupply', simState.moneySupply, 'money');
+    updateEl('simStockIndex', simState.stockIndex, 'index');
+    updateEl('simRealEstate', simState.realEstateIndex, 'index');
+    updateEl('simInflation', simState.inflation, 'percent');
+    updateEl('simUnemployment', simState.unemployment, 'percent');
+    updateEl('simConfidence', (simState.consumerConfidence + simState.businessConfidence) / 2, 'index');
+    updateEl('simNPL', simState.npl, 'percent');
+    updateEl('simExchangeRate', simState.exchangeRate, 'index');
+}
+
+// Update step detail panel
+function updateSimStepDetail(step) {
+    const detailEl = document.getElementById('simStepDetail');
+    if (!detailEl) return;
+    
+    if (!step.inputs && !step.outputs) {
+        detailEl.classList.remove('active');
+        return;
+    }
+    
+    detailEl.classList.add('active');
+    
+    let html = '<div class="sim-io-grid">';
+    
+    // Inputs
+    html += '<div class="sim-inputs-box"><h6>📥 Đầu vào</h6>';
+    if (step.inputs) {
+        Object.entries(step.inputs).forEach(([key, val]) => {
+            const displayVal = typeof val === 'number' ? 
+                (simState ? simState.formatMoney(val) : val.toLocaleString()) : val;
+            html += `<div class="sim-io-item"><strong>${key}:</strong> ${displayVal}</div>`;
+        });
+    } else {
+        html += '<div class="sim-io-item">-</div>';
+    }
+    html += '</div>';
+    
+    // Arrow
+    html += '<div class="sim-io-arrow">→</div>';
+    
+    // Outputs
+    html += '<div class="sim-outputs-box"><h6>📤 Đầu ra</h6>';
+    if (step.outputs) {
+        Object.entries(step.outputs).forEach(([key, val]) => {
+            const displayVal = typeof val === 'number' ? 
+                (simState ? simState.formatMoney(val) : val.toLocaleString()) : val;
+            html += `<div class="sim-io-item"><strong>${key}:</strong> ${displayVal}</div>`;
+        });
+    } else {
+        html += '<div class="sim-io-item">-</div>';
+    }
+    html += '</div>';
+    
+    html += '</div>';
+    
+    // Effects preview
+    if (step.effect) {
+        html += '<div style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.6);">';
+        html += '📊 Tác động: ';
+        const effects = Object.entries(step.effect)
+            .map(([k, v]) => {
+                const sign = v >= 0 ? '+' : '';
+                return `${k} ${sign}${v}`;
+            })
+            .join(', ');
+        html += effects;
+        html += '</div>';
+    }
+    
+    detailEl.innerHTML = html;
+}
+
+// Update status message
+function updateSimStatus(type, message) {
+    const statusEl = document.getElementById('simStatus');
+    if (!statusEl) return;
+    
+    statusEl.className = 'sim-status ' + type;
+    
+    const icons = { success: '✅', warning: '⚠️', error: '❌' };
+    statusEl.querySelector('.status-icon').textContent = icons[type] || '✅';
+    statusEl.querySelector('.status-text').textContent = message;
 }
 
 function togglePlayerPause() {
@@ -2648,6 +3236,10 @@ function showParallelPlayer() {
     
     playerOverlay.classList.add('active');
     
+    // Initialize parallel simulation dashboard
+    updateParallelSimDashboard();
+    updateParallelSimStatus('success', `Bắt đầu mô phỏng ${scenarioQueue.length} kịch bản song song...`);
+    
     // Render the grid
     renderParallelGrid();
     renderParallelLegend();
@@ -2674,8 +3266,9 @@ function renderParallelGrid() {
     
     gridEl.innerHTML = scenarioQueue.map((scenario, idx) => {
         const step = scenario.steps[parallelStep];
-        const isCompleted = parallelStep >= scenario.steps.length;
-        const hasCurrentStep = step && parallelStep < scenario.steps.length;
+        const isFailed = scenario.status.status === 'failed';
+        const isCompleted = !isFailed && (parallelStep >= scenario.steps.length || scenario.status.status === 'success');
+        const hasCurrentStep = !isFailed && step && parallelStep < scenario.steps.length;
         
         let nodeIcon = '📍';
         let nodeName = '';
@@ -2692,28 +3285,76 @@ function renderParallelGrid() {
             ? Math.min(100, ((parallelStep + 1) / scenario.steps.length) * 100)
             : 100;
         
+        // Card class based on status
+        let cardClass = 'parallel-card';
+        if (isFailed) cardClass += ' failed';
+        else if (isCompleted) cardClass += ' completed';
+        else if (hasCurrentStep) cardClass += ' active-step';
+        
+        // Status badge
+        let statusBadge = '';
+        if (isFailed) {
+            statusBadge = '❌ Thất bại';
+        } else if (isCompleted) {
+            statusBadge = '✓ Xong';
+        } else {
+            statusBadge = `${Math.min(parallelStep + 1, scenario.steps.length)}/${scenario.steps.length}`;
+        }
+        
+        // Content based on status
+        let cardContent = '';
+        if (isFailed) {
+            cardContent = `
+                <div class="parallel-card-text" style="color: #e74c3c;">
+                    ❌ ${scenario.status.reason}
+                </div>
+            `;
+        } else if (hasCurrentStep) {
+            // Show inputs/outputs if available
+            let ioHtml = '';
+            if (step.inputs || step.outputs) {
+                ioHtml = '<div class="parallel-card-io">';
+                if (step.inputs) {
+                    const inputStr = Object.entries(step.inputs)
+                        .map(([k, v]) => `${k}: ${typeof v === 'number' ? v.toLocaleString() : v}`)
+                        .join(', ');
+                    ioHtml += `<div class="parallel-io-in">📥 ${inputStr}</div>`;
+                }
+                if (step.outputs) {
+                    const outputStr = Object.entries(step.outputs)
+                        .map(([k, v]) => `${k}: ${typeof v === 'number' ? v.toLocaleString() : v}`)
+                        .join(', ');
+                    ioHtml += `<div class="parallel-io-out">📤 ${outputStr}</div>`;
+                }
+                ioHtml += '</div>';
+            }
+            
+            cardContent = `
+                <div class="parallel-card-node">
+                    <span class="parallel-card-node-icon">${nodeIcon}</span>
+                    <span class="parallel-card-node-name">${nodeName}</span>
+                </div>
+                <div class="parallel-card-text">${step.text}</div>
+                ${ioHtml}
+            `;
+        } else if (isCompleted) {
+            cardContent = `
+                <div class="parallel-card-text" style="text-align: center; color: #27ae60;">
+                    ✅ Kịch bản đã hoàn thành thành công!
+                </div>
+            `;
+        }
+        
         return `
-            <div class="parallel-card ${hasCurrentStep ? 'active-step' : ''} ${isCompleted ? 'completed' : ''}" data-scenario-idx="${idx}">
+            <div class="${cardClass}" data-scenario-idx="${idx}">
                 <div class="parallel-card-header">
                     <span class="parallel-card-icon">${scenario.icon}</span>
                     <span class="parallel-card-title">${scenario.title}</span>
-                    <span class="parallel-card-step-num">
-                        ${isCompleted ? '✓ Xong' : `${Math.min(parallelStep + 1, scenario.steps.length)}/${scenario.steps.length}`}
-                    </span>
+                    <span class="parallel-card-step-num">${statusBadge}</span>
                 </div>
-                ${hasCurrentStep ? `
-                    <div class="parallel-card-node">
-                        <span class="parallel-card-node-icon">${nodeIcon}</span>
-                        <span class="parallel-card-node-name">${nodeName}</span>
-                    </div>
-                    <div class="parallel-card-text">${step.text}</div>
-                ` : isCompleted ? `
-                    <div class="parallel-card-text" style="text-align: center; color: #27ae60;">
-                        Kịch bản đã hoàn thành!
-                    </div>
-                ` : ''}
+                ${cardContent}
                 <div class="parallel-card-progress">
-                    <div class="parallel-card-progress-fill" style="width: ${progress}%"></div>
+                    <div class="parallel-card-progress-fill" style="width: ${isFailed ? '100%' : progress + '%'}; background: ${isFailed ? '#e74c3c' : ''}"></div>
                 </div>
             </div>
         `;
@@ -2750,13 +3391,15 @@ function renderParallelLegend() {
     if (!legendEl) return;
     
     legendEl.innerHTML = scenarioQueue.map((scenario, idx) => {
-        const isCompleted = parallelStep >= scenario.steps.length;
-        const isActive = parallelStep < scenario.steps.length;
+        const isFailed = scenario.status.status === 'failed';
+        const isCompleted = !isFailed && (parallelStep >= scenario.steps.length || scenario.status.status === 'success');
+        const isActive = !isFailed && !isCompleted;
         
         return `
-            <div class="legend-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}">
+            <div class="legend-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''} ${isFailed ? 'failed' : ''}">
                 <span class="legend-item-icon">${scenario.icon}</span>
                 <span>${scenario.title}</span>
+                ${isFailed ? '<span style="color:#e74c3c;">❌</span>' : ''}
             </div>
         `;
     }).join('');
@@ -2779,11 +3422,59 @@ function playParallelStep() {
     if (!isPlayerActive) return;
     if (isPaused) return;
     
-    // Check if all scenarios are complete
-    const allComplete = scenarioQueue.every(s => parallelStep >= s.steps.length);
+    // Check if all scenarios are complete or failed
+    const allComplete = scenarioQueue.every(s => 
+        parallelStep >= s.steps.length || s.status.status === 'failed'
+    );
     if (allComplete) {
         finishParallelScenarios();
         return;
+    }
+    
+    // Process each scenario's current step
+    let hasFailure = false;
+    let failureMessages = [];
+    
+    scenarioQueue.forEach(scenario => {
+        if (scenario.status.status === 'failed') return; // Skip failed scenarios
+        
+        const step = scenario.steps[parallelStep];
+        if (!step) {
+            // Scenario completed
+            if (scenario.status.status === 'running') {
+                scenario.status.status = 'success';
+            }
+            return;
+        }
+        
+        // Check step condition
+        if (step.condition) {
+            const condResult = checkScenarioCondition(step.condition, scenario.id);
+            if (!condResult.success) {
+                scenario.status.status = 'failed';
+                scenario.status.failedStep = parallelStep;
+                scenario.status.reason = condResult.reason;
+                hasFailure = true;
+                failureMessages.push(`${scenario.icon} ${scenario.title}: ${condResult.reason}`);
+                return;
+            }
+        }
+        
+        // Apply step effect
+        if (step.effect) {
+            applyStepEffect(step.effect, scenario.id);
+        }
+    });
+    
+    // Update parallel simulation dashboard
+    updateParallelSimDashboard();
+    
+    // Update status
+    if (hasFailure) {
+        updateParallelSimStatus('error', failureMessages.join(' | '));
+    } else {
+        const activeCount = scenarioQueue.filter(s => s.status.status === 'running').length;
+        updateParallelSimStatus('success', `${activeCount} kịch bản đang chạy bình thường`);
     }
     
     // Update UI
@@ -2801,6 +3492,57 @@ function playParallelStep() {
             playParallelStep();
         }
     }, 4000);
+}
+
+// Update parallel simulation dashboard
+function updateParallelSimDashboard() {
+    if (!simState) return;
+    
+    const updateEl = (id, value, format = 'number') => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        
+        let displayValue = value;
+        let changeClass = '';
+        
+        if (format === 'money') {
+            displayValue = simState.formatMoney(Math.round(value));
+        } else if (format === 'percent') {
+            displayValue = value.toFixed(1) + '%';
+        } else if (format === 'index') {
+            displayValue = Math.round(value);
+        }
+        
+        const prevValue = parseFloat(el.dataset.prevValue || value);
+        if (value > prevValue * 1.01) {
+            changeClass = 'up';
+        } else if (value < prevValue * 0.99) {
+            changeClass = 'down';
+        }
+        
+        el.textContent = displayValue;
+        el.className = 'sim-value ' + changeClass;
+        el.dataset.prevValue = value;
+    };
+    
+    updateEl('pSimMoneySupply', simState.moneySupply, 'money');
+    updateEl('pSimStockIndex', simState.stockIndex, 'index');
+    updateEl('pSimRealEstate', simState.realEstateIndex, 'index');
+    updateEl('pSimInflation', simState.inflation, 'percent');
+    updateEl('pSimUnemployment', simState.unemployment, 'percent');
+    updateEl('pSimConfidence', (simState.consumerConfidence + simState.businessConfidence) / 2, 'index');
+    updateEl('pSimNPL', simState.npl, 'percent');
+    updateEl('pSimExchangeRate', simState.exchangeRate, 'index');
+}
+
+function updateParallelSimStatus(type, message) {
+    const statusEl = document.getElementById('parallelSimStatus');
+    if (!statusEl) return;
+    
+    statusEl.className = 'sim-status ' + type;
+    const icons = { success: '✅', warning: '⚠️', error: '❌' };
+    statusEl.querySelector('.status-icon').textContent = icons[type] || '✅';
+    statusEl.querySelector('.status-text').textContent = message;
 }
 
 function updateParallelNarration() {
@@ -2876,17 +3618,50 @@ function nextParallelStep() {
 }
 
 function finishParallelScenarios() {
+    // Calculate summary
+    const successCount = scenarioQueue.filter(s => s.status.status === 'success').length;
+    const failedCount = scenarioQueue.filter(s => s.status.status === 'failed').length;
+    const totalCount = scenarioQueue.length;
+    
     const stepInfoEl = document.getElementById('parallelStepInfo');
     if (stepInfoEl) {
-        stepInfoEl.textContent = '✅ Hoàn thành!';
+        stepInfoEl.textContent = `✅ Hoàn thành! ${successCount}/${totalCount} thành công`;
     }
     
     const progressFillEl = document.getElementById('parallelProgressFill');
     if (progressFillEl) {
         progressFillEl.style.width = '100%';
+        if (failedCount > 0) {
+            progressFillEl.style.background = 'linear-gradient(90deg, #27ae60, #f39c12, #e74c3c)';
+        }
     }
     
-    storyNarration.classList.remove('active');
+    // Show final status
+    if (failedCount === 0) {
+        updateParallelSimStatus('success', `🎉 Tất cả ${totalCount} kịch bản hoàn thành thành công!`);
+    } else if (successCount === 0) {
+        updateParallelSimStatus('error', `💀 Tất cả ${totalCount} kịch bản đều thất bại!`);
+    } else {
+        updateParallelSimStatus('warning', `⚠️ ${successCount} thành công, ${failedCount} thất bại`);
+    }
+    
+    // Show final simulation state summary in narration
+    if (simState) {
+        storyNarration.classList.add('active');
+        const storyText = document.getElementById('storyText');
+        if (storyText) {
+            storyText.innerHTML = `
+                <strong>📊 Kết quả mô phỏng:</strong><br>
+                📈 Chỉ số CK: ${Math.round(simState.stockIndex)} | 
+                🏠 BĐS: ${Math.round(simState.realEstateIndex)} | 
+                📊 Lạm phát: ${simState.inflation.toFixed(1)}%<br>
+                👥 Thất nghiệp: ${simState.unemployment.toFixed(1)}% | 
+                🏦 Nợ xấu: ${simState.npl.toFixed(1)}% | 
+                😊 Niềm tin: ${Math.round((simState.consumerConfidence + simState.businessConfidence) / 2)}
+            `;
+        }
+    }
+    
     nodes.forEach(node => node.classList.remove('highlighted', 'dimmed'));
     
     // Update grid to show all completed
