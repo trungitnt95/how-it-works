@@ -1,59 +1,47 @@
-# 💰 Hiểu Hết Về Tiền - How Money Works
+# � How It Works - Hiểu Mọi Thứ Hoạt Động
 
-An interactive web application that visualizes how money flows through the economy. Based on the book "Hiểu Hết Về Tiền" (Understanding Money Completely).
+An interactive web platform that visualizes how complex systems work through simple, engaging diagrams.
 
-## 🌟 Features
+## 📚 Topics
 
-- **Interactive Diagram**: Visual representation of money flow between key economic actors
-- **Popup Explanations**: Click on any component to learn about its role in the monetary system
-- **Animated Flow Lines**: See how money moves between different entities
-- **Responsive Design**: Works on both desktop and mobile devices
-- **Vietnamese Content**: All explanations in Vietnamese
+### ✅ Available
 
-## 🏗️ Components Explained
+#### 💰 [How Money Works](./money/)
+Understand how money flows through the economy - from central banks to your wallet.
+- 20 financial components
+- 32 interactive scenarios
+- 4 simulators (Money Multiplier, Compound Interest, Loan Calculator, Inflation)
+- 3 difficulty levels (Beginner, Intermediate, Advanced)
 
-1. **🏛️ Ngân Hàng Trung Ương** (Central Bank) - Creates money, sets monetary policy
-2. **🏦 Ngân Hàng Thương Mại** (Commercial Banks) - Multiplies money through lending
-3. **🏢 Chính Phủ** (Government) - Taxes, spends, and issues bonds
-4. **🏭 Doanh Nghiệp** (Businesses) - Produces goods, creates jobs
-5. **👥 Người Dân** (Individuals) - Earns, spends, saves, invests
-6. **🌍 Thị Trường Quốc Tế** (International Markets) - Import/export, foreign investment
+### 🔜 Coming Soon
+
+- 🌐 **How Internet Works** - DNS, HTTP, Cloud, and networking
+- 🫀 **How Body Works** - Circulatory, digestive, and nervous systems
+- ⚡ **How Energy Works** - Power generation and distribution
 
 ## 🚀 How to Run
 
-Simply open `index.html` in a web browser, or run a local server:
-
 ```bash
 # Using Python
-python -m http.server 8000
+python -m http.server 8080
 
 # Using Node.js
 npx serve
-
-# Using PHP
-php -S localhost:8000
 ```
 
-Then open http://localhost:8000 in your browser.
-
-## 📚 Based On
-
-This visualization is based on concepts from the book "Hiểu Hết Về Tiền" covering:
-- How central banks create money
-- Fractional reserve banking
-- The role of government in the economy
-- International trade and exchange rates
-- Personal finance principles
+Then open http://localhost:8080 in your browser.
 
 ## 📁 Project Structure
 
 ```
 how-it-works/
-├── index.html      # Main HTML structure
-├── styles.css      # Styling and animations
-├── app.js          # Interactive functionality
-├── docs/           # Documentation and source materials
-└── README.md       # This file
+├── index.html          # Home page - topic selection
+├── money/              # Money flow visualization
+│   ├── index.html      # Main HTML structure
+│   ├── styles.css      # Styling and animations
+│   └── app.js          # Interactive functionality
+├── docs/               # Documentation and source materials
+└── README.md           # This file
 ```
 
 ## 🎨 Technologies
