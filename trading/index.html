@@ -7,38 +7,258 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="../" class="back-link">← Về trang chủ</a>
-            <div class="logo">
-                <span class="logo-icon">📈</span>
-                <div>
-                    <h1>Trading Hoạt Động Như Thế Nào</h1>
-                    <p>Hiểu hết về giao dịch tài chính</p>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>📈 Hiểu Hết Về Trading</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về trading. Bắt đầu từ cơ bản nhất.</p>
+                    <ul>
+                        <li>✅ Thuật ngữ cơ bản</li>
+                        <li>✅ Cách đọc biểu đồ</li>
+                        <li>✅ Ví dụ thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học các chiến lược.</p>
+                    <ul>
+                        <li>✅ Phân tích kỹ thuật</li>
+                        <li>✅ Quản lý rủi ro</li>
+                        <li>✅ Trading strategies</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn trở thành trader chuyên nghiệp.</p>
+                    <ul>
+                        <li>✅ Advanced strategies</li>
+                        <li>✅ Trading psychology</li>
+                        <li>✅ Portfolio management</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>📈 Hiểu Hết Về Trading</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="startTourBtn" title="Bắt đầu hướng dẫn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
+        </div>
     </header>
 
+    <!-- Progress Bar for Tour -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <section class="coming-soon-section">
-            <div class="coming-soon-content">
-                <span class="coming-icon">🚧</span>
-                <h2>Đang phát triển</h2>
-                <p>Nội dung về trading và giao dịch tài chính đang được xây dựng.</p>
-                <ul class="preview-list">
-                    <li>📊 Phân tích kỹ thuật (Technical Analysis)</li>
-                    <li>📰 Phân tích cơ bản (Fundamental Analysis)</li>
-                    <li>🎯 Quản lý rủi ro (Risk Management)</li>
-                    <li>🧠 Tâm lý giao dịch (Trading Psychology)</li>
-                    <li>📈 Các chiến lược trading phổ biến</li>
-                    <li>💹 Forex, Crypto, Chứng khoán</li>
-                </ul>
-                <a href="../" class="back-btn">← Quay lại trang chủ</a>
+        <!-- Tour Instruction Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">15</span></div>
+                <h3 id="tourTitle">Chào mừng bạn!</h3>
+                <p id="tourDescription">Hãy bắt đầu tìm hiểu thế giới trading...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo chủ đề:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (15)</button>
+            <button class="filter-btn" data-category="basics">📚 Cơ bản</button>
+            <button class="filter-btn" data-category="analysis">📊 Phân tích</button>
+            <button class="filter-btn" data-category="strategy">🎯 Chiến lược</button>
+            <button class="filter-btn" data-category="risk">🛡️ Rủi ro</button>
+            <button class="filter-btn" data-category="psychology">🧠 Tâm lý</button>
+        </div>
+
+        <!-- Diagram Container -->
+        <div class="diagram-container expanded" id="diagramContainer">
+            <!-- Trading Concepts Grid -->
+            
+            <!-- ==================== BASICS (1-5) ==================== -->
+            <div class="node trading-basics" data-component="trading-basics" data-category="basics" data-step="1">
+                <div class="node-number">1</div>
+                <div class="node-icon">📚</div>
+                <div class="node-label">Trading là gì?</div>
+                <div class="node-hint">Khái niệm cơ bản</div>
+            </div>
+
+            <div class="node asset-types" data-component="asset-types" data-category="basics" data-step="2">
+                <div class="node-number">2</div>
+                <div class="node-icon">💹</div>
+                <div class="node-label">Loại tài sản</div>
+                <div class="node-hint">Stocks, Forex, Crypto</div>
+            </div>
+
+            <div class="node market-orders" data-component="market-orders" data-category="basics" data-step="3">
+                <div class="node-number">3</div>
+                <div class="node-icon">📝</div>
+                <div class="node-label">Lệnh giao dịch</div>
+                <div class="node-hint">Market, Limit, Stop</div>
+            </div>
+
+            <div class="node candlestick" data-component="candlestick" data-category="basics" data-step="4">
+                <div class="node-number">4</div>
+                <div class="node-icon">🕯️</div>
+                <div class="node-label">Biểu đồ Nến</div>
+                <div class="node-hint">Đọc giá</div>
+            </div>
+
+            <div class="node timeframes" data-component="timeframes" data-category="basics" data-step="5">
+                <div class="node-number">5</div>
+                <div class="node-icon">⏰</div>
+                <div class="node-label">Khung thời gian</div>
+                <div class="node-hint">1m, 5m, 1h, 1D</div>
+            </div>
+
+            <!-- ==================== ANALYSIS (6-9) ==================== -->
+            <div class="node technical-analysis" data-component="technical-analysis" data-category="analysis" data-step="6">
+                <div class="node-number">6</div>
+                <div class="node-icon">📈</div>
+                <div class="node-label">Phân tích kỹ thuật</div>
+                <div class="node-hint">Technical Analysis</div>
+            </div>
+
+            <div class="node indicators" data-component="indicators" data-category="analysis" data-step="7">
+                <div class="node-number">7</div>
+                <div class="node-icon">📊</div>
+                <div class="node-label">Chỉ báo</div>
+                <div class="node-hint">MA, RSI, MACD</div>
+            </div>
+
+            <div class="node support-resistance" data-component="support-resistance" data-category="analysis" data-step="8">
+                <div class="node-number">8</div>
+                <div class="node-icon">📉</div>
+                <div class="node-label">Hỗ trợ & Kháng cự</div>
+                <div class="node-hint">Support & Resistance</div>
+            </div>
+
+            <div class="node chart-patterns" data-component="chart-patterns" data-category="analysis" data-step="9">
+                <div class="node-number">9</div>
+                <div class="node-icon">📐</div>
+                <div class="node-label">Mô hình giá</div>
+                <div class="node-hint">Head & Shoulders, Triangles</div>
+            </div>
+
+            <!-- ==================== STRATEGY (10-12) ==================== -->
+            <div class="node day-trading" data-component="day-trading" data-category="strategy" data-step="10">
+                <div class="node-number">10</div>
+                <div class="node-icon">⚡</div>
+                <div class="node-label">Day Trading</div>
+                <div class="node-hint">Giao dịch trong ngày</div>
+            </div>
+
+            <div class="node swing-trading" data-component="swing-trading" data-category="strategy" data-step="11">
+                <div class="node-number">11</div>
+                <div class="node-icon">🌊</div>
+                <div class="node-label">Swing Trading</div>
+                <div class="node-hint">Nắm giữ vài ngày</div>
+            </div>
+
+            <div class="node scalping" data-component="scalping" data-category="strategy" data-step="12">
+                <div class="node-number">12</div>
+                <div class="node-icon">⚡⚡</div>
+                <div class="node-label">Scalping</div>
+                <div class="node-hint">Giao dịch siêu nhanh</div>
+            </div>
+
+            <!-- ==================== RISK MANAGEMENT (13-14) ==================== -->
+            <div class="node risk-management" data-component="risk-management" data-category="risk" data-step="13">
+                <div class="node-number">13</div>
+                <div class="node-icon">🛡️</div>
+                <div class="node-label">Quản lý rủi ro</div>
+                <div class="node-hint">Risk Management</div>
+            </div>
+
+            <div class="node position-sizing" data-component="position-sizing" data-category="risk" data-step="14">
+                <div class="node-number">14</div>
+                <div class="node-icon">⚖️</div>
+                <div class="node-label">Khối lượng</div>
+                <div class="node-hint">Position Sizing</div>
+            </div>
+
+            <!-- ==================== PSYCHOLOGY (15) ==================== -->
+            <div class="node trading-psychology" data-component="trading-psychology" data-category="psychology" data-step="15">
+                <div class="node-number">15</div>
+                <div class="node-icon">🧠</div>
+                <div class="node-label">Tâm lý Trading</div>
+                <div class="node-hint">Trading Psychology</div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel" id="infoPanel">
+            <button class="close-panel" id="closePanel">×</button>
+            <div class="info-content" id="infoContent">
+                <p>Click vào bất kỳ thành phần nào để tìm hiểu chi tiết...</p>
+            </div>
+        </div>
+
+        <!-- Scenario Modal -->
+        <div class="modal" id="scenarioModal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeScenario">×</button>
+                <h2>📖 Kịch bản Trading Thực Tế</h2>
+                <div class="scenario-list" id="scenarioList"></div>
+            </div>
+        </div>
+
+        <!-- Simulator Modal -->
+        <div class="modal" id="simulatorModal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeSimulator">×</button>
+                <h2>🧮 Công cụ Mô phỏng</h2>
+                <div class="simulator-tabs">
+                    <button class="sim-tab active" data-simulator="paper-trading">📝 Paper Trading</button>
+                    <button class="sim-tab" data-simulator="risk-calculator">🛡️ Tính Rủi Ro</button>
+                    <button class="sim-tab" data-simulator="position-size">⚖️ Khối Lượng</button>
+                    <button class="sim-tab" data-simulator="profit-loss">💰 Lãi/Lỗ</button>
+                </div>
+                <div class="simulator-content" id="simulatorContent"></div>
+            </div>
+        </div>
     </main>
 
+    <!-- Load all module scripts -->
+    <script src="modules/basics.js"></script>
+    <script src="modules/asset-types.js"></script>
+    <script src="modules/candlestick.js"></script>
+    <script src="modules/technical-analysis.js"></script>
+    <script src="modules/indicators.js"></script>
+    <script src="modules/strategies.js"></script>
+    <script src="modules/risk-management.js"></script>
+    <script src="modules/psychology.js"></script>
+    <script src="modules/scenarios.js"></script>
+    <script src="modules/simulators.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
