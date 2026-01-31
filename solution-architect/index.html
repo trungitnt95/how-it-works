@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiểu Hết Về Solution Architect - Con Đường Trở Thành SA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🏗️ Hiểu Hết Về Solution Architect</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết SA là gì. Bắt đầu từ cơ bản nhất.</p>
+                    <ul>
+                        <li>✅ SA là gì & làm gì</li>
+                        <li>✅ Các khái niệm cơ bản</li>
+                        <li>✅ Ví dụ thực tế dễ hiểu</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã hiểu cơ bản, muốn tìm hiểu sâu hơn.</p>
+                    <ul>
+                        <li>✅ Design patterns</li>
+                        <li>✅ Architecture styles</li>
+                        <li>✅ Case studies thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn master kỹ năng SA.</p>
+                    <ul>
+                        <li>✅ Trade-offs phức tạp</li>
+                        <li>✅ Enterprise patterns</li>
+                        <li>✅ Real-world scenarios</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>🏗️ Solution Architect</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="startTourBtn" title="Bắt đầu hướng dẫn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="roadmapBtn" title="Lộ trình">🗺️ Lộ trình</button>
+        </div>
+    </header>
+
+    <!-- Progress Bar for Tour -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Tour Instruction Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">20</span></div>
+                <h3 id="tourTitle">Chào mừng bạn!</h3>
+                <p id="tourDescription">Hãy bắt đầu tìm hiểu về Solution Architect...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo nhóm:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (20)</button>
+            <button class="filter-btn" data-category="foundation">🎯 Nền tảng</button>
+            <button class="filter-btn" data-category="architecture">🏛️ Kiến trúc</button>
+            <button class="filter-btn" data-category="technical">⚙️ Kỹ thuật</button>
+            <button class="filter-btn" data-category="soft-skills">💬 Soft Skills</button>
+            <button class="filter-btn" data-category="tools">🛠️ Công cụ</button>
+        </div>
+
+        <!-- Diagram Container -->
+        <div class="diagram-container expanded" id="diagramContainer">
+            <!-- Story Mode Narration -->
+            <div class="story-narration" id="storyNarration">
+                <div class="story-text" id="storyText"></div>
+            </div>
+
+            <!-- ==================== FOUNDATION (1-4) ==================== -->
+            
+            <div class="node sa-role" data-component="sa-role" data-category="foundation" data-step="1">
+                <div class="node-number">1</div>
+                <div class="node-icon">🏗️</div>
+                <div class="node-label">SA Role</div>
+                <div class="node-hint">Vai trò SA</div>
+            </div>
+
+            <div class="node requirements" data-component="requirements" data-category="foundation" data-step="2">
+                <div class="node-number">2</div>
+                <div class="node-icon">📋</div>
+                <div class="node-label">Requirements</div>
+                <div class="node-hint">Yêu cầu</div>
+            </div>
+
+            <div class="node stakeholder" data-component="stakeholder" data-category="foundation" data-step="3">
+                <div class="node-number">3</div>
+                <div class="node-icon">👥</div>
+                <div class="node-label">Stakeholders</div>
+                <div class="node-hint">Các bên liên quan</div>
+            </div>
+
+            <div class="node business-analysis" data-component="business-analysis" data-category="foundation" data-step="4">
+                <div class="node-number">4</div>
+                <div class="node-icon">📊</div>
+                <div class="node-label">Business Analysis</div>
+                <div class="node-hint">Phân tích nghiệp vụ</div>
+            </div>
+
+            <!-- ==================== ARCHITECTURE (5-8) ==================== -->
+
+            <div class="node arch-patterns" data-component="arch-patterns" data-category="architecture" data-step="5">
+                <div class="node-number">5</div>
+                <div class="node-icon">🏛️</div>
+                <div class="node-label">Arch Patterns</div>
+                <div class="node-hint">Mẫu kiến trúc</div>
+            </div>
+
+            <div class="node microservices" data-component="microservices" data-category="architecture" data-step="6">
+                <div class="node-number">6</div>
+                <div class="node-icon">🔲</div>
+                <div class="node-label">Microservices</div>
+                <div class="node-hint">Vi dịch vụ</div>
+            </div>
+
+            <div class="node event-driven" data-component="event-driven" data-category="architecture" data-step="7">
+                <div class="node-number">7</div>
+                <div class="node-icon">⚡</div>
+                <div class="node-label">Event-Driven</div>
+                <div class="node-hint">Hướng sự kiện</div>
+            </div>
+
+            <div class="node monolith" data-component="monolith" data-category="architecture" data-step="8">
+                <div class="node-number">8</div>
+                <div class="node-icon">🧱</div>
+                <div class="node-label">Monolith</div>
+                <div class="node-hint">Khối nguyên khối</div>
+            </div>
+
+            <!-- ==================== TECHNICAL (9-14) ==================== -->
+
+            <div class="node cloud-services" data-component="cloud-services" data-category="technical" data-step="9">
+                <div class="node-number">9</div>
+                <div class="node-icon">☁️</div>
+                <div class="node-label">Cloud</div>
+                <div class="node-hint">AWS/Azure/GCP</div>
+            </div>
+
+            <div class="node databases" data-component="databases" data-category="technical" data-step="10">
+                <div class="node-number">10</div>
+                <div class="node-icon">🗄️</div>
+                <div class="node-label">Databases</div>
+                <div class="node-hint">SQL/NoSQL</div>
+            </div>
+
+            <div class="node security" data-component="security" data-category="technical" data-step="11">
+                <div class="node-number">11</div>
+                <div class="node-icon">🔐</div>
+                <div class="node-label">Security</div>
+                <div class="node-hint">Bảo mật</div>
+            </div>
+
+            <div class="node scalability" data-component="scalability" data-category="technical" data-step="12">
+                <div class="node-number">12</div>
+                <div class="node-icon">📈</div>
+                <div class="node-label">Scalability</div>
+                <div class="node-hint">Mở rộng</div>
+            </div>
+
+            <div class="node api-design" data-component="api-design" data-category="technical" data-step="13">
+                <div class="node-number">13</div>
+                <div class="node-icon">🔌</div>
+                <div class="node-label">API Design</div>
+                <div class="node-hint">Thiết kế API</div>
+            </div>
+
+            <div class="node devops" data-component="devops" data-category="technical" data-step="14">
+                <div class="node-number">14</div>
+                <div class="node-icon">🔄</div>
+                <div class="node-label">DevOps</div>
+                <div class="node-hint">CI/CD</div>
+            </div>
+
+            <!-- ==================== SOFT SKILLS (15-17) ==================== -->
+
+            <div class="node communication" data-component="communication" data-category="soft-skills" data-step="15">
+                <div class="node-number">15</div>
+                <div class="node-icon">💬</div>
+                <div class="node-label">Communication</div>
+                <div class="node-hint">Giao tiếp</div>
+            </div>
+
+            <div class="node leadership" data-component="leadership" data-category="soft-skills" data-step="16">
+                <div class="node-number">16</div>
+                <div class="node-icon">👔</div>
+                <div class="node-label">Leadership</div>
+                <div class="node-hint">Lãnh đạo</div>
+            </div>
+
+            <div class="node decision-making" data-component="decision-making" data-category="soft-skills" data-step="17">
+                <div class="node-number">17</div>
+                <div class="node-icon">⚖️</div>
+                <div class="node-label">Decision Making</div>
+                <div class="node-hint">Ra quyết định</div>
+            </div>
+
+            <!-- ==================== TOOLS & DOCUMENTATION (18-20) ==================== -->
+
+            <div class="node documentation" data-component="documentation" data-category="tools" data-step="18">
+                <div class="node-number">18</div>
+                <div class="node-icon">📝</div>
+                <div class="node-label">Documentation</div>
+                <div class="node-hint">Tài liệu</div>
+            </div>
+
+            <div class="node diagramming" data-component="diagramming" data-category="tools" data-step="19">
+                <div class="node-number">19</div>
+                <div class="node-icon">📐</div>
+                <div class="node-label">Diagramming</div>
+                <div class="node-hint">Vẽ sơ đồ</div>
+            </div>
+
+            <div class="node adr" data-component="adr" data-category="tools" data-step="20">
+                <div class="node-number">20</div>
+                <div class="node-icon">📚</div>
+                <div class="node-label">ADR</div>
+                <div class="node-hint">Architecture Decisions</div>
+            </div>
+
+            <!-- SVG for connection lines -->
+            <svg class="connection-svg" id="connectionSvg"></svg>
+        </div>
+
+        <!-- Quick Info Cards -->
+        <div class="quick-info-section">
+            <div class="quick-card">
+                <div class="quick-icon">🎯</div>
+                <div class="quick-content">
+                    <h4>Vai trò chính</h4>
+                    <p>Thiết kế giải pháp kỹ thuật đáp ứng yêu cầu nghiệp vụ</p>
+                </div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon">💰</div>
+                <div class="quick-content">
+                    <h4>Thu nhập</h4>
+                    <p>$120K - $200K+/năm (US), 50-150tr VND/tháng (VN)</p>
+                </div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon">⏱️</div>
+                <div class="quick-content">
+                    <h4>Thời gian học</h4>
+                    <p>5-10 năm kinh nghiệm để thành SA senior</p>
+                </div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-icon">📈</div>
+                <div class="quick-content">
+                    <h4>Nhu cầu thị trường</h4>
+                    <p>Rất cao - Thiếu hụt SA trên toàn cầu</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Panel (slides from right) -->
+    <div class="detail-panel" id="detailPanel">
+        <div class="detail-header">
+            <div class="detail-title">
+                <span class="detail-icon" id="detailIcon">🏗️</span>
+                <h2 id="detailTitle">Component Title</h2>
+            </div>
+            <button class="close-btn" id="closeDetail">✕</button>
+        </div>
+        <div class="detail-tabs">
+            <button class="tab-btn active" data-tab="simple">📖 Cơ bản</button>
+            <button class="tab-btn" data-tab="detail">📚 Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">🎓 Nâng cao</button>
+            <button class="tab-btn" data-tab="practice">💻 Thực hành</button>
+        </div>
+        <div class="detail-content" id="detailContent">
+            <!-- Content loaded dynamically -->
+        </div>
+        <div class="detail-footer">
+            <div class="related-components">
+                <span class="related-label">Liên quan:</span>
+                <div class="related-list" id="relatedList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Modal -->
+    <div class="modal-overlay" id="scenarioModal">
+        <div class="modal-content scenario-modal">
+            <div class="modal-header">
+                <h2>📖 Các Kịch Bản Thực Tế</h2>
+                <button class="close-btn" id="closeScenario">✕</button>
+            </div>
+            <div class="scenario-list" id="scenarioList"></div>
+        </div>
+    </div>
+
+    <!-- Roadmap Modal -->
+    <div class="modal-overlay" id="roadmapModal">
+        <div class="modal-content roadmap-modal">
+            <div class="modal-header">
+                <h2>🗺️ Lộ Trình Trở Thành SA</h2>
+                <button class="close-btn" id="closeRoadmap">✕</button>
+            </div>
+            <div class="roadmap-content" id="roadmapContent">
+                <div class="roadmap-timeline">
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-icon">🌱</span>
+                            <h3>Năm 1-2: Junior Developer</h3>
+                        </div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>✅ Thành thạo 1-2 ngôn ngữ lập trình</li>
+                                <li>✅ Hiểu Git, CI/CD cơ bản</li>
+                                <li>✅ Làm việc với SQL/NoSQL</li>
+                                <li>✅ Xây dựng REST APIs</li>
+                                <li>✅ Viết unit tests</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-icon">🌿</span>
+                            <h3>Năm 3-4: Senior Developer</h3>
+                        </div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>✅ Design patterns & SOLID</li>
+                                <li>✅ System design cơ bản</li>
+                                <li>✅ Cloud services (AWS/Azure)</li>
+                                <li>✅ Performance optimization</li>
+                                <li>✅ Mentor junior devs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-icon">🌲</span>
+                            <h3>Năm 5-7: Tech Lead / Architect</h3>
+                        </div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>✅ Architecture patterns</li>
+                                <li>✅ Microservices design</li>
+                                <li>✅ Cross-team communication</li>
+                                <li>✅ Technology evaluation</li>
+                                <li>✅ ADRs & documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-icon">🏆</span>
+                            <h3>Năm 8+: Solution Architect</h3>
+                        </div>
+                        <div class="phase-content">
+                            <ul>
+                                <li>✅ Enterprise architecture</li>
+                                <li>✅ Business strategy alignment</li>
+                                <li>✅ Multi-system integration</li>
+                                <li>✅ Vendor management</li>
+                                <li>✅ C-level communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
