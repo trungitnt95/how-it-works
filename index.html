@@ -168,14 +168,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .topic-card.architect {
-            --card-color-1: #00d4ff;
-            --card-color-2: #7b2cbf;
-        }
-
-        .topic-card.design {
-            --card-color-1: #9b59b6;
-            --card-color-2: #3498db;
         .topic-card.power {
             --card-color-1: #ffd700;
             --card-color-2: #9b59b6;
@@ -358,6 +350,116 @@
         .topic-card:nth-child(4) { animation-delay: 0.4s; }
         .topic-card:nth-child(5) { animation-delay: 0.5s; }
         .topic-card:nth-child(6) { animation-delay: 0.6s; }
+        .topic-card:nth-child(7) { animation-delay: 0.7s; }
+        .topic-card:nth-child(8) { animation-delay: 0.8s; }
+        .topic-card:nth-child(9) { animation-delay: 0.9s; }
+        .topic-card:nth-child(10) { animation-delay: 1s; }
+
+        /* Additional card types */
+        .topic-card.decision {
+            --card-color-1: #9b59b6;
+            --card-color-2: #3498db;
+        }
+
+        .topic-card.trading {
+            --card-color-1: #27ae60;
+            --card-color-2: #f39c12;
+        }
+
+        .topic-card.psychology {
+            --card-color-1: #e91e63;
+            --card-color-2: #9c27b0;
+        }
+
+        .topic-card.fengshui {
+            --card-color-1: #00bcd4;
+            --card-color-2: #4caf50;
+        }
+
+        .topic-card.design {
+            --card-color-1: #ff5722;
+            --card-color-2: #ff9800;
+        }
+
+        .topic-card.architect {
+            --card-color-1: #607d8b;
+            --card-color-2: #9e9e9e;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .clear-search {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.3rem;
+            display: none;
+        }
+
+        .clear-search.visible {
+            display: block;
+        }
+
+        .clear-search:hover {
+            color: #fff;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        .topic-card.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -381,15 +483,28 @@
         <p>Những hệ thống phức tạp được trực quan hóa một cách đơn giản, dễ hiểu qua các sơ đồ tương tác.</p>
     </section>
 
+    <div class="search-container">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Tìm kiếm chủ đề... (tiền, quyền lực, trading, tâm lý...)">
+            <button class="clear-search" id="clearSearch">✕</button>
+        </div>
+    </div>
+
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count">3 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">6 có sẵn • 4 sắp ra mắt</span>
+        </div>
+        <div class="no-results" id="noResults">
+            <span style="font-size: 3rem;">🔍</span>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">Không tìm thấy chủ đề nào phù hợp</p>
+            <p style="margin-top: 0.5rem;">Thử tìm với từ khóa khác</p>
         </div>
 
         <div class="topics-grid">
             <!-- Money - Available -->
-            <div class="topic-card money" onclick="location.href='money/'">
+            <div class="topic-card money" onclick="location.href='money/'" data-tags="tiền money tài chính ngân hàng đầu tư crypto">
                 <div class="card-icon">💰</div>
                 <h3 class="card-title">Tiền Hoạt Động Như Thế Nào</h3>
                 <p class="card-subtitle">Hiểu hết về tiền tệ và hệ thống tài chính</p>
@@ -412,51 +527,8 @@
                 </div>
             </div>
 
-            <!-- Solution Architect - Available -->
-            <div class="topic-card architect" onclick="location.href='solution-architect/'">
-                <div class="card-icon">🏗️</div>
-                <h3 class="card-title">Solution Architect Hoạt Động Như Thế Nào</h3>
-                <p class="card-subtitle">Con đường từ Developer đến Solution Architect</p>
-                <p class="card-description">
-                    Khám phá vai trò của Solution Architect - người thiết kế hệ thống phần mềm.
-                    Từ requirements đến architecture patterns, từ technical skills đến soft skills.
-                </p>
-                <div class="card-tags">
-                    <span class="tag">Architecture</span>
-                    <span class="tag">Microservices</span>
-                    <span class="tag">Cloud</span>
-                    <span class="tag">Leadership</span>
-                </div>
-                <div class="card-footer">
-                    <div class="card-stats">
-                        <span class="stat">📊 20 kỹ năng</span>
-                        <span class="stat">📖 6 kịch bản</span>
-                    </div>
-                    <button class="explore-btn">Khám phá →</button>
-                </div>
-            </div>
-
-            <!-- Design Patterns - Available -->
-            <div class="topic-card design" onclick="location.href='design-patterns/'">
-                <div class="card-icon">🎨</div>
-                <h3 class="card-title">Design Pattern Hoạt Động Như Thế Nào</h3>
-                <p class="card-subtitle">23 mẫu thiết kế kinh điển từ Gang of Four</p>
-                <p class="card-description">
-                    Khám phá các giải pháp đã được chứng minh cho các vấn đề phổ biến trong thiết kế phần mềm.
-                    Từ Singleton đến Observer, từ Factory đến Strategy - hiểu và áp dụng đúng cách.
-                </p>
-                <div class="card-tags">
-                    <span class="tag">Creational</span>
-                    <span class="tag">Structural</span>
-                    <span class="tag">Behavioral</span>
-                    <span class="tag">OOP</span>
-                </div>
-                <div class="card-footer">
-                    <div class="card-stats">
-                        <span class="stat">📊 22 patterns</span>
-                        <span class="stat">📖 3 cấp độ</span>
             <!-- Power - Available -->
-            <div class="topic-card power" onclick="location.href='power/'">
+            <div class="topic-card power" onclick="location.href='power/'" data-tags="quyền lực power chính trị kinh tế lịch sử nhà nước">
                 <div class="card-icon">👑</div>
                 <h3 class="card-title">Quyền Lực Hoạt Động Như Thế Nào</h3>
                 <p class="card-subtitle">Hiểu hết về quyền lực và các hình thái xã hội</p>
@@ -525,8 +597,146 @@
                 </div>
             </div>
 
+            <!-- Decision - Available -->
+            <div class="topic-card decision" onclick="location.href='decision/'" data-tags="quyết định decision tư duy logic phân tích lựa chọn">
+                <div class="card-icon">🧠</div>
+                <h3 class="card-title">Quyết Định Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về đưa ra quyết định</p>
+                <p class="card-description">
+                    Khám phá cách não bộ xử lý thông tin và đưa ra quyết định. 
+                    Các mô hình ra quyết định, thiên kiến nhận thức, và cách cải thiện khả năng phán đoán.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Tư duy</span>
+                    <span class="tag">Logic</span>
+                    <span class="tag">Phân tích</span>
+                    <span class="tag">Thiên kiến</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Trading - Available -->
+            <div class="topic-card trading" onclick="location.href='trading/'" data-tags="trading giao dịch chứng khoán forex crypto bitcoin đầu tư">
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">Trading Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về giao dịch tài chính</p>
+                <p class="card-description">
+                    Khám phá thế giới trading từ cơ bản đến nâng cao. 
+                    Phân tích kỹ thuật, quản lý rủi ro, tâm lý giao dịch và các chiến lược trading hiệu quả.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Chứng khoán</span>
+                    <span class="tag">Forex</span>
+                    <span class="tag">Crypto</span>
+                    <span class="tag">Phân tích</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Psychology - Available -->
+            <div class="topic-card psychology" onclick="location.href='psychology/'" data-tags="tâm lý psychology lòng người con người tính cách MBTI">
+                <div class="card-icon">💭</div>
+                <h3 class="card-title">Tâm Lý Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về các kiểu người và lòng người</p>
+                <p class="card-description">
+                    Khám phá tâm lý con người, các kiểu tính cách, và cách đọc hiểu người khác. 
+                    MBTI, ngôn ngữ cơ thể, tâm lý học hành vi và nghệ thuật giao tiếp.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Tính cách</span>
+                    <span class="tag">MBTI</span>
+                    <span class="tag">Hành vi</span>
+                    <span class="tag">Giao tiếp</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Feng Shui - Available -->
+            <div class="topic-card fengshui" onclick="location.href='fengshui/'" data-tags="phong thủy fengshui năng lượng không gian nhà cửa">
+                <div class="card-icon">🏠</div>
+                <h3 class="card-title">Phong Thủy Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về phong thủy và năng lượng</p>
+                <p class="card-description">
+                    Khám phá nghệ thuật phong thủy cổ truyền. 
+                    Ngũ hành, bát quái, cách bố trí không gian sống và làm việc để tối ưu năng lượng.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Ngũ hành</span>
+                    <span class="tag">Bát quái</span>
+                    <span class="tag">Không gian</span>
+                    <span class="tag">Năng lượng</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Internet - Coming Soon -->
+            <div class="topic-card tech coming-soon" data-tags="internet mạng DNS HTTP cloud server web">
+                <div class="card-icon">🌐</div>
+                <h3 class="card-title">Internet Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ DNS đến HTTP, từ Router đến Cloud</p>
+                <p class="card-description">
+                    Hiểu cách một trang web được load từ server đến trình duyệt của bạn. 
+                    DNS, TCP/IP, HTTP, CDN, và các công nghệ đằng sau mạng Internet.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">DNS</span>
+                    <span class="tag">HTTP</span>
+                    <span class="tag">Cloud</span>
+                    <span class="tag">Security</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">🔜 Sắp ra mắt</span>
+                    </div>
+                    <span class="coming-badge">Coming Soon</span>
+                </div>
+            </div>
+
+            <!-- Body - Coming Soon -->
+            <div class="topic-card health coming-soon" data-tags="cơ thể body sức khỏe tim mạch tiêu hóa thần kinh">
+                <div class="card-icon">🫀</div>
+                <h3 class="card-title">Cơ Thể Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hệ tuần hoàn, tiêu hóa, thần kinh</p>
+                <p class="card-description">
+                    Khám phá cơ thể người như một hệ thống hoàn hảo. 
+                    Máu được bơm như thế nào, thức ăn được tiêu hóa ra sao, não bộ xử lý thông tin như thế nào.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Tim mạch</span>
+                    <span class="tag">Tiêu hóa</span>
+                    <span class="tag">Thần kinh</span>
+                    <span class="tag">Miễn dịch</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">🔜 Sắp ra mắt</span>
+                    </div>
+                    <span class="coming-badge">Coming Soon</span>
+                </div>
+            </div>
+
             <!-- Energy - Coming Soon -->
-            <div class="topic-card science coming-soon">
+            <div class="topic-card science coming-soon" data-tags="năng lượng energy điện lưới điện pin">
                 <div class="card-icon">⚡</div>
                 <h3 class="card-title">Năng Lượng Hoạt Động Như Thế Nào</h3>
                 <p class="card-subtitle">Từ nhà máy điện đến ổ cắm nhà bạn</p>
@@ -547,6 +757,52 @@
                     <span class="coming-badge">Coming Soon</span>
                 </div>
             </div>
+
+            <!-- Design Patterns - Available -->
+            <div class="topic-card design" onclick="location.href='design-patterns/'" data-tags="design patterns mẫu thiết kế lập trình software">
+                <div class="card-icon">🎨</div>
+                <h3 class="card-title">Design Patterns Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về các mẫu thiết kế phần mềm</p>
+                <p class="card-description">
+                    Khám phá các mẫu thiết kế phổ biến trong lập trình. 
+                    Singleton, Factory, Observer, Strategy và nhiều patterns khác.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Singleton</span>
+                    <span class="tag">Factory</span>
+                    <span class="tag">Observer</span>
+                    <span class="tag">Strategy</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Solution Architect - Available -->
+            <div class="topic-card architect" onclick="location.href='solution-architect/'" data-tags="solution architect kiến trúc hệ thống microservices cloud">
+                <div class="card-icon">🏗️</div>
+                <h3 class="card-title">Kiến Trúc Hệ Thống Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về thiết kế kiến trúc phần mềm</p>
+                <p class="card-description">
+                    Khám phá cách thiết kế các hệ thống lớn và phức tạp. 
+                    Microservices, Event-driven, CQRS, và các pattern kiến trúc hiện đại.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Microservices</span>
+                    <span class="tag">Event-driven</span>
+                    <span class="tag">CQRS</span>
+                    <span class="tag">Cloud</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -554,5 +810,70 @@
         <p>Made with ❤️ by <a href="https://github.com/trungnd6" target="_blank">trungnd6</a></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Kiến thức phức tạp, trình bày đơn giản</p>
     </footer>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const clearSearch = document.getElementById('clearSearch');
+        const topicCards = document.querySelectorAll('.topic-card');
+        const noResults = document.getElementById('noResults');
+        const topicCount = document.getElementById('topicCount');
+
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/đ/g, 'd')
+                .replace(/Đ/g, 'D');
+        }
+
+        function updateTopicCount() {
+            const visible = document.querySelectorAll('.topic-card:not(.hidden)');
+            const available = Array.from(visible).filter(card => !card.classList.contains('coming-soon')).length;
+            const comingSoon = Array.from(visible).filter(card => card.classList.contains('coming-soon')).length;
+            
+            if (visible.length === 0) {
+                topicCount.textContent = 'Không tìm thấy';
+            } else {
+                topicCount.textContent = `${available} có sẵn • ${comingSoon} sắp ra mắt`;
+            }
+        }
+
+        function filterCards() {
+            const query = normalizeText(searchInput.value.trim());
+            let hasResults = false;
+
+            topicCards.forEach(card => {
+                const title = normalizeText(card.querySelector('.card-title').textContent);
+                const subtitle = normalizeText(card.querySelector('.card-subtitle').textContent);
+                const description = normalizeText(card.querySelector('.card-description').textContent);
+                const tags = normalizeText(card.dataset.tags || '');
+                
+                const searchText = `${title} ${subtitle} ${description} ${tags}`;
+                
+                if (query === '' || searchText.includes(query)) {
+                    card.classList.remove('hidden');
+                    hasResults = true;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.classList.toggle('visible', !hasResults);
+            clearSearch.classList.toggle('visible', searchInput.value.length > 0);
+            updateTopicCount();
+        }
+
+        searchInput.addEventListener('input', filterCards);
+        
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            filterCards();
+            searchInput.focus();
+        });
+
+        // Update initial count
+        updateTopicCount();
+    </script>
 </body>
 </html>
