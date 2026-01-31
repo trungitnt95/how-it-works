@@ -238,13 +238,15 @@ function updateOverallImpact(govStrategy, busStrategy, famStrategy, bankStrategy
     }
     
     // Add specific metrics summary
-    const gdpGrowth = ((economicModel.business.revenue + economicModel.family.spending) / 250 - 1) * 100;
+    // BASE_GDP represents the baseline GDP (200B business revenue + 50K family spending = 250)
+    const BASE_GDP = 250;
+    const gdpGrowth = ((economicModel.business.revenue + economicModel.family.spending) / BASE_GDP - 1) * 100;
     const jobGrowth = (economicModel.business.employment - 100);
     
-    impact += `<br><br><strong>Key Metrics:</strong><br>`;
-    impact += `• GDP Growth: ${gdpGrowth > 0 ? '+' : ''}${gdpGrowth.toFixed(1)}%<br>`;
-    impact += `• Employment Change: ${jobGrowth > 0 ? '+' : ''}${jobGrowth.toFixed(0)}K jobs<br>`;
-    impact += `• Government Debt: ${economicModel.government.debt > 0 ? '+' : ''}$${economicModel.government.debt}B`;
+    impact += `<br><br><strong>Key Metrics:</strong><br>
+• GDP Growth: ${gdpGrowth > 0 ? '+' : ''}${gdpGrowth.toFixed(1)}%<br>
+• Employment Change: ${jobGrowth > 0 ? '+' : ''}${jobGrowth.toFixed(0)}K jobs<br>
+• Government Debt: ${economicModel.government.debt > 0 ? '+' : ''}$${economicModel.government.debt}B`;
     
     document.getElementById('overall-impact').innerHTML = impact;
 }
