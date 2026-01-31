@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Money Works - Interactive Flow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Topics</a>
+            <h1>How Money Works</h1>
+            <p class="subtitle">Explore the flow of money through different components of the economy</p>
+        </header>
+        
+        <main>
+            <div class="controls-panel">
+                <h3>Choose Strategies</h3>
+                <div class="control-group">
+                    <label for="government-strategy">Government Strategy:</label>
+                    <select id="government-strategy" onchange="updateFlow()">
+                        <option value="balanced">Balanced Budget</option>
+                        <option value="stimulus">Economic Stimulus</option>
+                        <option value="austerity">Austerity Measures</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="business-strategy">Business Strategy:</label>
+                    <select id="business-strategy" onchange="updateFlow()">
+                        <option value="growth">Growth Mode</option>
+                        <option value="conservative">Conservative</option>
+                        <option value="aggressive">Aggressive Expansion</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="family-strategy">Family Strategy:</label>
+                    <select id="family-strategy" onchange="updateFlow()">
+                        <option value="saving">Saving Mode</option>
+                        <option value="spending">Spending Mode</option>
+                        <option value="investing">Investing Mode</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="bank-strategy">Bank Strategy:</label>
+                    <select id="bank-strategy" onchange="updateFlow()">
+                        <option value="moderate">Moderate Lending</option>
+                        <option value="tight">Tight Credit</option>
+                        <option value="loose">Loose Credit</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flow-diagram">
+                <div class="component government">
+                    <h3>🏛️ Government</h3>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <span class="label">Revenue:</span>
+                            <span id="gov-revenue" class="value">$100B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Spending:</span>
+                            <span id="gov-spending" class="value">$100B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Debt:</span>
+                            <span id="gov-debt" class="value">$0B</span>
+                        </div>
+                    </div>
+                    <div id="gov-impact" class="impact-message"></div>
+                </div>
+                
+                <div class="component business">
+                    <h3>🏢 Business</h3>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <span class="label">Revenue:</span>
+                            <span id="bus-revenue" class="value">$200B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Investment:</span>
+                            <span id="bus-investment" class="value">$50B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Employment:</span>
+                            <span id="bus-employment" class="value">100K</span>
+                        </div>
+                    </div>
+                    <div id="bus-impact" class="impact-message"></div>
+                </div>
+                
+                <div class="component family">
+                    <h3>👨‍👩‍👧‍👦 Family</h3>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <span class="label">Income:</span>
+                            <span id="fam-income" class="value">$60K</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Savings:</span>
+                            <span id="fam-savings" class="value">$10K</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Spending:</span>
+                            <span id="fam-spending" class="value">$50K</span>
+                        </div>
+                    </div>
+                    <div id="fam-impact" class="impact-message"></div>
+                </div>
+                
+                <div class="component bank">
+                    <h3>🏦 Bank</h3>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <span class="label">Deposits:</span>
+                            <span id="bank-deposits" class="value">$500B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Loans:</span>
+                            <span id="bank-loans" class="value">$400B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Interest Rate:</span>
+                            <span id="bank-rate" class="value">5%</span>
+                        </div>
+                    </div>
+                    <div id="bank-impact" class="impact-message"></div>
+                </div>
+            </div>
+            
+            <div class="summary-panel">
+                <h3>Economic Impact Summary</h3>
+                <div id="overall-impact" class="overall-impact">
+                    Select different strategies to see how they affect the economy
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="money-flow.js"></script>
+</body>
+</html>
