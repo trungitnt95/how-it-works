@@ -325,8 +325,21 @@
     <div class="scenario-overlay" id="scenarioModal">
         <div class="scenario-content">
             <button class="modal-close" id="closeScenario">&times;</button>
-            <h2>📖 Kịch Bản Thực Tế (30+ kịch bản)</h2>
-            <p class="scenario-intro">Chọn một kịch bản để xem tiền chảy như thế nào:</p>
+            <h2>📖 Kịch Bản Thực Tế (50+ kịch bản)</h2>
+            <p class="scenario-intro">Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào:</p>
+            
+            <!-- Country/Region Selector -->
+            <div class="country-selector">
+                <label>🌍 Quốc gia/Khu vực:</label>
+                <select id="countrySelect">
+                    <option value="vn" selected>🇻🇳 Việt Nam</option>
+                    <option value="us">🇺🇸 Mỹ (USA)</option>
+                    <option value="cn">🇨🇳 Trung Quốc</option>
+                    <option value="jp">🇯🇵 Nhật Bản</option>
+                    <option value="eu">🇪🇺 Châu Âu (EU)</option>
+                    <option value="kr">🇰🇷 Hàn Quốc</option>
+                </select>
+            </div>
             
             <div class="scenario-categories">
                 <button class="scenario-cat-btn active" data-cat="all">Tất cả</button>
@@ -334,10 +347,59 @@
                 <button class="scenario-cat-btn" data-cat="business">🏭 Doanh nghiệp</button>
                 <button class="scenario-cat-btn" data-cat="investment">📈 Đầu tư</button>
                 <button class="scenario-cat-btn" data-cat="crisis">⚠️ Khủng hoảng</button>
+                <button class="scenario-cat-btn" data-cat="fraud">🦹 Gian lận</button>
+                <button class="scenario-cat-btn" data-cat="war">⚔️ Chiến tranh tiền tệ</button>
                 <button class="scenario-cat-btn" data-cat="modern">⚡ Hiện đại</button>
             </div>
             
+            <div class="scenario-selection-bar">
+                <span id="selectedCount">0 kịch bản được chọn</span>
+                <button class="run-selected-btn" id="runSelectedBtn" disabled>▶️ Chạy các kịch bản đã chọn</button>
+                <button class="clear-selection-btn" id="clearSelectionBtn">✖️ Bỏ chọn</button>
+            </div>
+            
             <div class="scenario-list" id="scenarioList"></div>
+        </div>
+    </div>
+
+    <!-- Interactive Scenario Player Modal -->
+    <div class="scenario-player-overlay" id="scenarioPlayerModal">
+        <div class="scenario-player-content">
+            <button class="modal-close" id="closePlayer">&times;</button>
+            <div class="player-header">
+                <h2 id="playerTitle">📖 Kịch bản</h2>
+                <div class="player-progress">
+                    <span id="playerStepInfo">Bước 1/6</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="playerProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-body">
+                <div class="player-step-content" id="playerStepContent">
+                    <div class="step-node-icon" id="stepNodeIcon"></div>
+                    <div class="step-text" id="stepText"></div>
+                </div>
+                
+                <div class="player-simulation" id="playerSimulation">
+                    <h4>📊 Chi tiết tính toán:</h4>
+                    <div class="simulation-inputs" id="simInputs"></div>
+                    <div class="simulation-outputs" id="simOutputs"></div>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="playerPrev">⬅️ Trước</button>
+                <button class="player-btn pause-btn" id="playerPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="playerNext">Tiếp ➡️</button>
+                <button class="player-btn skip-btn" id="playerSkip">⏭️ Bỏ qua kịch bản này</button>
+            </div>
+            
+            <div class="player-queue" id="playerQueue">
+                <h4>📋 Hàng đợi kịch bản:</h4>
+                <div class="queue-list" id="queueList"></div>
+            </div>
         </div>
     </div>
 

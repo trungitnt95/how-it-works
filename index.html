@@ -168,6 +168,11 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
+        .topic-card.power {
+            --card-color-1: #ffd700;
+            --card-color-2: #9b59b6;
+        }
+
         .topic-card.money {
             --card-color-1: #f39c12;
             --card-color-2: #e74c3c;
@@ -343,6 +348,7 @@
         .topic-card:nth-child(2) { animation-delay: 0.2s; }
         .topic-card:nth-child(3) { animation-delay: 0.3s; }
         .topic-card:nth-child(4) { animation-delay: 0.4s; }
+        .topic-card:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -369,7 +375,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count">1 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count">2 có sẵn • 3 sắp ra mắt</span>
         </div>
 
         <div class="topics-grid">
@@ -392,6 +398,30 @@
                     <div class="card-stats">
                         <span class="stat">📊 20 thành phần</span>
                         <span class="stat">📖 32 kịch bản</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Power - Available -->
+            <div class="topic-card power" onclick="location.href='power/'">
+                <div class="card-icon">👑</div>
+                <h3 class="card-title">Quyền Lực Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về quyền lực và các hình thái xã hội</p>
+                <p class="card-description">
+                    Khám phá các hình thái kinh tế trong lịch sử, từ công xã nguyên thủy đến toàn cầu hóa.
+                    Hiểu cách tổ chức nhà nước, ai nắm quyền lực và tại sao.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Lịch sử</span>
+                    <span class="tag">Chính trị</span>
+                    <span class="tag">Kinh tế</span>
+                    <span class="tag">Mô phỏng</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 18 thành phần</span>
+                        <span class="stat">📖 8 kịch bản</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>
