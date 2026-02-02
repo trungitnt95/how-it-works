@@ -710,15 +710,47 @@ main {
 /* ==================== SIMULATOR ==================== */
 .simulator-tabs {
     display: flex;
-    justify-content: flex-start;
-    gap: 0.4rem;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 1rem;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.25rem;
-    scrollbar-width: thin;
+    flex-wrap: wrap;
+}
+
+.simulator-label {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.simulator-select {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 0.6rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.simulator-select:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.simulator-select:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.3);
+}
+
+.simulator-select option {
+    background: #1a1a2e;
+    color: white;
+    padding: 0.5rem;
 }
 
 .sim-tab {
