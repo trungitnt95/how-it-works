@@ -2160,15 +2160,15 @@ function setupEventListeners() {
         }
     });
 
-    // Simulator tabs
-    document.querySelectorAll('.sim-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            document.querySelectorAll('.sim-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.simulator-panel').forEach(p => p.classList.remove('active'));
-            tab.classList.add('active');
-            document.querySelector(`[data-panel="${tab.dataset.sim}"]`).classList.add('active');
+    // Simulator tabs (event delegation because tabs are rendered dynamically)
+    const simulatorTabs = document.getElementById('simulatorTabs');
+    if (simulatorTabs) {
+        simulatorTabs.addEventListener('click', (e) => {
+            const tab = e.target.closest('.sim-tab');
+            if (!tab || !simulatorTabs.contains(tab)) return;
+            activateSimulator(tab.dataset.sim);
         });
-    });
+    }
     
     // Country selector
     const countrySelect = document.getElementById('countrySelect');
@@ -2263,6 +2263,32 @@ function setupEventListeners() {
             if (e.target === parallelPlayerOverlay) closeParallelPlayer();
         });
     }
+}
+
+// ==================== SIMULATOR REGISTRY ====================
+const SIMULATORS = [
+    { id: 'money-multiplier', label: '💰 Nhân tiền' },
+    { id: 'compound-interest', label: '📈 Lãi kép' },
+    { id: 'loan-calculator', label: '🏠 Tính vay' },
+    { id: 'inflation', label: '📊 Lạm phát' },
+
+    { id: 'real-return', label: '🧾 Lãi thực' },
+    { id: 'savings-goal', label: '🎯 Mục tiêu' },
+    { id: 'emergency-fund', label: '🛟 Quỹ dự phòng' },
+    { id: 'credit-card', label: '💳 Trả nợ thẻ' },
+    { id: 'dca', label: '🧺 DCA' },
+    { id: 'bond-price', label: '📜 Giá trái phiếu' },
+    { id: 'break-even', label: '⚖️ Hòa vốn' },
+    { id: 'salary-real', label: '🧑‍💼 Lương thực' },
+    { id: 'budget-50-30-20', label: '🧾 50/30/20' },
+    { id: 'net-worth', label: '🧮 Tài sản ròng' },
+    { id: 'fx-exchange', label: '💱 Đổi tiền' },
+    { id: 'kelly', label: '🎲 Kelly' }
+];
+
+function activateSimulator(simId) {
+    document.querySelectorAll('.sim-tab').forEach(t => t.classList.toggle('active', t.dataset.sim === simId));
+    document.querySelectorAll('.simulator-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === simId));
 }
 
 // ==================== RENDER FUNCTIONS ====================
@@ -2367,7 +2393,15 @@ function handleCountryChange() {
 }
 
 function renderSimulators() {
+    const tabsContainer = document.getElementById('simulatorTabs');
     const container = document.getElementById('simulatorPanels');
+
+    if (tabsContainer) {
+        tabsContainer.innerHTML = SIMULATORS.map((s, idx) => (
+            `<button class="sim-tab ${idx === 0 ? 'active' : ''}" data-sim="${s.id}">${s.label}</button>`
+        )).join('');
+    }
+
     container.innerHTML = `
         <div class="simulator-panel active" data-panel="money-multiplier">
             <p class="simulator-intro">Xem cách ngân hàng "tạo ra" tiền từ tiền gửi của bạn</p>
@@ -2460,36 +2494,349 @@ function renderSimulators() {
             </div>
             <div class="simulator-result" id="inflationResult"></div>
         </div>
+
+        <div class="simulator-panel" data-panel="real-return">
+            <p class="simulator-intro">Chuyển từ lãi danh nghĩa sang lãi thực (đã trừ lạm phát)</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💵 Số tiền ban đầu:</label>
+                    <input type="number" id="realPrincipal" value="100000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 Lãi suất danh nghĩa/năm:</label>
+                    <input type="range" id="nominalRate" value="10" min="0" max="30">
+                    <span id="nominalRateValue">10%</span>
+                </div>
+                <div class="input-group">
+                    <label>📊 Lạm phát/năm:</label>
+                    <input type="range" id="realInflationRate" value="4" min="-5" max="20">
+                    <span id="realInflationValue">4%</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Số năm:</label>
+                    <input type="range" id="realYears" value="10" min="1" max="40">
+                    <span id="realYearsValue">10 năm</span>
+                </div>
+                <button class="simulate-btn" onclick="runRealReturn()">🚀 Tính lãi thực</button>
+            </div>
+            <div class="simulator-result" id="realReturnResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="savings-goal">
+            <p class="simulator-intro">Bạn cần bao lâu để đạt mục tiêu tiết kiệm/đầu tư?</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🎯 Mục tiêu:</label>
+                    <input type="number" id="goalTarget" value="1000000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>💵 Bạn đang có:</label>
+                    <input type="number" id="goalStart" value="100000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>💰 Đóng thêm hàng tháng:</label>
+                    <input type="number" id="goalMonthly" value="5000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 Lãi suất kỳ vọng/năm:</label>
+                    <input type="range" id="goalRate" value="8" min="0" max="25">
+                    <span id="goalRateValue">8%</span>
+                </div>
+                <button class="simulate-btn" onclick="runSavingsGoal()">🚀 Tính thời gian</button>
+            </div>
+            <div class="simulator-result" id="goalResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="emergency-fund">
+            <p class="simulator-intro">Quỹ dự phòng giúp bạn “sống sót” khi thu nhập bị gián đoạn</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🧾 Chi phí/tháng:</label>
+                    <input type="number" id="efExpenses" value="15000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Số tháng dự phòng:</label>
+                    <input type="range" id="efMonths" value="6" min="1" max="18">
+                    <span id="efMonthsValue">6 tháng</span>
+                </div>
+                <div class="input-group">
+                    <label>🏦 Bạn đang có:</label>
+                    <input type="number" id="efCurrent" value="30000000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runEmergencyFund()">🚀 Tính quỹ dự phòng</button>
+            </div>
+            <div class="simulator-result" id="efResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="credit-card">
+            <p class="simulator-intro">Tính thời gian trả hết nợ thẻ tín dụng và tổng lãi</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💳 Dư nợ hiện tại:</label>
+                    <input type="number" id="ccBalance" value="50000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 APR (%/năm):</label>
+                    <input type="range" id="ccApr" value="30" min="0" max="60">
+                    <span id="ccAprValue">30%</span>
+                </div>
+                <div class="input-group">
+                    <label>💰 Trả mỗi tháng:</label>
+                    <input type="number" id="ccPayment" value="3000000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runCreditCardPayoff()">🚀 Tính trả nợ</button>
+            </div>
+            <div class="simulator-result" id="ccResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="dca">
+            <p class="simulator-intro">DCA: mua đều theo tháng khi giá tăng dần (mô hình đơn giản)</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💰 Đầu tư mỗi tháng:</label>
+                    <input type="number" id="dcaMonthly" value="5000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Số năm:</label>
+                    <input type="range" id="dcaYears" value="10" min="1" max="40">
+                    <span id="dcaYearsValue">10 năm</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 Lợi nhuận kỳ vọng/năm:</label>
+                    <input type="range" id="dcaReturn" value="10" min="-20" max="30">
+                    <span id="dcaReturnValue">10%</span>
+                </div>
+                <div class="input-group">
+                    <label>🏷️ Giá/đơn vị ban đầu (giả định):</label>
+                    <input type="number" id="dcaStartPrice" value="100000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runDca()">🚀 Mô phỏng DCA</button>
+            </div>
+            <div class="simulator-result" id="dcaResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="bond-price">
+            <p class="simulator-intro">Giá trái phiếu = hiện giá dòng tiền coupon + mệnh giá</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>📜 Mệnh giá:</label>
+                    <input type="number" id="bondFace" value="100000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>💵 Coupon (%/năm):</label>
+                    <input type="range" id="bondCoupon" value="8" min="0" max="20">
+                    <span id="bondCouponValue">8%</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 YTM (%/năm):</label>
+                    <input type="range" id="bondYtm" value="10" min="0" max="25">
+                    <span id="bondYtmValue">10%</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Kỳ hạn (năm):</label>
+                    <input type="range" id="bondYears" value="5" min="1" max="30">
+                    <span id="bondYearsValue">5 năm</span>
+                </div>
+                <div class="input-group">
+                    <label>🗓️ Trả coupon:</label>
+                    <input type="range" id="bondFreq" value="2" min="1" max="4">
+                    <span id="bondFreqValue">2 lần/năm</span>
+                </div>
+                <button class="simulate-btn" onclick="runBondPrice()">🚀 Tính giá</button>
+            </div>
+            <div class="simulator-result" id="bondResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="break-even">
+            <p class="simulator-intro">Hòa vốn: bán bao nhiêu để bù chi phí cố định?</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🏭 Chi phí cố định/tháng:</label>
+                    <input type="number" id="beFixed" value="30000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>🏷️ Giá bán/đơn vị:</label>
+                    <input type="number" id="bePrice" value="200000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📦 Biến phí/đơn vị:</label>
+                    <input type="number" id="beVar" value="80000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runBreakEven()">🚀 Tính hòa vốn</button>
+            </div>
+            <div class="simulator-result" id="beResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="salary-real">
+            <p class="simulator-intro">Lương tăng nhưng lạm phát cũng tăng: sức mua thay đổi ra sao?</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🧑‍💼 Lương hiện tại/tháng:</label>
+                    <input type="number" id="salaryNow" value="25000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 Tăng lương/năm:</label>
+                    <input type="range" id="salaryRaise" value="8" min="-10" max="30">
+                    <span id="salaryRaiseValue">8%</span>
+                </div>
+                <div class="input-group">
+                    <label>📊 Lạm phát/năm:</label>
+                    <input type="range" id="salaryInflation" value="4" min="-5" max="20">
+                    <span id="salaryInflationValue">4%</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Số năm:</label>
+                    <input type="range" id="salaryYears" value="10" min="1" max="40">
+                    <span id="salaryYearsValue">10 năm</span>
+                </div>
+                <button class="simulate-btn" onclick="runSalaryReal()">🚀 Tính sức mua</button>
+            </div>
+            <div class="simulator-result" id="salaryResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="budget-50-30-20">
+            <p class="simulator-intro">Quy tắc 50/30/20: nhu cầu / mong muốn / tiết kiệm-đầu tư</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💵 Thu nhập/tháng:</label>
+                    <input type="number" id="budgetIncome" value="30000000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runBudgetRule()">🚀 Chia ngân sách</button>
+            </div>
+            <div class="simulator-result" id="budgetResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="net-worth">
+            <p class="simulator-intro">Tài sản ròng = tổng tài sản - tổng nợ</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🏦 Tổng tài sản:</label>
+                    <input type="number" id="nwAssets" value="1200000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>🏚️ Tổng nợ:</label>
+                    <input type="number" id="nwLiabilities" value="600000000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runNetWorth()">🚀 Tính tài sản ròng</button>
+            </div>
+            <div class="simulator-result" id="nwResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="fx-exchange">
+            <p class="simulator-intro">Tính số tiền nhận được khi đổi tiền (có phí % và phí cố định)</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💵 Số tiền đổi:</label>
+                    <input type="number" id="fxAmount" value="10000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>💱 Tỷ giá (VND / 1 đơn vị):</label>
+                    <input type="number" id="fxRate" value="25000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>🧾 Phí (%):</label>
+                    <input type="range" id="fxFeePct" value="1" min="0" max="5">
+                    <span id="fxFeePctValue">1%</span>
+                </div>
+                <div class="input-group">
+                    <label>🧾 Phí cố định (VND):</label>
+                    <input type="number" id="fxFeeFixed" value="20000">
+                    <span>VND</span>
+                </div>
+                <button class="simulate-btn" onclick="runFxExchange()">🚀 Tính đổi tiền</button>
+            </div>
+            <div class="simulator-result" id="fxResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="kelly">
+            <p class="simulator-intro">Kelly giúp ước lượng % vốn đặt cược theo xác suất thắng và tỷ lệ lời/lỗ</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>🎯 Xác suất thắng (%):</label>
+                    <input type="range" id="kellyP" value="55" min="0" max="100">
+                    <span id="kellyPValue">55%</span>
+                </div>
+                <div class="input-group">
+                    <label>⚖️ Tỷ lệ lời/lỗ (b):</label>
+                    <input type="range" id="kellyB" value="2" min="0.5" max="5" step="0.1">
+                    <span id="kellyBValue">2.0</span>
+                </div>
+                <button class="simulate-btn" onclick="runKelly()">🚀 Tính Kelly</button>
+            </div>
+            <div class="simulator-result" id="kellyResult"></div>
+        </div>
     `;
 
-    // Add range input listeners
-    document.getElementById('reserveRatio').addEventListener('input', (e) => {
-        document.getElementById('reserveValue').textContent = e.target.value + '%';
-    });
-    document.getElementById('interestRate').addEventListener('input', (e) => {
-        document.getElementById('interestValue').textContent = e.target.value + '%';
-    });
-    document.getElementById('investYears').addEventListener('input', (e) => {
-        document.getElementById('yearsValue').textContent = e.target.value + ' năm';
-    });
-    document.getElementById('loanRate').addEventListener('input', (e) => {
-        document.getElementById('loanRateValue').textContent = e.target.value + '%';
-    });
-    document.getElementById('loanYears').addEventListener('input', (e) => {
-        document.getElementById('loanYearsValue').textContent = e.target.value + ' năm';
-    });
-    document.getElementById('inflationRate').addEventListener('input', (e) => {
-        document.getElementById('inflationRateValue').textContent = e.target.value + '%';
-    });
-    document.getElementById('inflationYears').addEventListener('input', (e) => {
-        document.getElementById('inflationYearsValue').textContent = e.target.value + ' năm';
-    });
+    // Add range input listeners (safe: only binds if elements exist)
+    const bindRange = (rangeId, labelId, formatter) => {
+        const rangeEl = document.getElementById(rangeId);
+        const labelEl = document.getElementById(labelId);
+        if (!rangeEl || !labelEl) return;
+        const update = () => { labelEl.textContent = formatter(rangeEl.value); };
+        rangeEl.addEventListener('input', update);
+        update();
+    };
+
+    bindRange('reserveRatio', 'reserveValue', v => `${v}%`);
+    bindRange('interestRate', 'interestValue', v => `${v}%`);
+    bindRange('investYears', 'yearsValue', v => `${v} năm`);
+    bindRange('loanRate', 'loanRateValue', v => `${v}%`);
+    bindRange('loanYears', 'loanYearsValue', v => `${v} năm`);
+    bindRange('inflationRate', 'inflationRateValue', v => `${v}%`);
+    bindRange('inflationYears', 'inflationYearsValue', v => `${v} năm`);
+
+    bindRange('nominalRate', 'nominalRateValue', v => `${v}%`);
+    bindRange('realInflationRate', 'realInflationValue', v => `${v}%`);
+    bindRange('realYears', 'realYearsValue', v => `${v} năm`);
+    bindRange('goalRate', 'goalRateValue', v => `${v}%`);
+    bindRange('efMonths', 'efMonthsValue', v => `${v} tháng`);
+    bindRange('ccApr', 'ccAprValue', v => `${v}%`);
+    bindRange('dcaYears', 'dcaYearsValue', v => `${v} năm`);
+    bindRange('dcaReturn', 'dcaReturnValue', v => `${v}%`);
+    bindRange('bondCoupon', 'bondCouponValue', v => `${v}%`);
+    bindRange('bondYtm', 'bondYtmValue', v => `${v}%`);
+    bindRange('bondYears', 'bondYearsValue', v => `${v} năm`);
+    bindRange('bondFreq', 'bondFreqValue', v => `${v} lần/năm`);
+    bindRange('salaryRaise', 'salaryRaiseValue', v => `${v}%`);
+    bindRange('salaryInflation', 'salaryInflationValue', v => `${v}%`);
+    bindRange('salaryYears', 'salaryYearsValue', v => `${v} năm`);
+    bindRange('fxFeePct', 'fxFeePctValue', v => `${v}%`);
+    bindRange('kellyP', 'kellyPValue', v => `${v}%`);
+    bindRange('kellyB', 'kellyBValue', v => `${parseFloat(v).toFixed(1)}`);
+
+    // Ensure first simulator is active
+    activateSimulator(SIMULATORS[0]?.id || 'money-multiplier');
 }
 
 // ==================== SIMULATOR FUNCTIONS ====================
 
 function formatMoney(num) {
     return new Intl.NumberFormat('vi-VN').format(Math.round(num)) + ' VND';
+}
+
+function formatCompact(num) {
+    if (!Number.isFinite(num)) return '--';
+    return new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(num);
 }
 
 function runMoneyMultiplier() {
@@ -2575,6 +2922,291 @@ function runInflationCalculator() {
             <strong>Cảnh báo:</strong> ${formatMoney(amount)} hôm nay chỉ mua được hàng hóa tương đương ${formatMoney(futureValue)} sau ${years} năm! 
             Bạn mất ${((lostValue / amount) * 100).toFixed(0)}% sức mua nếu chỉ để tiền mặt.
         </div>
+    `;
+}
+
+function runRealReturn() {
+    const principal = parseFloat(document.getElementById('realPrincipal').value);
+    const nominalRate = parseFloat(document.getElementById('nominalRate').value) / 100;
+    const inflationRate = parseFloat(document.getElementById('realInflationRate').value) / 100;
+    const years = parseInt(document.getElementById('realYears').value);
+
+    const nominalFV = principal * Math.pow(1 + nominalRate, years);
+    const realRate = (1 + nominalRate) / (1 + inflationRate) - 1;
+    const realFV = principal * Math.pow(1 + realRate, years);
+    const purchasingPowerFV = nominalFV / Math.pow(1 + inflationRate, years);
+
+    document.getElementById('realReturnResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Vốn ban đầu:</span><span class="result-value">${formatMoney(principal)}</span></div>
+        <div class="result-item"><span class="result-label">Danh nghĩa sau ${years} năm:</span><span class="result-value">${formatMoney(nominalFV)}</span></div>
+        <div class="result-item"><span class="result-label">Lãi thực (xấp xỉ):</span><span class="result-value">${(realRate * 100).toFixed(2)}%/năm</span></div>
+        <div class="result-item highlight"><span class="result-label">Sức mua (giá trị thực):</span><span class="result-value">${formatMoney(purchasingPowerFV)}</span></div>
+        <div class="result-explanation">
+            <strong>Gợi ý:</strong> Nếu lãi danh nghĩa ${ (nominalRate*100).toFixed(0)}% nhưng lạm phát ${ (inflationRate*100).toFixed(0)}% thì lãi thực chỉ còn khoảng ${(realRate*100).toFixed(2)}%.
+        </div>
+    `;
+}
+
+function runSavingsGoal() {
+    const target = parseFloat(document.getElementById('goalTarget').value);
+    const start = parseFloat(document.getElementById('goalStart').value);
+    const monthly = parseFloat(document.getElementById('goalMonthly').value);
+    const rate = parseFloat(document.getElementById('goalRate').value) / 100;
+
+    let total = start;
+    const monthlyRate = rate / 12;
+    let months = 0;
+    const maxMonths = 12 * 200;
+
+    while (total < target && months < maxMonths) {
+        total = total * (1 + monthlyRate) + monthly;
+        months++;
+    }
+
+    if (months >= maxMonths) {
+        document.getElementById('goalResult').innerHTML = `
+            <div class="result-explanation"><strong>Không hội tụ:</strong> Với thông số hiện tại, mục tiêu quá xa (hoặc đóng thêm quá ít). Hãy tăng đóng góp/tháng hoặc kỳ vọng lãi suất.</div>
+        `;
+        return;
+    }
+
+    const years = Math.floor(months / 12);
+    const remMonths = months % 12;
+    const contributed = start + monthly * months;
+    const interest = total - contributed;
+
+    document.getElementById('goalResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Mục tiêu:</span><span class="result-value">${formatMoney(target)}</span></div>
+        <div class="result-item"><span class="result-label">Thời gian ước tính:</span><span class="result-value">${years} năm ${remMonths} tháng</span></div>
+        <div class="result-item"><span class="result-label">Tổng bạn đóng:</span><span class="result-value">${formatMoney(contributed)}</span></div>
+        <div class="result-item"><span class="result-label">Lãi tích lũy:</span><span class="result-value">${formatMoney(interest)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Tổng đạt được:</span><span class="result-value">${formatMoney(total)}</span></div>
+    `;
+}
+
+function runEmergencyFund() {
+    const expenses = parseFloat(document.getElementById('efExpenses').value);
+    const months = parseInt(document.getElementById('efMonths').value);
+    const current = parseFloat(document.getElementById('efCurrent').value);
+
+    const needed = expenses * months;
+    const gap = needed - current;
+    const gapText = gap <= 0 ? '✅ Đã đủ (hoặc dư)' : `❗ Thiếu ${formatMoney(gap)}`;
+
+    document.getElementById('efResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Mức chi/tháng:</span><span class="result-value">${formatMoney(expenses)}</span></div>
+        <div class="result-item"><span class="result-label">Mục tiêu dự phòng:</span><span class="result-value">${months} tháng</span></div>
+        <div class="result-item highlight"><span class="result-label">Quỹ cần có:</span><span class="result-value">${formatMoney(needed)}</span></div>
+        <div class="result-item"><span class="result-label">Bạn đang có:</span><span class="result-value">${formatMoney(current)}</span></div>
+        <div class="result-explanation"><strong>Đánh giá:</strong> ${gapText}</div>
+    `;
+}
+
+function runCreditCardPayoff() {
+    const balance0 = parseFloat(document.getElementById('ccBalance').value);
+    const apr = parseFloat(document.getElementById('ccApr').value) / 100;
+    const payment = parseFloat(document.getElementById('ccPayment').value);
+
+    const r = apr / 12;
+    let balance = balance0;
+    let months = 0;
+    let totalInterest = 0;
+    const maxMonths = 12 * 50;
+
+    // Check if payment covers interest
+    const firstMonthInterest = balance * r;
+    if (payment <= firstMonthInterest && apr > 0) {
+        document.getElementById('ccResult').innerHTML = `
+            <div class="result-explanation"><strong>Cảnh báo:</strong> Mức trả ${formatMoney(payment)}/tháng không đủ để bù lãi tháng đầu ${formatMoney(firstMonthInterest)}. Dư nợ sẽ tăng dần. Hãy tăng mức trả/tháng.</div>
+        `;
+        return;
+    }
+
+    while (balance > 0.5 && months < maxMonths) {
+        const interest = balance * r;
+        totalInterest += interest;
+        balance = balance + interest - payment;
+        months++;
+        if (balance < 0) balance = 0;
+    }
+
+    const totalPaid = balance0 + totalInterest;
+    const years = Math.floor(months / 12);
+    const rem = months % 12;
+
+    document.getElementById('ccResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Dư nợ ban đầu:</span><span class="result-value">${formatMoney(balance0)}</span></div>
+        <div class="result-item"><span class="result-label">Thời gian trả hết:</span><span class="result-value">${years} năm ${rem} tháng</span></div>
+        <div class="result-item"><span class="result-label">Tổng lãi:</span><span class="result-value" style="color:#e67e22">${formatMoney(totalInterest)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Tổng đã trả:</span><span class="result-value">${formatMoney(totalPaid)}</span></div>
+    `;
+}
+
+function runDca() {
+    const monthly = parseFloat(document.getElementById('dcaMonthly').value);
+    const years = parseInt(document.getElementById('dcaYears').value);
+    const annualReturn = parseFloat(document.getElementById('dcaReturn').value) / 100;
+    let price = parseFloat(document.getElementById('dcaStartPrice').value);
+
+    const months = years * 12;
+    const monthlyGrowth = Math.pow(1 + annualReturn, 1 / 12) - 1;
+    let shares = 0;
+    let contributed = 0;
+
+    for (let i = 0; i < months; i++) {
+        shares += monthly / price;
+        contributed += monthly;
+        price *= (1 + monthlyGrowth);
+    }
+
+    const finalPrice = price / (1 + monthlyGrowth);
+    const value = shares * finalPrice;
+    const gain = value - contributed;
+    const gainPct = contributed > 0 ? (gain / contributed) * 100 : 0;
+
+    document.getElementById('dcaResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Tổng đã đầu tư:</span><span class="result-value">${formatMoney(contributed)}</span></div>
+        <div class="result-item"><span class="result-label">Số đơn vị tích lũy:</span><span class="result-value">${formatCompact(shares)}</span></div>
+        <div class="result-item"><span class="result-label">Giá cuối kỳ (giả định):</span><span class="result-value">${formatMoney(finalPrice)}</span></div>
+        <div class="result-item"><span class="result-label">Lãi/lỗ:</span><span class="result-value" style="color:${gain >= 0 ? '#4CAF50' : '#e74c3c'}">${formatMoney(gain)} (${gainPct.toFixed(1)}%)</span></div>
+        <div class="result-item highlight"><span class="result-label">Giá trị cuối kỳ:</span><span class="result-value">${formatMoney(value)}</span></div>
+        <div class="result-explanation"><strong>Lưu ý:</strong> Đây là mô hình giá tăng đều (không có biến động). DCA thực tế có lợi nhất khi giá biến động.</div>
+    `;
+}
+
+function runBondPrice() {
+    const face = parseFloat(document.getElementById('bondFace').value);
+    const couponRate = parseFloat(document.getElementById('bondCoupon').value) / 100;
+    const ytm = parseFloat(document.getElementById('bondYtm').value) / 100;
+    const years = parseInt(document.getElementById('bondYears').value);
+    const freq = parseInt(document.getElementById('bondFreq').value);
+
+    const n = years * freq;
+    const coupon = face * couponRate / freq;
+    const r = ytm / freq;
+
+    let price = 0;
+    for (let t = 1; t <= n; t++) {
+        price += coupon / Math.pow(1 + r, t);
+    }
+    price += face / Math.pow(1 + r, n);
+
+    const premium = price - face;
+
+    document.getElementById('bondResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Mệnh giá:</span><span class="result-value">${formatMoney(face)}</span></div>
+        <div class="result-item"><span class="result-label">Coupon mỗi kỳ:</span><span class="result-value">${formatMoney(coupon)}</span></div>
+        <div class="result-item"><span class="result-label">YTM:</span><span class="result-value">${(ytm * 100).toFixed(2)}%/năm</span></div>
+        <div class="result-item"><span class="result-label">Premium/Discount:</span><span class="result-value" style="color:${premium >= 0 ? '#4CAF50' : '#e74c3c'}">${formatMoney(premium)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Giá hợp lý:</span><span class="result-value">${formatMoney(price)}</span></div>
+        <div class="result-explanation"><strong>Nguyên tắc:</strong> Nếu YTM &gt; coupon → giá &lt; mệnh giá (discount). Nếu YTM &lt; coupon → giá &gt; mệnh giá (premium).</div>
+    `;
+}
+
+function runBreakEven() {
+    const fixed = parseFloat(document.getElementById('beFixed').value);
+    const price = parseFloat(document.getElementById('bePrice').value);
+    const variable = parseFloat(document.getElementById('beVar').value);
+
+    const contribution = price - variable;
+    if (contribution <= 0) {
+        document.getElementById('beResult').innerHTML = `
+            <div class="result-explanation"><strong>Cảnh báo:</strong> Biên lợi nhuận/đơn vị ≤ 0 (giá bán không đủ bù biến phí). Không thể hòa vốn.</div>
+        `;
+        return;
+    }
+
+    const units = fixed / contribution;
+    const revenue = units * price;
+
+    document.getElementById('beResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Biên/đơn vị:</span><span class="result-value">${formatMoney(contribution)}</span></div>
+        <div class="result-item"><span class="result-label">Số lượng hòa vốn:</span><span class="result-value">${formatCompact(units)} đơn vị</span></div>
+        <div class="result-item highlight"><span class="result-label">Doanh thu hòa vốn:</span><span class="result-value">${formatMoney(revenue)}</span></div>
+    `;
+}
+
+function runSalaryReal() {
+    const salary = parseFloat(document.getElementById('salaryNow').value);
+    const raise = parseFloat(document.getElementById('salaryRaise').value) / 100;
+    const inflation = parseFloat(document.getElementById('salaryInflation').value) / 100;
+    const years = parseInt(document.getElementById('salaryYears').value);
+
+    const nominal = salary * Math.pow(1 + raise, years);
+    const real = nominal / Math.pow(1 + inflation, years);
+    const realChangePct = (real / salary - 1) * 100;
+
+    document.getElementById('salaryResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Lương hiện tại:</span><span class="result-value">${formatMoney(salary)}/tháng</span></div>
+        <div class="result-item"><span class="result-label">Lương danh nghĩa sau ${years} năm:</span><span class="result-value">${formatMoney(nominal)}/tháng</span></div>
+        <div class="result-item"><span class="result-label">Lương thực (sức mua):</span><span class="result-value">${formatMoney(real)}/tháng</span></div>
+        <div class="result-item highlight"><span class="result-label">Thay đổi sức mua:</span><span class="result-value" style="color:${realChangePct >= 0 ? '#4CAF50' : '#e74c3c'}">${realChangePct.toFixed(1)}%</span></div>
+    `;
+}
+
+function runBudgetRule() {
+    const income = parseFloat(document.getElementById('budgetIncome').value);
+    const needs = income * 0.5;
+    const wants = income * 0.3;
+    const savings = income * 0.2;
+
+    document.getElementById('budgetResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Nhu cầu (50%):</span><span class="result-value">${formatMoney(needs)}</span></div>
+        <div class="result-item"><span class="result-label">Mong muốn (30%):</span><span class="result-value">${formatMoney(wants)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Tiết kiệm/Đầu tư (20%):</span><span class="result-value">${formatMoney(savings)}</span></div>
+        <div class="result-explanation"><strong>Gợi ý:</strong> Nếu nợ cao, bạn có thể tăng phần 20% và giảm 30%.</div>
+    `;
+}
+
+function runNetWorth() {
+    const assets = parseFloat(document.getElementById('nwAssets').value);
+    const liabilities = parseFloat(document.getElementById('nwLiabilities').value);
+    const net = assets - liabilities;
+    const debtRatio = assets > 0 ? (liabilities / assets) * 100 : 0;
+
+    document.getElementById('nwResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Tổng tài sản:</span><span class="result-value">${formatMoney(assets)}</span></div>
+        <div class="result-item"><span class="result-label">Tổng nợ:</span><span class="result-value">${formatMoney(liabilities)}</span></div>
+        <div class="result-item"><span class="result-label">Tỷ lệ nợ/tài sản:</span><span class="result-value">${debtRatio.toFixed(1)}%</span></div>
+        <div class="result-item highlight"><span class="result-label">Tài sản ròng:</span><span class="result-value" style="color:${net >= 0 ? '#4CAF50' : '#e74c3c'}">${formatMoney(net)}</span></div>
+    `;
+}
+
+function runFxExchange() {
+    const amountVnd = parseFloat(document.getElementById('fxAmount').value);
+    const rate = parseFloat(document.getElementById('fxRate').value);
+    const feePct = parseFloat(document.getElementById('fxFeePct').value) / 100;
+    const feeFixed = parseFloat(document.getElementById('fxFeeFixed').value);
+
+    const fee = amountVnd * feePct + feeFixed;
+    const netVnd = Math.max(0, amountVnd - fee);
+    const received = rate > 0 ? netVnd / rate : 0;
+    const effectiveRate = received > 0 ? amountVnd / received : 0;
+
+    document.getElementById('fxResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Phí quy đổi:</span><span class="result-value">${formatMoney(fee)}</span></div>
+        <div class="result-item"><span class="result-label">Số VND còn lại:</span><span class="result-value">${formatMoney(netVnd)}</span></div>
+        <div class="result-item"><span class="result-label">Nhận được:</span><span class="result-value">${formatCompact(received)} đơn vị</span></div>
+        <div class="result-item highlight"><span class="result-label">Tỷ giá hiệu dụng:</span><span class="result-value">${formatCompact(effectiveRate)} VND/đơn vị</span></div>
+        <div class="result-explanation"><strong>Mẹo:</strong> So sánh tỷ giá hiệu dụng giữa các nơi đổi để biết chỗ nào thật sự rẻ.</div>
+    `;
+}
+
+function runKelly() {
+    const p = parseFloat(document.getElementById('kellyP').value) / 100;
+    const b = parseFloat(document.getElementById('kellyB').value);
+    const q = 1 - p;
+
+    // Kelly fraction: f* = (b p - q) / b
+    const raw = (b * p - q) / b;
+    const f = Math.max(0, Math.min(1, raw));
+
+    document.getElementById('kellyResult').innerHTML = `
+        <div class="result-item"><span class="result-label">p (thắng):</span><span class="result-value">${(p * 100).toFixed(1)}%</span></div>
+        <div class="result-item"><span class="result-label">b (lời/lỗ):</span><span class="result-value">${b.toFixed(2)}</span></div>
+        <div class="result-item"><span class="result-label">Kelly thô:</span><span class="result-value">${(raw * 100).toFixed(1)}%</span></div>
+        <div class="result-item highlight"><span class="result-label">Gợi ý đặt cược (clamp 0-100%):</span><span class="result-value">${(f * 100).toFixed(1)}%</span></div>
+        <div class="result-explanation"><strong>Lưu ý:</strong> Kelly tối đa hóa tăng trưởng dài hạn nhưng biến động lớn. Thực tế thường dùng 1/2 Kelly hoặc 1/4 Kelly.</div>
     `;
 }
 

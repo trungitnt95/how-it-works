@@ -710,10 +710,15 @@ main {
 /* ==================== SIMULATOR ==================== */
 .simulator-tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.4rem;
     margin-bottom: 1rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
 }
 
 .sim-tab {
@@ -725,6 +730,8 @@ main {
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 .sim-tab:hover { background: rgba(255,255,255,0.2); }
