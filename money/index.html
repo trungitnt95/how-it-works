@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiểu Hết Về Tiền - Dòng Chảy Của Tiền</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>💰 Hiểu Hết Về Tiền</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về tiền tệ. Bắt đầu từ cơ bản nhất.</p>
+                    <ul>
+                        <li>✅ Hướng dẫn từng bước</li>
+                        <li>✅ Giải thích đơn giản</li>
+                        <li>✅ Ví dụ thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã hiểu cơ bản, muốn tìm hiểu sâu hơn.</p>
+                    <ul>
+                        <li>✅ Tương tác tự do</li>
+                        <li>✅ Mô phỏng dòng tiền</li>
+                        <li>✅ Kịch bản thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu sâu về cơ chế tiền tệ.</p>
+                    <ul>
+                        <li>✅ Phân tích chuyên sâu</li>
+                        <li>✅ Công thức & số liệu</li>
+                        <li>✅ Case studies</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>💰 Hiểu Hết Về Tiền</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="startTourBtn" title="Bắt đầu hướng dẫn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
+        </div>
+    </header>
+
+    <!-- Progress Bar for Tour -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Tour Instruction Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">20</span></div>
+                <h3 id="tourTitle">Chào mừng bạn!</h3>
+                <p id="tourDescription">Hãy bắt đầu tìm hiểu dòng chảy của tiền...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo nhóm:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (20)</button>
+            <button class="filter-btn" data-category="core">💰 Cốt lõi</button>
+            <button class="filter-btn" data-category="financial">🏦 Tài chính</button>
+            <button class="filter-btn" data-category="market">📈 Thị trường</button>
+            <button class="filter-btn" data-category="services">🛡️ Dịch vụ</button>
+            <button class="filter-btn" data-category="modern">⚡ Hiện đại</button>
+        </div>
+
+        <!-- Diagram Container -->
+        <div class="diagram-container expanded" id="diagramContainer">
+            <!-- Story Mode Narration -->
+            <div class="story-narration" id="storyNarration">
+                <div class="story-text" id="storyText"></div>
+            </div>
+
+            <!-- ==================== CORE COMPONENTS (1-6) ==================== -->
+            
+            <div class="node central-bank" data-component="central-bank" data-category="core" data-step="1">
+                <div class="node-number">1</div>
+                <div class="node-icon">🏛️</div>
+                <div class="node-label">Ngân Hàng TW</div>
+                <div class="node-hint">Tạo ra tiền</div>
+            </div>
+
+            <div class="node commercial-bank" data-component="commercial-bank" data-category="core" data-step="2">
+                <div class="node-number">2</div>
+                <div class="node-icon">🏦</div>
+                <div class="node-label">NH Thương Mại</div>
+                <div class="node-hint">Nhân bản tiền</div>
+            </div>
+
+            <div class="node government" data-component="government" data-category="core" data-step="3">
+                <div class="node-number">3</div>
+                <div class="node-icon">🏢</div>
+                <div class="node-label">Chính Phủ</div>
+                <div class="node-hint">Thuế & chi tiêu</div>
+            </div>
+
+            <div class="node business" data-component="business" data-category="core" data-step="4">
+                <div class="node-number">4</div>
+                <div class="node-icon">🏭</div>
+                <div class="node-label">Doanh Nghiệp</div>
+                <div class="node-hint">Sản xuất</div>
+            </div>
+
+            <div class="node individual" data-component="individual" data-category="core" data-step="5">
+                <div class="node-number">5</div>
+                <div class="node-icon">👥</div>
+                <div class="node-label">Người Dân</div>
+                <div class="node-hint">Tiêu dùng</div>
+            </div>
+
+            <div class="node foreign" data-component="foreign" data-category="core" data-step="6">
+                <div class="node-number">6</div>
+                <div class="node-icon">🌍</div>
+                <div class="node-label">Quốc Tế</div>
+                <div class="node-hint">XNK</div>
+            </div>
+
+            <!-- ==================== FINANCIAL (7-10) ==================== -->
+
+            <div class="node stock-exchange" data-component="stock-exchange" data-category="financial" data-step="7">
+                <div class="node-number">7</div>
+                <div class="node-icon">📈</div>
+                <div class="node-label">Sàn CK</div>
+                <div class="node-hint">Cổ phiếu</div>
+            </div>
+
+            <div class="node investment-fund" data-component="investment-fund" data-category="financial" data-step="8">
+                <div class="node-number">8</div>
+                <div class="node-icon">💼</div>
+                <div class="node-label">Quỹ Đầu Tư</div>
+                <div class="node-hint">Quản lý TS</div>
+            </div>
+
+            <div class="node consumer-finance" data-component="consumer-finance" data-category="financial" data-step="9">
+                <div class="node-number">9</div>
+                <div class="node-icon">💳</div>
+                <div class="node-label">Tín Dụng TD</div>
+                <div class="node-hint">Thẻ, trả góp</div>
+            </div>
+
+            <div class="node shadow-banking" data-component="shadow-banking" data-category="financial" data-step="10">
+                <div class="node-number">10</div>
+                <div class="node-icon">🌑</div>
+                <div class="node-label">Shadow Bank</div>
+                <div class="node-hint">Cho vay ngoài</div>
+            </div>
+
+            <!-- ==================== MARKETS (11-14) ==================== -->
+
+            <div class="node bond-market" data-component="bond-market" data-category="market" data-step="11">
+                <div class="node-number">11</div>
+                <div class="node-icon">📜</div>
+                <div class="node-label">Trái Phiếu</div>
+                <div class="node-hint">Cho vay DH</div>
+            </div>
+
+            <div class="node real-estate" data-component="real-estate" data-category="market" data-step="12">
+                <div class="node-number">12</div>
+                <div class="node-icon">🏠</div>
+                <div class="node-label">Bất Động Sản</div>
+                <div class="node-hint">Nhà đất</div>
+            </div>
+
+            <div class="node commodity" data-component="commodity" data-category="market" data-step="13">
+                <div class="node-number">13</div>
+                <div class="node-icon">🥇</div>
+                <div class="node-label">Hàng Hóa</div>
+                <div class="node-hint">Vàng, dầu</div>
+            </div>
+
+            <div class="node forex" data-component="forex" data-category="market" data-step="14">
+                <div class="node-number">14</div>
+                <div class="node-icon">💱</div>
+                <div class="node-label">Forex</div>
+                <div class="node-hint">Tỷ giá</div>
+            </div>
+
+            <!-- ==================== SERVICES (15-17) ==================== -->
+
+            <div class="node insurance" data-component="insurance" data-category="services" data-step="15">
+                <div class="node-number">15</div>
+                <div class="node-icon">🛡️</div>
+                <div class="node-label">Bảo Hiểm</div>
+                <div class="node-hint">Bảo vệ rủi ro</div>
+            </div>
+
+            <div class="node pension-fund" data-component="pension-fund" data-category="services" data-step="16">
+                <div class="node-number">16</div>
+                <div class="node-icon">👴</div>
+                <div class="node-label">Hưu Trí</div>
+                <div class="node-hint">BHXH</div>
+            </div>
+
+            <div class="node credit-rating" data-component="credit-rating" data-category="services" data-step="17">
+                <div class="node-number">17</div>
+                <div class="node-icon">⭐</div>
+                <div class="node-label">Xếp Hạng</div>
+                <div class="node-hint">Đánh giá</div>
+            </div>
+
+            <!-- ==================== MODERN (18-20) ==================== -->
+
+            <div class="node fintech" data-component="fintech" data-category="modern" data-step="18">
+                <div class="node-number">18</div>
+                <div class="node-icon">📱</div>
+                <div class="node-label">Fintech</div>
+                <div class="node-hint">Ví điện tử</div>
+            </div>
+
+            <div class="node crypto" data-component="crypto" data-category="modern" data-step="19">
+                <div class="node-number">19</div>
+                <div class="node-icon">₿</div>
+                <div class="node-label">Crypto</div>
+                <div class="node-hint">Bitcoin</div>
+            </div>
+
+            <div class="node startup" data-component="startup" data-category="modern" data-step="20">
+                <div class="node-number">20</div>
+                <div class="node-icon">🚀</div>
+                <div class="node-label">Startup/VC</div>
+                <div class="node-hint">Vốn mạo hiểm</div>
+            </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="action-bar">
+            <button class="action-btn" id="playStoryBtn">
+                <span class="action-icon">▶️</span>
+                <span class="action-text">Câu chuyện tiền</span>
+            </button>
+            <button class="action-btn" id="showConnectionsBtn">
+                <span class="action-icon">🔗</span>
+                <span class="action-text">Hiện kết nối</span>
+            </button>
+            <button class="action-btn" id="resetViewBtn">
+                <span class="action-icon">🔃</span>
+                <span class="action-text">Reset</span>
+            </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>📖 Nhóm thành phần (20 thành phần)</h3>
+            <div class="legend-items">
+                <div class="legend-item"><span class="legend-color core"></span><span>Cốt lõi (1-6)</span></div>
+                <div class="legend-item"><span class="legend-color financial"></span><span>Tài chính (7-10)</span></div>
+                <div class="legend-item"><span class="legend-color market"></span><span>Thị trường (11-14)</span></div>
+                <div class="legend-item"><span class="legend-color services"></span><span>Dịch vụ (15-17)</span></div>
+                <div class="legend-item"><span class="legend-color modern"></span><span>Hiện đại (18-20)</span></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-icon" id="modalIcon"></span>
+                <div>
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-level-tabs">
+                        <button class="level-tab active" data-tab="simple">Đơn giản</button>
+                        <button class="level-tab" data-tab="detail">Chi tiết</button>
+                        <button class="level-tab" data-tab="advanced">Chuyên sâu</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <div class="tab-content active" data-content="simple"></div>
+                <div class="tab-content" data-content="detail"></div>
+                <div class="tab-content" data-content="advanced"></div>
+            </div>
+            <div class="modal-footer">
+                <div class="connections-section">
+                    <h4>🔗 Kết nối với:</h4>
+                    <div class="connections-list" id="connectionsList"></div>
+                </div>
+                <div class="key-points" id="keyPoints"></div>
+                <div class="modal-nav">
+                    <button id="modalPrev" class="modal-nav-btn">← Trước</button>
+                    <button id="modalNext" class="modal-nav-btn">Tiếp →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Modal -->
+    <div class="scenario-overlay" id="scenarioModal">
+        <div class="scenario-content">
+            <button class="modal-close" id="closeScenario">&times;</button>
+            <h2>📖 Kịch Bản Thực Tế (50+ kịch bản)</h2>
+            <p class="scenario-intro">Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào:</p>
+            
+            <!-- Country/Region Selector -->
+            <div class="country-selector">
+                <label>🌍 Quốc gia/Khu vực:</label>
+                <select id="countrySelect">
+                    <option value="vn" selected>🇻🇳 Việt Nam</option>
+                    <option value="us">🇺🇸 Mỹ (USA)</option>
+                    <option value="cn">🇨🇳 Trung Quốc</option>
+                    <option value="jp">🇯🇵 Nhật Bản</option>
+                    <option value="eu">🇪🇺 Châu Âu (EU)</option>
+                    <option value="kr">🇰🇷 Hàn Quốc</option>
+                </select>
+            </div>
+            
+            <div class="scenario-categories">
+                <button class="scenario-cat-btn active" data-cat="all">Tất cả</button>
+                <button class="scenario-cat-btn" data-cat="personal">👤 Cá nhân</button>
+                <button class="scenario-cat-btn" data-cat="business">🏭 Doanh nghiệp</button>
+                <button class="scenario-cat-btn" data-cat="investment">📈 Đầu tư</button>
+                <button class="scenario-cat-btn" data-cat="crisis">⚠️ Khủng hoảng</button>
+                <button class="scenario-cat-btn" data-cat="fraud">🦹 Gian lận</button>
+                <button class="scenario-cat-btn" data-cat="war">⚔️ Chiến tranh tiền tệ</button>
+                <button class="scenario-cat-btn" data-cat="modern">⚡ Hiện đại</button>
+            </div>
+            
+            <div class="scenario-selection-bar">
+                <span id="selectedCount">0 kịch bản được chọn</span>
+                <div class="play-mode-toggle">
+                    <label class="mode-label">Chế độ:</label>
+                    <button class="mode-btn active" id="modeSequential" data-mode="sequential">📋 Tuần tự</button>
+                    <button class="mode-btn" id="modeParallel" data-mode="parallel">⚡ Song song</button>
+                </div>
+                <button class="run-selected-btn" id="runSelectedBtn" disabled>▶️ Chạy các kịch bản đã chọn</button>
+                <button class="clear-selection-btn" id="clearSelectionBtn">✖️ Bỏ chọn</button>
+            </div>
+            
+            <div class="scenario-list" id="scenarioList"></div>
+        </div>
+    </div>
+
+    <!-- Interactive Scenario Player Modal -->
+    <div class="scenario-player-overlay" id="scenarioPlayerModal">
+        <div class="scenario-player-content">
+            <button class="modal-close" id="closePlayer">&times;</button>
+            <div class="player-header">
+                <h2 id="playerTitle">📖 Kịch bản</h2>
+                <div class="player-progress">
+                    <span id="playerStepInfo">Bước 1/6</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="playerProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-body">
+                <div class="player-step-content" id="playerStepContent">
+                    <div class="step-node-icon" id="stepNodeIcon"></div>
+                    <div class="step-text" id="stepText"></div>
+                </div>
+                
+                <div class="player-simulation" id="playerSimulation">
+                    <h4>📊 Chi tiết tính toán:</h4>
+                    <div class="simulation-inputs" id="simInputs"></div>
+                    <div class="simulation-outputs" id="simOutputs"></div>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="playerPrev">⬅️ Trước</button>
+                <button class="player-btn pause-btn" id="playerPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="playerNext">Tiếp ➡️</button>
+                <button class="player-btn skip-btn" id="playerSkip">⏭️ Bỏ qua kịch bản này</button>
+            </div>
+            
+            <!-- Simulation Dashboard -->
+            <div class="sim-dashboard" id="simDashboard">
+                <h4>📊 Bảng điều khiển Mô phỏng</h4>
+                <div class="sim-indicators">
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💰</span>
+                        <span class="sim-label">Cung tiền</span>
+                        <span class="sim-value" id="simMoneySupply">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📈</span>
+                        <span class="sim-label">Chỉ số CK</span>
+                        <span class="sim-value" id="simStockIndex">1000</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏠</span>
+                        <span class="sim-label">BĐS</span>
+                        <span class="sim-value" id="simRealEstate">100</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📊</span>
+                        <span class="sim-label">Lạm phát</span>
+                        <span class="sim-value" id="simInflation">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">👥</span>
+                        <span class="sim-label">Thất nghiệp</span>
+                        <span class="sim-value" id="simUnemployment">5%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">😊</span>
+                        <span class="sim-label">Niềm tin</span>
+                        <span class="sim-value" id="simConfidence">70</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏦</span>
+                        <span class="sim-label">Nợ xấu</span>
+                        <span class="sim-value" id="simNPL">2%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💱</span>
+                        <span class="sim-label">Tỷ giá</span>
+                        <span class="sim-value" id="simExchangeRate">100</span>
+                    </div>
+                </div>
+                <div class="sim-step-detail" id="simStepDetail">
+                    <!-- Current step inputs/outputs will appear here -->
+                </div>
+                <div class="sim-status" id="simStatus">
+                    <span class="status-icon">✅</span>
+                    <span class="status-text">Đang chạy bình thường</span>
+                </div>
+            </div>
+            
+            <div class="player-queue" id="playerQueue">
+                <h4>📋 Hàng đợi kịch bản:</h4>
+                <div class="queue-list" id="queueList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parallel Scenario Player Modal -->
+    <div class="scenario-player-overlay parallel-mode" id="parallelPlayerModal">
+        <div class="scenario-player-content parallel-player-content">
+            <button class="modal-close" id="closeParallelPlayer">&times;</button>
+            <div class="player-header">
+                <h2>⚡ Chế độ Song song - Nhiều kịch bản cùng lúc</h2>
+                <div class="parallel-step-indicator">
+                    <span id="parallelStepInfo">Bước 1</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="parallelProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simulation Dashboard for Parallel Mode -->
+            <div class="sim-dashboard parallel-dashboard" id="parallelSimDashboard">
+                <h4>📊 Tác động tổng hợp từ tất cả kịch bản</h4>
+                <div class="sim-indicators">
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💰</span>
+                        <span class="sim-label">Cung tiền</span>
+                        <span class="sim-value" id="pSimMoneySupply">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📈</span>
+                        <span class="sim-label">Chỉ số CK</span>
+                        <span class="sim-value" id="pSimStockIndex">1000</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏠</span>
+                        <span class="sim-label">BĐS</span>
+                        <span class="sim-value" id="pSimRealEstate">100</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📊</span>
+                        <span class="sim-label">Lạm phát</span>
+                        <span class="sim-value" id="pSimInflation">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">👥</span>
+                        <span class="sim-label">Thất nghiệp</span>
+                        <span class="sim-value" id="pSimUnemployment">5%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">😊</span>
+                        <span class="sim-label">Niềm tin</span>
+                        <span class="sim-value" id="pSimConfidence">70</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏦</span>
+                        <span class="sim-label">Nợ xấu</span>
+                        <span class="sim-value" id="pSimNPL">2%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💱</span>
+                        <span class="sim-label">Tỷ giá</span>
+                        <span class="sim-value" id="pSimExchangeRate">100</span>
+                    </div>
+                </div>
+                <div class="sim-status" id="parallelSimStatus">
+                    <span class="status-icon">✅</span>
+                    <span class="status-text">Đang chạy bình thường</span>
+                </div>
+            </div>
+            
+            <div class="parallel-grid" id="parallelGrid">
+                <!-- Scenario cards will be dynamically inserted here -->
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="parallelPrev">⬅️ Bước trước</button>
+                <button class="player-btn pause-btn" id="parallelPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="parallelNext">Bước tiếp ➡️</button>
+            </div>
+            
+            <div class="parallel-legend">
+                <h4>🎯 Các kịch bản đang chạy:</h4>
+                <div class="legend-list" id="parallelLegend"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulator Modal -->
+    <div class="simulator-overlay" id="simulatorModal">
+        <div class="simulator-content">
+            <button class="modal-close" id="closeSimulator">&times;</button>
+            <h2>🧮 Các Công Cụ Mô Phỏng</h2>
+            
+            <div class="simulator-tabs">
+                <button class="sim-tab active" data-sim="money-multiplier">💰 Nhân tiền</button>
+                <button class="sim-tab" data-sim="compound-interest">📈 Lãi kép</button>
+                <button class="sim-tab" data-sim="loan-calculator">🏠 Tính vay</button>
+                <button class="sim-tab" data-sim="inflation">📊 Lạm phát</button>
+            </div>
+
+            <div class="simulator-panels" id="simulatorPanels"></div>
+        </div>
+    </div>
+
+    <!-- Glossary Popup -->
+    <div class="glossary-popup" id="glossaryPopup">
+        <div class="glossary-term" id="glossaryTerm"></div>
+        <div class="glossary-definition" id="glossaryDefinition"></div>
+    </div>
+
+    <footer>
+        <p>Dựa trên kiến thức từ sách "Hiểu Hết Về Tiền" 📚</p>
+        <p class="footer-hint">💡 Click vào bất kỳ thành phần nào để xem chi tiết | 20 thành phần | 30+ kịch bản</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
