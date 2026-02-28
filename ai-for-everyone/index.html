@@ -63,7 +63,7 @@
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn">⚙️</button>
             <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
-            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+            <button class="header-btn" id="examplesBtn">💡 Ví dụ</button>
         </div>
     </header>
 
@@ -340,6 +340,11 @@
                         <span class="node-title">GitHub Copilot</span>
                         <span class="node-badge beginner">Cơ bản</span>
                     </div>
+                    <div class="node" data-component="copilot-features">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-title">Copilot Features Chi Tiết</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
                     <div class="node" data-component="cursor-ai">
                         <span class="node-icon">💻</span>
                         <span class="node-title">Cursor & AI IDE</span>
@@ -431,15 +436,14 @@
         </div>
     </div>
 
-    <!-- Checklist Modal -->
-    <div class="modal" id="checklistModal">
-        <div class="modal-content checklist-modal">
-            <button class="modal-close" id="closeChecklist">×</button>
-            <h2>✅ Checklist AI</h2>
-            <div class="checklist-items" id="checklistItems"></div>
-            <div class="checklist-actions">
-                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
-            </div>
+    <!-- Examples Modal -->
+    <div class="modal" id="examplesModal">
+        <div class="modal-content examples-modal">
+            <button class="modal-close" id="closeExamples">×</button>
+            <h2>💡 Prompting Hoạt Động Như Thế Nào</h2>
+            <p class="examples-subtitle">Xem cách mỗi kỹ thuật prompting thay đổi kết quả AI</p>
+            <div class="examples-tabs" id="examplesTabs"></div>
+            <div class="examples-content" id="examplesContent"></div>
         </div>
     </div>
 

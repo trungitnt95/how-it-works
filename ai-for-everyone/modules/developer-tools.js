@@ -5,63 +5,269 @@ const developerToolsData = {
         title: 'GitHub Copilot',
         category: 'developer',
         level: 'beginner',
-        connections: ['cursor-ai', 'ai-code-review', 'chatgpt-intro'],
+        connections: ['cursor-ai', 'ai-code-review', 'chatgpt-intro', 'copilot-features', 'coding-agents'],
         simple: `
             <h3>🧑‍💻 GitHub Copilot</h3>
-            <p><strong>GitHub Copilot</strong> là AI assistant viết code trực tiếp trong IDE.</p>
+            <p><strong>GitHub Copilot</strong> là AI coding assistant của GitHub, tích hợp trực tiếp trong IDE. Đây là công cụ AI coding phổ biến nhất thế giới.</p>
             <div class="example-box">
                 <strong>Cách dùng:</strong> Viết comment mô tả → Copilot tự gợi ý code → Tab để accept.
             </div>
             <h4>Copilot làm được gì?</h4>
             <ul>
-                <li>✍️ Auto-complete code</li>
-                <li>💬 Chat hỏi đáp về code</li>
-                <li>🔧 Sửa bugs</li>
-                <li>📝 Viết tests</li>
-                <li>📖 Giải thích code</li>
+                <li>✍️ <strong>Code Completion:</strong> Auto-complete code thông minh</li>
+                <li>💬 <strong>Copilot Chat:</strong> Hỏi đáp về code trong IDE</li>
+                <li>✏️ <strong>Copilot Edits:</strong> Sửa code multi-file bằng ngôn ngữ tự nhiên</li>
+                <li>🔧 <strong>Fix & Debug:</strong> Tự động sửa bugs và errors</li>
+                <li>📝 <strong>Generate Tests:</strong> Viết unit tests tự động</li>
+                <li>📖 <strong>Explain Code:</strong> Giải thích code phức tạp</li>
+                <li>🤖 <strong>Copilot Agent:</strong> Tự động hoàn thành tasks phức tạp</li>
             </ul>
+            <h4>Pricing</h4>
+            <table>
+                <tr><th>Plan</th><th>Giá</th><th>Đặc điểm</th></tr>
+                <tr><td>Free</td><td>$0</td><td>2000 completions + 50 chat/tháng</td></tr>
+                <tr><td>Pro</td><td>$10/th</td><td>Unlimited completions + chat</td></tr>
+                <tr><td>Business</td><td>$19/th</td><td>Team management, policies</td></tr>
+                <tr><td>Enterprise</td><td>$39/th</td><td>Custom models, audit logs</td></tr>
+            </table>
         `,
         detail: `
-            <h3>📊 Copilot Tips & Tricks</h3>
-            <h4>Viết comment tốt = Code tốt</h4>
+            <h3>📊 Copilot Toàn Diện - Tính năng Developer Cần Biết</h3>
+
+            <h4>1. Code Completion (Ghost Text)</h4>
+            <p>Copilot gợi ý code ngay khi bạn gõ. Viết comment tốt = code tốt hơn.</p>
             <div class="example-box">
                 // Function to validate email format using regex<br>
                 // Returns true if valid, false otherwise<br>
                 → Copilot sẽ viết function hoàn chỉnh
             </div>
-            <h4>Copilot Shortcuts</h4>
             <table>
                 <tr><th>Phím tắt</th><th>Chức năng</th></tr>
                 <tr><td>Tab</td><td>Accept suggestion</td></tr>
                 <tr><td>Esc</td><td>Dismiss suggestion</td></tr>
                 <tr><td>Alt + ]</td><td>Next suggestion</td></tr>
                 <tr><td>Alt + [</td><td>Previous suggestion</td></tr>
-                <tr><td>Ctrl + Enter</td><td>Xem tất cả suggestions</td></tr>
+                <tr><td>Ctrl+→</td><td>Accept word-by-word</td></tr>
             </table>
-            <h4>Pricing</h4>
+
+            <h4>2. Copilot Chat — Hỏi đáp trong IDE</h4>
+            <p>Chat trực tiếp với AI về code, không cần rời IDE.</p>
+            <table>
+                <tr><th>Slash Command</th><th>Chức năng</th></tr>
+                <tr><td>/explain</td><td>Giải thích code đang chọn</td></tr>
+                <tr><td>/fix</td><td>Sửa bugs trong code</td></tr>
+                <tr><td>/tests</td><td>Tạo unit tests</td></tr>
+                <tr><td>/doc</td><td>Tạo documentation</td></tr>
+                <tr><td>/optimize</td><td>Tối ưu performance</td></tr>
+                <tr><td>/new</td><td>Scaffold dự án mới</td></tr>
+                <tr><td>/search</td><td>Tìm kiếm trong codebase</td></tr>
+            </table>
+
+            <h4>3. Context Variables (@)</h4>
+            <p>Dùng @ để thêm context cho Copilot:</p>
             <ul>
-                <li>Free cho students và OSS maintainers</li>
-                <li>$10/tháng cho Individual</li>
-                <li>$19/tháng cho Business</li>
+                <li><strong>@workspace:</strong> Toàn bộ codebase</li>
+                <li><strong>@file:</strong> File cụ thể</li>
+                <li><strong>@terminal:</strong> Output terminal</li>
+                <li><strong>@selection:</strong> Code đang chọn</li>
+                <li><strong>@vscode:</strong> VS Code settings & APIs</li>
             </ul>
+
+            <h4>4. Copilot Edits (Multi-file Editing)</h4>
+            <p>Mô tả thay đổi bạn muốn → Copilot edit nhiều files cùng lúc. Review diff trước khi accept.</p>
+            <div class="tip-box">
+                💡 Mẹo: Thêm files liên quan vào working set để Copilot hiểu context tốt hơn.
+            </div>
         `,
         advanced: `
-            <h3>🎓 Copilot nâng cao</h3>
-            <h4>Copilot Chat Commands</h4>
+            <h3>🎓 Copilot Nâng Cao - Power User Guide</h3>
+
+            <h4>Copilot Agent Mode</h4>
+            <p>Agent mode cho phép Copilot tự lập kế hoạch và thực hiện tasks phức tạp:</p>
             <ul>
-                <li><strong>/explain:</strong> Giải thích code</li>
-                <li><strong>/tests:</strong> Tạo unit tests</li>
-                <li><strong>/fix:</strong> Sửa bugs</li>
-                <li><strong>/doc:</strong> Tạo documentation</li>
+                <li>Tự tạo và chạy terminal commands</li>
+                <li>Edit nhiều files theo plan</li>
+                <li>Tự sửa lỗi nếu code fail</li>
+                <li>Iterate cho đến khi task hoàn thành</li>
             </ul>
-            <h4>Copilot Workspace</h4>
-            <p>Tính năng mới: Mô tả task bằng ngôn ngữ tự nhiên → Copilot tạo plan → Implement changes across files.</p>
+
+            <h4>Copilot CLI</h4>
+            <p>Dùng Copilot trong terminal:</p>
+            <div class="formula-box">
+                gh copilot suggest "undo last git commit"<br>
+                gh copilot explain "git log --oneline -10"
+            </div>
+
+            <h4>Copilot cho Pull Requests</h4>
+            <ul>
+                <li><strong>PR Summaries:</strong> Tự tóm tắt changes trong PR</li>
+                <li><strong>Code Review:</strong> AI review code, phát hiện bugs</li>
+                <li><strong>PR Descriptions:</strong> Tự tạo mô tả chi tiết</li>
+            </ul>
+
+            <h4>Custom Instructions</h4>
+            <p>Tạo file <strong>.github/copilot-instructions.md</strong> để hướng dẫn Copilot theo chuẩn dự án:</p>
+            <div class="example-box">
+                - Always use TypeScript strict mode<br>
+                - Follow naming convention: camelCase<br>
+                - Write JSDoc for all public functions<br>
+                - Use async/await instead of callbacks
+            </div>
+
+            <h4>Copilot Extensions</h4>
+            <p>Mở rộng Copilot với các extensions bên ngoài:</p>
+            <ul>
+                <li><strong>@docker:</strong> Hỏi về Docker, containers</li>
+                <li><strong>@azure:</strong> Deploy, cloud resources</li>
+                <li><strong>@sentry:</strong> Debug production errors</li>
+                <li>Và nhiều extensions community khác</li>
+            </ul>
+
             <h4>Best Practices</h4>
             <ul>
                 <li>Luôn review code Copilot tạo ra</li>
                 <li>Viết tests cho code AI generated</li>
-                <li>Dùng comment descriptive để guide</li>
+                <li>Dùng comments descriptive để guide suggestions</li>
+                <li>Tận dụng @workspace cho câu hỏi về toàn bộ project</li>
+                <li>Setup copilot-instructions.md cho mỗi dự án</li>
             </ul>
+        `
+    },
+    'copilot-features': {
+        icon: '⚙️',
+        title: 'Copilot Features Chi Tiết',
+        category: 'developer',
+        level: 'intermediate',
+        connections: ['copilot', 'ai-code-review', 'coding-agents', 'cursor-ai'],
+        simple: `
+            <h3>⚙️ Tất Cả Tính Năng GitHub Copilot</h3>
+            <p>Tổng hợp mọi tính năng Copilot mà developer nên biết và tận dụng.</p>
+            <h4>Tổng quan tính năng</h4>
+            <ul>
+                <li>✍️ <strong>Code Completion:</strong> Gợi ý code real-time</li>
+                <li>💬 <strong>Copilot Chat:</strong> AI assistant trong IDE</li>
+                <li>✏️ <strong>Copilot Edits:</strong> Edit multi-file</li>
+                <li>🤖 <strong>Agent Mode:</strong> Tự thực hiện tasks</li>
+                <li>🔍 <strong>Code Review:</strong> Review PR tự động</li>
+                <li>📋 <strong>PR Summary:</strong> Tóm tắt PR tự động</li>
+                <li>💻 <strong>Copilot CLI:</strong> AI trong terminal</li>
+                <li>🔌 <strong>Extensions:</strong> Mở rộng khả năng</li>
+                <li>📐 <strong>Custom Instructions:</strong> Tùy chỉnh theo dự án</li>
+                <li>🛡️ <strong>Security:</strong> Phát hiện lỗ hổng bảo mật</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Chi Tiết Từng Tính Năng</h3>
+
+            <h4>🔥 Copilot Edits — Tính năng mạnh nhất</h4>
+            <p>Edit nhiều files cùng lúc bằng ngôn ngữ tự nhiên:</p>
+            <ol>
+                <li>Mở Copilot Edits panel (Ctrl+Shift+I)</li>
+                <li>Thêm files vào working set</li>
+                <li>Mô tả thay đổi: "Add error handling to all API calls"</li>
+                <li>Review diff cho từng file</li>
+                <li>Accept hoặc reject từng thay đổi</li>
+            </ol>
+
+            <h4>🤖 Agent Mode — Autonomous Coding</h4>
+            <p>Chuyển từ Edits → Agent mode để Copilot tự thực hiện:</p>
+            <ul>
+                <li>Tự chạy terminal commands (build, test, lint)</li>
+                <li>Tự tìm và sửa errors</li>
+                <li>Tự thêm dependencies nếu cần</li>
+                <li>Iterate cho đến khi mọi thứ work</li>
+            </ul>
+            <div class="warning-box">
+                ⚠️ Agent mode mạnh nhưng cần review kỹ - AI có thể thay đổi nhiều hơn mong đợi.
+            </div>
+
+            <h4>💻 Copilot CLI</h4>
+            <table>
+                <tr><th>Command</th><th>Chức năng</th></tr>
+                <tr><td>gh copilot suggest</td><td>Gợi ý command cho task</td></tr>
+                <tr><td>gh copilot explain</td><td>Giải thích command phức tạp</td></tr>
+            </table>
+            <div class="example-box">
+                $ gh copilot suggest "find all files larger than 100MB"<br>
+                → find / -type f -size +100M<br><br>
+                $ gh copilot explain "tar -xzf archive.tar.gz"<br>
+                → Giải thích từng flag: -x extract, -z gzip, -f file
+            </div>
+
+            <h4>📋 Copilot cho Pull Requests</h4>
+            <ul>
+                <li><strong>Auto Summary:</strong> Thêm "copilot:summary" label → Copilot tự viết PR description</li>
+                <li><strong>Code Review:</strong> Request review từ "Copilot" → AI review code, comment suggestions</li>
+                <li><strong>Auto Fix:</strong> Copilot đề xuất fix cho review comments</li>
+            </ul>
+
+            <h4>🛡️ Security Features</h4>
+            <ul>
+                <li>Tự block secrets trong suggestions (API keys, passwords)</li>
+                <li>Phát hiện vulnerable code patterns</li>
+                <li>Đề xuất security best practices</li>
+                <li>Code scanning integration</li>
+            </ul>
+        `,
+        advanced: `
+            <h3>🎓 Copilot Pro Tips & Hidden Features</h3>
+
+            <h4>Custom Instructions Nâng Cao</h4>
+            <p>File <strong>.github/copilot-instructions.md</strong> hỗ trợ:</p>
+            <div class="example-box">
+                # Project Guidelines<br>
+                - Language: TypeScript strict mode<br>
+                - Framework: Next.js 14 with App Router<br>
+                - Styling: Tailwind CSS only<br>
+                - Testing: Jest + React Testing Library<br>
+                - API: RESTful with Zod validation<br>
+                - Error handling: Always use try/catch<br>
+                - Naming: camelCase for variables, PascalCase for components<br><br>
+                # Patterns<br>
+                - Use server components by default<br>
+                - Client components only when needed (interactivity)<br>
+                - Prefer composition over inheritance
+            </div>
+
+            <h4>Vision — Copilot Đọc Hình Ảnh</h4>
+            <p>Copilot Chat hỗ trợ upload ảnh (mockups, diagrams, screenshots):</p>
+            <ul>
+                <li>Drag & drop screenshot UI → Copilot tạo code</li>
+                <li>Upload error screenshot → Copilot debug</li>
+                <li>Share diagram → Copilot implement architecture</li>
+            </ul>
+
+            <h4>Multi-Model Support</h4>
+            <p>Copilot cho phép chọn AI model:</p>
+            <table>
+                <tr><th>Model</th><th>Ưu điểm</th><th>Dùng khi</th></tr>
+                <tr><td>GPT-4o</td><td>Đa năng, nhanh</td><td>General coding</td></tr>
+                <tr><td>Claude 3.5 Sonnet</td><td>Code quality cao</td><td>Complex logic</td></tr>
+                <tr><td>o1/o3</td><td>Reasoning mạnh</td><td>Algorithm, math</td></tr>
+                <tr><td>Gemini</td><td>Context window lớn</td><td>Large codebase</td></tr>
+            </table>
+
+            <h4>MCP Integration</h4>
+            <p>Copilot hỗ trợ MCP servers để mở rộng khả năng:</p>
+            <ul>
+                <li>Kết nối database → Query data trực tiếp</li>
+                <li>Kết nối API docs → Hiểu API specs</li>
+                <li>Kết nối monitoring → Debug production issues</li>
+            </ul>
+
+            <h4>Copilot Workspace (GitHub.com)</h4>
+            <p>Mô tả task bằng tiếng Việt/Anh trên GitHub → Copilot tạo plan → Implement → Tạo PR:</p>
+            <ol>
+                <li>Mở issue trên GitHub</li>
+                <li>Click "Open in Copilot Workspace"</li>
+                <li>Copilot phân tích codebase và tạo plan</li>
+                <li>Review và chỉnh sửa plan</li>
+                <li>Copilot implement changes</li>
+                <li>Review code và tạo PR</li>
+            </ol>
+            <div class="tip-box">
+                💡 Copilot Workspace đặc biệt hữu ích cho bug fixes và feature requests đã có spec rõ ràng.
+            </div>
         `
     },
     'cursor-ai': {
