@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>📊 Quản Lý Hoạt Động Như Thế Nào</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về quản lý, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Quản lý là gì?</li>
+                        <li>✅ Các kiểu lãnh đạo</li>
+                        <li>✅ Xây dựng nhóm</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Ra quyết định</li>
+                        <li>✅ Quản lý rủi ro</li>
+                        <li>✅ OKR & KPI</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn áp dụng chiến lược vào thực tế.</p>
+                    <ul>
+                        <li>✅ Tư duy chiến lược</li>
+                        <li>✅ Quản lý thay đổi</li>
+                        <li>✅ Mở rộng quy mô</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>📊 Quản Lý Hoạt Động Như Thế Nào</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học quản lý...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">📋 Cơ bản</button>
+            <button class="filter-btn" data-category="leadership">👑 Lãnh đạo</button>
+            <button class="filter-btn" data-category="planning">📅 Kế hoạch</button>
+            <button class="filter-btn" data-category="team">👥 Nhóm</button>
+            <button class="filter-btn" data-category="tools">🔧 Công cụ</button>
+            <button class="filter-btn" data-category="strategy">🧠 Chiến lược</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">📋 Cơ Bản Về Quản Lý</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="what-is-management">
+                        <span class="node-icon">📋</span>
+                        <span class="node-title">Quản Lý Là Gì</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="management-styles">
+                        <span class="node-icon">🎭</span>
+                        <span class="node-title">Các Phong Cách Quản Lý</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="management-functions">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-title">Chức Năng Quản Lý</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="decision-making">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Ra Quyết Định</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership -->
+            <section class="concept-section" data-category="leadership">
+                <h2 class="section-title">👑 Lãnh Đạo</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="leadership-types">
+                        <span class="node-icon">👑</span>
+                        <span class="node-title">Các Kiểu Lãnh Đạo</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="emotional-intelligence">
+                        <span class="node-icon">❤️</span>
+                        <span class="node-title">Trí Tuệ Cảm Xúc</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="communication">
+                        <span class="node-icon">🗣️</span>
+                        <span class="node-title">Giao Tiếp Hiệu Quả</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="conflict-resolution">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Giải Quyết Xung Đột</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="delegation">
+                        <span class="node-icon">🤝</span>
+                        <span class="node-title">Ủy Quyền</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="mentoring">
+                        <span class="node-icon">🌱</span>
+                        <span class="node-title">Mentoring & Coaching</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Planning -->
+            <section class="concept-section" data-category="planning">
+                <h2 class="section-title">📅 Kế Hoạch</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="goal-setting">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Đặt Mục Tiêu SMART</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="project-planning">
+                        <span class="node-icon">📅</span>
+                        <span class="node-title">Lập Kế Hoạch Dự Án</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="risk-management">
+                        <span class="node-icon">⚠️</span>
+                        <span class="node-title">Quản Lý Rủi Ro</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="resource-allocation">
+                        <span class="node-icon">💰</span>
+                        <span class="node-title">Phân Bổ Nguồn Lực</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="time-management">
+                        <span class="node-icon">⏰</span>
+                        <span class="node-title">Quản Lý Thời Gian</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team -->
+            <section class="concept-section" data-category="team">
+                <h2 class="section-title">👥 Nhóm</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="team-building">
+                        <span class="node-icon">👥</span>
+                        <span class="node-title">Xây Dựng Nhóm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="motivation">
+                        <span class="node-icon">🔥</span>
+                        <span class="node-title">Tạo Động Lực</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="performance-review">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Đánh Giá Hiệu Suất</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="remote-team">
+                        <span class="node-icon">🌐</span>
+                        <span class="node-title">Quản Lý Từ Xa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="team-culture">
+                        <span class="node-icon">🏛️</span>
+                        <span class="node-title">Văn Hóa Nhóm</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools -->
+            <section class="concept-section" data-category="tools">
+                <h2 class="section-title">🔧 Công Cụ Quản Lý</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="agile-scrum">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Agile & Scrum</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="kanban">
+                        <span class="node-icon">📋</span>
+                        <span class="node-title">Kanban</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="okr">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">OKR</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="kpi">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">KPI & Metrics</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="swot">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">Phân Tích SWOT</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategy -->
+            <section class="concept-section" data-category="strategy">
+                <h2 class="section-title">🧠 Chiến Lược</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="strategic-thinking">
+                        <span class="node-icon">🧠</span>
+                        <span class="node-title">Tư Duy Chiến Lược</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="competitive-analysis">
+                        <span class="node-icon">🏆</span>
+                        <span class="node-title">Phân Tích Cạnh Tranh</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="change-management">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Quản Lý Thay Đổi</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="innovation">
+                        <span class="node-icon">💡</span>
+                        <span class="node-title">Đổi Mới & Sáng Tạo</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="scaling">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">Mở Rộng Quy Mô</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">📊</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Quản Lý</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/leadership.js"></script>
+    <script src="modules/planning.js"></script>
+    <script src="modules/team.js"></script>
+    <script src="modules/tools.js"></script>
+    <script src="modules/strategy.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
