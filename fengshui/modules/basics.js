@@ -172,7 +172,7 @@ const fengshuiBasicsData = {
         connections: ['yin-yang', 'bagua-map', 'colors-materials', 'kitchen'],
         simple: `
             <h3>🔥 Ngũ Hành là gì?</h3>
-            <p><strong>Ngũ Hành</strong> gồm 5 yếu tố: Kim (🪙), Mộc (🌳), Thủy (💧), Hỏa (🔥), Thổ (�ite🏔️) — tạo nên mọi thứ trong vũ trụ.</p>
+            <p><strong>Ngũ Hành</strong> gồm 5 yếu tố: Kim (🪙), Mộc (🌳), Thủy (💧), Hỏa (🔥), Thổ (🏔️) — tạo nên mọi thứ trong vũ trụ.</p>
             <div class="example-box">
                 <strong>Nhớ dễ:</strong> Thủy sinh Mộc → Mộc sinh Hỏa → Hỏa sinh Thổ → Thổ sinh Kim → Kim sinh Thủy
             </div>
