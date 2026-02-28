@@ -3,42 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phong Thủy Hoạt Động Như Thế Nào - How It Works</title>
+    <title>Phong Thủy - How It Works</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="../" class="back-link">← Về trang chủ</a>
-            <div class="logo">
-                <span class="logo-icon">🏠</span>
-                <div>
-                    <h1>Phong Thủy Hoạt Động Như Thế Nào</h1>
-                    <p>Hiểu hết về phong thủy và năng lượng</p>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>☯️ Hiểu Hết Về Phong Thủy</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về phong thủy, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Phong thủy là gì?</li>
+                        <li>✅ Âm Dương & Khí</li>
+                        <li>✅ Cửa chính & phòng khách</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Ngũ Hành & Bát Quái</li>
+                        <li>✅ Phong thủy phòng ngủ, bếp</li>
+                        <li>✅ Bàn làm việc & văn phòng</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu sâu về phong thủy chuyên nghiệp.</p>
+                    <ul>
+                        <li>✅ Phi Tinh (Flying Stars)</li>
+                        <li>✅ Loan Đầu & Thủy Pháp</li>
+                        <li>✅ Hóa giải & vật phẩm</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>☯️ Phong Thủy</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
     </header>
 
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
     <main>
-        <section class="coming-soon-section">
-            <div class="coming-soon-content">
-                <span class="coming-icon">🚧</span>
-                <h2>Đang phát triển</h2>
-                <p>Nội dung về phong thủy và năng lượng không gian đang được xây dựng.</p>
-                <ul class="preview-list">
-                    <li>🔥 Ngũ hành: Kim, Mộc, Thủy, Hỏa, Thổ</li>
-                    <li>☯️ Bát quái và các hướng</li>
-                    <li>🏠 Phong thủy nhà ở</li>
-                    <li>🏢 Phong thủy văn phòng</li>
-                    <li>🎨 Màu sắc và năng lượng</li>
-                    <li>📅 La bàn và ngày tốt</li>
-                </ul>
-                <a href="../" class="back-btn">← Quay lại trang chủ</a>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học phong thủy...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">☯️ Cơ bản</button>
+            <button class="filter-btn" data-category="bagua">🗺️ Bát Quái</button>
+            <button class="filter-btn" data-category="home">🏠 Nhà ở</button>
+            <button class="filter-btn" data-category="office">💼 Văn phòng</button>
+            <button class="filter-btn" data-category="advanced">⭐ Nâng cao</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">☯️ Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="what-is-fengshui">
+                        <span class="node-icon">☯️</span>
+                        <span class="node-title">Phong Thủy Là Gì</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="yin-yang">
+                        <span class="node-icon">☯️</span>
+                        <span class="node-title">Âm Dương</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="chi-energy">
+                        <span class="node-icon">🌀</span>
+                        <span class="node-title">Khí (Chi/Qi)</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="five-elements">
+                        <span class="node-icon">🔥</span>
+                        <span class="node-title">Ngũ Hành</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bagua -->
+            <section class="concept-section" data-category="bagua">
+                <h2 class="section-title">🗺️ Bát Quái</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="bagua-map">
+                        <span class="node-icon">🗺️</span>
+                        <span class="node-title">Bát Quái</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="directions">
+                        <span class="node-icon">🧭</span>
+                        <span class="node-title">8 Hướng & Ý Nghĩa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="lo-shu">
+                        <span class="node-icon">📐</span>
+                        <span class="node-title">Lạc Thư & Cửu Cung</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="flying-stars">
+                        <span class="node-icon">⭐</span>
+                        <span class="node-title">Phi Tinh (Huyền Không)</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home -->
+            <section class="concept-section" data-category="home">
+                <h2 class="section-title">🏠 Nhà Ở</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="entrance">
+                        <span class="node-icon">🚪</span>
+                        <span class="node-title">Cổng & Cửa Chính</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="living-room">
+                        <span class="node-icon">🛋️</span>
+                        <span class="node-title">Phòng Khách</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="bedroom">
+                        <span class="node-icon">🛏️</span>
+                        <span class="node-title">Phòng Ngủ</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="kitchen">
+                        <span class="node-icon">🍳</span>
+                        <span class="node-title">Nhà Bếp</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="bathroom">
+                        <span class="node-icon">🚿</span>
+                        <span class="node-title">Phòng Tắm & Vệ Sinh</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Office -->
+            <section class="concept-section" data-category="office">
+                <h2 class="section-title">💼 Văn Phòng</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="desk-placement">
+                        <span class="node-icon">💼</span>
+                        <span class="node-title">Bàn Làm Việc</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="office-layout">
+                        <span class="node-icon">🏢</span>
+                        <span class="node-title">Bố Trí Văn Phòng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="business-fengshui">
+                        <span class="node-icon">💰</span>
+                        <span class="node-title">Phong Thủy Kinh Doanh</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="colors-materials">
+                        <span class="node-icon">🎨</span>
+                        <span class="node-title">Màu Sắc & Vật Liệu</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced -->
+            <section class="concept-section" data-category="advanced">
+                <h2 class="section-title">⭐ Nâng Cao</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="birth-element">
+                        <span class="node-icon">📅</span>
+                        <span class="node-title">Bản Mệnh & Tuổi</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="annual-fengshui">
+                        <span class="node-icon">📆</span>
+                        <span class="node-title">Phong Thủy Theo Năm</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="land-form">
+                        <span class="node-icon">⛰️</span>
+                        <span class="node-title">Loan Đầu (Hình Thế)</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="water-placement">
+                        <span class="node-icon">💧</span>
+                        <span class="node-title">Thủy Pháp</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="remedies">
+                        <span class="node-icon">🔮</span>
+                        <span class="node-title">Hóa Giải & Vật Phẩm</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">☯️</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Phong Thủy</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/bagua.js"></script>
+    <script src="modules/home.js"></script>
+    <script src="modules/office.js"></script>
+    <script src="modules/advanced.js"></script>
+    <script src="modules/tour.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
