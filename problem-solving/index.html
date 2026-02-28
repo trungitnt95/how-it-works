@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiểu hết về Problem Solving</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div id="levelOverlay" class="level-overlay">
+        <div class="level-content">
+            <h1>🧩 Problem Solving</h1>
+            <p>Kỹ năng giải quyết vấn đề hiệu quả</p>
+            <div class="level-buttons">
+                <button class="level-btn beginner" data-level="beginner">
+                    <span class="level-icon">🌱</span>
+                    <span class="level-title">Beginner</span>
+                    <span class="level-desc">Frameworks cơ bản</span>
+                </button>
+                <button class="level-btn intermediate" data-level="intermediate">
+                    <span class="level-icon">🌿</span>
+                    <span class="level-title">Intermediate</span>
+                    <span class="level-desc">Mental models & techniques</span>
+                </button>
+                <button class="level-btn advanced" data-level="advanced">
+                    <span class="level-icon">🌳</span>
+                    <span class="level-title">Advanced</span>
+                    <span class="level-desc">Systems thinking</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="../index.html" class="back-btn">← Trang chủ</a>
+            <h1>🧩 Problem Solving</h1>
+        </div>
+        <div class="header-right">
+            <span id="currentLevel" class="current-level"></span>
+            <button id="changeLevel" class="change-level-btn">Đổi level</button>
+            <button id="startTour" class="tour-btn">📚 Tour</button>
+            <button id="showChecklist" class="checklist-btn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div id="tourProgress" class="tour-progress hidden">
+        <div class="tour-info">
+            <span id="tourStep">Bước 1/7</span>
+            <span id="tourTitle">Chào mừng!</span>
+        </div>
+        <div class="tour-actions">
+            <button id="tourPrev" class="tour-nav">← Trước</button>
+            <button id="tourNext" class="tour-nav">Tiếp →</button>
+            <button id="tourEnd" class="tour-end">✕</button>
+        </div>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+        <div class="tips-scroll" id="tipsScroll"></div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <button class="cat-btn active" data-category="all">Tất cả</button>
+        <button class="cat-btn" data-category="frameworks">🎯 Frameworks</button>
+        <button class="cat-btn" data-category="techniques">🛠️ Techniques</button>
+        <button class="cat-btn" data-category="mental-models">🧠 Mental Models</button>
+        <button class="cat-btn" data-category="pitfalls">⚠️ Pitfalls</button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="nodes-grid" id="nodesGrid"></div>
+        <div class="info-panel" id="infoPanel">
+            <div class="panel-header">
+                <h2 id="panelTitle">Chọn một concept</h2>
+                <button id="closePanel" class="close-btn">✕</button>
+            </div>
+            <div class="panel-tabs">
+                <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+                <button class="tab-btn" data-tab="detail">Chi tiết</button>
+                <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+            </div>
+            <div id="panelContent" class="panel-content">
+                <p>Chọn một concept bên trái để xem chi tiết.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Checklist Modal -->
+    <div id="checklistModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✅ Problem Solving Checklist</h2>
+                <button id="closeChecklist" class="close-btn">✕</button>
+            </div>
+            <div class="checklist-items" id="checklistItems"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="modules/frameworks.js"></script>
+    <script src="modules/techniques.js"></script>
+    <script src="modules/mental-models.js"></script>
+    <script src="modules/pitfalls.js"></script>
+    <script src="modules/scenarios.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

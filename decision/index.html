@@ -3,41 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quyết Định Hoạt Động Như Thế Nào - How It Works</title>
+    <title>Ra Quyết Định - How It Works</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="../" class="back-link">← Về trang chủ</a>
-            <div class="logo">
-                <span class="logo-icon">🧠</span>
-                <div>
-                    <h1>Quyết Định Hoạt Động Như Thế Nào</h1>
-                    <p>Hiểu hết về đưa ra quyết định</p>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🧠 Hiểu Hết Về Ra Quyết Định</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Bắt đầu từ cơ bản, học cách ra quyết định tốt hơn.</p>
+                    <ul>
+                        <li>✅ 7 bước ra quyết định</li>
+                        <li>✅ Thiên kiến phổ biến nhất</li>
+                        <li>✅ Công cụ đơn giản</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Các mô hình quyết định</li>
+                        <li>✅ Cognitive biases</li>
+                        <li>✅ Decision matrix</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn master nghệ thuật ra quyết định.</p>
+                    <ul>
+                        <li>✅ Expected value & utility</li>
+                        <li>✅ Behavioral economics</li>
+                        <li>✅ Real-world scenarios</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>🧠 Hiểu Hết Về Ra Quyết Định</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="startTourBtn" title="Bắt đầu hướng dẫn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="checklistBtn" title="Checklist">✅ Checklist</button>
+        </div>
     </header>
 
+    <!-- Progress Bar for Tour -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <section class="coming-soon-section">
-            <div class="coming-soon-content">
-                <span class="coming-icon">🚧</span>
-                <h2>Đang phát triển</h2>
-                <p>Nội dung về cách đưa ra quyết định đang được xây dựng.</p>
-                <ul class="preview-list">
-                    <li>🎯 Các mô hình ra quyết định</li>
-                    <li>🧩 Thiên kiến nhận thức (Cognitive Biases)</li>
-                    <li>⚖️ Phân tích lợi ích - chi phí</li>
-                    <li>🎲 Ra quyết định trong bất định</li>
-                    <li>🔄 Heuristics và Mental Models</li>
-                </ul>
-                <a href="../" class="back-btn">← Quay lại trang chủ</a>
+        <!-- Tour Instruction Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">10</span></div>
+                <h3 id="tourTitle">Chào mừng bạn!</h3>
+                <p id="tourDescription">Hãy bắt đầu tìm hiểu cách ra quyết định...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo chủ đề:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="frameworks">🗂️ Frameworks</button>
+            <button class="filter-btn" data-category="biases">🧠 Biases</button>
+            <button class="filter-btn" data-category="tools">🔧 Công cụ</button>
+            <button class="filter-btn" data-category="pitfalls">⚠️ Bẫy</button>
+        </div>
+
+        <!-- Quick Tips (for beginners) -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Frameworks Section -->
+            <section class="concept-section" data-category="frameworks">
+                <h2 class="section-title">🗂️ Mô Hình Ra Quyết Định</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="seven-steps">
+                        <span class="node-icon">🪜</span>
+                        <span class="node-title">7 Bước Ra Quyết Định</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="gofer-model">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Mô hình GOFER</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="decide-model">
+                        <span class="node-icon">📋</span>
+                        <span class="node-title">Mô hình DECIDE</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="rational-model">
+                        <span class="node-icon">🧮</span>
+                        <span class="node-title">Mô hình Lý Trí</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="intuitive-model">
+                        <span class="node-icon">💫</span>
+                        <span class="node-title">Mô hình Trực Giác</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="system-12">
+                        <span class="node-icon">🧠</span>
+                        <span class="node-title">System 1 & 2</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="creative-model">
+                        <span class="node-icon">🎨</span>
+                        <span class="node-title">Mô hình Sáng Tạo</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cognitive Biases Section -->
+            <section class="concept-section" data-category="biases">
+                <h2 class="section-title">🧠 Thiên Kiến Nhận Thức (Cognitive Biases)</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="confirmation-bias">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">Confirmation Bias</span>
+                        <span class="node-subtitle">Thiên kiến xác nhận</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="anchoring-bias">
+                        <span class="node-icon">⚓</span>
+                        <span class="node-title">Anchoring Bias</span>
+                        <span class="node-subtitle">Thiên kiến neo đậu</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="availability-heuristic">
+                        <span class="node-icon">📰</span>
+                        <span class="node-title">Availability Heuristic</span>
+                        <span class="node-subtitle">Thiên kiến sẵn có</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="sunk-cost-fallacy">
+                        <span class="node-icon">💸</span>
+                        <span class="node-title">Sunk Cost Fallacy</span>
+                        <span class="node-subtitle">Ngụy biện chi phí chìm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="loss-aversion">
+                        <span class="node-icon">😰</span>
+                        <span class="node-title">Loss Aversion</span>
+                        <span class="node-subtitle">Sợ mất mát</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="overconfidence">
+                        <span class="node-icon">🦚</span>
+                        <span class="node-title">Overconfidence</span>
+                        <span class="node-subtitle">Quá tự tin</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="status-quo-bias">
+                        <span class="node-icon">🔒</span>
+                        <span class="node-title">Status Quo Bias</span>
+                        <span class="node-subtitle">Thiên kiến nguyên trạng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="framing-effect">
+                        <span class="node-icon">🖼️</span>
+                        <span class="node-title">Framing Effect</span>
+                        <span class="node-subtitle">Hiệu ứng đóng khung</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="hindsight-bias">
+                        <span class="node-icon">🔮</span>
+                        <span class="node-title">Hindsight Bias</span>
+                        <span class="node-subtitle">Thiên kiến nhìn lại</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Section -->
+            <section class="concept-section" data-category="tools">
+                <h2 class="section-title">🔧 Công Cụ Ra Quyết Định</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="pros-cons">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Pros & Cons</span>
+                        <span class="node-subtitle">Ưu/nhược điểm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="decision-matrix">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Decision Matrix</span>
+                        <span class="node-subtitle">Ma trận quyết định</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="decision-tree">
+                        <span class="node-icon">🌳</span>
+                        <span class="node-title">Decision Tree</span>
+                        <span class="node-subtitle">Cây quyết định</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="expected-value">
+                        <span class="node-icon">🎲</span>
+                        <span class="node-title">Expected Value</span>
+                        <span class="node-subtitle">Giá trị kỳ vọng</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="premortem">
+                        <span class="node-icon">💀</span>
+                        <span class="node-title">Pre-Mortem</span>
+                        <span class="node-subtitle">Phân tích trước thất bại</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="opportunity-cost">
+                        <span class="node-icon">🔀</span>
+                        <span class="node-title">Opportunity Cost</span>
+                        <span class="node-subtitle">Chi phí cơ hội</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="ten-ten-ten">
+                        <span class="node-icon">🕐</span>
+                        <span class="node-title">10/10/10 Rule</span>
+                        <span class="node-subtitle">10 phút/tháng/năm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="reversibility">
+                        <span class="node-icon">↩️</span>
+                        <span class="node-title">Reversibility Check</span>
+                        <span class="node-subtitle">Kiểm tra đảo ngược</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pitfalls Section -->
+            <section class="concept-section" data-category="pitfalls">
+                <h2 class="section-title">⚠️ Các Bẫy Khi Ra Quyết Định</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="analysis-paralysis">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Analysis Paralysis</span>
+                        <span class="node-subtitle">Tê liệt vì phân tích</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="decision-fatigue">
+                        <span class="node-icon">😴</span>
+                        <span class="node-title">Decision Fatigue</span>
+                        <span class="node-subtitle">Mệt mỏi quyết định</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="groupthink">
+                        <span class="node-icon">🐑</span>
+                        <span class="node-title">Groupthink</span>
+                        <span class="node-subtitle">Tư duy bầy đàn</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="emotional-decisions">
+                        <span class="node-icon">💔</span>
+                        <span class="node-title">Emotional Decisions</span>
+                        <span class="node-subtitle">Quyết định cảm xúc</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="information-overload">
+                        <span class="node-icon">📚</span>
+                        <span class="node-title">Information Overload</span>
+                        <span class="node-subtitle">Quá tải thông tin</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
+    <!-- Info Panel (Sidebar) -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">🧠</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+            <span class="panel-subtitle" id="panelSubtitle"></span>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent">
+            <!-- Content loaded dynamically -->
+        </div>
+        <div class="panel-footer">
+            <h4>📚 Khái niệm liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts">
+                <!-- Related concepts loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Modal -->
+    <div class="modal" id="scenarioModal">
+        <div class="modal-content scenario-modal">
+            <button class="modal-close" id="closeScenario">×</button>
+            <h2>📖 Kịch Bản Thực Tế</h2>
+            <div class="scenario-categories" id="scenarioCategories">
+                <!-- Categories loaded dynamically -->
+            </div>
+            <div class="scenario-list" id="scenarioList">
+                <!-- Scenarios loaded dynamically -->
+            </div>
+            <div class="scenario-detail" id="scenarioDetail" style="display: none;">
+                <!-- Scenario detail loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Ra Quyết Định</h2>
+            <p class="checklist-intro">Dùng checklist này trước khi đưa ra quyết định quan trọng:</p>
+            <div class="checklist-items" id="checklistItems">
+                <!-- Checklist loaded dynamically -->
+            </div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+                <button class="btn-print" id="printChecklist">🖨️ In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - Order matters! Modules first, then main app -->
+    <script src="modules/decision-models.js"></script>
+    <script src="modules/cognitive-biases.js"></script>
+    <script src="modules/tools.js"></script>
+    <script src="modules/pitfalls.js"></script>
+    <script src="modules/scenarios.js"></script>
+    <script src="modules/tour.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
