@@ -286,7 +286,7 @@ const developerToolsData = {
         title: 'AI Agents',
         category: 'developer',
         level: 'advanced',
-        connections: ['ai-workflow', 'api-integration', 'local-llm'],
+        connections: ['ai-workflow', 'api-integration', 'local-llm', 'mcp-protocol', 'coding-agents'],
         simple: `
             <h3>🤖 AI Agents</h3>
             <p><strong>AI Agent</strong> là AI có thể tự <em>lập kế hoạch</em> và <em>thực hiện hành động</em> để đạt mục tiêu.</p>
@@ -339,6 +339,71 @@ const developerToolsData = {
                 <li>Debugging phức tạp</li>
                 <li>Safety: Agent có quyền thực hiện actions</li>
             </ul>
+        `
+    },
+    'coding-agents': {
+        icon: '🤖',
+        title: 'Coding Agents',
+        category: 'developer',
+        level: 'advanced',
+        connections: ['ai-agents', 'copilot', 'cursor-ai', 'mcp-protocol'],
+        simple: `
+            <h3>🤖 Coding Agents</h3>
+            <p><strong>Coding Agent</strong> là AI agent chuyên biệt cho lập trình - có thể đọc code, viết code, chạy tests, và sửa bugs tự động.</p>
+            <h4>Coding Agents phổ biến</h4>
+            <ul>
+                <li>🧑‍💻 <strong>GitHub Copilot Agent:</strong> Tích hợp trong VS Code</li>
+                <li>💻 <strong>Cursor Agent:</strong> Multi-file editing</li>
+                <li>🔧 <strong>Cline / Aider:</strong> Terminal-based agents</li>
+                <li>🤖 <strong>Devin:</strong> Full autonomous dev agent</li>
+                <li>⚡ <strong>Bolt / v0:</strong> Web app generators</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 So sánh Coding Agents</h3>
+            <table>
+                <tr><th>Agent</th><th>Tự động</th><th>Multi-file</th><th>Run tests</th><th>Giá</th></tr>
+                <tr><td>Copilot Agent</td><td>⚠️ Semi</td><td>✅</td><td>✅</td><td>$10-19/th</td></tr>
+                <tr><td>Cursor Composer</td><td>⚠️ Semi</td><td>✅</td><td>⚠️</td><td>$20/th</td></tr>
+                <tr><td>Cline</td><td>✅ Full</td><td>✅</td><td>✅</td><td>API cost</td></tr>
+                <tr><td>Aider</td><td>✅ Full</td><td>✅</td><td>✅</td><td>API cost</td></tr>
+                <tr><td>Devin</td><td>✅ Full</td><td>✅</td><td>✅</td><td>$500/th</td></tr>
+            </table>
+            <h4>Workflow với Coding Agent</h4>
+            <ol>
+                <li><strong>Mô tả task:</strong> Viết rõ yêu cầu, acceptance criteria</li>
+                <li><strong>Agent phân tích:</strong> Đọc codebase, hiểu context</li>
+                <li><strong>Agent tạo plan:</strong> Liệt kê files cần thay đổi</li>
+                <li><strong>Agent implement:</strong> Viết/sửa code</li>
+                <li><strong>Agent test:</strong> Chạy tests, fix nếu fail</li>
+                <li><strong>Developer review:</strong> Review changes, approve/reject</li>
+            </ol>
+        `,
+        advanced: `
+            <h3>🎓 Advanced Coding Agent Setup</h3>
+            <h4>Tối ưu Coding Agent</h4>
+            <ul>
+                <li><strong>Context files:</strong> Cung cấp đúng files liên quan</li>
+                <li><strong>Rules/Instructions:</strong> .cursorrules, copilot-instructions.md</li>
+                <li><strong>Examples:</strong> Chỉ cho agent code patterns hiện tại</li>
+                <li><strong>Constraints:</strong> "Không thay đổi file X", "Giữ backward compatible"</li>
+            </ul>
+            <h4>Agent + MCP Integration</h4>
+            <p>Coding agents mạnh hơn khi kết nối MCP servers:</p>
+            <div class="example-box">
+                Agent + GitHub MCP → Tự tạo PRs<br>
+                Agent + DB MCP → Query data trực tiếp<br>
+                Agent + Browser MCP → Test UI tự động<br>
+                Agent + Docs MCP → Đọc documentation
+            </div>
+            <h4>Khi nào dùng Coding Agent?</h4>
+            <table>
+                <tr><th>✅ Phù hợp</th><th>❌ Không phù hợp</th></tr>
+                <tr><td>Bug fixes rõ ràng</td><td>Architecture decisions</td></tr>
+                <tr><td>Feature đã có spec</td><td>Exploratory coding</td></tr>
+                <tr><td>Refactoring</td><td>Performance optimization phức tạp</td></tr>
+                <tr><td>Test writing</td><td>Security-critical code</td></tr>
+            </table>
         `
     }
 };

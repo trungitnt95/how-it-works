@@ -13,12 +13,14 @@
     // Merge all data
     const allComponents = {
         ...aiBasicsData,
+        ...aiConceptsData,
         ...promptingData,
         ...techniquesData,
         ...multiAccountData,
         ...freePremiumData,
         ...automationData,
-        ...developerToolsData
+        ...developerToolsData,
+        ...skillsPracticesData
     };
 
     const elements = {
