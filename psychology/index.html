@@ -3,42 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Lý Hoạt Động Như Thế Nào - How It Works</title>
+    <title>Tâm Lý Học - How It Works</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="../" class="back-link">← Về trang chủ</a>
-            <div class="logo">
-                <span class="logo-icon">💭</span>
-                <div>
-                    <h1>Tâm Lý Hoạt Động Như Thế Nào</h1>
-                    <p>Hiểu hết về các kiểu người và lòng người</p>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🧠 Hiểu Hết Về Tâm Lý Học</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về tâm lý học, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Tâm lý học là gì?</li>
+                        <li>✅ 6 cảm xúc cơ bản</li>
+                        <li>✅ Ngôn ngữ cơ thể</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Big Five & Enneagram</li>
+                        <li>✅ Vi biểu cảm</li>
+                        <li>✅ Thuyết phục & EQ</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu sâu và áp dụng thực tế.</p>
+                    <ul>
+                        <li>✅ Dark Psychology</li>
+                        <li>✅ Nhận diện thao túng</li>
+                        <li>✅ Tâm lý đám đông</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>🧠 Tâm Lý Học</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
     </header>
 
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
     <main>
-        <section class="coming-soon-section">
-            <div class="coming-soon-content">
-                <span class="coming-icon">🚧</span>
-                <h2>Đang phát triển</h2>
-                <p>Nội dung về tâm lý học và hiểu người đang được xây dựng.</p>
-                <ul class="preview-list">
-                    <li>🎭 16 kiểu tính cách MBTI</li>
-                    <li>🔢 Enneagram - 9 loại tính cách</li>
-                    <li>👀 Ngôn ngữ cơ thể (Body Language)</li>
-                    <li>🗣️ Nghệ thuật giao tiếp</li>
-                    <li>🧩 Tâm lý học hành vi</li>
-                    <li>💡 Thấu hiểu động lực con người</li>
-                </ul>
-                <a href="../" class="back-btn">← Quay lại trang chủ</a>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học tâm lý học...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🧠 Cơ bản</button>
+            <button class="filter-btn" data-category="personality">🎭 Tính cách</button>
+            <button class="filter-btn" data-category="behavior">👀 Hành vi</button>
+            <button class="filter-btn" data-category="communication">🗣️ Giao tiếp</button>
+            <button class="filter-btn" data-category="applied">🌟 Ứng dụng</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🧠 Cơ Bản Tâm Lý Học</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="what-is-psychology">
+                        <span class="node-icon">🧠</span>
+                        <span class="node-title">Tâm Lý Học Là Gì</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="consciousness">
+                        <span class="node-icon">💭</span>
+                        <span class="node-title">Ý Thức & Vô Thức</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="emotions">
+                        <span class="node-icon">❤️</span>
+                        <span class="node-title">Cảm Xúc Con Người</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="motivation">
+                        <span class="node-icon">🔥</span>
+                        <span class="node-title">Động Lực & Nhu Cầu</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personality -->
+            <section class="concept-section" data-category="personality">
+                <h2 class="section-title">🎭 Tính Cách & Nhân Cách</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="mbti">
+                        <span class="node-icon">🎭</span>
+                        <span class="node-title">16 Kiểu Tính Cách MBTI</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="big-five">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Big Five (OCEAN)</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="enneagram">
+                        <span class="node-icon">🔢</span>
+                        <span class="node-title">Enneagram - 9 Loại Người</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="attachment">
+                        <span class="node-icon">🔗</span>
+                        <span class="node-title">Kiểu Gắn Bó</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="temperament">
+                        <span class="node-icon">🌡️</span>
+                        <span class="node-title">4 Nhóm Khí Chất</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Behavior -->
+            <section class="concept-section" data-category="behavior">
+                <h2 class="section-title">👀 Hành Vi & Tâm Lý</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="body-language">
+                        <span class="node-icon">👀</span>
+                        <span class="node-title">Ngôn Ngữ Cơ Thể</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="micro-expressions">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">Vi Biểu Cảm</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="habits">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Thói Quen & Hành Vi</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="decision-psychology">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Tâm Lý Ra Quyết Định</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="social-influence">
+                        <span class="node-icon">👥</span>
+                        <span class="node-title">Ảnh Hưởng Xã Hội</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication -->
+            <section class="concept-section" data-category="communication">
+                <h2 class="section-title">🗣️ Giao Tiếp & Thuyết Phục</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="active-listening">
+                        <span class="node-icon">👂</span>
+                        <span class="node-title">Lắng Nghe Chủ Động</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="persuasion">
+                        <span class="node-icon">🗣️</span>
+                        <span class="node-title">Thuyết Phục & Ảnh Hưởng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="conflict-resolution">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Giải Quyết Xung Đột</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="negotiation">
+                        <span class="node-icon">🤝</span>
+                        <span class="node-title">Đàm Phán</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="manipulation-detect">
+                        <span class="node-icon">🚩</span>
+                        <span class="node-title">Nhận Diện Thao Túng</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Applied -->
+            <section class="concept-section" data-category="applied">
+                <h2 class="section-title">🌟 Ứng Dụng Tâm Lý</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="stress-management">
+                        <span class="node-icon">😤</span>
+                        <span class="node-title">Quản Lý Stress</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="cognitive-therapy">
+                        <span class="node-icon">💡</span>
+                        <span class="node-title">Tư Duy Tích Cực</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="emotional-intelligence">
+                        <span class="node-icon">🌟</span>
+                        <span class="node-title">Trí Tuệ Cảm Xúc (EQ)</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="dark-psychology">
+                        <span class="node-icon">🌑</span>
+                        <span class="node-title">Tâm Lý Học Tối</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="crowd-psychology">
+                        <span class="node-icon">🌊</span>
+                        <span class="node-title">Tâm Lý Đám Đông</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">🧠</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Tâm Lý Học</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/personality.js"></script>
+    <script src="modules/behavior.js"></script>
+    <script src="modules/communication.js"></script>
+    <script src="modules/applied.js"></script>
+    <script src="modules/tour.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
