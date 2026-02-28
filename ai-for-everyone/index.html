@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cho Mọi Người - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🤖 AI Hoạt Động Như Thế Nào</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về AI, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ AI là gì?</li>
+                        <li>✅ Prompting cơ bản</li>
+                        <li>✅ Công cụ miễn phí</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn dùng AI hiệu quả hơn.</p>
+                    <ul>
+                        <li>✅ Chain of Thought</li>
+                        <li>✅ Multi Account</li>
+                        <li>✅ Automation workflow</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn tận dụng AI tối đa cho công việc.</p>
+                    <ul>
+                        <li>✅ Advanced Prompting</li>
+                        <li>✅ Local LLM</li>
+                        <li>✅ AI Agents</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>🤖 AI Hoạt Động Như Thế Nào</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học về AI...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🤖 Cơ bản</button>
+            <button class="filter-btn" data-category="prompting">✏️ Prompting</button>
+            <button class="filter-btn" data-category="techniques">🔧 Kỹ thuật</button>
+            <button class="filter-btn" data-category="accounts">👥 Tài khoản</button>
+            <button class="filter-btn" data-category="free-premium">🆓 Miễn phí</button>
+            <button class="filter-btn" data-category="automation">⚡ Tự động</button>
+            <button class="filter-btn" data-category="developer">🧑‍💻 Developer</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🤖 Kiến Thức Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="what-is-ai">
+                        <span class="node-icon">🤖</span>
+                        <span class="node-title">AI Là Gì</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="chatgpt-intro">
+                        <span class="node-icon">💬</span>
+                        <span class="node-title">ChatGPT & LLM</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ai-tools-overview">
+                        <span class="node-icon">🧰</span>
+                        <span class="node-title">Tổng Quan Công Cụ AI</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ai-limitations">
+                        <span class="node-icon">⚠️</span>
+                        <span class="node-title">Giới Hạn Của AI</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prompting -->
+            <section class="concept-section" data-category="prompting">
+                <h2 class="section-title">✏️ Kỹ Năng Prompting</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="basic-prompting">
+                        <span class="node-icon">✏️</span>
+                        <span class="node-title">Prompting Cơ Bản</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="role-prompting">
+                        <span class="node-icon">🎭</span>
+                        <span class="node-title">Role Prompting</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="chain-of-thought">
+                        <span class="node-icon">🔗</span>
+                        <span class="node-title">Chain of Thought</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="few-shot">
+                        <span class="node-icon">📝</span>
+                        <span class="node-title">Few-Shot Learning</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="system-prompts">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-title">System Prompts</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="advanced-prompting">
+                        <span class="node-icon">🎓</span>
+                        <span class="node-title">Kỹ Thuật Prompt Nâng Cao</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Techniques -->
+            <section class="concept-section" data-category="techniques">
+                <h2 class="section-title">🔧 Kỹ Thuật Sử Dụng</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="context-window">
+                        <span class="node-icon">📏</span>
+                        <span class="node-title">Context Window</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="temperature">
+                        <span class="node-icon">🌡️</span>
+                        <span class="node-title">Temperature & Parameters</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="token-optimization">
+                        <span class="node-icon">💰</span>
+                        <span class="node-title">Tối Ưu Token</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="ai-hallucination">
+                        <span class="node-icon">👁️</span>
+                        <span class="node-title">Xử Lý Hallucination</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="fact-checking">
+                        <span class="node-icon">✅</span>
+                        <span class="node-title">Kiểm Tra Thông Tin</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accounts -->
+            <section class="concept-section" data-category="accounts">
+                <h2 class="section-title">👥 Quản Lý Tài Khoản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="multi-account-strategy">
+                        <span class="node-icon">👥</span>
+                        <span class="node-title">Chiến Lược Multi Account</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="email-management">
+                        <span class="node-icon">📧</span>
+                        <span class="node-title">Quản Lý Email</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="browser-profiles">
+                        <span class="node-icon">🌐</span>
+                        <span class="node-title">Browser Profiles</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="vpn-proxy">
+                        <span class="node-icon">🔒</span>
+                        <span class="node-title">VPN & Proxy</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Free Premium -->
+            <section class="concept-section" data-category="free-premium">
+                <h2 class="section-title">🆓 Miễn Phí & Premium</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="free-tiers">
+                        <span class="node-icon">🆓</span>
+                        <span class="node-title">Tận Dụng Free Tier</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="trial-strategy">
+                        <span class="node-icon">⏱️</span>
+                        <span class="node-title">Chiến Lược Dùng Thử</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="alternative-tools">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Công Cụ Thay Thế</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="open-source-ai">
+                        <span class="node-icon">🔓</span>
+                        <span class="node-title">AI Mã Nguồn Mở</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="api-free-credits">
+                        <span class="node-icon">🎫</span>
+                        <span class="node-title">API & Free Credits</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Automation -->
+            <section class="concept-section" data-category="automation">
+                <h2 class="section-title">⚡ Tự Động Hóa</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="ai-workflow">
+                        <span class="node-icon">⚡</span>
+                        <span class="node-title">AI Workflow Tự Động</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="background-tasks">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Chạy Ngầm & Background</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="scheduling">
+                        <span class="node-icon">📅</span>
+                        <span class="node-title">Lập Lịch Tự Động</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="api-integration">
+                        <span class="node-icon">🔌</span>
+                        <span class="node-title">Tích Hợp API</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="batch-processing">
+                        <span class="node-icon">📦</span>
+                        <span class="node-title">Xử Lý Hàng Loạt</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Developer -->
+            <section class="concept-section" data-category="developer">
+                <h2 class="section-title">🧑‍💻 Developer Tools</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="copilot">
+                        <span class="node-icon">🧑‍💻</span>
+                        <span class="node-title">GitHub Copilot</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="cursor-ai">
+                        <span class="node-icon">💻</span>
+                        <span class="node-title">Cursor & AI IDE</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ai-code-review">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">AI Code Review</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="local-llm">
+                        <span class="node-icon">🏠</span>
+                        <span class="node-title">Chạy LLM Local</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="fine-tuning">
+                        <span class="node-icon">🎛️</span>
+                        <span class="node-title">Fine-tuning Models</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="ai-agents">
+                        <span class="node-icon">🤖</span>
+                        <span class="node-title">AI Agents</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">🤖</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist AI</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/prompting.js"></script>
+    <script src="modules/techniques.js"></script>
+    <script src="modules/multi-account.js"></script>
+    <script src="modules/free-premium.js"></script>
+    <script src="modules/automation.js"></script>
+    <script src="modules/developer-tools.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
