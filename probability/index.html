@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Suất Thống Kê - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>📊 Hiểu Hết Về Xác Suất Thống Kê</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về xác suất, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Xác suất là gì?</li>
+                        <li>✅ Không gian mẫu</li>
+                        <li>✅ Ngụy biện phổ biến</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Xác suất có điều kiện</li>
+                        <li>✅ Phân phối chuẩn</li>
+                        <li>✅ Kỳ vọng & phương sai</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn áp dụng vào thực tế.</p>
+                    <ul>
+                        <li>✅ Định lý Bayes</li>
+                        <li>✅ Kiểm định giả thuyết</li>
+                        <li>✅ Monte Carlo</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>📊 Xác Suất Thống Kê</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học xác suất thống kê...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🎲 Cơ bản</button>
+            <button class="filter-btn" data-category="concepts">🔗 Khái niệm</button>
+            <button class="filter-btn" data-category="distributions">📈 Phân phối</button>
+            <button class="filter-btn" data-category="fallacies">⚠️ Ngụy biện</button>
+            <button class="filter-btn" data-category="applications">🔬 Ứng dụng</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🎲 Khái Niệm Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="what-is-probability">
+                        <span class="node-icon">🎲</span>
+                        <span class="node-title">Xác Suất Là Gì?</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="sample-space">
+                        <span class="node-icon">Ω</span>
+                        <span class="node-title">Không Gian Mẫu</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="events">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Sự Kiện</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="probability-rules">
+                        <span class="node-icon">📐</span>
+                        <span class="node-title">Quy Tắc Xác Suất</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concepts -->
+            <section class="concept-section" data-category="concepts">
+                <h2 class="section-title">🔗 Khái Niệm Nâng Cao</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="conditional">
+                        <span class="node-icon">🔗</span>
+                        <span class="node-title">Xác Suất Có Điều Kiện</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="bayes-theorem">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Định Lý Bayes</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="independence">
+                        <span class="node-icon">🔓</span>
+                        <span class="node-title">Sự Kiện Độc Lập</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="expected-value">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">Kỳ Vọng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="variance">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Phương Sai & Độ Lệch</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Distributions -->
+            <section class="concept-section" data-category="distributions">
+                <h2 class="section-title">📈 Phân Phối Xác Suất</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="binomial">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Phân Phối Nhị Thức</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="normal-distribution">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">Phân Phối Chuẩn</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="poisson">
+                        <span class="node-icon">⏱️</span>
+                        <span class="node-title">Phân Phối Poisson</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="z-score">
+                        <span class="node-icon">📏</span>
+                        <span class="node-title">Z-Score</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="central-limit">
+                        <span class="node-icon">🎲</span>
+                        <span class="node-title">Central Limit Theorem</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fallacies -->
+            <section class="concept-section" data-category="fallacies">
+                <h2 class="section-title">⚠️ Ngụy Biện Xác Suất</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="gamblers-fallacy">
+                        <span class="node-icon">🎰</span>
+                        <span class="node-title">Ngụy Biện Con Bạc</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="base-rate-neglect">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Bỏ Qua Tỷ Lệ Nền</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="conjunction-fallacy">
+                        <span class="node-icon">🔗</span>
+                        <span class="node-title">Ngụy Biện Kết Hợp</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="hot-hand">
+                        <span class="node-icon">🔥</span>
+                        <span class="node-title">Hot Hand Fallacy</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="survivorship-bias">
+                        <span class="node-icon">✈️</span>
+                        <span class="node-title">Survivorship Bias</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="regression-mean">
+                        <span class="node-icon">📉</span>
+                        <span class="node-title">Regression to Mean</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Applications -->
+            <section class="concept-section" data-category="applications">
+                <h2 class="section-title">🔬 Ứng Dụng Thực Tế</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="risk-assessment">
+                        <span class="node-icon">⚠️</span>
+                        <span class="node-title">Đánh Giá Rủi Ro</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="ab-testing">
+                        <span class="node-icon">🔬</span>
+                        <span class="node-title">A/B Testing</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="hypothesis-testing">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Kiểm Định Giả Thuyết</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="confidence-interval">
+                        <span class="node-icon">📏</span>
+                        <span class="node-title">Khoảng Tin Cậy</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="monte-carlo">
+                        <span class="node-icon">🎲</span>
+                        <span class="node-title">Monte Carlo</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="decision-under-uncertainty">
+                        <span class="node-icon">🤔</span>
+                        <span class="node-title">Quyết Định Bất Định</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">📊</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Xác Suất</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/concepts.js"></script>
+    <script src="modules/distributions.js"></script>
+    <script src="modules/fallacies.js"></script>
+    <script src="modules/applications.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
