@@ -354,6 +354,12 @@
         .topic-card:nth-child(8) { animation-delay: 0.8s; }
         .topic-card:nth-child(9) { animation-delay: 0.9s; }
         .topic-card:nth-child(10) { animation-delay: 1s; }
+        .topic-card:nth-child(11) { animation-delay: 1.1s; }
+        .topic-card:nth-child(12) { animation-delay: 1.2s; }
+        .topic-card:nth-child(13) { animation-delay: 1.3s; }
+        .topic-card:nth-child(14) { animation-delay: 1.4s; }
+        .topic-card:nth-child(15) { animation-delay: 1.5s; }
+        .topic-card:nth-child(16) { animation-delay: 1.6s; }
 
         /* Additional card types */
         .topic-card.decision {
@@ -494,7 +500,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">6 có sẵn • 4 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">16 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -548,52 +554,6 @@
                         <span class="stat">📖 8 kịch bản</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
-                </div>
-            </div>
-
-            <!-- Internet - Coming Soon -->
-            <div class="topic-card tech coming-soon">
-                <div class="card-icon">🌐</div>
-                <h3 class="card-title">Internet Hoạt Động Như Thế Nào</h3>
-                <p class="card-subtitle">Từ DNS đến HTTP, từ Router đến Cloud</p>
-                <p class="card-description">
-                    Hiểu cách một trang web được load từ server đến trình duyệt của bạn. 
-                    DNS, TCP/IP, HTTP, CDN, và các công nghệ đằng sau mạng Internet.
-                </p>
-                <div class="card-tags">
-                    <span class="tag">DNS</span>
-                    <span class="tag">HTTP</span>
-                    <span class="tag">Cloud</span>
-                    <span class="tag">Security</span>
-                </div>
-                <div class="card-footer">
-                    <div class="card-stats">
-                        <span class="stat">🔜 Sắp ra mắt</span>
-                    </div>
-                    <span class="coming-badge">Coming Soon</span>
-                </div>
-            </div>
-
-            <!-- Body - Coming Soon -->
-            <div class="topic-card health coming-soon">
-                <div class="card-icon">🫀</div>
-                <h3 class="card-title">Cơ Thể Hoạt Động Như Thế Nào</h3>
-                <p class="card-subtitle">Hệ tuần hoàn, tiêu hóa, thần kinh</p>
-                <p class="card-description">
-                    Khám phá cơ thể người như một hệ thống hoàn hảo. 
-                    Máu được bơm như thế nào, thức ăn được tiêu hóa ra sao, não bộ xử lý thông tin như thế nào.
-                </p>
-                <div class="card-tags">
-                    <span class="tag">Tim mạch</span>
-                    <span class="tag">Tiêu hóa</span>
-                    <span class="tag">Thần kinh</span>
-                    <span class="tag">Miễn dịch</span>
-                </div>
-                <div class="card-footer">
-                    <div class="card-stats">
-                        <span class="stat">🔜 Sắp ra mắt</span>
-                    </div>
-                    <span class="coming-badge">Coming Soon</span>
                 </div>
             </div>
 
@@ -781,6 +741,98 @@
                 </div>
             </div>
 
+            <!-- Beauty - Available -->
+            <div class="topic-card health" onclick="location.href='beauty/'" data-tags="làm đẹp beauty skincare makeup trang điểm chăm sóc da tóc">
+                <div class="card-icon">💄</div>
+                <h3 class="card-title">Làm Đẹp Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về chăm sóc da, trang điểm và làm đẹp</p>
+                <p class="card-description">
+                    Khám phá khoa học đằng sau làm đẹp. 
+                    Chăm sóc da, trang điểm, chăm sóc tóc, dinh dưỡng và xu hướng làm đẹp hiện đại.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Skincare</span>
+                    <span class="tag">Makeup</span>
+                    <span class="tag">Tóc</span>
+                    <span class="tag">Dinh dưỡng</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Management - Available -->
+            <div class="topic-card tech" onclick="location.href='management/'" data-tags="quản lý management lãnh đạo leadership kế hoạch nhóm chiến lược">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Quản Lý Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về quản lý và lãnh đạo</p>
+                <p class="card-description">
+                    Khám phá nghệ thuật quản lý từ cơ bản đến nâng cao. 
+                    Lãnh đạo, lập kế hoạch, xây dựng nhóm, công cụ quản lý và chiến lược.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Lãnh đạo</span>
+                    <span class="tag">Agile</span>
+                    <span class="tag">OKR</span>
+                    <span class="tag">Chiến lược</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- AI for Everyone - Available -->
+            <div class="topic-card decision" onclick="location.href='ai-for-everyone/'" data-tags="AI artificial intelligence trí tuệ nhân tạo chatgpt prompt engineering copilot">
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">AI Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">AI cho mọi người và developer</p>
+                <p class="card-description">
+                    Khám phá cách sử dụng AI hiệu quả nhất. 
+                    Prompt engineering, multi account, tận dụng free premium, chạy ngầm và công cụ cho developer.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Prompting</span>
+                    <span class="tag">ChatGPT</span>
+                    <span class="tag">Copilot</span>
+                    <span class="tag">Automation</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Practical Math - Available -->
+            <div class="topic-card science" onclick="location.href='practical-math/'" data-tags="toán học math thực tế tài chính đại số hình học thống kê tối ưu">
+                <div class="card-icon">📐</div>
+                <h3 class="card-title">Toán Học Thực Tế Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Toán học ứng dụng trong đời sống hàng ngày</p>
+                <p class="card-description">
+                    Khám phá toán học thực tế từ tính nhẩm đến lý thuyết trò chơi. 
+                    Lãi kép, tỉ lệ vàng, thống kê, toán tài chính và tối ưu hóa.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Tính nhẩm</span>
+                    <span class="tag">Tài chính</span>
+                    <span class="tag">Thống kê</span>
+                    <span class="tag">Tối ưu</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
             <!-- Solution Architect - Available -->
             <div class="topic-card architect" onclick="location.href='solution-architect/'" data-tags="solution architect kiến trúc hệ thống microservices cloud">
                 <div class="card-icon">🏗️</div>
@@ -799,6 +851,101 @@
                 <div class="card-footer">
                     <div class="card-stats">
                         <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Probability - Available -->
+            <div class="topic-card science" onclick="location.href='probability/'" data-tags="xác suất probability thống kê statistics bayes phân phối">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Xác Suất Thống Kê Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về xác suất và thống kê</p>
+                <p class="card-description">
+                    Khám phá thế giới xác suất từ cơ bản đến nâng cao.
+                    Phân phối, định lý Bayes, ngụy biện xác suất và các ứng dụng thực tế.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Xác suất</span>
+                    <span class="tag">Bayes</span>
+                    <span class="tag">Phân phối</span>
+                    <span class="tag">Thống kê</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 24 thành phần</span>
+                        <span class="stat">📖 5 danh mục</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Problem Solving - Available -->
+            <div class="topic-card decision" onclick="location.href='problem-solving/'" data-tags="giải quyết vấn đề problem solving tư duy phản biện framework">
+                <div class="card-icon">🧩</div>
+                <h3 class="card-title">Giải Quyết Vấn Đề Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về kỹ năng giải quyết vấn đề</p>
+                <p class="card-description">
+                    Khám phá các framework và kỹ thuật giải quyết vấn đề hiệu quả.
+                    Mô hình tư duy, kỹ thuật phân tích, và các bẫy cần tránh.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Framework</span>
+                    <span class="tag">Tư duy</span>
+                    <span class="tag">Phân tích</span>
+                    <span class="tag">Kịch bản</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Quality Management - Available -->
+            <div class="topic-card tech" onclick="location.href='quality-management/'" data-tags="quản lý chất lượng quality management ISO six sigma lean kaizen">
+                <div class="card-icon">📋</div>
+                <h3 class="card-title">Quản Lý Chất Lượng Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về hệ thống quản lý chất lượng</p>
+                <p class="card-description">
+                    Khám phá thế giới quản lý chất lượng từ PDCA đến Six Sigma.
+                    ISO 9001, Lean, Kaizen, FMEA và các tiêu chuẩn ngành.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">ISO 9001</span>
+                    <span class="tag">Six Sigma</span>
+                    <span class="tag">Lean</span>
+                    <span class="tag">Kaizen</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 24 thành phần</span>
+                        <span class="stat">📖 5 danh mục</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- How World Works - Available -->
+            <div class="topic-card power" onclick="location.href='how-world-works/'" data-tags="thế giới vận hành world works kinh tế chính trị xã hội tự nhiên">
+                <div class="card-icon">🌍</div>
+                <h3 class="card-title">Thế Giới Vận Hành Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu hết về cách thế giới hoạt động</p>
+                <p class="card-description">
+                    Khám phá các cơ chế vận hành thế giới từ kinh tế, chính trị đến tự nhiên.
+                    GDP, địa chính trị, mạng xã hội, khí hậu và nhiều hơn nữa.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Kinh tế</span>
+                    <span class="tag">Chính trị</span>
+                    <span class="tag">Xã hội</span>
+                    <span class="tag">Tự nhiên</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 24 thành phần</span>
+                        <span class="stat">📖 5 danh mục</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>

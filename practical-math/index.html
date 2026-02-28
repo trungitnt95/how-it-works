@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toan Hoc Thuc Te - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>📐 Toán Học Thực Tế</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về toán ứng dụng, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Tính nhẩm nhanh</li>
+                        <li>✅ Phần trăm đời sống</li>
+                        <li>✅ Ước lượng cơ bản</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Lãi kép & đầu tư</li>
+                        <li>✅ Thống kê thực tế</li>
+                        <li>✅ Tối ưu chi phí</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn áp dụng toán vào thực tế chuyên sâu.</p>
+                    <ul>
+                        <li>✅ Quy hoạch tuyến tính</li>
+                        <li>✅ Lý thuyết trò chơi</li>
+                        <li>✅ Tư duy thuật toán</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>📐 Toán Học Thực Tế</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu học toán ứng dụng thực tế...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🧠 Cơ bản</button>
+            <button class="filter-btn" data-category="algebra">📊 Đại số</button>
+            <button class="filter-btn" data-category="geometry">📐 Hình học</button>
+            <button class="filter-btn" data-category="statistics">📈 Thống kê</button>
+            <button class="filter-btn" data-category="finance">💰 Tài chính</button>
+            <button class="filter-btn" data-category="optimization">⚡ Tối ưu</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🧠 Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="mental-math">
+                        <span class="node-icon">🧠</span>
+                        <span class="node-title">Tính Nhẩm Nhanh</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="estimation">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Ước Lượng</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="percentages">
+                        <span class="node-icon">%</span>
+                        <span class="node-title">Phần Trăm Trong Đời Sống</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ratios">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Tỉ Lệ & Tỉ Số</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Algebra -->
+            <section class="concept-section" data-category="algebra">
+                <h2 class="section-title">📊 Đại Số Ứng Dụng</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="equations-daily">
+                        <span class="node-icon">🔢</span>
+                        <span class="node-title">Phương Trình Hàng Ngày</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="compound-interest">
+                        <span class="node-icon">💵</span>
+                        <span class="node-title">Lãi Kép</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="exponential-growth">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">Tăng Trưởng Lũy Thừa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="linear-programming">
+                        <span class="node-icon">📉</span>
+                        <span class="node-title">Quy Hoạch Tuyến Tính</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="sequences">
+                        <span class="node-icon">🔢</span>
+                        <span class="node-title">Dãy Số & Quy Luật</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geometry -->
+            <section class="concept-section" data-category="geometry">
+                <h2 class="section-title">📐 Hình Học Thực Tế</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="area-volume">
+                        <span class="node-icon">📦</span>
+                        <span class="node-title">Diện Tích & Thể Tích</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="golden-ratio">
+                        <span class="node-icon">🌀</span>
+                        <span class="node-title">Tỉ Lệ Vàng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="navigation">
+                        <span class="node-icon">🗺️</span>
+                        <span class="node-title">Định Vị & Bản Đồ</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="architecture-math">
+                        <span class="node-icon">🏛️</span>
+                        <span class="node-title">Toán Trong Kiến Trúc</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="symmetry">
+                        <span class="node-icon">🦋</span>
+                        <span class="node-title">Đối Xứng Trong Tự Nhiên</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="concept-section" data-category="statistics">
+                <h2 class="section-title">📈 Thống Kê Thực Tế</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="averages">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Trung Bình & Ý Nghĩa</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="data-visualization">
+                        <span class="node-icon">📉</span>
+                        <span class="node-title">Trực Quan Hóa Dữ Liệu</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="correlation">
+                        <span class="node-icon">🔗</span>
+                        <span class="node-title">Tương Quan và Nhân Quả</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="sampling">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">Lấy Mẫu & Khảo Sát</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="misleading-stats">
+                        <span class="node-icon">⚠️</span>
+                        <span class="node-title">Thống Kê Gây Hiểu Lầm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Finance -->
+            <section class="concept-section" data-category="finance">
+                <h2 class="section-title">💰 Toán Tài Chính</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="budgeting">
+                        <span class="node-icon">👛</span>
+                        <span class="node-title">Lập Ngân Sách</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="loan-calculation">
+                        <span class="node-icon">🏦</span>
+                        <span class="node-title">Tính Lãi Vay</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="investment-math">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">Toán Đầu Tư</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="tax-calculation">
+                        <span class="node-icon">🧾</span>
+                        <span class="node-title">Tính Thuế</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="inflation-math">
+                        <span class="node-icon">🔥</span>
+                        <span class="node-title">Lạm Phát & Giá Trị Tiền</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Optimization -->
+            <section class="concept-section" data-category="optimization">
+                <h2 class="section-title">⚡ Tối Ưu Hóa</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="time-optimization">
+                        <span class="node-icon">⏰</span>
+                        <span class="node-title">Tối Ưu Thời Gian</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="cost-benefit">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Phân Tích Chi Phí - Lợi Ích</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="game-theory">
+                        <span class="node-icon">♟️</span>
+                        <span class="node-title">Lý Thuyết Trò Chơi</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="probability-daily">
+                        <span class="node-icon">🎲</span>
+                        <span class="node-title">Xác Suất Hàng Ngày</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="algorithm-thinking">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-title">Tư Duy Thuật Toán</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">📐</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Toán Thực Tế</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/algebra.js"></script>
+    <script src="modules/geometry.js"></script>
+    <script src="modules/statistics.js"></script>
+    <script src="modules/finance-math.js"></script>
+    <script src="modules/optimization.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

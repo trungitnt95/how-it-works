@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thế Giới Vận Hành - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🌍 Hiểu Hết Về Thế Giới Vận Hành</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết nhiều, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Tư duy hệ thống</li>
+                        <li>✅ Cung cầu</li>
+                        <li>✅ Khí hậu</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Tiền tệ</li>
+                        <li>✅ Địa chính trị</li>
+                        <li>✅ Năng lượng</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu sâu các cơ chế phức tạp.</p>
+                    <ul>
+                        <li>✅ Nợ & Khủng hoảng</li>
+                        <li>✅ Chiến tranh</li>
+                        <li>✅ Quyền lực</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>🌍 Thế Giới Vận Hành</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Cùng khám phá cách thế giới vận hành...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🌍 Cơ bản</button>
+            <button class="filter-btn" data-category="economics">💰 Kinh tế</button>
+            <button class="filter-btn" data-category="politics">🏛️ Chính trị</button>
+            <button class="filter-btn" data-category="society">👥 Xã hội</button>
+            <button class="filter-btn" data-category="nature">🌿 Tự nhiên</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🌍 Nền Tảng Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="systems-thinking">
+                        <span class="node-icon">🔄</span>
+                        <span class="node-title">Tư Duy Hệ Thống</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="supply-demand">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Cung & Cầu</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="incentives">
+                        <span class="node-icon">🎯</span>
+                        <span class="node-title">Động Lực & Khuyến Khích</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="network-effects">
+                        <span class="node-icon">🕸️</span>
+                        <span class="node-title">Hiệu Ứng Mạng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Economics -->
+            <section class="concept-section" data-category="economics">
+                <h2 class="section-title">💰 Kinh Tế</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="gdp-economics">
+                        <span class="node-icon">📈</span>
+                        <span class="node-title">GDP & Kinh Tế Vĩ Mô</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="money-creation">
+                        <span class="node-icon">🏦</span>
+                        <span class="node-title">Tiền Được Tạo Ra Thế Nào</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="trade-globalization">
+                        <span class="node-icon">🌐</span>
+                        <span class="node-title">Thương Mại & Toàn Cầu Hóa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="inequality">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Bất Bình Đẳng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="debt-crisis">
+                        <span class="node-icon">💣</span>
+                        <span class="node-title">Nợ & Khủng Hoảng</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Politics -->
+            <section class="concept-section" data-category="politics">
+                <h2 class="section-title">🏛️ Chính Trị</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="governance">
+                        <span class="node-icon">🏛️</span>
+                        <span class="node-title">Các Hình Thức Cai Trị</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="geopolitics">
+                        <span class="node-icon">🗺️</span>
+                        <span class="node-title">Địa Chính Trị</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="propaganda">
+                        <span class="node-icon">📺</span>
+                        <span class="node-title">Tuyên Truyền & Truyền Thông</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="war-peace">
+                        <span class="node-icon">⚔️</span>
+                        <span class="node-title">Chiến Tranh & Hòa Bình</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="power-structures">
+                        <span class="node-icon">👑</span>
+                        <span class="node-title">Cấu Trúc Quyền Lực</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Society -->
+            <section class="concept-section" data-category="society">
+                <h2 class="section-title">👥 Xã Hội</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="education-system">
+                        <span class="node-icon">📚</span>
+                        <span class="node-title">Hệ Thống Giáo Dục</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="healthcare-system">
+                        <span class="node-icon">🏥</span>
+                        <span class="node-title">Hệ Thống Y Tế</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="social-media">
+                        <span class="node-icon">📱</span>
+                        <span class="node-title">Mạng Xã Hội & Thuật Toán</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="urbanization">
+                        <span class="node-icon">🏙️</span>
+                        <span class="node-title">Đô Thị Hóa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="religion-culture">
+                        <span class="node-icon">🛕</span>
+                        <span class="node-title">Tôn Giáo & Văn Hóa</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nature -->
+            <section class="concept-section" data-category="nature">
+                <h2 class="section-title">🌿 Tự Nhiên</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="climate-system">
+                        <span class="node-icon">🌡️</span>
+                        <span class="node-title">Hệ Thống Khí Hậu</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ecosystems">
+                        <span class="node-icon">🌿</span>
+                        <span class="node-title">Hệ Sinh Thái</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="water-cycle">
+                        <span class="node-icon">💧</span>
+                        <span class="node-title">Chu Trình Nước</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="energy-sources">
+                        <span class="node-icon">⚡</span>
+                        <span class="node-title">Nguồn Năng Lượng</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="space-earth">
+                        <span class="node-icon">🌏</span>
+                        <span class="node-title">Trái Đất Trong Vũ Trụ</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">🌍</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Thế Giới Vận Hành</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/economics.js"></script>
+    <script src="modules/politics.js"></script>
+    <script src="modules/society.js"></script>
+    <script src="modules/nature.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

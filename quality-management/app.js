@@ -1,9 +1,9 @@
-// Feng Shui - Main App
+// Quality Management - Main App
 (function() {
     'use strict';
 
     const state = {
-        currentLevel: localStorage.getItem('fengshuiLevel') || null,
+        currentLevel: localStorage.getItem('qualityLevel') || null,
         currentTab: 'simple',
         isTourActive: false,
         tourStepIndex: 0,
@@ -12,11 +12,11 @@
 
     // Merge all data
     const allComponents = {
-        ...fengshuiBasicsData,
-        ...baguaData,
-        ...homeFengshuiData,
-        ...officeFengshuiData,
-        ...advancedFengshuiData
+        ...qualityBasicsData,
+        ...methodologiesData,
+        ...qualityToolsData,
+        ...standardsData,
+        ...industryQualityData
     };
 
     const elements = {
@@ -68,7 +68,7 @@
 
     function selectLevel(level) {
         state.currentLevel = level;
-        localStorage.setItem('fengshuiLevel', level);
+        localStorage.setItem('qualityLevel', level);
         hideOverlay();
         updateLevelUI();
         filterNodesByLevel();
@@ -229,7 +229,7 @@
             elements.checklistModal.style.display = 'none';
         });
         elements.resetChecklist.addEventListener('click', () => {
-            localStorage.removeItem('fengshuiChecklist');
+            localStorage.removeItem('qualityChecklist');
             renderChecklist();
         });
         elements.checklistModal.addEventListener('click', e => {
@@ -238,8 +238,8 @@
     }
 
     function renderChecklist() {
-        const saved = JSON.parse(localStorage.getItem('fengshuiChecklist') || '{}');
-        elements.checklistItems.innerHTML = fengshuiChecklist.map((item, i) => `
+        const saved = JSON.parse(localStorage.getItem('qualityChecklist') || '{}');
+        elements.checklistItems.innerHTML = qualityChecklist.map((item, i) => `
             <label class="checklist-item">
                 <input type="checkbox" data-index="${i}" ${saved[i] ? 'checked' : ''}>
                 <span class="checkbox-custom"></span>
@@ -250,7 +250,7 @@
             cb.addEventListener('change', () => {
                 const checks = {};
                 elements.checklistItems.querySelectorAll('input').forEach(c => checks[c.dataset.index] = c.checked);
-                localStorage.setItem('fengshuiChecklist', JSON.stringify(checks));
+                localStorage.setItem('qualityChecklist', JSON.stringify(checks));
             });
         });
     }

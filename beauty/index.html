@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Làm Đẹp - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>💄 Làm Đẹp Hoạt Động Như Thế Nào</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về làm đẹp, bắt đầu từ đầu.</p>
+                    <ul>
+                        <li>✅ Cấu trúc da cơ bản</li>
+                        <li>✅ Các loại da</li>
+                        <li>✅ Quy trình chăm sóc cơ bản</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn học sâu hơn.</p>
+                    <ul>
+                        <li>✅ Serum & tinh chất</li>
+                        <li>✅ Trang điểm mắt</li>
+                        <li>✅ Phục hồi tóc</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu chuyên sâu về làm đẹp.</p>
+                    <ul>
+                        <li>✅ Chống lão hóa</li>
+                        <li>✅ Lý thuyết màu sắc</li>
+                        <li>✅ Công nghệ làm đẹp</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>💄 Làm Đẹp</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <!-- Tour Progress -->
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Tour Panel -->
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+                <h3 id="tourTitle">Chào mừng!</h3>
+                <p id="tourDescription">Bắt đầu hành trình làm đẹp...</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="basics">🧬 Cơ bản</button>
+            <button class="filter-btn" data-category="skincare">🧴 Chăm sóc da</button>
+            <button class="filter-btn" data-category="makeup">💄 Trang điểm</button>
+            <button class="filter-btn" data-category="haircare">💇 Chăm sóc tóc</button>
+            <button class="filter-btn" data-category="nutrition">🥗 Dinh dưỡng</button>
+            <button class="filter-btn" data-category="trends">🔬 Xu hướng</button>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo Nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <!-- Grid -->
+        <div class="concepts-grid" id="conceptsGrid">
+            <!-- Basics -->
+            <section class="concept-section" data-category="basics">
+                <h2 class="section-title">🧬 Kiến Thức Cơ Bản</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="skin-structure">
+                        <span class="node-icon">🧬</span>
+                        <span class="node-title">Da Hoạt Động Như Thế Nào</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="skin-types">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-title">Các Loại Da</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="beauty-routine">
+                        <span class="node-icon">📋</span>
+                        <span class="node-title">Quy Trình Chăm Sóc Cơ Bản</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ingredients-101">
+                        <span class="node-icon">🧪</span>
+                        <span class="node-title">Thành Phần Mỹ Phẩm</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skincare -->
+            <section class="concept-section" data-category="skincare">
+                <h2 class="section-title">🧴 Chăm Sóc Da</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="cleansing">
+                        <span class="node-icon">🧼</span>
+                        <span class="node-title">Làm Sạch Da</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="moisturizing">
+                        <span class="node-icon">💧</span>
+                        <span class="node-title">Dưỡng Ẩm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="sunscreen">
+                        <span class="node-icon">☀️</span>
+                        <span class="node-title">Chống Nắng</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="serums">
+                        <span class="node-icon">💎</span>
+                        <span class="node-title">Serum & Tinh Chất</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="exfoliation">
+                        <span class="node-icon">✨</span>
+                        <span class="node-title">Tẩy Tế Bào Chết</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="anti-aging">
+                        <span class="node-icon">⏳</span>
+                        <span class="node-title">Chống Lão Hóa</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Makeup -->
+            <section class="concept-section" data-category="makeup">
+                <h2 class="section-title">💄 Trang Điểm</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="base-makeup">
+                        <span class="node-icon">🎨</span>
+                        <span class="node-title">Nền Trang Điểm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="eye-makeup">
+                        <span class="node-icon">👁️</span>
+                        <span class="node-title">Trang Điểm Mắt</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="lip-makeup">
+                        <span class="node-icon">💋</span>
+                        <span class="node-title">Trang Điểm Môi</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="contouring">
+                        <span class="node-icon">🖌️</span>
+                        <span class="node-title">Tạo Khối</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="color-theory">
+                        <span class="node-icon">🌈</span>
+                        <span class="node-title">Lý Thuyết Màu Sắc</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hair Care -->
+            <section class="concept-section" data-category="haircare">
+                <h2 class="section-title">💇 Chăm Sóc Tóc</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="hair-types">
+                        <span class="node-icon">💇</span>
+                        <span class="node-title">Các Loại Tóc</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="hair-washing">
+                        <span class="node-icon">🚿</span>
+                        <span class="node-title">Gội Đầu Đúng Cách</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="hair-treatment">
+                        <span class="node-icon">💆</span>
+                        <span class="node-title">Phục Hồi Tóc</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="hair-styling">
+                        <span class="node-icon">✂️</span>
+                        <span class="node-title">Tạo Kiểu Tóc</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="hair-coloring">
+                        <span class="node-icon">🎨</span>
+                        <span class="node-title">Nhuộm Tóc</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition -->
+            <section class="concept-section" data-category="nutrition">
+                <h2 class="section-title">🥗 Dinh Dưỡng & Làm Đẹp</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="vitamins-beauty">
+                        <span class="node-icon">💊</span>
+                        <span class="node-title">Vitamin Cho Làm Đẹp</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="collagen">
+                        <span class="node-icon">🥩</span>
+                        <span class="node-title">Collagen & Protein</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="antioxidants">
+                        <span class="node-icon">🫐</span>
+                        <span class="node-title">Chất Chống Oxy Hóa</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="water-intake">
+                        <span class="node-icon">💧</span>
+                        <span class="node-title">Nước & Độ Ẩm</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="diet-skin">
+                        <span class="node-icon">🥗</span>
+                        <span class="node-title">Thực Phẩm & Làn Da</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trends -->
+            <section class="concept-section" data-category="trends">
+                <h2 class="section-title">🔬 Xu Hướng Làm Đẹp</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="korean-beauty">
+                        <span class="node-icon">🇰🇷</span>
+                        <span class="node-title">K-Beauty</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="natural-beauty">
+                        <span class="node-icon">🌿</span>
+                        <span class="node-title">Mỹ Phẩm Tự Nhiên</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="tech-beauty">
+                        <span class="node-icon">🔬</span>
+                        <span class="node-title">Công Nghệ Làm Đẹp</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                    <div class="node" data-component="sustainable-beauty">
+                        <span class="node-icon">♻️</span>
+                        <span class="node-title">Làm Đẹp Bền Vững</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">💄</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Làm Đẹp</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/basics.js"></script>
+    <script src="modules/skincare.js"></script>
+    <script src="modules/makeup.js"></script>
+    <script src="modules/haircare.js"></script>
+    <script src="modules/nutrition.js"></script>
+    <script src="modules/trends.js"></script>
+    <script src="modules/tour.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
