@@ -173,18 +173,32 @@ header h1 {
 
 /* Modal */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 300; justify-content: center; align-items: center; padding: 2rem; }
-.modal-content { background: rgba(15,20,40,0.98); border: 1px solid rgba(124,77,255,0.3); border-radius: 16px; max-width: 600px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 2rem; position: relative; }
+.modal-content { background: rgba(15,20,40,0.98); border: 1px solid rgba(124,77,255,0.3); border-radius: 16px; max-width: 700px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 2rem; position: relative; }
 .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 2rem; cursor: pointer; }
-.modal-content h2 { margin-bottom: 1.5rem; }
-.checklist-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
-.checklist-item input { display: none; }
-.checkbox-custom { width: 22px; height: 22px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.checklist-item input:checked + .checkbox-custom { background: #2ecc71; border-color: #2ecc71; }
-.checklist-item input:checked + .checkbox-custom::after { content: '✓'; color: #fff; font-size: 0.8rem; }
-.checklist-text { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
-.checklist-item input:checked ~ .checklist-text { text-decoration: line-through; color: rgba(255,255,255,0.5); }
-.checklist-actions { margin-top: 1rem; }
-.btn-reset { padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; background: rgba(124,77,255,0.2); color: #7c4dff; }
+.modal-content h2 { margin-bottom: 0.5rem; }
+
+/* Examples Modal */
+.examples-subtitle { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1.25rem; }
+.examples-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.example-tab-btn { padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); cursor: pointer; font-size: 0.85rem; transition: all 0.3s; }
+.example-tab-btn:hover { background: rgba(255,255,255,0.1); }
+.example-tab-btn.active { background: linear-gradient(90deg, #7c4dff, #00e5ff); border-color: transparent; color: #fff; }
+.example-demo { margin-bottom: 1rem; }
+.example-demo h3 { color: #b388ff; font-size: 1.1rem; margin-bottom: 0.75rem; }
+.example-demo h4 { color: #00e5ff; font-size: 0.95rem; margin: 1rem 0 0.5rem; }
+.example-demo p { color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; line-height: 1.6; }
+.prompt-comparison { display: grid; gap: 1rem; margin: 1rem 0; }
+.prompt-card { border-radius: 12px; padding: 1rem 1.25rem; }
+.prompt-card.bad { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); }
+.prompt-card.good { background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.3); }
+.prompt-card .prompt-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.prompt-card.bad .prompt-label { color: #e74c3c; }
+.prompt-card.good .prompt-label { color: #2ecc71; }
+.prompt-card .prompt-text { color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.6; white-space: pre-line; }
+.example-result { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 0.75rem; }
+.example-result .result-label { font-size: 0.8rem; font-weight: 700; color: #00e5ff; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.example-result .result-text { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; }
+.example-tip { background: rgba(46,204,113,0.1); border-left: 3px solid #2ecc71; padding: 0.75rem 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: rgba(255,255,255,0.85); }
 
 /* Responsive */
 @media (max-width: 768px) {
