@@ -4,6 +4,9 @@ let currentScenario = null;
 let currentScenarioStep = 0;
 let currentComponentId = null;
 let currentQuizCategory = 'all';
+let currentScenarioCategory = 'all';
+let currentScenarioPreviewId = null;
+let scenarioMermaidRenderNonce = 0;
 const quizSelections = new Map();
 
 // Multi-scenario selection state
@@ -277,14 +280,223 @@ function activateSimulator(simId) {
 
 // ==================== RENDER FUNCTIONS ====================
 
+function getScenarioRuntime(scenarioId) {
+    const scenario = scenarios[scenarioId];
+    if (!scenario) return null;
+
+    const c = getCountryData();
+    const steps = scenario.getSteps ? scenario.getSteps(c) : scenario.steps || [];
+    return {
+        ...scenario,
+        id: scenarioId,
+        steps
+    };
+}
+
+function getScenarioNodeCount(steps) {
+    return new Set((steps || []).map((step) => step.node).filter(Boolean)).size;
+}
+
+function getScenarioCategoryLabel(cat) {
+    const labels = {
+        all: 'Tất cả',
+        personal: '👤 Cá nhân',
+        business: '🏭 Doanh nghiệp',
+        investment: '📈 Đầu tư',
+        crisis: '⚠️ Khủng hoảng',
+        fraud: '🦹 Gian lận',
+        war: '⚔️ Chiến tranh tiền tệ',
+        modern: '⚡ Hiện đại'
+    };
+    return labels[cat] || cat;
+}
+
+function normalizeScenarioText(text) {
+    return String(text ?? '')
+        .replace(/^[^\p{L}\p{N}]+/gu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function truncateScenarioText(text, maxLength = 58) {
+    const normalized = normalizeScenarioText(text);
+    if (normalized.length <= maxLength) return normalized;
+    return `${normalized.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function escapeMermaidText(value) {
+    return String(value ?? '')
+        .replaceAll('"', "'")
+        .replace(/[<>]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function buildScenarioTimelineMermaid(scenario, currentStep = -1) {
+    const steps = scenario?.steps || [];
+    if (!steps.length) return '';
+
+    const lines = [
+        "%%{init: { 'theme': 'base', 'flowchart': { 'htmlLabels': false, 'curve': 'linear', 'nodeSpacing': 18, 'rankSpacing': 26, 'padding': 10 }, 'themeVariables': { 'fontSize': '12px', 'lineColor': '#74c0fc', 'primaryColor': '#17345d', 'primaryBorderColor': '#74c0fc', 'primaryTextColor': '#f7fbff', 'edgeLabelBackground': '#081422' } }}%%",
+        'flowchart TD',
+        'classDef stage fill:#17345d,stroke:#74c0fc,stroke-width:1.5px,color:#f7fbff;',
+        'classDef synthetic fill:#0c2746,stroke:#8fd3ff,stroke-width:1.4px,stroke-dasharray: 6 4,color:#eaf6ff;',
+        'classDef active fill:#f39c12,stroke:#ffd166,stroke-width:2px,color:#102038;',
+        'classDef activeSynthetic fill:#ffd166,stroke:#ffefb0,stroke-width:2px,stroke-dasharray: 6 4,color:#102038;'
+    ];
+
+    steps.forEach((step, index) => {
+        const nodeId = `q${index + 1}`;
+        const componentTitle = componentData[step.node]?.title || 'Hệ thống';
+        const componentShort = truncateScenarioText(componentTitle, 18);
+        const summary = truncateScenarioText(step.text, step.synthetic ? 18 : 24);
+        const label = escapeMermaidText(`${index + 1}. ${componentShort}\\n${summary}`);
+        const className = index === currentStep
+            ? (step.synthetic ? 'activeSynthetic' : 'active')
+            : (step.synthetic ? 'synthetic' : 'stage');
+
+        lines.push(`${nodeId}["${label}"]`);
+        if (index > 0) {
+            lines.push(`q${index} --> ${nodeId}`);
+        }
+        lines.push(`class ${nodeId} ${className}`);
+    });
+
+    return lines.join('\n');
+}
+
+async function renderMermaidInto(containerId, source) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (!source) {
+        container.innerHTML = '<div class="scenario-preview-empty">Không có dữ liệu sơ đồ cho kịch bản này.</div>';
+        return;
+    }
+
+    const renderToken = `${containerId}-${++scenarioMermaidRenderNonce}`;
+    container.dataset.renderToken = renderToken;
+
+    if (!window.mermaid?.render) {
+        container.innerHTML = '<div class="scenario-preview-empty">Mermaid chưa sẵn sàng.</div>';
+        return;
+    }
+
+    try {
+        const { svg } = await mermaid.render(`scenario-flow-${scenarioMermaidRenderNonce}`, source);
+        if (container.dataset.renderToken !== renderToken) return;
+        container.innerHTML = svg;
+        const svgEl = container.querySelector('svg');
+        if (svgEl) {
+            const padding = 20;
+            svgEl.removeAttribute('height');
+            await new Promise((resolve) => window.requestAnimationFrame(resolve));
+            const boundsTarget = svgEl.querySelector('g.root') || svgEl.querySelector('g') || svgEl;
+            const bounds = typeof boundsTarget.getBBox === 'function' ? boundsTarget.getBBox() : null;
+            if (
+                bounds &&
+                Number.isFinite(bounds.width) &&
+                Number.isFinite(bounds.height) &&
+                bounds.width > 1 &&
+                bounds.height > 1
+            ) {
+                const viewBox = [
+                    Math.floor(bounds.x - padding),
+                    Math.floor(bounds.y - padding),
+                    Math.ceil(bounds.width + padding * 2),
+                    Math.ceil(bounds.height + padding * 2)
+                ].join(' ');
+                svgEl.setAttribute('viewBox', viewBox);
+                svgEl.style.width = `${Math.min(Math.max(bounds.width + padding * 2, 220), 320)}px`;
+            } else {
+                svgEl.style.width = '280px';
+            }
+            svgEl.style.height = 'auto';
+            svgEl.style.maxWidth = '100%';
+            svgEl.style.minWidth = '0';
+            svgEl.style.display = 'block';
+            svgEl.style.margin = '0 auto';
+        }
+    } catch (error) {
+        console.error('Scenario mermaid render failed', error);
+        if (container.dataset.renderToken === renderToken) {
+            container.innerHTML = '<div class="scenario-preview-empty">Không render được sơ đồ Mermaid cho kịch bản này.</div>';
+        }
+    }
+}
+
+function buildScenarioPreviewNotes(scenario) {
+    const steps = scenario.steps || [];
+    if (!steps.length) return '';
+
+    const nodes = [...new Set(steps.map((step) => step.node).filter(Boolean))]
+        .map((nodeId) => componentData[nodeId]?.title || nodeId);
+    const factualSteps = steps.filter((step) => !step.synthetic);
+    const firstStep = factualSteps[0] || steps[0];
+    const midStep = factualSteps[Math.floor(factualSteps.length / 2)] || steps[Math.floor(steps.length / 2)] || steps[0];
+    const lastStep = factualSteps[factualSteps.length - 1] || steps[steps.length - 1];
+
+    return [
+        `<div class="scenario-preview-note"><strong>Khởi phát:</strong> ${escapeHtml(truncateScenarioText(firstStep.text, 96))}</div>`,
+        `<div class="scenario-preview-note"><strong>Trục luồng:</strong> ${escapeHtml(nodes.slice(0, 6).join(' → '))}</div>`,
+        `<div class="scenario-preview-note"><strong>Bước giữa:</strong> ${escapeHtml(truncateScenarioText(midStep.text, 96))}</div>`,
+        `<div class="scenario-preview-note"><strong>Kết cục:</strong> ${escapeHtml(truncateScenarioText(lastStep.text, 96))}</div>`
+    ].join('');
+}
+
+function renderScenarioPreview(scenarioId) {
+    const previewTitle = document.getElementById('scenarioPreviewTitle');
+    const previewMeta = document.getElementById('scenarioPreviewMeta');
+    const previewDesc = document.getElementById('scenarioPreviewDesc');
+    const previewNotes = document.getElementById('scenarioPreviewNotes');
+    if (!previewTitle || !previewMeta || !previewDesc || !previewNotes) return;
+
+    const scenario = getScenarioRuntime(scenarioId);
+    if (!scenario) {
+        previewTitle.textContent = 'Không tìm thấy kịch bản';
+        previewMeta.innerHTML = '';
+        previewDesc.textContent = '';
+        previewNotes.innerHTML = '';
+        const container = document.getElementById('scenarioPreviewMermaid');
+        if (container) {
+            container.innerHTML = '<div class="scenario-preview-empty">Không có dữ liệu kịch bản.</div>';
+        }
+        return;
+    }
+
+    previewTitle.textContent = `${scenario.icon} ${scenario.title}`;
+    previewMeta.innerHTML = `
+        <span class="scenario-stat">${escapeHtml(getScenarioCategoryLabel(scenario.cat))}</span>
+        <span class="scenario-stat">${scenario.steps.length} bước</span>
+        <span class="scenario-stat">${getScenarioNodeCount(scenario.steps)} thành phần</span>
+        ${scenario.hasSimulation ? '<span class="scenario-stat sim">📊 Có mô phỏng</span>' : ''}
+    `;
+    previewDesc.textContent = scenario.desc;
+    previewNotes.innerHTML = buildScenarioPreviewNotes(scenario);
+    void renderMermaidInto('scenarioPreviewMermaid', buildScenarioTimelineMermaid(scenario));
+}
+
+function setScenarioPreview(scenarioId) {
+    currentScenarioPreviewId = scenarioId;
+    document.querySelectorAll('.scenario-card').forEach((card) => {
+        card.classList.toggle('previewing', card.dataset.scenario === scenarioId);
+    });
+    renderScenarioPreview(scenarioId);
+}
+
 function renderScenarios() {
     const container = document.getElementById('scenarioList');
     container.innerHTML = '';
-    const c = getCountryData();
-    
+    const visibleScenarioIds = [];
+
     Object.entries(scenarios).forEach(([id, scenario]) => {
+        if (currentScenarioCategory !== 'all' && scenario.cat !== currentScenarioCategory) {
+            return;
+        }
+
         const card = document.createElement('div');
         card.className = 'scenario-card';
+        card.tabIndex = 0;
         const selected = selectedScenarios.find(s => s.id === id);
         if (selected) {
             card.classList.add('selected');
@@ -292,8 +504,10 @@ function renderScenarios() {
         card.dataset.scenario = id;
         card.dataset.cat = scenario.cat;
         
-        const steps = scenario.getSteps ? scenario.getSteps(c) : scenario.steps;
+        const steps = scenario.getSteps ? scenario.getSteps(getCountryData()) : scenario.steps;
+        const nodeCount = getScenarioNodeCount(steps);
         const hasSimulation = scenario.hasSimulation || (steps && steps.some(s => s.inputs || s.outputs));
+        visibleScenarioIds.push(id);
         
         card.innerHTML = `
             <div class="scenario-checkbox ${selected ? 'checked' : ''}">
@@ -302,7 +516,11 @@ function renderScenarios() {
             <div class="scenario-icon">${scenario.icon}</div>
             <h3>${scenario.title}</h3>
             <p>${scenario.desc}</p>
-            ${hasSimulation ? '<span class="sim-badge">📊 Có Mô Phỏng</span>' : ''}
+            <div class="scenario-card-meta">
+                <span class="scenario-chip">${steps.length} bước</span>
+                <span class="scenario-chip">${nodeCount} thành phần</span>
+                ${hasSimulation ? '<span class="scenario-chip sim-badge">📊 Có mô phỏng</span>' : ''}
+            </div>
         `;
         
         // Click to toggle selection
@@ -312,6 +530,19 @@ function renderScenarios() {
             } else {
                 // Single click starts scenario immediately
                 startScenario(id);
+            }
+        });
+
+        card.addEventListener('mouseenter', () => setScenarioPreview(id));
+        card.addEventListener('focus', () => setScenarioPreview(id));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (e.ctrlKey || e.metaKey || e.shiftKey) {
+                    toggleScenarioSelection(id);
+                } else {
+                    startScenario(id);
+                }
             }
         });
         
@@ -325,6 +556,16 @@ function renderScenarios() {
     });
     
     updateSelectionBar();
+
+    const nextPreviewId = visibleScenarioIds.includes(currentScenarioPreviewId)
+        ? currentScenarioPreviewId
+        : visibleScenarioIds[0];
+
+    if (nextPreviewId) {
+        setScenarioPreview(nextPreviewId);
+    } else {
+        renderScenarioPreview(null);
+    }
 }
 
 function toggleScenarioSelection(id) {
@@ -1321,13 +1562,8 @@ function filterNodes(category) {
 }
 
 function filterScenarios(cat) {
-    document.querySelectorAll('.scenario-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
-        }
-    });
+    currentScenarioCategory = cat;
+    renderScenarios();
 }
 
 // ==================== COMPONENT MODAL ====================
@@ -1523,7 +1759,7 @@ function playScenarioStep() {
         else node.classList.add('dimmed');
     });
 
-    setTimeout(() => { currentScenarioStep++; playScenarioStep(); }, 3500);
+    setTimeout(() => { currentScenarioStep++; playScenarioStep(); }, step.autoAdvanceMs || 3500);
 }
 
 function endScenario() {
@@ -1619,20 +1855,36 @@ function updatePlayerUI() {
     if (scenarioQueue.length === 0) return;
     
     const current = scenarioQueue[currentQueueIndex];
+    const totalSteps = current.steps.length;
+    const currentStepNumber = Math.min(currentScenarioStep + 1, totalSteps);
     
     // Update title
     const titleEl = document.getElementById('playerTitle');
     if (titleEl) {
         titleEl.textContent = `${current.icon} ${current.title}`;
     }
+
+    const stepInfoEl = document.getElementById('playerStepInfo');
+    if (stepInfoEl) {
+        stepInfoEl.textContent = `Bước ${currentStepNumber}/${totalSteps}`;
+    }
     
     // Update progress
     const progressFillEl = document.getElementById('playerProgressFill');
     if (progressFillEl) {
-        const totalSteps = current.steps.length;
-        const progress = (currentScenarioStep / totalSteps) * 100;
+        const progress = totalSteps ? (currentStepNumber / totalSteps) * 100 : 0;
         progressFillEl.style.width = `${progress}%`;
     }
+
+    const playerOverviewMeta = document.getElementById('playerOverviewMeta');
+    if (playerOverviewMeta) {
+        playerOverviewMeta.innerHTML = `
+            <span class="scenario-stat">Đang ở bước ${currentStepNumber}/${totalSteps}</span>
+            <span class="scenario-stat">${getScenarioNodeCount(current.steps)} thành phần</span>
+        `;
+    }
+
+    void renderMermaidInto('playerScenarioMermaid', buildScenarioTimelineMermaid(current, currentScenarioStep));
     
     // Update step info
     const stepText = document.getElementById('stepText');
@@ -1780,7 +2032,7 @@ function playQueueStep() {
             currentScenarioStep++;
             playQueueStep();
         }
-    }, 4000);
+    }, step.autoAdvanceMs || 4000);
 }
 
 // Update simulation dashboard UI
@@ -1966,10 +2218,20 @@ function finishAllScenarios() {
     if (titleEl) {
         titleEl.textContent = '✅ Hoàn thành tất cả kịch bản!';
     }
+
+    const stepInfoEl = document.getElementById('playerStepInfo');
+    if (stepInfoEl) {
+        stepInfoEl.textContent = 'Hoàn thành';
+    }
     
     const progressFillEl = document.getElementById('playerProgressFill');
     if (progressFillEl) {
         progressFillEl.style.width = '100%';
+    }
+
+    const playerOverviewMeta = document.getElementById('playerOverviewMeta');
+    if (playerOverviewMeta) {
+        playerOverviewMeta.innerHTML = '<span class="scenario-stat">Tất cả kịch bản đã chạy xong</span>';
     }
     
     storyNarration.classList.remove('active');

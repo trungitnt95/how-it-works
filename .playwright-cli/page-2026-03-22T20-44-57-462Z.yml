@@ -1,0 +1,848 @@
+- generic [ref=e1]:
+  - banner [ref=e34]:
+    - generic [ref=e35]:
+      - link "← Trang chủ" [ref=e36] [cursor=pointer]:
+        - /url: ../
+      - heading "💰 Hiểu Hết Về Tiền" [level=1] [ref=e37]
+      - generic [ref=e38]: 🌱 Người Mới
+    - generic [ref=e39]:
+      - button "⚙️" [ref=e40] [cursor=pointer]
+      - button "📖 Kịch bản" [active] [ref=e41] [cursor=pointer]
+      - button "❓ Câu hỏi" [ref=e42] [cursor=pointer]
+      - button "🧮 Mô phỏng" [ref=e43] [cursor=pointer]
+  - main [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]: "Lọc theo nhóm:"
+      - button "Tất cả (20)" [ref=e47] [cursor=pointer]
+      - button "💰 Cốt lõi" [ref=e48] [cursor=pointer]
+      - button "🏦 Tài chính" [ref=e49] [cursor=pointer]
+      - button "📈 Thị trường" [ref=e50] [cursor=pointer]
+      - button "🛡️ Dịch vụ" [ref=e51] [cursor=pointer]
+      - button "⚡ Hiện đại" [ref=e52] [cursor=pointer]
+    - region "Dòng tiền giữa các thành phần kinh tế" [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - paragraph [ref=e56]: Mermaid Flowchart
+          - heading "Dòng tiền giữa các thành phần kinh tế" [level=2] [ref=e57]
+        - paragraph [ref=e58]: Các sơ đồ dưới đây tóm tắt luồng tiền tạo ra, luân chuyển và phân bổ giữa ngân hàng, chính phủ, doanh nghiệp, người dân và khu vực quốc tế.
+      - generic [ref=e59]:
+        - article [ref=e60]:
+          - generic [ref=e61]:
+            - heading "2. Vòng tuần hoàn tiền cơ bản" [level=3] [ref=e62]
+            - paragraph [ref=e63]: Tiền mới đi từ ngân hàng trung ương tới hệ ngân hàng, rồi lan sang sản xuất, tiêu dùng và quay lại qua tiết kiệm, thuế.
+          - document [ref=e65]:
+            - generic [ref=e67]:
+              - generic [ref=e78]:
+                - generic [ref=e84]: Bơm thanh khoản
+                - generic [ref=e90]: Cho vay sản xuất
+                - generic [ref=e96]: Cho vay tiêu dùng
+                - generic [ref=e102]: Trả lương
+                - generic [ref=e108]: Chi tiêu
+                - generic [ref=e114]: Gửi tiết kiệm
+                - generic [ref=e120]: Nộp thuế
+                - generic [ref=e126]: Nộp thuế
+                - generic [ref=e132]: Chi đầu tư công
+                - generic [ref=e138]: Lương, trợ cấp
+              - generic [ref=e139]:
+                - paragraph [ref=e146] [cursor=pointer]: Ngân hàng TW
+                - paragraph [ref=e153] [cursor=pointer]: Ngân hàng thương mại
+                - paragraph [ref=e160] [cursor=pointer]: Doanh nghiệp
+                - paragraph [ref=e167] [cursor=pointer]: Người dân
+                - paragraph [ref=e174] [cursor=pointer]: Chính phủ
+          - generic [ref=e175]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e176]
+            - list [ref=e177]:
+              - listitem [ref=e178]: Tiền mới thường không đi thẳng tới người dân mà đi qua ngân hàng thương mại trước.
+              - listitem [ref=e179]: Doanh nghiệp biến vốn vay thành lương, hàng hóa và doanh thu bán hàng.
+              - listitem [ref=e180]: Chính phủ vừa hút tiền về qua thuế, vừa bơm tiền ra lại qua chi đầu tư, lương và trợ cấp.
+        - article [ref=e181]:
+          - generic [ref=e182]:
+            - heading "3. Luồng tiết kiệm, đầu tư và tài sản" [level=3] [ref=e183]
+            - paragraph [ref=e184]: Tiền nhàn rỗi từ hộ gia đình được đẩy vào quỹ, sàn chứng khoán, trái phiếu và bất động sản để tài trợ tăng trưởng.
+          - document [ref=e186]:
+            - generic [ref=e188]:
+              - generic [ref=e199]:
+                - generic [ref=e205]: Tiết kiệm
+                - generic [ref=e211]: Góp vốn
+                - generic [ref=e217]: Mua cổ phiếu
+                - generic [ref=e223]: Mua trái phiếu
+                - generic [ref=e229]: Mua nhà
+                - generic [ref=e235]: Giải ngân
+                - generic [ref=e241]: Huy động vốn
+                - generic [ref=e247]: Tài trợ dài hạn
+                - generic [ref=e253]: Tài trợ dài hạn
+                - generic [ref=e259]: Thế chấp
+              - generic [ref=e260]:
+                - paragraph [ref=e267] [cursor=pointer]: Người dân
+                - paragraph [ref=e274] [cursor=pointer]: Ngân hàng thương mại
+                - paragraph [ref=e281] [cursor=pointer]: Quỹ đầu tư
+                - paragraph [ref=e288] [cursor=pointer]: Sàn CK
+                - paragraph [ref=e295] [cursor=pointer]: Thị trường trái phiếu
+                - paragraph [ref=e302] [cursor=pointer]: Bất động sản
+                - paragraph [ref=e309] [cursor=pointer]: Doanh nghiệp
+                - paragraph [ref=e316] [cursor=pointer]: Chính phủ
+          - generic [ref=e317]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e318]
+            - list [ref=e319]:
+              - listitem [ref=e320]: Tiền nhàn rỗi của hộ gia đình không đứng yên mà được đẩy sang các kênh tài sản.
+              - listitem [ref=e321]: Những kênh này biến tiết kiệm ngắn hạn thành vốn dài hạn cho chính phủ và doanh nghiệp.
+              - listitem [ref=e322]: Khi giá tài sản tăng mạnh, của cải tăng nhanh hơn thu nhập thực, tạo hiệu ứng giàu lên trên giấy.
+        - article [ref=e323]:
+          - generic [ref=e324]:
+            - heading "4. Luồng thanh toán hiện đại và quốc tế" [level=3] [ref=e325]
+            - paragraph [ref=e326]: Fintech, ngoại hối và dòng vốn xuyên biên giới làm tiền di chuyển nhanh hơn giữa tiêu dùng nội địa và thị trường toàn cầu.
+          - document [ref=e328]:
+            - generic [ref=e330]:
+              - generic [ref=e340]:
+                - generic [ref=e346]: Thanh toán số
+                - generic [ref=e352]: Kết nối tài khoản
+                - generic [ref=e358]: Nhập khẩu
+                - generic [ref=e364]: Hàng hóa, dịch vụ
+                - generic [ref=e370]: Mua bán ngoại tệ
+                - generic [ref=e376]: Tỷ giá
+                - generic [ref=e382]: FDI, kiều hối
+                - generic [ref=e388]: Giữ tài sản rủi ro
+                - generic [ref=e394]: Rót vốn
+              - generic [ref=e395]:
+                - paragraph [ref=e402] [cursor=pointer]: Người dân
+                - paragraph [ref=e409] [cursor=pointer]: Fintech / Ví điện tử
+                - paragraph [ref=e416] [cursor=pointer]: Ngân hàng thương mại
+                - paragraph [ref=e423] [cursor=pointer]: Doanh nghiệp
+                - paragraph [ref=e430] [cursor=pointer]: Quốc tế
+                - paragraph [ref=e437] [cursor=pointer]: Forex
+                - paragraph [ref=e444] [cursor=pointer]: Crypto
+                - paragraph [ref=e451] [cursor=pointer]: Startup / VC
+          - generic [ref=e452]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e453]
+            - list [ref=e454]:
+              - listitem [ref=e455]: Fintech tăng tốc giao dịch nhưng phần lớn vẫn bám vào tài khoản ngân hàng phía sau.
+              - listitem [ref=e456]: Kiều hối, FDI và nhập khẩu làm tiền liên tục đi qua biên giới và phụ thuộc tỷ giá.
+              - listitem [ref=e457]: Một phần dòng tiền tách ra sang crypto và startup, nên biến động cao hơn kênh truyền thống.
+        - article [ref=e458]:
+          - generic [ref=e459]:
+            - heading "5. Vay mua nhà và trả nợ thế chấp" [level=3] [ref=e460]
+            - paragraph [ref=e461]: "Đây là dòng tiền rất thực tế: tiền mua nhà được trả ngay cho người bán, còn người mua gánh dòng tiền trả nợ kéo dài nhiều năm."
+          - document [ref=e463]:
+            - generic [ref=e465]:
+              - generic [ref=e472]:
+                - generic [ref=e478]: Vốn tự có
+                - generic [ref=e484]: Giải ngân khoản vay
+                - generic [ref=e490]: Trả gốc + lãi hàng tháng
+                - generic [ref=e496]: Phí hồ sơ, bảo hiểm vay
+                - generic [ref=e502]: Thuế, phí trước bạ
+                - generic [ref=e508]: Phí quản lý, bảo trì
+              - generic [ref=e509]:
+                - paragraph [ref=e516] [cursor=pointer]: Người mua nhà
+                - paragraph [ref=e523] [cursor=pointer]: Người bán / chủ đầu tư
+                - paragraph [ref=e530] [cursor=pointer]: Ngân hàng thương mại
+                - paragraph [ref=e537] [cursor=pointer]: Chính phủ / địa phương
+                - paragraph [ref=e544] [cursor=pointer]: Ban quản lý / chung cư
+          - generic [ref=e545]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e546]
+            - list [ref=e547]:
+              - listitem [ref=e548]: Người bán nhận tiền gần như ngay khi ngân hàng giải ngân và người mua nộp phần vốn tự có.
+              - listitem [ref=e549]: "Sau đó dòng tiền đổi chiều: hộ gia đình trả gốc và lãi cho ngân hàng trong nhiều năm."
+              - listitem [ref=e550]: Ngoài giá nhà còn có thêm thuế, phí công chứng, phí quản lý và các khoản bảo hiểm liên quan.
+        - article [ref=e551]:
+          - generic [ref=e552]:
+            - heading "6. Thẻ tín dụng, trả góp và phí giao dịch" [level=3] [ref=e553]
+            - paragraph [ref=e554]: Khi quẹt thẻ hay mua trả góp, cửa hàng thường được thanh toán sớm còn người mua trả sau; phần chênh nằm ở lãi và phí.
+          - document [ref=e556]:
+            - generic [ref=e558]:
+              - generic [ref=e566]:
+                - generic [ref=e572]: Quẹt thẻ / BNPL
+                - generic [ref=e578]: Thanh toán cho merchant
+                - generic [ref=e584]: Trả sao kê đúng hạn
+                - generic [ref=e590]: Trả chậm - lãi + phí
+                - generic [ref=e596]: Phí MDR / chiết khấu
+                - generic [ref=e602]: Hoàn tiền / điểm thưởng
+              - generic [ref=e603]:
+                - paragraph [ref=e610] [cursor=pointer]: Người tiêu dùng
+                - paragraph [ref=e617] [cursor=pointer]: Cửa hàng / sàn TMĐT
+                - paragraph [ref=e624] [cursor=pointer]: Ngân hàng / công ty tài chính
+          - generic [ref=e625]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e626]
+            - list [ref=e627]:
+              - listitem [ref=e628]: Cửa hàng nhận tiền sớm từ bên tài chính, còn người mua dời nghĩa vụ thanh toán về tương lai.
+              - listitem [ref=e629]: Nếu trả đủ sao kê, chi phí thấp; nếu trả chậm, lãi và phí tăng rất nhanh.
+              - listitem [ref=e630]: Merchant fee và cashback là hai dòng tiền phụ thường bị bỏ qua nhưng xuất hiện trong hầu hết giao dịch thẻ.
+        - article [ref=e631]:
+          - generic [ref=e632]:
+            - heading "7. Bảo hiểm, tái bảo hiểm và bồi thường" [level=3] [ref=e633]
+            - paragraph [ref=e634]: Phí nhỏ đóng đều được gom lại thành quỹ lớn, rồi chỉ chảy ngược về người tham gia khi có tổn thất hoặc sự kiện bảo hiểm.
+          - document [ref=e636]:
+            - generic [ref=e638]:
+              - generic [ref=e646]:
+                - generic [ref=e652]: Đóng phí bảo hiểm
+                - generic [ref=e658]: Đầu tư quỹ dự phòng
+                - generic [ref=e664]: Phát sinh tổn thất
+                - generic [ref=e670]: Chi trả bồi thường
+                - generic [ref=e676]: Thanh toán trực tiếp
+                - generic [ref=e682]: Chia sẻ rủi ro lớn
+              - generic [ref=e683]:
+                - paragraph [ref=e690] [cursor=pointer]: Cá nhân / doanh nghiệp
+                - paragraph [ref=e697] [cursor=pointer]: Công ty bảo hiểm
+                - paragraph [ref=e704] [cursor=pointer]: Tiền gửi / trái phiếu
+                - paragraph [ref=e711] [cursor=pointer]: Bệnh viện / bên bị thiệt hại
+                - paragraph [ref=e718] [cursor=pointer]: Tái bảo hiểm
+          - generic [ref=e719]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e720]
+            - list [ref=e721]:
+              - listitem [ref=e722]: Phí bảo hiểm được thu đều đặn trước, còn bồi thường chỉ phát sinh khi có sự kiện rủi ro.
+              - listitem [ref=e723]: Trong thời gian chờ chi trả, doanh nghiệp bảo hiểm thường đầu tư quỹ dự phòng vào tài sản an toàn.
+              - listitem [ref=e724]: Tái bảo hiểm là lớp đệm giúp công ty bảo hiểm nội địa không vỡ khi gặp tổn thất quá lớn.
+        - article [ref=e725]:
+          - generic [ref=e726]:
+            - heading "8. Lương, thuế, BHXH và lương hưu" [level=3] [ref=e727]
+            - paragraph [ref=e728]: Chi phí lao động thực tế không chỉ là lương mang về; một phần tiền được chuyển sang thuế và các quỹ an sinh bắt buộc.
+          - document [ref=e730]:
+            - generic [ref=e732]:
+              - generic [ref=e740]:
+                - generic [ref=e746]: Trả lương net
+                - generic [ref=e752]: Đóng BHXH, BHYT, BHTN
+                - generic [ref=e758]: Khấu trừ BHXH + BHYT
+                - generic [ref=e764]: Thuế TNCN
+                - generic [ref=e770]: Lương hưu / trợ cấp
+                - generic [ref=e776]: Trợ cấp an sinh
+              - generic [ref=e777]:
+                - paragraph [ref=e784] [cursor=pointer]: Doanh nghiệp
+                - paragraph [ref=e791] [cursor=pointer]: Người lao động
+                - paragraph [ref=e798] [cursor=pointer]: BHXH / quỹ hưu trí
+                - paragraph [ref=e805] [cursor=pointer]: Chính phủ
+                - paragraph [ref=e812] [cursor=pointer]: Người nghỉ hưu
+          - generic [ref=e813]:
+            - heading "Diễn giải nhanh" [level=4] [ref=e814]
+            - list [ref=e815]:
+              - listitem [ref=e816]: Lương người lao động nhận về chỉ là một phần trong tổng chi phí lao động của doanh nghiệp.
+              - listitem [ref=e817]: Một phần dòng tiền đi sang thuế và quỹ bảo hiểm bắt buộc ngay ở thời điểm trả lương.
+              - listitem [ref=e818]: Nhiều năm sau, dòng tiền đó quay lại dưới dạng lương hưu, trợ cấp thất nghiệp hoặc hỗ trợ an sinh.
+    - generic [ref=e819]:
+      - generic [ref=e820] [cursor=pointer]:
+        - generic [ref=e821]: "1"
+        - generic [ref=e822]: 🏛️
+        - generic [ref=e823]: Ngân Hàng TW
+        - generic [ref=e824]: Tạo ra tiền
+      - generic [ref=e825] [cursor=pointer]:
+        - generic [ref=e826]: "2"
+        - generic [ref=e827]: 🏦
+        - generic [ref=e828]: NH Thương Mại
+        - generic [ref=e829]: Nhân bản tiền
+      - generic [ref=e830] [cursor=pointer]:
+        - generic [ref=e831]: "3"
+        - generic [ref=e832]: 🏢
+        - generic [ref=e833]: Chính Phủ
+        - generic [ref=e834]: Thuế & chi tiêu
+      - generic [ref=e835] [cursor=pointer]:
+        - generic [ref=e836]: "4"
+        - generic [ref=e837]: 🏭
+        - generic [ref=e838]: Doanh Nghiệp
+        - generic [ref=e839]: Sản xuất
+      - generic [ref=e840] [cursor=pointer]:
+        - generic [ref=e841]: "5"
+        - generic [ref=e842]: 👥
+        - generic [ref=e843]: Người Dân
+        - generic [ref=e844]: Tiêu dùng
+      - generic [ref=e845] [cursor=pointer]:
+        - generic [ref=e846]: "6"
+        - generic [ref=e847]: 🌍
+        - generic [ref=e848]: Quốc Tế
+        - generic [ref=e849]: XNK
+      - generic [ref=e850] [cursor=pointer]:
+        - generic [ref=e851]: "7"
+        - generic [ref=e852]: 📈
+        - generic [ref=e853]: Sàn CK
+        - generic [ref=e854]: Cổ phiếu
+      - generic [ref=e855] [cursor=pointer]:
+        - generic [ref=e856]: "8"
+        - generic [ref=e857]: 💼
+        - generic [ref=e858]: Quỹ Đầu Tư
+        - generic [ref=e859]: Quản lý TS
+      - generic [ref=e860] [cursor=pointer]:
+        - generic [ref=e861]: "9"
+        - generic [ref=e862]: 💳
+        - generic [ref=e863]: Tín Dụng TD
+        - generic [ref=e864]: Thẻ, trả góp
+      - generic [ref=e865] [cursor=pointer]:
+        - generic [ref=e866]: "10"
+        - generic [ref=e867]: 🌑
+        - generic [ref=e868]: Shadow Bank
+        - generic [ref=e869]: Cho vay ngoài
+      - generic [ref=e870] [cursor=pointer]:
+        - generic [ref=e871]: "11"
+        - generic [ref=e872]: 📜
+        - generic [ref=e873]: Trái Phiếu
+        - generic [ref=e874]: Cho vay DH
+      - generic [ref=e875] [cursor=pointer]:
+        - generic [ref=e876]: "12"
+        - generic [ref=e877]: 🏠
+        - generic [ref=e878]: Bất Động Sản
+        - generic [ref=e879]: Nhà đất
+      - generic [ref=e880] [cursor=pointer]:
+        - generic [ref=e881]: "13"
+        - generic [ref=e882]: 🥇
+        - generic [ref=e883]: Hàng Hóa
+        - generic [ref=e884]: Vàng, dầu
+      - generic [ref=e885] [cursor=pointer]:
+        - generic [ref=e886]: "14"
+        - generic [ref=e887]: 💱
+        - generic [ref=e888]: Forex
+        - generic [ref=e889]: Tỷ giá
+      - generic [ref=e890] [cursor=pointer]:
+        - generic [ref=e891]: "15"
+        - generic [ref=e892]: 🛡️
+        - generic [ref=e893]: Bảo Hiểm
+        - generic [ref=e894]: Bảo vệ rủi ro
+      - generic [ref=e895] [cursor=pointer]:
+        - generic [ref=e896]: "16"
+        - generic [ref=e897]: 👴
+        - generic [ref=e898]: Hưu Trí
+        - generic [ref=e899]: BHXH
+      - generic [ref=e900] [cursor=pointer]:
+        - generic [ref=e901]: "17"
+        - generic [ref=e902]: ⭐
+        - generic [ref=e903]: Xếp Hạng
+        - generic [ref=e904]: Đánh giá
+      - generic [ref=e905] [cursor=pointer]:
+        - generic [ref=e906]: "18"
+        - generic [ref=e907]: 📱
+        - generic [ref=e908]: Fintech
+        - generic [ref=e909]: Ví điện tử
+      - generic [ref=e910] [cursor=pointer]:
+        - generic [ref=e911]: "19"
+        - generic [ref=e912]: ₿
+        - generic [ref=e913]: Crypto
+        - generic [ref=e914]: Bitcoin
+      - generic [ref=e915] [cursor=pointer]:
+        - generic [ref=e916]: "20"
+        - generic [ref=e917]: 🚀
+        - generic [ref=e918]: Startup/VC
+        - generic [ref=e919]: Vốn mạo hiểm
+    - region "Bản đồ quan hệ đầy đủ giữa các thành phần kinh tế" [ref=e920]:
+      - generic [ref=e921]:
+        - generic [ref=e922]:
+          - paragraph [ref=e923]: System Map
+          - heading "Bản đồ quan hệ đầy đủ giữa các thành phần kinh tế" [level=2] [ref=e924]
+        - paragraph [ref=e925]: Bản đồ cuối trang này gom đủ 20 thành phần trong cùng một mạng lưới để bạn thấy nơi vốn được tạo ra, nơi rủi ro được chuyển đi, và nơi các chu kỳ tài sản được khuếch đại.
+      - article [ref=e926]:
+        - generic [ref=e927]:
+          - heading "1. Mạng lưới toàn hệ thống" [level=3] [ref=e928]
+          - paragraph [ref=e929]: Một sơ đồ duy nhất để nhìn quan hệ giữa khối cốt lõi, thị trường tài sản, dịch vụ tài chính và dòng vốn hiện đại.
+        - document [ref=e931]:
+          - generic [ref=e933]:
+            - generic [ref=e978]:
+              - generic [ref=e984]: Thanh khoản, lãi suất
+              - generic [ref=e989]:
+                - generic [ref=e990]: OMO, QE, mua giấy tờ có
+                - generic [ref=e991]: giá
+              - generic [ref=e997]: Cho vay sản xuất
+              - generic [ref=e1002]:
+                - generic [ref=e1003]: Cho vay tiêu dùng, thế
+                - generic [ref=e1004]: chấp / tiết kiệm, gửi tiền
+              - generic [ref=e1009]:
+                - generic [ref=e1010]: Chi tiêu công, trợ cấp /
+                - generic [ref=e1011]: thuế TNCN
+              - generic [ref=e1016]:
+                - generic [ref=e1017]: Đầu tư công, mua sắm /
+                - generic [ref=e1018]: thuế, phí
+              - generic [ref=e1023]:
+                - generic [ref=e1024]: Trả lương, cổ tức / mua
+                - generic [ref=e1025]: hàng hóa, dịch vụ
+              - generic [ref=e1031]: Xuất nhập khẩu
+              - generic [ref=e1037]: FDI, kiều hối
+              - generic [ref=e1042]:
+                - generic [ref=e1043]: Dòng vốn, thương mại
+                - generic [ref=e1044]: quốc tế
+              - generic [ref=e1050]: Ngoại tệ, hedging
+              - generic [ref=e1056]: Giá đầu vào
+              - generic [ref=e1061]:
+                - generic [ref=e1062]: Mua xăng, vàng, hàng thiết
+                - generic [ref=e1063]: yếu
+              - generic [ref=e1069]: Bảo lãnh phát hành
+              - generic [ref=e1075]: Vốn nợ dài hạn
+              - generic [ref=e1081]: Vốn nợ dài hạn
+              - generic [ref=e1087]: Đánh giá tín nhiệm
+              - generic [ref=e1093]: Đánh giá DN phát hành
+              - generic [ref=e1099]: Mua cổ phiếu, ETF
+              - generic [ref=e1105]: Góp vốn
+              - generic [ref=e1110]:
+                - generic [ref=e1111]: Giải ngân, nắm giữ danh
+                - generic [ref=e1112]: mục
+              - generic [ref=e1118]: Huy động vốn cổ phần
+              - generic [ref=e1124]: Mua nhà, đầu tư đất
+              - generic [ref=e1130]: Thế chấp, vay mua nhà
+              - generic [ref=e1136]: Tín dụng ngoài ngân hàng
+              - generic [ref=e1142]: Đòn bẩy tài sản
+              - generic [ref=e1148]: Thẻ, trả góp, BNPL
+              - generic [ref=e1154]: Thanh toán merchant
+              - generic [ref=e1160]: Phí, lãi trả chậm
+              - generic [ref=e1165]:
+                - generic [ref=e1166]: Phí bảo hiểm / bồi thường,
+                - generic [ref=e1167]: hoàn trả
+              - generic [ref=e1172]:
+                - generic [ref=e1173]: Bảo hiểm tài sản, nhân sự
+                - generic [ref=e1174]: / bồi thường tổn thất
+              - generic [ref=e1180]: Đầu tư dự phòng
+              - generic [ref=e1185]:
+                - generic [ref=e1186]: Đóng BHXH, hưu trí / chi
+                - generic [ref=e1187]: trả hưu trí
+              - generic [ref=e1193]: Đóng góp lao động
+              - generic [ref=e1199]: Đầu tư dài hạn
+              - generic [ref=e1205]: Thanh toán QR, ví
+              - generic [ref=e1210]:
+                - generic [ref=e1211]: Kết nối tài khoản,
+                - generic [ref=e1212]: settlement
+              - generic [ref=e1217]:
+                - generic [ref=e1218]: Thanh toán số cho
+                - generic [ref=e1219]: merchant
+              - generic [ref=e1225]: Đầu cơ, lưu trữ giá trị
+              - generic [ref=e1231]: Dòng vốn số, stablecoin
+              - generic [ref=e1237]: PE/VC
+              - generic [ref=e1243]: Gọi vốn, tăng trưởng
+              - generic [ref=e1249]: IPO, thoái vốn
+            - generic [ref=e1250]:
+              - paragraph [ref=e1257] [cursor=pointer]: 1. Ngân hàng TW
+              - paragraph [ref=e1264] [cursor=pointer]: 2. NH thương mại
+              - paragraph [ref=e1271] [cursor=pointer]: 3. Chính phủ
+              - paragraph [ref=e1278] [cursor=pointer]: 4. Doanh nghiệp
+              - paragraph [ref=e1285] [cursor=pointer]: 5. Người dân
+              - paragraph [ref=e1292] [cursor=pointer]: 6. Quốc tế
+              - paragraph [ref=e1299] [cursor=pointer]: 7. Sàn CK
+              - paragraph [ref=e1306] [cursor=pointer]: 8. Quỹ đầu tư
+              - paragraph [ref=e1313] [cursor=pointer]: 9. Tín dụng tiêu dùng
+              - paragraph [ref=e1320] [cursor=pointer]: 10. Shadow Bank
+              - paragraph [ref=e1327] [cursor=pointer]: 11. Trái phiếu
+              - paragraph [ref=e1334] [cursor=pointer]: 12. Bất động sản
+              - paragraph [ref=e1341] [cursor=pointer]: 13. Hàng hóa
+              - paragraph [ref=e1348] [cursor=pointer]: 14. Forex
+              - paragraph [ref=e1355] [cursor=pointer]: 15. Bảo hiểm
+              - paragraph [ref=e1362] [cursor=pointer]: 16. Hưu trí
+              - paragraph [ref=e1369] [cursor=pointer]: 17. Xếp hạng tín nhiệm
+              - paragraph [ref=e1376] [cursor=pointer]: 18. Fintech
+              - paragraph [ref=e1383] [cursor=pointer]: 19. Crypto
+              - paragraph [ref=e1390] [cursor=pointer]: 20. Startup / VC
+        - generic "Chú thích màu khối thành phần" [ref=e1391]:
+          - generic [ref=e1392]: Chú thích màu khối
+          - generic [ref=e1393]:
+            - generic [ref=e1396]: Khối cốt lõi
+            - generic [ref=e1399]: Khối tài chính
+            - generic [ref=e1402]: Khối thị trường
+            - generic [ref=e1405]: Dịch vụ tài chính
+            - generic [ref=e1408]: Khối hiện đại
+        - generic [ref=e1409]:
+          - heading "Giải thích sơ đồ tổng hợp" [level=4] [ref=e1410]
+          - list [ref=e1411]:
+            - listitem [ref=e1412]: Khối cốt lõi tạo tiền, thu thuế, chi tiêu và truyền tiền sang nền kinh tế thực.
+            - listitem [ref=e1413]: Khối tài chính và thị trường chuyển tiền tiết kiệm thành vốn nợ, vốn cổ phần và đòn bẩy tài sản.
+            - listitem [ref=e1414]: Khối dịch vụ tài chính định giá rủi ro, gom dòng tiền dài hạn và hấp thụ tổn thất.
+            - listitem [ref=e1415]: Khối hiện đại tăng tốc giao dịch và kéo thêm các dòng vốn rủi ro, đầu cơ, hoặc vốn mạo hiểm vào hệ thống.
+            - listitem [ref=e1416]: Màu nền của từng node biểu diễn khối thành phần; các khung vuông bao quanh khối đã được bỏ để sơ đồ thoáng hơn.
+            - listitem [ref=e1417]: Mũi tên hai chiều biểu diễn quan hệ phản hồi, nơi tiền hoặc nghĩa vụ quay ngược lại thành dòng trả nợ, thuế, bồi thường hoặc chi trả.
+            - listitem [ref=e1418]: Màu mũi tên chỉ dùng để tách các hướng đi của cùng một node; chúng độc lập với màu khối của node.
+            - listitem [ref=e1419]: "Nếu nhìn riêng một thành phần như `Người dân` hoặc `NH thương mại`, các mũi tên của node đó sẽ không trùng màu để bạn lần theo luồng nhanh hơn."
+          - paragraph [ref=e1420]: "Mẹo đọc nhanh: bắt đầu từ `2. NH thương mại` hoặc `5. Người dân`, vì đây là hai node có nhiều nhánh kết nối nhất trong toàn bộ hệ thống."
+  - generic [ref=e1425]:
+    - button "×" [ref=e1426] [cursor=pointer]
+    - heading "📖 Kịch Bản Thực Tế (50+ kịch bản)" [level=2] [ref=e1427]
+    - paragraph [ref=e1428]: Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào. Di chuột vào từng kịch bản để xem sơ đồ Mermaid tổng quan.
+    - generic [ref=e1429]:
+      - generic [ref=e1430]: "🌍 Quốc gia/Khu vực:"
+      - combobox [ref=e1431] [cursor=pointer]:
+        - option "🇻🇳 Việt Nam" [selected]
+        - option "🇺🇸 Mỹ (USA)"
+        - option "🇨🇳 Trung Quốc"
+        - option "🇯🇵 Nhật Bản"
+        - option "🇪🇺 Châu Âu (EU)"
+        - option "🇰🇷 Hàn Quốc"
+    - generic [ref=e1432]:
+      - button "Tất cả" [ref=e1433] [cursor=pointer]
+      - button "👤 Cá nhân" [ref=e1434] [cursor=pointer]
+      - button "🏭 Doanh nghiệp" [ref=e1435] [cursor=pointer]
+      - button "📈 Đầu tư" [ref=e1436] [cursor=pointer]
+      - button "⚠️ Khủng hoảng" [ref=e1437] [cursor=pointer]
+      - button "🦹 Gian lận" [ref=e1438] [cursor=pointer]
+      - button "⚔️ Chiến tranh tiền tệ" [ref=e1439] [cursor=pointer]
+      - button "⚡ Hiện đại" [ref=e1440] [cursor=pointer]
+    - generic [ref=e1441]:
+      - generic [ref=e1442]: 0 kịch bản được chọn
+      - generic [ref=e1443]:
+        - generic [ref=e1444]: "Chế độ:"
+        - button "📋 Tuần tự" [ref=e1445] [cursor=pointer]
+        - button "⚡ Song song" [ref=e1446] [cursor=pointer]
+      - button "▶️ Chạy các kịch bản đã chọn" [disabled] [ref=e1447]
+      - button "✖️ Bỏ chọn" [ref=e1448] [cursor=pointer]
+    - region "💰 Gửi tiền tiết kiệm" [ref=e1449]:
+      - generic [ref=e1450]:
+        - generic [ref=e1451]:
+          - paragraph [ref=e1452]: Mermaid Tổng Quan
+          - heading "💰 Gửi tiền tiết kiệm" [level=3] [ref=e1453]
+        - generic [ref=e1454]:
+          - generic [ref=e1455]: 👤 Cá nhân
+          - generic [ref=e1456]: 11 bước
+          - generic [ref=e1457]: 3 thành phần
+          - generic [ref=e1458]: 📊 Có mô phỏng
+      - paragraph [ref=e1459]: Tiền gửi ngân hàng được nhân lên như thế nào?
+      - document [ref=e1462]:
+        - generic [ref=e1465]:
+          - paragraph [ref=e1472] [cursor=pointer]: "1. Người Dân: Bối cảnh: Tiền gửi ngân hàng được nhân lên như…"
+          - paragraph [ref=e1479] [cursor=pointer]: "2. Người Dân: Bạn có 100.000.000 VND tiền nhàn rỗi"
+          - paragraph [ref=e1486] [cursor=pointer]: "3. Ngân Hàng Thương Mại: Ngân Hàng Thương Mại kiểm tra hồ sơ, hạn mức, b…"
+          - paragraph [ref=e1493] [cursor=pointer]: "4. Ngân Hàng Thương Mại: Gửi vào Ngân Hàng Nhà Nước Việt Nam (SBV), lãi 6%/năm"
+          - paragraph [ref=e1500] [cursor=pointer]: "5. Ngân Hàng Thương Mại: NH giữ 10% dự trữ, cho vay 90%"
+          - paragraph [ref=e1507] [cursor=pointer]: "6. Doanh Nghiệp: Doanh Nghiệp đánh giá rủi ro trả nợ, biến động…"
+          - paragraph [ref=e1514] [cursor=pointer]: "7. Doanh Nghiệp: Công ty vay tiền trả lương nhân viên"
+          - paragraph [ref=e1521] [cursor=pointer]: "8. Người Dân: Nhân viên gửi lương vào NH khác"
+          - paragraph [ref=e1528] [cursor=pointer]: "9. Ngân Hàng Thương Mại: Sau giao dịch chính, Ngân Hàng Thương Mại ghi n…"
+          - paragraph [ref=e1535] [cursor=pointer]: "10. Ngân Hàng Thương Mại: Quá trình lặp lại → Hệ số nhân = 10x"
+          - paragraph [ref=e1542] [cursor=pointer]: "11. Ngân Hàng Thương Mại: Kết thúc: Gửi tiền tiết kiệm không dừng ở một đ…"
+      - generic [ref=e1543]:
+        - generic [ref=e1544]:
+          - strong [ref=e1545]: "Khởi phát:"
+          - text: Bạn có 100.000.000 VND tiền nhàn rỗi
+        - generic [ref=e1546]:
+          - strong [ref=e1547]: "Trục luồng:"
+          - text: Người Dân → Ngân Hàng Thương Mại → Doanh Nghiệp
+        - generic [ref=e1548]:
+          - strong [ref=e1549]: "Bước giữa:"
+          - text: Công ty vay tiền trả lương nhân viên
+        - generic [ref=e1550]:
+          - strong [ref=e1551]: "Kết cục:"
+          - text: Quá trình lặp lại → Hệ số nhân = 10x
+    - generic [ref=e1552]:
+      - generic [ref=e1553] [cursor=pointer]:
+        - generic [ref=e1555]: 💰
+        - heading "Gửi tiền tiết kiệm" [level=3] [ref=e1556]
+        - paragraph [ref=e1557]: Tiền gửi ngân hàng được nhân lên như thế nào?
+        - generic [ref=e1558]:
+          - generic [ref=e1559]: 11 bước
+          - generic [ref=e1560]: 3 thành phần
+          - generic [ref=e1561]: 📊 Có mô phỏng
+      - generic [ref=e1562] [cursor=pointer]:
+        - generic [ref=e1564]: 🏠
+        - heading "Vay mua nhà" [level=3] [ref=e1565]
+        - paragraph [ref=e1566]: Vay tiền mua nhà, tiền đi đâu?
+        - generic [ref=e1567]:
+          - generic [ref=e1568]: 11 bước
+          - generic [ref=e1569]: 4 thành phần
+          - generic [ref=e1570]: 📊 Có mô phỏng
+      - generic [ref=e1571] [cursor=pointer]:
+        - generic [ref=e1573]: 💼
+        - heading "Nhận lương hàng tháng" [level=3] [ref=e1574]
+        - paragraph [ref=e1575]: Dòng chảy tiền lương của bạn.
+        - generic [ref=e1576]:
+          - generic [ref=e1577]: 8 bước
+          - generic [ref=e1578]: 4 thành phần
+          - generic [ref=e1579]: 📊 Có mô phỏng
+      - generic [ref=e1580] [cursor=pointer]:
+        - generic [ref=e1582]: 💳
+        - heading "Sử dụng thẻ tín dụng" [level=3] [ref=e1583]
+        - paragraph [ref=e1584]: Quẹt thẻ, chuyện gì xảy ra?
+        - generic [ref=e1585]:
+          - generic [ref=e1586]: 11 bước
+          - generic [ref=e1587]: 3 thành phần
+          - generic [ref=e1588]: 📊 Có mô phỏng
+      - generic [ref=e1589] [cursor=pointer]:
+        - generic [ref=e1591]: 🏥
+        - heading "Bảo hiểm chi trả" [level=3] [ref=e1592]
+        - paragraph [ref=e1593]: Tai nạn, bảo hiểm bồi thường.
+        - generic [ref=e1594]:
+          - generic [ref=e1595]: 10 bước
+          - generic [ref=e1596]: 3 thành phần
+      - generic [ref=e1597] [cursor=pointer]:
+        - generic [ref=e1599]: 👴
+        - heading "Tiết kiệm hưu trí" [level=3] [ref=e1600]
+        - paragraph [ref=e1601]: Đóng bảo hiểm xã hội, nhận lương hưu.
+        - generic [ref=e1602]:
+          - generic [ref=e1603]: 10 bước
+          - generic [ref=e1604]: 3 thành phần
+      - generic [ref=e1605] [cursor=pointer]:
+        - generic [ref=e1607]: 💸
+        - heading "Kiều hối về nước" [level=3] [ref=e1608]
+        - paragraph [ref=e1609]: Người thân ở nước ngoài gửi tiền về.
+        - generic [ref=e1610]:
+          - generic [ref=e1611]: 10 bước
+          - generic [ref=e1612]: 6 thành phần
+      - generic [ref=e1613] [cursor=pointer]:
+        - generic [ref=e1615]: 🏭
+        - heading "Doanh nghiệp vay vốn" [level=3] [ref=e1616]
+        - paragraph [ref=e1617]: Công ty vay vốn mở rộng.
+        - generic [ref=e1618]:
+          - generic [ref=e1619]: 11 bước
+          - generic [ref=e1620]: 3 thành phần
+          - generic [ref=e1621]: 📊 Có mô phỏng
+      - generic [ref=e1622] [cursor=pointer]:
+        - generic [ref=e1624]: 🔔
+        - heading "Công ty lên sàn (IPO)" [level=3] [ref=e1625]
+        - paragraph [ref=e1626]: Phát hành cổ phiếu lần đầu.
+        - generic [ref=e1627]:
+          - generic [ref=e1628]: 10 bước
+          - generic [ref=e1629]: 5 thành phần
+      - generic [ref=e1630] [cursor=pointer]:
+        - generic [ref=e1632]: 🚢
+        - heading "Xuất khẩu hàng hóa" [level=3] [ref=e1633]
+        - paragraph [ref=e1634]: Bán hàng ra nước ngoài.
+        - generic [ref=e1635]:
+          - generic [ref=e1636]: 10 bước
+          - generic [ref=e1637]: 5 thành phần
+      - generic [ref=e1638] [cursor=pointer]:
+        - generic [ref=e1640]: 📦
+        - heading "Nhập khẩu máy móc" [level=3] [ref=e1641]
+        - paragraph [ref=e1642]: Mua thiết bị từ nước ngoài.
+        - generic [ref=e1643]:
+          - generic [ref=e1644]: 10 bước
+          - generic [ref=e1645]: 5 thành phần
+      - generic [ref=e1646] [cursor=pointer]:
+        - generic [ref=e1648]: 📜
+        - heading "Phát hành trái phiếu DN" [level=3] [ref=e1649]
+        - paragraph [ref=e1650]: Doanh nghiệp phát hành trái phiếu.
+        - generic [ref=e1651]:
+          - generic [ref=e1652]: 10 bước
+          - generic [ref=e1653]: 5 thành phần
+      - generic [ref=e1654] [cursor=pointer]:
+        - generic [ref=e1656]: 💵
+        - heading "Chia cổ tức" [level=3] [ref=e1657]
+        - paragraph [ref=e1658]: Công ty chia lợi nhuận cho cổ đông.
+        - generic [ref=e1659]:
+          - generic [ref=e1660]: 10 bước
+          - generic [ref=e1661]: 4 thành phần
+      - generic [ref=e1662] [cursor=pointer]:
+        - generic [ref=e1664]: 📈
+        - heading "Đầu tư chứng khoán" [level=3] [ref=e1665]
+        - paragraph [ref=e1666]: Mua cổ phiếu trên sàn.
+        - generic [ref=e1667]:
+          - generic [ref=e1668]: 10 bước
+          - generic [ref=e1669]: 4 thành phần
+      - generic [ref=e1670] [cursor=pointer]:
+        - generic [ref=e1672]: 💼
+        - heading "Mua quỹ ETF" [level=3] [ref=e1673]
+        - paragraph [ref=e1674]: Đầu tư vào quỹ chỉ số.
+        - generic [ref=e1675]:
+          - generic [ref=e1676]: 10 bước
+          - generic [ref=e1677]: 3 thành phần
+      - generic [ref=e1678] [cursor=pointer]:
+        - generic [ref=e1680]: 🏠
+        - heading "Đầu tư bất động sản" [level=3] [ref=e1681]
+        - paragraph [ref=e1682]: Mua căn hộ cho thuê.
+        - generic [ref=e1683]:
+          - generic [ref=e1684]: 11 bước
+          - generic [ref=e1685]: 3 thành phần
+          - generic [ref=e1686]: 📊 Có mô phỏng
+      - generic [ref=e1687] [cursor=pointer]:
+        - generic [ref=e1689]: 🥇
+        - heading "Mua vàng tích trữ" [level=3] [ref=e1690]
+        - paragraph [ref=e1691]: Mua vàng bảo vệ tài sản.
+        - generic [ref=e1692]:
+          - generic [ref=e1693]: 10 bước
+          - generic [ref=e1694]: 3 thành phần
+      - generic [ref=e1695] [cursor=pointer]:
+        - generic [ref=e1697]: 🚀
+        - heading "Startup gọi vốn" [level=3] [ref=e1698]
+        - paragraph [ref=e1699]: Startup Series A nhận vốn VC.
+        - generic [ref=e1700]:
+          - generic [ref=e1701]: 9 bước
+          - generic [ref=e1702]: 3 thành phần
+      - generic [ref=e1703] [cursor=pointer]:
+        - generic [ref=e1705]: 🌍
+        - heading "Đầu tư trực tiếp nước ngoài" [level=3] [ref=e1706]
+        - paragraph [ref=e1707]: Tập đoàn nước ngoài đầu tư.
+        - generic [ref=e1708]:
+          - generic [ref=e1709]: 10 bước
+          - generic [ref=e1710]: 5 thành phần
+      - generic [ref=e1711] [cursor=pointer]:
+        - generic [ref=e1713]: 📈
+        - heading "Lạm phát tăng cao" [level=3] [ref=e1714]
+        - paragraph [ref=e1715]: Giá cả tăng, tiền mất giá.
+        - generic [ref=e1716]:
+          - generic [ref=e1717]: 11 bước
+          - generic [ref=e1718]: 4 thành phần
+          - generic [ref=e1719]: 📊 Có mô phỏng
+      - generic [ref=e1720] [cursor=pointer]:
+        - generic [ref=e1722]: 🏃
+        - heading "Rút tiền ồ ạt (Bank Run)" [level=3] [ref=e1723]
+        - paragraph [ref=e1724]: Tin đồn ngân hàng sập.
+        - generic [ref=e1725]:
+          - generic [ref=e1726]: 11 bước
+          - generic [ref=e1727]: 4 thành phần
+          - generic [ref=e1728]: 📊 Có mô phỏng
+      - generic [ref=e1729] [cursor=pointer]:
+        - generic [ref=e1731]: 📉
+        - heading "Sập thị trường chứng khoán" [level=3] [ref=e1732]
+        - paragraph [ref=e1733]: Thị trường giảm 30% trong 1 tháng.
+        - generic [ref=e1734]:
+          - generic [ref=e1735]: 11 bước
+          - generic [ref=e1736]: 5 thành phần
+          - generic [ref=e1737]: 📊 Có mô phỏng
+      - generic [ref=e1738] [cursor=pointer]:
+        - generic [ref=e1740]: 💱
+        - heading "Khủng hoảng tỷ giá" [level=3] [ref=e1741]
+        - paragraph [ref=e1742]: Đồng nội tệ mất giá 20%.
+        - generic [ref=e1743]:
+          - generic [ref=e1744]: 11 bước
+          - generic [ref=e1745]: 5 thành phần
+          - generic [ref=e1746]: 📊 Có mô phỏng
+      - generic [ref=e1747] [cursor=pointer]:
+        - generic [ref=e1749]: 🏚️
+        - heading "Bong bóng bất động sản" [level=3] [ref=e1750]
+        - paragraph [ref=e1751]: Giá nhà tăng rồi sụp đổ.
+        - generic [ref=e1752]:
+          - generic [ref=e1753]: 11 bước
+          - generic [ref=e1754]: 4 thành phần
+          - generic [ref=e1755]: 📊 Có mô phỏng
+      - generic [ref=e1756] [cursor=pointer]:
+        - generic [ref=e1758]: 📊
+        - heading "Suy thoái kinh tế" [level=3] [ref=e1759]
+        - paragraph [ref=e1760]: GDP giảm, thất nghiệp tăng.
+        - generic [ref=e1761]:
+          - generic [ref=e1762]: 11 bước
+          - generic [ref=e1763]: 4 thành phần
+          - generic [ref=e1764]: 📊 Có mô phỏng
+      - generic [ref=e1765] [cursor=pointer]:
+        - generic [ref=e1767]: 💀
+        - heading "Khủng hoảng nợ công" [level=3] [ref=e1768]
+        - paragraph [ref=e1769]: Chính phủ không trả được nợ.
+        - generic [ref=e1770]:
+          - generic [ref=e1771]: 10 bước
+          - generic [ref=e1772]: 5 thành phần
+      - generic [ref=e1773] [cursor=pointer]:
+        - generic [ref=e1775]: 🦹
+        - heading "Lừa đảo đa cấp Ponzi" [level=3] [ref=e1776]
+        - paragraph [ref=e1777]: Trả lãi cho người cũ bằng tiền người mới.
+        - generic [ref=e1778]:
+          - generic [ref=e1779]: 10 bước
+          - generic [ref=e1780]: 2 thành phần
+      - generic [ref=e1781] [cursor=pointer]:
+        - generic [ref=e1783]: 🧼
+        - heading "Rửa tiền" [level=3] [ref=e1784]
+        - paragraph [ref=e1785]: Biến tiền bẩn thành tiền sạch.
+        - generic [ref=e1786]:
+          - generic [ref=e1787]: 11 bước
+          - generic [ref=e1788]: 5 thành phần
+      - generic [ref=e1789] [cursor=pointer]:
+        - generic [ref=e1791]: 🕵️
+        - heading "Giao dịch nội gián" [level=3] [ref=e1792]
+        - paragraph [ref=e1793]: Mua bán cổ phiếu với thông tin mật.
+        - generic [ref=e1794]:
+          - generic [ref=e1795]: 11 bước
+          - generic [ref=e1796]: 4 thành phần
+      - generic [ref=e1797] [cursor=pointer]:
+        - generic [ref=e1799]: 🏦
+        - heading "Gian lận ngân hàng" [level=3] [ref=e1800]
+        - paragraph [ref=e1801]: Nhân viên NH rút ruột tiền gửi.
+        - generic [ref=e1802]:
+          - generic [ref=e1803]: 10 bước
+          - generic [ref=e1804]: 4 thành phần
+      - generic [ref=e1805] [cursor=pointer]:
+        - generic [ref=e1807]: ₿
+        - heading "Lừa đảo Crypto/Rug Pull" [level=3] [ref=e1808]
+        - paragraph [ref=e1809]: Dự án crypto lừa đảo.
+        - generic [ref=e1810]:
+          - generic [ref=e1811]: 11 bước
+          - generic [ref=e1812]: 3 thành phần
+      - generic [ref=e1813] [cursor=pointer]:
+        - generic [ref=e1815]: 🏴‍☠️
+        - heading "Trốn thuế" [level=3] [ref=e1816]
+        - paragraph [ref=e1817]: Doanh nghiệp trốn thuế quy mô lớn.
+        - generic [ref=e1818]:
+          - generic [ref=e1819]: 10 bước
+          - generic [ref=e1820]: 3 thành phần
+      - generic [ref=e1821] [cursor=pointer]:
+        - generic [ref=e1823]: 📄
+        - heading "Hóa đơn khống" [level=3] [ref=e1824]
+        - paragraph [ref=e1825]: Mua bán hóa đơn VAT giả.
+        - generic [ref=e1826]:
+          - generic [ref=e1827]: 11 bước
+          - generic [ref=e1828]: 3 thành phần
+      - generic [ref=e1829] [cursor=pointer]:
+        - generic [ref=e1831]: 💳
+        - heading "Lừa đảo vay vốn" [level=3] [ref=e1832]
+        - paragraph [ref=e1833]: Làm hồ sơ giả vay tiền ngân hàng.
+        - generic [ref=e1834]:
+          - generic [ref=e1835]: 11 bước
+          - generic [ref=e1836]: 3 thành phần
+      - generic [ref=e1837] [cursor=pointer]:
+        - generic [ref=e1839]: 🎭
+        - heading "Thao túng tỷ giá" [level=3] [ref=e1840]
+        - paragraph [ref=e1841]: Chính phủ cố tình hạ giá đồng tiền.
+        - generic [ref=e1842]:
+          - generic [ref=e1843]: 10 bước
+          - generic [ref=e1844]: 5 thành phần
+      - generic [ref=e1845] [cursor=pointer]:
+        - generic [ref=e1847]: ⚔️
+        - heading "Chiến tranh tiền tệ" [level=3] [ref=e1848]
+        - paragraph [ref=e1849]: Các nước đua nhau phá giá.
+        - generic [ref=e1850]:
+          - generic [ref=e1851]: 11 bước
+          - generic [ref=e1852]: 5 thành phần
+      - generic [ref=e1853] [cursor=pointer]:
+        - generic [ref=e1855]: 🚫
+        - heading "Cấm vận kinh tế" [level=3] [ref=e1856]
+        - paragraph [ref=e1857]: Một nước bị cấm vận tài chính.
+        - generic [ref=e1858]:
+          - generic [ref=e1859]: 11 bước
+          - generic [ref=e1860]: 6 thành phần
+      - generic [ref=e1861] [cursor=pointer]:
+        - generic [ref=e1863]: 🌐
+        - heading "Phi USD hóa" [level=3] [ref=e1864]
+        - paragraph [ref=e1865]: Các nước giảm phụ thuộc vào USD.
+        - generic [ref=e1866]:
+          - generic [ref=e1867]: 11 bước
+          - generic [ref=e1868]: 4 thành phần
+      - generic [ref=e1869] [cursor=pointer]:
+        - generic [ref=e1871]: 📉
+        - heading "Phá giá cạnh tranh" [level=3] [ref=e1872]
+        - paragraph [ref=e1873]: Cố tình làm yếu đồng tiền.
+        - generic [ref=e1874]:
+          - generic [ref=e1875]: 11 bước
+          - generic [ref=e1876]: 5 thành phần
+          - generic [ref=e1877]: 📊 Có mô phỏng
+      - generic [ref=e1878] [cursor=pointer]:
+        - generic [ref=e1880]: 🚧
+        - heading "Kiểm soát vốn" [level=3] [ref=e1881]
+        - paragraph [ref=e1882]: Hạn chế dòng tiền ra nước ngoài.
+        - generic [ref=e1883]:
+          - generic [ref=e1884]: 11 bước
+          - generic [ref=e1885]: 6 thành phần
+      - generic [ref=e1886] [cursor=pointer]:
+        - generic [ref=e1888]: ₿
+        - heading "Mua Bitcoin" [level=3] [ref=e1889]
+        - paragraph [ref=e1890]: Đầu tư vào crypto.
+        - generic [ref=e1891]:
+          - generic [ref=e1892]: 10 bước
+          - generic [ref=e1893]: 3 thành phần
+      - generic [ref=e1894] [cursor=pointer]:
+        - generic [ref=e1896]: 📱
+        - heading "Thanh toán ví điện tử" [level=3] [ref=e1897]
+        - paragraph [ref=e1898]: Dùng ví điện tử hàng ngày.
+        - generic [ref=e1899]:
+          - generic [ref=e1900]: 10 bước
+          - generic [ref=e1901]: 3 thành phần
+      - generic [ref=e1902] [cursor=pointer]:
+        - generic [ref=e1904]: 🤝
+        - heading "Vay P2P Online" [level=3] [ref=e1905]
+        - paragraph [ref=e1906]: Vay tiền qua app, lãi suất cao.
+        - generic [ref=e1907]:
+          - generic [ref=e1908]: 9 bước
+          - generic [ref=e1909]: 2 thành phần
+      - generic [ref=e1910] [cursor=pointer]:
+        - generic [ref=e1912]: 🎯
+        - heading "Gọi vốn cộng đồng" [level=3] [ref=e1913]
+        - paragraph [ref=e1914]: Crowdfunding cho dự án mới.
+        - generic [ref=e1915]:
+          - generic [ref=e1916]: 10 bước
+          - generic [ref=e1917]: 4 thành phần
+      - generic [ref=e1918] [cursor=pointer]:
+        - generic [ref=e1920]: 🔗
+        - heading "DeFi - Tài chính phi tập trung" [level=3] [ref=e1921]
+        - paragraph [ref=e1922]: Staking, Yield Farming.
+        - generic [ref=e1923]:
+          - generic [ref=e1924]: 9 bước
+          - generic [ref=e1925]: 2 thành phần
+      - generic [ref=e1926] [cursor=pointer]:
+        - generic [ref=e1928]: 🏛️
+        - heading "Tiền kỹ thuật số NHTW (CBDC)" [level=3] [ref=e1929]
+        - paragraph [ref=e1930]: Tương lai của tiền tệ.
+        - generic [ref=e1931]:
+          - generic [ref=e1932]: 10 bước
+          - generic [ref=e1933]: 5 thành phần
+  - contentinfo [ref=e1421]:
+    - paragraph [ref=e1422]: Dựa trên kiến thức từ sách "Hiểu Hết Về Tiền" 📚
+    - paragraph [ref=e1423]: 💡 Click vào bất kỳ thành phần nào để xem chi tiết | 20 thành phần | 30+ kịch bản

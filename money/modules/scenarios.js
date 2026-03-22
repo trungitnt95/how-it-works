@@ -960,3 +960,175 @@ const scenarios = {
         ]
     }
 };
+
+const scenarioNarrativeByCategory = {
+    personal: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Hộ gia đình thường phải cân đối ngân sách, mức chịu đựng rủi ro và dòng tiền trước khi hành động.`,
+        validation: (_scenario, nodeTitle) => `🧾 ${nodeTitle} kiểm tra hồ sơ, hạn mức, biểu phí và cách ghi nhận giao dịch trước khi tiền thực sự dịch chuyển.`,
+        risk: (_scenario, nodeTitle) => `⚖️ ${nodeTitle} đánh giá rủi ro trả nợ, biến động thu nhập và các khoản chi phát sinh có thể làm dòng tiền bị đứt.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Sau giao dịch chính, ${nodeTitle} ghi nhận số dư mới và dòng tiền bắt đầu quay về hệ thống qua tiết kiệm, trả nợ hoặc tiêu dùng.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} không dừng ở một điểm chạm; tác động còn kéo dài lên ngân sách hộ gia đình, chi phí vốn và lựa chọn tài chính về sau.`
+    },
+    business: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Doanh nghiệp thường phải chuẩn bị kế hoạch vốn, lịch thanh toán và năng lực vận hành trước khi triển khai.`,
+        validation: (_scenario, nodeTitle) => `🧾 ${nodeTitle} rà soát hợp đồng, tài sản bảo đảm, dòng tiền dự án và các điều khoản giải ngân trước khi vốn chạy.`,
+        risk: (_scenario, nodeTitle) => `⚖️ ${nodeTitle} theo dõi rủi ro đòn bẩy, chậm tiến độ và khả năng doanh thu không đạt kỳ vọng.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Khi giao dịch đi vào thực tế, ${nodeTitle} phản hồi lại bằng doanh thu, tồn kho, việc làm và nhu cầu vốn lưu động mới.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} thường mở ra một chu kỳ mới gồm nghĩa vụ trả nợ, tái đầu tư và áp lực hiệu quả kinh doanh.`
+    },
+    investment: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Nhà đầu tư thường xác định mục tiêu lợi nhuận, thời gian nắm giữ và mức biến động chấp nhận được trước khi xuống tiền.`,
+        validation: (_scenario, nodeTitle) => `🧾 ${nodeTitle} xác nhận tài khoản, định giá, mức phí và cơ chế khớp lệnh trước khi vị thế được mở.`,
+        risk: (_scenario, nodeTitle) => `⚖️ ${nodeTitle} là nơi rủi ro định giá, dùng đòn bẩy hoặc thanh khoản thấp bắt đầu lộ rõ khi thị trường đảo chiều.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Sau khi vị thế hình thành, ${nodeTitle} phản ứng bằng giá mới, dòng tiền chốt lời hoặc nhu cầu tái cân bằng danh mục.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} luôn để lại câu chuyện tiếp theo là lợi nhuận thực nhận, chi phí cơ hội và rủi ro còn treo lại trong danh mục.`
+    },
+    crisis: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Trước khi khủng hoảng bùng lên, các mất cân đối thường đã tích tụ âm thầm trong bảng cân đối và kỳ vọng thị trường.`,
+        validation: (_scenario, nodeTitle) => `⚠️ ${nodeTitle} bắt đầu phản ứng khi các chỉ số căng thẳng vượt ngưỡng an toàn và thanh khoản không còn dồi dào như trước.`,
+        risk: (_scenario, nodeTitle) => `🚨 ${nodeTitle} trở thành điểm khuếch đại, nơi đòn bẩy, rút vốn và tâm lý hoảng sợ có thể biến cú sốc thành phản ứng dây chuyền.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Cú sốc lan tiếp qua ${nodeTitle}, khiến niềm tin, tín dụng và định giá tài sản tiếp tục phản hồi lẫn nhau.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} hiếm khi dừng ngay lập tức; hệ quả còn kéo dài qua suy giảm tăng trưởng, cứu trợ và tái cấu trúc hệ thống.`
+    },
+    fraud: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Giai đoạn đầu thường có lời hứa hấp dẫn hoặc lớp vỏ hợp pháp đủ thuyết phục để kéo người tham gia vào.`,
+        validation: (_scenario, nodeTitle) => `🕳️ ${nodeTitle} là điểm nghẽn nơi thông tin bất cân xứng bị lợi dụng, khiến nạn nhân khó nhận ra rủi ro thật sự.`,
+        risk: (_scenario, nodeTitle) => `🚨 ${nodeTitle} cho thấy nơi gian lận phình to nhanh nhất, vì tiền mới, chứng từ hoặc quyền truy cập bị sử dụng sai mục đích.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Khi dòng tiền bắt đầu lệch chuẩn, dấu hiệu bất thường dần lộ ra tại ${nodeTitle}, nhưng thiệt hại thường chỉ được nhận diện muộn.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} thường để lại hậu quả dài hơn nhiều so với lúc sập, vì mất niềm tin, chi phí pháp lý và tổn thất lan sang người vô can.`
+    },
+    war: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Áp lực thương mại, địa chính trị và tỷ giá thường tích tụ trước khi chính sách trả đũa được tung ra.`,
+        validation: (_scenario, nodeTitle) => `🌐 ${nodeTitle} điều chỉnh vị thế khi tín hiệu tỷ giá, dự trữ hoặc thương mại lan sang các bên còn lại.`,
+        risk: (_scenario, nodeTitle) => `🚨 ${nodeTitle} trở thành nơi khuếch đại xung đột, vì mỗi phản ứng chính sách đều có thể tạo thêm vòng trả đũa mới.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Sau cú sốc ban đầu, ${nodeTitle} truyền tác động sang thương mại, lạm phát nhập khẩu và kỳ vọng nắm giữ ngoại tệ.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} thường để lại trạng thái cân bằng mới kém hiệu quả hơn, với chi phí cao hơn cho doanh nghiệp và người dân.`
+    },
+    modern: {
+        preface: (scenario) => `${scenario.icon} Bối cảnh: ${scenario.desc} Trước khi tiền chạy, người dùng và nền tảng số phải kết nối qua các lớp ví, định danh và đối soát dữ liệu.`,
+        validation: (_scenario, nodeTitle) => `🔐 ${nodeTitle} xác thực người dùng, ví, khóa truy cập hoặc giới hạn giao dịch trước khi hệ thống cho phép xử lý tiếp.`,
+        risk: (_scenario, nodeTitle) => `⚖️ ${nodeTitle} là nơi rủi ro công nghệ, lỗi vận hành hoặc chênh lệch thanh khoản có thể bộc lộ nhanh nhất.`,
+        feedback: (_scenario, nodeTitle) => `🔁 Sau giao dịch, ${nodeTitle} đồng bộ số dư, dữ liệu lịch sử và trạng thái xử lý trên nhiều lớp hạ tầng số khác nhau.`,
+        closing: (scenario) => `📌 Kết thúc: ${scenario.title} không chỉ là một lần thanh toán hay đầu tư; nó còn tạo thêm dữ liệu, thói quen sử dụng và rủi ro nền tảng trong tương lai.`
+    }
+};
+
+function cloneScenarioStep(step) {
+    return {
+        ...step,
+        inputs: step.inputs ? { ...step.inputs } : undefined,
+        outputs: step.outputs ? { ...step.outputs } : undefined,
+        effect: step.effect ? { ...step.effect } : undefined,
+        condition: step.condition ? JSON.parse(JSON.stringify(step.condition)) : undefined
+    };
+}
+
+function getScenarioNarrative(nodeId, category) {
+    return scenarioNarrativeByCategory[category] || scenarioNarrativeByCategory.personal;
+}
+
+function getScenarioNodeTitle(nodeId) {
+    return componentData[nodeId]?.title || 'Hệ thống tài chính';
+}
+
+function createNarrativeStep(node, text, marker) {
+    return {
+        node,
+        text,
+        synthetic: true,
+        marker,
+        autoAdvanceMs: 2400
+    };
+}
+
+function shouldInsertValidationCheckpoint(steps) {
+    return steps.length > 1 && steps[1]?.node !== steps[0]?.node;
+}
+
+function shouldInsertRiskCheckpoint(scenario, steps) {
+    return Boolean(
+        scenario.isCrisis ||
+        scenario.cat === 'fraud' ||
+        scenario.cat === 'war' ||
+        scenario.hasSimulation ||
+        steps.some((step) => step.condition)
+    );
+}
+
+function shouldInsertFeedbackCheckpoint(steps) {
+    const uniqueNodes = new Set(steps.map((step) => step.node).filter(Boolean));
+    return uniqueNodes.size >= 3 || steps.some((step) => step.inputs || step.outputs || step.effect);
+}
+
+function enrichScenarioSteps(scenarioId, scenario, rawSteps) {
+    const steps = (rawSteps || []).map(cloneScenarioStep).filter((step) => step?.node && step?.text);
+    if (!steps.length) return [];
+
+    const narrative = getScenarioNarrative(scenarioId, scenario.cat);
+    const firstStep = steps[0];
+    const lastStep = steps[steps.length - 1];
+    const pivotStep = steps[Math.max(1, Math.floor(steps.length / 2))] || lastStep;
+    const middleSteps = steps.slice(1, -1);
+    const splitIndex = middleSteps.length > 1 ? Math.ceil(middleSteps.length / 2) : middleSteps.length;
+    const enriched = [
+        createNarrativeStep(firstStep.node, narrative.preface(scenario), 'preface'),
+        firstStep
+    ];
+
+    if (shouldInsertValidationCheckpoint(steps)) {
+        enriched.push(
+            createNarrativeStep(
+                steps[1].node,
+                narrative.validation(scenario, getScenarioNodeTitle(steps[1].node)),
+                'validation'
+            )
+        );
+    }
+
+    if (middleSteps.length) {
+        enriched.push(...middleSteps.slice(0, splitIndex));
+    }
+
+    if (shouldInsertRiskCheckpoint(scenario, steps)) {
+        enriched.push(
+            createNarrativeStep(
+                pivotStep.node,
+                narrative.risk(scenario, getScenarioNodeTitle(pivotStep.node)),
+                'risk'
+            )
+        );
+    }
+
+    if (middleSteps.length > splitIndex) {
+        enriched.push(...middleSteps.slice(splitIndex));
+    }
+
+    if (shouldInsertFeedbackCheckpoint(steps)) {
+        enriched.push(
+            createNarrativeStep(
+                lastStep.node,
+                narrative.feedback(scenario, getScenarioNodeTitle(lastStep.node)),
+                'feedback'
+            )
+        );
+    }
+
+    if (steps.length > 1) {
+        enriched.push(lastStep);
+    }
+
+    enriched.push(createNarrativeStep(lastStep.node, narrative.closing(scenario), 'closing'));
+    return enriched;
+}
+
+Object.entries(scenarios).forEach(([, scenario]) => {
+    const originalGetSteps = scenario.getSteps ? scenario.getSteps.bind(scenario) : null;
+    const originalSteps = Array.isArray(scenario.steps) ? scenario.steps.map(cloneScenarioStep) : null;
+
+    scenario.getSteps = (c) => {
+        const baseSteps = originalGetSteps
+            ? originalGetSteps(c)
+            : (originalSteps ? originalSteps.map(cloneScenarioStep) : []);
+        return enrichScenarioSteps(scenario.id || scenario.title, scenario, baseSteps);
+    };
+});

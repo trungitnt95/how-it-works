@@ -622,7 +622,7 @@ flowchart TB
         <div class="scenario-content">
             <button class="modal-close" id="closeScenario">&times;</button>
             <h2>📖 Kịch Bản Thực Tế (50+ kịch bản)</h2>
-            <p class="scenario-intro">Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào:</p>
+            <p class="scenario-intro">Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào. Di chuột vào từng kịch bản để xem sơ đồ Mermaid tổng quan.</p>
             
             <!-- Country/Region Selector -->
             <div class="country-selector">
@@ -658,6 +658,21 @@ flowchart TB
                 <button class="run-selected-btn" id="runSelectedBtn" disabled>▶️ Chạy các kịch bản đã chọn</button>
                 <button class="clear-selection-btn" id="clearSelectionBtn">✖️ Bỏ chọn</button>
             </div>
+
+            <section class="scenario-preview-panel" id="scenarioPreviewPanel" aria-labelledby="scenarioPreviewTitle">
+                <div class="scenario-preview-header">
+                    <div>
+                        <p class="scenario-preview-kicker">Mermaid Tổng Quan</p>
+                        <h3 id="scenarioPreviewTitle">Đang tải kịch bản...</h3>
+                    </div>
+                    <div class="scenario-preview-meta" id="scenarioPreviewMeta"></div>
+                </div>
+                <p class="scenario-preview-desc" id="scenarioPreviewDesc"></p>
+                <div class="scenario-preview-mermaid-wrap">
+                    <div class="scenario-preview-mermaid" id="scenarioPreviewMermaid"></div>
+                </div>
+                <div class="scenario-preview-notes" id="scenarioPreviewNotes"></div>
+            </section>
             
             <div class="scenario-list" id="scenarioList"></div>
         </div>
@@ -670,7 +685,7 @@ flowchart TB
             <div class="player-header">
                 <h2 id="playerTitle">📖 Kịch bản</h2>
                 <div class="player-progress">
-                    <span id="playerStepInfo">Bước 1/6</span>
+                    <span id="playerStepInfo">Bước 1/--</span>
                     <div class="player-progress-bar">
                         <div class="player-progress-fill" id="playerProgressFill"></div>
                     </div>
@@ -678,6 +693,17 @@ flowchart TB
             </div>
             
             <div class="player-body">
+                <section class="player-overview-card" aria-labelledby="playerOverviewTitle">
+                    <div class="player-overview-header">
+                        <div>
+                            <p class="scenario-preview-kicker">Mermaid Trong Kịch Bản</p>
+                            <h4 id="playerOverviewTitle">Luồng tổng quan</h4>
+                        </div>
+                        <div class="player-overview-meta" id="playerOverviewMeta"></div>
+                    </div>
+                    <div class="scenario-preview-mermaid player-scenario-mermaid" id="playerScenarioMermaid"></div>
+                </section>
+
                 <div class="player-step-content" id="playerStepContent">
                     <div class="step-node-icon" id="stepNodeIcon"></div>
                     <div class="step-text" id="stepText"></div>

@@ -161,7 +161,7 @@ function applyStepEffect(effect, scenarioId) {
                 simState[realKey] = value;
             } else {
                 // Default: add
-                simState[realKey] = (simState[realKey] || 0) + value;
+                simState[key] = (simState[key] || 0) + value;
             }
         }
     });

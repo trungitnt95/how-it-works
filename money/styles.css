@@ -1102,6 +1102,155 @@ main {
 .scenario-card h3 { font-size: 0.85rem; margin-bottom: 0.3rem; }
 .scenario-card p { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
 
+.scenario-card.previewing {
+    border-color: rgba(116, 192, 252, 0.75);
+    background: rgba(116, 192, 252, 0.12);
+}
+
+.scenario-card:focus-visible {
+    outline: 2px solid #74c0fc;
+    outline-offset: 2px;
+}
+
+.scenario-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.8rem;
+}
+
+.scenario-chip,
+.scenario-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.72rem;
+    line-height: 1.3;
+}
+
+.scenario-chip.sim,
+.scenario-stat.sim,
+.sim-badge {
+    background: rgba(76, 175, 80, 0.14);
+    border-color: rgba(76, 175, 80, 0.28);
+    color: #b8f5c1;
+}
+
+.scenario-preview-panel {
+    margin-bottom: 1rem;
+    padding: 1rem 1.05rem;
+    border-radius: 16px;
+    border: 1px solid rgba(116, 192, 252, 0.18);
+    background:
+        radial-gradient(circle at top right, rgba(116, 192, 252, 0.14), transparent 32%),
+        rgba(8, 20, 34, 0.82);
+}
+
+.scenario-preview-header,
+.player-overview-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.scenario-preview-kicker {
+    margin: 0 0 0.25rem;
+    color: #74c0fc;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.scenario-preview-header h3,
+.player-overview-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.scenario-preview-meta,
+.player-overview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem;
+}
+
+.scenario-preview-desc {
+    margin: 0.7rem 0 0.9rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.6;
+    font-size: 0.84rem;
+}
+
+.scenario-preview-mermaid-wrap {
+    padding: 0.85rem;
+    border-radius: 14px;
+    background: rgba(2, 10, 20, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.scenario-preview-mermaid {
+    min-height: 360px;
+    max-height: min(52vh, 560px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+}
+
+.scenario-preview-mermaid svg {
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    overflow: visible;
+    display: block;
+    margin: 0 auto;
+}
+
+.scenario-preview-mermaid svg text,
+.scenario-preview-mermaid svg .nodeLabel,
+.scenario-preview-mermaid svg .edgeLabel {
+    font-size: 12px !important;
+}
+
+.scenario-preview-notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-top: 0.9rem;
+}
+
+.scenario-preview-note {
+    padding: 0.7rem 0.8rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.scenario-preview-note strong {
+    color: #fff;
+}
+
+.scenario-preview-empty {
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.62);
+    text-align: center;
+    font-size: 0.84rem;
+}
+
 /* ==================== SIMULATOR ==================== */
 .simulator-tabs {
     display: flex;
@@ -1342,6 +1491,21 @@ footer {
     .scenario-list { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
     .quiz-options { grid-template-columns: 1fr; }
     .quiz-card { padding: 0.9rem; }
+    .scenario-preview-meta,
+    .player-overview-meta {
+        justify-content: flex-start;
+    }
+    .scenario-preview-notes {
+        grid-template-columns: 1fr;
+    }
+    .scenario-preview-mermaid {
+        min-height: 300px;
+        max-height: min(42vh, 420px);
+    }
+    .player-scenario-mermaid {
+        min-height: 260px;
+        max-height: min(36vh, 340px);
+    }
     
     /* Responsive mode toggle */
     .scenario-selection-bar {
@@ -2016,6 +2180,20 @@ footer {
 
 .player-body {
     margin-bottom: 1.5rem;
+}
+
+.player-overview-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-scenario-mermaid {
+    min-height: 300px;
+    max-height: min(42vh, 460px);
+    margin-top: 0.85rem;
 }
 
 .player-step-content {
