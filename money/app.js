@@ -1,8 +1,5 @@
 // ==================== STATE ====================
 let currentLevel = 'beginner';
-let currentTourStep = 0;
-let isTourActive = false;
-let isStoryPlaying = false;
 let currentScenario = null;
 let currentScenarioStep = 0;
 let currentComponentId = null;
@@ -25,9 +22,6 @@ function getCountryData() {
 // ==================== DOM ELEMENTS ====================
 const levelOverlay = document.getElementById('levelOverlay');
 const levelBadge = document.getElementById('levelBadge');
-const tourProgress = document.getElementById('tourProgress');
-const tourPanel = document.getElementById('tourPanel');
-const progressFill = document.getElementById('progressFill');
 const modal = document.getElementById('modal');
 const scenarioModal = document.getElementById('scenarioModal');
 const simulatorModal = document.getElementById('simulatorModal');
@@ -56,20 +50,13 @@ function setupEventListeners() {
             localStorage.setItem('moneyFlowLevel', currentLevel);
             levelOverlay.classList.add('hidden');
             updateLevelBadge();
-            if (currentLevel === 'beginner') setTimeout(() => startTour(), 500);
         });
     });
 
     // Header buttons
     document.getElementById('changeLevelBtn').addEventListener('click', () => levelOverlay.classList.remove('hidden'));
-    document.getElementById('startTourBtn').addEventListener('click', startTour);
     document.getElementById('scenarioBtn').addEventListener('click', () => scenarioModal.classList.add('active'));
     document.getElementById('simulatorBtn').addEventListener('click', () => simulatorModal.classList.add('active'));
-
-    // Tour navigation
-    document.getElementById('tourPrev').addEventListener('click', prevTourStep);
-    document.getElementById('tourNext').addEventListener('click', nextTourStep);
-    document.getElementById('tourSkip').addEventListener('click', endTour);
 
     // Category filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -118,18 +105,12 @@ function setupEventListeners() {
         });
     });
 
-    // Action buttons
-    document.getElementById('playStoryBtn').addEventListener('click', playMoneyStory);
-    document.getElementById('showConnectionsBtn').addEventListener('click', toggleConnections);
-    document.getElementById('resetViewBtn').addEventListener('click', resetView);
-
     // Keyboard
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModal();
             scenarioModal.classList.remove('active');
             simulatorModal.classList.remove('active');
-            if (isTourActive) endTour();
         }
     });
 
@@ -1194,51 +1175,6 @@ function updateLevelBadge() {
     levelBadge.textContent = badges[currentLevel];
 }
 
-// ==================== TOUR ====================
-function startTour() {
-    isTourActive = true;
-    currentTourStep = 0;
-    tourProgress.classList.add('active');
-    tourPanel.classList.add('active');
-    updateTourStep();
-}
-
-function updateTourStep() {
-    const step = tourSteps[currentTourStep];
-    document.getElementById('currentStep').textContent = currentTourStep + 1;
-    document.getElementById('totalSteps').textContent = tourSteps.length;
-    document.getElementById('tourTitle').textContent = step.title;
-    document.getElementById('tourDescription').textContent = step.description;
-    progressFill.style.width = ((currentTourStep + 1) / tourSteps.length * 100) + '%';
-
-    nodes.forEach(node => {
-        node.classList.remove('highlighted', 'dimmed');
-        if (step.target) {
-            if (node.dataset.component === step.target) node.classList.add('highlighted');
-            else node.classList.add('dimmed');
-        }
-    });
-
-    document.getElementById('tourPrev').style.visibility = currentTourStep === 0 ? 'hidden' : 'visible';
-    document.getElementById('tourNext').textContent = currentTourStep === tourSteps.length - 1 ? 'Hoàn thành ✓' : 'Tiếp theo →';
-}
-
-function nextTourStep() {
-    if (currentTourStep < tourSteps.length - 1) { currentTourStep++; updateTourStep(); }
-    else endTour();
-}
-
-function prevTourStep() {
-    if (currentTourStep > 0) { currentTourStep--; updateTourStep(); }
-}
-
-function endTour() {
-    isTourActive = false;
-    tourProgress.classList.remove('active');
-    tourPanel.classList.remove('active');
-    nodes.forEach(node => node.classList.remove('highlighted', 'dimmed'));
-}
-
 // ==================== FILTER ====================
 function filterNodes(category) {
     nodes.forEach(node => {
@@ -2277,72 +2213,6 @@ function finishParallelScenarios() {
     // Update grid to show all completed
     renderParallelGrid();
     renderParallelLegend();
-}
-
-// ==================== STORY MODE ====================
-function playMoneyStory() {
-    const btn = document.getElementById('playStoryBtn');
-    if (isStoryPlaying) { stopMoneyStory(); return; }
-
-    isStoryPlaying = true;
-    btn.classList.add('active');
-
-    const storySteps = [
-        { node: 'central-bank', text: '🏛️ Ngân hàng trung ương tạo tiền mới...' },
-        { node: 'commercial-bank', text: '🏦 Tiền đến ngân hàng thương mại, nhân lên 10 lần...' },
-        { node: 'business', text: '🏭 Doanh nghiệp vay tiền sản xuất...' },
-        { node: 'individual', text: '👥 Trả lương cho người lao động...' },
-        { node: 'consumer-finance', text: '💳 Người dân quẹt thẻ mua sắm...' },
-        { node: 'stock-exchange', text: '📈 Một phần đầu tư vào chứng khoán...' },
-        { node: 'real-estate', text: '🏠 Một phần mua bất động sản...' },
-        { node: 'insurance', text: '🛡️ Một phần mua bảo hiểm...' },
-        { node: 'government', text: '🏢 Nộp thuế cho chính phủ...' },
-        { node: 'foreign', text: '🌍 Một phần ra nước ngoài qua nhập khẩu...' },
-        { node: 'fintech', text: '📱 Thanh toán qua ví điện tử...' },
-        { node: 'crypto', text: '₿ Một số người mua Bitcoin...' }
-    ];
-
-    let stepIndex = 0;
-    const playStep = () => {
-        if (!isStoryPlaying) { stopMoneyStory(); return; }
-        if (stepIndex >= storySteps.length) stepIndex = 0;
-
-        const step = storySteps[stepIndex];
-        storyNarration.classList.add('active');
-        document.getElementById('storyText').textContent = step.text;
-
-        nodes.forEach(node => {
-            node.classList.remove('highlighted');
-            if (node.dataset.component === step.node) node.classList.add('highlighted');
-        });
-
-        stepIndex++;
-        setTimeout(playStep, 2500);
-    };
-
-    playStep();
-}
-
-function stopMoneyStory() {
-    isStoryPlaying = false;
-    document.getElementById('playStoryBtn').classList.remove('active');
-    storyNarration.classList.remove('active');
-    nodes.forEach(node => node.classList.remove('highlighted'));
-}
-
-function toggleConnections() {
-    const btn = document.getElementById('showConnectionsBtn');
-    btn.classList.toggle('active');
-    // Could add visual connection lines here
-}
-
-function resetView() {
-    stopMoneyStory();
-    endScenario();
-    nodes.forEach(node => node.classList.remove('highlighted', 'dimmed', 'hidden'));
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('[data-category="all"]').classList.add('active');
-    document.getElementById('showConnectionsBtn').classList.remove('active');
 }
 
 console.log('%c💰 Hiểu Hết Về Tiền', 'font-size: 24px; font-weight: bold; color: #f39c12;');

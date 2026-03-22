@@ -18,7 +18,7 @@
                     <h3>Người Mới</h3>
                     <p>Chưa biết gì về tiền tệ. Bắt đầu từ cơ bản nhất.</p>
                     <ul>
-                        <li>✅ Hướng dẫn từng bước</li>
+                        <li>✅ Flowchart trực quan</li>
                         <li>✅ Giải thích đơn giản</li>
                         <li>✅ Ví dụ thực tế</li>
                     </ul>
@@ -59,36 +59,13 @@
         </div>
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
-            <button class="header-btn" id="startTourBtn" title="Bắt đầu hướng dẫn">🎓 Hướng dẫn</button>
             <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
             <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
         </div>
     </header>
 
-    <!-- Progress Bar for Tour -->
-    <div class="tour-progress" id="tourProgress">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="progress-steps" id="progressSteps"></div>
-    </div>
-
     <!-- Main Content -->
     <main>
-        <!-- Tour Instruction Panel -->
-        <div class="tour-panel" id="tourPanel">
-            <div class="tour-content">
-                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">20</span></div>
-                <h3 id="tourTitle">Chào mừng bạn!</h3>
-                <p id="tourDescription">Hãy bắt đầu tìm hiểu dòng chảy của tiền...</p>
-                <div class="tour-actions">
-                    <button id="tourPrev" class="tour-btn">← Trước</button>
-                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
-                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
-                </div>
-            </div>
-        </div>
-
         <!-- Category Filter -->
         <div class="category-filter">
             <span class="filter-label">Lọc theo nhóm:</span>
@@ -99,6 +76,200 @@
             <button class="filter-btn" data-category="services">🛡️ Dịch vụ</button>
             <button class="filter-btn" data-category="modern">⚡ Hiện đại</button>
         </div>
+
+        <section class="money-flow-section" aria-labelledby="moneyFlowTitle">
+            <div class="money-flow-intro">
+                <div>
+                    <p class="money-flow-kicker">Mermaid Flowchart</p>
+                    <h2 id="moneyFlowTitle">Dòng tiền giữa các thành phần kinh tế</h2>
+                </div>
+                <p class="money-flow-summary">
+                    Các sơ đồ dưới đây tóm tắt luồng tiền tạo ra, luân chuyển và phân bổ giữa ngân hàng,
+                    chính phủ, doanh nghiệp, người dân và khu vực quốc tế.
+                </p>
+            </div>
+
+            <div class="flowchart-grid">
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>1. Vòng tuần hoàn tiền cơ bản</h3>
+                        <p>Tiền mới đi từ ngân hàng trung ương tới hệ ngân hàng, rồi lan sang sản xuất, tiêu dùng và quay lại qua tiết kiệm, thuế.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    CB["Ngân hàng TW"] -->|"Bơm thanh khoản"| BANK["Ngân hàng thương mại"]
+    BANK -->|"Cho vay sản xuất"| BIZ["Doanh nghiệp"]
+    BANK -->|"Cho vay tiêu dùng"| HH["Người dân"]
+    BIZ -->|"Trả lương"| HH
+    HH -->|"Chi tiêu"| BIZ
+    HH -->|"Gửi tiết kiệm"| BANK
+    HH -->|"Nộp thuế"| GOV["Chính phủ"]
+    BIZ -->|"Nộp thuế"| GOV
+    GOV -->|"Chi đầu tư công"| BIZ
+    GOV -->|"Lương, trợ cấp"| HH
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Tiền mới thường không đi thẳng tới người dân mà đi qua ngân hàng thương mại trước.</li>
+                            <li>Doanh nghiệp biến vốn vay thành lương, hàng hóa và doanh thu bán hàng.</li>
+                            <li>Chính phủ vừa hút tiền về qua thuế, vừa bơm tiền ra lại qua chi đầu tư, lương và trợ cấp.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>2. Luồng tiết kiệm, đầu tư và tài sản</h3>
+                        <p>Tiền nhàn rỗi từ hộ gia đình được đẩy vào quỹ, sàn chứng khoán, trái phiếu và bất động sản để tài trợ tăng trưởng.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    HH["Người dân"] -->|"Tiết kiệm"| BANK["Ngân hàng thương mại"]
+    HH -->|"Góp vốn"| FUND["Quỹ đầu tư"]
+    HH -->|"Mua cổ phiếu"| STOCK["Sàn CK"]
+    HH -->|"Mua trái phiếu"| BOND["Thị trường trái phiếu"]
+    HH -->|"Mua nhà"| RE["Bất động sản"]
+    FUND -->|"Giải ngân"| STOCK
+    STOCK -->|"Huy động vốn"| BIZ["Doanh nghiệp"]
+    BOND -->|"Tài trợ dài hạn"| GOV["Chính phủ"]
+    BOND -->|"Tài trợ dài hạn"| BIZ
+    BANK -->|"Thế chấp"| RE
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Tiền nhàn rỗi của hộ gia đình không đứng yên mà được đẩy sang các kênh tài sản.</li>
+                            <li>Những kênh này biến tiết kiệm ngắn hạn thành vốn dài hạn cho chính phủ và doanh nghiệp.</li>
+                            <li>Khi giá tài sản tăng mạnh, của cải tăng nhanh hơn thu nhập thực, tạo hiệu ứng giàu lên trên giấy.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>3. Luồng thanh toán hiện đại và quốc tế</h3>
+                        <p>Fintech, ngoại hối và dòng vốn xuyên biên giới làm tiền di chuyển nhanh hơn giữa tiêu dùng nội địa và thị trường toàn cầu.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    HH["Người dân"] -->|"Thanh toán số"| FIN["Fintech / Ví điện tử"]
+    FIN -->|"Kết nối tài khoản"| BANK["Ngân hàng thương mại"]
+    BIZ["Doanh nghiệp"] -->|"Nhập khẩu"| FOR["Quốc tế"]
+    FOR -->|"Hàng hóa, dịch vụ"| BIZ
+    BANK -->|"Mua bán ngoại tệ"| FX["Forex"]
+    FX -->|"Tỷ giá"| FOR
+    FOR -->|"FDI, kiều hối"| BANK
+    HH -->|"Giữ tài sản rủi ro"| CRYPTO["Crypto"]
+    VC["Startup / VC"] -->|"Rót vốn"| BIZ
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Fintech tăng tốc giao dịch nhưng phần lớn vẫn bám vào tài khoản ngân hàng phía sau.</li>
+                            <li>Kiều hối, FDI và nhập khẩu làm tiền liên tục đi qua biên giới và phụ thuộc tỷ giá.</li>
+                            <li>Một phần dòng tiền tách ra sang crypto và startup, nên biến động cao hơn kênh truyền thống.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>4. Vay mua nhà và trả nợ thế chấp</h3>
+                        <p>Đây là dòng tiền rất thực tế: tiền mua nhà được trả ngay cho người bán, còn người mua gánh dòng tiền trả nợ kéo dài nhiều năm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    HH["Người mua nhà"] -->|"Vốn tự có"| SELL["Người bán / chủ đầu tư"]
+    BANK["Ngân hàng thương mại"] -->|"Giải ngân khoản vay"| SELL
+    HH -->|"Trả gốc + lãi hàng tháng"| BANK
+    HH -->|"Phí hồ sơ, bảo hiểm vay"| BANK
+    HH -->|"Thuế, phí trước bạ"| GOV["Chính phủ / địa phương"]
+    HH -->|"Phí quản lý, bảo trì"| RE["Ban quản lý / chung cư"]
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Người bán nhận tiền gần như ngay khi ngân hàng giải ngân và người mua nộp phần vốn tự có.</li>
+                            <li>Sau đó dòng tiền đổi chiều: hộ gia đình trả gốc và lãi cho ngân hàng trong nhiều năm.</li>
+                            <li>Ngoài giá nhà còn có thêm thuế, phí công chứng, phí quản lý và các khoản bảo hiểm liên quan.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>5. Thẻ tín dụng, trả góp và phí giao dịch</h3>
+                        <p>Khi quẹt thẻ hay mua trả góp, cửa hàng thường được thanh toán sớm còn người mua trả sau; phần chênh nằm ở lãi và phí.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    HH["Người tiêu dùng"] -->|"Quẹt thẻ / BNPL"| SHOP["Cửa hàng / sàn TMĐT"]
+    FIN["Ngân hàng / công ty tài chính"] -->|"Thanh toán cho merchant"| SHOP
+    HH -->|"Trả sao kê đúng hạn"| FIN
+    HH -->|"Trả chậm -> lãi + phí"| FIN
+    SHOP -->|"Phí MDR / chiết khấu"| FIN
+    FIN -->|"Hoàn tiền / điểm thưởng"| HH
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Cửa hàng nhận tiền sớm từ bên tài chính, còn người mua dời nghĩa vụ thanh toán về tương lai.</li>
+                            <li>Nếu trả đủ sao kê, chi phí thấp; nếu trả chậm, lãi và phí tăng rất nhanh.</li>
+                            <li>Merchant fee và cashback là hai dòng tiền phụ thường bị bỏ qua nhưng xuất hiện trong hầu hết giao dịch thẻ.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>6. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
+                        <p>Phí nhỏ đóng đều được gom lại thành quỹ lớn, rồi chỉ chảy ngược về người tham gia khi có tổn thất hoặc sự kiện bảo hiểm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    CUS["Cá nhân / doanh nghiệp"] -->|"Đóng phí bảo hiểm"| INS["Công ty bảo hiểm"]
+    INS -->|"Đầu tư quỹ dự phòng"| SAFE["Tiền gửi / trái phiếu"]
+    HOSP["Bệnh viện / bên bị thiệt hại"] -->|"Phát sinh tổn thất"| CUS
+    INS -->|"Chi trả bồi thường"| CUS
+    INS -->|"Thanh toán trực tiếp"| HOSP
+    REINS["Tái bảo hiểm"] -->|"Chia sẻ rủi ro lớn"| INS
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Phí bảo hiểm được thu đều đặn trước, còn bồi thường chỉ phát sinh khi có sự kiện rủi ro.</li>
+                            <li>Trong thời gian chờ chi trả, doanh nghiệp bảo hiểm thường đầu tư quỹ dự phòng vào tài sản an toàn.</li>
+                            <li>Tái bảo hiểm là lớp đệm giúp công ty bảo hiểm nội địa không vỡ khi gặp tổn thất quá lớn.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>7. Lương, thuế, BHXH và lương hưu</h3>
+                        <p>Chi phí lao động thực tế không chỉ là lương mang về; một phần tiền được chuyển sang thuế và các quỹ an sinh bắt buộc.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    BIZ["Doanh nghiệp"] -->|"Trả lương net"| WORKER["Người lao động"]
+    BIZ -->|"Đóng BHXH, BHYT, BHTN"| PENSION["BHXH / quỹ hưu trí"]
+    WORKER -->|"Khấu trừ BHXH + BHYT"| PENSION
+    WORKER -->|"Thuế TNCN"| GOV["Chính phủ"]
+    PENSION -->|"Lương hưu / trợ cấp"| RET["Người nghỉ hưu"]
+    GOV -->|"Trợ cấp an sinh"| RET
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Lương người lao động nhận về chỉ là một phần trong tổng chi phí lao động của doanh nghiệp.</li>
+                            <li>Một phần dòng tiền đi sang thuế và quỹ bảo hiểm bắt buộc ngay ở thời điểm trả lương.</li>
+                            <li>Nhiều năm sau, dòng tiền đó quay lại dưới dạng lương hưu, trợ cấp thất nghiệp hoặc hỗ trợ an sinh.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
 
         <!-- Diagram Container -->
         <div class="diagram-container expanded" id="diagramContainer">
@@ -258,33 +429,126 @@
             </div>
         </div>
 
-        <!-- Bottom Action Bar -->
-        <div class="action-bar">
-            <button class="action-btn" id="playStoryBtn">
-                <span class="action-icon">▶️</span>
-                <span class="action-text">Câu chuyện tiền</span>
-            </button>
-            <button class="action-btn" id="showConnectionsBtn">
-                <span class="action-icon">🔗</span>
-                <span class="action-text">Hiện kết nối</span>
-            </button>
-            <button class="action-btn" id="resetViewBtn">
-                <span class="action-icon">🔃</span>
-                <span class="action-text">Reset</span>
-            </button>
-        </div>
-
-        <!-- Legend -->
-        <div class="legend">
-            <h3>📖 Nhóm thành phần (20 thành phần)</h3>
-            <div class="legend-items">
-                <div class="legend-item"><span class="legend-color core"></span><span>Cốt lõi (1-6)</span></div>
-                <div class="legend-item"><span class="legend-color financial"></span><span>Tài chính (7-10)</span></div>
-                <div class="legend-item"><span class="legend-color market"></span><span>Thị trường (11-14)</span></div>
-                <div class="legend-item"><span class="legend-color services"></span><span>Dịch vụ (15-17)</span></div>
-                <div class="legend-item"><span class="legend-color modern"></span><span>Hiện đại (18-20)</span></div>
+        <section class="money-flow-section system-map-section" aria-labelledby="systemMapTitle">
+            <div class="money-flow-intro">
+                <div>
+                    <p class="money-flow-kicker">System Map</p>
+                    <h2 id="systemMapTitle">Bản đồ quan hệ đầy đủ giữa các thành phần kinh tế</h2>
+                </div>
+                <p class="money-flow-summary">
+                    Bản đồ cuối trang này gom đủ 20 thành phần trong cùng một mạng lưới để bạn thấy nơi
+                    vốn được tạo ra, nơi rủi ro được chuyển đi, và nơi các chu kỳ tài sản được khuếch đại.
+                </p>
             </div>
-        </div>
+
+            <article class="flowchart-card">
+                <div class="flowchart-copy">
+                    <h3>8. Mạng lưới toàn hệ thống</h3>
+                    <p>Một sơ đồ duy nhất để nhìn quan hệ giữa khối cốt lõi, thị trường tài sản, dịch vụ tài chính và dòng vốn hiện đại.</p>
+                </div>
+                <pre class="mermaid money-flow-mermaid map">
+flowchart TB
+    subgraph CORE["Khối cốt lõi"]
+        CB["1. Ngân hàng TW"]
+        BANK["2. NH thương mại"]
+        GOV["3. Chính phủ"]
+        BIZ["4. Doanh nghiệp"]
+        HH["5. Người dân"]
+        FOR["6. Quốc tế"]
+    end
+
+    subgraph FIN["Khối tài chính"]
+        STOCK["7. Sàn CK"]
+        FUND["8. Quỹ đầu tư"]
+        CF["9. Tín dụng tiêu dùng"]
+        SHADOW["10. Shadow Bank"]
+    end
+
+    subgraph MARKET["Khối thị trường"]
+        BOND["11. Trái phiếu"]
+        RE["12. Bất động sản"]
+        COM["13. Hàng hóa"]
+        FX["14. Forex"]
+    end
+
+    subgraph SERVICES["Khối dịch vụ tài chính"]
+        INS["15. Bảo hiểm"]
+        PENSION["16. Hưu trí"]
+        RATING["17. Xếp hạng tín nhiệm"]
+    end
+
+    subgraph MODERN["Khối hiện đại"]
+        FINTECH["18. Fintech"]
+        CRYPTO["19. Crypto"]
+        STARTUP["20. Startup / VC"]
+    end
+
+    CB -->|"Thanh khoản, lãi suất"| BANK
+    CB -->|"OMO, QE, mua giấy tờ có giá"| BOND
+    BANK -->|"Cho vay sản xuất"| BIZ
+    BANK -->|"Cho vay tiêu dùng, thế chấp"| HH
+    HH -->|"Tiết kiệm, gửi tiền"| BANK
+    GOV -->|"Chi tiêu công, trợ cấp"| HH
+    GOV -->|"Đầu tư công, mua sắm"| BIZ
+    HH -->|"Thuế TNCN"| GOV
+    BIZ -->|"Thuế, phí"| GOV
+    BIZ -->|"Trả lương, cổ tức"| HH
+    HH -->|"Mua hàng hóa, dịch vụ"| BIZ
+    BIZ -->|"Xuất nhập khẩu"| FOR
+    FOR -->|"FDI, kiều hối"| BANK
+    FOR -->|"Dòng vốn, thương mại quốc tế"| FX
+    BANK -->|"Ngoại tệ, hedging"| FX
+    COM -->|"Giá đầu vào"| BIZ
+    HH -->|"Mua xăng, vàng, hàng thiết yếu"| COM
+    BANK -->|"Bảo lãnh phát hành"| BOND
+    BOND -->|"Vốn nợ dài hạn"| GOV
+    BOND -->|"Vốn nợ dài hạn"| BIZ
+    RATING -->|"Đánh giá tín nhiệm"| BOND
+    RATING -->|"Đánh giá DN phát hành"| BIZ
+    HH -->|"Mua cổ phiếu, ETF"| STOCK
+    HH -->|"Góp vốn"| FUND
+    FUND -->|"Giải ngân, nắm giữ danh mục"| STOCK
+    STOCK -->|"Huy động vốn cổ phần"| BIZ
+    HH -->|"Mua nhà, đầu tư đất"| RE
+    BANK -->|"Thế chấp, vay mua nhà"| RE
+    SHADOW -->|"Tín dụng ngoài ngân hàng"| BIZ
+    SHADOW -->|"Đòn bẩy tài sản"| RE
+    CF -->|"Thẻ, trả góp, BNPL"| HH
+    CF -->|"Thanh toán merchant"| BIZ
+    HH -->|"Phí, lãi trả chậm"| CF
+    HH -->|"Phí bảo hiểm"| INS
+    BIZ -->|"Bảo hiểm tài sản, nhân sự"| INS
+    INS -->|"Bồi thường, hoàn trả"| HH
+    INS -->|"Bồi thường tổn thất"| BIZ
+    INS -->|"Đầu tư dự phòng"| BOND
+    HH -->|"Đóng BHXH, hưu trí"| PENSION
+    BIZ -->|"Đóng góp lao động"| PENSION
+    PENSION -->|"Chi trả hưu trí"| HH
+    PENSION -->|"Đầu tư dài hạn"| BOND
+    HH -->|"Thanh toán QR, ví"| FINTECH
+    FINTECH -->|"Kết nối tài khoản, settlement"| BANK
+    FINTECH -->|"Thanh toán số cho merchant"| BIZ
+    HH -->|"Đầu cơ, lưu trữ giá trị"| CRYPTO
+    FOR -->|"Dòng vốn số, stablecoin"| CRYPTO
+    FUND -->|"PE/VC"| STARTUP
+    STARTUP -->|"Gọi vốn, tăng trưởng"| BIZ
+    STOCK -->|"IPO, thoái vốn"| STARTUP
+                </pre>
+                <div class="flowchart-explainer">
+                    <h4>Giải thích sơ đồ tổng hợp</h4>
+                    <ul class="flowchart-points">
+                        <li>Khối cốt lõi tạo tiền, thu thuế, chi tiêu và truyền tiền sang nền kinh tế thực.</li>
+                        <li>Khối tài chính và thị trường chuyển tiền tiết kiệm thành vốn nợ, vốn cổ phần và đòn bẩy tài sản.</li>
+                        <li>Khối dịch vụ tài chính định giá rủi ro, gom dòng tiền dài hạn và hấp thụ tổn thất.</li>
+                        <li>Khối hiện đại tăng tốc giao dịch và kéo thêm các dòng vốn rủi ro, đầu cơ, hoặc vốn mạo hiểm vào hệ thống.</li>
+                        <li>Màu mũi tên chỉ dùng để tách các hướng đi của cùng một node; cùng màu ở node khác không mang cùng một ý nghĩa.</li>
+                        <li>Nếu nhìn riêng một thành phần như `Người dân` hoặc `NH thương mại`, các mũi tên của node đó sẽ không trùng màu để bạn lần theo luồng nhanh hơn.</li>
+                    </ul>
+                    <p class="flowchart-note">Mẹo đọc nhanh: bắt đầu từ `2. NH thương mại` hoặc `5. Người dân`, vì đây là hai node có nhiều nhánh kết nối nhất trong toàn bộ hệ thống.</p>
+                </div>
+            </article>
+        </section>
+
     </main>
 
     <!-- Detail Modal -->
@@ -571,7 +835,100 @@
     <script src="modules/components.js"></script>
     <script src="modules/simulation.js"></script>
     <script src="modules/scenarios.js"></script>
-    <script src="modules/tour.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        function decorateSystemMapMermaid() {
+            const container = document.querySelector('.money-flow-mermaid.map');
+            const svg = container?.querySelector('svg.flowchart');
+            if (!container || !svg) return;
+
+            const palette = [
+                '#ff6b6b', '#ffa94d', '#ffd43b', '#94d82d', '#69db7c', '#38d9a9',
+                '#3bc9db', '#4dabf7', '#748ffc', '#9775fa', '#da77f2', '#f783ac'
+            ];
+            const sourceColorCount = new Map();
+            const edgePaths = Array.from(svg.querySelectorAll('g.edgePaths path[data-edge="true"]'));
+            const edgeLabels = Array.from(svg.querySelectorAll('g.edgeLabels > g'));
+            const defs = svg.querySelector('defs');
+            const defaultMarkerId = edgePaths[0]?.getAttribute('marker-end')?.match(/#([^)]+)/)?.[1];
+            const defaultMarker = defaultMarkerId ? defs?.querySelector(`#${defaultMarkerId}`) : null;
+
+            if (!edgePaths.length) return;
+
+            const viewBoxWidth = svg.viewBox?.baseVal?.width || container.clientWidth;
+            svg.style.maxWidth = 'none';
+            svg.style.width = `${Math.max(container.clientWidth, Math.ceil(viewBoxWidth))}px`;
+            svg.style.height = 'auto';
+
+            edgePaths.forEach((path, index) => {
+                const edgeId = path.dataset.id || path.id || `edge-${index}`;
+                const source = edgeId.replace(/^L_/, '').split('_')[0] || `source-${index}`;
+                const colorIndex = sourceColorCount.get(source) || 0;
+                const color = palette[colorIndex % palette.length];
+                sourceColorCount.set(source, colorIndex + 1);
+
+                path.style.stroke = color;
+                path.style.strokeWidth = '2.8px';
+                path.style.opacity = '0.96';
+
+                if (defaultMarker && defs) {
+                    const markerId = `${svg.id}-edge-marker-${index}`;
+                    let marker = defs.querySelector(`#${markerId}`);
+                    if (!marker) {
+                        marker = defaultMarker.cloneNode(true);
+                        marker.id = markerId;
+                        marker.querySelectorAll('path').forEach((markerPath) => {
+                            markerPath.setAttribute('fill', color);
+                            markerPath.setAttribute('stroke', color);
+                        });
+                        defs.appendChild(marker);
+                    }
+                    path.setAttribute('marker-end', `url(#${markerId})`);
+                }
+
+                const labelGroup = edgeLabels[index];
+                if (labelGroup) {
+                    labelGroup.querySelectorAll('span, text, tspan').forEach((labelNode) => {
+                        labelNode.style.color = color;
+                        labelNode.style.fill = color;
+                    });
+                    labelGroup.querySelectorAll('rect').forEach((labelBg) => {
+                        labelBg.style.stroke = color;
+                        labelBg.style.fill = 'rgba(16, 32, 56, 0.92)';
+                    });
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!window.mermaid) return;
+
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'base',
+                flowchart: {
+                    curve: 'basis',
+                    htmlLabels: false
+                },
+                themeVariables: {
+                    background: '#102038',
+                    primaryColor: '#17345d',
+                    primaryBorderColor: '#f39c12',
+                    primaryTextColor: '#f7fafc',
+                    secondaryColor: '#1d426f',
+                    tertiaryColor: '#0d1a2b',
+                    lineColor: '#74c0fc',
+                    edgeLabelBackground: '#102038'
+                }
+            });
+
+            await mermaid.run({
+                querySelector: '.money-flow-mermaid'
+            });
+
+            window.requestAnimationFrame(decorateSystemMapMermaid);
+        });
+    </script>
     <!-- Main Application -->
     <script src="app.js"></script>
 </body>
