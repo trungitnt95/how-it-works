@@ -60,6 +60,7 @@
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
             <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="quizBtn" title="Làm câu hỏi">❓ Câu hỏi</button>
             <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
         </div>
     </header>
@@ -851,6 +852,18 @@ flowchart TB
         </div>
     </div>
 
+    <!-- Quiz Modal -->
+    <div class="quiz-overlay" id="quizModal">
+        <div class="quiz-content">
+            <button class="modal-close" id="closeQuiz">&times;</button>
+            <h2>❓ Ngân Hàng Câu Hỏi Trắc Nghiệm</h2>
+            <p class="quiz-intro" id="quizIntro">Chọn một đáp án để xem ngay đáp án đúng và lời giải thích. Phần này không chấm điểm.</p>
+
+            <div class="quiz-categories" id="quizCategories"></div>
+            <div class="quiz-list" id="quizList"></div>
+        </div>
+    </div>
+
     <!-- Glossary Popup -->
     <div class="glossary-popup" id="glossaryPopup">
         <div class="glossary-term" id="glossaryTerm"></div>
@@ -866,6 +879,7 @@ flowchart TB
     <script src="modules/components.js"></script>
     <script src="modules/simulation.js"></script>
     <script src="modules/scenarios.js"></script>
+    <script src="modules/quiz.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <script>
         function decorateSystemMapMermaid() {

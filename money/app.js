@@ -3,6 +3,8 @@ let currentLevel = 'beginner';
 let currentScenario = null;
 let currentScenarioStep = 0;
 let currentComponentId = null;
+let currentQuizCategory = 'all';
+const quizSelections = new Map();
 
 // Multi-scenario selection state
 let selectedScenarios = [];  // Array of {id, order} for multi-select
@@ -25,6 +27,7 @@ const levelBadge = document.getElementById('levelBadge');
 const modal = document.getElementById('modal');
 const scenarioModal = document.getElementById('scenarioModal');
 const simulatorModal = document.getElementById('simulatorModal');
+const quizModal = document.getElementById('quizModal');
 const storyNarration = document.getElementById('storyNarration');
 const nodes = document.querySelectorAll('.node');
 
@@ -40,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     renderScenarios();
     renderSimulators();
+    renderQuiz();
 });
 
 function setupEventListeners() {
@@ -56,6 +60,7 @@ function setupEventListeners() {
     // Header buttons
     document.getElementById('changeLevelBtn').addEventListener('click', () => levelOverlay.classList.remove('hidden'));
     document.getElementById('scenarioBtn').addEventListener('click', () => scenarioModal.classList.add('active'));
+    document.getElementById('quizBtn').addEventListener('click', () => quizModal.classList.add('active'));
     document.getElementById('simulatorBtn').addEventListener('click', () => simulatorModal.classList.add('active'));
 
     // Category filter
@@ -75,10 +80,11 @@ function setupEventListeners() {
     // Close modals
     document.getElementById('closeModal').addEventListener('click', closeModal);
     document.getElementById('closeScenario').addEventListener('click', () => scenarioModal.classList.remove('active'));
+    document.getElementById('closeQuiz').addEventListener('click', () => quizModal.classList.remove('active'));
     document.getElementById('closeSimulator').addEventListener('click', () => simulatorModal.classList.remove('active'));
 
     // Modal overlay click
-    [modal, scenarioModal, simulatorModal].forEach(m => {
+    [modal, scenarioModal, quizModal, simulatorModal].forEach(m => {
         m.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('active'); });
     });
 
@@ -105,11 +111,35 @@ function setupEventListeners() {
         });
     });
 
+    const quizCategoriesContainer = document.getElementById('quizCategories');
+    if (quizCategoriesContainer) {
+        quizCategoriesContainer.addEventListener('click', (e) => {
+            const button = e.target.closest('[data-quiz-cat]');
+            if (!button) return;
+
+            currentQuizCategory = button.dataset.quizCat;
+            renderQuizCategories();
+            renderQuizQuestions(false);
+        });
+    }
+
+    const quizList = document.getElementById('quizList');
+    if (quizList) {
+        quizList.addEventListener('click', (e) => {
+            const optionBtn = e.target.closest('.quiz-option-btn');
+            if (!optionBtn) return;
+
+            quizSelections.set(optionBtn.dataset.questionId, Number(optionBtn.dataset.optionIndex));
+            renderQuizQuestions(true);
+        });
+    }
+
     // Keyboard
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeModal();
             scenarioModal.classList.remove('active');
+            quizModal.classList.remove('active');
             simulatorModal.classList.remove('active');
         }
     });
@@ -796,6 +826,110 @@ function formatMoney(num) {
 function formatCompact(num) {
     if (!Number.isFinite(num)) return '--';
     return new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(num);
+}
+
+function renderQuiz() {
+    renderQuizCategories();
+    renderQuizQuestions(false);
+}
+
+function getQuizCategoryMeta(categoryId) {
+    if (categoryId === 'all') return { id: 'all', label: 'Tất cả' };
+    return quizCategories.find((category) => category.id === categoryId) || { id: categoryId, label: categoryId };
+}
+
+function renderQuizCategories() {
+    const container = document.getElementById('quizCategories');
+    if (!container) return;
+
+    const counts = quizQuestionBank.reduce((acc, question) => {
+        acc[question.cat] = (acc[question.cat] || 0) + 1;
+        return acc;
+    }, {});
+
+    const buttons = [
+        `<button class="scenario-cat-btn quiz-cat-btn ${currentQuizCategory === 'all' ? 'active' : ''}" data-quiz-cat="all">Tất cả (${quizQuestionBank.length})</button>`,
+        ...quizCategories.map((category) => `
+            <button class="scenario-cat-btn quiz-cat-btn ${currentQuizCategory === category.id ? 'active' : ''}" data-quiz-cat="${category.id}">
+                ${category.label} (${counts[category.id] || 0})
+            </button>
+        `)
+    ];
+
+    container.innerHTML = buttons.join('');
+}
+
+function renderQuizCard(question, index) {
+    const category = getQuizCategoryMeta(question.cat);
+    const selected = quizSelections.get(question.id);
+    const isAnswered = selected !== undefined;
+    const correctText = question.options[question.answer];
+
+    const optionsHtml = question.options.map((option, optionIndex) => {
+        const classes = ['quiz-option-btn'];
+
+        if (selected === optionIndex) classes.push('selected');
+        if (isAnswered && optionIndex === question.answer) classes.push('correct');
+        if (isAnswered && selected === optionIndex && selected !== question.answer) classes.push('wrong');
+
+        return `
+            <button class="${classes.join(' ')}" data-question-id="${question.id}" data-option-index="${optionIndex}">
+                <span class="quiz-option-letter">${String.fromCharCode(65 + optionIndex)}</span>
+                <span class="quiz-option-text">${escapeHtml(option)}</span>
+            </button>
+        `;
+    }).join('');
+
+    const feedbackHtml = !isAnswered ? '' : `
+        <div class="quiz-feedback ${selected === question.answer ? 'correct' : 'wrong'}">
+            <div class="quiz-feedback-status">
+                ${selected === question.answer
+                    ? '✅ Bạn chọn đúng.'
+                    : `❌ Bạn chọn: <strong>${escapeHtml(question.options[selected])}</strong>`}
+            </div>
+            <div class="quiz-feedback-answer">Đáp án đúng: <strong>${escapeHtml(correctText)}</strong></div>
+            <p>${escapeHtml(question.explanation)}</p>
+        </div>
+    `;
+
+    return `
+        <article class="quiz-card">
+            <div class="quiz-card-top">
+                <span class="quiz-number">Câu ${index + 1}</span>
+                <span class="quiz-category-badge">${escapeHtml(category.label)}</span>
+            </div>
+            <h3>${escapeHtml(question.question)}</h3>
+            <div class="quiz-options">
+                ${optionsHtml}
+            </div>
+            ${feedbackHtml}
+        </article>
+    `;
+}
+
+function renderQuizQuestions(preserveScroll = true) {
+    const container = document.getElementById('quizList');
+    const intro = document.getElementById('quizIntro');
+    if (!container || !intro) return;
+
+    const previousScroll = preserveScroll ? container.scrollTop : 0;
+    const filteredQuestions = currentQuizCategory === 'all'
+        ? quizQuestionBank
+        : quizQuestionBank.filter((question) => question.cat === currentQuizCategory);
+    const category = getQuizCategoryMeta(currentQuizCategory);
+
+    intro.textContent = currentQuizCategory === 'all'
+        ? `Chọn một đáp án để xem ngay đáp án đúng và lời giải thích. Hiện có ${quizQuestionBank.length} câu hỏi và hệ thống không chấm điểm.`
+        : `Đang hiển thị ${filteredQuestions.length} câu thuộc nhóm ${category.label}. Chọn một đáp án để xem ngay đáp án đúng và lời giải thích.`;
+
+    if (!filteredQuestions.length) {
+        container.innerHTML = '<div class="quiz-empty">Chưa có câu hỏi trong nhóm này.</div>';
+        container.scrollTop = 0;
+        return;
+    }
+
+    container.innerHTML = filteredQuestions.map((question, index) => renderQuizCard(question, index)).join('');
+    container.scrollTop = preserveScroll ? previousScroll : 0;
 }
 
 function runMoneyMultiplier() {
