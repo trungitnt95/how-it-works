@@ -77,7 +77,7 @@
             <button class="filter-btn" data-category="modern">⚡ Hiện đại</button>
         </div>
 
-        <section class="money-flow-section" aria-labelledby="moneyFlowTitle">
+        <section class="money-flow-section supplemental-flows-section" aria-labelledby="moneyFlowTitle">
             <div class="money-flow-intro">
                 <div>
                     <p class="money-flow-kicker">Mermaid Flowchart</p>
@@ -92,7 +92,7 @@
             <div class="flowchart-grid">
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>1. Vòng tuần hoàn tiền cơ bản</h3>
+                        <h3>2. Vòng tuần hoàn tiền cơ bản</h3>
                         <p>Tiền mới đi từ ngân hàng trung ương tới hệ ngân hàng, rồi lan sang sản xuất, tiêu dùng và quay lại qua tiết kiệm, thuế.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid tall">
@@ -120,7 +120,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>2. Luồng tiết kiệm, đầu tư và tài sản</h3>
+                        <h3>3. Luồng tiết kiệm, đầu tư và tài sản</h3>
                         <p>Tiền nhàn rỗi từ hộ gia đình được đẩy vào quỹ, sàn chứng khoán, trái phiếu và bất động sản để tài trợ tăng trưởng.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid tall">
@@ -148,7 +148,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>3. Luồng thanh toán hiện đại và quốc tế</h3>
+                        <h3>4. Luồng thanh toán hiện đại và quốc tế</h3>
                         <p>Fintech, ngoại hối và dòng vốn xuyên biên giới làm tiền di chuyển nhanh hơn giữa tiêu dùng nội địa và thị trường toàn cầu.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid tall">
@@ -175,7 +175,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>4. Vay mua nhà và trả nợ thế chấp</h3>
+                        <h3>5. Vay mua nhà và trả nợ thế chấp</h3>
                         <p>Đây là dòng tiền rất thực tế: tiền mua nhà được trả ngay cho người bán, còn người mua gánh dòng tiền trả nợ kéo dài nhiều năm.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -199,7 +199,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>5. Thẻ tín dụng, trả góp và phí giao dịch</h3>
+                        <h3>6. Thẻ tín dụng, trả góp và phí giao dịch</h3>
                         <p>Khi quẹt thẻ hay mua trả góp, cửa hàng thường được thanh toán sớm còn người mua trả sau; phần chênh nằm ở lãi và phí.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -223,7 +223,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>6. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
+                        <h3>7. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
                         <p>Phí nhỏ đóng đều được gom lại thành quỹ lớn, rồi chỉ chảy ngược về người tham gia khi có tổn thất hoặc sự kiện bảo hiểm.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -247,7 +247,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>7. Lương, thuế, BHXH và lương hưu</h3>
+                        <h3>8. Lương, thuế, BHXH và lương hưu</h3>
                         <p>Chi phí lao động thực tế không chỉ là lương mang về; một phần tiền được chuyển sang thuế và các quỹ an sinh bắt buộc.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -443,7 +443,7 @@ flowchart TD
 
             <article class="flowchart-card">
                 <div class="flowchart-copy">
-                    <h3>8. Mạng lưới toàn hệ thống</h3>
+                    <h3>1. Mạng lưới toàn hệ thống</h3>
                     <p>Một sơ đồ duy nhất để nhìn quan hệ giữa khối cốt lõi, thị trường tài sản, dịch vụ tài chính và dòng vốn hiện đại.</p>
                 </div>
                 <pre class="mermaid money-flow-mermaid map">
@@ -486,15 +486,11 @@ flowchart TB
     CB -->|"Thanh khoản, lãi suất"| BANK
     CB -->|"OMO, QE, mua giấy tờ có giá"| BOND
     BANK -->|"Cho vay sản xuất"| BIZ
-    BANK -->|"Cho vay tiêu dùng, thế chấp"| HH
-    HH -->|"Tiết kiệm, gửi tiền"| BANK
-    GOV -->|"Chi tiêu công, trợ cấp"| HH
-    GOV -->|"Đầu tư công, mua sắm"| BIZ
-    HH -->|"Thuế TNCN"| GOV
-    BIZ -->|"Thuế, phí"| GOV
-    BIZ -->|"Trả lương, cổ tức"| HH
-    HH -->|"Mua hàng hóa, dịch vụ"| BIZ
-    BIZ -->|"Xuất nhập khẩu"| FOR
+    BANK <-->|"Cho vay tiêu dùng, thế chấp / tiết kiệm, gửi tiền"| HH
+    GOV <-->|"Chi tiêu công, trợ cấp / thuế TNCN"| HH
+    GOV <-->|"Đầu tư công, mua sắm / thuế, phí"| BIZ
+    BIZ <-->|"Trả lương, cổ tức / mua hàng hóa, dịch vụ"| HH
+    BIZ <-->|"Xuất nhập khẩu"| FOR
     FOR -->|"FDI, kiều hối"| BANK
     FOR -->|"Dòng vốn, thương mại quốc tế"| FX
     BANK -->|"Ngoại tệ, hedging"| FX
@@ -516,14 +512,11 @@ flowchart TB
     CF -->|"Thẻ, trả góp, BNPL"| HH
     CF -->|"Thanh toán merchant"| BIZ
     HH -->|"Phí, lãi trả chậm"| CF
-    HH -->|"Phí bảo hiểm"| INS
-    BIZ -->|"Bảo hiểm tài sản, nhân sự"| INS
-    INS -->|"Bồi thường, hoàn trả"| HH
-    INS -->|"Bồi thường tổn thất"| BIZ
+    HH <-->|"Phí bảo hiểm / bồi thường, hoàn trả"| INS
+    BIZ <-->|"Bảo hiểm tài sản, nhân sự / bồi thường tổn thất"| INS
     INS -->|"Đầu tư dự phòng"| BOND
-    HH -->|"Đóng BHXH, hưu trí"| PENSION
+    HH <-->|"Đóng BHXH, hưu trí / chi trả hưu trí"| PENSION
     BIZ -->|"Đóng góp lao động"| PENSION
-    PENSION -->|"Chi trả hưu trí"| HH
     PENSION -->|"Đầu tư dài hạn"| BOND
     HH -->|"Thanh toán QR, ví"| FINTECH
     FINTECH -->|"Kết nối tài khoản, settlement"| BANK
@@ -534,6 +527,31 @@ flowchart TB
     STARTUP -->|"Gọi vốn, tăng trưởng"| BIZ
     STOCK -->|"IPO, thoái vốn"| STARTUP
                 </pre>
+                <div class="flowchart-legend" aria-label="Chú thích màu khối thành phần">
+                    <div class="flowchart-legend-title">Chú thích màu khối</div>
+                    <div class="flowchart-legend-items">
+                        <div class="flowchart-legend-item core">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối cốt lõi</span>
+                        </div>
+                        <div class="flowchart-legend-item finance">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối tài chính</span>
+                        </div>
+                        <div class="flowchart-legend-item market">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối thị trường</span>
+                        </div>
+                        <div class="flowchart-legend-item services">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Dịch vụ tài chính</span>
+                        </div>
+                        <div class="flowchart-legend-item modern">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối hiện đại</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="flowchart-explainer">
                     <h4>Giải thích sơ đồ tổng hợp</h4>
                     <ul class="flowchart-points">
@@ -541,7 +559,9 @@ flowchart TB
                         <li>Khối tài chính và thị trường chuyển tiền tiết kiệm thành vốn nợ, vốn cổ phần và đòn bẩy tài sản.</li>
                         <li>Khối dịch vụ tài chính định giá rủi ro, gom dòng tiền dài hạn và hấp thụ tổn thất.</li>
                         <li>Khối hiện đại tăng tốc giao dịch và kéo thêm các dòng vốn rủi ro, đầu cơ, hoặc vốn mạo hiểm vào hệ thống.</li>
-                        <li>Màu mũi tên chỉ dùng để tách các hướng đi của cùng một node; cùng màu ở node khác không mang cùng một ý nghĩa.</li>
+                        <li>Màu nền của từng node biểu diễn khối thành phần; các khung vuông bao quanh khối đã được bỏ để sơ đồ thoáng hơn.</li>
+                        <li>Mũi tên hai chiều biểu diễn quan hệ phản hồi, nơi tiền hoặc nghĩa vụ quay ngược lại thành dòng trả nợ, thuế, bồi thường hoặc chi trả.</li>
+                        <li>Màu mũi tên chỉ dùng để tách các hướng đi của cùng một node; chúng độc lập với màu khối của node.</li>
                         <li>Nếu nhìn riêng một thành phần như `Người dân` hoặc `NH thương mại`, các mũi tên của node đó sẽ không trùng màu để bạn lần theo luồng nhanh hơn.</li>
                     </ul>
                     <p class="flowchart-note">Mẹo đọc nhanh: bắt đầu từ `2. NH thương mại` hoặc `5. Người dân`, vì đây là hai node có nhiều nhánh kết nối nhất trong toàn bộ hệ thống.</p>
@@ -570,6 +590,17 @@ flowchart TB
                 <div class="tab-content active" data-content="simple"></div>
                 <div class="tab-content" data-content="detail"></div>
                 <div class="tab-content" data-content="advanced"></div>
+                <section class="asset-structure-card" id="assetStructureCard" hidden>
+                    <div class="asset-structure-header">
+                        <div>
+                            <h4>Cơ cấu tài sản điển hình</h4>
+                            <p id="assetStructureLead">Tỷ trọng minh họa để bạn hình dung giá trị thường nằm ở đâu trong thành phần này.</p>
+                        </div>
+                    </div>
+                    <div class="asset-structure-list" id="assetStructureList"></div>
+                    <div class="asset-structure-insights" id="assetStructureInsights"></div>
+                    <p class="asset-structure-note" id="assetStructureNote"></p>
+                </section>
             </div>
             <div class="modal-footer">
                 <div class="connections-section">
@@ -842,18 +873,114 @@ flowchart TB
             const svg = container?.querySelector('svg.flowchart');
             if (!container || !svg) return;
 
+            const blockStyles = {
+                CORE: { fill: '#214866', stroke: '#8fd3ff', text: '#f5fbff' },
+                FIN: { fill: '#6a3d1f', stroke: '#ffbf80', text: '#fff7ed' },
+                MARKET: { fill: '#2f5d3b', stroke: '#96f2a8', text: '#f3fff7' },
+                SERVICES: { fill: '#5b3659', stroke: '#f0abfc', text: '#fff5ff' },
+                MODERN: { fill: '#1f5560', stroke: '#7ce3ff', text: '#effcff' }
+            };
+            const nodeBlocks = {
+                CB: 'CORE',
+                BANK: 'CORE',
+                GOV: 'CORE',
+                BIZ: 'CORE',
+                HH: 'CORE',
+                FOR: 'CORE',
+                STOCK: 'FIN',
+                FUND: 'FIN',
+                CF: 'FIN',
+                SHADOW: 'FIN',
+                BOND: 'MARKET',
+                RE: 'MARKET',
+                COM: 'MARKET',
+                FX: 'MARKET',
+                INS: 'SERVICES',
+                PENSION: 'SERVICES',
+                RATING: 'SERVICES',
+                FINTECH: 'MODERN',
+                CRYPTO: 'MODERN',
+                STARTUP: 'MODERN'
+            };
             const palette = [
                 '#ff6b6b', '#ffa94d', '#ffd43b', '#94d82d', '#69db7c', '#38d9a9',
-                '#3bc9db', '#4dabf7', '#748ffc', '#9775fa', '#da77f2', '#f783ac'
+                '#3bc9db', '#4dabf7', '#748ffc', '#9775fa', '#da77f2', '#f783ac',
+                '#ff8787', '#fcc419', '#20c997', '#66d9e8', '#a5d8ff', '#b197fc'
             ];
-            const sourceColorCount = new Map();
+            const nodeColorUsage = new Map();
+            const nodeGroups = Array.from(svg.querySelectorAll('g.node'));
+            const clusters = Array.from(svg.querySelectorAll('g.cluster'));
             const edgePaths = Array.from(svg.querySelectorAll('g.edgePaths path[data-edge="true"]'));
             const edgeLabels = Array.from(svg.querySelectorAll('g.edgeLabels > g'));
-            const defs = svg.querySelector('defs');
-            const defaultMarkerId = edgePaths[0]?.getAttribute('marker-end')?.match(/#([^)]+)/)?.[1];
-            const defaultMarker = defaultMarkerId ? defs?.querySelector(`#${defaultMarkerId}`) : null;
+            const markerStore = svg.querySelector('defs') || svg;
 
             if (!edgePaths.length) return;
+
+            clusters.forEach((cluster) => {
+                cluster.style.display = 'none';
+            });
+
+            nodeGroups.forEach((nodeGroup) => {
+                const nodeId = nodeGroup.id.replace(/^flowchart-/, '').replace(/-\d+$/, '');
+                const blockKey = nodeBlocks[nodeId];
+                const blockStyle = blockStyles[blockKey];
+                if (!blockStyle) return;
+
+                nodeGroup.querySelectorAll('rect, circle, ellipse, polygon, path').forEach((shape) => {
+                    shape.style.fill = blockStyle.fill;
+                    shape.style.stroke = blockStyle.stroke;
+                    shape.style.strokeWidth = '1.6px';
+                });
+
+                nodeGroup.querySelectorAll('text, tspan, span, p').forEach((labelNode) => {
+                    labelNode.style.fill = blockStyle.text;
+                    labelNode.style.color = blockStyle.text;
+                });
+            });
+
+            const getColorBucket = (nodeId) => {
+                if (!nodeColorUsage.has(nodeId)) {
+                    nodeColorUsage.set(nodeId, new Set());
+                }
+                return nodeColorUsage.get(nodeId);
+            };
+
+            const pickEdgeColor = (source, target, fallbackIndex) => {
+                const sourceColors = getColorBucket(source);
+                const targetColors = getColorBucket(target);
+                const blocked = new Set([...sourceColors, ...targetColors]);
+                const color = palette.find((candidate) => !blocked.has(candidate))
+                    || palette[fallbackIndex % palette.length];
+
+                sourceColors.add(color);
+                targetColors.add(color);
+
+                return color;
+            };
+
+            const applyMarkerColor = (path, markerAttr, color, edgeIndex) => {
+                const markerRef = path.getAttribute(markerAttr);
+                const markerId = markerRef?.match(/#([^)]+)/)?.[1];
+                if (!markerId) return;
+
+                const defaultMarker = document.getElementById(markerId);
+                if (!defaultMarker) return;
+
+                const coloredMarkerId = `${svg.id}-${markerAttr}-marker-${edgeIndex}`;
+                let marker = document.getElementById(coloredMarkerId);
+
+                if (!marker) {
+                    marker = defaultMarker.cloneNode(true);
+                    marker.id = coloredMarkerId;
+                    marker.querySelectorAll('path').forEach((markerPath) => {
+                        markerPath.setAttribute('fill', color);
+                        markerPath.setAttribute('stroke', color);
+                    });
+                    markerStore.appendChild(marker);
+                }
+
+                path.setAttribute(markerAttr, `url(#${coloredMarkerId})`);
+            };
 
             const viewBoxWidth = svg.viewBox?.baseVal?.width || container.clientWidth;
             svg.style.maxWidth = 'none';
@@ -862,29 +989,14 @@ flowchart TB
 
             edgePaths.forEach((path, index) => {
                 const edgeId = path.dataset.id || path.id || `edge-${index}`;
-                const source = edgeId.replace(/^L_/, '').split('_')[0] || `source-${index}`;
-                const colorIndex = sourceColorCount.get(source) || 0;
-                const color = palette[colorIndex % palette.length];
-                sourceColorCount.set(source, colorIndex + 1);
+                const [source = `source-${index}`, target = `target-${index}`] = edgeId.replace(/^L_/, '').split('_');
+                const color = pickEdgeColor(source, target, index);
 
                 path.style.stroke = color;
                 path.style.strokeWidth = '2.8px';
                 path.style.opacity = '0.96';
-
-                if (defaultMarker && defs) {
-                    const markerId = `${svg.id}-edge-marker-${index}`;
-                    let marker = defs.querySelector(`#${markerId}`);
-                    if (!marker) {
-                        marker = defaultMarker.cloneNode(true);
-                        marker.id = markerId;
-                        marker.querySelectorAll('path').forEach((markerPath) => {
-                            markerPath.setAttribute('fill', color);
-                            markerPath.setAttribute('stroke', color);
-                        });
-                        defs.appendChild(marker);
-                    }
-                    path.setAttribute('marker-end', `url(#${markerId})`);
-                }
+                applyMarkerColor(path, 'marker-start', color, index);
+                applyMarkerColor(path, 'marker-end', color, index);
 
                 const labelGroup = edgeLabels[index];
                 if (labelGroup) {

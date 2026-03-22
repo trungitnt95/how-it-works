@@ -172,6 +172,8 @@ header h1 {
 
 /* ==================== MAIN ==================== */
 main {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -179,6 +181,7 @@ main {
 
 /* ==================== CATEGORY FILTER ==================== */
 .category-filter {
+    order: 1;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -219,6 +222,10 @@ main {
         radial-gradient(circle at top left, rgba(243, 156, 18, 0.16), transparent 32%),
         linear-gradient(135deg, rgba(10, 20, 36, 0.96), rgba(17, 37, 63, 0.92));
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.supplemental-flows-section {
+    order: 4;
 }
 
 .money-flow-intro {
@@ -310,6 +317,7 @@ main {
 }
 
 .system-map-section {
+    order: 3;
     margin-top: 1.25rem;
 }
 
@@ -345,8 +353,76 @@ main {
     font-size: 0.82rem;
 }
 
+.flowchart-legend {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(116, 192, 252, 0.14);
+    background: rgba(9, 22, 38, 0.58);
+}
+
+.flowchart-legend-title {
+    margin-bottom: 0.65rem;
+    color: #74c0fc;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.flowchart-legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 0.95rem;
+}
+
+.flowchart-legend-item {
+    --legend-fill: #17345d;
+    --legend-stroke: #74c0fc;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+.flowchart-legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--legend-fill);
+    border: 1px solid var(--legend-stroke);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    flex: 0 0 auto;
+}
+
+.flowchart-legend-item.core {
+    --legend-fill: #214866;
+    --legend-stroke: #8fd3ff;
+}
+
+.flowchart-legend-item.finance {
+    --legend-fill: #6a3d1f;
+    --legend-stroke: #ffbf80;
+}
+
+.flowchart-legend-item.market {
+    --legend-fill: #2f5d3b;
+    --legend-stroke: #96f2a8;
+}
+
+.flowchart-legend-item.services {
+    --legend-fill: #5b3659;
+    --legend-stroke: #f0abfc;
+}
+
+.flowchart-legend-item.modern {
+    --legend-fill: #1f5560;
+    --legend-stroke: #7ce3ff;
+}
+
 /* ==================== DIAGRAM CONTAINER ==================== */
 .diagram-container {
+    order: 2;
     position: relative;
     width: 100%;
     height: 700px;
@@ -576,6 +652,39 @@ main {
 .tab-content ul { margin-left: 1.2rem; margin-bottom: 0.8rem; }
 .tab-content li { margin-bottom: 0.3rem; }
 
+.deep-dive-card {
+    margin-top: 1rem;
+    padding: 0.95rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(116, 192, 252, 0.14);
+    background: rgba(7, 18, 32, 0.72);
+}
+
+.deep-dive-intro {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.65;
+}
+
+.deep-dive-section + .deep-dive-section {
+    margin-top: 0.8rem;
+}
+
+.deep-dive-section p {
+    color: rgba(255, 255, 255, 0.74);
+    margin-bottom: 0.45rem;
+}
+
+.deep-dive-callout {
+    margin-top: 0.85rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 10px;
+    border-left: 3px solid #74c0fc;
+    background: rgba(116, 192, 252, 0.12);
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
 .example-box {
     background: rgba(76, 175, 80, 0.15);
     border-left: 3px solid #4CAF50;
@@ -592,6 +701,127 @@ main {
     border-radius: 0 8px 8px 0;
     margin: 0.8rem 0;
     font-size: 0.85rem;
+}
+
+.asset-structure-card {
+    --asset-accent: #f39c12;
+    --asset-accent-soft: #74c0fc;
+    margin-top: 1rem;
+    padding: 0.95rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(116, 192, 252, 0.16);
+    background: rgba(8, 20, 34, 0.78);
+}
+
+.asset-structure-card[data-category="core"] {
+    --asset-accent: #8fd3ff;
+    --asset-accent-soft: #5daeff;
+}
+
+.asset-structure-card[data-category="financial"] {
+    --asset-accent: #ffbf80;
+    --asset-accent-soft: #ffd8a8;
+}
+
+.asset-structure-card[data-category="market"] {
+    --asset-accent: #96f2a8;
+    --asset-accent-soft: #63e6be;
+}
+
+.asset-structure-card[data-category="services"] {
+    --asset-accent: #f0abfc;
+    --asset-accent-soft: #e599f7;
+}
+
+.asset-structure-card[data-category="modern"] {
+    --asset-accent: #7ce3ff;
+    --asset-accent-soft: #66d9e8;
+}
+
+.asset-structure-header h4 {
+    margin: 0 0 0.3rem;
+    color: #74c0fc;
+    font-size: 0.92rem;
+}
+
+.asset-structure-header p,
+.asset-structure-note {
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.55;
+    font-size: 0.78rem;
+}
+
+.asset-structure-list {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+}
+
+.asset-structure-item-detail {
+    margin-top: 0.4rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.55;
+    font-size: 0.77rem;
+}
+
+.asset-structure-label-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.asset-structure-label {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.8rem;
+}
+
+.asset-structure-share {
+    color: #fff;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.asset-structure-bar {
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.asset-structure-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--asset-accent), var(--asset-accent-soft));
+    box-shadow: 0 0 16px rgba(116, 192, 252, 0.16);
+}
+
+.asset-structure-insights {
+    margin-top: 0.9rem;
+}
+
+.asset-structure-insights-title {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.asset-structure-takeaways {
+    margin: 0;
+    padding-left: 1rem;
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.55;
+    font-size: 0.78rem;
+}
+
+.asset-structure-takeaways li + li {
+    margin-top: 0.25rem;
+}
+
+.asset-structure-note {
+    margin-top: 0.85rem;
 }
 
 .modal-footer {

@@ -1197,6 +1197,90 @@ function filterScenarios(cat) {
 }
 
 // ==================== COMPONENT MODAL ====================
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+function renderBulletList(items) {
+    if (!items?.length) return '';
+    return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+}
+
+function renderSupplementCard(componentId, level) {
+    const content = componentExpandedContent?.[componentId]?.[level];
+    if (!content) return '';
+
+    const sections = (content.sections || []).map(section => `
+        <div class="deep-dive-section">
+            <h4>${escapeHtml(section.title)}</h4>
+            ${section.intro ? `<p>${escapeHtml(section.intro)}</p>` : ''}
+            ${renderBulletList(section.bullets)}
+        </div>
+    `).join('');
+
+    return `
+        <section class="deep-dive-card">
+            ${content.intro ? `<p class="deep-dive-intro">${escapeHtml(content.intro)}</p>` : ''}
+            ${sections}
+            ${content.callout ? `<div class="deep-dive-callout">${escapeHtml(content.callout)}</div>` : ''}
+        </section>
+    `;
+}
+
+function buildTabContent(componentId, level, baseHtml) {
+    return `${baseHtml}${renderSupplementCard(componentId, level)}`;
+}
+
+function renderAssetStructure(componentId, category) {
+    const assetCard = document.getElementById('assetStructureCard');
+    const assetLead = document.getElementById('assetStructureLead');
+    const assetList = document.getElementById('assetStructureList');
+    const assetInsights = document.getElementById('assetStructureInsights');
+    const assetNote = document.getElementById('assetStructureNote');
+    const structure = assetStructureData?.[componentId];
+
+    if (!assetCard || !assetLead || !assetList || !assetInsights || !assetNote) return;
+
+    if (!structure) {
+        assetCard.hidden = true;
+        assetLead.textContent = '';
+        assetList.innerHTML = '';
+        assetInsights.innerHTML = '';
+        assetNote.textContent = '';
+        return;
+    }
+
+    assetCard.hidden = false;
+    assetCard.dataset.category = category || '';
+    assetLead.textContent = structure.lead
+        || 'Tỷ trọng dưới đây là mô hình minh họa để bạn hình dung giá trị, thanh khoản và rủi ro thường nằm ở đâu.';
+    assetList.innerHTML = structure.items.map((item) => `
+        <div class="asset-structure-item">
+            <div class="asset-structure-label-row">
+                <span class="asset-structure-label">${item.label}</span>
+                <span class="asset-structure-share">${item.share}%</span>
+            </div>
+            <div class="asset-structure-bar">
+                <span class="asset-structure-fill" style="width: ${item.share}%"></span>
+            </div>
+            ${item.detail ? `<p class="asset-structure-item-detail">${escapeHtml(item.detail)}</p>` : ''}
+        </div>
+    `).join('');
+    assetInsights.innerHTML = structure.takeaways?.length ? `
+        <div class="asset-structure-insights-title">Cách đọc nhanh</div>
+        <ul class="asset-structure-takeaways">
+            ${structure.takeaways.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+    ` : '';
+    assetNote.textContent = structure.note
+        || 'Tỷ trọng minh họa để bạn hình dung tài sản hoặc nguồn lực chính của thành phần này, không phải báo cáo kế toán chuẩn.';
+}
+
 function showComponentModal(componentId) {
     currentComponentId = componentId;
     const data = componentData[componentId];
@@ -1205,9 +1289,10 @@ function showComponentModal(componentId) {
     document.getElementById('modalIcon').textContent = data.icon;
     document.getElementById('modalTitle').textContent = data.title;
     
-    document.querySelector('[data-content="simple"]').innerHTML = data.simple;
-    document.querySelector('[data-content="detail"]').innerHTML = data.detail;
-    document.querySelector('[data-content="advanced"]').innerHTML = data.advanced;
+    document.querySelector('[data-content="simple"]').innerHTML = buildTabContent(componentId, 'simple', data.simple);
+    document.querySelector('[data-content="detail"]').innerHTML = buildTabContent(componentId, 'detail', data.detail);
+    document.querySelector('[data-content="advanced"]').innerHTML = buildTabContent(componentId, 'advanced', data.advanced);
+    renderAssetStructure(componentId, data.category);
 
     const tabMap = { beginner: 'simple', intermediate: 'detail', advanced: 'advanced' };
     document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
