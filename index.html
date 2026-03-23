@@ -360,6 +360,10 @@
         .topic-card:nth-child(14) { animation-delay: 1.4s; }
         .topic-card:nth-child(15) { animation-delay: 1.5s; }
         .topic-card:nth-child(16) { animation-delay: 1.6s; }
+        .topic-card:nth-child(17) { animation-delay: 1.7s; }
+        .topic-card:nth-child(18) { animation-delay: 1.8s; }
+        .topic-card:nth-child(19) { animation-delay: 1.9s; }
+        .topic-card:nth-child(20) { animation-delay: 2s; }
 
         /* Additional card types */
         .topic-card.decision {
@@ -390,6 +394,11 @@
         .topic-card.architect {
             --card-color-1: #607d8b;
             --card-color-2: #9e9e9e;
+        }
+
+        .topic-card.government {
+            --card-color-1: #e74c3c;
+            --card-color-2: #f39c12;
         }
 
         /* Search Box */
@@ -500,7 +509,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">16 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">17 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -509,6 +518,30 @@
         </div>
 
         <div class="topics-grid">
+            <!-- Vietnam State - Available -->
+            <div class="topic-card government" onclick="location.href='vietnam-state/'" data-tags="nhà nước việt nam vietnam state quốc hội chính phủ chủ tịch nước hđnd ubnd tòa án viện kiểm sát">
+                <div class="card-icon">🏛️</div>
+                <h3 class="card-title">Bộ Máy Nhà Nước Việt Nam</h3>
+                <p class="card-subtitle">Hiểu hệ thống và chức năng từng cơ quan</p>
+                <p class="card-description">
+                    Khám phá cách bộ máy nhà nước Việt Nam vận hành từ Quốc hội, Chủ tịch nước, Chính phủ đến Tòa án,
+                    Viện kiểm sát, HĐND và UBND. Có sơ đồ nhanh, giải thích chức năng và mối liên hệ giữa từng thành phần.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Quốc hội</span>
+                    <span class="tag">Chính phủ</span>
+                    <span class="tag">Tư pháp</span>
+                    <span class="tag">Địa phương</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 15 thành phần</span>
+                        <span class="stat">📖 4 lớp vận hành</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
             <!-- Money - Available -->
             <div class="topic-card money" onclick="location.href='money/'" data-tags="tiền money tài chính ngân hàng đầu tư crypto">
                 <div class="card-icon">💰</div>

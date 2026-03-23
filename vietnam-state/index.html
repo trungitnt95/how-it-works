@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Máy Nhà Nước Việt Nam - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>🏛️ Bộ Máy Nhà Nước Việt Nam</h1>
+            <p>Chọn cấp độ để đọc theo đúng độ sâu bạn cần.</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Cần bức tranh tổng thể, ít thuật ngữ.</p>
+                    <ul>
+                        <li>✅ Phân biệt Quốc hội, Chính phủ, Tòa án</li>
+                        <li>✅ Hiểu HĐND và UBND ở địa phương</li>
+                        <li>✅ Có hướng dẫn từng bước</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Muốn hiểu sâu hơn về nhiệm vụ và quan hệ giữa các cơ quan.</p>
+                    <ul>
+                        <li>✅ Cơ chế phối hợp trung ương</li>
+                        <li>✅ Chuỗi thực thi chính sách</li>
+                        <li>✅ Giải thích các cơ quan giám sát</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn nhìn hệ thống dưới góc độ thiết kế thể chế.</p>
+                    <ul>
+                        <li>✅ Phân công, phối hợp, kiểm soát quyền lực</li>
+                        <li>✅ Vai trò của thiết chế thường trực và giám sát</li>
+                        <li>✅ Điểm dễ nhầm giữa các cơ quan</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <h1>🏛️ Bộ Máy Nhà Nước Việt Nam</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn">⚙️ Đổi cấp độ</button>
+            <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
+            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+        </div>
+    </header>
+
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">7</span></div>
+                <h3 id="tourTitle">Chào mừng</h3>
+                <p id="tourDescription">Bắt đầu nhìn hệ thống từ bức tranh lớn.</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero-panel" id="heroPanel">
+            <div class="hero-copy">
+                <span class="eyebrow">Tổng quan</span>
+                <h2>Hệ thống được tổ chức theo một chuỗi: quyết định, điều hành, xét xử và giám sát.</h2>
+                <p>
+                    Trang này tóm lược bộ máy nhà nước Việt Nam theo Hiến pháp năm 2013 và khung pháp luật hiện hành,
+                    tập trung vào chức năng chính của từng cơ quan và cách chúng liên kết với nhau trong thực tế.
+                </p>
+                <div class="hero-note">
+                    <strong>Lưu ý:</strong> Phần cơ cấu hiện hành bên dưới đã được cập nhật theo các thay đổi lớn của bộ máy năm 2025,
+                    gồm mô hình chính quyền địa phương 2 cấp và cơ cấu Chính phủ với 14 bộ, 3 cơ quan ngang bộ, 5 cơ quan thuộc Chính phủ.
+                </div>
+            </div>
+            <div class="hero-metrics">
+                <article class="metric-card">
+                    <span class="metric-value">15</span>
+                    <span class="metric-label">nút giải thích chính</span>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-value">22</span>
+                    <span class="metric-label">đầu mối Chính phủ hiện hành</span>
+                </article>
+                <article class="metric-card">
+                    <span class="metric-value">4</span>
+                    <span class="metric-label">trục lịch sử tứ trụ</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="system-map" id="systemMap">
+            <div class="section-heading">
+                <h3>🧭 Sơ Đồ Mermaid</h3>
+                <p>Nhìn theo luồng quyền lực, điều hành, tư pháp và giám sát trong mô hình hiện hành.</p>
+            </div>
+            <div class="diagram-shell">
+                <div class="mermaid-wrap">
+                    <pre class="mermaid" id="stateMermaid">
+flowchart TD
+    A["Nhân dân<br/>Cử tri"] --> B["Quốc hội<br/>Lập hiến, lập pháp, giám sát tối cao"]
+    A --> C["HĐND cấp tỉnh / cấp xã<br/>Quyết nghị, giám sát địa phương"]
+
+    subgraph S1["Thiết chế trung ương"]
+        B --> D["Chủ tịch nước<br/>Nguyên thủ quốc gia"]
+        B --> E["Chính phủ<br/>Cơ quan hành chính nhà nước cao nhất"]
+        B --> J["TANDTC"]
+        B --> K["VKSNDTC"]
+        B --> L["Kiểm toán Nhà nước"]
+        B --> M["Ủy ban Thường vụ Quốc hội"]
+        E --> F["Thủ tướng"]
+        F --> G["7 Phó Thủ tướng"]
+        G --> H["14 Bộ"]
+        G --> I["3 Cơ quan ngang bộ"]
+        E --> N["5 Cơ quan thuộc Chính phủ"]
+    end
+
+    subgraph S2["Chính quyền địa phương 2 cấp"]
+        C --> O["UBND cấp tỉnh"]
+        C --> P["UBND cấp xã"]
+        O --> Q["Sở, cơ quan chuyên môn cấp tỉnh"]
+        P --> R["Công chức chuyên môn, bộ phận phục vụ cấp xã"]
+    end
+
+    subgraph S3["Tư pháp và kiểm sát"]
+        J --> T["Tòa án các cấp"]
+        K --> U["Viện kiểm sát các cấp"]
+    end
+
+    subgraph S4["Giám sát xã hội"]
+        V["Mặt trận Tổ quốc Việt Nam"]
+        W["Cử tri, tiếp xúc cử tri, phản biện xã hội"]
+    end
+
+    D --> E
+    H --> O
+    I --> O
+    N --> E
+    L -. kiểm tra tài chính công .-> E
+    V -. giám sát, phản biện .-> B
+    V -. giám sát, phản biện .-> O
+    W -. kiến nghị, giám sát .-> B
+    W -. kiến nghị, giám sát .-> C
+                    </pre>
+                </div>
+                <div class="diagram-notes">
+                    <article class="diagram-note">
+                        <span class="diagram-kicker">1</span>
+                        <h4>Luồng gốc</h4>
+                        <p>Nhân dân là nguồn gốc quyền lực. Cơ chế đại diện đi qua Quốc hội ở trung ương và HĐND ở địa phương.</p>
+                    </article>
+                    <article class="diagram-note">
+                        <span class="diagram-kicker">2</span>
+                        <h4>Luồng điều hành</h4>
+                        <p>Chính phủ và UBND là nơi biến luật, nghị quyết và ngân sách thành hoạt động quản trị thực tế.</p>
+                    </article>
+                    <article class="diagram-note">
+                        <span class="diagram-kicker">3</span>
+                        <h4>Luồng kiểm tra</h4>
+                        <p>Tòa án, Viện kiểm sát, Kiểm toán nhà nước và giám sát xã hội là các lớp làm chậm sai lệch của hệ thống.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo lớp:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="foundation">📜 Nền tảng</button>
+            <button class="filter-btn" data-category="central">🏛️ Trung ương</button>
+            <button class="filter-btn" data-category="local">📍 Địa phương</button>
+            <button class="filter-btn" data-category="oversight">🔎 Giám sát</button>
+        </div>
+
+        <div class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo nhớ nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="concepts-grid" id="conceptsGrid">
+            <section class="concept-section" data-category="foundation">
+                <h2 class="section-title">📜 Nền Tảng Tổ Chức Quyền Lực</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="nguyen-tac-to-chuc">
+                        <span class="node-icon">📜</span>
+                        <span class="node-title">Nguyên Tắc Tổ Chức Quyền Lực</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="nhan-dan-bau-cu">
+                        <span class="node-icon">🗳️</span>
+                        <span class="node-title">Nhân Dân Và Bầu Cử</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="concept-section" data-category="central">
+                <h2 class="section-title">🏛️ Các Cơ Quan Trung Ương</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="quoc-hoi">
+                        <span class="node-icon">🏛️</span>
+                        <span class="node-title">Quốc Hội</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ubtvqh">
+                        <span class="node-icon">🧩</span>
+                        <span class="node-title">Ủy Ban Thường Vụ Quốc Hội</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="chu-tich-nuoc">
+                        <span class="node-icon">🇻🇳</span>
+                        <span class="node-title">Chủ Tịch Nước</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="chinh-phu">
+                        <span class="node-icon">🏢</span>
+                        <span class="node-title">Chính Phủ</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="thu-tuong">
+                        <span class="node-icon">🧭</span>
+                        <span class="node-title">Thủ Tướng Chính Phủ</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="bo-nganh">
+                        <span class="node-icon">🗂️</span>
+                        <span class="node-title">Bộ Và Cơ Quan Ngang Bộ</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="toa-an">
+                        <span class="node-icon">⚖️</span>
+                        <span class="node-title">Tòa Án Nhân Dân</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="vien-kiem-sat">
+                        <span class="node-icon">🛡️</span>
+                        <span class="node-title">Viện Kiểm Sát Nhân Dân</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="concept-section" data-category="local">
+                <h2 class="section-title">📍 Chính Quyền Địa Phương</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="hdnd">
+                        <span class="node-icon">🧾</span>
+                        <span class="node-title">Hội Đồng Nhân Dân</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="ubnd">
+                        <span class="node-icon">🏙️</span>
+                        <span class="node-title">Ủy Ban Nhân Dân</span>
+                        <span class="node-badge beginner">Cơ bản</span>
+                    </div>
+                    <div class="node" data-component="co-quan-chuyen-mon">
+                        <span class="node-icon">🧱</span>
+                        <span class="node-title">Sở Và Cơ Quan Chuyên Môn</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="concept-section" data-category="oversight">
+                <h2 class="section-title">🔎 Các Lớp Giám Sát Và Phản Hồi</h2>
+                <div class="nodes-container">
+                    <div class="node" data-component="kiem-toan">
+                        <span class="node-icon">📊</span>
+                        <span class="node-title">Kiểm Toán Nhà Nước</span>
+                        <span class="node-badge intermediate">Trung cấp</span>
+                    </div>
+                    <div class="node" data-component="mat-tran">
+                        <span class="node-icon">🤝</span>
+                        <span class="node-title">Mặt Trận Tổ Quốc Việt Nam</span>
+                        <span class="node-badge advanced">Nâng cao</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="structure-deep-dive" id="structureDeepDive">
+            <div class="section-heading">
+                <h3>🏢 Danh Sách Bộ, Ngành Và Cấp Bậc</h3>
+                <p>Tập trung vào cơ cấu hiện hành của Chính phủ và trật tự tổ chức từ trung ương đến địa phương.</p>
+            </div>
+            <div class="structure-stats" id="structureStats"></div>
+            <div class="structure-grid">
+                <article class="structure-card">
+                    <h4>14 Bộ</h4>
+                    <div class="agency-list" id="ministriesList"></div>
+                </article>
+                <article class="structure-card">
+                    <h4>3 Cơ Quan Ngang Bộ</h4>
+                    <div class="agency-list" id="ministerialAgenciesList"></div>
+                </article>
+                <article class="structure-card">
+                    <h4>5 Cơ Quan Thuộc Chính Phủ</h4>
+                    <div class="agency-list" id="attachedAgenciesList"></div>
+                </article>
+                <article class="structure-card emphasis">
+                    <h4>Cấp Bậc Vận Hành</h4>
+                    <div class="hierarchy-list" id="hierarchyList"></div>
+                </article>
+            </div>
+            <div class="local-structure" id="localStructurePanel"></div>
+        </section>
+
+        <section class="history-section" id="historySection">
+            <div class="section-heading">
+                <h3>📚 Lịch Sử Tứ Trụ</h3>
+                <p>Chi tiết bên dưới tập trung vào mô hình tứ trụ hiện đại từ đầu thập niên 1990 đến nay; phần trên cùng ghi chú giai đoạn tiền thân 1945-1991 với các chức danh tương đương.</p>
+            </div>
+            <div class="history-legacy" id="historyLegacy"></div>
+            <div class="office-history-grid" id="officeHistoryGrid"></div>
+            <div class="history-source">
+                <strong>Nguồn cập nhật hiện hành:</strong>
+                <a href="https://chinhphu.vn/cac-bo-co-quan-ngang-bo-co-quan-thuoc-chinh-phu" target="_blank" rel="noreferrer">Danh sách Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ</a>,
+                <a href="https://xaydungchinhsach.chinhphu.vn/thanh-vien-chinh-phu-nhiem-ky-2021-2026-119250218185513204.htm" target="_blank" rel="noreferrer">Cơ cấu thành viên Chính phủ từ 18/2/2025</a>,
+                <a href="https://media.chinhphu.vn/chinh-phu-ban-hanh-quy-dinh-moi-ve-nhiem-vu-co-cau-to-chuc-cua-bo-co-quan-ngang-bo-ap-dung-tu-20-11-2025-102251121165912473.htm" target="_blank" rel="noreferrer">Nghị định 303/2025/NĐ-CP về cơ cấu bộ, cơ quan ngang bộ</a>,
+                <a href="https://xaydungchinhsach.chinhphu.vn/toan-van-luat-so-72-2025-qh15-to-chuc-chinh-quyen-dia-phuong-119250618161434371.htm" target="_blank" rel="noreferrer">Luật Tổ chức chính quyền địa phương 2025</a>.
+                <span>Ảnh chân dung minh họa được nhúng khi có nguồn công khai phù hợp.</span>
+            </div>
+        </section>
+    </main>
+
+    <div class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">🏛️</span>
+            <h2 id="panelTitle">Tiêu đề</h2>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan:</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="checklistModal">
+        <div class="modal-content checklist-modal">
+            <button class="modal-close" id="closeChecklist">×</button>
+            <h2>✅ Checklist Ghi Nhớ</h2>
+            <div class="checklist-items" id="checklistItems"></div>
+            <div class="checklist-actions">
+                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
