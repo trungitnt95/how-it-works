@@ -539,9 +539,10 @@ main {
 .crypto { top: 480px; left: 76%; }
 .startup { top: 330px; left: 76%; }
 
-/* Row 6: Economics */
+/* Row 6: Economics + Gold */
 .labor-market { top: 630px; left: 20%; }
 .supply-chain { top: 630px; left: 50%; }
+.gold { top: 630px; left: 74%; }
 
 /* Node Colors by Category */
 .node[data-category="core"] { border-color: #f39c12; background: linear-gradient(135deg, rgba(243,156,18,0.2), rgba(230,126,34,0.2)); }
@@ -1672,6 +1673,7 @@ footer {
     
     .labor-market { top: 520px; left: 18%; }
     .supply-chain { top: 520px; left: 51%; }
+    .gold { top: 520px; left: 74%; }
     
     .category-filter { justify-content: center; }
     .scenario-list { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }

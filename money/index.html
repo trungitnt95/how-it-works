@@ -71,7 +71,7 @@
         <!-- Category Filter -->
         <div class="category-filter">
             <span class="filter-label">Lọc theo nhóm:</span>
-            <button class="filter-btn active" data-category="all">Tất cả (22)</button>
+            <button class="filter-btn active" data-category="all">Tất cả (23)</button>
             <button class="filter-btn" data-category="core">💰 Cốt lõi</button>
             <button class="filter-btn" data-category="financial">🏦 Tài chính</button>
             <button class="filter-btn" data-category="market">📈 Thị trường</button>
@@ -355,6 +355,40 @@ flowchart TD
                         </ul>
                     </div>
                 </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>10. Dòng chảy trong thị trường vàng</h3>
+                        <p>Vàng đi từ mỏ khai thác qua tinh luyện vào tay ngân hàng bullion, rồi phân ra 4 kênh: trang sức, đầu tư vật chất, ETF và NHTW. Giá được neo bởi lãi suất thực và tâm lý phòng thủ.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    MINE["⛏️ Khai thác vàng<br/>~3.500 tấn/năm"] -->|"Vàng thô"| REFINE["🏭 Tinh luyện<br/>LBMA 400oz good delivery"]
+    REFINE -->|"Vàng thanh chuẩn"| BULLION["🏢 Bullion Banks<br/>LBMA London"]
+    BULLION -->|"Đầu tư trực tiếp 25%"| PHYS["🪙 Vàng vật chất<br/>Miếng, xu, thỏi, SJC"]
+    BULLION -->|"Trang sức & CN 35%"| JEWELRY["💍 Trang sức & Công nghiệp<br/>Ấn Độ, Trung Quốc, Trung Đông"]
+    BULLION -->|"Quỹ lưu ký 20%"| ETF["📊 ETF vàng<br/>GLD, IAU — dễ mua bán"]
+    BULLION -->|"Hợp đồng futures"| COMEX["📈 COMEX Futures<br/>NYC — đòn bẩy cao, ít giao vàng thật"]
+    CB["🏛️ Ngân hàng Trung Ương<br/>Dự trữ vàng quốc gia 20%"] -->|"Mua ròng 1.100+ tấn/năm"| BULLION
+    ETF -->|"Dòng vào/ra phản ánh"| SENT["🧠 Tâm lý phòng thủ<br/>Barometer institutionals"]
+    COMEX -->|"Vị thế speculators"| SENT
+    MACRO["🌍 Vĩ mô<br/>Lãi suất thực • USD • Lạm phát kỳ vọng"] -->|"Định hướng tâm lý"| SENT
+    SENT -->|"Cầu tăng/giảm"| PRICE["📈 Giá vàng quốc tế<br/>XAUUSD spot"]
+    CB -->|"Tín hiệu phi USD hóa"| PRICE
+    PRICE -->|"Phản hồi lên hành vi"| SENT
+    PRICE -->|"Tác động"| PHYS
+    PRICE -->|"Tác động"| JEWELRY
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>LBMA (London) là sàn giao ngay chuẩn quốc tế; COMEX (New York) là sàn futures — phần lớn hợp đồng COMEX được đóng bằng tiền mặt, không thực sự giao vàng.</li>
+                            <li>Ngân hàng trung ương mua ròng hơn 1.000 tấn/năm từ 2022 là trụ đỡ cầu bền vững nhất, độc lập với tâm lý nhà đầu tư ngắn hạn.</li>
+                            <li>ETF holdings (số tấn lưu ký trong kho) là "nhiệt kế" tâm lý institutionals: dòng vàng đổ vào ETF khi lo sợ, rút ra khi tự tin vào rủi ro.</li>
+                            <li>Lãi suất thực âm = không có chi phí cơ hội khi giữ vàng → nhà đầu tư sẵn sàng trả giá cao hơn.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -530,6 +564,14 @@ flowchart TD
                 <div class="node-label">Chuỗi Cung Ứng</div>
                 <div class="node-hint">Sản xuất & logistics</div>
             </div>
+
+            <!-- ==================== GOLD (23) ==================== -->
+            <div class="node gold" data-component="gold" data-category="market" data-step="23">
+                <div class="node-number">23</div>
+                <div class="node-icon">🪙</div>
+                <div class="node-label">Thị Trường Vàng</div>
+                <div class="node-hint">Tài sản trú ẩn</div>
+            </div>
         </div>
 
         <section class="money-flow-section system-map-section" aria-labelledby="systemMapTitle">
@@ -539,7 +581,7 @@ flowchart TD
                     <h2 id="systemMapTitle">Bản đồ quan hệ đầy đủ giữa các thành phần kinh tế</h2>
                 </div>
                 <p class="money-flow-summary">
-                    Bản đồ cuối trang này gom đủ 20 thành phần trong cùng một mạng lưới để bạn thấy nơi
+                    Bản đồ cuối trang này gom đủ 23 thành phần trong cùng một mạng lưới để bạn thấy nơi
                     vốn được tạo ra, nơi rủi ro được chuyển đi, và nơi các chu kỳ tài sản được khuếch đại.
                 </p>
             </div>
@@ -572,6 +614,7 @@ flowchart TB
         RE["12. Bất động sản"]
         COM["13. Hàng hóa"]
         FX["14. Forex"]
+        GOLD["23. Vàng 🪙"]
     end
 
     subgraph SERVICES["Khối dịch vụ tài chính"]
@@ -642,6 +685,11 @@ flowchart TB
     FOR -->|"Nguyên liệu nhập"| SUPPLYCHAIN
     SUPPLYCHAIN -->|"Xuất khẩu TP"| FOR
     LABOR -->|"Chi tiêu tiêu dùng"| BIZ
+    HH -->|"Tích trữ vàng, mua ETF vàng"| GOLD
+    CB -->|"Dự trữ vàng quốc gia"| GOLD
+    FX <-->|"Tương quan âm: USD mạnh/vàng yếu"| GOLD
+    FOR -->|"NHTW nước ngoài mua vàng"| GOLD
+    COM ---|"Kim loại quý liên quan"| GOLD
                 </pre>
                 <div class="flowchart-legend" aria-label="Chú thích màu khối thành phần">
                     <div class="flowchart-legend-title">Chú thích màu khối</div>

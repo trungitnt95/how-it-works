@@ -939,7 +939,95 @@ const componentData = {
             </div>
         `,
         keyPoints: ['Logistics', 'Tồn kho', 'Bullwhip', 'JIT', 'Chi phí đẩy']
-    }
+    },
+    'gold': {
+        icon: '🪙',
+        title: 'Thị Trường Vàng',
+        order: 23,
+        category: 'market',
+        connections: ['central-bank', 'individual', 'commodity', 'forex', 'commercial-bank', 'foreign'],
+        simple: `
+            <h3>🪙 Thị Trường Vàng là gì?</h3>
+            <p>Vàng là kim loại quý đặc biệt — đồng thời là hàng hóa, tiền tệ và tài sản phòng thủ. Giá vàng tăng khi nhà đầu tư sợ hãi và tìm nơi trú ẩn an toàn.</p>
+            <h4>📌 Tại sao vàng lại đặc biệt?</h4>
+            <ul>
+                <li>💎 <strong>Tài sản trú ẩn:</strong> Khi kinh tế khủng hoảng, chiến tranh, lạm phát cao — dòng tiền đổ vào vàng</li>
+                <li>🌍 <strong>Phổ quát toàn cầu:</strong> Được mọi nền văn hóa chấp nhận, không phụ thuộc vào bất kỳ chính phủ nào</li>
+                <li>📉 <strong>Tương quan âm với USD:</strong> USD mạnh → vàng yếu và ngược lại</li>
+                <li>🏛️ <strong>NHTW tích lũy:</strong> Ngân hàng trung ương mua ròng 1.000+ tấn/năm để phi đô-la hóa dự trữ</li>
+            </ul>
+        `,
+        detail: `
+            <h3>🪙 Giải mã thị trường vàng</h3>
+            <p>Giá vàng không do cung-cầu vật lý quyết định đơn thuần — nó bị chi phối bởi kỳ vọng tài chính, chính sách tiền tệ và tâm lý phòng thủ toàn cầu.</p>
+            <h4>⚖️ 8 yếu tố ảnh hưởng giá vàng</h4>
+            <table style="width:100%;border-collapse:collapse;font-size:0.88em">
+                <tr style="background:#1e2a38;color:#ccc">
+                    <th style="padding:6px 8px;text-align:left">Yếu tố</th>
+                    <th style="padding:6px 8px;text-align:center">Tác động</th>
+                    <th style="padding:6px 8px;text-align:center">Mức độ</th>
+                </tr>
+                <tr>
+                    <td style="padding:5px 8px">Lãi suất thực (TIPS yield)</td>
+                    <td style="padding:5px 8px;text-align:center">Nghịch chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★★★</td>
+                </tr>
+                <tr style="background:#0f1a25">
+                    <td style="padding:5px 8px">Đồng USD (DXY Index)</td>
+                    <td style="padding:5px 8px;text-align:center">Nghịch chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★★★</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px 8px">Lạm phát kỳ vọng (breakeven)</td>
+                    <td style="padding:5px 8px;text-align:center">Thuận chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★★☆</td>
+                </tr>
+                <tr style="background:#0f1a25">
+                    <td style="padding:5px 8px">Rủi ro địa chính trị</td>
+                    <td style="padding:5px 8px;text-align:center">Thuận chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★★☆</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px 8px">Mua vàng NHTW</td>
+                    <td style="padding:5px 8px;text-align:center">Thuận chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★★☆</td>
+                </tr>
+                <tr style="background:#0f1a25">
+                    <td style="padding:5px 8px">Dòng vào/ra ETF vàng</td>
+                    <td style="padding:5px 8px;text-align:center">Thuận chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★☆☆</td>
+                </tr>
+                <tr>
+                    <td style="padding:5px 8px">Cầu trang sức (Ấn, TQ)</td>
+                    <td style="padding:5px 8px;text-align:center">Thuận chiều</td>
+                    <td style="padding:5px 8px;text-align:center">★★★☆☆</td>
+                </tr>
+                <tr style="background:#0f1a25">
+                    <td style="padding:5px 8px">Cung khai thác mỏ</td>
+                    <td style="padding:5px 8px;text-align:center">Nghịch chiều (yếu)</td>
+                    <td style="padding:5px 8px;text-align:center">★★☆☆☆</td>
+                </tr>
+            </table>
+            <p style="margin-top:8px">Công thức đơn giản nhất: <strong>Vàng ~ Lạm phát kỳ vọng − Lãi suất danh nghĩa = Lãi suất thực âm → vàng hưởng lợi.</strong></p>
+        `,
+        advanced: `
+            <h3>🪙 Kỹ thuật phân tích vàng chuyên sâu</h3>
+            <p>Các nhà phân tích chuyên nghiệp dùng 9 kỹ thuật sau để đọc thị trường vàng:</p>
+            <h4>🔬 9 kỹ thuật phân tích chuyên sâu</h4>
+            <ol>
+                <li><strong>TIPS Yield & Breakeven:</strong> Theo dõi 10Y TIPS real yield — khi yield âm sâu, vàng có xu hướng tăng mạnh</li>
+                <li><strong>DXY Correlation:</strong> Hệ số tương quan XAUUSD/DXY thường là −0.7 đến −0.9; phân kỳ mạnh là tín hiệu cần chú ý</li>
+                <li><strong>ETF Holdings:</strong> Tổng tấn vàng trong GLD + IAU — tăng = dòng tiền vào, giảm = dòng tiền ra khỏi thị trường vàng</li>
+                <li><strong>COT Report (Commitments of Traders):</strong> Vị thế của Commercial (hedgers) vs Non-Commercial (speculators) tại COMEX; Commercials bán ròng cực đại = cẩn thận đảo chiều</li>
+                <li><strong>Gold/Silver Ratio:</strong> Tỷ lệ XAUUSD/XAGUSD; trên 80 = vàng đắt tương đối hoặc bạc chưa bắt kịp rally</li>
+                <li><strong>Gold/Oil Ratio:</strong> Bình thường 15–25 thùng dầu = 1 oz vàng; lệch nhiều khỏi vùng này = một trong hai tài sản bị định giá sai lệch</li>
+                <li><strong>GOFO (Gold Forward Offered Rate):</strong> Khi GOFO âm = backwardation, cầu vàng giao ngay căng thẳng, thường báo tăng ngắn hạn</li>
+                <li><strong>Central Bank Flows:</strong> WGC công bố dữ liệu quarterly; theo dõi Trung Quốc, Ấn Độ, Nga, Ba Lan và Thổ Nhĩ Kỳ là quan trọng nhất</li>
+                <li><strong>Phân tích kỹ thuật cổ điển:</strong> Fibonacci 61.8% retracement thường là hỗ trợ/kháng cự mạnh; volume tại COMEX xác nhận breakout</li>
+            </ol>
+        `,
+        keyPoints: ['Trú ẩn an toàn', 'Lãi suất thực', 'DXY', 'ETF vàng', 'NHTW tích lũy']
+    },
 };
 
 // ==================== ASSET STRUCTURE DATA ====================
@@ -1253,7 +1341,21 @@ const assetStructureData = {
             'JIT giúp tiết kiệm chi phí nhưng cực dễ vỡ khi có sốc; dự trữ an toàn tốn tiền nhưng tăng khả năng chống chịu.'
         ],
         note: 'Muốn hiểu lạm phát, phải nhìn chuỗi cung ứng: giá tăng nhiều khi không do tiền nhiều, mà do hàng không đến được nơi cần.'
-    }
+    },
+    'gold': {
+        lead: 'Thị trường vàng toàn cầu ~13 nghìn tỷ USD, chia thành 4 kênh sử dụng chính; phần lớn giao dịch là vàng giấy (COMEX futures) chứ không phải vàng vật chất thực sự.',
+        items: [
+            { label: 'Trang sức & Công nghiệp', share: 35, detail: 'Trang sức (Ấn Độ, TQ, Trung Đông) và sử dụng trong điện tử, nha khoa — cầu ổn định nhất nhưng co giãn khi giá vàng tăng cao.' },
+            { label: 'Vàng vật chất đầu tư', share: 25, detail: 'Thỏi, miếng, xu vàng nắm giữ trực tiếp — ưa thích khi mất niềm tin vào hệ thống tài chính, phổ biến tại Đông Nam Á.' },
+            { label: 'ETF & Quỹ vàng', share: 20, detail: 'GLD, IAU và các quỹ lưu ký vàng — dễ mua bán qua sàn chứng khoán, phản ánh tâm lý nhà đầu tư tổ chức nhanh nhất.' },
+            { label: 'Dự trữ NHTW', share: 20, detail: 'Hơn 36.000 tấn vàng trong kho NHTW toàn cầu; Mỹ (Fort Knox), Đức, Ý, Trung Quốc, Nga là những nước giữ nhiều nhất.' }
+        ],
+        takeaways: [
+            'LBMA London là sàn giao ngay chuẩn quốc tế (~250 tỷ USD/ngày); COMEX New York là sàn futures — phần lớn hợp đồng đóng bằng tiền, không giao vàng thật.',
+            'Ngân hàng trung ương mua ròng 1.100+ tấn năm 2022, 1.037 tấn năm 2023 — trụ đỡ cầu dài hạn quan trọng nhất hiện nay.'
+        ],
+        note: 'Vàng là tài sản duy nhất không có rủi ro phát hành (counterparty risk) — không ai có thể "in thêm" vàng như in tiền.'
+    },
 };
 
 // ==================== EXPANDED MODAL CONTENT ====================
@@ -1770,6 +1872,32 @@ const componentExpandedContent = {
                 { title: 'Biến số phải theo dõi', bullets: ['Chỉ số PMI (Manufacturing): trên 50 = mở rộng, dưới 50 = thu hẹp sản xuất.', 'Giá cước vận tải biển (Baltic Dry Index), giá container, giá xăng dầu.', 'Tỷ lệ sử dụng công suất: quá cao → thiếu đệm khi cầu tăng đột ngột.'] },
                 { title: 'Điểm dễ vỡ', bullets: ['Chiến tranh thương mại và thuế quan làm thay đổi luồng hàng hóa toàn cầu rất nhanh.', 'Thiên tai, dịch bệnh tại một mắt xích có thể lan sang toàn chuỗi nếu không có phương án dự phòng.', 'De-globalization và nearshoring tăng chi phí ngắn hạn nhưng giảm rủi ro dài hạn.'] }
             ]
+        }
+    },
+    'gold': {
+        simple: {
+            intro: 'Vàng là tài sản trú ẩn lâu đời nhất của nhân loại — khi mọi thứ sụp đổ, vàng vẫn còn giá trị.',
+            sections: [
+                { title: 'Tại sao vàng được tin tưởng?', bullets: ['Không bị "in thêm" như tiền giấy — nguồn cung tăng chậm chỉ 1-2%/năm.', 'Được toàn cầu chấp nhận, không phụ thuộc vào chính phủ hay ngân hàng trung ương nào.', 'Đã là kho giá trị suốt 5.000 năm lịch sử của loài người.'] },
+                { title: 'Khi nào nên nghĩ đến vàng?', bullets: ['Lạm phát cao và lãi suất thực âm — vàng không mất giá trị tương đối.', 'Khủng hoảng kinh tế, địa chính trị — nhà đầu tư tìm nơi trú ẩn.', 'USD mất giá — vàng thường tăng khi đô-la yếu.'] }
+            ],
+            callout: 'Vàng không sinh lãi như cổ phiếu hay trái phiếu — nó bảo vệ tài sản, không tạo ra tài sản mới.'
+        },
+        detail: {
+            intro: 'Giá vàng bị chi phối bởi lãi suất thực, đồng USD, tâm lý phòng thủ và hành vi mua của ngân hàng trung ương — không đơn thuần là cung-cầu vật lý.',
+            sections: [
+                { title: '8 yếu tố ảnh hưởng giá vàng (có xếp hạng)', bullets: ['★★★★★ Lãi suất thực 10Y (TIPS yield): yếu tố quan trọng nhất — lãi suất thực âm = vàng hưởng lợi.', '★★★★★ Đồng USD (DXY Index): tương quan âm mạnh, DXY tăng thường kéo vàng xuống.', '★★★★☆ Lạm phát kỳ vọng (breakeven rate): lạm phát tăng kỳ vọng → cầu vàng phòng thủ tăng.', '★★★★☆ Rủi ro địa chính trị: chiến tranh, khủng hoảng → dòng tiền vào vàng.', '★★★★☆ Mua vàng của NHTW: mua ròng 1.000+ tấn/năm là cầu bền vững nhất.', '★★★☆☆ Dòng vào/ra ETF vàng: phản ánh tâm lý tổ chức nhanh nhất.', '★★★☆☆ Cầu trang sức (Ấn Độ, Trung Quốc): chiếm 35% nhưng co giãn theo giá.', '★★☆☆☆ Cung khai thác mỏ: tăng chậm 1-2%/năm, ảnh hưởng nhỏ ngắn hạn.'] },
+                { title: 'Cấu trúc thị trường vàng', bullets: ['LBMA London: sàn giao ngay chuẩn quốc tế, giá "fix" 2 lần/ngày là giá tham chiếu toàn cầu.', 'COMEX New York: sàn futures — phần lớn hợp đồng đóng tiền mặt, không giao vàng thật; vị thế speculators phản ánh tâm lý ngắn hạn.', 'Thị trường OTC London chiếm ~70% khối lượng giao dịch; TOCOM Tokyo và SGE Thượng Hải phụ.'] }
+            ],
+            callout: 'Quy tắc đơn giản: Lãi suất thực âm + USD yếu + địa chính trị căng thẳng = 3 điều kiện thuận lợi nhất cho vàng tăng giá.'
+        },
+        advanced: {
+            intro: 'Phân tích vàng chuyên sâu đòi hỏi kết hợp nhiều nguồn dữ liệu: COT report, ETF flows, GOFO, tỷ lệ liên kim loại và dữ liệu mua của NHTW.',
+            sections: [
+                { title: '9 kỹ thuật phân tích vàng chuyên sâu', bullets: ['TIPS Yield: Theo dõi 10Y TIPS real yield — khi yield âm sâu hơn, vàng xu hướng tăng mạnh.', 'DXY Correlation: Hệ số tương quan XAUUSD/DXY thường −0.7 đến −0.9; phân kỳ mạnh cần chú ý.', 'ETF Holdings Tracking: Tổng tấn vàng GLD + IAU — tăng = dòng tiền tổ chức vào vàng.', 'COT Report COMEX: Commercial (hedgers) bán ròng cực đại + Speculators long cực đại → cảnh báo đảo chiều trong 4-8 tuần.', 'Gold/Silver Ratio: Trên 80 = vàng đắt tương đối; bạc thường dẫn khi ratio bắt đầu co lại.', 'Gold/Oil Ratio: Bình thường 15-25 thùng/oz; lệch nhiều = một tài sản đang bị định giá sai.', 'GOFO (Gold Forward Offered Rate): Âm = backwardation, cầu giao ngay căng thẳng, thường báo tăng ngắn hạn.', 'Central Bank Flow Data: WGC public quarterly — theo dõi Trung Quốc, Ấn Độ, Nga, Ba Lan, Thổ Nhĩ Kỳ.', 'Phân tích kỹ thuật: Fibonacci 61.8% retracement mạnh; volume COMEX xác nhận breakout; MA50/MA200 là hỗ trợ dài hạn.'] },
+                { title: 'Vàng trong danh mục đầu tư', bullets: ['Phân bổ 5-15% vàng giảm biến động danh mục mà không giảm nhiều return dài hạn (Bridgewater All Weather).', 'Tương quan thấp với cổ phiếu và trái phiếu làm vàng là tài sản đa dạng hóa lý tưởng.', 'Không sinh lãi, không cổ tức — chi phí cơ hội khi lãi suất thực dương cao.'] }
+            ],
+            callout: 'Tín hiệu bán: COT Commercials bán ròng cực đại + Speculators long cực đại + ETF holdings giảm liên tục 4+ tuần → "smart money" đang rút khỏi vàng.'
         }
     }
 };

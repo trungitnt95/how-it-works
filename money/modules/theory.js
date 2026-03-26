@@ -265,5 +265,36 @@ const economicsTheory = [
                 { title: 'Hạn chế', bullets: ['PPP chỉ đúng dài hạn, ngắn hạn tỷ giá bị dòng vốn, lãi suất, tâm lý chi phối.', 'Không phải mọi hàng hóa đều có thể trade (dịch vụ cắt tóc, nhà ở là non-tradable).'] }
             ]
         }
+    },
+    {
+        id: 'gold-market',
+        cat: 'market',
+        icon: '🪙',
+        title: 'Thị trường Vàng — Cơ chế & Yếu tố giá',
+        body: {
+            intro: 'Vàng là tài sản đặc biệt: vừa là hàng hóa, vừa là tiền tệ, vừa là công cụ phòng thủ. Giá vàng phản ánh lãi suất thực, niềm tin USD và tâm lý rủi ro toàn cầu.',
+            sections: [
+                { title: 'Cơ chế định giá', bullets: ['LBMA London: sàn giao ngay chuẩn quốc tế, giá fix 2 lần/ngày làm giá tham chiếu toàn cầu.', 'COMEX New York: sàn futures, phần lớn hợp đồng đóng bằng tiền mặt không giao vàng thật.', 'Giá vàng niêm yết bằng USD/oz troy — 1 troy oz = 31.1035 gram.'] },
+                { title: '8 yếu tố ảnh hưởng giá vàng (theo mức độ)', bullets: ['★★★★★ Lãi suất thực (10Y TIPS yield): nghịch chiều — lãi suất thực âm = vàng hưởng lợi.', '★★★★★ Đồng USD (DXY Index): nghịch chiều — USD mạnh, vàng yếu và ngược lại.', '★★★★☆ Lạm phát kỳ vọng (breakeven rate): thuận chiều — kỳ vọng lạm phát tăng kéo cầu vàng.', '★★★★☆ Rủi ro địa chính trị: thuận chiều — chiến tranh, khủng hoảng đẩy dòng tiền vào vàng.', '★★★★☆ Mua vàng của NHTW: thuận chiều — mua ròng 1.000+ tấn/năm là cầu bền vững nhất.', '★★★☆☆ Dòng vào/ra ETF vàng: thuận chiều — phản ánh tâm lý tổ chức nhanh nhất.', '★★★☆☆ Cầu trang sức (Ấn Độ, TQ): thuận chiều — chiếm 35% nhưng co giãn theo giá.', '★★☆☆☆ Cung khai thác mỏ: nghịch chiều nhưng yếu — tăng chỉ 1-2%/năm, ít ảnh hưởng ngắn hạn.'] },
+                { title: '9 kỹ thuật phân tích vàng chuyên sâu', bullets: ['TIPS Yield: Theo dõi 10Y real yield — khi yield âm sâu hơn, vàng xu hướng tăng.', 'DXY Correlation: Hệ số tương quan XAUUSD/DXY thường −0.7 đến −0.9; phân kỳ = tín hiệu.', 'ETF Holdings (GLD+IAU): Tăng = dòng tiền tổ chức vào vàng; giảm 4+ tuần liên tiếp = cảnh báo.', 'COT Report COMEX: Commercials bán ròng + Speculators long cực đại → cẩn thận đảo chiều 4-8 tuần.', 'Gold/Silver Ratio: Trên 80 = vàng đắt tương đối; bắt đầu co lại = bạc thường dẫn rally.', 'Gold/Oil Ratio: Bình thường 15-25 thùng/oz; lệch nhiều = một tài sản đang bị định giá sai.', 'GOFO (Gold Forward Offered Rate): Âm = backwardation, cầu giao ngay căng, báo tăng ngắn hạn.', 'Central Bank Flow Data: WGC quarterly — Trung Quốc, Ấn Độ, Nga, Ba Lan, Thổ Nhĩ Kỳ là quan trọng nhất.', 'Phân tích kỹ thuật: Fibonacci 61.8% là hỗ trợ/kháng cự mạnh; volume COMEX xác nhận breakout.'] },
+                { title: 'Vàng trong danh mục đầu tư', bullets: ['Phân bổ 5-15% vàng giảm biến động danh mục mà không giảm nhiều return dài hạn (Bridgewater).', 'Tương quan thấp với cổ phiếu và trái phiếu — vàng là tài sản đa dạng hóa lý tưởng.', 'Không sinh lãi, không cổ tức — chi phí cơ hội cao khi lãi suất thực dương.'] },
+                { title: 'Từ Gold Standard đến Fiat', bullets: ['Bretton Woods (1944-1971): USD cố định 35 USD/oz, các đồng tiền khác neo vào USD.', 'Nixon Shock 1971: Mỹ huỷ đổi USD-vàng, vàng thành hàng hóa thị trường tự do.', 'Ngày nay, NHTW vẫn giữ vàng như "bảo hiểm hệ thống" dù không còn cơ chế peg chính thức.'] }
+            ]
+        }
+    },
+    {
+        id: 'gold-technical',
+        cat: 'market',
+        icon: '📐',
+        title: 'Kỹ thuật Phân tích Vàng — Tỷ lệ & Tín hiệu',
+        body: {
+            intro: 'Phân tích vàng đòi hỏi kết hợp dữ liệu COT, ETF flows, GOFO và các tỷ lệ liên kim loại để đọc đúng tín hiệu thị trường.',
+            sections: [
+                { title: 'Tỷ lệ liên kim loại', bullets: ['Gold/Silver Ratio (GSR): lịch sử biến động 15-120; GSR >80 = vàng đắt hoặc bạc rẻ bất thường.', 'Gold/Oil Ratio: 15-25 là vùng bình thường; <10 = dầu quá đắt tương đối; >40 = vàng overbought tương đối.', 'Gold/Copper Ratio: Vàng là "sợ hãi", Đồng là "tăng trưởng" — tỷ lệ tăng = risk-off, giảm = risk-on.'] },
+                { title: 'COT Report, ETF Flows & GOFO', bullets: ['COT Commercial hedgers: Thường là bên bán (mines, banks) — khi họ bán ròng cực đại, thị trường đã overbought.', 'COT Large Speculators: Khi họ long cực đại cùng lúc Commercials bán ròng cực đại → set up đảo chiều trong 4-8 tuần.', 'ETF Holdings Change: Dòng vào/ra GLD + IAU kỳ hàng tuần — 4 tuần liên tiếp rút ròng = tín hiệu bán tổ chức.', 'GOFO (Gold Forward Offered Rate): Khi GOFO âm = vàng giao ngay đắt hơn vàng kỳ hạn (backwardation) → cầu vật chất đang căng.'] },
+                { title: 'Phân tích kỹ thuật biểu đồ', bullets: ['Fibonacci retracement 61.8% là ngưỡng quan trọng nhất trong các đợt điều chỉnh của vàng.', 'Đường MA200 tuần: Vàng hiếm khi phá xuống dưới MA200W trong bull market dài hạn.', 'Head & Shoulders, cup-and-handle là mô hình phổ biến nhất trên XAUUSD khung tuần/tháng.', 'RSI >80 trên khung tháng = overbought rõ ràng; RSI <30 trên khung tháng = thường là cơ hội mua dài hạn.'] }
+            ],
+            callout: 'COT report: khi dealers bán ròng cực đại và speculators long cực đại → cẩn thận đảo chiều trong 4-8 tuần'
+        }
     }
 ];

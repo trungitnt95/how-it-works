@@ -387,10 +387,10 @@ const scenarios = {
         desc: 'Mua vàng bảo vệ tài sản.',
         getSteps: (c) => [
             { node: 'individual', text: '👤 Lo lạm phát, muốn giữ giá trị' },
-            { node: 'commodity', text: `🥇 Mua vàng giá ${c.formatMoney(c.sampleAmount * 3.5)}` },
+            { node: 'gold', text: `🪙 Mua vàng giá ${c.formatMoney(c.sampleAmount * 3.5)}` },
             { node: 'individual', text: '👤 Cất trong két an toàn' },
             { node: 'central-bank', text: '🏛️ Tiền trong hệ thống giảm' },
-            { node: 'commodity', text: '🥇 Vài năm sau vàng tăng 20%' },
+            { node: 'gold', text: '🪙 Vài năm sau vàng tăng 20%' },
             { node: 'individual', text: `👤 Bán được ${c.formatMoney(c.sampleAmount * 4.2)}, lãi 20%` }
         ]
     },
@@ -1123,6 +1123,49 @@ const scenarios = {
                 }
             ];
         }
+    },
+    'gold-crisis-flight': {
+        title: 'Dòng tiền vào vàng khi khủng hoảng',
+        cat: 'crisis',
+        icon: '🪙',
+        desc: 'Khi bất ổn xảy ra, nhà đầu tư tháo chạy khỏi rủi ro và đổ vào vàng như tài sản trú ẩn.',
+        getSteps: (c) => [
+            { node: 'individual', text: '👤 Lo sợ khủng hoảng, bán cổ phiếu' },
+            { node: 'stock-exchange', text: '📉 Thị trường chứng khoán lao dốc' },
+            { node: 'gold', text: `🪙 Mua vàng ${c.formatMoney(c.sampleAmount * 5)} — cầu tăng đột biến` },
+            { node: 'forex', text: '💱 USD mạnh lên ngắn hạn, sau đó yếu dần' },
+            { node: 'gold', text: '🪙 Giá vàng tăng 15-30% trong vài tháng' },
+            { node: 'central-bank', text: '🏛️ NHTW mua thêm vàng dự trữ' },
+            { node: 'individual', text: '👤 Bán bớt vàng khi thị trường ổn định' }
+        ]
+    },
+    'central-bank-gold-buy': {
+        title: 'NHTW phát động phi đô-la hóa',
+        cat: 'war',
+        icon: '🏛️',
+        desc: 'Ngân hàng trung ương lớn mua ròng vàng để giảm phụ thuộc vào USD trong dự trữ quốc gia.',
+        getSteps: (c) => [
+            { node: 'central-bank', text: '🏛️ Quyết định tăng vàng trong dự trữ, giảm USD' },
+            { node: 'forex', text: '💱 Bán USD/trái phiếu Mỹ ra thị trường' },
+            { node: 'gold', text: `🪙 Mua vàng vật chất ${c.formatMoney(c.sampleAmount * 20)} qua LBMA` },
+            { node: 'foreign', text: '🌍 Nước khác theo dõi và có thể làm tương tự' },
+            { node: 'gold', text: '🪙 Cầu vàng từ NHTW tăng → giá neo ở mức cao' },
+            { node: 'central-bank', text: '🏛️ Dự trữ quốc tế được đa dạng hóa hơn' }
+        ]
+    },
+    'gold-vs-inflation': {
+        title: 'Vàng vs lạm phát bùng nổ',
+        cat: 'investment',
+        icon: '📈',
+        desc: 'Khi lạm phát vượt lãi suất danh nghĩa, lãi suất thực âm — môi trường lý tưởng nhất cho vàng.',
+        getSteps: (c) => [
+            { node: 'central-bank', text: '🏛️ Lạm phát 8%, lãi suất chỉ 4% → lãi suất thực −4%' },
+            { node: 'bond-market', text: '📊 TIPS yield âm, nhà đầu tư bỏ trái phiếu' },
+            { node: 'individual', text: '👤 Chuyển tiền tiết kiệm vào tài sản phòng thủ' },
+            { node: 'gold', text: `🪙 Mua vàng/ETF vàng ${c.formatMoney(c.sampleAmount * 4)}` },
+            { node: 'gold', text: '🪙 ETF holdings tăng, giá tăng theo cầu tổ chức' },
+            { node: 'individual', text: `👤 Sau 1 năm: vàng tăng ~25% — thực sự bảo toàn được giá trị` }
+        ]
     }
 };
 

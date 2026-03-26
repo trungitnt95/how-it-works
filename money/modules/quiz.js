@@ -32,7 +32,8 @@ const componentQuizCategoryMap = {
     'crypto': 'modern',
     'startup': 'modern',
     'labor-market': 'overview',
-    'supply-chain': 'overview'
+    'supply-chain': 'overview',
+    'gold': 'markets'
 };
 
 const componentRoleFocus = {
@@ -123,6 +124,10 @@ const componentRoleFocus = {
     'supply-chain': {
         answer: 'Vận chuyển hàng hóa từ nguyên liệu đến tay người tiêu dùng qua nhiều mắt xích',
         explanation: 'Chuỗi cung ứng là hệ mạch máu của nền kinh tế thực. Khi đứt gãy, giá tăng và sản xuất đình trệ dù tiền vẫn dư thừa.'
+    },
+    'gold': {
+        answer: 'Tài sản trú ẩn phòng thủ tăng giá khi lãi suất thực âm và USD mất giá',
+        explanation: 'Vàng không sinh lãi nhưng bảo vệ tài sản: khi lãi suất thực âm (chi phí cơ hội = 0) và đồng USD yếu, cầu giữ vàng tăng mạnh.'
     }
 };
 
@@ -708,6 +713,54 @@ const curatedQuizQuestions = [
         ['Vì doanh nghiệp chờ chắc chắn cầu đã ổn mới dám tuyển lại', 'Vì GDP luôn sai', 'Vì người lao động không muốn đi làm', 'Vì chính phủ cấm tuyển dụng'],
         0,
         'Khi GDP bắt đầu tăng trở lại, doanh nghiệp thường tận dụng giờ làm thêm và cải thiện năng suất trước; chỉ tuyển mới khi thật sự cần.'
+    ),
+    q(
+        'gold-01',
+        'markets',
+        'Tài sản nào được gọi là "safe haven" trong thị trường tài chính?',
+        ['Vàng — tăng giá khi có khủng hoảng và bất ổn', 'Cổ phiếu tăng trưởng cao', 'Tiền mặt luôn đủ thanh khoản', 'Bất động sản ven đô'],
+        0,
+        'Vàng là tài sản trú ẩn kinh điển: khi chiến tranh, khủng hoảng tài chính hay lạm phát cao, nhà đầu tư đổ tiền vào vàng để bảo toàn giá trị.'
+    ),
+    q(
+        'gold-02',
+        'markets',
+        'Lãi suất thực âm ảnh hưởng đến giá vàng như thế nào?',
+        ['Vàng tăng giá vì chi phí cơ hội giữ vàng bằng 0', 'Vàng giảm giá vì nhà đầu tư thích trái phiếu', 'Vàng không bị ảnh hưởng', 'Vàng giảm vì đô-la mạnh lên'],
+        0,
+        'Khi lãi suất thực âm (lãi suất danh nghĩa < lạm phát), không có chi phí cơ hội khi giữ vàng thay vì trái phiếu — cầu vàng tăng mạnh.'
+    ),
+    q(
+        'gold-03',
+        'markets',
+        'Nixon Shock năm 1971 thay đổi thị trường vàng như thế nào?',
+        ['Mỹ huỷ đổi USD sang vàng, vàng thành tài sản thị trường tự do', 'Mỹ tăng dự trữ vàng gấp đôi', 'Vàng bị cấm giao dịch quốc tế', 'IMF tiếp quản thị trường vàng'],
+        0,
+        'Trước 1971, USD cố định với vàng (35 USD/oz) theo Bretton Woods. Nixon chấm dứt cơ chế này, vàng thành hàng hóa thị trường tự do và tăng từ 35 lên hơn 2.000 USD/oz.'
+    ),
+    q(
+        'gold-04',
+        'markets',
+        'Tại sao các ngân hàng trung ương mua vàng với khối lượng kỷ lục từ 2022?',
+        ['Phi đô-la hóa dự trữ ngoại hối và phòng ngừa rủi ro trừng phạt', 'Vì vàng có lãi suất cao hơn USD', 'Để bán lại cho thị trường khi giá cao', 'Theo yêu cầu của IMF'],
+        0,
+        'Sau khi Nga bị đóng băng dự trữ ngoại hối USD năm 2022, nhiều NHTW tăng mua vàng để đa dạng hóa dự trữ, tránh rủi ro tài sản bị phong tỏa.'
+    ),
+    q(
+        'gold-05',
+        'markets',
+        'ETF vàng (như GLD) khác vàng vật chất như thế nào?',
+        ['ETF dễ mua bán qua sàn nhưng không sở hữu vàng thật trực tiếp', 'ETF cho phép bạn rút vàng thật bất cứ lúc nào', 'ETF an toàn hơn vì có bảo hiểm chính phủ', 'ETF và vàng vật chất hoàn toàn giống nhau'],
+        0,
+        'ETF vàng lưu ký vàng tại ngân hàng custodian; nhà đầu tư thông thường sở hữu chứng chỉ đại diện, không trực tiếp nắm giữ vàng vật chất.'
+    ),
+    q(
+        'gold-06',
+        'markets',
+        'Tại sao DXY (chỉ số đồng USD) thường có tương quan âm với giá vàng?',
+        ['Vàng niêm yết bằng USD; USD mạnh = vàng đắt hơn với người dùng đồng tiền khác', 'Vì vàng và USD cùng là tài sản trú ẩn cạnh nhau', 'Vì Fed kiểm soát cả hai', 'Không có bằng chứng thực sự về tương quan này'],
+        0,
+        'Giá vàng niêm yết bằng USD; khi USD tăng giá, vàng trở nên đắt hơn với người mua dùng các đồng tiền khác → cầu giảm → giá vàng giảm. Ngược lại khi USD yếu.'
     )
 ];
 

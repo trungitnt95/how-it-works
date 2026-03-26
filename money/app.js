@@ -2928,4 +2928,4 @@ function finishParallelScenarios() {
 }
 
 console.log('%c💰 Hiểu Hết Về Tiền', 'font-size: 24px; font-weight: bold; color: #f39c12;');
-console.log('%c20 Components | 30+ Scenarios | 4 Simulators', 'font-size: 14px; color: #3498db;');
+console.log('%c23 Components | 33+ Scenarios | 4 Simulators', 'font-size: 14px; color: #3498db;');
