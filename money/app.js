@@ -31,6 +31,7 @@ const modal = document.getElementById('modal');
 const scenarioModal = document.getElementById('scenarioModal');
 const simulatorModal = document.getElementById('simulatorModal');
 const quizModal = document.getElementById('quizModal');
+const theoryModal = document.getElementById('theoryModal');
 const storyNarration = document.getElementById('storyNarration');
 const nodes = document.querySelectorAll('.node');
 
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderScenarios();
     renderSimulators();
     renderQuiz();
+    renderTheory();
 });
 
 function setupEventListeners() {
@@ -65,6 +67,7 @@ function setupEventListeners() {
     document.getElementById('scenarioBtn').addEventListener('click', () => scenarioModal.classList.add('active'));
     document.getElementById('quizBtn').addEventListener('click', () => quizModal.classList.add('active'));
     document.getElementById('simulatorBtn').addEventListener('click', () => simulatorModal.classList.add('active'));
+    document.getElementById('theoryBtn').addEventListener('click', () => theoryModal.classList.add('active'));
 
     // Category filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -85,9 +88,10 @@ function setupEventListeners() {
     document.getElementById('closeScenario').addEventListener('click', () => scenarioModal.classList.remove('active'));
     document.getElementById('closeQuiz').addEventListener('click', () => quizModal.classList.remove('active'));
     document.getElementById('closeSimulator').addEventListener('click', () => simulatorModal.classList.remove('active'));
+    document.getElementById('closeTheory').addEventListener('click', () => theoryModal.classList.remove('active'));
 
     // Modal overlay click
-    [modal, scenarioModal, quizModal, simulatorModal].forEach(m => {
+    [modal, scenarioModal, quizModal, simulatorModal, theoryModal].forEach(m => {
         m.addEventListener('click', (e) => { if (e.target === m) m.classList.remove('active'); });
     });
 
@@ -144,6 +148,7 @@ function setupEventListeners() {
             scenarioModal.classList.remove('active');
             quizModal.classList.remove('active');
             simulatorModal.classList.remove('active');
+            theoryModal.classList.remove('active');
         }
     });
 
@@ -270,7 +275,9 @@ const SIMULATORS = [
     { id: 'budget-50-30-20', label: '🧾 50/30/20' },
     { id: 'net-worth', label: '🧮 Tài sản ròng' },
     { id: 'fx-exchange', label: '💱 Đổi tiền' },
-    { id: 'kelly', label: '🎲 Kelly' }
+    { id: 'kelly', label: '🎲 Kelly' },
+    { id: 'purchasing-power', label: '🛒 Sức mua' },
+    { id: 'rate-impact', label: '📉 Tác động lãi suất' }
 ];
 
 function activateSimulator(simId) {
@@ -1015,6 +1022,57 @@ function renderSimulators() {
             </div>
             <div class="simulator-result" id="kellyResult"></div>
         </div>
+
+        <div class="simulator-panel" data-panel="purchasing-power">
+            <p class="simulator-intro">Xem sức mua thật sự của tiền bạn thay đổi ra sao khi lạm phát thay đổi hàng năm</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💵 Số tiền hiện tại:</label>
+                    <input type="number" id="ppAmount" value="100000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📊 Lạm phát trung bình/năm:</label>
+                    <input type="range" id="ppInflation" value="5" min="1" max="20">
+                    <span id="ppInflationValue">5%</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Số năm:</label>
+                    <input type="range" id="ppYears" value="10" min="1" max="30">
+                    <span id="ppYearsValue">10 năm</span>
+                </div>
+                <button class="simulate-btn" onclick="runPurchasingPower()">🚀 Tính sức mua</button>
+            </div>
+            <div class="simulator-result" id="ppResult"></div>
+        </div>
+
+        <div class="simulator-panel" data-panel="rate-impact">
+            <p class="simulator-intro">Khi NHTW tăng/giảm lãi suất, khoản vay của bạn thay đổi bao nhiêu?</p>
+            <div class="simulator-inputs">
+                <div class="input-group">
+                    <label>💵 Dư nợ vay:</label>
+                    <input type="number" id="riLoan" value="2000000000">
+                    <span>VND</span>
+                </div>
+                <div class="input-group">
+                    <label>📊 Lãi suất hiện tại/năm:</label>
+                    <input type="range" id="riCurrentRate" value="10" min="1" max="25">
+                    <span id="riCurrentRateValue">10%</span>
+                </div>
+                <div class="input-group">
+                    <label>📈 Lãi suất mới/năm:</label>
+                    <input type="range" id="riNewRate" value="12" min="1" max="25">
+                    <span id="riNewRateValue">12%</span>
+                </div>
+                <div class="input-group">
+                    <label>📅 Kỳ hạn còn lại:</label>
+                    <input type="range" id="riYears" value="20" min="1" max="30">
+                    <span id="riYearsValue">20 năm</span>
+                </div>
+                <button class="simulate-btn" onclick="runRateImpact()">🚀 Tính tác động</button>
+            </div>
+            <div class="simulator-result" id="riResult"></div>
+        </div>
     `;
 
     // Add range input listeners (safe: only binds if elements exist)
@@ -1053,6 +1111,11 @@ function renderSimulators() {
     bindRange('fxFeePct', 'fxFeePctValue', v => `${v}%`);
     bindRange('kellyP', 'kellyPValue', v => `${v}%`);
     bindRange('kellyB', 'kellyBValue', v => `${parseFloat(v).toFixed(1)}`);
+    bindRange('ppInflation', 'ppInflationValue', v => `${v}%`);
+    bindRange('ppYears', 'ppYearsValue', v => `${v} năm`);
+    bindRange('riCurrentRate', 'riCurrentRateValue', v => `${v}%`);
+    bindRange('riNewRate', 'riNewRateValue', v => `${v}%`);
+    bindRange('riYears', 'riYearsValue', v => `${v} năm`);
 
     // Ensure first simulator is active
     activateSimulator(SIMULATORS[0]?.id || 'money-multiplier');
@@ -1067,6 +1130,131 @@ function formatMoney(num) {
 function formatCompact(num) {
     if (!Number.isFinite(num)) return '--';
     return new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(num);
+}
+
+// ==================== THEORY ====================
+let currentTheoryCat = 'all';
+
+function renderTheory() {
+    renderTheoryCategories();
+    renderTheoryCards();
+
+    const searchInput = document.getElementById('theorySearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => renderTheoryCards());
+    }
+}
+
+function renderTheoryCategories() {
+    const container = document.getElementById('theoryCategories');
+    if (!container) return;
+    container.innerHTML = theoryCategories.map(cat =>
+        `<button class="theory-cat-btn${cat.id === currentTheoryCat ? ' active' : ''}" data-cat="${cat.id}">${cat.label}</button>`
+    ).join('');
+    container.addEventListener('click', (e) => {
+        const btn = e.target.closest('.theory-cat-btn');
+        if (!btn) return;
+        currentTheoryCat = btn.dataset.cat;
+        container.querySelectorAll('.theory-cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTheoryCards();
+    });
+}
+
+function buildTheoryEntries() {
+    // 1. Component-based entries from componentExpandedContent
+    const compEntries = Object.keys(componentExpandedContent).map(id => {
+        const comp = componentData[id];
+        const expanded = componentExpandedContent[id];
+        if (!comp || !expanded) return null;
+        const detail = expanded.detail || expanded.simple || {};
+        return {
+            id: 'comp-' + id,
+            cat: 'components',
+            icon: comp.icon || '📦',
+            title: comp.title || id,
+            body: {
+                intro: detail.intro || '',
+                sections: detail.sections || [],
+                callout: detail.callout || ''
+            }
+        };
+    }).filter(Boolean);
+
+    // 2. Standalone economics theories
+    const theoryEntries = economicsTheory.map(t => ({
+        ...t,
+        id: 'econ-' + t.id
+    }));
+
+    return [...compEntries, ...theoryEntries];
+}
+
+function renderTheoryCards() {
+    const container = document.getElementById('theoryList');
+    if (!container) return;
+
+    const searchTerm = (document.getElementById('theorySearch')?.value || '').toLowerCase().trim();
+    let entries = buildTheoryEntries();
+
+    // Filter by category
+    if (currentTheoryCat !== 'all') {
+        entries = entries.filter(e => e.cat === currentTheoryCat);
+    }
+
+    // Filter by search
+    if (searchTerm) {
+        entries = entries.filter(e => {
+            const text = [
+                e.title,
+                e.body.intro,
+                ...(e.body.sections || []).flatMap(s => [s.title, ...(s.bullets || [])]),
+                e.body.callout || ''
+            ].join(' ').toLowerCase();
+            return text.includes(searchTerm);
+        });
+    }
+
+    if (entries.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:#aaa;padding:2rem;">Không tìm thấy khái niệm nào.</p>';
+        return;
+    }
+
+    container.innerHTML = entries.map(entry => {
+        const sections = (entry.body.sections || []).map(s =>
+            `<div class="theory-section">
+                <h4>${s.title}</h4>
+                <ul>${(s.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
+            </div>`
+        ).join('');
+
+        const callout = entry.body.callout
+            ? `<div class="theory-callout">💡 ${entry.body.callout}</div>`
+            : '';
+
+        return `<div class="theory-card" data-theory-id="${entry.id}">
+            <div class="theory-card-header">
+                <span class="theory-card-icon">${entry.icon}</span>
+                <span class="theory-card-title">${entry.title}</span>
+                <span class="theory-card-toggle">▾</span>
+            </div>
+            <div class="theory-card-body">
+                <div class="theory-card-inner">
+                    <p class="theory-card-intro">${entry.body.intro}</p>
+                    ${sections}
+                    ${callout}
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+
+    // Accordion toggle
+    container.querySelectorAll('.theory-card-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const card = header.closest('.theory-card');
+            card.classList.toggle('open');
+        });
+    });
 }
 
 function renderQuiz() {
@@ -1541,6 +1729,49 @@ function runKelly() {
         <div class="result-item"><span class="result-label">Kelly thô:</span><span class="result-value">${(raw * 100).toFixed(1)}%</span></div>
         <div class="result-item highlight"><span class="result-label">Gợi ý đặt cược (clamp 0-100%):</span><span class="result-value">${(f * 100).toFixed(1)}%</span></div>
         <div class="result-explanation"><strong>Lưu ý:</strong> Kelly tối đa hóa tăng trưởng dài hạn nhưng biến động lớn. Thực tế thường dùng 1/2 Kelly hoặc 1/4 Kelly.</div>
+    `;
+}
+
+function runPurchasingPower() {
+    const amount = parseFloat(document.getElementById('ppAmount').value) || 100000000;
+    const inflation = parseInt(document.getElementById('ppInflation').value) || 5;
+    const years = parseInt(document.getElementById('ppYears').value) || 10;
+
+    const rates = Array(years).fill(inflation);
+    const result = calculatePurchasingPower(amount, rates);
+    const fmt = countryData[selectedCountry]?.formatMoney || (n => n.toLocaleString());
+
+    let timelineHtml = result.timeline.filter((_, i) => i > 0 && (i % Math.max(1, Math.floor(years / 5)) === 0 || i === years))
+        .map(r => `<div class="result-item"><span class="result-label">Năm ${r.year}:</span><span class="result-value">${fmt(r.real)} (−${r.cumulativeInflation}%)</span></div>`)
+        .join('');
+
+    document.getElementById('ppResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Số tiền danh nghĩa:</span><span class="result-value">${fmt(amount)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Sức mua thực sau ${years} năm:</span><span class="result-value">${fmt(result.finalReal)}</span></div>
+        <div class="result-item"><span class="result-label">Giá trị bị mất:</span><span class="result-value">${fmt(result.totalLost)} (${result.lostPercent}%)</span></div>
+        <div class="result-explanation"><strong>Chi tiết:</strong></div>
+        ${timelineHtml}
+        <div class="result-explanation">Lạm phát ${inflation}%/năm nghe nhỏ, nhưng sau ${years} năm tiền bạn mất <strong>${result.lostPercent}%</strong> sức mua thực.</div>
+    `;
+}
+
+function runRateImpact() {
+    const loan = parseFloat(document.getElementById('riLoan').value) || 2000000000;
+    const currentRate = parseFloat(document.getElementById('riCurrentRate').value) || 10;
+    const newRate = parseFloat(document.getElementById('riNewRate').value) || 12;
+    const years = parseInt(document.getElementById('riYears').value) || 20;
+
+    const result = calculateRateImpact(loan, currentRate, newRate, years);
+    const fmt = countryData[selectedCountry]?.formatMoney || (n => n.toLocaleString());
+    const direction = newRate > currentRate ? 'tăng' : 'giảm';
+
+    document.getElementById('riResult').innerHTML = `
+        <div class="result-item"><span class="result-label">Trả hàng tháng (cũ ${currentRate}%):</span><span class="result-value">${fmt(result.monthlyOld)}</span></div>
+        <div class="result-item"><span class="result-label">Trả hàng tháng (mới ${newRate}%):</span><span class="result-value">${fmt(result.monthlyNew)}</span></div>
+        <div class="result-item highlight"><span class="result-label">Chênh lệch/tháng:</span><span class="result-value">${result.monthlyDiff > 0 ? '+' : ''}${fmt(result.monthlyDiff)}</span></div>
+        <div class="result-item"><span class="result-label">Tổng chênh lệch ${years} năm:</span><span class="result-value">${result.totalDiff > 0 ? '+' : ''}${fmt(result.totalDiff)}</span></div>
+        <div class="result-item"><span class="result-label">% thay đổi:</span><span class="result-value">${result.percentIncrease > 0 ? '+' : ''}${result.percentIncrease}%</span></div>
+        <div class="result-explanation">Khi NHTW ${direction} lãi suất ${Math.abs(newRate - currentRate)}%, khoản vay ${fmt(loan)} của bạn ${direction} <strong>${fmt(Math.abs(result.monthlyDiff))}/tháng</strong>.</div>
     `;
 }
 

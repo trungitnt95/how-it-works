@@ -425,7 +425,7 @@ main {
     order: 2;
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 830px;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -539,6 +539,10 @@ main {
 .crypto { top: 480px; left: 76%; }
 .startup { top: 330px; left: 76%; }
 
+/* Row 6: Economics */
+.labor-market { top: 630px; left: 20%; }
+.supply-chain { top: 630px; left: 50%; }
+
 /* Node Colors by Category */
 .node[data-category="core"] { border-color: #f39c12; background: linear-gradient(135deg, rgba(243,156,18,0.2), rgba(230,126,34,0.2)); }
 .node[data-category="financial"] { border-color: #3498db; background: linear-gradient(135deg, rgba(52,152,219,0.2), rgba(41,128,185,0.2)); }
@@ -550,7 +554,8 @@ main {
 .modal-overlay,
 .scenario-overlay,
 .quiz-overlay,
-.simulator-overlay {
+.simulator-overlay,
+.theory-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -568,7 +573,8 @@ main {
 .modal-overlay.active,
 .scenario-overlay.active,
 .quiz-overlay.active,
-.simulator-overlay.active {
+.simulator-overlay.active,
+.theory-overlay.active {
     display: flex;
     animation: fadeIn 0.3s ease;
 }
@@ -579,7 +585,8 @@ main {
 .modal-content,
 .scenario-content,
 .quiz-content,
-.simulator-content {
+.simulator-content,
+.theory-content {
     background: linear-gradient(135deg, #1e3a5f, #2d4a6f);
     border-radius: 15px;
     max-width: 650px;
@@ -594,7 +601,8 @@ main {
 
 .scenario-content,
 .quiz-content,
-.simulator-content {
+.simulator-content,
+.theory-content {
     max-width: 900px;
     padding: 1.5rem;
 }
@@ -885,7 +893,8 @@ main {
 
 .scenario-intro,
 .quiz-intro,
-.simulator-intro {
+.simulator-intro,
+.theory-intro {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1rem;
@@ -1251,6 +1260,180 @@ main {
     font-size: 0.84rem;
 }
 
+/* ==================== THEORY ==================== */
+.theory-search {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.theory-search input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.theory-search input:focus {
+    border-color: #f39c12;
+}
+
+.theory-categories {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.theory-cat-btn {
+    padding: 0.4rem 0.8rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    color: white;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theory-cat-btn:hover { background: rgba(255,255,255,0.2); }
+.theory-cat-btn.active { background: #f39c12; color: #1a1a2e; border-color: #f39c12; }
+
+.theory-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+
+.theory-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.theory-card:hover { border-color: rgba(255, 255, 255, 0.3); }
+
+.theory-card-header {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    user-select: none;
+}
+
+.theory-card-header:hover { background: rgba(255,255,255,0.05); }
+
+.theory-card-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.theory-card-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.theory-card-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    flex-shrink: 0;
+}
+
+.theory-card-toggle {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+    color: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+}
+
+.theory-card.open .theory-card-toggle { transform: rotate(180deg); }
+
+.theory-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.theory-card.open .theory-card-body {
+    max-height: 2000px;
+}
+
+.theory-card-inner {
+    padding: 0 1rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+}
+
+.theory-card-inner p {
+    margin-bottom: 0.6rem;
+}
+
+.theory-section {
+    margin-bottom: 0.8rem;
+}
+
+.theory-section h4 {
+    font-size: 0.85rem;
+    color: #f39c12;
+    margin-bottom: 0.3rem;
+}
+
+.theory-section ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.theory-section li {
+    margin-bottom: 0.25rem;
+}
+
+.theory-callout {
+    background: rgba(243,156,18,0.12);
+    border-left: 3px solid #f39c12;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.theory-card-inner .theory-connections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.theory-conn-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 8px;
+    background: rgba(52,152,219,0.2);
+    border: 1px solid rgba(52,152,219,0.3);
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.theory-conn-tag:hover { background: rgba(52,152,219,0.4); color: white; }
+
 /* ==================== SIMULATOR ==================== */
 .simulator-tabs {
     display: flex;
@@ -1445,7 +1628,7 @@ footer {
 @media (max-width: 768px) {
     header { flex-direction: column; text-align: center; }
     .header-left { flex-direction: column; }
-    .diagram-container { height: 600px; }
+    .diagram-container { height: 700px; }
     .money-flow-section { padding: 1rem; }
     .money-flow-intro { flex-direction: column; }
     .money-flow-mermaid {
@@ -1486,6 +1669,9 @@ footer {
     
     .crypto { top: 420px; left: 28%; }
     .startup { top: 420px; left: 51%; }
+    
+    .labor-market { top: 520px; left: 18%; }
+    .supply-chain { top: 520px; left: 51%; }
     
     .category-filter { justify-content: center; }
     .scenario-list { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }

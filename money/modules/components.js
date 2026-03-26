@@ -822,6 +822,123 @@ const componentData = {
             </ul>
         `,
         keyPoints: ['VC', 'Series A', 'Unicorn', 'Exit', 'Valuation']
+    },
+
+    // ==================== ECONOMICS (21-22) ====================
+    'labor-market': {
+        icon: '👷',
+        title: 'Thị Trường Lao Động',
+        order: 21,
+        category: 'core',
+        connections: ['business', 'individual', 'government', 'pension-fund', 'supply-chain'],
+        simple: `
+            <p>🎯 <strong>Hiểu đơn giản:</strong> Nơi người lao động bán sức lao động, doanh nghiệp mua sức lao động.</p>
+            <h4>📌 Các yếu tố:</h4>
+            <ul>
+                <li>👷 Cung lao động: Số người muốn làm việc</li>
+                <li>🏭 Cầu lao động: Số việc làm doanh nghiệp cần</li>
+                <li>💰 Lương: Giá của sức lao động</li>
+                <li>📊 Thất nghiệp: Người muốn làm nhưng chưa có việc</li>
+            </ul>
+            <div class="example-box">
+                <strong>VN 2023:</strong> ~52 triệu lao động, thất nghiệp ~2.3%
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Lưu ý:</strong> Lương tăng nhanh hơn năng suất → Lạm phát do chi phí đẩy!
+            </div>
+        `,
+        detail: `
+            <h4>🔄 Cơ chế cung - cầu lao động:</h4>
+            <ul>
+                <li><strong>Cầu tăng (DN mở rộng):</strong> Thất nghiệp giảm, lương tăng</li>
+                <li><strong>Cung tăng (dân số trẻ):</strong> Lương bị ghìm, cạnh tranh cao</li>
+                <li><strong>Mismatch kỹ năng:</strong> Thiếu lao động chất lượng dù thất nghiệp cao</li>
+            </ul>
+            <h4>💡 Các loại thất nghiệp:</h4>
+            <ul>
+                <li><strong>Ma sát:</strong> Chuyển việc tạm thời</li>
+                <li><strong>Cơ cấu:</strong> Kỹ năng không phù hợp</li>
+                <li><strong>Chu kỳ:</strong> Kinh tế suy thoái</li>
+            </ul>
+            <h4>📊 Đường Phillips:</h4>
+            <p>Thất nghiệp ↓ → Lạm phát ↑ (ngắn hạn)</p>
+        `,
+        advanced: `
+            <h4>🔧 Phân tích sâu:</h4>
+            <ul>
+                <li><strong>NAIRU:</strong> Tỷ lệ thất nghiệp tự nhiên không gây lạm phát</li>
+                <li><strong>Năng suất lao động:</strong> GDP/giờ làm việc</li>
+                <li><strong>Unit Labor Cost:</strong> Chi phí LĐ trên đơn vị sản phẩm</li>
+                <li><strong>Hệ số Gini lương:</strong> Mức bất bình đẳng thu nhập</li>
+            </ul>
+            <h4>📊 Công thức:</h4>
+            <p><strong>Tỷ lệ thất nghiệp = Số người thất nghiệp / Lực lượng lao động × 100%</strong></p>
+            <p><strong>Real Wage = Nominal Wage / CPI × 100</strong></p>
+            <div class="warning-box">
+                <strong>Rủi ro:</strong> Tự động hóa & AI có thể thay thế lao động giản đơn, tạo thất nghiệp cơ cấu lớn.
+            </div>
+        `,
+        keyPoints: ['Lương', 'Thất nghiệp', 'Năng suất', 'NAIRU', 'Cung cầu LĐ']
+    },
+
+    'supply-chain': {
+        icon: '🔗',
+        title: 'Chuỗi Cung Ứng',
+        order: 22,
+        category: 'core',
+        connections: ['business', 'foreign', 'commodity', 'labor-market'],
+        simple: `
+            <p>🎯 <strong>Hiểu đơn giản:</strong> Con đường từ nguyên liệu thô → sản phẩm → tay người tiêu dùng.</p>
+            <h4>📌 Các mắt xích:</h4>
+            <ul>
+                <li>🪨 Nguyên liệu thô (sắt, dầu, bông...)</li>
+                <li>🏭 Sản xuất trung gian (linh kiện, vải)</li>
+                <li>🔧 Lắp ráp thành phẩm</li>
+                <li>🚛 Vận chuyển, logistics</li>
+                <li>🏪 Bán lẻ → Người tiêu dùng</li>
+            </ul>
+            <div class="example-box">
+                <strong>Ví dụ iPhone:</strong> Chip từ Đài Loan, lắp ráp ở TQ, bán khắp thế giới
+            </div>
+            <div class="warning-box">
+                <strong>⚠️ Rủi ro:</strong> Đứt gãy chuỗi cung ứng (COVID-19) → Thiếu hàng, giá tăng!
+            </div>
+        `,
+        detail: `
+            <h4>🔄 Chuỗi giá trị:</h4>
+            <ol>
+                <li><strong>Upstream:</strong> Khai thác, nguyên liệu thô</li>
+                <li><strong>Midstream:</strong> Chế biến, sản xuất trung gian</li>
+                <li><strong>Downstream:</strong> Thành phẩm, bán lẻ</li>
+            </ol>
+            <h4>💡 Chi phí chuỗi cung ứng:</h4>
+            <ul>
+                <li><strong>Logistics:</strong> 10-15% giá thành (VN ~17% GDP)</li>
+                <li><strong>Tồn kho:</strong> Chi phí lưu giữ, hao hụt</li>
+                <li><strong>Lead time:</strong> Thời gian từ đặt hàng đến giao hàng</li>
+            </ul>
+            <h4>🌍 Chuỗi cung ứng toàn cầu:</h4>
+            <p>Một sản phẩm có thể đi qua 5-10 quốc gia trước khi đến tay người tiêu dùng.</p>
+        `,
+        advanced: `
+            <h4>🔧 Phân tích sâu:</h4>
+            <ul>
+                <li><strong>Bullwhip Effect:</strong> Biến động đơn hàng khuếch đại ngược chuỗi</li>
+                <li><strong>Just-In-Time (JIT):</strong> Tối ưu tồn kho nhưng dễ đứt gãy</li>
+                <li><strong>Nearshoring/Reshoring:</strong> Dịch chuyển sản xuất về gần</li>
+                <li><strong>Lạm phát chi phí đẩy:</strong> Giá đầu vào tăng → giá bán tăng</li>
+            </ul>
+            <h4>📊 Tác động vĩ mô:</h4>
+            <ul>
+                <li>Đứt chuỗi → Thiếu nguồn cung → Lạm phát</li>
+                <li>Logistics tắc → Chi phí tăng → Biên lợi nhuận DN giảm</li>
+                <li>Phụ thuộc một nguồn cung → Rủi ro địa chính trị</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Bài học COVID-19:</strong> Chuỗi cung ứng toàn cầu JIT cực hiệu quả nhưng cực dễ vỡ khi có sốc.
+            </div>
+        `,
+        keyPoints: ['Logistics', 'Tồn kho', 'Bullwhip', 'JIT', 'Chi phí đẩy']
     }
 };
 
@@ -1108,6 +1225,34 @@ const assetStructureData = {
             'Sản phẩm và dữ liệu là tài sản lớn nhất của startup, nhưng chỉ có giá trị thật khi biến thành doanh thu hoặc khả năng gọi vốn.'
         ],
         note: 'Đọc startup phải luôn hỏi hai câu: còn sống được bao lâu và tài sản vô hình có chuyển thành lợi thế thị trường hay không.'
+    },
+    'labor-market': {
+        lead: 'Thị trường lao động không giữ tài sản hữu hình; giá trị nằm ở kỹ năng, năng suất và mạng lưới việc làm kết nối người lao động với doanh nghiệp.',
+        items: [
+            { label: 'Vốn nhân lực & kỹ năng', share: 40, detail: 'Kiến thức, tay nghề, kinh nghiệm và khả năng thích ứng của lực lượng lao động quyết định năng suất nền kinh tế.' },
+            { label: 'Thu nhập lao động', share: 30, detail: 'Lương, thưởng, phúc lợi là dòng tiền chính nuôi sống hộ gia đình và thúc đẩy tiêu dùng.' },
+            { label: 'Quỹ BHXH & trợ cấp', share: 20, detail: 'Lớp an toàn khi mất việc, nghỉ hưu hoặc gặp rủi ro, giúp duy trì sức mua tối thiểu.' },
+            { label: 'Hạ tầng đào tạo', share: 10, detail: 'Trường nghề, đại học, chương trình đào tạo lại giúp giảm mismatch kỹ năng và nâng năng suất dài hạn.' }
+        ],
+        takeaways: [
+            'Nền kinh tế mạnh khi lao động có năng suất cao và kỹ năng phù hợp; chỉ nhiều người đi làm thôi chưa đủ.',
+            'Thất nghiệp cơ cấu (kỹ năng lệch nhu cầu) nguy hiểm hơn thất nghiệp chu kỳ vì khó khắc phục nhanh.'
+        ],
+        note: 'Thị trường lao động là bức tranh phản ánh sức khỏe thật của nền kinh tế: lương thực tăng hay giảm, việc làm có chất lượng hay không.'
+    },
+    'supply-chain': {
+        lead: 'Chuỗi cung ứng là hệ thống kết nối nguyên liệu, sản xuất trung gian, logistics và phân phối; hiệu quả của nó quyết định giá thành và khả năng giao hàng.',
+        items: [
+            { label: 'Hàng tồn kho & NVL', share: 35, detail: 'Nguyên vật liệu thô, bán thành phẩm, thành phẩm đang lưu chuyển hoặc lưu kho tại các mắt xích.' },
+            { label: 'Hạ tầng logistics', share: 25, detail: 'Kho bãi, cảng, đội xe, tuyến vận tải và phần mềm quản lý giao vận kết nối toàn chuỗi.' },
+            { label: 'Phải thu/trả thương mại', share: 25, detail: 'Tín dụng thương mại giữa nhà cung cấp, nhà sản xuất và nhà phân phối tạo dòng tiền nội bộ chuỗi.' },
+            { label: 'Dữ liệu & hệ thống', share: 15, detail: 'ERP, dự báo cầu, tracking hàng hóa và quan hệ đối tác giúp giảm lead time và tồn kho dư thừa.' }
+        ],
+        takeaways: [
+            'Chuỗi cung ứng càng dài và phức tạp, biến động nhỏ ở đầu vào có thể bị khuếch đại rất lớn ở đầu ra (Bullwhip Effect).',
+            'JIT giúp tiết kiệm chi phí nhưng cực dễ vỡ khi có sốc; dự trữ an toàn tốn tiền nhưng tăng khả năng chống chịu.'
+        ],
+        note: 'Muốn hiểu lạm phát, phải nhìn chuỗi cung ứng: giá tăng nhiều khi không do tiền nhiều, mà do hàng không đến được nơi cần.'
     }
 };
 
@@ -1576,6 +1721,54 @@ const componentExpandedContent = {
             sections: [
                 { title: 'Biến số phải theo dõi', bullets: ['Mức dilution qua từng vòng vốn và khả năng duy trì động lực của đội sáng lập.', 'Tốc độ tăng trưởng chất lượng hay tăng trưởng nhờ đốt khuyến mại.', 'Khả năng chuyển từ “câu chuyện tăng trưởng” sang “máy tạo tiền” khi vốn đắt hơn.'] },
                 { title: 'Điểm dễ vỡ', bullets: ['Thị trường vốn xấu đi làm startup từ chỗ “sẽ gọi vòng sau” chuyển thành “phải cắt giảm ngay”.', 'Định giá quá cao ở vòng sớm dễ dẫn tới down round và mất động lực của cả đội ngũ.', 'Tài sản vô hình đẹp trên pitch deck chưa chắc đủ mạnh để tạo moats ngoài đời thực.'] }
+            ]
+        }
+    },
+    'labor-market': {
+        simple: {
+            intro: 'Thị trường lao động quyết định ai được trả bao nhiêu, ai có việc và ai không. Nó phản ánh sức khỏe thật của nền kinh tế rõ hơn nhiều so với chỉ số chứng khoán.',
+            sections: [
+                { title: 'Điều cần nhớ', bullets: ['Lương tăng không tự động tốt; chỉ tốt khi năng suất tăng theo.', 'Thất nghiệp thấp giúp hộ gia đình có thu nhập nhưng đẩy chi phí lương lên cho doanh nghiệp.', 'Tự động hóa và AI đang thay đổi cấu trúc cầu lao động rất nhanh.'] },
+                { title: 'Nhìn trong đời thực', bullets: ['Khi công ty lớn sa thải hàng loạt, tiêu dùng giảm ngay và lan sang cả kinh tế địa phương.', 'Nhiều người có việc không có nghĩa lương đủ sống nếu việc làm không chất lượng.'] }
+            ],
+            callout: 'Thị trường lao động là bức tranh phản ánh sức khỏe thật: doanh nghiệp có thuê người không, trả lương có tăng kịp giá không.'
+        },
+        detail: {
+            intro: 'Thị trường lao động kết nối chính sách tiền tệ, tiêu dùng và sản xuất: lãi suất ảnh hưởng tuyển dụng, lương ảnh hưởng tiêu dùng, tiêu dùng ảnh hưởng doanh thu.',
+            sections: [
+                { title: 'Dòng tiền lao động', bullets: ['Doanh nghiệp trả lương → hộ gia đình tiêu dùng → doanh nghiệp có doanh thu → tuyển thêm.', 'BHXH, BHTN là khoản trích từ lương, tạo lớp đệm khi mất việc hoặc về hưu.', 'Khi thất nghiệp tăng, thu nhập hộ gia đình giảm, tiêu dùng giảm, doanh thu giảm tiếp.'] },
+                { title: 'Điều phải xem kỹ', bullets: ['Lương thực (sau trừ lạm phát) tăng hay giảm.', 'Tỷ lệ tham gia lực lượng lao động, không chỉ tỷ lệ thất nghiệp chính thức.', 'Mismatch kỹ năng: doanh nghiệp thiếu người nhưng người tìm việc không có kỹ năng phù hợp.'] }
+            ]
+        },
+        advanced: {
+            intro: 'Ở tầng sâu hơn, thị trường lao động là nơi đường Phillips, NAIRU và năng suất gặp nhau, quyết định lạm phát có bền vững hay không.',
+            sections: [
+                { title: 'Biến số phải theo dõi', bullets: ['Unit Labor Cost: chi phí lao động trên mỗi đơn vị sản phẩm, biến số quyết định lạm phát do lương.', 'Tỷ lệ thất nghiệp so với NAIRU: dưới NAIRU thường tạo áp lực lạm phát.', 'Năng suất lao động: GDP thực trên giờ làm việc, yếu tố duy nhất nâng sống thực sự bền vững.'] },
+                { title: 'Điểm dễ vỡ', bullets: ['Suy thoái làm thất nghiệp tăng nhanh nhưng việc làm phục hồi chậm hơn GDP.', 'Già hóa dân số thu hẹp lực lượng lao động, đẩy lương lên và tạo áp lực cho quỹ hưu trí.', 'Chuyển đổi công nghệ nhanh có thể tạo lớp lao động bị bỏ lại nếu đào tạo lại không kịp.'] }
+            ]
+        }
+    },
+    'supply-chain': {
+        simple: {
+            intro: 'Chuỗi cung ứng là hệ mạch máu của nền kinh tế thực: nếu hàng không chảy được, giá tăng và sản xuất đình trệ dù tiền vẫn dư thừa.',
+            sections: [
+                { title: 'Điều cần nhớ', bullets: ['Một sản phẩm đơn giản như chiếc áo thun cũng đi qua nhiều quốc gia trước khi đến tay bạn.', 'Chi phí logistics và tồn kho ảnh hưởng trực tiếp lên giá bán và biên lợi nhuận doanh nghiệp.', 'Chuỗi cung ứng càng dài càng hiệu quả về giá, nhưng càng dễ vỡ khi có sốc.'] },
+                { title: 'Nhìn trong đời thực', bullets: ['COVID-19 cho thấy khi chuỗi cung ứng đứt, hàng thiếu, giá tăng, lạm phát bùng lên dù cầu chưa hẳn quá nóng.', 'Kẹt cảng, thiếu container, thiếu chip đều là biểu hiện của đứt gãy chuỗi cung ứng.'] }
+            ],
+            callout: 'Khi nghe tin giá tăng, đừng chỉ nghĩ đến tiền in nhiều; hãy hỏi chuỗi cung ứng có thông suốt không.'
+        },
+        detail: {
+            intro: 'Chuỗi cung ứng không chỉ là vận chuyển; nó bao gồm mua hàng, sản xuất, tồn kho, logistics, phân phối và quản lý rủi ro đối tác.',
+            sections: [
+                { title: 'Dòng tiền chuỗi cung ứng', bullets: ['Nhà sản xuất trả tiền nguyên liệu → nhà cung cấp giao hàng → sản phẩm đến nhà phân phối → bán lẻ.', 'Tín dụng thương mại (trade credit) giữ dòng tiền lưu chuyển khi chưa bán được hàng.', 'Chi phí logistics, bảo hiểm hàng hóa và thuế nhập khẩu cộng dồn vào giá thành cuối cùng.'] },
+                { title: 'Điều phải xem kỹ', bullets: ['Lead time: thời gian từ đặt hàng đến nhận hàng, càng dài càng khó lên kế hoạch.', 'Bullwhip Effect: biến động nhỏ ở bán lẻ bị khuếch đại thành dao động lớn ở nhà sản xuất đầu nguồn.', 'Phụ thuộc một nhà cung cấp duy nhất là rủi ro lớn nhất mà nhiều doanh nghiệp bỏ qua.'] }
+            ]
+        },
+        advanced: {
+            intro: 'Ở tầng sâu hơn, chuỗi cung ứng là nơi lạm phát chi phí đẩy phát sinh, nơi chính sách thương mại tác động và nơi rủi ro địa chính trị trở thành rủi ro kinh doanh.',
+            sections: [
+                { title: 'Biến số phải theo dõi', bullets: ['Chỉ số PMI (Manufacturing): trên 50 = mở rộng, dưới 50 = thu hẹp sản xuất.', 'Giá cước vận tải biển (Baltic Dry Index), giá container, giá xăng dầu.', 'Tỷ lệ sử dụng công suất: quá cao → thiếu đệm khi cầu tăng đột ngột.'] },
+                { title: 'Điểm dễ vỡ', bullets: ['Chiến tranh thương mại và thuế quan làm thay đổi luồng hàng hóa toàn cầu rất nhanh.', 'Thiên tai, dịch bệnh tại một mắt xích có thể lan sang toàn chuỗi nếu không có phương án dự phòng.', 'De-globalization và nearshoring tăng chi phí ngắn hạn nhưng giảm rủi ro dài hạn.'] }
             ]
         }
     }

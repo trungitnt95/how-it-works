@@ -60,6 +60,7 @@
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
             <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="theoryBtn" title="Lý thuyết tập trung">📚 Khái niệm</button>
             <button class="header-btn" id="quizBtn" title="Làm câu hỏi">❓ Câu hỏi</button>
             <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
         </div>
@@ -70,7 +71,7 @@
         <!-- Category Filter -->
         <div class="category-filter">
             <span class="filter-label">Lọc theo nhóm:</span>
-            <button class="filter-btn active" data-category="all">Tất cả (20)</button>
+            <button class="filter-btn active" data-category="all">Tất cả (22)</button>
             <button class="filter-btn" data-category="core">💰 Cốt lõi</button>
             <button class="filter-btn" data-category="financial">🏦 Tài chính</button>
             <button class="filter-btn" data-category="market">📈 Thị trường</button>
@@ -149,7 +150,92 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>4. Luồng thanh toán hiện đại và quốc tế</h3>
+                        <h3>4. Cung – Cầu và vòng xoáy lạm phát</h3>
+                        <p>Khi cầu vượt cung, giá tăng; khi chi phí đẩy lan qua chuỗi cung ứng, lạm phát tự củng cố thành vòng xoáy khó kiểm soát.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    DEMAND["Cầu tiêu dùng & đầu tư"] -->|"Tăng chi tiêu"| PRICE["Mặt bằng giá"]
+    SUPPLY["Cung hàng hóa & dịch vụ"] -->|"Thiếu hụt nguồn cung"| PRICE
+    PRICE -->|"Giá tăng"| WAGE["Áp lực tăng lương"]
+    WAGE -->|"Chi phí sản xuất tăng"| BIZ["Doanh nghiệp"]
+    BIZ -->|"Tăng giá bán"| PRICE
+    PRICE -->|"Lạm phát kỳ vọng"| CB["Ngân hàng TW"]
+    CB -->|"Tăng lãi suất"| BANK["NH thương mại"]
+    BANK -->|"Tín dụng đắt hơn"| DEMAND
+    SC["Chuỗi cung ứng"] -->|"Tắc nghẽn, chi phí logistics"| SUPPLY
+    FOR["Quốc tế"] -->|"Giá nguyên liệu nhập khẩu"| SC
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Lạm phát do cầu kéo xảy ra khi sức mua vượt khả năng cung cấp của nền kinh tế.</li>
+                            <li>Lạm phát do chi phí đẩy bắt nguồn từ chuỗi cung ứng, giá năng lượng hoặc tỷ giá.</li>
+                            <li>Ngân hàng trung ương tăng lãi suất để hạ nhiệt, nhưng phải cân bằng giữa ổn định giá và tăng trưởng.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>5. Thị trường lao động và chuỗi cung ứng</h3>
+                        <p>Lao động là đầu vào quan trọng nhất; chuỗi cung ứng kết nối nguyên liệu, sản xuất trung gian và phân phối thành phẩm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    LABOR["Thị trường lao động"] -->|"Cung sức lao động"| BIZ["Doanh nghiệp"]
+    BIZ -->|"Trả lương"| LABOR
+    BIZ -->|"Đặt hàng nguyên liệu"| SC["Chuỗi cung ứng"]
+    SC -->|"Giao hàng thành phẩm"| BIZ
+    SC -->|"Nhập khẩu linh kiện"| FOR["Quốc tế"]
+    FOR -->|"Nguyên liệu thô"| SC
+    LABOR -->|"Tiêu dùng"| BIZ
+    GOV["Chính phủ"] -->|"BHXH, trợ cấp thất nghiệp"| LABOR
+    LABOR -->|"Đóng thuế TNCN, BHXH"| GOV
+    CB["Ngân hàng TW"] -->|"Lãi suất ảnh hưởng tuyển dụng"| BIZ
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Khi thất nghiệp thấp, lương tăng nhanh, doanh nghiệp chịu áp lực chi phí nhưng tiêu dùng mạnh.</li>
+                            <li>Chuỗi cung ứng đứt gãy ảnh hưởng trực tiếp lên sản xuất, giá thành và thời gian giao hàng.</li>
+                            <li>Chính sách lãi suất ảnh hưởng gián tiếp đến tuyển dụng qua kênh tín dụng doanh nghiệp.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>6. Cơ chế truyền dẫn chính sách tiền tệ</h3>
+                        <p>Lãi suất điều hành từ Ngân hàng TW lan tỏa qua tín dụng, tỷ giá, giá tài sản và kỳ vọng để tác động lên GDP thực và lạm phát.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    CB["Ngân hàng TW<br>Lãi suất điều hành"] -->|"Lãi suất liên ngân hàng"| BANK["NH thương mại"]
+    BANK -->|"Lãi vay & gửi"| CREDIT["Kênh tín dụng"]
+    CREDIT -->|"Vay mượn DN & hộ GĐ"| GDP["GDP thực"]
+    CB -->|"Kỳ vọng lạm phát"| EXPECT["Kênh kỳ vọng"]
+    EXPECT -->|"Hành vi tiêu dùng & đầu tư"| GDP
+    CB -->|"Chênh lệch lãi suất"| FX["Kênh tỷ giá"]
+    FX -->|"XNK, giá nhập"| GDP
+    BANK -->|"Tín dụng BĐS, CK"| ASSET["Kênh giá tài sản"]
+    ASSET -->|"Hiệu ứng tài sản"| GDP
+    GDP -->|"Phản hồi"| INFLATION["Lạm phát"]
+    INFLATION -->|"Điều chỉnh chính sách"| CB
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Chính sách tiền tệ không tác động ngay mà đi qua nhiều kênh với độ trễ khác nhau.</li>
+                            <li>Kênh tín dụng mạnh nhất ở nền kinh tế phụ thuộc ngân hàng; kênh tài sản mạnh ở thị trường phát triển.</li>
+                            <li>Phản hồi lạm phát khiến ngân hàng TW phải liên tục điều chỉnh, tạo chu kỳ chính sách.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>7. Luồng thanh toán hiện đại và quốc tế</h3>
                         <p>Fintech, ngoại hối và dòng vốn xuyên biên giới làm tiền di chuyển nhanh hơn giữa tiêu dùng nội địa và thị trường toàn cầu.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid tall">
@@ -176,7 +262,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>5. Vay mua nhà và trả nợ thế chấp</h3>
+                        <h3>8. Vay mua nhà và trả nợ thế chấp</h3>
                         <p>Đây là dòng tiền rất thực tế: tiền mua nhà được trả ngay cho người bán, còn người mua gánh dòng tiền trả nợ kéo dài nhiều năm.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -200,7 +286,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>6. Thẻ tín dụng, trả góp và phí giao dịch</h3>
+                        <h3>9. Thẻ tín dụng, trả góp và phí giao dịch</h3>
                         <p>Khi quẹt thẻ hay mua trả góp, cửa hàng thường được thanh toán sớm còn người mua trả sau; phần chênh nằm ở lãi và phí.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -224,7 +310,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>7. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
+                        <h3>10. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
                         <p>Phí nhỏ đóng đều được gom lại thành quỹ lớn, rồi chỉ chảy ngược về người tham gia khi có tổn thất hoặc sự kiện bảo hiểm.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -248,7 +334,7 @@ flowchart TD
 
                 <article class="flowchart-card">
                     <div class="flowchart-copy">
-                        <h3>8. Lương, thuế, BHXH và lương hưu</h3>
+                        <h3>11. Lương, thuế, BHXH và lương hưu</h3>
                         <p>Chi phí lao động thực tế không chỉ là lương mang về; một phần tiền được chuyển sang thuế và các quỹ an sinh bắt buộc.</p>
                     </div>
                     <pre class="mermaid money-flow-mermaid medium">
@@ -428,6 +514,22 @@ flowchart TD
                 <div class="node-label">Startup/VC</div>
                 <div class="node-hint">Vốn mạo hiểm</div>
             </div>
+
+            <!-- ==================== ECONOMICS (21-22) ==================== -->
+
+            <div class="node labor-market" data-component="labor-market" data-category="core" data-step="21">
+                <div class="node-number">21</div>
+                <div class="node-icon">👷</div>
+                <div class="node-label">Thị Trường LĐ</div>
+                <div class="node-hint">Lương & việc làm</div>
+            </div>
+
+            <div class="node supply-chain" data-component="supply-chain" data-category="core" data-step="22">
+                <div class="node-number">22</div>
+                <div class="node-icon">🔗</div>
+                <div class="node-label">Chuỗi Cung Ứng</div>
+                <div class="node-hint">Sản xuất & logistics</div>
+            </div>
         </div>
 
         <section class="money-flow-section system-map-section" aria-labelledby="systemMapTitle">
@@ -484,6 +586,11 @@ flowchart TB
         STARTUP["20. Startup / VC"]
     end
 
+    subgraph ECON["Khối kinh tế"]
+        LABOR["21. Thị trường LĐ"]
+        SUPPLYCHAIN["22. Chuỗi cung ứng"]
+    end
+
     CB -->|"Thanh khoản, lãi suất"| BANK
     CB -->|"OMO, QE, mua giấy tờ có giá"| BOND
     BANK -->|"Cho vay sản xuất"| BIZ
@@ -527,6 +634,14 @@ flowchart TB
     FUND -->|"PE/VC"| STARTUP
     STARTUP -->|"Gọi vốn, tăng trưởng"| BIZ
     STOCK -->|"IPO, thoái vốn"| STARTUP
+    BIZ -->|"Tuyển dụng, trả lương"| LABOR
+    LABOR -->|"Cung sức lao động"| BIZ
+    GOV -->|"BHXH, trợ cấp"| LABOR
+    BIZ -->|"Đặt hàng NVL"| SUPPLYCHAIN
+    SUPPLYCHAIN -->|"Giao hàng, logistics"| BIZ
+    FOR -->|"Nguyên liệu nhập"| SUPPLYCHAIN
+    SUPPLYCHAIN -->|"Xuất khẩu TP"| FOR
+    LABOR -->|"Chi tiêu tiêu dùng"| BIZ
                 </pre>
                 <div class="flowchart-legend" aria-label="Chú thích màu khối thành phần">
                     <div class="flowchart-legend-title">Chú thích màu khối</div>
@@ -550,6 +665,10 @@ flowchart TB
                         <div class="flowchart-legend-item modern">
                             <span class="flowchart-legend-swatch"></span>
                             <span>Khối hiện đại</span>
+                        </div>
+                        <div class="flowchart-legend-item economics">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối kinh tế</span>
                         </div>
                     </div>
                 </div>
@@ -878,6 +997,20 @@ flowchart TB
         </div>
     </div>
 
+    <!-- Theory Modal -->
+    <div class="theory-overlay" id="theoryModal">
+        <div class="theory-content">
+            <button class="modal-close" id="closeTheory">&times;</button>
+            <h2>📚 Lý Thuyết & Khái Niệm Kinh Tế</h2>
+            <p class="theory-intro">Tập trung toàn bộ lý thuyết, khái niệm và mô hình kinh tế trong trang. Chọn chủ đề để đọc.</p>
+            <div class="theory-search">
+                <input type="text" id="theorySearch" placeholder="🔍 Tìm khái niệm..." autocomplete="off">
+            </div>
+            <div class="theory-categories" id="theoryCategories"></div>
+            <div class="theory-list" id="theoryList"></div>
+        </div>
+    </div>
+
     <!-- Quiz Modal -->
     <div class="quiz-overlay" id="quizModal">
         <div class="quiz-content">
@@ -898,11 +1031,12 @@ flowchart TB
 
     <footer>
         <p>Dựa trên kiến thức từ sách "Hiểu Hết Về Tiền" 📚</p>
-        <p class="footer-hint">💡 Click vào bất kỳ thành phần nào để xem chi tiết | 20 thành phần | 30+ kịch bản</p>
+        <p class="footer-hint">💡 Click vào bất kỳ thành phần nào để xem chi tiết | 22 thành phần | 50+ kịch bản</p>
     </footer>
 
     <!-- Module Scripts -->
     <script src="modules/components.js"></script>
+    <script src="modules/theory.js"></script>
     <script src="modules/simulation.js"></script>
     <script src="modules/scenarios.js"></script>
     <script src="modules/quiz.js"></script>
@@ -918,7 +1052,8 @@ flowchart TB
                 FIN: { fill: '#6a3d1f', stroke: '#ffbf80', text: '#fff7ed' },
                 MARKET: { fill: '#2f5d3b', stroke: '#96f2a8', text: '#f3fff7' },
                 SERVICES: { fill: '#5b3659', stroke: '#f0abfc', text: '#fff5ff' },
-                MODERN: { fill: '#1f5560', stroke: '#7ce3ff', text: '#effcff' }
+                MODERN: { fill: '#1f5560', stroke: '#7ce3ff', text: '#effcff' },
+                ECON: { fill: '#5c4d1e', stroke: '#fde68a', text: '#fffef5' }
             };
             const nodeBlocks = {
                 CB: 'CORE',
@@ -940,7 +1075,9 @@ flowchart TB
                 RATING: 'SERVICES',
                 FINTECH: 'MODERN',
                 CRYPTO: 'MODERN',
-                STARTUP: 'MODERN'
+                STARTUP: 'MODERN',
+                LABOR: 'ECON',
+                SUPPLYCHAIN: 'ECON'
             };
             const palette = [
                 '#ff6b6b', '#ffa94d', '#ffd43b', '#94d82d', '#69db7c', '#38d9a9',

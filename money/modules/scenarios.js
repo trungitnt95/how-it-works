@@ -958,6 +958,171 @@ const scenarios = {
             { node: 'government', text: '🏢 Theo dõi được mọi giao dịch, chống rửa tiền' },
             { node: 'commercial-bank', text: '⚠️ NH thương mại có thể mất vai trò' }
         ]
+    },
+    'supply-disruption': {
+        title: 'Đứt gãy chuỗi cung ứng',
+        cat: 'crisis',
+        icon: '🚢',
+        desc: 'Khi hàng hóa không chảy được, giá tăng dù cầu không đổi.',
+        isCrisis: true,
+        getSteps: (c) => [
+            {
+                node: 'foreign',
+                text: '🌍 Đại dịch / xung đột khiến cảng lớn đóng cửa, container bị kẹt',
+                effect: { businessConfidence: -10 }
+            },
+            {
+                node: 'supply-chain',
+                text: '🚢 Lead time tăng gấp 3, giá cước vận tải tăng 400%',
+                inputs: { 'Cước container': '×4' },
+                effect: { inflation: 2 }
+            },
+            {
+                node: 'business',
+                text: `🏭 Nguyên liệu thiếu, giá đầu vào tăng ${c.inflationRate * 3}%`,
+                outputs: { 'Giá đầu vào': `+${c.inflationRate * 3}%` },
+                effect: { businessConfidence: -8, unemployment: 0.5 }
+            },
+            {
+                node: 'individual',
+                text: '👤 Giá tiêu dùng tăng, đặc biệt thực phẩm và năng lượng',
+                effect: { consumerConfidence: -12, inflation: 1.5 }
+            },
+            {
+                node: 'central-bank',
+                text: `🏛️ ${c.centralBank} gặp thế khó: tăng lãi suất chống lạm phát sẽ đè thêm sản xuất`,
+                effect: { interestRate: 0.5 }
+            },
+            {
+                node: 'government',
+                text: '🏢 Chính phủ giảm thuế nhập khẩu, mở kho dự trữ chiến lược để giảm sốc giá',
+                effect: { inflation: -0.5, consumerConfidence: 5 }
+            }
+        ]
+    },
+    'cb-fights-inflation': {
+        title: 'NHTW chống lạm phát',
+        cat: 'crisis',
+        icon: '🏛️',
+        desc: 'Lạm phát vượt mục tiêu, NHTW phải hành động quyết liệt.',
+        hasSimulation: true,
+        getSteps: (c) => {
+            const targetRate = 2;
+            const currentInflation = c.inflationRate * 2.5;
+            return [
+                {
+                    node: 'central-bank',
+                    text: `🏛️ Lạm phát ${currentInflation}% vượt xa mục tiêu ${targetRate}%, ${c.centralBank} họp khẩn`,
+                    inputs: { 'Lạm phát': `${currentInflation}%`, 'Mục tiêu': `${targetRate}%` }
+                },
+                {
+                    node: 'central-bank',
+                    text: `🏛️ Tăng lãi suất chính sách thêm 1.5%, phát tín hiệu hawkish`,
+                    effect: { interestRate: 1.5, moneySupply: -c.sampleAmount * 500 }
+                },
+                {
+                    node: 'commercial-bank',
+                    text: '🏦 Lãi vay tăng, tín dụng thắt lại, doanh nghiệp khó vay mới',
+                    effect: { creditGrowth: -3 }
+                },
+                {
+                    node: 'labor-market',
+                    text: '👷 Doanh nghiệp ngừng tuyển, một số sa thải để cắt chi phí',
+                    effect: { unemployment: 1.2, consumerConfidence: -8 }
+                },
+                {
+                    node: 'individual',
+                    text: '👤 Tiêu dùng giảm, cầu hạ nhiệt, áp lực giá dịu bớt',
+                    effect: { inflation: -1.5, consumerConfidence: -5 }
+                },
+                {
+                    node: 'central-bank',
+                    text: `🏛️ Sau 12-18 tháng, lạm phát về gần mục tiêu nhưng kinh tế đã chậm lại`,
+                    outputs: { 'Lạm phát mới': `~${targetRate + 1}%`, 'GDP': '-1.5%' },
+                    effect: { inflation: -1, gdpGrowth: -1.5 }
+                }
+            ];
+        }
+    },
+    'labor-shortage': {
+        title: 'Thiếu hụt lao động',
+        cat: 'crisis',
+        icon: '👷',
+        desc: 'Khi doanh nghiệp không tuyển được người, lương tăng và giá hàng cũng tăng.',
+        getSteps: (c) => [
+            {
+                node: 'labor-market',
+                text: '👷 Già hóa dân số + lao động trẻ chuyển ngành → cung lao động giảm',
+                effect: { unemployment: -2 }
+            },
+            {
+                node: 'business',
+                text: '🏭 Doanh nghiệp tăng lương 15-20% để giữ người, chi phí sản xuất phình',
+                inputs: { 'Tăng lương': '+18%' },
+                effect: { businessConfidence: -5, inflation: 1 }
+            },
+            {
+                node: 'supply-chain',
+                text: '🚢 Thiếu tài xế, công nhân kho → giao hàng chậm, tồn kho tăng',
+                effect: { businessConfidence: -3 }
+            },
+            {
+                node: 'individual',
+                text: '👤 Người có việc được tăng lương, nhưng giá hàng cũng tăng theo',
+                effect: { consumerConfidence: 2, inflation: 0.8 }
+            },
+            {
+                node: 'central-bank',
+                text: `🏛️ ${c.centralBank} theo dõi Unit Labor Cost — nếu lương tăng nhanh hơn năng suất, lạm phát sẽ dai dẳng`,
+                effect: { interestRate: 0.5 }
+            },
+            {
+                node: 'government',
+                text: '🏢 Chính phủ đẩy mạnh đào tạo nghề, nới visa lao động nước ngoài',
+                effect: { unemployment: 0.5, businessConfidence: 3 }
+            }
+        ]
+    },
+    'currency-depreciation': {
+        title: 'Mất giá nội tệ',
+        cat: 'war',
+        icon: '💱',
+        desc: 'Đồng nội tệ mất giá mạnh, tác động lên giá nhập khẩu và chuỗi cung ứng.',
+        getSteps: (c) => {
+            const depreciationPct = 20;
+            return [
+                {
+                    node: 'foreign',
+                    text: `🌍 Dòng vốn ngoại rút khỏi ${c.country}, ${c.currency} mất giá ${depreciationPct}%`,
+                    effect: { exchangeRate: -depreciationPct, consumerConfidence: -10 }
+                },
+                {
+                    node: 'supply-chain',
+                    text: `🚢 Giá nguyên liệu nhập khẩu tính bằng ${c.currency} tăng ${depreciationPct}%`,
+                    effect: { inflation: depreciationPct * 0.3 }
+                },
+                {
+                    node: 'business',
+                    text: '🏭 DN nhập khẩu lỗ, DN xuất khẩu hưởng lợi tạm thời',
+                    effect: { businessConfidence: -5 }
+                },
+                {
+                    node: 'individual',
+                    text: `👤 Hàng nhập tăng giá, sức mua ${c.currency} giảm rõ rệt`,
+                    effect: { consumerConfidence: -8, inflation: 2 }
+                },
+                {
+                    node: 'central-bank',
+                    text: `🏛️ ${c.centralBank} bán ngoại tệ dự trữ để can thiệp tỷ giá`,
+                    effect: { exchangeRate: depreciationPct * 0.3, interestRate: 2 }
+                },
+                {
+                    node: 'labor-market',
+                    text: '👷 Doanh nghiệp nhập khẩu cắt giảm lao động, ngành xuất khẩu tuyển thêm',
+                    effect: { unemployment: 0.5 }
+                }
+            ];
+        }
     }
 };
 

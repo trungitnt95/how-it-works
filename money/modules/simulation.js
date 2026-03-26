@@ -219,3 +219,63 @@ function checkScenarioCondition(condition, scenarioId) {
     
     return { success, reason };
 }
+
+// ==================== ECONOMIC CALCULATORS ====================
+// Tiện ích tính toán mô phỏng sức mua, lạm phát và lợi suất thực
+function calculateRealReturn(principal, nominalRate, inflationRate, years) {
+    const nominalFV = principal * Math.pow(1 + nominalRate, years);
+    const realRate = (1 + nominalRate) / (1 + inflationRate) - 1;
+    const realFV = principal * Math.pow(1 + realRate, years);
+    const purchasingPowerFV = nominalFV / Math.pow(1 + inflationRate, years);
+    const lostValue = principal - purchasingPowerFV;
+
+    return {
+        nominalFV,
+        realRate,
+        realFV,
+        purchasingPowerFV,
+        lostValue
+    };
+}
+
+// Tính sức mua theo thời gian với lạm phát thay đổi
+function calculatePurchasingPower(amount, inflationRates) {
+    const timeline = [{ year: 0, nominal: amount, real: amount, cumulativeInflation: 0 }];
+    let real = amount;
+    let cumInflation = 1;
+
+    for (let i = 0; i < inflationRates.length; i++) {
+        const rate = inflationRates[i] / 100;
+        cumInflation *= (1 + rate);
+        real = amount / cumInflation;
+        timeline.push({
+            year: i + 1,
+            nominal: amount,
+            real: Math.round(real),
+            cumulativeInflation: Math.round((cumInflation - 1) * 10000) / 100
+        });
+    }
+
+    return {
+        timeline,
+        finalReal: Math.round(real),
+        totalLost: Math.round(amount - real),
+        lostPercent: Math.round((1 - real / amount) * 10000) / 100
+    };
+}
+
+// Tính tác động của thay đổi lãi suất lên dòng tiền doanh nghiệp và hộ gia đình
+function calculateRateImpact(loanAmount, currentRate, newRate, termYears) {
+    const monthlyOld = loanAmount * (currentRate / 1200) * Math.pow(1 + currentRate / 1200, termYears * 12) / (Math.pow(1 + currentRate / 1200, termYears * 12) - 1);
+    const monthlyNew = loanAmount * (newRate / 1200) * Math.pow(1 + newRate / 1200, termYears * 12) / (Math.pow(1 + newRate / 1200, termYears * 12) - 1);
+    const monthlyDiff = monthlyNew - monthlyOld;
+    const totalDiff = monthlyDiff * termYears * 12;
+
+    return {
+        monthlyOld: Math.round(monthlyOld),
+        monthlyNew: Math.round(monthlyNew),
+        monthlyDiff: Math.round(monthlyDiff),
+        totalDiff: Math.round(totalDiff),
+        percentIncrease: Math.round(monthlyDiff / monthlyOld * 10000) / 100
+    };
+}

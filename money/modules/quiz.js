@@ -30,7 +30,9 @@ const componentQuizCategoryMap = {
     'credit-rating': 'risk',
     'fintech': 'modern',
     'crypto': 'modern',
-    'startup': 'modern'
+    'startup': 'modern',
+    'labor-market': 'overview',
+    'supply-chain': 'overview'
 };
 
 const componentRoleFocus = {
@@ -113,6 +115,14 @@ const componentRoleFocus = {
     'startup': {
         answer: 'Đổi vốn mạo hiểm lấy tăng trưởng và khả năng mở rộng tương lai',
         explanation: 'Startup thường chưa có tài sản cứng hay lợi nhuận lớn; giá trị của nó nằm ở sản phẩm, dữ liệu, tốc độ học hỏi và khả năng scale.'
+    },
+    'labor-market': {
+        answer: 'Kết nối cung-cầu lao động, quyết định lương và việc làm trong nền kinh tế',
+        explanation: 'Thị trường lao động là nơi doanh nghiệp tìm người, người tìm việc. Lương và tỷ lệ thất nghiệp phản ánh sức khỏe thật của nền kinh tế.'
+    },
+    'supply-chain': {
+        answer: 'Vận chuyển hàng hóa từ nguyên liệu đến tay người tiêu dùng qua nhiều mắt xích',
+        explanation: 'Chuỗi cung ứng là hệ mạch máu của nền kinh tế thực. Khi đứt gãy, giá tăng và sản xuất đình trệ dù tiền vẫn dư thừa.'
     }
 };
 
@@ -577,6 +587,127 @@ const curatedQuizQuestions = [
         ['Mất khóa riêng có thể đồng nghĩa mất quyền truy cập tài sản', 'Không còn biến động giá', 'Token tự chuyển thành tiền mặt', 'Sàn tập trung phải hoàn tiền cho bạn'],
         0,
         'Tự giữ tài sản giúp bớt phụ thuộc sàn, nhưng cũng khiến trách nhiệm bảo mật chuyển hoàn toàn sang người dùng.'
+    ),
+    // ==================== ECONOMICS (15) ====================
+    q(
+        'econ-01',
+        'policy',
+        'Lạm phát do chi phí đẩy (cost-push) thường bắt nguồn từ đâu?',
+        ['Giá nguyên liệu hoặc chuỗi cung ứng đứt gãy', 'Người dân tiêu quá nhiều tiền', 'Ngân hàng trung ương in thêm tiền', 'Thị trường chứng khoán tăng mạnh'],
+        0,
+        'Lạm phát chi phí đẩy xảy ra khi chi phí sản xuất tăng (nguyên liệu, vận tải, lương) buộc doanh nghiệp phải tăng giá bán.'
+    ),
+    q(
+        'econ-02',
+        'policy',
+        'Đường Phillips nguyên bản mô tả mối quan hệ gì?',
+        ['Nghịch: thất nghiệp thấp thường đi cùng lạm phát cao', 'Thuận: lạm phát cao luôn đi cùng thất nghiệp cao', 'Không có quan hệ giữa lạm phát và thất nghiệp', 'Lãi suất luôn bằng tỷ lệ lạm phát'],
+        0,
+        'Phillips (1958) nhận thấy khi thất nghiệp thấp, lương tăng nhanh hơn → chi phí lên → giá tăng. Tuy nhiên mối quan hệ này không ổn định trong mọi giai đoạn.'
+    ),
+    q(
+        'econ-03',
+        'overview',
+        'NAIRU là gì?',
+        ['Tỷ lệ thất nghiệp mà dưới đó lạm phát có xu hướng tăng nhanh', 'Lãi suất tối thiểu của ngân hàng trung ương', 'Tỷ lệ dự trữ bắt buộc tối thiểu', 'Chỉ số đo năng suất lao động quốc gia'],
+        0,
+        'Non-Accelerating Inflation Rate of Unemployment: nếu thất nghiệp thực tế thấp hơn NAIRU, áp lực lương và giá sẽ tăng dần.'
+    ),
+    q(
+        'econ-04',
+        'overview',
+        'Unit Labor Cost (chi phí lao động đơn vị) tăng nhanh hơn năng suất có nghĩa gì?',
+        ['Doanh nghiệp phải tăng giá hoặc chấp nhận giảm lợi nhuận', 'Nền kinh tế nhất định sẽ suy thoái ngay lập tức', 'Thất nghiệp sẽ giảm về 0', 'Lạm phát sẽ tự biến mất'],
+        0,
+        'Khi lương tăng nhanh hơn sản lượng trên đầu người, chi phí sản xuất mỗi đơn vị hàng hóa tăng, tạo áp lực giá kéo dài.'
+    ),
+    q(
+        'econ-05',
+        'overview',
+        'Cung-cầu trong kinh tế: khi cung giảm mạnh mà cầu không đổi thì giá sẽ?',
+        ['Tăng', 'Giảm', 'Không đổi', 'Phụ thuộc vào chính phủ'],
+        0,
+        'Khi cung co lại (thiếu hàng, đứt gãy chuỗi cung ứng) mà cầu vẫn giữ nguyên, giá cân bằng phải tăng để phân bổ hàng hóa khan hiếm.'
+    ),
+    q(
+        'econ-06',
+        'overview',
+        'Bullwhip Effect trong chuỗi cung ứng là gì?',
+        ['Biến động nhỏ ở bán lẻ bị khuếch đại lớn dần khi truyền ngược về nhà sản xuất', 'Hàng hóa bị hư hỏng trong quá trình vận chuyển', 'Giá luôn giảm ở cuối chuỗi', 'Nhà sản xuất luôn dự báo đúng cầu'],
+        0,
+        'Mỗi mắt xích chuỗi cung ứng thường đặt hàng nhiều hơn cần thiết "cho chắc", tích lũy sai lệch lớn dần ở đầu nguồn.'
+    ),
+    q(
+        'econ-07',
+        'policy',
+        'Vì sao NHTW thường phải chờ 12-18 tháng để thấy tác động đầy đủ của thay đổi lãi suất?',
+        ['Vì chính sách tiền tệ truyền dẫn qua nhiều kênh với độ trễ khác nhau', 'Vì ngân hàng thương mại luôn phớt lờ NHTW', 'Vì doanh nghiệp có thể chống lại chính sách', 'Vì lạm phát chỉ xảy ra vào cuối năm'],
+        0,
+        'Thay đổi lãi suất phải đi qua kênh tín dụng, kênh tỷ giá, kênh tài sản và kênh kỳ vọng. Mỗi kênh có độ trễ riêng, nên hiệu lực tổng hợp mất nhiều tháng.'
+    ),
+    q(
+        'econ-08',
+        'overview',
+        'GDP thực khác GDP danh nghĩa ở điểm gì?',
+        ['GDP thực đã loại bỏ ảnh hưởng của lạm phát', 'GDP thực luôn lớn hơn GDP danh nghĩa', 'GDP danh nghĩa tính theo ngoại tệ', 'Không có sự khác biệt nào'],
+        0,
+        'GDP danh nghĩa tính theo giá hiện hành, GDP thực đã điều chỉnh lạm phát nên phản ánh sản lượng thật sự thay đổi bao nhiêu.'
+    ),
+    q(
+        'econ-09',
+        'overview',
+        'Chỉ số PMI dưới 50 cho thấy điều gì?',
+        ['Sản xuất đang thu hẹp so với tháng trước', 'Nền kinh tế chắc chắn suy thoái', 'Lạm phát đã biến mất', 'Xuất khẩu đang tăng mạnh'],
+        0,
+        'PMI (Purchasing Managers Index) trên 50 = mở rộng, dưới 50 = thu hẹp. Nó dựa trên khảo sát đơn hàng mới, sản lượng, tồn kho, giao hàng và việc làm.'
+    ),
+    q(
+        'econ-10',
+        'overview',
+        'Năng suất lao động tăng bền vững giúp gì cho nền kinh tế?',
+        ['Cho phép lương tăng mà không tạo lạm phát', 'Luôn làm thất nghiệp giảm về 0', 'Xóa bỏ hoàn toàn chu kỳ kinh tế', 'Khiến NHTW không cần can thiệp'],
+        0,
+        'Khi mỗi giờ làm việc tạo ra nhiều giá trị hơn, doanh nghiệp có thể trả lương cao hơn mà vẫn giữ giá bán ổn định.'
+    ),
+    q(
+        'econ-11',
+        'policy',
+        'Stagflation (đình lạm) là khi nào?',
+        ['Lạm phát cao đi cùng tăng trưởng thấp và thất nghiệp cao', 'Lạm phát và tăng trưởng đều rất cao', 'Giảm phát kéo dài', 'Thất nghiệp bằng 0% nhưng GDP giảm'],
+        0,
+        'Stagflation là kịch bản khó nhất cho chính sách: thắt chặt tiền tệ chống lạm phát sẽ đè thêm tăng trưởng, nới lỏng thì lạm phát thêm nóng.'
+    ),
+    q(
+        'econ-12',
+        'overview',
+        'Khi đồng nội tệ mất giá 20%, giá hàng nhập khẩu chịu ảnh hưởng như thế nào?',
+        ['Tăng vì cần nhiều nội tệ hơn để mua cùng lượng hàng', 'Giảm vì xuất khẩu thuận lợi hơn', 'Không đổi vì giá thế giới như cũ', 'Giảm vì NHTW can thiệp'],
+        0,
+        'Nội tệ yếu đi trực tiếp làm tăng giá hàng nhập tính bằng đồng nội tệ, góp phần vào lạm phát nhập khẩu.'
+    ),
+    q(
+        'econ-13',
+        'overview',
+        'Tỷ lệ tham gia lực lượng lao động khác tỷ lệ thất nghiệp ở điểm gì?',
+        ['Nó đo cả những người đã từ bỏ tìm việc mà thất nghiệp chính thức không đếm', 'Hai chỉ số luôn cho kết quả giống nhau', 'Chỉ áp dụng cho khu vực công', 'Không liên quan đến thị trường lao động'],
+        0,
+        'Thất nghiệp chính thức chỉ đếm người đang tìm việc. Tỷ lệ tham gia đo cả những người nản chí rời khỏi lực lượng lao động.'
+    ),
+    q(
+        'econ-14',
+        'overview',
+        'Baltic Dry Index đo gì?',
+        ['Giá cước vận tải hàng rời bằng đường biển', 'Lượng cá đánh bắt ở Biển Baltic', 'Tỷ lệ thất nghiệp ngành hàng hải', 'GDP các nước vùng Baltic'],
+        0,
+        'BDI phản ánh chi phí vận chuyển nguyên liệu thô (quặng sắt, than, ngũ cốc) bằng đường biển, là chỉ báo sớm cho hoạt động thương mại và sản xuất toàn cầu.'
+    ),
+    q(
+        'econ-15',
+        'policy',
+        'Vì sao việc làm thường phục hồi chậm hơn GDP sau suy thoái?',
+        ['Vì doanh nghiệp chờ chắc chắn cầu đã ổn mới dám tuyển lại', 'Vì GDP luôn sai', 'Vì người lao động không muốn đi làm', 'Vì chính phủ cấm tuyển dụng'],
+        0,
+        'Khi GDP bắt đầu tăng trở lại, doanh nghiệp thường tận dụng giờ làm thêm và cải thiện năng suất trước; chỉ tuyển mới khi thật sự cần.'
     )
 ];
 
