@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinh Doanh - How It Works</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#020617 0%,#0c1a3a 50%,#1e1b4b 100%);min-height:100vh;color:#fff}
+        a{color:inherit;text-decoration:none}
+
+        header{background:rgba(0,0,0,.45);backdrop-filter:blur(12px);padding:1rem 2rem;border-bottom:1px solid rgba(14,165,233,.2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:.5rem}
+        .back-home{color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:6px;background:rgba(255,255,255,.06);font-size:.9rem;transition:.2s}
+        .back-home:hover{background:rgba(255,255,255,.12);color:#fff}
+        header h1{font-size:1.4rem;background:linear-gradient(90deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        .hero{text-align:center;padding:3rem 2rem 2rem;max-width:860px;margin:0 auto}
+        .hero-icon{font-size:4rem;margin-bottom:1rem}
+        .hero h2{font-size:2.4rem;margin-bottom:.8rem;line-height:1.2}
+        .hero h2 span{background:linear-gradient(90deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:640px;margin:0 auto 1.5rem}
+        .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+        .hero-stat .num{font-size:1.8rem;font-weight:700;color:#38bdf8}
+        .hero-stat .lbl{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.1rem;text-align:center}
+
+        .tabs-container{max-width:1300px;margin:0 auto;padding:0 1.5rem 4rem}
+        .tabs-bar{display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.8rem;margin-bottom:2rem}
+        .tab-btn{padding:.55rem 1.1rem;border-radius:8px 8px 0 0;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;font-size:.9rem;transition:.2s;border-bottom:3px solid transparent}
+        .tab-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+        .tab-btn.active{color:#38bdf8;border-bottom-color:#0ea5e9;font-weight:600}
+        .tab-content{display:none}
+        .tab-content.active{display:block;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        .section-title{font-size:1.6rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+        .section-title span{background:linear-gradient(90deg,#0ea5e9,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .section-desc{color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7;font-size:1rem}
+
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-bottom:2rem}
+        .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c1,#0ea5e9),var(--c2,#6366f1))}
+        .card:hover{background:rgba(255,255,255,.08);border-color:rgba(14,165,233,.25);transform:translateY(-3px)}
+        .card-icon{font-size:2rem;margin-bottom:.8rem}
+        .card h3{font-size:1.1rem;margin-bottom:.6rem;color:#fff}
+        .card p,.card li{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6}
+        .card ul{padding-left:1.2rem;margin-top:.5rem}
+        .card ul li{margin-bottom:.3rem}
+        .card .badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+        .badge-sky{background:rgba(14,165,233,.2);color:#38bdf8;border:1px solid rgba(14,165,233,.3)}
+        .badge-indigo{background:rgba(99,102,241,.2);color:#a5b4fc;border:1px solid rgba(99,102,241,.3)}
+        .badge-green{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+        .badge-red{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}
+        .badge-amber{background:rgba(245,158,11,.2);color:#fbbf24;border:1px solid rgba(245,158,11,.3)}
+        .badge-purple{background:rgba(168,85,247,.2);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+
+        .expand-btn{display:flex;align-items:center;gap:.4rem;background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.25);color:#38bdf8;padding:.4rem .9rem;border-radius:6px;cursor:pointer;font-size:.82rem;margin-top:1rem;transition:.2s;width:fit-content}
+        .expand-btn:hover{background:rgba(14,165,233,.22)}
+        .expand-content{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08)}
+        .expand-content.open{display:block;animation:fadeIn .25s ease}
+
+        .table-wrap{overflow-x:auto;margin:1rem 0}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        th{background:rgba(14,165,233,.15);padding:.7rem 1rem;text-align:left;color:#38bdf8;font-weight:600;border-bottom:1px solid rgba(14,165,233,.25)}
+        td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+        tr:hover td{background:rgba(255,255,255,.03)}
+
+        .highlight{background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(99,102,241,.1));border:1px solid rgba(14,165,233,.25);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .highlight h4{color:#38bdf8;margin-bottom:.6rem;font-size:1rem}
+        .highlight p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+
+        .warning{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:1.2rem;margin:1rem 0}
+        .warning h4{color:#f87171;margin-bottom:.5rem}
+        .warning p,.warning li{color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.6}
+        .warning ul{padding-left:1.2rem;margin-top:.4rem}
+
+        /* Process steps */
+        .process{display:flex;flex-wrap:nowrap;overflow-x:auto;padding-bottom:1rem;margin:1rem 0;gap:0}
+        .process-step{min-width:140px;flex:1;text-align:center;position:relative;padding:0 .5rem}
+        .process-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:28px;color:rgba(14,165,233,.7);font-size:1.3rem;font-weight:700}
+        .step-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(14,165,233,.25),rgba(99,102,241,.25));border:2px solid rgba(14,165,233,.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto .5rem}
+        .process-step h4{font-size:.82rem;color:#fff;margin-bottom:.2rem}
+        .process-step p{font-size:.75rem;color:rgba(255,255,255,.55)}
+
+        /* Model cards */
+        .model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+        .model-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.3rem;text-align:center}
+        .model-icon{font-size:2rem;margin-bottom:.4rem}
+        .model-title{font-size:1rem;font-weight:600;margin-bottom:.3rem}
+        .model-tag{font-size:.75rem;color:#38bdf8;margin-bottom:.5rem}
+        .model-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5}
+        .model-example{font-size:.78rem;color:#fbbf24;margin-top:.5rem;font-style:italic}
+
+        /* KPI cards */
+        .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;margin:1rem 0}
+        .kpi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1rem;text-align:center}
+        .kpi-card .kpi-name{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.4rem}
+        .kpi-card .kpi-formula{font-size:.82rem;color:#38bdf8;font-family:monospace;background:rgba(14,165,233,.1);padding:.3rem .5rem;border-radius:4px;margin:.4rem 0}
+        .kpi-card .kpi-note{font-size:.78rem;color:#a5b4fc}
+
+        /* Compare */
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+        .compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem}
+        .compare-box h4{margin-bottom:.8rem;font-size:1rem}
+        .compare-box ul{list-style:none;padding:0}
+        .compare-box li{padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:.5rem}
+        .compare-box li::before{content:'•';color:#38bdf8;flex-shrink:0;margin-top:2px}
+
+        /* Lifecycle */
+        .lifecycle{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+        .lc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.1rem;text-align:center;position:relative}
+        .lc-icon{font-size:1.8rem;margin-bottom:.4rem}
+        .lc-stage{font-size:.72rem;color:#38bdf8;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+        .lc-name{font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+        .lc-desc{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.5}
+
+        @media(max-width:768px){
+            .hero h2{font-size:1.7rem}
+            .compare-grid{grid-template-columns:1fr}
+            .process{flex-direction:column;align-items:center}
+            .process-step:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+            .process-step{margin-bottom:1.5rem;min-width:auto;width:200px}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="../" class="back-home">← Trang chủ</a>
+        <h1>🏢 Kinh Doanh</h1>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-icon">🏢</div>
+    <h2>Kinh Doanh <span>Hoạt Động</span> Như Thế Nào</h2>
+    <p>Từ ý tưởng đến vận hành — hiểu toàn bộ cơ chế tạo ra giá trị, doanh thu và lợi nhuận bền vững</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">8</div><div class="lbl">Chủ đề chuyên sâu</div></div>
+        <div class="hero-stat"><div class="num">20+</div><div class="lbl">Mô hình kinh doanh</div></div>
+        <div class="hero-stat"><div class="num">4 giai đoạn</div><div class="lbl">Vòng đời doanh nghiệp</div></div>
+        <div class="hero-stat"><div class="num">15+</div><div class="lbl">KPIs quan trọng</div></div>
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('overview')" id="tab-overview">🏠 Tổng quan</button>
+        <button class="tab-btn" onclick="switchTab('models')" id="tab-models">📋 Mô hình kinh doanh</button>
+        <button class="tab-btn" onclick="switchTab('finance')" id="tab-finance">💰 Tài chính</button>
+        <button class="tab-btn" onclick="switchTab('startup')" id="tab-startup">🚀 Startup</button>
+        <button class="tab-btn" onclick="switchTab('operations')" id="tab-operations">⚙️ Vận hành</button>
+        <button class="tab-btn" onclick="switchTab('hr')" id="tab-hr">👥 Nhân sự</button>
+        <button class="tab-btn" onclick="switchTab('legal')" id="tab-legal">⚖️ Pháp lý</button>
+        <button class="tab-btn" onclick="switchTab('growth')" id="tab-growth">📈 Tăng trưởng</button>
+    </div>
+
+    <!-- ===== OVERVIEW ===== -->
+    <div class="tab-content active" id="content-overview">
+        <div class="section-title"><span>Kinh doanh là gì?</span></div>
+        <p class="section-desc">Kinh doanh là hoạt động tạo ra giá trị cho khách hàng và thu lợi nhuận. Đơn giản nhất: <strong>bạn giải quyết vấn đề của người khác và nhận tiền cho việc đó.</strong> Mọi doanh nghiệp — từ quán phở đầu ngõ đến Apple — đều vận hành theo nguyên lý này.</p>
+
+        <div class="highlight">
+            <h4>💡 Công thức kinh doanh cốt lõi</h4>
+            <p><strong>Lợi nhuận = Doanh thu − Chi phí</strong><br><br>
+            Doanh thu = Số khách hàng × Giá bán × Tần suất mua<br>
+            Chi phí = Chi phí cố định + Chi phí biến đổi<br><br>
+            Mọi quyết định kinh doanh cuối cùng đều quay về: <strong>tăng doanh thu</strong> hoặc <strong>giảm chi phí</strong> — nhưng phải giữ được giá trị cho khách hàng.</p>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>Vòng đời doanh nghiệp</span></div>
+        <div class="lifecycle">
+            <div class="lc-card">
+                <div class="lc-icon">💡</div>
+                <div class="lc-stage">Giai đoạn 1</div>
+                <div class="lc-name">Ý tưởng & Khởi tạo</div>
+                <div class="lc-desc">Phát hiện vấn đề → Validate ý tưởng → MVP → Tìm Product-Market Fit</div>
+            </div>
+            <div class="lc-card">
+                <div class="lc-icon">🌱</div>
+                <div class="lc-stage">Giai đoạn 2</div>
+                <div class="lc-name">Tăng trưởng</div>
+                <div class="lc-desc">Scale khách hàng → Xây team → Tối ưu unit economics → Fundraising</div>
+            </div>
+            <div class="lc-card">
+                <div class="lc-icon">🏢</div>
+                <div class="lc-stage">Giai đoạn 3</div>
+                <div class="lc-name">Trưởng thành</div>
+                <div class="lc-desc">Thị phần ổn định → Tối ưu lợi nhuận → Expansion → M&A</div>
+            </div>
+            <div class="lc-card">
+                <div class="lc-icon">🔄</div>
+                <div class="lc-stage">Giai đoạn 4</div>
+                <div class="lc-name">Chuyển đổi / Thoái</div>
+                <div class="lc-desc">Pivot → Tái cấu trúc → Bán doanh nghiệp → IPO hoặc đóng cửa</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>5 trụ cột của một doanh nghiệp</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">📦</div>
+                <h3>Sản phẩm / Dịch vụ (Product)</h3>
+                <p>Giá trị bạn tạo ra để giải quyết vấn đề cho khách hàng. Product-Market Fit là nền tảng — không có sản phẩm tốt, mọi thứ khác đều vô nghĩa.</p>
+                <ul>
+                    <li>R&D — Nghiên cứu phát triển sản phẩm</li>
+                    <li>UX — Trải nghiệm khách hàng</li>
+                    <li>Quality — Kiểm soát chất lượng</li>
+                    <li>Pricing — Định giá sản phẩm</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📣</div>
+                <h3>Marketing & Sales</h3>
+                <p>Cách bạn đưa sản phẩm đến khách hàng. Bao gồm brand, acquisition, conversion, và retention.</p>
+                <ul>
+                    <li>Brand positioning & messaging</li>
+                    <li>Customer acquisition channels</li>
+                    <li>Sales process & pipeline</li>
+                    <li>Customer retention & lifetime value</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">💰</div>
+                <h3>Tài chính (Finance)</h3>
+                <p>Dòng tiền là máu của doanh nghiệp. Hết tiền = game over, dù sản phẩm có tốt cỡ nào.</p>
+                <ul>
+                    <li>Cash flow management</li>
+                    <li>P&L, Balance sheet, Cash flow statement</li>
+                    <li>Budgeting & Forecasting</li>
+                    <li>Fundraising & Capital allocation</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">👥</div>
+                <h3>Nhân sự (People)</h3>
+                <p>Doanh nghiệp chỉ tốt bằng đội ngũ vận hành nó. Culture, hiring, organization design là các yếu tố quyết định.</p>
+                <ul>
+                    <li>Hiring & Onboarding</li>
+                    <li>Organization structure</li>
+                    <li>Culture & Values</li>
+                    <li>Compensation & Performance</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">⚙️</div>
+                <h3>Vận hành (Operations)</h3>
+                <p>Hệ thống internal giúp doanh nghiệp chạy mượt mà hàng ngày. Processes, tools, logistics, supply chain.</p>
+                <ul>
+                    <li>Process design & SOPs</li>
+                    <li>Supply chain & Logistics</li>
+                    <li>Technology & Infrastructure</li>
+                    <li>Legal & Compliance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h4>🎯 Tại sao 90% doanh nghiệp thất bại?</h4>
+            <p>
+            <strong>42%</strong> — Không có nhu cầu thị trường (No market need)<br>
+            <strong>29%</strong> — Hết tiền (Ran out of cash)<br>
+            <strong>23%</strong> — Không đúng team (Not the right team)<br>
+            <strong>19%</strong> — Bị cạnh tranh đánh bại (Got outcompeted)<br>
+            <strong>17%</strong> — Sản phẩm kém (Product issues)<br>
+            <strong>14%</strong> — Thiếu chiến lược giá (Pricing/cost issues)<br><br>
+            <em>— CB Insights, nghiên cứu 101+ startup thất bại</em>
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== MODELS ===== -->
+    <div class="tab-content" id="content-models">
+        <div class="section-title"><span>Các mô hình kinh doanh</span></div>
+        <p class="section-desc">Mô hình kinh doanh (Business Model) mô tả cách doanh nghiệp tạo ra, cung cấp, và thu lại giá trị. Chọn đúng mô hình quyết định thành bại.</p>
+
+        <div class="highlight">
+            <h4>📋 Business Model Canvas — 9 block cốt lõi (Alexander Osterwalder)</h4>
+            <p>
+            <strong>1. Customer Segments:</strong> Bạn phục vụ ai?<br>
+            <strong>2. Value Propositions:</strong> Bạn giải quyết vấn đề gì?<br>
+            <strong>3. Channels:</strong> Đến tay khách qua kênh nào?<br>
+            <strong>4. Customer Relationships:</strong> Quan hệ với KH ra sao?<br>
+            <strong>5. Revenue Streams:</strong> Kiếm tiền bằng cách nào?<br>
+            <strong>6. Key Resources:</strong> Cần tài nguyên gì quan trọng?<br>
+            <strong>7. Key Activities:</strong> Hoạt động cốt lõi là gì?<br>
+            <strong>8. Key Partnerships:</strong> Đối tác chiến lược?<br>
+            <strong>9. Cost Structure:</strong> Chi phí chính là gì?
+            </p>
+        </div>
+
+        <div class="model-grid">
+            <div class="model-card">
+                <div class="model-icon">🛒</div>
+                <div class="model-title">E-commerce / Bán lẻ</div>
+                <div class="model-tag">Mua → Bán với margin</div>
+                <div class="model-desc">Mua hàng từ nhà sản xuất/nhà phân phối, bán cho người tiêu dùng với giá cao hơn.</div>
+                <div class="model-example">Thế Giới Di Động, Shopee sellers, Amazon</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🔄</div>
+                <div class="model-title">Subscription / SaaS</div>
+                <div class="model-tag">Phí định kỳ hàng tháng/năm</div>
+                <div class="model-desc">Khách trả tiền đều đặn để sử dụng dịch vụ. Predictable revenue + high LTV.</div>
+                <div class="model-example">Netflix, Spotify, Slack, Salesforce</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🏪</div>
+                <div class="model-title">Marketplace / Sàn</div>
+                <div class="model-tag">Nối người mua & người bán</div>
+                <div class="model-desc">Platform nối cung-cầu, thu phí giao dịch hoặc listing fee. Network effects mạnh.</div>
+                <div class="model-example">Shopee, Grab, Airbnb, Uber</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">📣</div>
+                <div class="model-title">Advertising / Quảng cáo</div>
+                <div class="model-tag">Miễn phí cho user, thu tiền advertiser</div>
+                <div class="model-desc">Cung cấp sản phẩm miễn phí để có lượng user lớn, kiếm tiền từ quảng cáo.</div>
+                <div class="model-example">Google, Facebook, YouTube, TikTok</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🆓</div>
+                <div class="model-title">Freemium</div>
+                <div class="model-tag">Free cơ bản, trả cho premium</div>
+                <div class="model-desc">Bản miễn phí để onboard user, monetize 2-5% user trả phí premium.</div>
+                <div class="model-example">Zoom, Dropbox, Canva, LinkedIn</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🏭</div>
+                <div class="model-title">Sản xuất / Manufacturing</div>
+                <div class="model-tag">Sản xuất → Phân phối → Bán</div>
+                <div class="model-desc">Sở hữu nhà máy, sản xuất hàng hóa và bán qua kênh phân phối.</div>
+                <div class="model-example">Vinamilk, Samsung, Toyota, Apple</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🛎️</div>
+                <div class="model-title">Dịch vụ / Service</div>
+                <div class="model-tag">Bán thời gian & chuyên môn</div>
+                <div class="model-desc">Cung cấp dịch vụ chuyên môn: tư vấn, thiết kế, kế toán, luật...</div>
+                <div class="model-example">McKinsey, Deloitte, Agency, Freelancer</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">🔑</div>
+                <div class="model-title">Licensing / Nhượng quyền</div>
+                <div class="model-tag">Thu phí sở hữu trí tuệ / brand</div>
+                <div class="model-desc">Cho phép bên khác sử dụng IP, patent, brand, recipe để kinh doanh.</div>
+                <div class="model-example">McDonald's franchise, Qualcomm patents, Disney licensing</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">📦</div>
+                <div class="model-title">Dropshipping</div>
+                <div class="model-tag">Bán hàng không cần kho</div>
+                <div class="model-desc">Nhận đơn từ KH, chuyển cho supplier ship trực tiếp. Vốn thấp, margin thấp.</div>
+                <div class="model-example">Shopify stores, AliExpress resellers</div>
+            </div>
+            <div class="model-card">
+                <div class="model-icon">📱</div>
+                <div class="model-title">Platform / API Economy</div>
+                <div class="model-tag">Xây platform cho developers</div>
+                <div class="model-desc">Cung cấp API/SDK, thu phí per-use hoặc subscription cho developers/businesses.</div>
+                <div class="model-example">Stripe, Twilio, AWS, Momo API</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:1.5rem"><span>Mô hình doanh thu (Revenue Models)</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Mô hình</th><th>Cách tính tiền</th><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead>
+                <tbody>
+                    <tr><td>One-time sale</td><td>Bán 1 lần, nhận tiền 1 lần</td><td>Đơn giản, dễ hiểu</td><td>Phải liên tục tìm KH mới</td></tr>
+                    <tr><td>Subscription</td><td>Phí định kỳ (tháng/năm)</td><td>Doanh thu ổn định, dự đoán được</td><td>Cần giữ chân KH liên tục</td></tr>
+                    <tr><td>Usage-based</td><td>Trả theo lượng sử dụng</td><td>Dễ onboard (bắt đầu nhỏ)</td><td>Doanh thu khó dự đoán</td></tr>
+                    <tr><td>Commission / Take rate</td><td>% trên giao dịch qua platform</td><td>Scale với volume</td><td>Cần đạt liquidity trước</td></tr>
+                    <tr><td>Licensing</td><td>Phí sử dụng IP, brand</td><td>Passive, margin cao</td><td>Cần tạo IP mạnh trước</td></tr>
+                    <tr><td>Advertising</td><td>Thu từ advertiser</td><td>Free cho user → scale nhanh</td><td>Cần hàng triệu users</td></tr>
+                    <tr><td>Data monetization</td><td>Bán dữ liệu / insights</td><td>Margin gần 100%</td><td>Vấn đề privacy, luật GDPR</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== FINANCE ===== -->
+    <div class="tab-content" id="content-finance">
+        <div class="section-title"><span>Tài chính doanh nghiệp</span></div>
+        <p class="section-desc">"Doanh thu là vanity, lợi nhuận là sanity, dòng tiền là reality." — Cash flow (dòng tiền) có thể giết chết doanh nghiệp có lãi trên giấy. Hiểu tài chính là sinh tồn.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>3 báo cáo tài chính quan trọng nhất</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-green">Báo cáo #1</div>
+                <h3>P&L — Báo cáo Kết quả Kinh doanh</h3>
+                <p>Cho biết doanh nghiệp <strong>lãi hay lỗ</strong> trong một giai đoạn. Cấu trúc:</p>
+                <ul>
+                    <li><strong>Doanh thu (Revenue)</strong> − Giá vốn hàng bán = <strong>Lợi nhuận gộp (Gross Profit)</strong></li>
+                    <li>Lợi nhuận gộp − Chi phí vận hành = <strong>EBITDA</strong></li>
+                    <li>EBITDA − Khấu hao − Lãi vay − Thuế = <strong>Lợi nhuận ròng (Net Profit)</strong></li>
+                </ul>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chỉ số quan trọng</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Gross Margin:</strong> Lợi nhuận gộp / Doanh thu (SaaS: 70-80%, Retail: 20-40%)</li>
+                        <li><strong>Operating Margin:</strong> EBIT / Doanh thu (SaaS: 20-30%, Startup: âm)</li>
+                        <li><strong>Net Margin:</strong> Lợi nhuận ròng / Doanh thu</li>
+                        <li><strong>COGS:</strong> Chi phí trực tiếp tạo ra sản phẩm/dịch vụ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">🏦</div>
+                <div class="badge badge-sky">Báo cáo #2</div>
+                <h3>Balance Sheet — Bảng cân đối kế toán</h3>
+                <p>Chụp lại "bức ảnh" tài sản, nợ, và vốn chủ sở hữu tại một thời điểm.</p>
+                <ul>
+                    <li><strong>Tài sản (Assets)</strong> = Nợ phải trả (Liabilities) + Vốn chủ sở hữu (Equity)</li>
+                    <li>Tài sản ngắn hạn: tiền mặt, hàng tồn kho, phải thu</li>
+                    <li>Tài sản dài hạn: bất động sản, máy móc, IP</li>
+                    <li>Nợ: vay ngân hàng, phải trả nhà cung cấp, thuế</li>
+                    <li>Equity: vốn góp + lợi nhuận giữ lại</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">💸</div>
+                <div class="badge badge-amber">Báo cáo #3 — Quan trọng nhất</div>
+                <h3>Cash Flow Statement — Báo cáo Dòng tiền</h3>
+                <p>Cho biết tiền thực sự <strong>vào/ra</strong> doanh nghiệp — khác P&L vì có thể lãi trên giấy nhưng hết tiền mặt.</p>
+                <ul>
+                    <li><strong>Operating CF:</strong> Từ hoạt động kinh doanh (phải dương)</li>
+                    <li><strong>Investing CF:</strong> Mua/bán tài sản, đầu tư (thường âm khi mở rộng)</li>
+                    <li><strong>Financing CF:</strong> Vay/trả nợ, gọi vốn, chia cổ tức</li>
+                </ul>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Cash Flow ≠ Profit</button>
+                <div class="expand-content">
+                    <p>Nhiều công ty phá sản dù có lãi — vì khách nợ chưa trả (Account Receivable), nhưng phải trả nhà cung cấp trước. Quản lý cash flow là kỹ năng sinh tồn #1.</p>
+                    <p style="margin-top:.5rem"><strong>Rule of thumb:</strong> Luôn giữ runway (tiền mặt / burn rate hàng tháng) ≥ 6 tháng.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:1.5rem"><span>Unit Economics — Kinh tế đơn vị</span></div>
+        <p class="section-desc">Unit economics trả lời câu hỏi: <strong>"Mỗi khách hàng/giao dịch bạn lãi hay lỗ bao nhiêu?"</strong>. Nếu unit economics âm, scale chỉ tăng lỗ nhanh hơn.</p>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">CAC — Customer Acquisition Cost</div>
+                <div class="kpi-formula">Marketing Spend / New Customers</div>
+                <div class="kpi-note">Chi phí để có 1 khách hàng mới</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">LTV — Lifetime Value</div>
+                <div class="kpi-formula">ARPU × Gross Margin × Lifetime</div>
+                <div class="kpi-note">Tổng giá trị 1 KH mang lại</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">LTV : CAC Ratio</div>
+                <div class="kpi-formula">LTV / CAC ≥ 3:1</div>
+                <div class="kpi-note">✓ ≥ 3:1 mới bền vững</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Payback Period</div>
+                <div class="kpi-formula">CAC / Monthly Gross Profit per Customer</div>
+                <div class="kpi-note">✓ &lt; 12 tháng là lý tưởng</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Contribution Margin</div>
+                <div class="kpi-formula">(Revenue − Variable Cost) / Revenue</div>
+                <div class="kpi-note">Phần đóng góp vào fixed cost + profit</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Burn Rate</div>
+                <div class="kpi-formula">Monthly Cash Outflow − Inflow</div>
+                <div class="kpi-note">Tốc độ đốt tiền hàng tháng (startup)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Runway</div>
+                <div class="kpi-formula">Cash Balance / Monthly Burn Rate</div>
+                <div class="kpi-note">Số tháng sống được với tiền hiện có</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Break-even Point</div>
+                <div class="kpi-formula">Fixed Costs / Contribution Margin</div>
+                <div class="kpi-note">Số đơn/doanh thu cần để hòa vốn</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:1.5rem"><span>Nguồn vốn (Funding Sources)</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Nguồn vốn</th><th>Đặc điểm</th><th>Phù hợp khi</th></tr></thead>
+                <tbody>
+                    <tr><td>Bootstrapping (tự bỏ vốn)</td><td>Không pha loãng, kiểm soát 100%</td><td>Sản phẩm có lãi sớm, không cần scale nhanh</td></tr>
+                    <tr><td>Angel Investors</td><td>$50K–$500K, đổi 5-20% equity</td><td>Pre-seed / Seed, cần mentorship + tiền</td></tr>
+                    <tr><td>Venture Capital</td><td>$500K–$100M+, kỳ vọng 10x return</td><td>Scale nhanh, winner-take-all market</td></tr>
+                    <tr><td>Vay ngân hàng</td><td>Không pha loãng, cần thế chấp/dòng tiền</td><td>Doanh nghiệp có tài sản hoặc doanh thu ổn</td></tr>
+                    <tr><td>Revenue-based Financing</td><td>Trả nợ theo % doanh thu</td><td>SaaS, E-commerce có recurring revenue</td></tr>
+                    <tr><td>Crowdfunding</td><td>Kickstarter, Indiegogo — thu tiền từ cộng đồng</td><td>Consumer products, creative projects</td></tr>
+                    <tr><td>Government Grants</td><td>Không cần hoàn trả, nhiều thủ tục</td><td>R&D, innovation, social impact</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== STARTUP ===== -->
+    <div class="tab-content" id="content-startup">
+        <div class="section-title"><span>Khởi nghiệp — Startup 101</span></div>
+        <p class="section-desc">Startup không chỉ là "công ty nhỏ". Startup là một tổ chức tạm thời, tìm kiếm mô hình kinh doanh có thể lặp lại và mở rộng (scalable, repeatable) trong điều kiện không chắc chắn cực cao.</p>
+
+        <div class="process">
+            <div class="process-step">
+                <div class="step-circle">💡</div>
+                <h4>Problem</h4>
+                <p>Xác định vấn đề rõ ràng, đau đớn</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🔍</div>
+                <h4>Validate</h4>
+                <p>Nghiên cứu thị trường, phỏng vấn KH</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🛠️</div>
+                <h4>MVP</h4>
+                <p>Sản phẩm tối giản khả dụng</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">📊</div>
+                <h4>Measure</h4>
+                <p>Thu thập data, đo phản hồi</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🔄</div>
+                <h4>Iterate</h4>
+                <p>Pivot hoặc persevere</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🎯</div>
+                <h4>PMF</h4>
+                <p>Product-Market Fit</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🚀</div>
+                <h4>Scale</h4>
+                <p>Gọi vốn, mở rộng</p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">🎯</div>
+                <div class="badge badge-sky">Quan trọng nhất</div>
+                <h3>Product-Market Fit (PMF)</h3>
+                <p>"Being in a good market with a product that can satisfy that market." — Marc Andreessen</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Dấu hiệu bạn có PMF</button>
+                <div class="expand-content">
+                    <ul>
+                        <li>Khách hàng tự tìm đến bạn (word-of-mouth)</li>
+                        <li>Retention rate cao — người dùng quay lại</li>
+                        <li>Demand > Capacity — bạn không kịp serve</li>
+                        <li>Sean Ellis test: 40%+ users "very disappointed" nếu không có sản phẩm</li>
+                        <li>NPS (Net Promoter Score) > 40</li>
+                    </ul>
+                    <p style="margin-top:.5rem"><strong>Trước PMF:</strong> Tập trung 100% vào tìm PMF. Đừng scale, đừng hire, đừng optimize.<br>
+                    <strong>Sau PMF:</strong> Đổ fuel vào lửa — scale marketing, hiring, fundraising.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">🏗️</div>
+                <div class="badge badge-amber">Framework</div>
+                <h3>Lean Startup (Eric Ries)</h3>
+                <p>Build → Measure → Learn. Chu kỳ lặp nhanh nhất có thể để học từ thị trường thay vì giả định.</p>
+                <ul>
+                    <li><strong>Build:</strong> Tạo MVP cực đơn giản (1-2 tuần, không phải 6 tháng)</li>
+                    <li><strong>Measure:</strong> Launch → đo data thực (không phải survey/opinion)</li>
+                    <li><strong>Learn:</strong> Data nói gì? Pivot hay persevere?</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>MVP types:</strong> Landing page, Concierge (làm tay), Wizard of Oz (giả tự động), Prototype, Video demo</p>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🗺️</div>
+                <div class="badge badge-green">Gọi vốn</div>
+                <h3>Fundraising Stages</h3>
+                <ul>
+                    <li><strong>Pre-seed ($50K–$500K):</strong> Idea stage. Angel investors, friends & family.</li>
+                    <li><strong>Seed ($500K–$3M):</strong> MVP ra đời. Seed funds, micro VCs.</li>
+                    <li><strong>Series A ($3M–$15M):</strong> PMF đã có. Institutional VCs. Cần metrics rõ.</li>
+                    <li><strong>Series B ($15M–$50M):</strong> Scale proven model. Growth stage.</li>
+                    <li><strong>Series C+ ($50M+):</strong> Expansion, M&A, pre-IPO.</li>
+                </ul>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Metrics VCs muốn thấy</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>MRR/ARR:</strong> Monthly/Annual Recurring Revenue</li>
+                        <li><strong>MoM growth:</strong> 15-20%/tháng cho Seed, 10-15% cho Series A</li>
+                        <li><strong>Churn rate:</strong> &lt;5%/tháng cho SaaS</li>
+                        <li><strong>LTV:CAC ≥ 3:1</strong></li>
+                        <li><strong>NDR (Net Dollar Retention):</strong> ≥120% = expansion revenue</li>
+                        <li><strong>Gross Margin:</strong> ≥60% để có room cho growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🇻🇳</div>
+                <div class="badge badge-purple">VN Context</div>
+                <h3>Startup Ecosystem Việt Nam</h3>
+                <ul>
+                    <li><strong>VCs hoạt động ở VN:</strong> GIC, Temasek, 500 Global, Do Ventures, ThinkZone, VinaCapital</li>
+                    <li><strong>Accelerators:</strong> VIISA, Startup Vietnam, Topica Founder Institute</li>
+                    <li><strong>Unicorns VN:</strong> VNPay, VNG, MoMo, Sky Mavis (Axie Infinity)</li>
+                    <li><strong>Hot sectors:</strong> Fintech, EdTech, HealthTech, Logistics, F&B Tech</li>
+                    <li><strong>Challenges:</strong> Thị trường nhỏ, ít exit options (M&A/IPO), talent shortage ở senior level</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning">
+            <h4>🚨 Những sai lầm phổ biến của Startup</h4>
+            <ul>
+                <li><strong>Xây trước, validate sau:</strong> Mất 6 tháng code rồi mới biết không ai cần</li>
+                <li><strong>Giải pháp tìm vấn đề:</strong> Có công nghệ rồi mới tìm vấn đề → thường thất bại</li>
+                <li><strong>Scale quá sớm:</strong> Hire, spend marketing trước khi có PMF → burn cash</li>
+                <li><strong>Founding team conflict:</strong> 65% startup fail vì co-founder conflict (Noam Wasserman)</li>
+                <li><strong>Không phân biệt "busy" vs "productive":</strong> Làm features KH không cần</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== OPERATIONS ===== -->
+    <div class="tab-content" id="content-operations">
+        <div class="section-title"><span>Vận hành doanh nghiệp</span></div>
+        <p class="section-desc">Operations là "engine" — hệ thống giúp doanh nghiệp tạo ra và giao giá trị cho khách hàng một cách ổn định, hiệu quả, lặp lại được. Không có operations tốt, growth chỉ tạo ra chaos.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">📋</div>
+                <div class="badge badge-sky">Nền tảng</div>
+                <h3>Processes & SOPs</h3>
+                <p>SOP (Standard Operating Procedure) giúp mọi người làm đúng cách, mọi lần, không phụ thuộc vào 1 cá nhân.</p>
+                <ul>
+                    <li><strong>Document mọi quy trình</strong> lặp lại > 2 lần</li>
+                    <li><strong>Checklists</strong> cho tasks quan trọng (onboarding KH, release, incident)</li>
+                    <li><strong>Playbooks</strong> cho các scenario phức tạp (crisis, escalation)</li>
+                    <li><strong>Review quarterly:</strong> SOPs lỗi thời gây hại nhiều hơn không có</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📦</div>
+                <div class="badge badge-green">Supply Chain</div>
+                <h3>Chuỗi cung ứng & Logistics</h3>
+                <p>Dòng chảy vật lý: từ nguyên liệu → sản xuất → kho → giao hàng → khách.</p>
+                <ul>
+                    <li><strong>Procurement:</strong> Chọn & quản lý nhà cung cấp</li>
+                    <li><strong>Inventory management:</strong> Just-in-time vs safety stock</li>
+                    <li><strong>Warehousing:</strong> 3PL (thuê ngoài) vs tự vận hành</li>
+                    <li><strong>Last-mile delivery:</strong> Giao hàng tận nơi — thường chiếm 50%+ chi phí logistics</li>
+                    <li><strong>VN context:</strong> GHTK, Viettel Post, GHN, Ahamove</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">🛠️</div>
+                <div class="badge badge-amber">Tech Stack</div>
+                <h3>Công nghệ & Hạ tầng</h3>
+                <p>Technology là đòn bẩy (leverage) — giúp team nhỏ làm được việc lớn.</p>
+                <ul>
+                    <li><strong>ERP:</strong> SAP, Odoo, ERPNext (quản lý tổng thể)</li>
+                    <li><strong>CRM:</strong> Salesforce, HubSpot, Zoho (quản lý KH)</li>
+                    <li><strong>Project Management:</strong> Jira, Asana, Monday, ClickUp</li>
+                    <li><strong>Communication:</strong> Slack, Teams, Zalo Business</li>
+                    <li><strong>Accounting:</strong> MISA, Fast Accounting, Xero, QuickBooks</li>
+                    <li><strong>Analytics:</strong> GA4, Mixpanel, Amplitude, Metabase</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-purple">Metrics</div>
+                <h3>KPIs Vận hành</h3>
+                <ul>
+                    <li><strong>Throughput:</strong> Số đơn/sản phẩm xử lý per day/week</li>
+                    <li><strong>Cycle time:</strong> Thời gian hoàn thành 1 đơn vị</li>
+                    <li><strong>Defect rate:</strong> % sản phẩm/dịch vụ lỗi</li>
+                    <li><strong>On-time delivery:</strong> % giao hàng đúng hẹn</li>
+                    <li><strong>Customer satisfaction:</strong> CSAT, NPS</li>
+                    <li><strong>Employee utilization:</strong> Thời gian productive / tổng</li>
+                    <li><strong>Inventory turnover:</strong> COGS / Average Inventory</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">🔥</div>
+                <div class="badge badge-red">Risk</div>
+                <h3>Quản lý rủi ro (Risk Management)</h3>
+                <ul>
+                    <li><strong>Nhận diện:</strong> Brainstorm + historical data + industry benchmarks</li>
+                    <li><strong>Đánh giá:</strong> Probability × Impact = Risk Score</li>
+                    <li><strong>Ứng phó:</strong> Avoid, Mitigate, Transfer (bảo hiểm), Accept</li>
+                    <li><strong>Monitor:</strong> Theo dõi liên tục, update risk register</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Common risks:</strong> Mất key person, supplier fail, cash crunch, cyber attack, regulatory change, natural disaster</p>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">📈</div>
+                <h3>Scaling Operations</h3>
+                <p>Khi doanh nghiệp grow 10x, operations phải thay đổi fundamentally:</p>
+                <ul>
+                    <li><strong>Automate:</strong> Loại bỏ manual tasks (Zapier, n8n, custom scripts)</li>
+                    <li><strong>Delegate:</strong> Hire middle management, build layers</li>
+                    <li><strong>Systematize:</strong> Mọi thứ chạy bằng system, không bằng heroics</li>
+                    <li><strong>Measure:</strong> Dashboards real-time, weekly business reviews</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HR ===== -->
+    <div class="tab-content" id="content-hr">
+        <div class="section-title"><span>Quản lý nhân sự</span></div>
+        <p class="section-desc">"Culture eats strategy for breakfast." — Peter Drucker. Nhân sự không chỉ là HR department — mà là cách doanh nghiệp đối xử, phát triển, và giữ chân người tài.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">🎯</div>
+                <div class="badge badge-sky">Tuyển dụng</div>
+                <h3>Hiring — Tìm đúng người</h3>
+                <p>"Hire slow, fire fast" — Sai lầm tuyển dụng tốn 1.5-2x lương năm (cost of bad hire).</p>
+                <ul>
+                    <li><strong>JD rõ ràng:</strong> Kết quả kỳ vọng (outcomes) > list kỹ năng</li>
+                    <li><strong>Structured interviews:</strong> Câu hỏi giống nhau cho tất cả ứng viên → less bias</li>
+                    <li><strong>Work sample test:</strong> Cho làm thử task thật > hỏi lý thuyết</li>
+                    <li><strong>Culture fit vs Culture add:</strong> Tìm người bổ sung, không phải copy</li>
+                    <li><strong>Reference check:</strong> Gọi sếp cũ — nhiều người bỏ qua bước này</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🏗️</div>
+                <div class="badge badge-green">Tổ chức</div>
+                <h3>Organization Structure</h3>
+                <p>Cách tổ chức team ảnh hưởng trực tiếp đến tốc độ ra quyết định và accountability.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Các mô hình tổ chức</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Functional:</strong> Theo chức năng (Engineering, Marketing, Sales) — đơn giản, phù hợp &lt;50 người</li>
+                        <li><strong>Divisional:</strong> Theo sản phẩm/thị trường — mỗi division gần như mini-company</li>
+                        <li><strong>Matrix:</strong> Nhân viên report 2 line (functional + project) — phức tạp nhưng flexible</li>
+                        <li><strong>Flat/Holacracy:</strong> Ít hierarchy, self-organizing teams — phù hợp startup nhỏ</li>
+                        <li><strong>Squad model (Spotify):</strong> Cross-functional squads → tribes → chapters → guilds</li>
+                    </ul>
+                    <p style="margin-top:.5rem"><strong>Conway's Law:</strong> Kiến trúc sản phẩm phản ánh cấu trúc tổ chức. Tổ chức team sai → sản phẩm cũng sai.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">💰</div>
+                <div class="badge badge-amber">Compensation</div>
+                <h3>Lương & Phúc lợi</h3>
+                <ul>
+                    <li><strong>Base salary:</strong> Benchmark theo thị trường (Glassdoor, TopCV, VietnamWorks data)</li>
+                    <li><strong>Variable pay:</strong> Bonus theo performance (KPI, OKR)</li>
+                    <li><strong>Equity/ESOP:</strong> Stock options cho team sớm (thường 10-20% pool)</li>
+                    <li><strong>Benefits:</strong> Bảo hiểm sức khỏe, flexible working, learning budget</li>
+                    <li><strong>Total compensation:</strong> Nhìn tổng thể — không chỉ lương cứng</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🌟</div>
+                <div class="badge badge-purple">Culture</div>
+                <h3>Văn hóa doanh nghiệp</h3>
+                <p>Culture = "Cách mọi người hành xử khi không ai giám sát." Culture tốt retain người tốt; culture xấu đuổi người tốt đi.</p>
+                <ul>
+                    <li><strong>Values rõ ràng:</strong> 3-5 core values — dùng trong hiring, firing, promotion</li>
+                    <li><strong>Lead by example:</strong> Leaders walk the talk</li>
+                    <li><strong>Psychological safety:</strong> Ai cũng dám nói sai, đề xuất, phản đối</li>
+                    <li><strong>Transparency:</strong> Share thông tin (tài chính, chiến lược) rộng rãi</li>
+                    <li><strong>Recognition:</strong> Công nhận thành tích thường xuyên, public</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-red">Performance</div>
+                <h3>Performance Management</h3>
+                <ul>
+                    <li><strong>OKRs:</strong> Objectives & Key Results — Google, Intel style. Ambitious, measurable.</li>
+                    <li><strong>KPIs:</strong> Metrics xác định, thường dùng cho operational roles</li>
+                    <li><strong>1-on-1s:</strong> Họp riêng manager-report hàng tuần/2 tuần — không phải review, là coaching</li>
+                    <li><strong>360 feedback:</strong> Feedback từ peers, reports, manager — blind spots</li>
+                    <li><strong>PIP (Performance Improvement Plan):</strong> Cơ hội cải thiện trước khi sa thải</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">🎓</div>
+                <h3>Phát triển nhân viên</h3>
+                <ul>
+                    <li><strong>Career ladder:</strong> Lộ trình thăng tiến rõ ràng (IC track + Management track)</li>
+                    <li><strong>Mentoring:</strong> Cặp senior-junior để truyền kinh nghiệm</li>
+                    <li><strong>Learning budget:</strong> $500-$2000/năm cho courses, conferences</li>
+                    <li><strong>Rotation:</strong> Cho thử role/team khác để phát triển toàn diện</li>
+                    <li><strong>Knowledge sharing:</strong> Internal talks, Wiki, documentation culture</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h4>📊 HR Metrics quan trọng</h4>
+            <p>
+            <strong>Turnover rate:</strong> % nhân viên nghỉ trong năm (VN tech: 15-25%/năm là phổ biến)<br>
+            <strong>Time to hire:</strong> Trung bình bao lâu để tuyển 1 vị trí (VN: 30-60 ngày)<br>
+            <strong>Employee NPS (eNPS):</strong> "Bạn có giới thiệu công ty này cho bạn bè?" (>30 là tốt)<br>
+            <strong>Revenue per employee:</strong> Doanh thu / Tổng NV (benchmark hiệu suất)<br>
+            <strong>Cost per hire:</strong> Tổng chi phí recruiting / Số người tuyển
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== LEGAL ===== -->
+    <div class="tab-content" id="content-legal">
+        <div class="section-title"><span>Pháp lý kinh doanh</span></div>
+        <p class="section-desc">Không biết luật không miễn trừ trách nhiệm. Mọi quyết định kinh doanh đều có khía cạnh pháp lý — từ thành lập công ty, thuế, hợp đồng, đến bảo vệ sở hữu trí tuệ.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>Loại hình doanh nghiệp tại Việt Nam</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Loại hình</th><th>Số thành viên</th><th>Trách nhiệm</th><th>Phù hợp</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Hộ kinh doanh</strong></td><td>1 chủ</td><td>Vô hạn (tài sản cá nhân)</td><td>Buôn bán nhỏ, freelancer, kinh doanh online nhỏ</td></tr>
+                    <tr><td><strong>Doanh nghiệp tư nhân</strong></td><td>1 chủ</td><td>Vô hạn</td><td>Kinh doanh cá nhân, không muốn chia sẻ quyền</td></tr>
+                    <tr><td><strong>Công ty TNHH 1 TV</strong></td><td>1 chủ (cá nhân/tổ chức)</td><td>Hữu hạn (trong vốn góp)</td><td>Tốt nhất cho 1 founder → bảo vệ tài sản cá nhân</td></tr>
+                    <tr><td><strong>Công ty TNHH 2+ TV</strong></td><td>2–50 thành viên</td><td>Hữu hạn</td><td>Co-founders, partnership, công ty gia đình</td></tr>
+                    <tr><td><strong>Công ty Cổ phần (JSC)</strong></td><td>≥3 cổ đông</td><td>Hữu hạn</td><td>Muốn IPO, gọi vốn nhiều, phát hành cổ phiếu</td></tr>
+                    <tr><td><strong>Công ty Hợp danh</strong></td><td>≥2 thành viên hợp danh</td><td>Vô hạn (thành viên hợp danh)</td><td>Luật sư, kiểm toán (hiếm dùng)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cards-grid" style="margin-top:1.5rem">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">📄</div>
+                <div class="badge badge-sky">Thành lập</div>
+                <h3>Đăng ký kinh doanh tại VN</h3>
+                <ul>
+                    <li><strong>Bước 1:</strong> Chọn loại hình + tên + ngành nghề</li>
+                    <li><strong>Bước 2:</strong> Soạn hồ sơ (Điều lệ, Danh sách thành viên, Đăng ký DN)</li>
+                    <li><strong>Bước 3:</strong> Nộp tại Sở KH&ĐT hoặc online qua dangkykinhdoanh.gov.vn</li>
+                    <li><strong>Bước 4:</strong> Nhận Giấy chứng nhận ĐKKD (3-5 ngày làm việc)</li>
+                    <li><strong>Bước 5:</strong> Khắc dấu, mở tài khoản ngân hàng, đăng ký thuế</li>
+                    <li><strong>Bước 6:</strong> Mua chữ ký số, đăng ký hóa đơn điện tử</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">💸</div>
+                <div class="badge badge-amber">Thuế</div>
+                <h3>Các loại thuế doanh nghiệp</h3>
+                <ul>
+                    <li><strong>Thuế TNDN:</strong> 20% lợi nhuận trước thuế (CIT, phổ biến nhất)</li>
+                    <li><strong>Thuế GTGT (VAT):</strong> 8-10% (thu hộ từ KH, nộp ngân sách)</li>
+                    <li><strong>Thuế TNCN:</strong> 5-35% (lương nhân viên — công ty khấu trừ tại nguồn)</li>
+                    <li><strong>Thuế nhà thầu nước ngoài:</strong> 5-10% cho dịch vụ xuyên biên giới</li>
+                    <li><strong>BHXH, BHYT, BHTN:</strong> ~32% trên lương (17.5% DN + 10.5% NV)</li>
+                </ul>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Ưu đãi thuế</button>
+                <div class="expand-content">
+                    <ul>
+                        <li>Doanh nghiệp công nghệ: miễn thuế 4 năm đầu, giảm 50% trong 9 năm tiếp</li>
+                        <li>KCN, KCX: ưu đãi đặc biệt theo vùng</li>
+                        <li>Startup công nghệ: có thể áp dụng Nghị định 13/2019</li>
+                        <li>SMEs (vốn dưới 10 tỷ): thuế TNDN 15-17%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">📝</div>
+                <div class="badge badge-purple">Hợp đồng</div>
+                <h3>Các loại hợp đồng quan trọng</h3>
+                <ul>
+                    <li><strong>Hợp đồng lao động:</strong> Thử việc, xác định thời hạn, không xác định thời hạn</li>
+                    <li><strong>Hợp đồng góp vốn:</strong> Shareholders' Agreement — rất quan trọng cho co-founders</li>
+                    <li><strong>Hợp đồng mua bán:</strong> Terms, warranty, liability</li>
+                    <li><strong>NDA:</strong> Bảo mật thông tin</li>
+                    <li><strong>Non-compete:</strong> Cấm cạnh tranh (VN: giới hạn hiệu lực)</li>
+                    <li><strong>Hợp đồng dịch vụ / Contractor:</strong> Thuê ngoài, freelancer</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🛡️</div>
+                <div class="badge badge-green">IP</div>
+                <h3>Sở hữu trí tuệ (IP)</h3>
+                <ul>
+                    <li><strong>Nhãn hiệu (Trademark):</strong> Logo, tên thương hiệu — đăng ký tại Cục SHTT</li>
+                    <li><strong>Bản quyền (Copyright):</strong> Tự động có khi tạo ra tác phẩm — code, content, design</li>
+                    <li><strong>Sáng chế (Patent):</strong> Phát minh kỹ thuật — protected 20 năm</li>
+                    <li><strong>Bí mật kinh doanh:</strong> Công thức, thuật toán, data — protected qua NDA</li>
+                    <li><strong>Domain name:</strong> Đăng ký sớm .vn, .com, .com.vn</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning">
+            <h4>⚠️ Sai lầm pháp lý phổ biến của founders VN</h4>
+            <ul>
+                <li>Không có Shareholders' Agreement giữa co-founders → tranh chấp sau khi thành công</li>
+                <li>Không đăng ký nhãn hiệu sớm → bị đăng ký trước (trademark squatting)</li>
+                <li>Trốn thuế/gian lận hóa đơn → rủi ro hình sự</li>
+                <li>Không phân biệt tài sản cá nhân và doanh nghiệp (đặc biệt hộ kinh doanh)</li>
+                <li>Copy sản phẩm/content mà không hiểu copyright → kiện tụng</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== GROWTH ===== -->
+    <div class="tab-content" id="content-growth">
+        <div class="section-title"><span>Chiến lược tăng trưởng</span></div>
+        <p class="section-desc">Tăng trưởng bền vững đòi hỏi cả chiến lược (làm gì đúng) và chiến thuật (làm đúng cách). Không phải mọi tăng trưởng đều tích cực — growth phải profitable.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>Ansoff Matrix — 4 chiến lược tăng trưởng</span></div>
+        <div class="compare-grid">
+            <div class="compare-box" style="border-color:rgba(14,165,233,.4)">
+                <h4 style="color:#38bdf8">📦 Market Penetration (Thâm nhập TT)</h4>
+                <ul>
+                    <li>Sản phẩm hiện tại → Thị trường hiện tại</li>
+                    <li>Tăng market share: pricing, promotion, distribution</li>
+                    <li>Rủi ro thấp nhất</li>
+                    <li>VD: Vinamilk tăng điểm bán lẻ trong VN</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(34,197,94,.4)">
+                <h4 style="color:#4ade80">🆕 Product Development (Phát triển SP)</h4>
+                <ul>
+                    <li>Sản phẩm mới → Thị trường hiện tại</li>
+                    <li>R&D, innovation, line extension</li>
+                    <li>Rủi ro trung bình</li>
+                    <li>VD: Apple ra iPhone → Apple Watch → AirPods</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(168,85,247,.4)">
+                <h4 style="color:#c084fc">🌍 Market Development (Phát triển TT)</h4>
+                <ul>
+                    <li>Sản phẩm hiện tại → Thị trường mới</li>
+                    <li>Mở rộng địa lý, segment mới, channel mới</li>
+                    <li>Rủi ro trung bình-cao</li>
+                    <li>VD: Grab mở từ MY → SG → VN → Thailand</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(239,68,68,.4)">
+                <h4 style="color:#f87171">🚀 Diversification (Đa dạng hóa)</h4>
+                <ul>
+                    <li>Sản phẩm mới → Thị trường mới</li>
+                    <li>Rủi ro cao nhất — nhưng reward cũng lớn nhất</li>
+                    <li>Related (liên quan): Amazon → AWS</li>
+                    <li>Unrelated: Samsung Electronics → Samsung Life Insurance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top:1.5rem">
+            <div class="card" style="--c1:#0ea5e9;--c2:#6366f1">
+                <div class="card-icon">🏰</div>
+                <div class="badge badge-sky">Chiến lược</div>
+                <h3>Competitive Advantage — Lợi thế cạnh tranh</h3>
+                <p>Theo Michael Porter, chỉ có 3 chiến lược cạnh tranh bền vững:</p>
+                <ul>
+                    <li><strong>Cost Leadership:</strong> Giá thấp nhất thị trường (Walmart, Ryanair, Thế Giới Di Động)</li>
+                    <li><strong>Differentiation:</strong> Sản phẩm/dịch vụ khác biệt, premium (Apple, Tesla, Starbucks)</li>
+                    <li><strong>Focus/Niche:</strong> Phục vụ segment hẹp cực tốt (Rolls-Royce, B2B SaaS niche)</li>
+                </ul>
+                <p style="margin-top:.5rem;color:#f87171;font-size:.82rem">⚠️ "Stuck in the middle" — không cost leader, không differentiation = thua cả hai</p>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🏁</div>
+                <div class="badge badge-green">Moat</div>
+                <h3>Business Moat — Hào bảo vệ (Warren Buffett)</h3>
+                <p>Moat = lợi thế bền vững mà đối thủ rất khó copy. Moat càng sâu, doanh nghiệp càng an toàn.</p>
+                <ul>
+                    <li><strong>Network Effects:</strong> Càng nhiều user → càng giá trị (Facebook, Shopee)</li>
+                    <li><strong>Switching Costs:</strong> Chi phí chuyển đổi cao (Salesforce, SAP, tài khoản ngân hàng)</li>
+                    <li><strong>Brand:</strong> Thương hiệu mạnh (Coca-Cola, Louis Vuitton)</li>
+                    <li><strong>Economies of Scale:</strong> Giá thành giảm khi scale (Amazon, TSMC)</li>
+                    <li><strong>IP/Patents:</strong> Sở hữu trí tuệ (Qualcomm, pharma)</li>
+                    <li><strong>Data:</strong> Dữ liệu độc quyền (Google Maps, Waze)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">📈</div>
+                <div class="badge badge-amber">Growth Metrics</div>
+                <h3>KPIs cho tăng trưởng</h3>
+                <ul>
+                    <li><strong>MRR/ARR:</strong> Monthly/Annual Recurring Revenue</li>
+                    <li><strong>Revenue growth rate:</strong> QoQ, YoY</li>
+                    <li><strong>User growth rate:</strong> DAU, WAU, MAU trends</li>
+                    <li><strong>Net Revenue Retention (NRR):</strong> ≥110% = expansion revenue > churn</li>
+                    <li><strong>Payback period:</strong> Bao lâu thu hồi CAC</li>
+                    <li><strong>Rule of 40:</strong> Growth Rate + Profit Margin ≥ 40% (SaaS benchmark)</li>
+                    <li><strong>Efficiency Score:</strong> New ARR / Net Burn (Bessemer)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🔄</div>
+                <div class="badge badge-purple">Growth Loops</div>
+                <h3>Vòng lặp tăng trưởng</h3>
+                <p>Growth loops bền vững hơn funnels — output của loop trở thành input cho lần tiếp theo.</p>
+                <ul>
+                    <li><strong>Viral loop:</strong> User mời user (WhatsApp, Dropbox referral)</li>
+                    <li><strong>Content loop:</strong> User tạo content → SEO → new users (YouTube, Reddit)</li>
+                    <li><strong>Paid loop:</strong> Revenue → reinvest ads → more revenue (profitable CAC)</li>
+                    <li><strong>Sales loop:</strong> Land and expand trong enterprise accounts</li>
+                    <li><strong>Marketplace loop:</strong> More suppliers → better selection → more buyers → more suppliers</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">🤝</div>
+                <div class="badge badge-red">M&A</div>
+                <h3>Mua bán & Sáp nhập (M&A)</h3>
+                <ul>
+                    <li><strong>Acqui-hire:</strong> Mua công ty để lấy team/talent</li>
+                    <li><strong>Horizontal:</strong> Mua đối thủ cùng ngành (tăng market share)</li>
+                    <li><strong>Vertical:</strong> Mua supplier hoặc distributor (kiểm soát chuỗi)</li>
+                    <li><strong>Conglomerate:</strong> Mua ngành khác (diversification)</li>
+                    <li><strong>VN examples:</strong> Masan mua Phúc Long, Vingroup mua chain, FPT mua offshore companies</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">🌏</div>
+                <h3>Mở rộng quốc tế (Go Global)</h3>
+                <ul>
+                    <li><strong>Export:</strong> Bán trực tiếp ra nước ngoài</li>
+                    <li><strong>Licensing/Franchise:</strong> Cho phép partner local vận hành</li>
+                    <li><strong>Joint Venture:</strong> Hợp tác với local partner</li>
+                    <li><strong>Wholly-owned subsidiary:</strong> Mở chi nhánh 100% vốn</li>
+                    <li><strong>VN companies go global:</strong> VNG (gaming), FPT Software, Viettel (telecom Africa/SEA)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h4>💡 Growth = Revenue Growth × Profitability</h4>
+            <p>
+            Tăng trưởng nhanh mà lỗ = "selling dollars for 90 cents".<br>
+            Lợi nhuận mà không tăng trưởng = "slow death".<br><br>
+            <strong>Mục tiêu: sustainable, profitable growth.</strong><br><br>
+            "The best growth strategy is a product people love. Everything else is optimization."
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const c = document.getElementById('content-' + tabId);
+    const b = document.getElementById('tab-' + tabId);
+    if (c) c.classList.add('active');
+    if (b) b.classList.add('active');
+}
+
+function toggleExpand(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open');
+    btn.textContent = isOpen ? '▼ Chi tiết' : '▲ Thu gọn';
+}
+</script>
+</body>
+</html>

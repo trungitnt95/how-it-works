@@ -401,6 +401,41 @@
             --card-color-2: #f39c12;
         }
 
+        .topic-card.marketing {
+            --card-color-1: #ff6ec7;
+            --card-color-2: #a855f7;
+        }
+
+        .topic-card.sales {
+            --card-color-1: #10b981;
+            --card-color-2: #3b82f6;
+        }
+
+        .topic-card.affiliate {
+            --card-color-1: #f59e0b;
+            --card-color-2: #ef4444;
+        }
+
+        .topic-card.business {
+            --card-color-1: #0ea5e9;
+            --card-color-2: #6366f1;
+        }
+
+        .topic-card.earning {
+            --card-color-1: #27ae60;
+            --card-color-2: #f39c12;
+        }
+
+        .topic-card.philosophy {
+            --card-color-1: #7c4dff;
+            --card-color-2: #ff6e40;
+        }
+
+        .topic-card.inversion {
+            --card-color-1: #e74c3c;
+            --card-color-2: #f39c12;
+        }
+
         /* Search Box */
         .search-container {
             max-width: 600px;
@@ -509,7 +544,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">17 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">22 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -677,6 +712,173 @@
                 <div class="card-footer">
                     <div class="card-stats">
                         <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Marketing - Available -->
+            <div class="topic-card marketing" onclick="location.href='marketing/'" data-tags="marketing branding thương hiệu digital quảng cáo seo sem content funnel 4p 7p">
+                <div class="card-icon">📣</div>
+                <h3 class="card-title">Marketing Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ 4P đến Digital Marketing, Growth Hacking</p>
+                <p class="card-description">
+                    Hiểu toàn diện nghề marketing: Marketing Mix 4P/7P, funnel AIDA/TOFU-BOFU, Digital Marketing (SEO, SEM, Social, Email),
+                    xây dựng thương hiệu, tâm lý người tiêu dùng, KPIs, và các công cụ thiết yếu.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">4P/7P</span>
+                    <span class="tag">Digital</span>
+                    <span class="tag">Brand</span>
+                    <span class="tag">Funnel</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 9 chủ đề</span>
+                        <span class="stat">📖 20+ KPIs</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Sales - Available -->
+            <div class="topic-card sales" onclick="location.href='sales/'" data-tags="sales bán hàng b2b b2c spin selling crm pipeline chốt deal khách hàng">
+                <div class="card-icon">🤝</div>
+                <h3 class="card-title">Sales Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ tâm lý bán hàng đến chốt deal chuyên nghiệp</p>
+                <p class="card-description">
+                    Hiểu sâu nghề bán hàng: quy trình 8 bước, SPIN/Challenger/MEDDIC, xử lý từ chối,
+                    kỹ thuật chốt sale, tâm lý học bán hàng, CRM & pipeline management, KPIs và revenue metrics.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">B2B/B2C</span>
+                    <span class="tag">SPIN</span>
+                    <span class="tag">CRM</span>
+                    <span class="tag">Closing</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 9 chủ đề</span>
+                        <span class="stat">📖 8 bước quy trình</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Affiliate - Available -->
+            <div class="topic-card affiliate" onclick="location.href='affiliate/'" data-tags="affiliate marketing tiếp thị liên kết hoa hồng commission cpa cpl revenue share influencer">
+                <div class="card-icon">🔗</div>
+                <h3 class="card-title">Affiliate Marketing Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ cơ chế hoa hồng đến xây dựng thu nhập thụ động</p>
+                <p class="card-description">
+                    Khám phá toàn bộ hệ sinh thái affiliate marketing: cách các bên kiếm tiền,
+                    mô hình CPA/CPL/Revenue Share, nền tảng Việt Nam & quốc tế, tracking, fraud prevention và chiến lược tăng trưởng.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Hoa hồng</span>
+                    <span class="tag">CPA/CPL</span>
+                    <span class="tag">Network</span>
+                    <span class="tag">Thu nhập thụ động</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 8 chủ đề</span>
+                        <span class="stat">📖 15+ nền tảng</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <div class="topic-card business" onclick="location.href='business/'" data-tags="kinh doanh business mô hình startup doanh nghiệp chiến lược tài chính vận hành nhân sự">
+                <div class="card-icon">🏢</div>
+                <h3 class="card-title">Kinh Doanh Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ ý tưởng đến vận hành — hiểu toàn bộ cơ chế doanh nghiệp</p>
+                <p class="card-description">
+                    Tìm hiểu cách một doanh nghiệp vận hành: mô hình kinh doanh, tài chính, marketing, nhân sự, pháp lý. 
+                    Từ startup đến doanh nghiệp lớn — những nguyên tắc cốt lõi tạo ra lợi nhuận bền vững.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Mô hình KD</span>
+                    <span class="tag">Tài chính</span>
+                    <span class="tag">Startup</span>
+                    <span class="tag">Vận hành</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 8 chủ đề</span>
+                        <span class="stat">📖 20+ mô hình</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Reverse Thinking - Available -->
+            <div class="topic-card inversion" onclick="location.href='reverse-thinking/'" data-tags="tư duy ngược inversion thinking charlie munger pre-mortem fear setting via negativa đảo ngược">
+                <div class="card-icon">🔄</div>
+                <h3 class="card-title">Tư Duy Ngược Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Nghĩ ngược để tránh sai lầm — từ Munger đến Stoicism</p>
+                <p class="card-description">
+                    Khám phá nghệ thuật tư duy ngược (Inversion Thinking): Pre-Mortem, Fear Setting, Anti-Goals, 
+                    Risk Inversion. Học từ Charlie Munger, Tim Ferriss và triết học Stoicism để ra quyết định tốt hơn.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Inversion</span>
+                    <span class="tag">Pre-Mortem</span>
+                    <span class="tag">Anti-Goals</span>
+                    <span class="tag">Stoicism</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 19 thành phần</span>
+                        <span class="stat">📖 3 kịch bản</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Philosophy - Available -->
+            <div class="topic-card philosophy" onclick="location.href='philosophy/'" data-tags="triết học mác lênin marxism leninism duy vật biện chứng duy vật lịch sử kinh tế chính trị cnxh khoa học hàng hóa giá trị tư bản thặng dư giai cấp cách mạng đổi mới việt nam">
+                <div class="card-icon">☭</div>
+                <h3 class="card-title">Triết Học Mác-Lênin</h3>
+                <p class="card-subtitle">Môn học nền tảng cho sinh viên Việt Nam</p>
+                <p class="card-description">
+                    Duy vật biện chứng, duy vật lịch sử, kinh tế chính trị Mác-Lênin, chủ nghĩa xã hội khoa học.
+                    Từ lý luận đến vận dụng vào thực tiễn Việt Nam.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Biện chứng</span>
+                    <span class="tag">Kinh tế chính trị</span>
+                    <span class="tag">CNXH</span>
+                    <span class="tag">Việt Nam</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 20 thành phần</span>
+                        <span class="stat">📖 5 danh mục</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Earning Models - Available -->
+            <div class="topic-card earning" onclick="location.href='earning-models/'" data-tags="kiếm tiền earning money model công thức thu nhập passive income leverage đòn bẩy thương mại đầu tư SaaS creator">
+                <div class="card-icon">💸</div>
+                <h3 class="card-title">Cách Kiếm Tiền Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Từ cổ đại đến AI — hệ thống mọi mô hình kiếm tiền</p>
+                <p class="card-description">
+                    Hệ thống lại toàn bộ cách kiếm tiền từ xưa đến nay: săn bắt, nông nghiệp, thương mại, 
+                    công nghiệp, tài chính, platform, creator economy, AI. Công thức, so sánh, và lộ trình.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">22 mô hình</span>
+                    <span class="tag">Công thức</span>
+                    <span class="tag">So sánh</span>
+                    <span class="tag">Timeline</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 22 mô hình</span>
+                        <span class="stat">📖 10 câu quiz</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>

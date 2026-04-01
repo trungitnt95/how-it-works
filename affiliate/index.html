@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Marketing - How It Works</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#0f0c00 0%,#1a1000 50%,#2d1a00 100%);min-height:100vh;color:#fff}
+        a{color:inherit;text-decoration:none}
+
+        header{background:rgba(0,0,0,.45);backdrop-filter:blur(12px);padding:1rem 2rem;border-bottom:1px solid rgba(245,158,11,.2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:.5rem}
+        .back-home{color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:6px;background:rgba(255,255,255,.06);font-size:.9rem;transition:.2s}
+        .back-home:hover{background:rgba(255,255,255,.12);color:#fff}
+        header h1{font-size:1.4rem;background:linear-gradient(90deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        .hero{text-align:center;padding:3rem 2rem 2rem;max-width:860px;margin:0 auto}
+        .hero-icon{font-size:4rem;margin-bottom:1rem}
+        .hero h2{font-size:2.4rem;margin-bottom:.8rem;line-height:1.2}
+        .hero h2 span{background:linear-gradient(90deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:640px;margin:0 auto 1.5rem}
+        .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+        .hero-stat .num{font-size:1.8rem;font-weight:700;color:#f59e0b}
+        .hero-stat .lbl{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.1rem;text-align:center}
+
+        .tabs-container{max-width:1300px;margin:0 auto;padding:0 1.5rem 4rem}
+        .tabs-bar{display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.8rem;margin-bottom:2rem}
+        .tab-btn{padding:.55rem 1.1rem;border-radius:8px 8px 0 0;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;font-size:.9rem;transition:.2s;border-bottom:3px solid transparent}
+        .tab-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+        .tab-btn.active{color:#f59e0b;border-bottom-color:#f59e0b;font-weight:600}
+        .tab-content{display:none}
+        .tab-content.active{display:block;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        .section-title{font-size:1.6rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+        .section-title span{background:linear-gradient(90deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .section-desc{color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7;font-size:1rem}
+
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-bottom:2rem}
+        .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c1,#f59e0b),var(--c2,#ef4444))}
+        .card:hover{background:rgba(255,255,255,.08);border-color:rgba(245,158,11,.25);transform:translateY(-3px)}
+        .card-icon{font-size:2rem;margin-bottom:.8rem}
+        .card h3{font-size:1.1rem;margin-bottom:.6rem;color:#fff}
+        .card p,.card li{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6}
+        .card ul{padding-left:1.2rem;margin-top:.5rem}
+        .card ul li{margin-bottom:.3rem}
+        .card .badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+        .badge-amber{background:rgba(245,158,11,.2);color:#fbbf24;border:1px solid rgba(245,158,11,.3)}
+        .badge-red{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}
+        .badge-green{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+        .badge-blue{background:rgba(59,130,246,.2);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}
+        .badge-purple{background:rgba(168,85,247,.2);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+
+        .expand-btn{display:flex;align-items:center;gap:.4rem;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);color:#f59e0b;padding:.4rem .9rem;border-radius:6px;cursor:pointer;font-size:.82rem;margin-top:1rem;transition:.2s;width:fit-content}
+        .expand-btn:hover{background:rgba(245,158,11,.22)}
+        .expand-content{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08)}
+        .expand-content.open{display:block;animation:fadeIn .25s ease}
+
+        .table-wrap{overflow-x:auto;margin:1rem 0}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        th{background:rgba(245,158,11,.15);padding:.7rem 1rem;text-align:left;color:#f59e0b;font-weight:600;border-bottom:1px solid rgba(245,158,11,.25)}
+        td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+        tr:hover td{background:rgba(255,255,255,.03)}
+
+        .highlight{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(239,68,68,.1));border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .highlight h4{color:#f59e0b;margin-bottom:.6rem;font-size:1rem}
+        .highlight p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+
+        /* Ecosystem diagram */
+        .ecosystem{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:center;margin:2rem 0;overflow-x:auto;padding:1rem}
+        .eco-node{background:rgba(255,255,255,.06);border:2px solid rgba(245,158,11,.4);border-radius:12px;padding:1.2rem;text-align:center;min-width:130px}
+        .eco-node .eco-icon{font-size:2rem;margin-bottom:.4rem}
+        .eco-node h4{font-size:.9rem;color:#fff;margin-bottom:.3rem}
+        .eco-node p{font-size:.75rem;color:rgba(255,255,255,.55)}
+        .eco-arrow{color:#f59e0b;font-size:1.5rem;padding:0 .3rem;flex-shrink:0;text-align:center}
+        .eco-arrow .label{font-size:.7rem;color:rgba(255,255,255,.45);display:block;white-space:nowrap}
+
+        /* Process steps */
+        .process{display:flex;flex-wrap:nowrap;overflow-x:auto;padding-bottom:1rem;margin:1rem 0;gap:0}
+        .process-step{min-width:140px;flex:1;text-align:center;position:relative;padding:0 .5rem}
+        .process-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:28px;color:rgba(245,158,11,.7);font-size:1.3rem;font-weight:700}
+        .step-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(245,158,11,.25),rgba(239,68,68,.25));border:2px solid rgba(245,158,11,.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto .5rem}
+        .process-step h4{font-size:.82rem;color:#fff;margin-bottom:.2rem}
+        .process-step p{font-size:.75rem;color:rgba(255,255,255,.55)}
+
+        /* Commission model cards */
+        .model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin:1rem 0}
+        .model-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem;text-align:center}
+        .model-rate{font-size:1.6rem;font-weight:700;color:#f59e0b;margin:.4rem 0}
+        .model-label{font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:.4rem}
+        .model-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5}
+        .model-example{font-size:.78rem;color:#f59e0b;margin-top:.5rem;font-style:italic}
+
+        /* KPI cards */
+        .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1rem;margin:1rem 0}
+        .kpi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1rem;text-align:center}
+        .kpi-card .kpi-name{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.4rem}
+        .kpi-card .kpi-formula{font-size:.82rem;color:#fbbf24;font-family:monospace;background:rgba(245,158,11,.1);padding:.3rem .5rem;border-radius:4px;margin:.4rem 0}
+        .kpi-card .kpi-note{font-size:.78rem;color:#60a5fa}
+
+        /* Platform cards */
+        .platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+        .platform-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem;display:flex;align-items:flex-start;gap:.8rem}
+        .platform-icon{font-size:1.8rem;flex-shrink:0}
+        .platform-info .platform-name{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+        .platform-info .platform-desc{font-size:.8rem;color:rgba(255,255,255,.6)}
+        .platform-info .platform-tag{font-size:.72rem;color:#f59e0b;margin-top:.3rem}
+
+        /* Compare */
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+        .compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem}
+        .compare-box h4{margin-bottom:.8rem;font-size:1rem}
+        .compare-box ul{list-style:none;padding:0}
+        .compare-box li{padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:.5rem}
+        .compare-box li::before{content:'•';color:#f59e0b;flex-shrink:0;margin-top:2px}
+
+        /* Warning box */
+        .warning{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:1.2rem;margin:1rem 0}
+        .warning h4{color:#f87171;margin-bottom:.5rem}
+        .warning p,.warning li{color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.6}
+        .warning ul{padding-left:1.2rem;margin-top:.4rem}
+
+        /* Niche cards */
+        .niche-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+        .niche-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.1rem;text-align:center}
+        .niche-icon{font-size:1.8rem;margin-bottom:.4rem}
+        .niche-name{font-size:.9rem;font-weight:600;margin-bottom:.2rem}
+        .niche-rate{font-size:.8rem;color:#f59e0b;margin-bottom:.3rem}
+        .niche-desc{font-size:.75rem;color:rgba(255,255,255,.55)}
+
+        @media(max-width:768px){
+            .hero h2{font-size:1.7rem}
+            .compare-grid{grid-template-columns:1fr}
+            .ecosystem{grid-template-columns:1fr;justify-items:center}
+            .eco-arrow{transform:rotate(90deg)}
+            .process{flex-direction:column;align-items:center}
+            .process-step:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+            .process-step{margin-bottom:1.5rem;min-width:auto;width:200px}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="../" class="back-home">← Trang chủ</a>
+        <h1>🔗 Affiliate Marketing</h1>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-icon">🔗</div>
+    <h2>Affiliate Marketing <span>Hoạt Động</span> Như Thế Nào</h2>
+    <p>Hiểu sâu hệ sinh thái tiếp thị liên kết — từ cơ chế hoa hồng đến xây dựng thu nhập thụ động bền vững</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">$17B+</div><div class="lbl">Thị trường toàn cầu 2024</div></div>
+        <div class="hero-stat"><div class="num">4 bên</div><div class="lbl">Trong hệ sinh thái</div></div>
+        <div class="hero-stat"><div class="num">5 mô hình</div><div class="lbl">Hoa hồng</div></div>
+        <div class="hero-stat"><div class="num">15+</div><div class="lbl">Nền tảng VN & quốc tế</div></div>
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('overview')" id="tab-overview">🏠 Tổng quan</button>
+        <button class="tab-btn" onclick="switchTab('models')" id="tab-models">💰 Mô hình hoa hồng</button>
+        <button class="tab-btn" onclick="switchTab('foraffiliates')" id="tab-foraffiliates">👤 Làm Affiliate</button>
+        <button class="tab-btn" onclick="switchTab('formerchants')" id="tab-formerchants">🏢 Làm Merchant</button>
+        <button class="tab-btn" onclick="switchTab('platforms')" id="tab-platforms">🌐 Nền tảng & Mạng lưới</button>
+        <button class="tab-btn" onclick="switchTab('niches')" id="tab-niches">🎯 Ngách thị trường</button>
+        <button class="tab-btn" onclick="switchTab('tracking')" id="tab-tracking">📡 Tracking & Kỹ thuật</button>
+        <button class="tab-btn" onclick="switchTab('metrics')" id="tab-metrics">📊 Đo lường</button>
+    </div>
+
+    <!-- ===== OVERVIEW ===== -->
+    <div class="tab-content active" id="content-overview">
+        <div class="section-title"><span>Affiliate Marketing là gì?</span></div>
+        <p class="section-desc">Affiliate Marketing là mô hình kinh doanh dựa trên hiệu suất — Merchant trả hoa hồng cho Affiliate khi Affiliate giúp tạo ra doanh số, lead, hoặc hành động cụ thể. Giống như "nhân viên bán hàng" nhưng không cần lương cứng — chỉ trả khi có kết quả.</p>
+
+        <div class="highlight">
+            <h4>💡 Định nghĩa đơn giản</h4>
+            <p><strong>Tôi giới thiệu sản phẩm của bạn. Nếu ai đó mua nhờ lời giới thiệu của tôi, bạn trả cho tôi một phần hoa hồng.</strong><br><br>
+            Đây là thỏa thuận win-win: Merchant có thêm doanh số mà không cần chi phí quảng cáo upfront. Affiliate kiếm tiền từ đối tượng sẵn có mà không cần tạo ra sản phẩm.</p>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>Hệ sinh thái 4 bên</span></div>
+        <div class="ecosystem">
+            <div class="eco-node">
+                <div class="eco-icon">🏭</div>
+                <h4>Merchant</h4>
+                <p>Nhà cung cấp sản phẩm / dịch vụ. Tạo ra chương trình affiliate.</p>
+            </div>
+            <div class="eco-arrow">→<span class="label">Sản phẩm<br>& hoa hồng</span></div>
+            <div class="eco-node" style="border-color:rgba(245,158,11,.8);background:rgba(245,158,11,.1)">
+                <div class="eco-icon">🌐</div>
+                <h4>Affiliate Network</h4>
+                <p>Nền tảng trung gian: tracking, thanh toán, quản lý.</p>
+            </div>
+            <div class="eco-arrow">→<span class="label">Links<br>& stats</span></div>
+            <div class="eco-node" style="border-color:rgba(239,68,68,.8);background:rgba(239,68,68,.08)">
+                <div class="eco-icon">📣</div>
+                <h4>Affiliate / Publisher</h4>
+                <p>Người quảng bá sản phẩm qua blog, social, email...</p>
+            </div>
+            <div class="eco-arrow">→<span class="label">Traffic<br>& mua hàng</span></div>
+            <div class="eco-node">
+                <div class="eco-icon">🛒</div>
+                <h4>Customer</h4>
+                <p>Người click link → mua sản phẩm → tạo ra hoa hồng.</p>
+            </div>
+        </div>
+
+        <p style="color:rgba(255,255,255,.55);font-size:.82rem;text-align:center;margin-bottom:2rem">* Trong nhiều trường hợp không có Network — Merchant và Affiliate làm việc trực tiếp (in-house affiliate program)</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>Quy trình hoạt động từng bước</span></div>
+        <div class="process">
+            <div class="process-step">
+                <div class="step-circle">🤝</div>
+                <h4>Đăng ký</h4>
+                <p>Affiliate xin tham gia chương trình của Merchant</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🔗</div>
+                <h4>Nhận link</h4>
+                <p>Được cấp unique affiliate link có tracking ID</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">📣</div>
+                <h4>Quảng bá</h4>
+                <p>Chia sẻ link qua blog, social, email, video...</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">👆</div>
+                <h4>Click & Cookie</h4>
+                <p>Khách click link → cookie được đặt vào trình duyệt</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🛒</div>
+                <h4>Conversion</h4>
+                <p>Khách mua hàng trong thời gian cookie còn hiệu lực</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">💰</div>
+                <h4>Nhận hoa hồng</h4>
+                <p>Hệ thống ghi nhận → trả tiền sau 30-60 ngày</p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">✅</div>
+                <div class="badge badge-amber">Ưu điểm</div>
+                <h3>Tại sao Affiliate hoạt động?</h3>
+                <p><strong>Với Merchant:</strong></p>
+                <ul>
+                    <li>Không trả tiền nếu không có kết quả (pay for performance)</li>
+                    <li>Scale nhanh nhờ hàng nghìn affiliate</li>
+                    <li>Tiếp cận được audience mới qua affiliate</li>
+                    <li>ROI cao hơn quảng cáo truyền thống</li>
+                </ul>
+                <p style="margin-top:.7rem"><strong>Với Affiliate:</strong></p>
+                <ul>
+                    <li>Không cần tạo sản phẩm</li>
+                    <li>Thu nhập thụ động — link hoạt động 24/7</li>
+                    <li>Có thể làm từ bất cứ đâu</li>
+                    <li>Không cần vốn lớn để bắt đầu</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">⚠️</div>
+                <div class="badge badge-red">Thực tế</div>
+                <h3>Những hiểu lầm phổ biến</h3>
+                <ul>
+                    <li><strong>❌ "Tiền thụ động không cần làm gì"</strong> — cần nhiều công sức ban đầu để xây traffic</li>
+                    <li><strong>❌ "Ai cũng kiếm được nhiều tiền"</strong> — top 10% affiliate kiếm 90% tổng hoa hồng</li>
+                    <li><strong>❌ "Chỉ cần post link là xong"</strong> — cần content, SEO, trust-building</li>
+                    <li><strong>❌ "Càng nhiều sản phẩm càng tốt"</strong> — focus vào niche và expertise</li>
+                    <li><strong>❌ "Không cần tuân thủ luật"</strong> — cần khai báo affiliate relationship</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-green">Số liệu</div>
+                <h3>Affiliate Marketing bằng số</h3>
+                <ul>
+                    <li><strong>$17B+</strong> — quy mô thị trường toàn cầu 2024</li>
+                    <li><strong>16%</strong> — tỷ lệ doanh số e-commerce từ affiliate</li>
+                    <li><strong>81%</strong> — thương hiệu có chương trình affiliate</li>
+                    <li><strong>$58B+</strong> — affiliate marketing industry dự đoán 2030</li>
+                    <li><strong>Nguồn traffic #1:</strong> SEO/Organic search</li>
+                    <li><strong>Top niche:</strong> Finance, health, software/SaaS</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">🆚</div>
+                <div class="badge badge-blue">Phân biệt</div>
+                <h3>Affiliate vs các hình thức tương tự</h3>
+                <ul>
+                    <li><strong>Affiliate vs Influencer Marketing:</strong> Affiliate trả theo kết quả; influencer thường trả flat fee + exposure</li>
+                    <li><strong>Affiliate vs Reseller:</strong> Affiliate không mua hàng; reseller mua rồi bán lại</li>
+                    <li><strong>Affiliate vs MLM:</strong> Affiliate thu nhập từ sales; MLM thu nhập từ tuyển người (thường là pyramid scheme)</li>
+                    <li><strong>Affiliate vs Referral:</strong> Referral thường dành cho KH hiện tại; affiliate là partner chuyên nghiệp</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODELS ===== -->
+    <div class="tab-content" id="content-models">
+        <div class="section-title"><span>Các mô hình hoa hồng</span></div>
+        <p class="section-desc">Mô hình hoa hồng quyết định khi nào và bao nhiêu tiền Affiliate được trả. Mỗi loại phù hợp với mục tiêu khác nhau của Merchant — từ xây dựng brand đến tối ưu doanh số.</p>
+
+        <div class="model-grid">
+            <div class="model-card">
+                <div class="model-label">CPS / PPS</div>
+                <div style="font-size:1.8rem">🛒</div>
+                <div class="model-rate">5–50%</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Cost Per Sale / Pay Per Sale</div>
+                <div class="model-desc">Hoa hồng khi khách thực sự mua hàng. Phổ biến nhất trong e-commerce và SaaS.</div>
+                <div class="model-example">VD: Shopee 3-8%, SaaS 20-30%, Digital products 30-50%</div>
+            </div>
+            <div class="model-card">
+                <div class="model-label">CPL / PPL</div>
+                <div style="font-size:1.8rem">📋</div>
+                <div class="model-rate">$1–$500</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Cost Per Lead / Pay Per Lead</div>
+                <div class="model-desc">Hoa hồng khi khách điền form, đăng ký, hoặc cung cấp thông tin — không cần mua hàng ngay.</div>
+                <div class="model-example">VD: Finance lead $50-$500, Education $20-$100, Insurance $30+</div>
+            </div>
+            <div class="model-card">
+                <div class="model-label">CPA</div>
+                <div style="font-size:1.8rem">🎯</div>
+                <div class="model-rate">Tùy action</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Cost Per Action</div>
+                <div class="model-desc">Hoa hồng khi khách thực hiện một hành động cụ thể: cài app, subscribe, trial đăng ký...</div>
+                <div class="model-example">VD: App install $0.5-$5, Free trial signup $10-$50</div>
+            </div>
+            <div class="model-card">
+                <div class="model-label">Revenue Share / Rev Share</div>
+                <div style="font-size:1.8rem">🔄</div>
+                <div class="model-rate">20–50% MRR</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Recurring Commission</div>
+                <div class="model-desc">Affiliate nhận % doanh thu định kỳ từ subscription — hoa hồng tiếp tục miễn là khách còn dùng dịch vụ.</div>
+                <div class="model-example">VD: Hosting, SaaS tools — mỗi tháng nhận 30-40% MRR của KH đó</div>
+            </div>
+            <div class="model-card">
+                <div class="model-label">CPC / PPC</div>
+                <div style="font-size:1.8rem">👆</div>
+                <div class="model-rate">$0.01–$0.50</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Cost Per Click</div>
+                <div class="model-desc">Trả tiền cho mỗi click vào link. Hiếm trong affiliate thuần túy, thường dành cho display ads.</div>
+                <div class="model-example">VD: Google AdSense, Ezoic, Mediavine</div>
+            </div>
+            <div class="model-card">
+                <div class="model-label">Hybrid / Tiered</div>
+                <div style="font-size:1.8rem">🏆</div>
+                <div class="model-rate">Kết hợp</div>
+                <div style="font-size:.8rem;color:#fbbf24;margin-bottom:.4rem">Mô hình kết hợp & lũy tiến</div>
+                <div class="model-desc">Kết hợp nhiều mô hình, hoặc tăng % hoa hồng khi đạt ngưỡng doanh số cao hơn.</div>
+                <div class="model-example">VD: 10% cho 10 sales/tháng → 15% cho 30+ sales → 20% cho 100+ sales</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Cookie Duration — Thời gian hiệu lực</span></div>
+        <p class="section-desc">Cookie là tệp nhỏ được đặt vào trình duyệt khi khách click affiliate link. Nếu khách mua hàng trong thời gian cookie còn hiệu lực, affiliate nhận hoa hồng.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Merchant / Platform</th><th>Cookie Duration</th><th>Ý nghĩa</th></tr></thead>
+                <tbody>
+                    <tr><td>Amazon Associates</td><td>24 giờ</td><td>Phải mua trong vòng 24h sau khi click</td></tr>
+                    <tr><td>Shopee Affiliate VN</td><td>30 ngày</td><td>Phổ biến cho e-commerce</td></tr>
+                    <tr><td>Booking.com</td><td>30 ngày</td><td>Đủ thời gian plan chuyến đi</td></tr>
+                    <tr><td>Kinsta (Hosting)</td><td>60 ngày</td><td>Quyết định chọn hosting cần thời gian</td></tr>
+                    <tr><td>HubSpot</td><td>90 ngày</td><td>B2B sales cycle dài</td></tr>
+                    <tr><td>Flywheel</td><td>90 ngày</td><td>---</td></tr>
+                    <tr><td>ConvertKit</td><td>90 ngày</td><td>---</td></tr>
+                    <tr><td>Một số SaaS premium</td><td>Lifetime</td><td>Không hết hạn — affiliate nhận hoa hồng khi KH mua bất kỳ lúc nào</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight">
+            <h4>⚠️ Vấn đề với iOS 14+ và trình duyệt hiện đại</h4>
+            <p>Apple ITP (Intelligent Tracking Prevention) và Firefox Enhanced Tracking Protection giới hạn cookie 3rd-party xuống còn <strong>1-7 ngày</strong>. Nhiều merchant chuyển sang server-side tracking, fingerprinting, hoặc first-party data để đảm bảo attribution chính xác hơn.</p>
+        </div>
+    </div>
+
+    <!-- ===== FOR AFFILIATES ===== -->
+    <div class="tab-content" id="content-foraffiliates">
+        <div class="section-title"><span>Làm thế nào để bắt đầu làm Affiliate?</span></div>
+        <p class="section-desc">Trở thành affiliate thành công không phải qua đêm. Cần xây dựng audience, tạo content có giá trị và chọn đúng sản phẩm phù hợp với niche.</p>
+
+        <div class="process">
+            <div class="process-step">
+                <div class="step-circle">🎯</div>
+                <h4>Chọn Niche</h4>
+                <p>Thị trường ngách bạn có expertise và đam mê</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🏗️</div>
+                <h4>Xây Platform</h4>
+                <p>Blog, YouTube, Social, Email list...</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">📝</div>
+                <h4>Tạo Content</h4>
+                <p>Review, guide, comparison, tutorials</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">🔗</div>
+                <h4>Đăng ký Programs</h4>
+                <p>Amazon, CJ, ShareASale, in-house programs</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">📊</div>
+                <h4>Track & Optimize</h4>
+                <p>A/B test, tối ưu conversion, scale up</p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">📝</div>
+                <div class="badge badge-amber">Kênh #1 hiệu quả nhất</div>
+                <h3>SEO & Blog</h3>
+                <p>Traffic organic từ Google là nguồn traffic chất lượng cao nhất cho affiliate vì đây là người đang chủ động tìm kiếm.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Loại content phù hợp:</strong></p>
+                    <ul>
+                        <li><strong>Review bài viết:</strong> "[Sản phẩm] Review — Có Đáng Mua Không?" (high intent)</li>
+                        <li><strong>Comparison:</strong> "[A] vs [B] — Which Is Better?"</li>
+                        <li><strong>Best of:</strong> "Top 10 [Sản phẩm] Tốt Nhất 2024"</li>
+                        <li><strong>How-to:</strong> "Cách sử dụng [sản phẩm] để [kết quả]"</li>
+                        <li><strong>Alternative:</strong> "[Đối thủ] Alternatives — 5 Lựa Chọn Tốt Hơn"</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Keyword strategy:</strong> Nhắm vào "buyer intent keywords" — "best", "review", "buy", "discount", "vs"</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">🎥</div>
+                <div class="badge badge-red">Video</div>
+                <h3>YouTube & TikTok</h3>
+                <p>Video review, unboxing và tutorial có tỷ lệ conversion cao vì người xem "thấy" sản phẩm trực tiếp.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Unboxing/Review:</strong> Thực sự dùng sản phẩm, không đọc spec</li>
+                        <li><strong>Tutorial:</strong> Hướng dẫn cách dùng chi tiết</li>
+                        <li><strong>Comparison:</strong> So sánh trực tiếp 2-3 sản phẩm</li>
+                        <li>Link affiliate trong description + pinned comment</li>
+                        <li>Khai báo rõ: "Video có chứa affiliate link"</li>
+                    </ul>
+                    <p style="margin-top:.7rem">YouTube có lợi thế: video xếp hạng trên Google Search, tạo passive income lâu dài.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">✉️</div>
+                <div class="badge badge-purple">ROI cao nhất</div>
+                <h3>Email Marketing</h3>
+                <p>Email list là tài sản quý giá nhất của affiliate — bạn <strong>sở hữu</strong> audience, không bị phụ thuộc vào algorithm mạng xã hội.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Lead magnet:</strong> Ebook, template, tool miễn phí để thu email</li>
+                        <li><strong>Welcome sequence:</strong> Giới thiệu bản thân, tạo trust trước khi promote</li>
+                        <li><strong>Newsletter thường xuyên:</strong> Cung cấp giá trị 80%, promote 20%</li>
+                        <li><strong>Segmentation:</strong> Gửi sản phẩm phù hợp theo interest</li>
+                    </ul>
+                    <p style="margin-top:.7rem">Nguyên tắc: <strong>Trust first, promote second</strong>. Người đăng ký email vì content của bạn — đừng spam affiliate links.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">📱</div>
+                <div class="badge badge-blue">Social</div>
+                <h3>Social Media</h3>
+                <p>Organic social khó hơn và lệ thuộc algorithm, nhưng là kênh tốt để build community và drive traffic tới blog/YouTube.</p>
+                <ul>
+                    <li><strong>Instagram/TikTok:</strong> Lifestyle, fashion, beauty, food</li>
+                    <li><strong>Pinterest:</strong> Home decor, DIY, recipes, travel</li>
+                    <li><strong>Facebook Group:</strong> Niche community, high trust</li>
+                    <li><strong>LinkedIn:</strong> B2B software, professional development</li>
+                    <li><strong>Twitter/X:</strong> Finance, tech, marketing tools</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">💡</div>
+                <div class="badge badge-green">Best Practices</div>
+                <h3>Nguyên tắc vàng của Affiliate thành công</h3>
+                <ul>
+                    <li><strong>Chỉ promote sản phẩm bạn thực sự tin/dùng</strong> — audience nhận ra ngay khi bạn không chân thực</li>
+                    <li><strong>Khai báo affiliate relationship</strong> rõ ràng (luật FTC, bảo vệ uy tín)</li>
+                    <li><strong>Value first:</strong> 80% content giáo dục, 20% promotion</li>
+                    <li><strong>Focus niche hẹp</strong> để trở thành expert đáng tin cậy</li>
+                    <li><strong>Diversify income:</strong> Không phụ thuộc 1 chương trình affiliate</li>
+                    <li><strong>Track performance</strong> và double down vào những gì work</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">🚀</div>
+                <div class="badge badge-blue">Advanced</div>
+                <h3>Scaling Affiliate Income</h3>
+                <ul>
+                    <li><strong>PPC Arbitrage:</strong> Chạy paid ads đến landing page → affiliate link (cần tính ROI kỹ)</li>
+                    <li><strong>Programmatic SEO:</strong> Tạo hàng nghìn trang tự động (comparison, best of...)</li>
+                    <li><strong>Sub-affiliate:</strong> Một số program trả thêm khi bạn giới thiệu affiliate khác</li>
+                    <li><strong>Own the list:</strong> Build email list cực lớn → promote nhiều programs</li>
+                    <li><strong>Coupon/Cashback sites:</strong> BOFU traffic volume cao</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOR MERCHANTS ===== -->
+    <div class="tab-content" id="content-formerchants">
+        <div class="section-title"><span>Thiết lập chương trình Affiliate cho Merchant</span></div>
+        <p class="section-desc">Xây dựng một chương trình affiliate hấp dẫn giúp doanh nghiệp scale growth thông qua lực lượng "sales" không cần trả lương cố định. Nhưng cần thiết kế cẩn thận để tránh gian lận và bảo vệ margin.</p>
+
+        <div class="compare-grid">
+            <div class="compare-box" style="border-color:rgba(245,158,11,.3)">
+                <h4 style="color:#fbbf24">🏢 In-house Affiliate Program</h4>
+                <ul>
+                    <li>Tự quản lý toàn bộ: tracking, thanh toán, hỗ trợ affiliate</li>
+                    <li>Không mất phí network (thường 20-30% transaction fee)</li>
+                    <li>Kiểm soát hoàn toàn branding và policies</li>
+                    <li>Cần đầu tư kỹ thuật: phần mềm tracking, dashboard</li>
+                    <li>Phải tự tìm và recruit affiliate</li>
+                    <li>Phù hợp khi đã có brand recognition</li>
+                    <li><strong>Tools:</strong> Tapfiliate, Rewardful, Post Affiliate Pro, Cake</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(59,130,246,.3)">
+                <h4 style="color:#60a5fa">🌐 Dùng Affiliate Network</h4>
+                <ul>
+                    <li>Tiếp cận ngay hàng nghìn affiliate sẵn có</li>
+                    <li>Tracking và fraud detection có sẵn</li>
+                    <li>Thanh toán qua network — tiện lợi cho affiliate</li>
+                    <li>Phí network: 20-35% trên hoa hồng + monthly fee</li>
+                    <li>Ít kiểm soát hơn về affiliate quality</li>
+                    <li>Phù hợp khi mới bắt đầu hoặc cần scale nhanh</li>
+                    <li><strong>Networks:</strong> CJ, ShareASale, Impact, Rakuten</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top:1.5rem">
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">💰</div>
+                <h3>Thiết lập Commission Structure</h3>
+                <ul>
+                    <li><strong>Research đối thủ:</strong> Hoa hồng của bạn có cạnh tranh không?</li>
+                    <li><strong>Tính LTV trước:</strong> LTV × Gross Margin ≥ Commission + CAC</li>
+                    <li><strong>Offer recurring:</strong> Hấp dẫn affiliate chất lượng cao hơn one-time</li>
+                    <li><strong>Bonuses:</strong> Thưởng khi đạt ngưỡng (incentivize performance)</li>
+                    <li><strong>Tiered commission:</strong> Tăng % khi affiliate bán nhiều hơn</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">🎯</div>
+                <h3>Tuyển dụng Affiliate chất lượng</h3>
+                <ul>
+                    <li>Xác định ICP (Ideal Affiliate Profile): Ai có audience phù hợp nhất?</li>
+                    <li>Prospect manual: tìm reviewer, blogger trong niche</li>
+                    <li>Voucher đặc biệt cho KH hiện tại → referral program</li>
+                    <li>Influencer outreach — micro influencer thường có ROI tốt hơn</li>
+                    <li>Application form với screening questions</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">🛡️</div>
+                <h3>Affiliate Fraud Prevention</h3>
+                <p>Gian lận trong affiliate là vấn đề nghiêm trọng — ước tính 10-20% traffic affiliate là fraud.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Các loại fraud & cách xử lý</button>
+                <div class="expand-content">
+                    <p><strong>Loại fraud phổ biến:</strong></p>
+                    <ul>
+                        <li><strong>Cookie stuffing:</strong> Đặt cookie affiliate mà người dùng không biết</li>
+                        <li><strong>Ad fraud:</strong> Bot click để tăng số liệu giả</li>
+                        <li><strong>Brand bidding:</strong> Chạy ads trên brand name của bạn</li>
+                        <li><strong>Typosquatting:</strong> Domain giống domain bạn để ăn credit</li>
+                        <li><strong>Transaction fraud:</strong> Mua bằng thẻ ăn cắp rồi refund sau khi nhận hoa hồng</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Phòng chống:</strong></p>
+                    <ul>
+                        <li>Review manually trước khi approve affiliate mới</li>
+                        <li>Hold period 30-60 ngày trước khi trả hoa hồng</li>
+                        <li>Monitor chỉ số bất thường (CR quá cao, toàn refund)</li>
+                        <li>Dùng fraud detection tools: Forensiq, Human Security</li>
+                        <li>Blacklist coupon aggregator sites nếu muốn bảo vệ margin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📋</div>
+                <h3>Affiliate Program Materials</h3>
+                <p>Cung cấp đầy đủ materials giúp affiliate làm việc hiệu quả hơn:</p>
+                <ul>
+                    <li>Banners và creatives đa kích thước</li>
+                    <li>Product data feed (tên, ảnh, giá, mô tả)</li>
+                    <li>Deep link generator (link đến trang sản phẩm cụ thể)</li>
+                    <li>Case studies và testimonials để affiliate dùng</li>
+                    <li>Affiliate newsletter: updates về sản phẩm mới, promotions</li>
+                    <li>Dedicated affiliate manager để hỗ trợ top affiliates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PLATFORMS ===== -->
+    <div class="tab-content" id="content-platforms">
+        <div class="section-title"><span>Nền tảng & Mạng lưới Affiliate</span></div>
+        <p class="section-desc">Có hàng trăm affiliate networks và programs. Đây là những nền tảng quan trọng nhất — cả Việt Nam và quốc tế.</p>
+
+        <h3 style="color:#f59e0b;margin-bottom:1rem">🇻🇳 Nền tảng Việt Nam</h3>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon">🛒</div>
+                <div class="platform-info">
+                    <div class="platform-name">Accesstrade Vietnam</div>
+                    <div class="platform-desc">Network lớn nhất VN: tài chính, bảo hiểm, e-commerce, du lịch, giáo dục</div>
+                    <div class="platform-tag">CPL/CPS | Nhiều merchants nhất VN</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🛍️</div>
+                <div class="platform-info">
+                    <div class="platform-name">Shopee Affiliate</div>
+                    <div class="platform-desc">Hoa hồng từ sản phẩm Shopee, voucher, SP mall. Cookie 30 ngày.</div>
+                    <div class="platform-tag">CPS | 3–8% tùy category</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">💰</div>
+                <div class="platform-info">
+                    <div class="platform-name">Lazada Affiliate</div>
+                    <div class="platform-desc">Lazada Vietnam affiliate program. Hoa hồng theo danh mục sản phẩm.</div>
+                    <div class="platform-tag">CPS | 3–10%</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🔍</div>
+                <div class="platform-info">
+                    <div class="platform-name">Cốc Cốc Ads</div>
+                    <div class="platform-desc">Mạng quảng cáo của Cốc Cốc, focus thị trường VN. PPC & CPA.</div>
+                    <div class="platform-tag">CPA/PPC | Vietnamese market</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">✈️</div>
+                <div class="platform-info">
+                    <div class="platform-name">Traveloka Affiliate</div>
+                    <div class="platform-desc">Hoa hồng từ đặt vé máy bay, khách sạn, tourdu lịch trên Traveloka.</div>
+                    <div class="platform-tag">CPS | Du lịch</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🏦</div>
+                <div class="platform-info">
+                    <div class="platform-name">Finance & Insurance Leads VN</div>
+                    <div class="platform-desc">Momo, VPBank, TPBank, Prudential, Manulife có chương trình affiliate CPL trả rất cao.</div>
+                    <div class="platform-tag">CPL | $5–$50+/lead tùy sản phẩm</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:#ef4444;margin:1.5rem 0 1rem">🌍 Mạng lưới quốc tế lớn</h3>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon">📦</div>
+                <div class="platform-info">
+                    <div class="platform-name">Amazon Associates</div>
+                    <div class="platform-desc">Network lớn nhất thế giới. Hàng triệu sản phẩm. Cookie chỉ 24h.</div>
+                    <div class="platform-tag">CPS | 1–10% tùy category</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">⚡</div>
+                <div class="platform-info">
+                    <div class="platform-name">Impact (impact.com)</div>
+                    <div class="platform-desc">Platform enterprise: Airbnb, Canva, Uber, Levi's. Rất nhiều brand lớn.</div>
+                    <div class="platform-tag">Multi-model | Enterprise brands</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🌐</div>
+                <div class="platform-info">
+                    <div class="platform-name">Commission Junction (CJ)</div>
+                    <div class="platform-desc">Một trong những network cổ nhất và uy tín nhất. Rộng ngành và categories.</div>
+                    <div class="platform-tag">Multi-model | 3,000+ merchants</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">💼</div>
+                <div class="platform-info">
+                    <div class="platform-name">ShareASale (Awin)</div>
+                    <div class="platform-desc">Network lớn cho mid-market. Nhiều merchants trong fashion, home, B2B.</div>
+                    <div class="platform-tag">Multi-model | 16,000+ merchants</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🔄</div>
+                <div class="platform-info">
+                    <div class="platform-name">ClickBank</div>
+                    <div class="platform-desc">Chuyên sản phẩm digital, ebooks, online courses. Hoa hồng rất cao (50-75%).</div>
+                    <div class="platform-tag">CPS | Digital products | 50–75%</div>
+                </div>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon">🏨</div>
+                <div class="platform-info">
+                    <div class="platform-name">Booking.com / Expedia</div>
+                    <div class="platform-desc">Du lịch — hoa hồng từ khách sạn, chuyến bay đặt qua affiliate link.</div>
+                    <div class="platform-tag">CPS | Travel | 4–25%</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:#a855f7;margin:1.5rem 0 1rem">💻 SaaS / Software Affiliate (high-ticket)</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Program</th><th>Hoa hồng</th><th>Cookie</th><th>Loại</th></tr></thead>
+                <tbody>
+                    <tr><td>Kinsta (Hosting)</td><td>$50–$500 one-time + 10% recurring</td><td>60 ngày</td><td>SaaS Hosting</td></tr>
+                    <tr><td>HubSpot</td><td>30% recurring hàng tháng</td><td>90 ngày</td><td>CRM/Marketing</td></tr>
+                    <tr><td>SEMrush</td><td>40% recurring</td><td>120 ngày</td><td>SEO Tool</td></tr>
+                    <tr><td>Shopify</td><td>$150/sale</td><td>30 ngày</td><td>E-commerce Platform</td></tr>
+                    <tr><td>Bluehost/SiteGround</td><td>$65–$200/sale</td><td>60 ngày</td><td>Web Hosting</td></tr>
+                    <tr><td>ConvertKit</td><td>30% recurring (lifetime)</td><td>90 ngày</td><td>Email Marketing</td></tr>
+                    <tr><td>Teachable</td><td>30% recurring</td><td>90 ngày</td><td>Online Course</td></tr>
+                    <tr><td>NordVPN</td><td>100% first month + 30% renewals</td><td>30 ngày</td><td>VPN</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== NICHES ===== -->
+    <div class="tab-content" id="content-niches">
+        <div class="section-title"><span>Ngách thị trường Affiliate</span></div>
+        <p class="section-desc">Chọn niche đúng là quyết định quan trọng nhất. Niche tốt có 3 yếu tố: đủ lớn để có traffic, đủ nhiều products để promote, và đủ thương mại để KH sẵn sàng mua.</p>
+
+        <div class="highlight">
+            <h4>🎯 Ba tiêu chí chọn niche</h4>
+            <p>
+            <strong>1. Passion/Knowledge:</strong> Bạn có đủ kiến thức hoặc sẵn sàng học để trở thành expert?<br>
+            <strong>2. Profit Potential:</strong> Affiliate commissions có đủ cao để xứng đáng với công sức?<br>
+            <strong>3. Demand:</strong> Đủ lượng search/traffic để tạo ra doanh số đáng kể?
+            </p>
+        </div>
+
+        <h3 style="color:#f59e0b;margin-bottom:1rem">🏆 Các niche sinh lời cao nhất (theo commission &amp; demand)</h3>
+        <div class="niche-grid">
+            <div class="niche-card">
+                <div class="niche-icon">💰</div>
+                <div class="niche-name">Tài chính cá nhân</div>
+                <div class="niche-rate">Hoa hồng: $50–$500/lead</div>
+                <div class="niche-desc">Thẻ tín dụng, vay tiêu dùng, đầu tư, bảo hiểm. CPA rất cao vì LTV khách hàng lớn.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">💻</div>
+                <div class="niche-name">Software / SaaS</div>
+                <div class="niche-rate">Hoa hồng: 20–40% recurring</div>
+                <div class="niche-desc">Recurring commission — một lần bán, nhận hoa hồng mỗi tháng. Passive income thực sự.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🏥</div>
+                <div class="niche-name">Sức khỏe & Wellness</div>
+                <div class="niche-rate">Hoa hồng: 10–50%</div>
+                <div class="niche-desc">Supplement, fitness, diet plans. Thị trường khổng lồ nhưng cần ethical approach.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🎓</div>
+                <div class="niche-name">Giáo dục & Online Courses</div>
+                <div class="niche-rate">Hoa hồng: 30–50%</div>
+                <div class="niche-desc">Udemy, Coursera, khóa học online. Thị trường tăng mạnh sau COVID.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">✈️</div>
+                <div class="niche-name">Du lịch</div>
+                <div class="niche-rate">Hoa hồng: 3–8% / $50–$200</div>
+                <div class="niche-desc">Khách sạn, vé máy bay, tour. GIÁ TRỊ đặt phòng cao → hoa hồng tốt dù % thấp.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🌐</div>
+                <div class="niche-name">Web Hosting & Domain</div>
+                <div class="niche-rate">Hoa hồng: $50–$500/sale</div>
+                <div class="niche-desc">Một trong những niche affiliate classic nhất. Competition cao nhưng traffic ổn định.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🎮</div>
+                <div class="niche-name">Gaming & Entertainment</div>
+                <div class="niche-rate">Hoa hồng: 5–20%</div>
+                <div class="niche-desc">PC parts, gaming peripherals, game keys, streaming subscriptions. Audience đông và loyal.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🏠</div>
+                <div class="niche-name">Home & Garden</div>
+                <div class="niche-rate">Hoa hồng: 5–15%</div>
+                <div class="niche-desc">Nội thất, đồ gia dụng, cây cảnh. AOV cao → hoa hồng tốt. Pinterest traffic mạnh.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">💄</div>
+                <div class="niche-name">Beauty & Fashion</div>
+                <div class="niche-rate">Hoa hồng: 5–20%</div>
+                <div class="niche-desc">Rất visual → Instagram, Pinterest, YouTube. Repeat purchase cao → LTV tốt.</div>
+            </div>
+            <div class="niche-card">
+                <div class="niche-icon">🐾</div>
+                <div class="niche-name">Thú cưng</div>
+                <div class="niche-rate">Hoa hồng: 5–20%</div>
+                <div class="niche-desc">Pet owners chi tiêu không biết tiếc cho thú cưng. Emotional purchase = high conversion.</div>
+            </div>
+        </div>
+
+        <div class="warning" style="margin-top:1.5rem">
+            <h4>🚨 Niche cần cẩn trọng (YMYL — Your Money Your Life)</h4>
+            <p>Google ưu tiên E-E-A-T cao cho các niche liên quan đến tài chính, sức khỏe, pháp lý. Nếu làm trong niche này:</p>
+            <ul>
+                <li>Cần thực sự có expertise hoặc cite chuyên gia</li>
+                <li>Disclaimer rõ ràng: "Không phải lời khuyên tài chính/y tế"</li>
+                <li>Tránh claim thái quá về sản phẩm (FTC violation)</li>
+                <li>Update content thường xuyên — thông tin lỗi thời có thể gây hại</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== TRACKING ===== -->
+    <div class="tab-content" id="content-tracking">
+        <div class="section-title"><span>Tracking & Kỹ thuật</span></div>
+        <p class="section-desc">Tracking là xương sống của affiliate marketing — đảm bảo affiliate nhận đúng hoa hồng và merchant trả đúng người đúng số tiền. Hiểu tracking giúp cả hai bên tránh tranh chấp.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#f59e0b;--c2:#ef4444">
+                <div class="card-icon">🍪</div>
+                <div class="badge badge-amber">Phổ biến nhất</div>
+                <h3>Cookie-based Tracking</h3>
+                <p>Phương pháp traditional: đặt cookie vào trình duyệt khi click link.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Cách hoạt động & Giới hạn</button>
+                <div class="expand-content">
+                    <p><strong>Cơ chế:</strong></p>
+                    <ul>
+                        <li>Affiliate link chứa unique ID: <code style="font-size:.82rem;background:rgba(255,255,255,.1);padding:.1rem .3rem;border-radius:3px">?ref=AFFILIATE_ID</code></li>
+                        <li>Khi click, tracking pixel đặt cookie ID vào trình duyệt</li>
+                        <li>Khi checkout, script đọc cookie và ghi nhận affiliate</li>
+                        <li>Network hoặc in-house system ghi nhận conversion</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Giới hạn:</strong></p>
+                    <ul>
+                        <li>ITP (Safari), Firefox Enhanced Tracking → cookie bị xóa sau 1-7 ngày</li>
+                        <li>Private/Incognito mode không lưu cookie</li>
+                        <li>User đổi thiết bị, đổi trình duyệt → mất attribution</li>
+                        <li>Ad blockers block tracking scripts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">🖥️</div>
+                <div class="badge badge-blue">Server-side</div>
+                <h3>Server-side Tracking</h3>
+                <p>Dữ liệu được gửi trực tiếp từ server của merchant đến tracking server — không qua trình duyệt người dùng.</p>
+                <ul>
+                    <li>Không bị block bởi ad blocker</li>
+                    <li>Không bị ảnh hưởng bởi ITP/cookie restrictions</li>
+                    <li>Chính xác hơn client-side tracking</li>
+                    <li>Cần setup kỹ thuật phức tạp hơn</li>
+                    <li>Dùng Postback URL / S2S conversion tracking</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🔏</div>
+                <div class="badge badge-purple">Advanced</div>
+                <h3>Fingerprinting & Other Methods</h3>
+                <ul>
+                    <li><strong>Browser fingerprinting:</strong> Định danh user dựa trên config trình duyệt (không cần cookie)</li>
+                    <li><strong>First-party cookie:</strong> Cookie đặt trên domain của merchant (không bị ITP block)</li>
+                    <li><strong>Coupon/promo code:</strong> Mỗi affiliate có code riêng — KH nhập khi checkout</li>
+                    <li><strong>Pixel tracking:</strong> JS snippet trên trang thank-you của merchant</li>
+                    <li><strong>Deep links:</strong> Link trỏ thẳng đến sản phẩm cụ thể (tăng conversion)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-green">Attribution</div>
+                <h3>Multi-touch Attribution</h3>
+                <p>Khi KH click nhiều affiliate links trước khi mua, ai nhận hoa hồng?</p>
+                <ul>
+                    <li><strong>Last click wins:</strong> Affiliate cuối nhận 100% (mặc định ở đa số networks)</li>
+                    <li><strong>First click wins:</strong> Affiliate đầu nhận 100%</li>
+                    <li><strong>Linear split:</strong> Chia đều cho tất cả</li>
+                    <li><strong>Custom rules:</strong> Một số networks cho phép tùy chỉnh</li>
+                </ul>
+                <p style="margin-top:.5rem;color:#fbbf24;font-size:.82rem">Tranh chấp phổ biến: coupon site click cuối, cướp hoa hồng của reviewer viết review dài</p>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:1.5rem"><span>Tối ưu Conversion Rate cho Affiliate</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🔗</div>
+                <h3>Link Optimization</h3>
+                <ul>
+                    <li><strong>Deep links:</strong> Link thẳng đến trang sản phẩm, không phải homepage</li>
+                    <li><strong>Pretty links:</strong> Ẩn affiliate link bằng domain riêng (tăng CTR)</li>
+                    <li><strong>CTA placement:</strong> Đặt link đúng chỗ — trong đoạn review, sau comparison table</li>
+                    <li><strong>Contextual links:</strong> Link tự nhiên trong nội dung, không chỉ banner</li>
+                    <li><strong>Nofollow:</strong> Dùng rel="nofollow sponsored" cho SEO compliance</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">📋</div>
+                <h3>Content Optimization</h3>
+                <ul>
+                    <li><strong>Comparison tables:</strong> Dễ scan, highlight winner rõ ràng</li>
+                    <li><strong>Pros/Cons lists:</strong> Khách quan → trust cao hơn</li>
+                    <li><strong>Rating/Score:</strong> Thêm credibility</li>
+                    <li><strong>Updated date:</strong> "Updated tháng 4/2026" — freshness signal</li>
+                    <li><strong>Author bio:</strong> Expertise → E-E-A-T tốt hơn</li>
+                    <li><strong>Images/Screenshots:</strong> Chứng minh bạn thực sự dùng sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== METRICS ===== -->
+    <div class="tab-content" id="content-metrics">
+        <div class="section-title"><span>Đo lường hiệu suất Affiliate</span></div>
+        <p class="section-desc">Tracking đúng KPIs giúp cả affiliate và merchant đưa ra quyết định tốt hơn: tối ưu content nào, pause product nào, double down vào kênh nào.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>📣 KPIs cho Affiliate (Publisher)</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">CTR — Click-Through Rate</div>
+                <div class="kpi-formula">Clicks / Impressions × 100</div>
+                <div class="kpi-note">↑ Tốt: 2-5% với banner, 10%+ với text link trong content</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">EPC — Earnings Per Click</div>
+                <div class="kpi-formula">Total Earnings / Total Clicks</div>
+                <div class="kpi-note">Metric quan trọng nhất! So sánh hiệu quả giữa các programs</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Conversion Rate</div>
+                <div class="kpi-formula">Conversions / Clicks × 100</div>
+                <div class="kpi-note">✓ E-commerce: 1-3%; SaaS freemium: 5-15%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">AOC — Average Order Commission</div>
+                <div class="kpi-formula">Total Commission / # Orders</div>
+                <div class="kpi-note">↑ Chứng tỏ traffic quality tốt, upsell nhiều</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Reversal Rate</div>
+                <div class="kpi-formula">Reversed / Approved × 100</div>
+                <div class="kpi-note">↓ Cao nghĩa là traffic kém hoặc fraud</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Revenue per Visitor</div>
+                <div class="kpi-formula">Total Revenue / Total Visitors</div>
+                <div class="kpi-note">↑ Metric tổng hợp về hiệu quả monetization</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-top:1.5rem;margin-bottom:1rem"><span>🏢 KPIs cho Merchant</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">ROAS Affiliate Channel</div>
+                <div class="kpi-formula">Affiliate Revenue / Commission Paid</div>
+                <div class="kpi-note">✓ Phải ≥ 5:1 để bền vững</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">New vs Returning Customers</div>
+                <div class="kpi-formula">% KH mới từ affiliate</div>
+                <div class="kpi-note">Affiliate nên mang KH mới, không chỉ retarget KH cũ</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Active Affiliates Rate</div>
+                <div class="kpi-formula">Active / Total Affiliates × 100</div>
+                <div class="kpi-note">✓ Benchmark: 10-30% affiliates active</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Commission Rate</div>
+                <div class="kpi-formula">Commission Paid / Revenue × 100</div>
+                <div class="kpi-note">Phải &lt; Gross Margin để có lợi nhuận</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Top 10% Affiliate Revenue %</div>
+                <div class="kpi-formula">Revenue từ top 10% / Total</div>
+                <div class="kpi-note">Thường 80-90% revenue từ top 10% affiliates</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Fraud Rate</div>
+                <div class="kpi-formula">Fraudulent Conversions / Total</div>
+                <div class="kpi-note">↓ &lt;2% là tốt. Cần monitor liên tục</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Legal & Ethics — Quy định và đạo đức</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">⚖️</div>
+                <div class="badge badge-red">Bắt buộc</div>
+                <h3>Khai báo Affiliate (Disclosure)</h3>
+                <p>Tại Mỹ, FTC (Federal Trade Commission) yêu cầu khai báo quan hệ affiliate rõ ràng. Nhiều quốc gia có quy định tương tự.</p>
+                <ul>
+                    <li>Phải khai báo <strong>rõ ràng, nổi bật, trước</strong> link affiliate</li>
+                    <li>"Bài này có chứa affiliate link. Tôi có thể nhận hoa hồng nếu bạn mua."</li>
+                    <li>Không đủ nếu chỉ để trong footer nhỏ</li>
+                    <li>YouTube: khai báo trong description VÀ đề cập trong video</li>
+                    <li>Instagram: dùng #ad hoặc #affiliate</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🛡️</div>
+                <div class="badge badge-amber">Đạo đức</div>
+                <h3>Affiliate Ethics — Chuẩn mực đạo đức</h3>
+                <ul>
+                    <li><strong>Chỉ recommend sản phẩm thực sự tốt</strong> — uy tín > hoa hồng ngắn hạn</li>
+                    <li><strong>Honest review:</strong> Kể cả nhược điểm. Không chỉ praise ngọt ngào.</li>
+                    <li><strong>Không spam:</strong> Đừng post link khắp nơi không liên quan</li>
+                    <li><strong>Không mislead:</strong> Không claim "giá thấp nhất" hay "tốt nhất" nếu không chứng minh được</li>
+                    <li><strong>Update khi sản phẩm thay đổi:</strong> Review cũ sai thông tin gây hại cho khách</li>
+                    <li><strong>Không cookie stuff:</strong> Vi phạm Terms of Service và bất hợp pháp</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top:.5rem">
+            <h4>💡 Công thức thực tế để tính Affiliate Income</h4>
+            <p>
+            <strong>Monthly Income = Traffic × CTR × CVR × AOC</strong><br><br>
+            Ví dụ: 10.000 visit/tháng × 5% CTR × 2% CVR × 200.000đ/đơn<br>
+            = 10.000 × 0.05 × 0.02 × 200.000 = <strong>2.000.000đ/tháng</strong><br><br>
+            Tăng bất kỳ biến nào trong công thức trên đều tăng thu nhập:<br>
+            • Traffic: SEO, social, email<br>
+            • CTR: Better link placement, compelling CTAs<br>
+            • CVR: Chọn merchant có landing page tốt, phù hợp audience<br>
+            • AOC: Promote high-ticket products, upsell opportunities
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const c = document.getElementById('content-' + tabId);
+    const b = document.getElementById('tab-' + tabId);
+    if (c) c.classList.add('active');
+    if (b) b.classList.add('active');
+}
+
+function toggleExpand(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open');
+    btn.textContent = isOpen ? '▼ Chi tiết' : '▲ Thu gọn';
+}
+</script>
+</body>
+</html>

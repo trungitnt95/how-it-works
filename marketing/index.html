@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing - How It Works</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#0f0c29 0%,#1a0533 50%,#24243e 100%);min-height:100vh;color:#fff}
+        a{color:inherit;text-decoration:none}
+
+        /* HEADER */
+        header{background:rgba(0,0,0,.4);backdrop-filter:blur(12px);padding:1rem 2rem;border-bottom:1px solid rgba(255,100,200,.2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:.5rem}
+        .back-home{color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:6px;background:rgba(255,255,255,.06);font-size:.9rem;transition:.2s}
+        .back-home:hover{background:rgba(255,255,255,.12);color:#fff}
+        header h1{font-size:1.4rem;background:linear-gradient(90deg,#ff6ec7,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .header-right{display:flex;gap:.5rem;flex-wrap:wrap}
+        .tab-nav-btn{padding:.4rem .9rem;border-radius:20px;border:1px solid rgba(255,110,199,.3);background:rgba(255,110,199,.08);color:rgba(255,255,255,.7);cursor:pointer;font-size:.82rem;transition:.2s}
+        .tab-nav-btn:hover,.tab-nav-btn.active{background:rgba(255,110,199,.25);border-color:#ff6ec7;color:#fff}
+
+        /* HERO */
+        .hero{text-align:center;padding:3rem 2rem 2rem;max-width:860px;margin:0 auto}
+        .hero-icon{font-size:4rem;margin-bottom:1rem}
+        .hero h2{font-size:2.4rem;margin-bottom:.8rem;line-height:1.2}
+        .hero h2 span{background:linear-gradient(90deg,#ff6ec7,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:620px;margin:0 auto 1.5rem}
+        .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+        .hero-stat{text-align:center}
+        .hero-stat .num{font-size:1.8rem;font-weight:700;color:#ff6ec7}
+        .hero-stat .lbl{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.1rem}
+
+        /* TABS */
+        .tabs-container{max-width:1300px;margin:0 auto;padding:0 1.5rem 4rem}
+        .tabs-bar{display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.8rem;margin-bottom:2rem}
+        .tab-btn{padding:.55rem 1.1rem;border-radius:8px 8px 0 0;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;font-size:.9rem;transition:.2s;border-bottom:3px solid transparent}
+        .tab-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+        .tab-btn.active{color:#ff6ec7;border-bottom-color:#ff6ec7;font-weight:600}
+        .tab-content{display:none}
+        .tab-content.active{display:block;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        /* SECTION */
+        .section-title{font-size:1.6rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+        .section-title span{background:linear-gradient(90deg,#ff6ec7,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .section-desc{color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7;font-size:1rem}
+
+        /* GRID */
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-bottom:2rem}
+        .cards-grid.two-col{grid-template-columns:repeat(auto-fill,minmax(500px,1fr))}
+        .cards-grid.three-col{grid-template-columns:repeat(3,1fr)}
+
+        /* CARD */
+        .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c1,#ff6ec7),var(--c2,#a855f7))}
+        .card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,110,199,.25);transform:translateY(-3px)}
+        .card-icon{font-size:2rem;margin-bottom:.8rem}
+        .card h3{font-size:1.1rem;margin-bottom:.6rem;color:#fff}
+        .card p,.card li{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6}
+        .card ul{padding-left:1.2rem;margin-top:.5rem}
+        .card ul li{margin-bottom:.3rem}
+        .card .badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+        .badge-pink{background:rgba(255,110,199,.2);color:#ff6ec7;border:1px solid rgba(255,110,199,.3)}
+        .badge-purple{background:rgba(168,85,247,.2);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+        .badge-blue{background:rgba(59,130,246,.2);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}
+        .badge-green{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
+        .badge-orange{background:rgba(251,146,60,.2);color:#fb923c;border:1px solid rgba(251,146,60,.3)}
+
+        /* EXPANDABLE */
+        .expand-btn{display:flex;align-items:center;gap:.4rem;background:rgba(255,110,199,.12);border:1px solid rgba(255,110,199,.25);color:#ff6ec7;padding:.4rem .9rem;border-radius:6px;cursor:pointer;font-size:.82rem;margin-top:1rem;transition:.2s;width:fit-content}
+        .expand-btn:hover{background:rgba(255,110,199,.22)}
+        .expand-content{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08)}
+        .expand-content.open{display:block;animation:fadeIn .25s ease}
+
+        /* TABLE */
+        .table-wrap{overflow-x:auto;margin:1rem 0}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        th{background:rgba(255,110,199,.15);padding:.7rem 1rem;text-align:left;color:#ff6ec7;font-weight:600;border-bottom:1px solid rgba(255,110,199,.25)}
+        td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+        tr:hover td{background:rgba(255,255,255,.03)}
+
+        /* FUNNEL */
+        .funnel{max-width:500px;margin:0 auto 2rem}
+        .funnel-stage{text-align:center;margin-bottom:.3rem;position:relative}
+        .funnel-bar{background:linear-gradient(90deg,rgba(255,110,199,.3),rgba(168,85,247,.3));border:1px solid rgba(255,110,199,.3);border-radius:6px;padding:.9rem;margin:0 auto;transition:.2s;cursor:default}
+        .funnel-bar:hover{background:linear-gradient(90deg,rgba(255,110,199,.5),rgba(168,85,247,.5))}
+        .funnel-bar h4{font-size:.95rem;margin-bottom:.2rem}
+        .funnel-bar p{font-size:.8rem;color:rgba(255,255,255,.65)}
+        .funnel-arrow{text-align:center;color:rgba(255,110,199,.6);font-size:1.2rem;margin:.1rem 0}
+
+        /* PROCESS */
+        .process{display:flex;gap:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:1rem;margin:1rem 0}
+        .process-step{min-width:140px;flex:1;text-align:center;position:relative}
+        .process-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:rgba(255,110,199,.6);font-size:1.3rem;font-weight:700}
+        .step-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(255,110,199,.25),rgba(168,85,247,.25));border:2px solid rgba(255,110,199,.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto .5rem}
+        .process-step h4{font-size:.82rem;color:#fff;margin-bottom:.2rem}
+        .process-step p{font-size:.75rem;color:rgba(255,255,255,.55)}
+
+        /* HIGHLIGHT BOX */
+        .highlight{background:linear-gradient(135deg,rgba(255,110,199,.1),rgba(168,85,247,.1));border:1px solid rgba(255,110,199,.25);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .highlight h4{color:#ff6ec7;margin-bottom:.6rem;font-size:1rem}
+        .highlight p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+
+        /* COMPARISON */
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+        .compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem}
+        .compare-box h4{margin-bottom:.8rem;font-size:1rem}
+        .compare-box ul{list-style:none;padding:0}
+        .compare-box li{padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:.5rem}
+        .compare-box li::before{content:'•';color:#ff6ec7;flex-shrink:0;margin-top:1px}
+
+        /* KPI CARDS */
+        .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:1rem 0}
+        .kpi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1rem;text-align:center}
+        .kpi-card .kpi-name{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.4rem}
+        .kpi-card .kpi-formula{font-size:.82rem;color:#c084fc;font-family:monospace;background:rgba(168,85,247,.1);padding:.3rem .5rem;border-radius:4px;margin:.4rem 0}
+        .kpi-card .kpi-good{font-size:.78rem;color:#4ade80}
+
+        /* TOOL CARDS */
+        .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+        .tool-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1rem;display:flex;align-items:flex-start;gap:.8rem}
+        .tool-icon{font-size:1.8rem;flex-shrink:0}
+        .tool-info .tool-name{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+        .tool-info .tool-desc{font-size:.8rem;color:rgba(255,255,255,.6)}
+        .tool-info .tool-cat{font-size:.72rem;color:#a855f7;margin-top:.3rem}
+
+        @media(max-width:768px){
+            .hero h2{font-size:1.7rem}
+            .cards-grid.three-col{grid-template-columns:1fr}
+            .compare-grid{grid-template-columns:1fr}
+            .process{flex-direction:column;align-items:center}
+            .process-step:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+            .process-step{margin-bottom:1.5rem}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="../" class="back-home">← Trang chủ</a>
+        <h1>📣 Marketing</h1>
+    </div>
+    <div class="header-right">
+        <button class="tab-nav-btn" onclick="switchTab('overview')">Tổng quan</button>
+        <button class="tab-nav-btn" onclick="switchTab('mix')">Marketing Mix</button>
+        <button class="tab-nav-btn" onclick="switchTab('digital')">Digital</button>
+        <button class="tab-nav-btn" onclick="switchTab('strategy')">Chiến lược</button>
+        <button class="tab-nav-btn" onclick="switchTab('brand')">Thương hiệu</button>
+        <button class="tab-nav-btn" onclick="switchTab('metrics')">Đo lường</button>
+        <button class="tab-nav-btn" onclick="switchTab('tools')">Công cụ</button>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-icon">📣</div>
+    <h2>Marketing <span>Hoạt Động</span> Như Thế Nào</h2>
+    <p>Từ chiến lược thương hiệu đến growth hacking — hiểu sâu nghề marketing trong thời đại số</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">4P→7P</div><div class="lbl">Marketing Mix</div></div>
+        <div class="hero-stat"><div class="num">AIDA</div><div class="lbl">Mô hình hành vi</div></div>
+        <div class="hero-stat"><div class="num">7 kênh</div><div class="lbl">Digital marketing</div></div>
+        <div class="hero-stat"><div class="num">20+</div><div class="lbl">KPIs quan trọng</div></div>
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('overview')" id="tab-overview">🏠 Tổng quan</button>
+        <button class="tab-btn" onclick="switchTab('mix')" id="tab-mix">🎯 Marketing Mix</button>
+        <button class="tab-btn" onclick="switchTab('funnel')" id="tab-funnel">🔽 Funnel</button>
+        <button class="tab-btn" onclick="switchTab('digital')" id="tab-digital">💻 Digital Marketing</button>
+        <button class="tab-btn" onclick="switchTab('strategy')" id="tab-strategy">⚡ Chiến lược</button>
+        <button class="tab-btn" onclick="switchTab('brand')" id="tab-brand">🌟 Thương hiệu</button>
+        <button class="tab-btn" onclick="switchTab('psychology')" id="tab-psychology">🧠 Tâm lý</button>
+        <button class="tab-btn" onclick="switchTab('metrics')" id="tab-metrics">📊 Đo lường</button>
+        <button class="tab-btn" onclick="switchTab('tools')" id="tab-tools">🛠️ Công cụ</button>
+    </div>
+
+    <!-- ===== TAB: OVERVIEW ===== -->
+    <div class="tab-content active" id="content-overview">
+        <div class="section-title"><span>Marketing là gì?</span></div>
+        <p class="section-desc">Marketing không chỉ là quảng cáo — đó là toàn bộ quá trình tạo ra giá trị, truyền thông giá trị và phân phối giá trị đến đúng khách hàng mục tiêu, đúng lúc, đúng nơi, đúng thông điệp.</p>
+
+        <div class="highlight">
+            <h4>📌 Định nghĩa chuẩn (Philip Kotler)</h4>
+            <p>"Marketing là hoạt động, tập hợp các tổ chức và quy trình để <strong>tạo ra, truyền thông, phân phối và trao đổi</strong> các sản phẩm có giá trị cho khách hàng, đối tác và xã hội."</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ff6ec7;--c2:#a855f7">
+                <div class="card-icon">🎯</div>
+                <div class="badge badge-pink">Mục tiêu cốt lõi</div>
+                <h3>Marketing nhằm làm gì?</h3>
+                <ul>
+                    <li>Hiểu nhu cầu & mong muốn khách hàng</li>
+                    <li>Tạo ra sản phẩm/dịch vụ đáp ứng nhu cầu đó</li>
+                    <li>Truyền thông để khách hàng biết đến</li>
+                    <li>Phân phối sản phẩm đến tay người dùng</li>
+                    <li>Xây dựng mối quan hệ lâu dài với khách hàng</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#6366f1">
+                <div class="card-icon">📜</div>
+                <div class="badge badge-purple">Lịch sử</div>
+                <h3>Sự tiến hóa của Marketing</h3>
+                <ul>
+                    <li><strong>1.0 (1900s):</strong> Tập trung sản phẩm — làm tốt là bán được</li>
+                    <li><strong>2.0 (1970s):</strong> Tập trung khách hàng — đáp ứng nhu cầu</li>
+                    <li><strong>3.0 (2000s):</strong> Tập trung con người — giá trị & cảm xúc</li>
+                    <li><strong>4.0 (2010s):</strong> Kỹ thuật số — kết nối online-offline</li>
+                    <li><strong>5.0 (2020s):</strong> AI & dữ liệu — cá nhân hóa cực cao</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">🏢</div>
+                <div class="badge badge-blue">Phân loại</div>
+                <h3>Các loại Marketing</h3>
+                <ul>
+                    <li><strong>B2C:</strong> Doanh nghiệp → Người tiêu dùng</li>
+                    <li><strong>B2B:</strong> Doanh nghiệp → Doanh nghiệp</li>
+                    <li><strong>B2G:</strong> Doanh nghiệp → Chính phủ</li>
+                    <li><strong>D2C:</strong> Sản xuất → Trực tiếp đến người dùng</li>
+                    <li><strong>C2C:</strong> Người dùng → Người dùng (Shopee, Tiki...)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">💡</div>
+                <div class="badge badge-green">Khái niệm cốt lõi</div>
+                <h3>5 khái niệm nền tảng</h3>
+                <ul>
+                    <li><strong>Nhu cầu (Need):</strong> Trạng thái thiếu hụt cơ bản</li>
+                    <li><strong>Mong muốn (Want):</strong> Cách cụ thể để thỏa mãn nhu cầu</li>
+                    <li><strong>Cầu (Demand):</strong> Mong muốn + Khả năng chi trả</li>
+                    <li><strong>Sản phẩm (Product):</strong> Bất cứ thứ gì thỏa mãn nhu cầu</li>
+                    <li><strong>Giá trị (Value):</strong> Lợi ích so với chi phí bỏ ra</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Phân biệt Marketing vs Quảng cáo vs Sales</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Khía cạnh</th><th>Marketing</th><th>Quảng cáo (Advertising)</th><th>Sales (Bán hàng)</th></tr></thead>
+                <tbody>
+                    <tr><td>Phạm vi</td><td>Rộng — toàn bộ chiến lược</td><td>Hẹp — một kênh truyền thông</td><td>Cuối chuỗi — chốt giao dịch</td></tr>
+                    <tr><td>Thời gian</td><td>Dài hạn</td><td>Ngắn đến trung hạn</td><td>Ngắn hạn, tức thì</td></tr>
+                    <tr><td>Mục tiêu</td><td>Nhận thức, gắn kết, khách hàng trung thành</td><td>Tiếp cận, awareness, click</td><td>Doanh thu, đơn hàng</td></tr>
+                    <tr><td>Người thực hiện</td><td>Marketing team, Brand team</td><td>Creative team, Media team</td><td>Sales team, BD team</td></tr>
+                    <tr><td>Ví dụ</td><td>Chiến lược định vị sản phẩm</td><td>Chạy ads Facebook</td><td>Gọi điện telesale</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight" style="margin-top:1.5rem">
+            <h4>🔑 Nguyên tắc vàng</h4>
+            <p>Marketing xuất sắc <strong>không tạo ra nhu cầu</strong> — nó khám phá nhu cầu tiềm ẩn và kết nối sản phẩm với đúng người cần. "Mục tiêu của marketing là làm cho việc bán hàng trở nên không cần thiết." — Peter Drucker</p>
+        </div>
+    </div>
+
+    <!-- ===== TAB: MARKETING MIX ===== -->
+    <div class="tab-content" id="content-mix">
+        <div class="section-title"><span>Marketing Mix — 4P & 7P</span></div>
+        <p class="section-desc">Marketing Mix là tập hợp các công cụ chiến thuật mà doanh nghiệp sử dụng để đạt mục tiêu marketing. Mô hình 4P gốc của E. Jerome McCarthy (1960) sau được mở rộng thành 7P cho ngành dịch vụ.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ff6ec7;--c2:#ec4899">
+                <div class="card-icon">📦</div>
+                <div class="badge badge-pink">P1</div>
+                <h3>Product — Sản phẩm</h3>
+                <p>Thứ bạn bán — hàng hóa, dịch vụ, ý tưởng, trải nghiệm</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các cấp độ sản phẩm (Kotler):</strong></p>
+                    <ul>
+                        <li><strong>Core Benefit:</strong> Lợi ích cốt lõi khách hàng mua (ngủ ngon khi mua khách sạn)</li>
+                        <li><strong>Basic Product:</strong> Sản phẩm cơ bản (phòng ngủ, giường, tắm)</li>
+                        <li><strong>Expected:</strong> Kỳ vọng tối thiểu (khăn sạch, wifi)</li>
+                        <li><strong>Augmented:</strong> Vượt kỳ vọng (spa, butler, view đẹp)</li>
+                        <li><strong>Potential:</strong> Tiềm năng mở rộng (tương lai)</li>
+                    </ul>
+                    <p style="margin-top:.8rem"><strong>Quyết định về Product:</strong> Tính năng, thiết kế, thương hiệu, bao bì, dịch vụ đi kèm, bảo hành, vòng đời sản phẩm (PLC)</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">💵</div>
+                <div class="badge badge-purple">P2</div>
+                <h3>Price — Giá cả</h3>
+                <p>Số tiền khách hàng trả — và cách bạn định giá</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các chiến lược định giá:</strong></p>
+                    <ul>
+                        <li><strong>Cost-plus:</strong> Giá thành + % lợi nhuận (đơn giản nhất)</li>
+                        <li><strong>Value-based:</strong> Định giá theo giá trị cảm nhận của KH</li>
+                        <li><strong>Competitive:</strong> Bám theo giá đối thủ</li>
+                        <li><strong>Penetration:</strong> Giá thấp để chiếm thị phần nhanh</li>
+                        <li><strong>Skimming:</strong> Ra mắt giá cao, giảm dần theo thời gian</li>
+                        <li><strong>Freemium:</strong> Miễn phí cơ bản, tính phí nâng cao</li>
+                        <li><strong>Dynamic:</strong> Giá thay đổi theo cung/cầu (Grab, hotel)</li>
+                        <li><strong>Bundle:</strong> Gói combo rẻ hơn mua lẻ</li>
+                        <li><strong>Psychological:</strong> 99K thay vì 100K</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#2563eb">
+                <div class="card-icon">🚚</div>
+                <div class="badge badge-blue">P3</div>
+                <h3>Place — Phân phối</h3>
+                <p>Kênh đưa sản phẩm từ nhà sản xuất đến tay người tiêu dùng</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các kênh phân phối:</strong></p>
+                    <ul>
+                        <li><strong>Direct (D2C):</strong> Thương hiệu → KH trực tiếp (website, app riêng)</li>
+                        <li><strong>Retailer:</strong> Qua siêu thị, cửa hàng lẻ</li>
+                        <li><strong>Wholesaler:</strong> Qua đại lý sỉ</li>
+                        <li><strong>E-commerce:</strong> Shopee, Lazada, Tiki, Amazon</li>
+                        <li><strong>Franchise:</strong> Nhượng quyền (McDonald's, Circle K)</li>
+                        <li><strong>Omnichannel:</strong> Kết hợp nhiều kênh liền mạch</li>
+                    </ul>
+                    <p style="margin-top:.8rem"><strong>Cường độ phân phối:</strong> Intensive (khắp nơi) → Selective (chọn lọc) → Exclusive (độc quyền)</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">📢</div>
+                <div class="badge badge-orange">P4</div>
+                <h3>Promotion — Truyền thông</h3>
+                <p>Các hoạt động truyền thông để tạo nhận thức và thúc đẩy mua hàng</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Marketing Communications Mix:</strong></p>
+                    <ul>
+                        <li><strong>Advertising:</strong> Quảng cáo trả phí (TV, báo, digital ads)</li>
+                        <li><strong>PR:</strong> Quan hệ công chúng, báo chí, earned media</li>
+                        <li><strong>Sales Promotion:</strong> Giảm giá, khuyến mãi, voucher</li>
+                        <li><strong>Personal Selling:</strong> Bán hàng trực tiếp 1-1</li>
+                        <li><strong>Direct Marketing:</strong> Email, SMS, direct mail</li>
+                        <li><strong>Digital/Social:</strong> Social media, SEO, content</li>
+                        <li><strong>Events:</strong> Hội chợ, triển lãm, experiential</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#16a34a">
+                <div class="card-icon">👥</div>
+                <div class="badge badge-green">P5</div>
+                <h3>People — Con người</h3>
+                <p>Nhân viên, đối tác, khách hàng — tất cả tham gia vào việc tạo ra trải nghiệm</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li>Tuyển dụng & đào tạo nhân sự tiếp xúc KH</li>
+                        <li>Văn hóa dịch vụ khách hàng</li>
+                        <li>Internal marketing — marketing cho nhân viên</li>
+                        <li>KOL, influencer, brand ambassador</li>
+                        <li>Customer service, after-sales support</li>
+                    </ul>
+                    <p style="margin-top:.7rem">Đặc biệt quan trọng trong ngành dịch vụ: nhà hàng, khách sạn, tài chính, y tế...</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">⚙️</div>
+                <div class="badge badge-blue">P6</div>
+                <h3>Process — Quy trình</h3>
+                <p>Cách dịch vụ được cung cấp — các bước, hệ thống, thủ tục</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li>Customer journey mapping — bản đồ hành trình KH</li>
+                        <li>Touchpoint design — thiết kế điểm chạm</li>
+                        <li>Service blueprinting — sơ đồ quy trình dịch vụ</li>
+                        <li>Automation & AI trong quy trình</li>
+                        <li>Quality control tại từng bước</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">🏪</div>
+                <div class="badge badge-pink">P7</div>
+                <h3>Physical Evidence — Bằng chứng hữu hình</h3>
+                <p>Môi trường vật lý và các dấu hiệu hữu hình của dịch vụ</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li>Thiết kế cửa hàng / không gian (Store design)</li>
+                        <li>Đồng phục nhân viên</li>
+                        <li>Brochure, bao bì, vật liệu in ấn</li>
+                        <li>Website UI/UX</li>
+                        <li>Chứng chỉ, giải thưởng, review/testimonials</li>
+                    </ul>
+                    <p style="margin-top:.7rem">Khách hàng đánh giá dịch vụ khó nhìn thấy qua những thứ có thể cảm nhận được.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h4>🎯 STP — Nền tảng trước khi làm 4P/7P</h4>
+            <p>Trước khi xác định 4P, cần thực hiện <strong>STP</strong>:<br>
+            • <strong>S</strong>egmentation — Phân khúc thị trường (địa lý, nhân khẩu học, tâm lý học, hành vi)<br>
+            • <strong>T</strong>argeting — Chọn phân khúc mục tiêu (ai là KH lý tưởng?)<br>
+            • <strong>P</strong>ositioning — Định vị thương hiệu (muốn KH nghĩ gì về sản phẩm?)</p>
+        </div>
+    </div>
+
+    <!-- ===== TAB: FUNNEL ===== -->
+    <div class="tab-content" id="content-funnel">
+        <div class="section-title"><span>Marketing Funnel — Phễu Marketing</span></div>
+        <p class="section-desc">Funnel mô tả hành trình của khách hàng từ lúc chưa biết đến sản phẩm cho đến khi trở thành người ủng hộ trung thành. Hiểu funnel giúp phân bổ ngân sách và chiến lược đúng chỗ.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;flex-wrap:wrap">
+            <div>
+                <h3 style="margin-bottom:1rem;color:#ff6ec7">Mô hình AIDA (cổ điển)</h3>
+                <div class="funnel">
+                    <div class="funnel-stage">
+                        <div class="funnel-bar" style="width:100%"><h4>👁️ Awareness — Nhận thức</h4><p>Khách hàng biết đến sự tồn tại của thương hiệu/sản phẩm</p></div>
+                    </div>
+                    <div class="funnel-arrow">↓</div>
+                    <div class="funnel-stage">
+                        <div class="funnel-bar" style="width:85%"><h4>❤️ Interest — Quan tâm</h4><p>Bắt đầu tìm hiểu thêm, so sánh, nghiên cứu</p></div>
+                    </div>
+                    <div class="funnel-arrow">↓</div>
+                    <div class="funnel-stage">
+                        <div class="funnel-bar" style="width:65%"><h4>🤔 Desire — Mong muốn</h4><p>Thích và muốn sở hữu sản phẩm/dịch vụ</p></div>
+                    </div>
+                    <div class="funnel-arrow">↓</div>
+                    <div class="funnel-stage">
+                        <div class="funnel-bar" style="width:45%"><h4>✅ Action — Hành động</h4><p>Mua hàng, đăng ký, liên hệ</p></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 style="margin-bottom:1rem;color:#a855f7">Mô hình TOFU/MOFU/BOFU</h3>
+                <div class="cards-grid" style="grid-template-columns:1fr">
+                    <div class="card" style="--c1:#ff6ec7;--c2:#a855f7">
+                        <div class="badge badge-pink">TOFU — Top of Funnel</div>
+                        <h3>🔍 Giai đoạn nhận thức</h3>
+                        <p>Mục tiêu: <strong>Thu hút traffic</strong></p>
+                        <ul>
+                            <li>Blog post, video YouTube, podcast</li>
+                            <li>Social media organic posts</li>
+                            <li>SEO, Google Ads (brand)</li>
+                            <li>Influencer marketing, PR</li>
+                        </ul>
+                        <p style="margin-top:.5rem;color:#ff6ec7">KPI: Reach, Impressions, Traffic, New visitors</p>
+                    </div>
+                    <div class="card" style="--c1:#a855f7;--c2:#6366f1">
+                        <div class="badge badge-purple">MOFU — Middle of Funnel</div>
+                        <h3>💡 Giai đoạn xem xét</h3>
+                        <p>Mục tiêu: <strong>Nuôi dưỡng lead</strong></p>
+                        <ul>
+                            <li>Email nurturing, webinar</li>
+                            <li>Ebook, whitepaper, case study</li>
+                            <li>Free trial, demo sản phẩm</li>
+                            <li>Retargeting ads</li>
+                        </ul>
+                        <p style="margin-top:.5rem;color:#a855f7">KPI: Leads, MQLs, Email open rate, Demo requests</p>
+                    </div>
+                    <div class="card" style="--c1:#22c55e;--c2:#16a34a">
+                        <div class="badge badge-green">BOFU — Bottom of Funnel</div>
+                        <h3>💰 Giai đoạn quyết định</h3>
+                        <p>Mục tiêu: <strong>Chuyển đổi thành khách hàng</strong></p>
+                        <ul>
+                            <li>Consultation, proposal cá nhân hóa</li>
+                            <li>Testimonials, social proof</li>
+                            <li>Discount, limited offer</li>
+                            <li>Comparison page, FAQ</li>
+                        </ul>
+                        <p style="margin-top:.5rem;color:#4ade80">KPI: SQLs, Conversion rate, Cost per acquisition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Customer Journey Map</span></div>
+        <div class="process">
+            <div class="process-step">
+                <div class="step-circle">🔍</div>
+                <h4>Awareness</h4>
+                <p>Nhận ra vấn đề / biết thương hiệu</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">📖</div>
+                <h4>Consideration</h4>
+                <p>Nghiên cứu, so sánh lựa chọn</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">✅</div>
+                <h4>Decision</h4>
+                <p>Chọn và mua sản phẩm</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">💬</div>
+                <h4>Retention</h4>
+                <p>Sử dụng, onboarding, support</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">❤️</div>
+                <h4>Advocacy</h4>
+                <p>Giới thiệu, review, trung thành</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h4>💡 Điểm quan trọng: Funnel hiện đại không tuyến tính</h4>
+            <p>Khách hàng ngày nay có thể nhảy qua lại giữa các giai đoạn. Họ có thể nghe brand lần đầu qua TikTok, rồi search Google, đọc review, hỏi bạn bè, rồi mới mua. Hãy thiết kế hành trình đa điểm chạm (omnichannel) thay vì chỉ nghĩ theo tuyến tính.</p>
+        </div>
+    </div>
+
+    <!-- ===== TAB: DIGITAL MARKETING ===== -->
+    <div class="tab-content" id="content-digital">
+        <div class="section-title"><span>Digital Marketing — 7 kênh chính</span></div>
+        <p class="section-desc">Digital Marketing sử dụng các kênh kỹ thuật số để tiếp cận và tương tác với khách hàng. Đây là nền tảng không thể thiếu trong marketing hiện đại.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🔍</div>
+                <div class="badge badge-orange">SEO</div>
+                <h3>Search Engine Optimization</h3>
+                <p>Tối ưu để xuất hiện cao trên kết quả tìm kiếm tự nhiên (Google, Bing)</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>3 trụ cột SEO:</strong></p>
+                    <ul>
+                        <li><strong>On-page:</strong> Keyword, content, title, meta, headings, alt text</li>
+                        <li><strong>Off-page:</strong> Backlinks, social signals, brand mentions</li>
+                        <li><strong>Technical:</strong> Page speed, mobile-friendly, Core Web Vitals, structured data</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Ưu điểm:</strong> Chi phí thấp về lâu dài, traffic bền vững, uy tín cao<br>
+                    <strong>Nhược điểm:</strong> Chậm (3-12 tháng), cần chuyên môn, không kiểm soát hoàn toàn</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#2563eb">
+                <div class="card-icon">💰</div>
+                <div class="badge badge-blue">SEM / PPC</div>
+                <h3>Search Engine Marketing</h3>
+                <p>Quảng cáo trả phí trên công cụ tìm kiếm — Google Ads, Bing Ads</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các loại chiến dịch Google Ads:</strong></p>
+                    <ul>
+                        <li><strong>Search:</strong> Hiện trên kết quả tìm kiếm theo từ khóa</li>
+                        <li><strong>Display:</strong> Banner trên mạng lưới website GDN</li>
+                        <li><strong>Shopping:</strong> Hiện sản phẩm với ảnh, giá</li>
+                        <li><strong>YouTube:</strong> Video ads trước/trong video</li>
+                        <li><strong>Performance Max:</strong> AI tự tối ưu đa kênh</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Quality Score</strong> = f(CTR, Ad relevance, Landing page experience). Score cao → giá thầu thấp hơn.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">📱</div>
+                <div class="badge badge-pink">Social Media</div>
+                <h3>Social Media Marketing</h3>
+                <p>Xây dựng cộng đồng và truyền thông trên các nền tảng mạng xã hội</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <div class="table-wrap">
+                        <table>
+                            <tr><th>Nền tảng</th><th>Đặc điểm</th><th>Phù hợp cho</th></tr>
+                            <tr><td>Facebook</td><td>Rộng, targeting mạnh</td><td>B2C, local business, F&B</td></tr>
+                            <tr><td>Instagram</td><td>Visual-first, Stories</td><td>Fashion, beauty, lifestyle</td></tr>
+                            <tr><td>TikTok</td><td>Short video, viral</td><td>Gen Z, entertainment, FMCG</td></tr>
+                            <tr><td>YouTube</td><td>Long-form video</td><td>Education, tech, review</td></tr>
+                            <tr><td>LinkedIn</td><td>Professional network</td><td>B2B, HR, thought leadership</td></tr>
+                            <tr><td>Twitter/X</td><td>Real-time, news</td><td>News, tech, finance</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#16a34a">
+                <div class="card-icon">✉️</div>
+                <div class="badge badge-green">Email Marketing</div>
+                <h3>Email Marketing</h3>
+                <p>Kênh ROI cao nhất: trung bình $42 trả về cho mỗi $1 chi ra</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các loại email:</strong></p>
+                    <ul>
+                        <li><strong>Welcome series:</strong> Chuỗi chào mừng subscriber mới</li>
+                        <li><strong>Newsletter:</strong> Cập nhật định kỳ (hàng tuần/tháng)</li>
+                        <li><strong>Promotional:</strong> Ưu đãi, khuyến mãi</li>
+                        <li><strong>Transactional:</strong> Xác nhận đơn hàng, shipping</li>
+                        <li><strong>Re-engagement:</strong> Kéo lại người không mở mail</li>
+                        <li><strong>Abandoned cart:</strong> Nhắc giỏ hàng bị bỏ quên</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Chỉ số cần theo dõi:</strong> Open rate (20-30% là tốt), Click rate (2-5%), Unsubscribe rate (&lt;0.5%)</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">📝</div>
+                <div class="badge badge-purple">Content Marketing</div>
+                <h3>Content Marketing</h3>
+                <p>Tạo ra nội dung có giá trị để thu hút, giữ chân và chuyển đổi khách hàng</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Content Marketing Funnel:</strong></p>
+                    <ul>
+                        <li><strong>TOFU:</strong> Blog SEO, video YouTube, Podcast, Infographic</li>
+                        <li><strong>MOFU:</strong> Ebook, Webinar, Case study, Email sequence</li>
+                        <li><strong>BOFU:</strong> Demo, Testimonials, Pricing page, FAQ</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Nguyên tắc Content:</strong> E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) theo Google</p>
+                    <p><strong>Content Calendar:</strong> Lập lịch nội dung theo chủ đề, kênh, tần suất</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">🤝</div>
+                <div class="badge badge-blue">Influencer Marketing</div>
+                <h3>Influencer & Affiliate</h3>
+                <p>Tận dụng ảnh hưởng của người có tầm ảnh hưởng để quảng bá sản phẩm</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Phân loại influencer:</strong></p>
+                    <ul>
+                        <li><strong>Nano (1K-10K):</strong> Tỷ lệ tương tác cao, giá rẻ, rất niche</li>
+                        <li><strong>Micro (10K-100K):</strong> Cân bằng tốt, cộng đồng trung thành</li>
+                        <li><strong>Macro (100K-1M):</strong> Reach rộng, nhưng ER thấp hơn</li>
+                        <li><strong>Mega/Celebrity (1M+):</strong> Brand awareness lớn, chi phí cao</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Affiliate Marketing:</strong> Dựa trên hiệu suất — trả hoa hồng khi có conversion thực. Nền tảng: Accesstrade, Cốc Cốc, Impact...</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f43f5e;--c2:#e11d48">
+                <div class="card-icon">🚀</div>
+                <div class="badge badge-pink">Growth Hacking</div>
+                <h3>Growth Hacking</h3>
+                <p>Kết hợp marketing, engineering và data để tăng trưởng nhanh chóng với chi phí tối thiểu</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Framework AARRR (Pirate Metrics):</strong></p>
+                    <ul>
+                        <li><strong>Acquisition:</strong> Làm sao người dùng biết đến?</li>
+                        <li><strong>Activation:</strong> Trải nghiệm đầu tiên có tốt không?</li>
+                        <li><strong>Retention:</strong> Họ có quay lại không?</li>
+                        <li><strong>Revenue:</strong> Họ có trả tiền không?</li>
+                        <li><strong>Referral:</strong> Họ có giới thiệu người khác không?</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Case study:</strong> Dropbox (+3900% nhờ referral), Hotmail (chữ ký email), Airbnb (Craigslist hack)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB: STRATEGY ===== -->
+    <div class="tab-content" id="content-strategy">
+        <div class="section-title"><span>Chiến lược Marketing</span></div>
+        <p class="section-desc">Chiến lược marketing xác định hướng đi dài hạn: bạn phục vụ ai, bằng cái gì, qua kênh nào và tại sao khách hàng nên chọn bạn thay vì đối thủ.</p>
+
+        <div class="compare-grid">
+            <div class="compare-box" style="border-color:rgba(255,110,199,.3)">
+                <h4 style="color:#ff6ec7">⬅️ Outbound Marketing (Push)</h4>
+                <ul>
+                    <li>Chủ động "đẩy" thông điệp đến KH</li>
+                    <li>Quảng cáo TV, radio, billboard</li>
+                    <li>Cold call, cold email</li>
+                    <li>Banner ads, display ads</li>
+                    <li>Kết quả nhanh nhưng chi phí cao</li>
+                    <li>KH có thể cảm thấy bị làm phiền</li>
+                    <li>Khó cá nhân hóa</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(34,197,94,.3)">
+                <h4 style="color:#4ade80">➡️ Inbound Marketing (Pull)</h4>
+                <ul>
+                    <li>Tạo nội dung để KH tự tìm đến</li>
+                    <li>Blog, SEO, social media organic</li>
+                    <li>Webinar, podcast, YouTube</li>
+                    <li>Lead magnet, email nurturing</li>
+                    <li>Xây dựng chậm nhưng bền vững</li>
+                    <li>KH chủ động tương tác = chất lượng hơn</li>
+                    <li>Chi phí thấp về lâu dài (ngoại trừ content production)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Các mô hình chiến lược nổi bật</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ff6ec7;--c2:#a855f7">
+                <div class="card-icon">🎯</div>
+                <h3>Blue Ocean Strategy</h3>
+                <p>Tạo ra thị trường mới không có cạnh tranh, thay vì cạnh tranh trong "đại dương đỏ" đã có nhiều người.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Ví dụ</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Cirque du Soleil:</strong> Không phải rạp xiếc, không phải nhạc kịch — một thể loại mới</li>
+                        <li><strong>Nintendo Wii:</strong> Không cạnh tranh spec với PS3/Xbox, nhắm vào casual gamer</li>
+                        <li><strong>Grab:</strong> Không phải taxi, không phải xe ôm — ride-hailing app</li>
+                    </ul>
+                    <p style="margin-top:.6rem">Công cụ: <strong>ERRC Grid</strong> (Eliminate, Reduce, Raise, Create)</p>
+                </div>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">📊</div>
+                <h3>Porter's Generic Strategies</h3>
+                <p>3 chiến lược cạnh tranh cơ bản của Michael Porter</p>
+                <ul>
+                    <li><strong>Cost Leadership:</strong> Dẫn đầu về chi phí (Walmart, Vinmart)</li>
+                    <li><strong>Differentiation:</strong> Khác biệt hóa (Apple, Starbucks)</li>
+                    <li><strong>Focus:</strong> Tập trung phân khúc hẹp (Rolls-Royce)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🌱</div>
+                <h3>Product-Led Growth (PLG)</h3>
+                <p>Chính sản phẩm là công cụ marketing — người dùng thử → yêu thích → trả tiền → giới thiệu.</p>
+                <ul>
+                    <li>Free tier / Freemium model</li>
+                    <li>Viral loops built vào sản phẩm</li>
+                    <li>Self-serve onboarding</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Ví dụ:</strong> Slack, Zoom, Notion, Figma, Dropbox</p>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🔄</div>
+                <h3>Community-Led Growth</h3>
+                <p>Xây dựng cộng đồng người dùng trung thành là engine tăng trưởng chính.</p>
+                <ul>
+                    <li>Forum, Discord, Facebook Group</li>
+                    <li>User-generated content (UGC)</li>
+                    <li>Ambassador / Super-fan programs</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Ví dụ:</strong> Lego Ideas, Harley Davidson HOG, Reddit</p>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🏆</div>
+                <h3>Category Creation</h3>
+                <p>Không tranh đua trong category có sẵn — tạo ra category mới và dẫn đầu nó.</p>
+                <ul>
+                    <li>Đặt tên cho vấn đề/solution mới</li>
+                    <li>Educate thị trường về category</li>
+                    <li>Trở thành "standard" của category</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Ví dụ:</strong> Salesforce (CRM cloud), HubSpot (Inbound Marketing)</p>
+            </div>
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">💎</div>
+                <h3>Premium / Luxury Marketing</h3>
+                <p>Định vị cao cấp đòi hỏi chiến lược ngược lại nhiều nguyên tắc thông thường.</p>
+                <ul>
+                    <li>Giới hạn phân phối (không bán đại trà)</li>
+                    <li>Giá cao = chất lượng cảm nhận cao</li>
+                    <li>Heritage & storytelling thương hiệu</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Ví dụ:</strong> Louis Vuitton, Hermès, Porsche, Apple</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB: BRAND ===== -->
+    <div class="tab-content" id="content-brand">
+        <div class="section-title"><span>Xây dựng thương hiệu</span></div>
+        <p class="section-desc">Thương hiệu là tổng hòa của những gì người ta nghĩ, cảm nhận và nói về bạn khi bạn không có mặt trong phòng. Đây là tài sản vô hình nhưng có giá trị nhất của doanh nghiệp.</p>
+
+        <div class="highlight">
+            <h4>🏛️ Thương hiệu ≠ Logo</h4>
+            <p>Logo chỉ là một phần nhỏ. Thương hiệu bao gồm: <strong>Name, Logo, Tagline, Voice/Tone, Values, Story, Customer experience, Culture</strong> — tất cả cộng lại tạo nên <em>nhận thức và cảm xúc</em> trong tâm trí khách hàng.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ff6ec7;--c2:#a855f7">
+                <div class="card-icon">🎭</div>
+                <h3>Brand Identity — Nhận diện thương hiệu</h3>
+                <ul>
+                    <li><strong>Visual identity:</strong> Logo, màu sắc, typography, hình ảnh</li>
+                    <li><strong>Brand name:</strong> Dễ nhớ, dễ đọc, không trùng</li>
+                    <li><strong>Tagline/Slogan:</strong> Tóm tắt lời hứa thương hiệu</li>
+                    <li><strong>Brand voice:</strong> Cách thương hiệu "nói chuyện" với KH</li>
+                    <li><strong>Brand story:</strong> Tại sao thương hiệu tồn tại</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#6366f1">
+                <div class="card-icon">🧭</div>
+                <h3>Brand Positioning — Định vị</h3>
+                <p>Định vị là việc chiếm một "chỗ" trong tâm trí khách hàng.</p>
+                <ul>
+                    <li><strong>Perceptual map:</strong> Vẽ bản đồ nhận thức so với đối thủ</li>
+                    <li><strong>USP:</strong> Unique Selling Proposition — điều chỉ bạn có</li>
+                    <li><strong>Brand promise:</strong> Cam kết cốt lõi với khách hàng</li>
+                    <li><strong>POD vs POP:</strong> Points of Difference vs Points of Parity</li>
+                </ul>
+                <p style="margin-top:.5rem;font-size:.82rem;color:#a855f7">Công thức: "[Brand] là [category] duy nhất giúp [target] [benefit] vì [reason to believe]"</p>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#2563eb">
+                <div class="card-icon">💎</div>
+                <h3>Brand Equity — Tài sản thương hiệu</h3>
+                <p>Giá trị gia tăng mà thương hiệu mang lại cho sản phẩm (so với hàng generic)</p>
+                <p><strong>Mô hình Keller (CBBE):</strong></p>
+                <ul>
+                    <li>Salience: Khách hàng có nhớ thương hiệu không?</li>
+                    <li>Performance & Imagery: Sản phẩm có đáp ứng kỳ vọng?</li>
+                    <li>Judgement & Feelings: Đánh giá và cảm xúc</li>
+                    <li>Resonance: Gắn kết sâu, trungthành cao</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🏗️</div>
+                <h3>Brand Architecture — Kiến trúc</h3>
+                <p>Cách tổ chức các thương hiệu khi doanh nghiệp có nhiều sản phẩm/dịch vụ</p>
+                <ul>
+                    <li><strong>Branded house:</strong> Một thương hiệu mẹ cho tất cả (Virgin, Apple)</li>
+                    <li><strong>House of brands:</strong> Nhiều thương hiệu độc lập (P&G, Unilever)</li>
+                    <li><strong>Endorsed brands:</strong> Sub-brand được bảo chứng bởi mẹ (Marriott → Courtyard by Marriott)</li>
+                    <li><strong>Hybrid:</strong> Kết hợp (Google → Google Maps, YouTube)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">📖</div>
+                <h3>Brand Storytelling</h3>
+                <p>Kể chuyện thương hiệu chạm đến cảm xúc và tạo kết nối sâu</p>
+                <ul>
+                    <li><strong>Hero's journey:</strong> Thương hiệu là mentor giúp KH (hero) vượt khó</li>
+                    <li><strong>Origin story:</strong> Tại sao founder tạo ra sản phẩm này</li>
+                    <li><strong>Customer story:</strong> Câu chuyện của khách hàng thực</li>
+                    <li><strong>Why/How/What:</strong> Simon Sinek's Golden Circle</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">🔄</div>
+                <h3>Rebranding — Tái định vị</h3>
+                <p>Khi nào và làm thế nào để đổi mới thương hiệu mà không mất khách hàng cũ</p>
+                <ul>
+                    <li>Khi thương hiệu bị liên kết với scandal</li>
+                    <li>Khi mở rộng sang thị trường mới</li>
+                    <li>Khi brand đã lỗi thời</li>
+                    <li>Khi M&A, sáp nhập</li>
+                </ul>
+                <p style="margin-top:.5rem"><strong>Case:</strong> Old Spice (từ "của ông già" thành trendy), Dunkin Donuts → Dunkin</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB: PSYCHOLOGY ===== -->
+    <div class="tab-content" id="content-psychology">
+        <div class="section-title"><span>Tâm lý học trong Marketing</span></div>
+        <p class="section-desc">Hiểu cách não bộ con người ra quyết định là vũ khí mạnh nhất của marketer. Marketing tâm lý không phải là thao túng — mà là truyền thông đúng cách với đúng người.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#ff6ec7;--c2:#a855f7">
+                <div class="card-icon">😱</div>
+                <h3>FOMO — Fear of Missing Out</h3>
+                <p>Nỗi sợ bỏ lỡ thúc đẩy hành động nhanh hơn</p>
+                <ul>
+                    <li>Đồng hồ đếm ngược "Còn 2 tiếng"</li>
+                    <li>"Chỉ còn 3 phòng trống" (Booking.com)</li>
+                    <li>"Flash sale 24h"</li>
+                    <li>Limited edition products</li>
+                    <li>Waitlist exclusivity (Tesla, Clubhouse)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">⚓</div>
+                <h3>Anchoring — Hiệu ứng neo</h3>
+                <p>Số đầu tiên nhìn thấy ảnh hưởng mạnh đến cảm nhận giá trị</p>
+                <ul>
+                    <li>~~2.000.000đ~~ → <strong>990.000đ</strong></li>
+                    <li>Gói 3 mức giá (middle option được chọn nhiều nhất)</li>
+                    <li>Decoy pricing: 3 gói, gói giữa là "mồi nhử"</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#2563eb">
+                <div class="card-icon">👥</div>
+                <h3>Social Proof — Bằng chứng xã hội</h3>
+                <p>Người ta làm theo số đông và làm theo người họ tin tưởng</p>
+                <ul>
+                    <li>Reviews & ratings (5 sao)</li>
+                    <li>"10.000+ khách hàng đã tin dùng"</li>
+                    <li>Testimonials từ KH thực</li>
+                    <li>Celebrity/Expert endorsement</li>
+                    <li>Real-time social proof: "Có 12 người đang xem"</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#10b981">
+                <div class="card-icon">🎁</div>
+                <h3>Reciprocity — Có qua có lại</h3>
+                <p>Khi nhận được thứ gì đó, người ta có xu hướng muốn đáp trả</p>
+                <ul>
+                    <li>Free sample, dùng thử miễn phí</li>
+                    <li>Freemium model (Spotify, Notion)</li>
+                    <li>Ebook, template miễn phí để đổi email</li>
+                    <li>Giảm giá bất ngờ sau khi mua</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🏷️</div>
+                <h3>Scarcity & Urgency</h3>
+                <p>Thứ hiếm có thì có giá trị hơn. Simple.</p>
+                <ul>
+                    <li><strong>Scarcity:</strong> "Chỉ còn 5 sản phẩm"</li>
+                    <li><strong>Time urgency:</strong> "Ưu đãi hết hạn lúc 23:59"</li>
+                    <li><strong>Access urgency:</strong> "Đăng ký trước ngày..."</li>
+                    <li>Seasonal products (Pumpkin Spice Latte)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">🧠</div>
+                <h3>Cognitive Biases trong marketing</h3>
+                <p>Những thiên kiến nhận thức phổ biến marketer cần biết</p>
+                <ul>
+                    <li><strong>Framing effect:</strong> "95% ít chất béo" vs "5% chất béo"</li>
+                    <li><strong>Default effect:</strong> Option mặc định được chọn nhiều nhất</li>
+                    <li><strong>Endowment effect:</strong> Thứ ta "có" thì ta đánh giá cao hơn (free trial)</li>
+                    <li><strong>Bandwagon:</strong> "Best seller", "Trending"</li>
+                    <li><strong>Peak-end rule:</strong> KH nhớ đỉnh và kết thúc của trải nghiệm</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">🎨</div>
+                <h3>Màu sắc trong Marketing</h3>
+                <p>Màu sắc ảnh hưởng 90% đến quyết định mua — trong vòng 90 giây đầu</p>
+                <ul>
+                    <li>🔴 <strong>Đỏ:</strong> Khẩn cấp, sale, năng lượng (Coca-Cola, YouTube)</li>
+                    <li>🔵 <strong>Xanh dương:</strong> Tin tưởng, bảo mật (Facebook, PayPal)</li>
+                    <li>🟡 <strong>Vàng:</strong> Vui vẻ, tích cực, cẩn thận (McDonald's)</li>
+                    <li>🟢 <strong>Xanh lá:</strong> Sức khỏe, tự nhiên, money (Whole Foods)</li>
+                    <li>⚫ <strong>Đen:</strong> Sang trọng, cao cấp (Chanel, Apple)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TAB: METRICS ===== -->
+    <div class="tab-content" id="content-metrics">
+        <div class="section-title"><span>Đo lường Marketing — KPIs & Analytics</span></div>
+        <p class="section-desc">Marketing không có số liệu là phỏng đoán. Đây là những chỉ số quan trọng nhất bạn cần theo dõi để biết marketing có đang làm việc không.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>📈 Chỉ số Nhận thức & Traffic</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">Reach / Impressions</div>
+                <div class="kpi-formula">Số người / Số lần hiển thị</div>
+                <div class="kpi-good">↑ Càng cao càng tốt</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">CTR — Click-Through Rate</div>
+                <div class="kpi-formula">Clicks / Impressions × 100</div>
+                <div class="kpi-good">✓ Search: 2-5%, Display: 0.1%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Organic Traffic</div>
+                <div class="kpi-formula">Lượt truy cập từ Search tự nhiên</div>
+                <div class="kpi-good">↑ Tăng trưởng 10-20%/tháng</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Bounce Rate</div>
+                <div class="kpi-formula">Sessions 1 trang / All sessions</div>
+                <div class="kpi-good">✓ Blog: &lt;70%, Landing: &lt;50%</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-top:1.5rem;margin-bottom:1rem"><span>💰 Chỉ số Chuyển đổi & Doanh thu</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">Conversion Rate (CVR)</div>
+                <div class="kpi-formula">Conversions / Visitors × 100</div>
+                <div class="kpi-good">✓ E-commerce: 1-4%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">CPA — Cost per Acquisition</div>
+                <div class="kpi-formula">Total Spend / Acquisitions</div>
+                <div class="kpi-good">↓ Phải &lt; LTV của khách hàng</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">ROAS</div>
+                <div class="kpi-formula">Revenue from Ads / Ad Spend</div>
+                <div class="kpi-good">✓ Mục tiêu: 4:1 trở lên</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">ROI Marketing</div>
+                <div class="kpi-formula">(Revenue - Cost) / Cost × 100</div>
+                <div class="kpi-good">✓ Thường 5:1 là tốt</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">CPL — Cost per Lead</div>
+                <div class="kpi-formula">Total Spend / Leads Generated</div>
+                <div class="kpi-good">↓ Phụ thuộc ngành</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">AOV — Average Order Value</div>
+                <div class="kpi-formula">Total Revenue / Number of Orders</div>
+                <div class="kpi-good">↑ Tăng bằng upsell/bundle</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-top:1.5rem;margin-bottom:1rem"><span>❤️ Chỉ số Giữ chân & Trung thành</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">CLV / LTV</div>
+                <div class="kpi-formula">AOV × Purchase Freq × Lifespan</div>
+                <div class="kpi-good">↑ Nền tảng của mọi chiến lược</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">NPS — Net Promoter Score</div>
+                <div class="kpi-formula">% Promoters - % Detractors</div>
+                <div class="kpi-good">✓ &gt;50 là rất tốt, &gt;70 là excellent</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Churn Rate</div>
+                <div class="kpi-formula">Lost customers / Start customers</div>
+                <div class="kpi-good">↓ SaaS tốt: &lt;5%/năm</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Retention Rate</div>
+                <div class="kpi-formula">(End - New) / Start × 100</div>
+                <div class="kpi-good">↑ E-commerce tốt: &gt;35%</div>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top:1.5rem">
+            <h4>🏆 Quy tắc vàng: LTV &gt; CAC × 3</h4>
+            <p>Một doanh nghiệp bền vững cần Lifetime Value (LTV) của khách hàng phải lớn hơn ít nhất 3 lần chi phí để có được khách hàng đó (CAC — Customer Acquisition Cost). Nếu LTV:CAC &lt; 1:1, bạn đang lỗ trên mỗi khách hàng.</p>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Attribution Models — Mô hình phân bổ</span></div>
+        <p style="color:rgba(255,255,255,.65);margin-bottom:1rem">Khi một khách hàng mua hàng sau khi chạm nhiều kênh, credit nên được gán cho kênh nào?</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Mô hình</th><th>Cách hoạt động</th><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead>
+                <tbody>
+                    <tr><td>Last Click</td><td>100% credit cho kênh cuối</td><td>Đơn giản</td><td>Bỏ qua hành trình dài</td></tr>
+                    <tr><td>First Click</td><td>100% credit cho kênh đầu</td><td>Tốt cho awareness</td><td>Bỏ qua conversion journey</td></tr>
+                    <tr><td>Linear</td><td>Credit chia đều tất cả kênh</td><td>Công bằng</td><td>Không phân biệt tầm quan trọng</td></tr>
+                    <tr><td>Time Decay</td><td>Kênh gần conversion được nhiều credit</td><td>Thực tế hơn</td><td>Kênh awareness bị đánh giá thấp</td></tr>
+                    <tr><td>Data-driven (AI)</td><td>AI phân tíchcontribution thực</td><td>Chính xác nhất</td><td>Cần nhiều dữ liệu</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== TAB: TOOLS ===== -->
+    <div class="tab-content" id="content-tools">
+        <div class="section-title"><span>Công cụ Marketing quan trọng</span></div>
+        <p class="section-desc">Bộ công cụ marketing hiện đại giúp tự động hóa, đo lường và tối ưu hóa toàn bộ chiến lược. Đây là những tool non-negotiable mà mọi marketer cần biết.</p>
+
+        <h3 style="color:#ff6ec7;margin-bottom:1rem">📊 Analytics & Data</h3>
+        <div class="tool-grid">
+            <div class="tool-card"><div class="tool-icon">📈</div><div class="tool-info"><div class="tool-name">Google Analytics 4</div><div class="tool-desc">Phân tích traffic, hành vi người dùng, conversion</div><div class="tool-cat">Analytics | Free</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🔥</div><div class="tool-info"><div class="tool-name">Hotjar / Microsoft Clarity</div><div class="tool-desc">Heatmap, session recording, UX insights</div><div class="tool-cat">UX Analytics | Free tier</div></div></div>
+            <div class="tool-card"><div class="tool-icon">📊</div><div class="tool-info"><div class="tool-name">Looker Studio (Data Studio)</div><div class="tool-desc">Dashboard minh họa dữ liệu từ nhiều nguồn</div><div class="tool-cat">Reporting | Free</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🎯</div><div class="tool-info"><div class="tool-name">Mixpanel / Amplitude</div><div class="tool-desc">Product analytics, user journey, funnel analysis</div><div class="tool-cat">Product Analytics | Freemium</div></div></div>
+        </div>
+
+        <h3 style="color:#a855f7;margin:1.5rem 0 1rem">🔍 SEO</h3>
+        <div class="tool-grid">
+            <div class="tool-card"><div class="tool-icon">🔍</div><div class="tool-info"><div class="tool-name">Ahrefs / SEMrush</div><div class="tool-desc">Keyword research, backlink audit, competitor analysis</div><div class="tool-cat">SEO Suite | Paid ($100+/mo)</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🔎</div><div class="tool-info"><div class="tool-name">Google Search Console</div><div class="tool-desc">Performance trong Google Search, index issues</div><div class="tool-cat">SEO | Free</div></div></div>
+            <div class="tool-card"><div class="tool-icon">📝</div><div class="tool-info"><div class="tool-name">Surfer SEO / Clearscope</div><div class="tool-desc">Content optimization based on top-ranking pages</div><div class="tool-cat">Content SEO | Paid</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🌐</div><div class="tool-info"><div class="tool-name">Screaming Frog</div><div class="tool-desc">Technical SEO crawling, audit toàn bộ site</div><div class="tool-cat">Technical SEO | Free/Paid</div></div></div>
+        </div>
+
+        <h3 style="color:#3b82f6;margin:1.5rem 0 1rem">📧 Email & Automation</h3>
+        <div class="tool-grid">
+            <div class="tool-card"><div class="tool-icon">✉️</div><div class="tool-info"><div class="tool-name">Mailchimp / Brevo</div><div class="tool-desc">Email marketing cơ bản, automation flows</div><div class="tool-cat">Email Marketing | Freemium</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🔄</div><div class="tool-info"><div class="tool-name">HubSpot</div><div class="tool-desc">All-in-one: CRM, email, landing page, analytics</div><div class="tool-cat">Marketing Suite | Freemium</div></div></div>
+            <div class="tool-card"><div class="tool-icon">⚡</div><div class="tool-info"><div class="tool-name">ActiveCampaign</div><div class="tool-desc">Email automation phức tạp, CRM tích hợp</div><div class="tool-cat">Automation | Paid</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🎯</div><div class="tool-info"><div class="tool-name">Klaviyo</div><div class="tool-desc">Email + SMS cho e-commerce, predictive analytics</div><div class="tool-cat">E-commerce Email | Paid</div></div></div>
+        </div>
+
+        <h3 style="color:#22c55e;margin:1.5rem 0 1rem">📱 Social Media & Content</h3>
+        <div class="tool-grid">
+            <div class="tool-card"><div class="tool-icon">📅</div><div class="tool-info"><div class="tool-name">Buffer / Hootsuite</div><div class="tool-desc">Lên lịch đăng, quản lý nhiều tài khoản mạng xã hội</div><div class="tool-cat">Social Scheduling | Freemium</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🎨</div><div class="tool-info"><div class="tool-name">Canva</div><div class="tool-desc">Thiết kế visual nhanh cho social media, ads</div><div class="tool-cat">Design | Freemium</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🤖</div><div class="tool-info"><div class="tool-name">ChatGPT / Claude</div><div class="tool-desc">Tạo content, brainstorm, copy writing với AI</div><div class="tool-cat">AI Content | Freemium</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🎬</div><div class="tool-info"><div class="tool-name">CapCut / Descript</div><div class="tool-desc">Video editing cho Reels, TikTok, YouTube</div><div class="tool-cat">Video | Freemium</div></div></div>
+        </div>
+
+        <h3 style="color:#f59e0b;margin:1.5rem 0 1rem">💰 Ads & PPC</h3>
+        <div class="tool-grid">
+            <div class="tool-card"><div class="tool-icon">🎯</div><div class="tool-info"><div class="tool-name">Google Ads</div><div class="tool-desc">Search, Display, Shopping, YouTube, Performance Max</div><div class="tool-cat">PPC | Pay per use</div></div></div>
+            <div class="tool-card"><div class="tool-icon">📘</div><div class="tool-info"><div class="tool-name">Meta Ads Manager</div><div class="tool-desc">Quảng cáo Facebook & Instagram với targeting mạnh</div><div class="tool-cat">Social Ads | Pay per use</div></div></div>
+            <div class="tool-card"><div class="tool-icon">🎵</div><div class="tool-info"><div class="tool-name">TikTok Ads</div><div class="tool-desc">Quảng cáo video ngắn, tiếp cận Gen Z</div><div class="tool-cat">Social Ads | Pay per use</div></div></div>
+            <div class="tool-card"><div class="tool-icon">💼</div><div class="tool-info"><div class="tool-name">LinkedIn Campaign Manager</div><div class="tool-desc">B2B targeting theo chức vụ, ngành, công ty</div><div class="tool-cat">B2B Ads | Pay per use</div></div></div>
+        </div>
+    </div>
+
+</div><!-- end tabs-container -->
+
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const c = document.getElementById('content-' + tabId);
+    const b = document.getElementById('tab-' + tabId);
+    if (c) c.classList.add('active');
+    if (b) b.classList.add('active');
+}
+
+function toggleExpand(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open');
+    btn.textContent = isOpen ? '▼ Chi tiết' : '▲ Thu gọn';
+}
+</script>
+</body>
+</html>

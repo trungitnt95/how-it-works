@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - How It Works</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#0d1117 0%,#0f2027 50%,#203a43 100%);min-height:100vh;color:#fff}
+        a{color:inherit;text-decoration:none}
+
+        /* HEADER */
+        header{background:rgba(0,0,0,.4);backdrop-filter:blur(12px);padding:1rem 2rem;border-bottom:1px solid rgba(16,185,129,.2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:.5rem}
+        .back-home{color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:6px;background:rgba(255,255,255,.06);font-size:.9rem;transition:.2s}
+        .back-home:hover{background:rgba(255,255,255,.12);color:#fff}
+        header h1{font-size:1.4rem;background:linear-gradient(90deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        /* HERO */
+        .hero{text-align:center;padding:3rem 2rem 2rem;max-width:860px;margin:0 auto}
+        .hero-icon{font-size:4rem;margin-bottom:1rem}
+        .hero h2{font-size:2.4rem;margin-bottom:.8rem;line-height:1.2}
+        .hero h2 span{background:linear-gradient(90deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:620px;margin:0 auto 1.5rem}
+        .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+        .hero-stat .num{font-size:1.8rem;font-weight:700;color:#10b981}
+        .hero-stat .lbl{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.1rem;text-align:center}
+
+        /* TABS */
+        .tabs-container{max-width:1300px;margin:0 auto;padding:0 1.5rem 4rem}
+        .tabs-bar{display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.8rem;margin-bottom:2rem}
+        .tab-btn{padding:.55rem 1.1rem;border-radius:8px 8px 0 0;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;font-size:.9rem;transition:.2s;border-bottom:3px solid transparent}
+        .tab-btn:hover{color:#fff;background:rgba(255,255,255,.06)}
+        .tab-btn.active{color:#10b981;border-bottom-color:#10b981;font-weight:600}
+        .tab-content{display:none}
+        .tab-content.active{display:block;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        .section-title{font-size:1.6rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+        .section-title span{background:linear-gradient(90deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .section-desc{color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7;font-size:1rem}
+
+        /* CARDS */
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-bottom:2rem}
+        .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--c1,#10b981),var(--c2,#3b82f6))}
+        .card:hover{background:rgba(255,255,255,.08);border-color:rgba(16,185,129,.25);transform:translateY(-3px)}
+        .card-icon{font-size:2rem;margin-bottom:.8rem}
+        .card h3{font-size:1.1rem;margin-bottom:.6rem;color:#fff}
+        .card p,.card li{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.6}
+        .card ul{padding-left:1.2rem;margin-top:.5rem}
+        .card ul li{margin-bottom:.3rem}
+        .card .badge{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.8rem}
+        .badge-green{background:rgba(16,185,129,.2);color:#10b981;border:1px solid rgba(16,185,129,.3)}
+        .badge-blue{background:rgba(59,130,246,.2);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}
+        .badge-yellow{background:rgba(245,158,11,.2);color:#fbbf24;border:1px solid rgba(245,158,11,.3)}
+        .badge-red{background:rgba(239,68,68,.2);color:#f87171;border:1px solid rgba(239,68,68,.3)}
+        .badge-purple{background:rgba(168,85,247,.2);color:#c084fc;border:1px solid rgba(168,85,247,.3)}
+
+        /* EXPAND */
+        .expand-btn{display:flex;align-items:center;gap:.4rem;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:#10b981;padding:.4rem .9rem;border-radius:6px;cursor:pointer;font-size:.82rem;margin-top:1rem;transition:.2s;width:fit-content}
+        .expand-btn:hover{background:rgba(16,185,129,.22)}
+        .expand-content{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08)}
+        .expand-content.open{display:block;animation:fadeIn .25s ease}
+
+        /* TABLE */
+        .table-wrap{overflow-x:auto;margin:1rem 0}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        th{background:rgba(16,185,129,.15);padding:.7rem 1rem;text-align:left;color:#10b981;font-weight:600;border-bottom:1px solid rgba(16,185,129,.25)}
+        td{padding:.65rem 1rem;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+        tr:hover td{background:rgba(255,255,255,.03)}
+
+        /* PROCESS */
+        .process{display:flex;gap:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:1rem;margin:1rem 0}
+        .process-step{min-width:130px;flex:1;text-align:center;position:relative;padding:0 .5rem}
+        .process-step:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:28px;color:rgba(16,185,129,.7);font-size:1.3rem;font-weight:700}
+        .step-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(16,185,129,.25),rgba(59,130,246,.25));border:2px solid rgba(16,185,129,.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto .5rem}
+        .step-num{width:24px;height:24px;border-radius:50%;background:#10b981;color:#000;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;top:-5px;right:calc(50% - 40px)}
+        .process-step h4{font-size:.82rem;color:#fff;margin-bottom:.2rem}
+        .process-step p{font-size:.75rem;color:rgba(255,255,255,.55)}
+
+        /* HIGHLIGHT */
+        .highlight{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(59,130,246,.1));border:1px solid rgba(16,185,129,.25);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+        .highlight h4{color:#10b981;margin-bottom:.6rem;font-size:1rem}
+        .highlight p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+
+        /* COMPARE */
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1rem 0}
+        .compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem}
+        .compare-box h4{margin-bottom:.8rem;font-size:1rem}
+        .compare-box ul{list-style:none;padding:0}
+        .compare-box li{padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:.5rem}
+        .compare-box li::before{content:'•';color:#10b981;flex-shrink:0;margin-top:2px}
+
+        /* KPI */
+        .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1rem;margin:1rem 0}
+        .kpi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1rem;text-align:center}
+        .kpi-card .kpi-name{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.4rem}
+        .kpi-card .kpi-formula{font-size:.82rem;color:#34d399;font-family:monospace;background:rgba(16,185,129,.1);padding:.3rem .5rem;border-radius:4px;margin:.4rem 0}
+        .kpi-card .kpi-good{font-size:.78rem;color:#60a5fa}
+
+        /* OBJECTION */
+        .objection-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.2rem;margin-bottom:1rem}
+        .objection-q{color:#fbbf24;font-weight:600;margin-bottom:.6rem;font-size:.95rem}
+        .objection-a{color:rgba(255,255,255,.8);font-size:.88rem;line-height:1.6}
+        .objection-a strong{color:#10b981}
+
+        /* TECHNIQUE */
+        .technique-card{background:rgba(255,255,255,.04);border-left:4px solid #10b981;border-radius:0 10px 10px 0;padding:1.2rem;margin-bottom:1rem}
+        .technique-card h4{color:#10b981;margin-bottom:.5rem;font-size:1rem}
+        .technique-card p{color:rgba(255,255,255,.75);font-size:.88rem;line-height:1.6}
+        .technique-card .example{color:#60a5fa;font-style:italic;margin-top:.5rem;font-size:.85rem}
+
+        @media(max-width:768px){
+            .hero h2{font-size:1.7rem}
+            .compare-grid{grid-template-columns:1fr}
+            .process{flex-direction:column;align-items:center}
+            .process-step:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}
+            .process-step{margin-bottom:1.5rem;min-width:auto;width:200px}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <a href="../" class="back-home">← Trang chủ</a>
+        <h1>💼 Sales — Nghề Bán Hàng</h1>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-icon">🤝</div>
+    <h2>Sales <span>Hoạt Động</span> Như Thế Nào</h2>
+    <p>Từ tâm lý bán hàng đến quy trình chuyên nghiệp — hiểu sâu nghề sales để bán được nhiều hơn và tốt hơn</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">8 bước</div><div class="lbl">Quy trình bán hàng</div></div>
+        <div class="hero-stat"><div class="num">4 phương pháp</div><div class="lbl">Sales methodology</div></div>
+        <div class="hero-stat"><div class="num">20+ kỹ thuật</div><div class="lbl">Closing & objection</div></div>
+        <div class="hero-stat"><div class="num">B2B/B2C</div><div class="lbl">Cả hai mô hình</div></div>
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('overview')" id="tab-overview">🏠 Tổng quan</button>
+        <button class="tab-btn" onclick="switchTab('process')" id="tab-process">🔄 Quy trình</button>
+        <button class="tab-btn" onclick="switchTab('methodology')" id="tab-methodology">🎯 Phương pháp</button>
+        <button class="tab-btn" onclick="switchTab('b2b')" id="tab-b2b">🏢 B2B vs B2C</button>
+        <button class="tab-btn" onclick="switchTab('objection')" id="tab-objection">🛡️ Xử lý từ chối</button>
+        <button class="tab-btn" onclick="switchTab('closing')" id="tab-closing">✅ Chốt Sales</button>
+        <button class="tab-btn" onclick="switchTab('psychology')" id="tab-psychology">🧠 Tâm lý</button>
+        <button class="tab-btn" onclick="switchTab('crm')" id="tab-crm">📋 CRM & Pipeline</button>
+        <button class="tab-btn" onclick="switchTab('metrics')" id="tab-metrics">📊 Đo lường</button>
+    </div>
+
+    <!-- ===== OVERVIEW ===== -->
+    <div class="tab-content active" id="content-overview">
+        <div class="section-title"><span>Sales là gì?</span></div>
+        <p class="section-desc">Sales (bán hàng) là quá trình thuyết phục một người hoặc tổ chức trao đổi tiền bạc hoặc giá trị để nhận lấy sản phẩm/dịch vụ của bạn. Nhưng sales chuyên nghiệp không phải "ép buộc" — đó là việc <em>giúp đỡ khách hàng giải quyết vấn đề</em> của họ.</p>
+
+        <div class="highlight">
+            <h4>🎯 Triết lý bán hàng hiện đại</h4>
+            <p>"Người bán hàng giỏi nhất không bán sản phẩm — họ bán <strong>kết quả và giải pháp</strong>. Họ đặt câu hỏi nhiều hơn nói, lắng nghe nhiều hơn thuyết phục." — David Sandler<br><br>
+            Chuyển từ <em>transactional selling</em> (chỉ quan tâm giao dịch) sang <em>consultative selling</em> (tư vấn trước, bán sau).</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🔑</div>
+                <div class="badge badge-green">Cốt lõi</div>
+                <h3>Sales không phải là...</h3>
+                <ul>
+                    <li>❌ Lừa dối, thao túng khách hàng</li>
+                    <li>❌ "Chèo kéo" người không có nhu cầu</li>
+                    <li>❌ Nói nhiều hơn nghe</li>
+                    <li>❌ Chỉ nghĩ đến commission của mình</li>
+                    <li>❌ Bán bất cứ thứ gì cho bất cứ ai</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">✅</div>
+                <div class="badge badge-blue">Cốt lõi</div>
+                <h3>Sales thực sự là...</h3>
+                <ul>
+                    <li>✅ Lắng nghe và hiểu vấn đề của KH</li>
+                    <li>✅ Kết nối giải pháp phù hợp với nhu cầu</li>
+                    <li>✅ Xây dựng niềm tin dài hạn</li>
+                    <li>✅ Tạo ra giá trị thực sự cho KH</li>
+                    <li>✅ Đặt câu hỏi thông minh để khám phá pain points</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">📊</div>
+                <div class="badge badge-yellow">Phân loại</div>
+                <h3>Các loại Sales theo vai trò</h3>
+                <ul>
+                    <li><strong>SDR/BDR:</strong> Prospecting, qualify lead đầu vào</li>
+                    <li><strong>AE (Account Executive):</strong> Demo, negotiate, close deal</li>
+                    <li><strong>AM (Account Manager):</strong> Upsell, retention, KH hiện tại</li>
+                    <li><strong>Sales Manager:</strong> Quản lý team, coaching, forecast</li>
+                    <li><strong>VP/CSO:</strong> Chiến lược bán hàng toàn công ty</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">💰</div>
+                <div class="badge badge-red">Phân loại</div>
+                <h3>Cấu trúc thu nhập Sales</h3>
+                <ul>
+                    <li><strong>Base salary:</strong> Lương cứng cơ bản</li>
+                    <li><strong>Commission:</strong> % doanh số hoặc lợi nhuận</li>
+                    <li><strong>Bonus:</strong> Thưởng khi đạt target/quota</li>
+                    <li><strong>Accelerators:</strong> % cao hơn khi vượt quota</li>
+                    <li><strong>OTE (On-Target Earnings):</strong> Base + full commission khi đạt 100% target</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Sales vs Marketing — Quan hệ cộng sinh</span></div>
+        <p class="section-desc">Trong nhiều công ty, Sales và Marketing làm việc riêng biệt và đổ lỗi nhau khi doanh số kém. Công ty thành công là nơi hai đội hoạt động như một: Marketing tạo demand, Sales chuyển đổi demand thành doanh thu.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Khía cạnh</th><th>Marketing</th><th>Sales</th></tr></thead>
+                <tbody>
+                    <tr><td>Tư duy</td><td>1-to-many (broadcast)</td><td>1-to-1 (personal)</td></tr>
+                    <tr><td>Thời gian ảnh hưởng</td><td>Dài hạn</td><td>Ngắn hạn, tức thì</td></tr>
+                    <tr><td>Đầu ra</td><td>Leads, Awareness, Brand</td><td>Revenue, Contracts, Deals</td></tr>
+                    <tr><td>Input cần từ nhau</td><td>Cần Sales: insight về KH thực tế</td><td>Cần Marketing: content, leads, brand</td></tr>
+                    <tr><td>Chỉ số</td><td>CPL, CTR, Traffic, NPS</td><td>Win rate, ARR, Quota attainment</td></tr>
+                    <tr><td>"Handoff" điểm</td><td>Marketing → Sales khi lead đủ điều kiện (MQL)</td><td>Sales accept = SQL, rồi close</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cards-grid" style="margin-top:1.5rem">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🎓</div>
+                <h3>Kỹ năng cốt lõi của Sales giỏi</h3>
+                <ul>
+                    <li><strong>Active Listening:</strong> Nghe để hiểu, không chỉ chờ trả lời</li>
+                    <li><strong>Empathy:</strong> Đồng cảm với tình huống của KH</li>
+                    <li><strong>Storytelling:</strong> Kể chuyện thay vì liệt kê feature</li>
+                    <li><strong>Resilience:</strong> Bật lại nhanh sau khi bị từ chối</li>
+                    <li><strong>Curiousity:</strong> Luôn muốn hiểu sâu hơn về KH</li>
+                    <li><strong>Product knowledge:</strong> Biết rõ mình đang bán gì</li>
+                    <li><strong>Time management:</strong> Ưu tiên đúng deal, đúng thời điểm</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#6366f1">
+                <div class="card-icon">📈</div>
+                <h3>Con đường phát triển trong Sales</h3>
+                <ul>
+                    <li><strong>Năm 1-2:</strong> SDR / Inside Sales — học cách prospect, cold call</li>
+                    <li><strong>Năm 2-4:</strong> Account Executive — own full sales cycle</li>
+                    <li><strong>Năm 4-7:</strong> Senior AE / Enterprise — deal lớn, complex</li>
+                    <li><strong>Năm 5+:</strong> Sales Manager / Director → VP Sales → CRO</li>
+                    <li><strong>Nhánh khác:</strong> Sales Enablement, RevOps, Partnerships</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PROCESS ===== -->
+    <div class="tab-content" id="content-process">
+        <div class="section-title"><span>Quy trình bán hàng 8 bước</span></div>
+        <p class="section-desc">Mọi giao dịch bán hàng đều đi qua một số bước cơ bản. Hiểu và làm chủ từng bước là nền tảng để bán hàng có hệ thống và có thể dự đoán được.</p>
+
+        <div class="process">
+            <div class="process-step">
+                <div class="step-circle"><span>1</span></div>
+                <h4>Prospecting</h4>
+                <p>Tìm kiếm khách hàng tiềm năng</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>2</span></div>
+                <h4>Qualifying</h4>
+                <p>Đánh giá phù hợp</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>3</span></div>
+                <h4>Research</h4>
+                <p>Nghiên cứu khách hàng</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>4</span></div>
+                <h4>Approach</h4>
+                <p>Tiếp cận & kết nối</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>5</span></div>
+                <h4>Discovery</h4>
+                <p>Khám phá nhu cầu</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>6</span></div>
+                <h4>Proposal</h4>
+                <p>Đề xuất giải pháp</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>7</span></div>
+                <h4>Negotiation</h4>
+                <p>Đàm phán điều khoản</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle"><span>8</span></div>
+                <h4>Close &amp; Follow-up</h4>
+                <p>Chốt và chăm sóc</p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🔍</div>
+                <div class="badge badge-green">Bước 1</div>
+                <h3>Prospecting — Tìm kiếm tiềm năng</h3>
+                <p>Xây dựng danh sách khách hàng tiềm năng chất lượng</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Các nguồn prospect:</strong></p>
+                    <ul>
+                        <li><strong>Inbound:</strong> Leads từ marketing (website, ads, content)</li>
+                        <li><strong>Referral:</strong> Giới thiệu từ KH hiện tại (chất lượng cao nhất)</li>
+                        <li><strong>LinkedIn:</strong> Sales Navigator, cold outreach B2B</li>
+                        <li><strong>Cold calling:</strong> Gọi điện trực tiếp đến prospect</li>
+                        <li><strong>Events:</strong> Hội chợ, networking, hội thảo</li>
+                        <li><strong>Database:</strong> Mua/xây dựng danh sách liên hệ</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>ICP — Ideal Customer Profile:</strong> Xác định rõ KH lý tưởng trước khi prospect để tránh lãng phí thời gian.</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">✅</div>
+                <div class="badge badge-blue">Bước 2</div>
+                <h3>Qualifying — Đánh giá phù hợp</h3>
+                <p>Xác định prospect có thực sự là khách hàng tiềm năng không. Đừng lãng phí thời gian vào người không phù hợp.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Framework BANT & MEDDIC</button>
+                <div class="expand-content">
+                    <p><strong>BANT (cổ điển):</strong></p>
+                    <ul>
+                        <li><strong>B</strong>udget: Họ có ngân sách không?</li>
+                        <li><strong>A</strong>uthority: Họ có quyền quyết định mua không?</li>
+                        <li><strong>N</strong>eed: Họ có nhu cầu thực sự không?</li>
+                        <li><strong>T</strong>imeline: Khi nào họ muốn mua?</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>MEDDIC (B2B phức tạp):</strong></p>
+                    <ul>
+                        <li><strong>M</strong>etrics: KQ đo lường được KH muốn đạt</li>
+                        <li><strong>E</strong>conomic Buyer: Ai là người quyết định ngân sách</li>
+                        <li><strong>D</strong>ecision Criteria: Tiêu chí lựa chọn nhà cung cấp</li>
+                        <li><strong>D</strong>ecision Process: Quy trình ra quyết định nội bộ</li>
+                        <li><strong>I</strong>dentify Pain: Vấn đề cốt lõi cần giải quyết</li>
+                        <li><strong>C</strong>hampion: Người nội bộ ủng hộ bạn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🎤</div>
+                <div class="badge badge-yellow">Bước 4-5</div>
+                <h3>Approach & Discovery</h3>
+                <p>Tiếp cận đúng cách và đặt câu hỏi thông minh để hiểu vấn đề thực sự</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Nguyên tắc tiếp cận:</strong></p>
+                    <ul>
+                        <li>Personalize message cho từng prospect</li>
+                        <li>Focus on their problem, not your product</li>
+                        <li>Subject line email: &lt;50 chars, tránh spam words</li>
+                        <li>Multi-touch: email → LinkedIn → call</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Discovery — câu hỏi then chốt:</strong></p>
+                    <ul>
+                        <li>"Bạn đang gặp khó khăn gì lớn nhất với...?"</li>
+                        <li>"Các giải pháp bạn đã thử trước đây là gì?"</li>
+                        <li>"Nếu vấn đề này không được giải quyết, điều gì sẽ xảy ra?"</li>
+                        <li>"Thành công trông như thế nào với bạn?"</li>
+                        <li>"Ai khác trong tổ chức bị ảnh hưởng bởi vấn đề này?"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">📋</div>
+                <div class="badge badge-purple">Bước 6</div>
+                <h3>Proposal — Đề xuất giải pháp</h3>
+                <p>Trình bày giải pháp được cá nhân hóa, không phải brochure chung chung</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Cấu trúc proposal hiệu quả</button>
+                <div class="expand-content">
+                    <p><strong>Cấu trúc proposal chuyên nghiệp:</strong></p>
+                    <ul>
+                        <li><strong>Executive Summary:</strong> Tóm tắt vấn đề và giải pháp (1 trang)</li>
+                        <li><strong>Problem Statement:</strong> Mô tả vấn đề họ đang gặp (dùng ngôn ngữ của họ)</li>
+                        <li><strong>Proposed Solution:</strong> Giải pháp cụ thể, không phải list tính năng</li>
+                        <li><strong>Expected Outcomes:</strong> KPI và kết quả đo lường được</li>
+                        <li><strong>Timeline:</strong> Lộ trình triển khai</li>
+                        <li><strong>Investment:</strong> Giá cả và ROI calculation</li>
+                        <li><strong>Social Proof:</strong> Case study tương tự</li>
+                        <li><strong>Next Steps:</strong> Rõ ràng: "Chúng tôi cần quyết định trước ngày..."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">🤝</div>
+                <div class="badge badge-red">Bước 7</div>
+                <h3>Negotiation — Đàm phán</h3>
+                <p>Đạt được thỏa thuận win-win mà không giảm giá vội vàng</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Nguyên tắc đàm phán</button>
+                <div class="expand-content">
+                    <p><strong>Nguyên tắc đàm phán thông minh:</strong></p>
+                    <ul>
+                        <li><strong>BATNA:</strong> Biết được điểm dừng của mình (Best Alternative To Negotiated Agreement)</li>
+                        <li>Đừng bao giờ bid first nếu có thể tránh</li>
+                        <li>Concession phải có điều kiện: "Tôi có thể giảm X nếu bạn ký trước tháng này"</li>
+                        <li>Bán value, không bán price: tính ROI và TCO</li>
+                        <li>Hiểu ZOPA (Zone of Possible Agreement)</li>
+                        <li>Anchor cao ngay từ đầu</li>
+                        <li>Im lặng sau khi offer — đừng fill silence ngay</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#22c55e;--c2:#16a34a">
+                <div class="card-icon">🎯</div>
+                <div class="badge badge-green">Bước 8</div>
+                <h3>Follow-up & After-Sales</h3>
+                <p>80% sales cần ít nhất 5 lần follow-up. Phần lớn sales rep bỏ cuộc sau lần 1-2.</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>Sau buổi meeting:</strong> Email recap trong 24h</li>
+                        <li><strong>Follow-up cadence:</strong> Day 1, Day 3, Day 7, Day 14...</li>
+                        <li><strong>Value-add follow-up:</strong> Mỗi email thêm một giá trị mới (article, insight, case study)</li>
+                        <li><strong>After-sale onboarding:</strong> Đảm bảo KH thành công → referral</li>
+                        <li><strong>Check-in định kỳ:</strong> Tạo cơ hội upsell/cross-sell</li>
+                    </ul>
+                    <p style="margin-top:.7rem">Nguyên tắc: <strong>"Always Be Helping"</strong> thay vì "Always Be Closing"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== METHODOLOGY ===== -->
+    <div class="tab-content" id="content-methodology">
+        <div class="section-title"><span>Các phương pháp bán hàng chuyên nghiệp</span></div>
+        <p class="section-desc">Sales methodology là framework hướng dẫn cách tiếp cận, đặt câu hỏi, và dẫn dắt khách hàng qua quy trình mua. Không có phương pháp nào hoàn hảo cho tất cả — chọn phù hợp với sản phẩm và thị trường của bạn.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🔄</div>
+                <div class="badge badge-green">Phổ biến nhất</div>
+                <h3>SPIN Selling (Neil Rackham)</h3>
+                <p>Dựa trên nghiên cứu 35.000 cuộc gọi sales — phương pháp hỏi thay vì nói</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết SPIN</button>
+                <div class="expand-content">
+                    <p><strong>4 loại câu hỏi theo thứ tự:</strong></p>
+                    <ul>
+                        <li><strong>S</strong>ituation: "Công ty bạn hiện đang dùng hệ thống gì?"</li>
+                        <li><strong>P</strong>roblem: "Hệ thống đó có gây ra vấn đề gì không?"</li>
+                        <li><strong>I</strong>mplication: "Sự cố đó ảnh hưởng đến đội ngũ như thế nào? Chi phí bao nhiêu?"</li>
+                        <li><strong>N</strong>eed-Payoff: "Nếu vấn đề đó được giải quyết, điều đó có nghĩa gì với bạn?"</li>
+                    </ul>
+                    <p style="margin-top:.7rem">Mục tiêu: KH tự nói ra vấn đề và value của giải pháp → thuyết phục hơn khi từ miệng họ.</p>
+                    <p><strong>Phù hợp:</strong> Complex B2B sales, enterprise deals</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">⚔️</div>
+                <div class="badge badge-blue">Disruptive</div>
+                <h3>Challenger Sale (CEB/Gartner)</h3>
+                <p>Không hỏi nhiều — dạy KH một góc nhìn mới mà họ chưa biết, khiến họ muốn thay đổi</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết Challenger</button>
+                <div class="expand-content">
+                    <p><strong>3 bước Challenger:</strong></p>
+                    <ul>
+                        <li><strong>Teach:</strong> Cung cấp insight mới về ngành, vấn đề mà KH chưa biết</li>
+                        <li><strong>Tailor:</strong> Cá nhân hóa thông điệp cho từng stakeholder</li>
+                        <li><strong>Take Control:</strong> Dẫn dắt cuộc hội thoại và quy trình mua</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>5 loại Sales Rep (theo CEB):</strong> Hard Worker, Lone Wolf, Problem Solver, Relationship Builder, <em>Challenger</em> → Challenger win rate cao nhất trong complex sales</p>
+                    <p><strong>Phù hợp:</strong> Disruptive products, markets KH chưa biết họ cần gì</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">💊</div>
+                <div class="badge badge-yellow">Solution</div>
+                <h3>Solution Selling</h3>
+                <p>Tập trung vào pain points → bán giải pháp toàn diện thay vì sản phẩm đơn lẻ</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết</button>
+                <div class="expand-content">
+                    <p><strong>Quy trình:</strong></p>
+                    <ul>
+                        <li>Xác định "admitted pain" vs "unadmitted pain"</li>
+                        <li>Phát triển pain thành vision (KH nhìn thấy tương lai tốt đẹp hơn)</li>
+                        <li>Tạo solution concept từ góc nhìn KH</li>
+                        <li>Map solution với buyer's process</li>
+                        <li>Justify value (ROI, payback period)</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Phù hợp:</strong> ERP, CRM, phần mềm doanh nghiệp phức tạp</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🎯</div>
+                <div class="badge badge-purple">Account-based</div>
+                <h3>MEDDIC / MEDDPICC</h3>
+                <p>Framework qualify deal cực kỳ chặt, dùng trong enterprise sales</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Đầy đủ MEDDPICC</button>
+                <div class="expand-content">
+                    <ul>
+                        <li><strong>M</strong>etrics: KH muốn đo lường thành công như thế nào? (tăng X%, tiết kiệm $Y)</li>
+                        <li><strong>E</strong>conomic Buyer: Ai có authority và ngân sách?</li>
+                        <li><strong>D</strong>ecision Criteria: Họ đánh giá vendor dựa trên gì?</li>
+                        <li><strong>D</strong>ecision Process: Steps từ đây đến ký hợp đồng</li>
+                        <li><strong>P</strong>aper Process: Legal, procurement, IT review</li>
+                        <li><strong>I</strong>dentify Pain: Business pain đủ lớn để hành động</li>
+                        <li><strong>C</strong>hampion: Người nội bộ ủng hộ deal, có ảnh hưởng</li>
+                        <li><strong>C</strong>ompetition: Đối thủ trong deal là ai? Strategy để win</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#ec4899;--c2:#db2777">
+                <div class="card-icon">🤿</div>
+                <div class="badge badge-red">Modern</div>
+                <h3>Sandler Selling System</h3>
+                <p>Sales rep có quyền "qualify out" nhanh — không chase KH không phù hợp</p>
+                <button class="expand-btn" onclick="toggleExpand(this)">▼ Chi tiết Sandler</button>
+                <div class="expand-content">
+                    <p><strong>Nguyên tắc cốt lõi:</strong></p>
+                    <ul>
+                        <li>KH tự "bán" cho mình qua trả lời câu hỏi của bạn</li>
+                        <li>Không vội pitch sản phẩm — khám phá pain trước</li>
+                        <li>Xác định budget và decision process rõ ràng sớm</li>
+                        <li>"Pain Funnel": Đào sâu vào sự đau của KH</li>
+                        <li>Reverse psychology: "Có thể sản phẩm của tôi không phù hợp với bạn"</li>
+                    </ul>
+                    <p style="margin-top:.7rem"><strong>Phù hợp:</strong> Services, consulting, high-ticket items</p>
+                </div>
+            </div>
+
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">📱</div>
+                <div class="badge badge-blue">B2C/SMB</div>
+                <h3>Social Selling</h3>
+                <p>Dùng mạng xã hội để xây dựng mối quan hệ và tạo pipeline — không phải spam inbox</p>
+                <ul>
+                    <li>Tối ưu LinkedIn profile như personal brand</li>
+                    <li>Share content có giá trị để attract prospect</li>
+                    <li>Comment sâu sắc thay vì pitch ngay</li>
+                    <li>SSI (Social Selling Index) của LinkedIn</li>
+                    <li>Warm outreach dựa trên trigger events</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== B2B vs B2C ===== -->
+    <div class="tab-content" id="content-b2b">
+        <div class="section-title"><span>B2B vs B2C Sales</span></div>
+        <p class="section-desc">Bán hàng cho doanh nghiệp (B2B) và bán hàng cho người tiêu dùng (B2C) là hai thế giới hoàn toàn khác nhau về quy trình, tâm lý và chiến lược.</p>
+
+        <div class="compare-grid">
+            <div class="compare-box" style="border-color:rgba(59,130,246,.3)">
+                <h4 style="color:#60a5fa">🏢 B2B Sales</h4>
+                <ul>
+                    <li>Chu kỳ bán dài (tuần → tháng → năm)</li>
+                    <li>Nhiều người ra quyết định (committee)</li>
+                    <li>Giá trị deal lớn (triệu → tỷ đồng)</li>
+                    <li>Mua dựa trên logic, ROI, business case</li>
+                    <li>Quan hệ dài hạn, contract-based</li>
+                    <li>Ít transactions nhưng giá trị mỗi deal cao</li>
+                    <li>Sales rep chủ động tiếp cận (outbound nhiều)</li>
+                    <li>Thường đấu thầu, RFP, procurement</li>
+                    <li>After-sale onboarding phức tạp</li>
+                </ul>
+            </div>
+            <div class="compare-box" style="border-color:rgba(16,185,129,.3)">
+                <h4 style="color:#10b981">👤 B2C Sales</h4>
+                <ul>
+                    <li>Chu kỳ mua nhanh (phút → ngày)</li>
+                    <li>Một người quyết định (hoặc vài người trong gia đình)</li>
+                    <li>Giá trị thường thấp hơn</li>
+                    <li>Mua dựa nhiều vào cảm xúc, impulse</li>
+                    <li>Transactional, ít retention focus</li>
+                    <li>Volume cao, giá trị đơn thấp</li>
+                    <li>Marketing kéo KH đến (inbound nhiều)</li>
+                    <li>Self-serve, e-commerce</li>
+                    <li>Sau bán: support, NPS, review</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Enterprise Sales — Bán cho công ty lớn</span></div>
+        <p class="section-desc">Enterprise deals đặc biệt phức tạp với nhiều stakeholders, quy trình mua dài, và rủi ro cao cả hai phía.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">🗺️</div>
+                <h3>Stakeholder Mapping</h3>
+                <p>Trong enterprise deal, có nhiều vai trò quan trọng:</p>
+                <ul>
+                    <li><strong>Economic Buyer:</strong> Phê duyệt ngân sách cuối cùng (CFO, CEO)</li>
+                    <li><strong>Technical Buyer:</strong> Đánh giá kỹ thuật/tính phù hợp</li>
+                    <li><strong>End User:</strong> Người sẽ dùng sản phẩm hàng ngày</li>
+                    <li><strong>Champion:</strong> Người ủng hộ nội bộ của bạn</li>
+                    <li><strong>Blocker:</strong> Người có thể phá deal</li>
+                </ul>
+                <p style="margin-top:.6rem;font-size:.82rem;color:#60a5fa">Bí quyết: xây dựng multi-threaded relationship — không chỉ dựa vào 1 người</p>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">⏱️</div>
+                <h3>Creating Urgency</h3>
+                <p>Enterprise deals thường bị trì hoãn vô tận. Urgency thực phải xuất phát từ business của họ, không phải "deadline sale của mình".</p>
+                <ul>
+                    <li>Identify "compelling event" của KH</li>
+                    <li>Cost of inaction — điều gì xảy ra nếu họ không làm gì?</li>
+                    <li>Fiscal year end timing</li>
+                    <li>Competitor pressure</li>
+                    <li>Executive mandate / new initiative</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🤝</div>
+                <h3>Proof of Concept (POC)</h3>
+                <p>Cho KH dùng thử / pilot trước khi mua toàn bộ — rất quan trọng trong enterprise.</p>
+                <ul>
+                    <li>Define clear success criteria trước khi bắt đầu</li>
+                    <li>POC có thời hạn rõ ràng</li>
+                    <li>Assign internal sponsor từ phía KH</li>
+                    <li>Regular check-in trong quá trình POC</li>
+                    <li>Executive Business Review ở cuối POC</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:1.5rem"><span>SaaS Sales — Mô hình Subscription</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Mô hình</th><th>Đặc điểm</th><th>Ví dụ</th></tr></thead>
+                <tbody>
+                    <tr><td>Self-serve (PLG)</td><td>KH tự đăng ký, dùng thử, nâng cấp — không cần sales</td><td>Notion, Figma, Canva</td></tr>
+                    <tr><td>Inside Sales</td><td>Sales qua video call/remote, deal $1K-$50K/năm</td><td>HubSpot SMB, Zoom</td></tr>
+                    <tr><td>Field Sales</td><td>Sales gặp trực tiếp, deal $50K-$500K/năm</td><td>Salesforce mid-market</td></tr>
+                    <tr><td>Enterprise Sales</td><td>Long cycle, team selling, deal $500K+/năm</td><td>SAP, Oracle, ServiceNow</td></tr>
+                    <tr><td>Channel Sales</td><td>Bán qua đối tác/reseller</td><td>Microsoft, AWS marketplace</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ===== OBJECTION HANDLING ===== -->
+    <div class="tab-content" id="content-objection">
+        <div class="section-title"><span>Xử lý từ chối — Objection Handling</span></div>
+        <p class="section-desc">Từ chối không phải là "không" — đó là câu hỏi chưa được trả lời, nỗi sợ chưa được giải tỏa. Người bán hàng giỏi coi từ chối như cơ hội để hiểu sâu hơn và đưa ra thông tin phù hợp.</p>
+
+        <div class="highlight">
+            <h4>🔑 Framework xử lý từ chối: LAER</h4>
+            <p><strong>L</strong>isten — Lắng nghe hết, không ngắt lời<br>
+            <strong>A</strong>cknowledge — Thừa nhận lo ngại của họ: "Tôi hiểu tại sao bạn nghĩ vậy"<br>
+            <strong>E</strong>xplore — Đào sâu hơn: "Hãy kể thêm cho tôi nghe về..."<br>
+            <strong>R</strong>espond — Đưa ra câu trả lời/giải pháp sau khi đã hiểu rõ</p>
+        </div>
+
+        <h3 style="color:#10b981;margin-bottom:1rem">Các từ chối phổ biến nhất</h3>
+
+        <div class="objection-item">
+            <div class="objection-q">💰 "Giá quá đắt"</div>
+            <div class="objection-a">
+                Đây là từ chối số 1. Nhưng "đắt" thường có nghĩa là "tôi chưa thấy value đủ xứng với giá đó".<br><br>
+                ✅ <strong>Đáp:</strong> "Tôi hiểu ngân sách là quan trọng. Bạn có thể giúp tôi hiểu bạn đang so sánh với gì không? (Đối thủ? Budget cũ?)"<br>
+                ✅ Tính ROI: "Nếu giải pháp này giúp tiết kiệm X giờ/tuần × 50 nhân viên, ROI trong 3 tháng đầu là..."<br>
+                ✅ Unbundle: Bắt đầu với gói nhỏ hơn để KH thấy value trước
+            </div>
+        </div>
+
+        <div class="objection-item">
+            <div class="objection-q">⏱️ "Chúng tôi chưa sẵn sàng / Để tháng sau / Để năm sau"</div>
+            <div class="objection-a">
+                ✅ <strong>Đáp:</strong> "Tôi tôn trọng điều đó. Có thể bạn cho tôi biết điều gì cần xảy ra để bạn sẵn sàng không?"<br>
+                ✅ Cost of delay: "Mỗi tháng trì hoãn, vấn đề này tiếp tục tốn bạn khoảng..."<br>
+                ✅ Giữ liên lạc với value: Gửi relevant content, insight mỗi vài tuần<br>
+                ✅ Tạo milestone: "Nếu chúng ta bắt đầu Q4, bạn có thể live vào Q1 — trước mùa cao điểm"
+            </div>
+        </div>
+
+        <div class="objection-item">
+            <div class="objection-q">🛡️ "Chúng tôi đã có nhà cung cấp rồi / Đang dùng [đối thủ]"</div>
+            <div class="objection-a">
+                ✅ <strong>Đáp:</strong> "Rất tốt, bạn có thể kể cho tôi nghe về kinh nghiệm với họ không? Bạn thích điều gì, và điều gì bạn muốn họ làm tốt hơn?"<br>
+                ✅ Chỉ ra gap: Tìm điểm yếu của đối thủ và điểm mạnh của bạn<br>
+                ✅ "Tôi không đề nghị bạn rời họ ngay — chỉ muốn cho bạn xem [specific advantage] để bạn có thêm lựa chọn"<br>
+                ✅ Switching cost analysis: Giúp KH thấy lợi ích lớn hơn chi phí chuyển đổi
+            </div>
+        </div>
+
+        <div class="objection-item">
+            <div class="objection-q">🤔 "Tôi cần hỏi ý kiến / sếp / hội đồng"</div>
+            <div class="objection-a">
+                ✅ <strong>Đáp:</strong> "Tất nhiên. Bạn nghĩ họ sẽ có câu hỏi gì? Tôi có thể chuẩn bị tài liệu để hỗ trợ bạn trình bày không?"<br>
+                ✅ Offer executive brief/presentation riêng cho decision maker<br>
+                ✅ Xác định quy trình: "Sau khi bạn nói chuyện với họ, bước tiếp theo là gì?"<br>
+                ✅ Cảnh báo: Đây có thể là lý do thật, hoặc là polite rejection. Hỏi thêm để biết.
+            </div>
+        </div>
+
+        <div class="objection-item">
+            <div class="objection-q">😕 "Tôi không chắc đây có phù hợp với chúng tôi không"</div>
+            <div class="objection-a">
+                ✅ <strong>Đáp:</strong> "Đó là lo ngại hoàn toàn hợp lý. Điều gì khiến bạn chưa chắc?"<br>
+                ✅ Reference customer tương tự: "Công ty ABC trong ngành của bạn đã có kết quả..."<br>
+                ✅ De-risk: Pilot, POC, money-back guarantee, contract ngắn hạn<br>
+                ✅ Address specific concern bằng proof/data
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CLOSING ===== -->
+    <div class="tab-content" id="content-closing">
+        <div class="section-title"><span>Chốt Sales — Closing Techniques</span></div>
+        <p class="section-desc">Chốt sale không phải là "trick" — đó là kết quả tự nhiên của một quy trình bán hàng tốt. Nếu bạn cần dùng nhiều closing trick, có thể quy trình trước đó chưa ổn.</p>
+
+        <div class="highlight">
+            <h4>🚨 Buying Signals — Dấu hiệu KH muốn mua</h4>
+            <p>
+            • Hỏi về timeline và implementation: "Bao lâu để triển khai?"<br>
+            • Hỏi về thanh toán: "Có trả theo tháng không?"<br>
+            • Giới thiệu thêm người trong tổ chức<br>
+            • So sánh cụ thể với situation của họ: "Với 50 user của chúng tôi thì sao?"<br>
+            • Tích cực trong cuộc nói chuyện, body language open (offline)
+            </p>
+        </div>
+
+        <h3 style="color:#10b981;margin:1.5rem 0 1rem">Kỹ thuật chốt sale</h3>
+
+        <div class="technique-card">
+            <h4>📅 Assumptive Close</h4>
+            <p>Hành xử như thể việc mua đã được quyết định, tập trung vào logistics.</p>
+            <p class="example">"Vậy chúng ta bắt đầu onboarding vào thứ Hai hay thứ Ba tuần tới?"</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>⏰ Urgency Close (Scarcity/Deadline)</h4>
+            <p>Tạo lý do thực để hành động ngay — không phải bịa ra.</p>
+            <p class="example">"Chúng tôi chỉ còn 2 slot onboarding trong tháng này. Nếu muốn live trước Q4, cần confirm trước cuối tuần."</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>❓ Question Close</h4>
+            <p>Đặt câu hỏi để KH tự nói ra điều họ cần.</p>
+            <p class="example">"Nếu chúng tôi có thể giải quyết [concern cuối cùng] của bạn, bạn có sẵn sàng tiến hành không?"</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>📊 Summary Close</h4>
+            <p>Tóm tắt tất cả những điều đã đồng ý, sau đó ask for commitment.</p>
+            <p class="example">"Vậy chúng ta đã đồng ý về [A, B, C]. Bước tiếp theo là ký hợp đồng — bạn muốn xử lý phần đó như thế nào?"</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>🎯 Puppy Dog Close</h4>
+            <p>Cho KH "thử" trước (free trial, pilot) — sau khi yêu thích, việc mua là tự nhiên.</p>
+            <p class="example">"Hãy dùng thử 14 ngày miễn phí — không cần thẻ tín dụng. Sau đó chúng ta nói chuyện tiếp."</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>🔄 The Ben Franklin Close</h4>
+            <p>Cùng KH viết ra pros và cons — tổng pros thường nghiêng về mua.</p>
+            <p class="example">"Cùng nhau liệt kê những lý do nên và không nên tiến hành — tôi muốn bạn đưa ra quyết định tốt nhất."</p>
+        </div>
+
+        <div class="technique-card">
+            <h4>↩️ Take-Away Close</h4>
+            <p>Đề nghị rút lại offer — kích thích nỗi sợ mất đi (FOMO).</p>
+            <p class="example">"Tôi bắt đầu tự hỏi liệu sản phẩm này có thực sự phù hợp với giai đoạn hiện tại của bạn không..."</p>
+        </div>
+
+        <div class="highlight" style="margin-top:1.5rem">
+            <h4>⚠️ Điều không nên làm khi chốt</h4>
+            <p>
+            • Đừng panic và giảm giá ngay khi bị từ chối<br>
+            • Đừng nói sau khi close — im lặng và chờ<br>
+            • Đừng chốt khi KH chưa đến giai đoạn sẵn sàng<br>
+            • Đừng gây áp lực quá mức — làm hỏng mối quan hệ<br>
+            • Đừng close nếu chưa clearly qualify được deal
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== PSYCHOLOGY ===== -->
+    <div class="tab-content" id="content-psychology">
+        <div class="section-title"><span>Tâm lý bán hàng</span></div>
+        <p class="section-desc">Hiểu cách con người ra quyết định là superpower của người sales giỏi. Robert Cialdini, Daniel Kahneman và nhiều nghiên cứu khoa học đã cung cấp nền tảng để bán hàng hiệu quả dựa trên tâm lý.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🎭</div>
+                <h3>6 nguyên tắc ảnh hưởng của Cialdini</h3>
+                <div class="badge badge-green">Nền tảng</div>
+                <ul>
+                    <li><strong>Reciprocity:</strong> Cho đi trước → KH muốn đáp lại</li>
+                    <li><strong>Commitment:</strong> Cam kết nhỏ dẫn đến cam kết lớn</li>
+                    <li><strong>Social Proof:</strong> Người ta làm theo số đông</li>
+                    <li><strong>Authority:</strong> Tin chuyên gia, chứng chỉ, giải thưởng</li>
+                    <li><strong>Liking:</strong> Mua từ người mình thích và tin</li>
+                    <li><strong>Scarcity:</strong> Thứ hiếm có giá trị hơn</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#a855f7;--c2:#7c3aed">
+                <div class="card-icon">🧠</div>
+                <h3>System 1 vs System 2 (Kahneman)</h3>
+                <div class="badge badge-purple">Cognitive</div>
+                <ul>
+                    <li><strong>System 1:</strong> Tự động, nhanh, cảm xúc (mua impulsive)</li>
+                    <li><strong>System 2:</strong> Chậm, logic, có chủ tâm (mua sau cân nhắc)</li>
+                    <li>B2C impulse: target System 1 (màu sắc, price anchor, FOMO)</li>
+                    <li>B2B complex: phải thuyết phục System 2 (ROI, data, case study)</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">🤝</div>
+                <h3>Xây dựng Trust — Niềm tin</h3>
+                <div class="badge badge-yellow">Critical</div>
+                <ul>
+                    <li><strong>Competence:</strong> Bạn có đủ kiến thức không?</li>
+                    <li><strong>Benevolence:</strong> Bạn có thực sự quan tâm đến KH?</li>
+                    <li><strong>Integrity:</strong> Bạn có làm đúng như nói không?</li>
+                    <li>Honesty khi sản phẩm không phù hợp = trust builder</li>
+                    <li>Follow through on every promise, lớn hay nhỏ</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#ef4444;--c2:#dc2626">
+                <div class="card-icon">😰</div>
+                <h3>Nỗi sợ của khách hàng</h3>
+                <div class="badge badge-red">Pain Points</div>
+                <ul>
+                    <li><strong>Sợ mất tiền:</strong> Không có ROI, lãng phí ngân sách</li>
+                    <li><strong>Sợ sai:</strong> Chọn nhà cung cấp sai, bị đổ lỗi</li>
+                    <li><strong>Sợ bất ngờ:</strong> Hidden costs, scope creep</li>
+                    <li><strong>Sợ chuyển đổi:</strong> Migration pain, learning curve</li>
+                    <li><strong>Sợ nhà cung cấp sẽ biến mất</strong></li>
+                </ul>
+                <p style="margin-top:.6rem;font-size:.82rem;color:#f87171">→ Address từng nỗi sợ bằng data, guarantee, reference</p>
+            </div>
+            <div class="card" style="--c1:#06b6d4;--c2:#0891b2">
+                <div class="card-icon">💬</div>
+                <h3>Active Listening</h3>
+                <div class="badge badge-blue">Skill #1</div>
+                <ul>
+                    <li><strong>Paraphrase:</strong> "Nếu tôi hiểu đúng, bạn đang nói..."</li>
+                    <li><strong>Clarify:</strong> "Khi bạn nói 'chậm', ý bạn là...?"</li>
+                    <li><strong>Summarize:</strong> Tóm tắt lại cuối cuộc trò chuyện</li>
+                    <li><strong>Silence:</strong> Đừng sợ khoảng lặng — cho KH thời gian nghĩ</li>
+                    <li><strong>Note-taking:</strong> Ghi chú là biểu hiện tôn trọng</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#22c55e;--c2:#16a34a">
+                <div class="card-icon">🎯</div>
+                <h3>Tâm lý giá cả</h3>
+                <div class="badge badge-green">Pricing Psychology</div>
+                <ul>
+                    <li><strong>Price anchoring:</strong> Present giá cao trước</li>
+                    <li><strong>Charm pricing:</strong> 999K thay vì 1.000.000đ</li>
+                    <li><strong>Decoy pricing:</strong> Gói trung gian là mồi nhử</li>
+                    <li><strong>Bundle:</strong> Nhóm items lại để blur total cost</li>
+                    <li><strong>Payment framing:</strong> "Chỉ 33.000đ/ngày" thay vì 1.000.000đ/tháng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CRM ===== -->
+    <div class="tab-content" id="content-crm">
+        <div class="section-title"><span>CRM & Sales Pipeline</span></div>
+        <p class="section-desc">CRM (Customer Relationship Management) là não bộ của team sales — lưu trữ mọi tương tác với KH, quản lý pipeline và giúp forecast doanh thu chính xác.</p>
+
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">📊</div>
+                <h3>Sales Pipeline vs Sales Funnel</h3>
+                <ul>
+                    <li><strong>Sales Funnel:</strong> Góc nhìn của KH — họ đang ở đâu trong hành trình mua</li>
+                    <li><strong>Sales Pipeline:</strong> Góc nhìn của Sales Rep — các deal đang ở stage nào</li>
+                    <li><strong>Pipeline = tập hợp deals</strong>, mỗi deal có stage, value, next action</li>
+                </ul>
+                <p style="margin-top:.6rem">Pipeline khỏe mạnh = đủ deals ở mọi stage, không tập trung cục bộ</p>
+            </div>
+            <div class="card" style="--c1:#3b82f6;--c2:#6366f1">
+                <div class="card-icon">📋</div>
+                <h3>Các stage trong Sales Pipeline</h3>
+                <div class="badge badge-blue">Ví dụ B2B SaaS</div>
+                <ul>
+                    <li>1. <strong>Prospecting</strong> (5%) — Lead chưa qualify</li>
+                    <li>2. <strong>Qualified</strong> (15%) — Đã confirm fit</li>
+                    <li>3. <strong>Discovery</strong> (25%) — Đã gặp, hiểu pain</li>
+                    <li>4. <strong>Demo/Proposal</strong> (40%) — Đã present</li>
+                    <li>5. <strong>Negotiation</strong> (70%) — Đang bàn điều khoản</li>
+                    <li>6. <strong>Closed Won</strong> (100%) ✅</li>
+                    <li>7. <strong>Closed Lost</strong> ❌ + reason</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin:1.5rem 0 1rem"><span>Các CRM phổ biến</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>CRM</th><th>Phù hợp</th><th>Điểm mạnh</th><th>Giá</th></tr></thead>
+                <tbody>
+                    <tr><td>Salesforce</td><td>Enterprise, large team</td><td>Customizable, ecosystem rộng</td><td>$25-$300/user/mo</td></tr>
+                    <tr><td>HubSpot CRM</td><td>SMB, inbound-heavy team</td><td>Free tier, gắn với Marketing hub</td><td>Free → $450+/mo</td></tr>
+                    <tr><td>Pipedrive</td><td>SMB, B2B sales team</td><td>Visual pipeline, easy use</td><td>$15-$99/user/mo</td></tr>
+                    <tr><td>Monday CRM</td><td>Teams quen dùng Monday.com</td><td>Flexibility, visual</td><td>$10-$24/user/mo</td></tr>
+                    <tr><td>Zoho CRM</td><td>SMB, budget-conscious</td><td>All-in-one, affordable</td><td>$14-$52/user/mo</td></tr>
+                    <tr><td>Close</td><td>Inside sales, high-volume</td><td>Built-in calling, email sequences</td><td>$49-$139/user/mo</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin:1.5rem 0 1rem"><span>Sales Forecasting — Dự báo doanh số</span></div>
+        <div class="cards-grid">
+            <div class="card" style="--c1:#10b981;--c2:#3b82f6">
+                <div class="card-icon">🔮</div>
+                <h3>Phương pháp forecast</h3>
+                <ul>
+                    <li><strong>Intuitive:</strong> Rep tự đánh giá — chủ quan, không nhất quán</li>
+                    <li><strong>Pipeline-based:</strong> Stage × Probability × Deal value</li>
+                    <li><strong>Historical:</strong> Dựa trên dữ liệu quá khứ (tỷ lệ win, cycle time)</li>
+                    <li><strong>AI/ML-based:</strong> Dự đoán dựa trên hàng trăm signals</li>
+                    <li><strong>Bottom-up:</strong> Tổng hợp từ từng rep</li>
+                    <li><strong>Top-down:</strong> Từ market size × market share</li>
+                </ul>
+            </div>
+            <div class="card" style="--c1:#f59e0b;--c2:#d97706">
+                <div class="card-icon">⚠️</div>
+                <h3>Pipeline hygiene — Vệ sinh pipeline</h3>
+                <ul>
+                    <li>Xóa deals "zombie" — không có activity trong 30+ ngày</li>
+                    <li>Update stage và next activity date hàng tuần</li>
+                    <li>Ghi chú sau mỗi interaction vào CRM ngay</li>
+                    <li>Review pipeline 1:1 với manager hàng tuần</li>
+                    <li>Track "deal age" — deal quá già thường sẽ không close</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== METRICS ===== -->
+    <div class="tab-content" id="content-metrics">
+        <div class="section-title"><span>Sales KPIs — Chỉ số đo lường</span></div>
+        <p class="section-desc">Data-driven sales là nền tảng của team bán hàng hiện đại. Những chỉ số này giúp xác định vấn đề trong pipeline và cải thiện performance một cách có hệ thống.</p>
+
+        <div class="section-title" style="font-size:1.1rem;margin-bottom:1rem"><span>📈 Chỉ số hoạt động (Activity Metrics)</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">Calls / Emails per Day</div>
+                <div class="kpi-formula">Số hoạt động outreach</div>
+                <div class="kpi-good">✓ Thường 50-100 calls/ngày SDR</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Connect Rate</div>
+                <div class="kpi-formula">Connects / Attempts × 100</div>
+                <div class="kpi-good">✓ Cold call: 5-10%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Meeting Set Rate</div>
+                <div class="kpi-formula">Meetings / Connects × 100</div>
+                <div class="kpi-good">✓ 20-30% là tốt</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Response Rate (Email)</div>
+                <div class="kpi-formula">Replies / Emails Sent</div>
+                <div class="kpi-good">✓ Cold: 5-15%, warm: 20-40%</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-top:1.5rem;margin-bottom:1rem"><span>💰 Chỉ số Pipeline & Conversion</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">Win Rate</div>
+                <div class="kpi-formula">Closed Won / Total Closed</div>
+                <div class="kpi-good">✓ B2B tốt: 20-30%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Pipeline Coverage</div>
+                <div class="kpi-formula">Pipeline Value / Quota</div>
+                <div class="kpi-good">✓ Tối thiểu 3x–5x quota</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Average Deal Size</div>
+                <div class="kpi-formula">Total Revenue / # Deals</div>
+                <div class="kpi-good">↑ Tăng bằng upsell/enterprise</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Sales Cycle Length</div>
+                <div class="kpi-formula">Days from opp to close</div>
+                <div class="kpi-good">↓ Shorter = more efficient</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Quota Attainment</div>
+                <div class="kpi-formula">Actual Revenue / Quota</div>
+                <div class="kpi-good">✓ Team: 70-80% hitting quota</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Forecast Accuracy</div>
+                <div class="kpi-formula">|Forecast - Actual| / Forecast</div>
+                <div class="kpi-good">✓ Tốt: sai số &lt;10%</div>
+            </div>
+        </div>
+
+        <div class="section-title" style="font-size:1.1rem;margin-top:1.5rem;margin-bottom:1rem"><span>❤️ Chỉ số Customer Success</span></div>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-name">Net Revenue Retention (NRR)</div>
+                <div class="kpi-formula">(Start + Expansion - Churn) / Start</div>
+                <div class="kpi-good">✓ Excellent: &gt;120%</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Upsell/Expansion Rate</div>
+                <div class="kpi-formula">Expansion MRR / Total MRR</div>
+                <div class="kpi-good">↑ KH happy = upsell được</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Customer Churn Rate</div>
+                <div class="kpi-formula">Lost Customers / Start Customers</div>
+                <div class="kpi-good">↓ SaaS tốt: &lt;5%/năm</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-name">Referral Rate</div>
+                <div class="kpi-formula">Referrals / Active Customers</div>
+                <div class="kpi-good">↑ KH hài lòng sẽ giới thiệu</div>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top:1.5rem">
+            <h4>📊 Revenue Math cơ bản</h4>
+            <p>
+            <strong>ARR (Annual Recurring Revenue) = MRR × 12</strong><br>
+            <strong>CAC = Total Sales & Marketing Spend / New Customers</strong><br>
+            <strong>LTV = ARPU × Gross Margin % × (1 / Churn Rate)</strong><br>
+            <strong>LTV:CAC phải ≥ 3:1</strong> để business bền vững<br>
+            <strong>CAC Payback Period = CAC / (ARPU × Gross Margin)</strong> — phải &lt; 12 tháng cho SMB, &lt; 24 tháng cho enterprise
+            </p>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem"><span>Sales Scoreboard — Bảng theo dõi hiệu suất</span></div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Metric</th><th>Why it matters</th><th>Whose problem if low</th><th>How to fix</th></tr></thead>
+                <tbody>
+                    <tr><td>Meetings per week</td><td>Top-of-funnel health</td><td>SDR/Prospecting</td><td>Thêm outreach, cải thiện messaging</td></tr>
+                    <tr><td>Win rate</td><td>Chất lượng pitch & qualify</td><td>AE + Product fit</td><td>Coaching, better qualification</td></tr>
+                    <tr><td>Average deal size</td><td>Rev efficiency</td><td>Targeting + Negotiation</td><td>Move upmarket, upsell training</td></tr>
+                    <tr><td>Sales cycle</td><td>Capital efficiency</td><td>Process + Champions</td><td>Improve discovery, build champions</td></tr>
+                    <tr><td>Pipeline coverage</td><td>Forecast predictability</td><td>Demand gen + SDR</td><td>More top-of-funnel activity</td></tr>
+                    <tr><td>NRR</td><td>Long-term revenue health</td><td>CS + Product</td><td>Improve onboarding, success plans</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div><!-- end tabs-container -->
+
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const c = document.getElementById('content-' + tabId);
+    const b = document.getElementById('tab-' + tabId);
+    if (c) c.classList.add('active');
+    if (b) b.classList.add('active');
+}
+
+function toggleExpand(btn) {
+    const content = btn.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open');
+    btn.textContent = isOpen ? '▼ Chi tiết' : '▲ Thu gọn';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cách Kiếm Tiền Hoạt Động Như Thế Nào - Từ Cổ Đại Đến Hiện Đại</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>💸 Hệ Thống Cách Kiếm Tiền</h1>
+            <p>Từ cổ đại đến hiện đại — chọn cấp độ phù hợp</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Muốn hiểu tổng quan các mô hình kiếm tiền.</p>
+                    <ul>
+                        <li>✅ Sơ đồ trực quan</li>
+                        <li>✅ Giải thích đơn giản</li>
+                        <li>✅ Ví dụ thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã biết cơ bản, muốn hiểu sâu hơn về công thức.</p>
+                    <ul>
+                        <li>✅ Phân tích mô hình</li>
+                        <li>✅ So sánh hiệu quả</li>
+                        <li>✅ Case studies</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn xây dựng hệ thống kiếm tiền đa tầng.</p>
+                    <ul>
+                        <li>✅ Công thức chuyên sâu</li>
+                        <li>✅ Chiến lược kết hợp</li>
+                        <li>✅ Mô phỏng thu nhập</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>💸 Hệ Thống Cách Kiếm Tiền</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="timelineBtn" title="Dòng thời gian">🕰️ Timeline</button>
+            <button class="header-btn" id="formulaBtn" title="Công thức kiếm tiền">📐 Công thức</button>
+            <button class="header-btn" id="compareBtn" title="So sánh mô hình">⚖️ So sánh</button>
+            <button class="header-btn" id="quizBtn" title="Làm câu hỏi">❓ Quiz</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo thời kỳ:</span>
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="ancient">🏛️ Cổ đại</button>
+            <button class="filter-btn" data-category="traditional">⚒️ Truyền thống</button>
+            <button class="filter-btn" data-category="industrial">🏭 Công nghiệp</button>
+            <button class="filter-btn" data-category="modern">💻 Hiện đại</button>
+            <button class="filter-btn" data-category="digital">🚀 Kỹ thuật số</button>
+            <button class="filter-btn" data-category="formula">📐 Công thức</button>
+        </div>
+
+        <!-- Node Grid -->
+        <div class="node-grid" id="nodeGrid">
+            <!-- Nodes will be rendered by JS -->
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Timeline Modal -->
+    <div class="modal-overlay" id="timelineModal">
+        <div class="modal-content modal-wide">
+            <button class="modal-close" id="timelineClose">✕</button>
+            <div class="modal-body" id="timelineBody"></div>
+        </div>
+    </div>
+
+    <!-- Formula Modal -->
+    <div class="modal-overlay" id="formulaModal">
+        <div class="modal-content modal-wide">
+            <button class="modal-close" id="formulaClose">✕</button>
+            <div class="modal-body" id="formulaBody"></div>
+        </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div class="modal-overlay" id="compareModal">
+        <div class="modal-content modal-wide">
+            <button class="modal-close" id="compareClose">✕</button>
+            <div class="modal-body" id="compareBody"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal-content modal-wide">
+            <button class="modal-close" id="quizClose">✕</button>
+            <div class="modal-body" id="quizBody"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="modules/ancient-models.js"></script>
+    <script src="modules/traditional-models.js"></script>
+    <script src="modules/industrial-models.js"></script>
+    <script src="modules/modern-models.js"></script>
+    <script src="modules/digital-models.js"></script>
+    <script src="modules/formulas.js"></script>
+    <script src="modules/timeline.js"></script>
+    <script src="modules/quiz.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
