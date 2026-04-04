@@ -1,0 +1,450 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e34]:
+    - generic [ref=e35]:
+      - link "← Trang chủ" [ref=e36] [cursor=pointer]:
+        - /url: ../
+      - heading "💸 Hệ Thống Cách Kiếm Tiền" [level=1] [ref=e37]
+      - generic [ref=e38]: 🌱 Người Mới
+    - generic [ref=e39]:
+      - button "⚙️" [ref=e40] [cursor=pointer]
+      - button "🕰️ Timeline" [ref=e41] [cursor=pointer]
+      - button "📐 Công thức" [ref=e42] [cursor=pointer]
+      - button "⚖️ So sánh" [ref=e43] [cursor=pointer]
+      - button "❓ Quiz" [ref=e44] [cursor=pointer]
+  - main [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]: "Lọc theo thời kỳ:"
+      - button "Tất cả" [ref=e48] [cursor=pointer]
+      - button "🏛️ Cổ đại" [ref=e49] [cursor=pointer]
+      - button "⚒️ Truyền thống" [ref=e50] [cursor=pointer]
+      - button "🏭 Công nghiệp" [ref=e51] [cursor=pointer]
+      - button "💻 Hiện đại" [ref=e52] [cursor=pointer]
+      - button "🚀 Kỹ thuật số" [ref=e53] [cursor=pointer]
+      - button "📐 Công thức" [ref=e54] [cursor=pointer]
+    - generic [ref=e55]:
+      - generic [ref=e56] [cursor=pointer]:
+        - generic [ref=e57]: 🏹
+        - generic [ref=e58]: ~200,000 TCN
+        - generic [ref=e59]: Săn Bắt - Hái Lượm
+        - generic [ref=e60]: Mô hình kiếm sống đầu tiên của loài người
+        - generic [ref=e61]: Phương thức sinh tồn nguyên thủy nhất — dùng sức lao động trực tiếp để thu thập thức ăn từ tự nhiên.
+        - generic [ref=e62]: Thu nhập = Sức lực × Kỹ năng × May mắn
+        - generic [ref=e63]:
+          - generic [ref=e64]: Sinh tồn
+          - generic [ref=e65]: Tự nhiên
+          - generic [ref=e66]: Cộng đồng
+        - generic [ref=e67]:
+          - generic [ref=e68]: "Scale: ⭐☆☆☆☆"
+          - generic [ref=e69]: Đủ sống
+      - generic [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: 🌾
+        - generic [ref=e72]: ~10,000 TCN
+        - generic [ref=e73]: Nông Nghiệp & Chăn Nuôi
+        - generic [ref=e74]: Cuộc cách mạng kinh tế đầu tiên
+        - generic [ref=e75]: Con người chuyển từ du mục sang định cư — trồng trọt và chăn nuôi tạo ra thặng dư lần đầu tiên.
+        - generic [ref=e76]: Thu nhập = Đất × Lao động × Thời tiết × Mùa vụ
+        - generic [ref=e77]:
+          - generic [ref=e78]: Đất đai
+          - generic [ref=e79]: Mùa vụ
+          - generic [ref=e80]: Thặng dư
+        - generic [ref=e81]:
+          - generic [ref=e82]: "Scale: ⭐⭐☆☆☆"
+          - generic [ref=e83]: Trung bình
+      - generic [ref=e84] [cursor=pointer]:
+        - generic [ref=e85]: 🤝
+        - generic [ref=e86]: ~6000 TCN
+        - generic [ref=e87]: Trao Đổi Hàng Hóa (Barter)
+        - generic [ref=e88]: Nền tảng của thương mại
+        - generic [ref=e89]: Dùng hàng hóa này đổi hàng hóa khác — mô hình "kinh doanh" đầu tiên tạo giá trị mà không cần sản xuất thêm.
+        - generic [ref=e90]: Lợi nhuận = Giá trị nhận - Giá trị cho
+        - generic [ref=e91]:
+          - generic [ref=e92]: Thương mại
+          - generic [ref=e93]: Trao đổi
+          - generic [ref=e94]: Giá trị
+        - generic [ref=e95]:
+          - generic [ref=e96]: "Scale: ⭐⭐☆☆☆"
+          - generic [ref=e97]: Biến động
+      - generic [ref=e98] [cursor=pointer]:
+        - generic [ref=e99]: ⚒️
+        - generic [ref=e100]: ~4000 TCN
+        - generic [ref=e101]: Thủ Công & Nghề Nghiệp
+        - generic [ref=e102]: Chuyên môn hóa tạo giá trị
+        - generic [ref=e103]: Chuyên môn hóa sâu — thợ rèn, thợ gốm, thợ dệt tạo sản phẩm mà không ai khác làm được.
+        - generic [ref=e104]: Thu nhập = Kỹ năng × Thời gian × Độ hiếm
+        - generic [ref=e105]:
+          - generic [ref=e106]: Kỹ năng
+          - generic [ref=e107]: Chuyên môn
+          - generic [ref=e108]: Sản phẩm
+        - generic [ref=e109]:
+          - generic [ref=e110]: "Scale: ⭐⭐☆☆☆"
+          - generic [ref=e111]: Khá - Cao
+      - generic [ref=e112] [cursor=pointer]:
+        - generic [ref=e113]: 👑
+        - generic [ref=e114]: ~3000 TCN
+        - generic [ref=e115]: Thuế & Cống Nạp (Quyền Lực)
+        - generic [ref=e116]: Kiếm tiền bằng quyền lực chính trị
+        - generic [ref=e117]: Vua chúa, quý tộc thu thuế từ người dân — mô hình "kiếm tiền" bằng quyền lực chính trị.
+        - generic [ref=e118]: Thu nhập = Quyền lực × Dân số × Thuế suất
+        - generic [ref=e119]:
+          - generic [ref=e120]: Quyền lực
+          - generic [ref=e121]: Thuế
+          - generic [ref=e122]: Nhà nước
+        - generic [ref=e123]:
+          - generic [ref=e124]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e125]: Rất cao
+      - generic [ref=e126] [cursor=pointer]:
+        - generic [ref=e127]: 🐪
+        - generic [ref=e128]: ~2000 TCN → Nay
+        - generic [ref=e129]: Thương Nhân & Buôn Bán
+        - generic [ref=e130]: Kiếm tiền từ chênh lệch địa lý
+        - generic [ref=e131]: Mua rẻ nơi này, bán đắt nơi khác — mô hình thương mại cổ điển xuyên suốt lịch sử.
+        - generic [ref=e132]: Lợi nhuận = (Giá bán - Giá mua) × Số lượng - Chi phí vận chuyển
+        - generic [ref=e133]:
+          - generic [ref=e134]: Thương mại
+          - generic [ref=e135]: Vận chuyển
+          - generic [ref=e136]: Chênh lệch giá
+        - generic [ref=e137]:
+          - generic [ref=e138]: "Scale: ⭐⭐⭐⭐☆"
+          - generic [ref=e139]: Cao - Rất cao
+      - generic [ref=e140] [cursor=pointer]:
+        - generic [ref=e141]: 🏦
+        - generic [ref=e142]: ~1800 TCN → Nay
+        - generic [ref=e143]: Cho Vay & Ngân Hàng
+        - generic [ref=e144]: Tiền đẻ ra tiền — mô hình vĩ đại nhất
+        - generic [ref=e145]: Dùng tiền để sinh ra tiền — nguyên lý cốt lõi đằng sau mọi hệ thống tài chính hiện đại.
+        - generic [ref=e146]: Thu nhập = Vốn × Lãi suất × Thời gian
+        - generic [ref=e147]:
+          - generic [ref=e148]: Lãi suất
+          - generic [ref=e149]: Vốn
+          - generic [ref=e150]: Tài chính
+        - generic [ref=e151]:
+          - generic [ref=e152]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e153]: Rất cao
+      - generic [ref=e154] [cursor=pointer]:
+        - generic [ref=e155]: 🏘️
+        - generic [ref=e156]: ~2000 TCN → Nay
+        - generic [ref=e157]: Cho Thuê Tài Sản
+        - generic [ref=e158]: Sở hữu tài sản, thu tiền định kỳ
+        - generic [ref=e159]: Sở hữu đất đai, nhà cửa, trang thiết bị và cho người khác thuê — dòng tiền thụ động bền vững nhất.
+        - generic [ref=e160]: Thu nhập = Số tài sản × Giá thuê - Chi phí bảo trì
+        - generic [ref=e161]:
+          - generic [ref=e162]: Bất động sản
+          - generic [ref=e163]: Passive income
+          - generic [ref=e164]: Tài sản
+        - generic [ref=e165]:
+          - generic [ref=e166]: "Scale: ⭐⭐⭐⭐☆"
+          - generic [ref=e167]: Ổn định cao
+      - generic [ref=e168] [cursor=pointer]:
+        - generic [ref=e169]: 🛡️
+        - generic [ref=e170]: ~1000 → 1800
+        - generic [ref=e171]: Phường Hội & Độc Quyền
+        - generic [ref=e172]: Kiểm soát thị trường để định giá
+        - generic [ref=e173]: Tập hợp nhóm → kiểm soát nguồn cung → giữ giá cao. Mô hình cartel cổ đại.
+        - generic [ref=e174]: Lợi nhuận = Giá độc quyền - Giá thị trường tự do
+        - generic [ref=e175]:
+          - generic [ref=e176]: Độc quyền
+          - generic [ref=e177]: Phường hội
+          - generic [ref=e178]: Kiểm soát
+        - generic [ref=e179]:
+          - generic [ref=e180]: "Scale: ⭐⭐⭐☆☆"
+          - generic [ref=e181]: Cao
+      - generic [ref=e182] [cursor=pointer]:
+        - generic [ref=e183]: 🏭
+        - generic [ref=e184]: 1760 → Nay
+        - generic [ref=e185]: Sản Xuất Công Nghiệp
+        - generic [ref=e186]: Mass production — quy mô tạo giàu có
+        - generic [ref=e187]: Sản xuất hàng loạt với máy móc — giảm chi phí mỗi đơn vị, tăng số lượng bán ra.
+        - generic [ref=e188]: Lợi nhuận = (Giá bán - Chi phí/SP) × Số lượng SP
+        - generic [ref=e189]:
+          - generic [ref=e190]: Sản xuất
+          - generic [ref=e191]: Quy mô
+          - generic [ref=e192]: Máy móc
+        - generic [ref=e193]:
+          - generic [ref=e194]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e195]: Rất cao
+      - generic [ref=e196] [cursor=pointer]:
+        - generic [ref=e197]: 👷
+        - generic [ref=e198]: 1800 → Nay
+        - generic [ref=e199]: Lao Động Làm Thuê
+        - generic [ref=e200]: Đổi thời gian lấy tiền — phổ biến nhất thế giới
+        - generic [ref=e201]: Bán thời gian và sức lao động cho người khác — mô hình kiếm tiền phổ biến nhất lịch sử hiện đại.
+        - generic [ref=e202]: Thu nhập = Giờ làm × Lương/giờ
+        - generic [ref=e203]:
+          - generic [ref=e204]: Lương
+          - generic [ref=e205]: Thời gian
+          - generic [ref=e206]: Nhân viên
+        - generic [ref=e207]:
+          - generic [ref=e208]: "Scale: ⭐☆☆☆☆"
+          - generic [ref=e209]: Thấp - Trung bình
+      - generic [ref=e210] [cursor=pointer]:
+        - generic [ref=e211]: 📊
+        - generic [ref=e212]: 1602 → Nay
+        - generic [ref=e213]: Cổ Phần & Đầu Tư
+        - generic [ref=e214]: Sở hữu doanh nghiệp mà không cần điều hành
+        - generic [ref=e215]: Mua cổ phần công ty → nhận cổ tức + tăng giá — sở hữu mà không cần làm việc.
+        - generic [ref=e216]: ROI = (Cổ tức + Tăng giá CP) / Giá mua × 100%
+        - generic [ref=e217]:
+          - generic [ref=e218]: Cổ phiếu
+          - generic [ref=e219]: Đầu tư
+          - generic [ref=e220]: Passive income
+        - generic [ref=e221]:
+          - generic [ref=e222]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e223]: Biến động - Rất cao
+      - generic [ref=e224] [cursor=pointer]:
+        - generic [ref=e225]: 🛡️
+        - generic [ref=e226]: 1688 → Nay
+        - generic [ref=e227]: Bảo Hiểm & Quản Lý Rủi Ro
+        - generic [ref=e228]: Kiếm tiền từ xác suất và nỗi sợ
+        - generic [ref=e229]: Thu phí từ nhiều người để bồi thường cho số ít gặp rủi ro — kinh doanh dựa trên thống kê.
+        - generic [ref=e230]: Lợi nhuận = Tổng phí thu - Tổng bồi thường - Chi phí
+        - generic [ref=e231]:
+          - generic [ref=e232]: Bảo hiểm
+          - generic [ref=e233]: Rủi ro
+          - generic [ref=e234]: Xác suất
+        - generic [ref=e235]:
+          - generic [ref=e236]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e237]: Rất cao
+      - generic [ref=e238] [cursor=pointer]:
+        - generic [ref=e239]: 🍟
+        - generic [ref=e240]: 1950s → Nay
+        - generic [ref=e241]: Nhượng Quyền (Franchise)
+        - generic [ref=e242]: Nhân bản mô hình kinh doanh thành công
+        - generic [ref=e243]: Tạo mô hình thành công → bán quyền copy cho người khác → thu phí liên tục.
+        - generic [ref=e244]: Thu nhập = Phí nhượng quyền + % Doanh thu × Số cửa hàng
+        - generic [ref=e245]:
+          - generic [ref=e246]: Nhượng quyền
+          - generic [ref=e247]: Thương hiệu
+          - generic [ref=e248]: Nhân bản
+        - generic [ref=e249]:
+          - generic [ref=e250]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e251]: Rất cao
+      - generic [ref=e252] [cursor=pointer]:
+        - generic [ref=e253]: 📝
+        - generic [ref=e254]: 1710 → Nay
+        - generic [ref=e255]: Sở Hữu Trí Tuệ (IP)
+        - generic [ref=e256]: Tạo một lần, bán mãi mãi
+        - generic [ref=e257]: Sáng tạo nội dung, phát minh, thương hiệu → bán bản quyền → thu tiền vô hạn lần.
+        - generic [ref=e258]: Thu nhập = Số bản × Giá × Thời gian bảo hộ
+        - generic [ref=e259]:
+          - generic [ref=e260]: Bản quyền
+          - generic [ref=e261]: Patent
+          - generic [ref=e262]: Sáng tạo
+        - generic [ref=e263]:
+          - generic [ref=e264]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e265]: Biến động - Cực cao
+      - generic [ref=e266] [cursor=pointer]:
+        - generic [ref=e267]: 🎓
+        - generic [ref=e268]: 1900s → Nay
+        - generic [ref=e269]: Chuyên Gia & Tư Vấn
+        - generic [ref=e270]: Bán kiến thức, kinh nghiệm, giải pháp
+        - generic [ref=e271]: Dùng kiến thức chuyên sâu để giúp người khác giải quyết vấn đề — "bán não" thay vì "bán tay".
+        - generic [ref=e272]: Thu nhập = Giờ tư vấn × Phí/giờ × Độ hiếm kỹ năng
+        - generic [ref=e273]:
+          - generic [ref=e274]: Tư vấn
+          - generic [ref=e275]: Kiến thức
+          - generic [ref=e276]: Chuyên gia
+        - generic [ref=e277]:
+          - generic [ref=e278]: "Scale: ⭐⭐☆☆☆"
+          - generic [ref=e279]: Cao - Rất cao
+      - generic [ref=e280] [cursor=pointer]:
+        - generic [ref=e281]: 🔗
+        - generic [ref=e282]: 1940s → Nay
+        - generic [ref=e283]: Mạng Lưới & Tiếp Thị Đa Cấp
+        - generic [ref=e284]: Xây dựng đội nhóm, thu hoa hồng nhiều tầng
+        - generic [ref=e285]: Bán hàng + tuyển người bán → thu hoa hồng từ doanh số của cả mạng lưới.
+        - generic [ref=e286]: Thu nhập = Hoa hồng cá nhân + Σ(% × Thu nhập downline)
+        - generic [ref=e287]:
+          - generic [ref=e288]: MLM
+          - generic [ref=e289]: Mạng lưới
+          - generic [ref=e290]: Đội nhóm
+        - generic [ref=e291]:
+          - generic [ref=e292]: "Scale: ⭐⭐⭐⭐☆"
+          - generic [ref=e293]: Biến động lớn
+      - generic [ref=e294] [cursor=pointer]:
+        - generic [ref=e295]: 🌐
+        - generic [ref=e296]: 2000s → Nay
+        - generic [ref=e297]: Nền Tảng & Marketplace
+        - generic [ref=e298]: Kết nối người mua - người bán, thu phí giao dịch
+        - generic [ref=e299]: Tạo nơi người mua gặp người bán → thu phí trên mỗi giao dịch. Mô hình mạnh nhất thời đại số.
+        - generic [ref=e300]: Thu nhập = Số giao dịch × Phí/giao dịch
+        - generic [ref=e301]:
+          - generic [ref=e302]: Platform
+          - generic [ref=e303]: Marketplace
+          - generic [ref=e304]: Network effect
+        - generic [ref=e305]:
+          - generic [ref=e306]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e307]: Cực cao
+      - generic [ref=e308] [cursor=pointer]:
+        - generic [ref=e309]: 💎
+        - generic [ref=e310]: 2000s → Nay
+        - generic [ref=e311]: SaaS & Subscription
+        - generic [ref=e312]: Phần mềm dạng dịch vụ, thu phí định kỳ
+        - generic [ref=e313]: Tạo phần mềm/dịch vụ → thu phí hàng tháng. Recurring revenue = giấc mơ của mọi doanh nhân.
+        - generic [ref=e314]: ARR = Số khách × Phí/tháng × 12 - Churn
+        - generic [ref=e315]:
+          - generic [ref=e316]: SaaS
+          - generic [ref=e317]: Subscription
+          - generic [ref=e318]: Recurring
+        - generic [ref=e319]:
+          - generic [ref=e320]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e321]: Cao - Cực cao
+      - generic [ref=e322] [cursor=pointer]:
+        - generic [ref=e323]: 🎬
+        - generic [ref=e324]: 2010s → Nay
+        - generic [ref=e325]: Creator Economy
+        - generic [ref=e326]: Biến attention thành tiền
+        - generic [ref=e327]: Tạo nội dung → thu hút audience → kiếm tiền từ quảng cáo, tài trợ, bán hàng.
+        - generic [ref=e328]: Thu nhập = Audience × Engagement × Monetization Rate
+        - generic [ref=e329]:
+          - generic [ref=e330]: Content
+          - generic [ref=e331]: YouTube
+          - generic [ref=e332]: Influencer
+        - generic [ref=e333]:
+          - generic [ref=e334]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e335]: Biến động - Cực cao
+      - generic [ref=e336] [cursor=pointer]:
+        - generic [ref=e337]: ₿
+        - generic [ref=e338]: 2009 → Nay
+        - generic [ref=e339]: Crypto & Web3
+        - generic [ref=e340]: Kiếm tiền phi tập trung
+        - generic [ref=e341]: "Blockchain tạo ra nhiều cách kiếm tiền mới: mining, staking, DeFi, NFTs, play-to-earn."
+        - generic [ref=e342]: Thu nhập = Mining + Staking + Trading + DeFi yields
+        - generic [ref=e343]:
+          - generic [ref=e344]: Bitcoin
+          - generic [ref=e345]: DeFi
+          - generic [ref=e346]: NFT
+          - generic [ref=e347]: Web3
+        - generic [ref=e348]:
+          - generic [ref=e349]: "Scale: ⭐⭐⭐⭐☆"
+          - generic [ref=e350]: Cực biến động
+      - generic [ref=e351] [cursor=pointer]:
+        - generic [ref=e352]: 🤖
+        - generic [ref=e353]: 2020s → Tương lai
+        - generic [ref=e354]: AI & Tự Động Hóa
+        - generic [ref=e355]: Máy làm việc, người thu tiền
+        - generic [ref=e356]: Dùng AI và automation để tạo giá trị mà không cần lao động con người — biên giới mới nhất.
+        - generic [ref=e357]: Thu nhập = Giá trị tạo bởi AI × Số hệ thống - Chi phí vận hành
+        - generic [ref=e358]:
+          - generic [ref=e359]: AI
+          - generic [ref=e360]: Automation
+          - generic [ref=e361]: ChatGPT
+          - generic [ref=e362]: Agent
+        - generic [ref=e363]:
+          - generic [ref=e364]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e365]: Tiềm năng cực cao
+      - generic [ref=e366] [cursor=pointer]:
+        - generic [ref=e367]: ⏰
+        - generic [ref=e368]: Mọi thời đại
+        - generic [ref=e369]: Thời Gian → Tiền (Linear)
+        - generic [ref=e370]: "Công thức: Thu nhập = Giờ × Rate"
+        - generic [ref=e371]: "Mô hình cơ bản nhất: bán thời gian lấy tiền. 70% dân số dùng mô hình này."
+        - generic [ref=e372]: Income = Hours × Rate/Hour
+        - generic [ref=e373]:
+          - generic [ref=e374]: Lương
+          - generic [ref=e375]: Freelance
+          - generic [ref=e376]: Linear
+        - generic [ref=e377]:
+          - generic [ref=e378]: "Scale: ⭐☆☆☆☆"
+          - generic [ref=e379]: Giới hạn
+      - generic [ref=e380] [cursor=pointer]:
+        - generic [ref=e381]: ⚡
+        - generic [ref=e382]: Mọi thời đại
+        - generic [ref=e383]: Đòn Bẩy (Leverage)
+        - generic [ref=e384]: "Công thức: Output = Input × Leverage Multiplier"
+        - generic [ref=e385]: "Naval Ravikant: 4 loại leverage — Lao động, Vốn, Code, Content. Người giàu dùng leverage."
+        - generic [ref=e386]: Output = Input × Leverage (Labor/Capital/Code/Media)
+        - generic [ref=e387]:
+          - generic [ref=e388]: Leverage
+          - generic [ref=e389]: Naval
+          - generic [ref=e390]: Scale
+        - generic [ref=e391]:
+          - generic [ref=e392]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e393]: Không giới hạn
+      - generic [ref=e394] [cursor=pointer]:
+        - generic [ref=e395]: 💤
+        - generic [ref=e396]: Mọi thời đại
+        - generic [ref=e397]: Thu Nhập Thụ Động (Passive)
+        - generic [ref=e398]: "Công thức: Nỗ lực trước → Thu tiền sau"
+        - generic [ref=e399]: Xây dựng tài sản/hệ thống 1 lần → thu tiền liên tục mà không cần làm việc trực tiếp.
+        - generic [ref=e400]: Passive Income = Asset × Yield Rate
+        - generic [ref=e401]:
+          - generic [ref=e402]: Passive
+          - generic [ref=e403]: Tài sản
+          - generic [ref=e404]: Tự do tài chính
+        - generic [ref=e405]:
+          - generic [ref=e406]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e407]: Biến động
+      - generic [ref=e408] [cursor=pointer]:
+        - generic [ref=e409]: 🎯
+        - generic [ref=e410]: Quy luật vĩnh cửu
+        - generic [ref=e411]: Tạo Giá Trị = Kiếm Tiền
+        - generic [ref=e412]: "Công thức gốc: Income = Value Delivered × Capture Rate"
+        - generic [ref=e413]: "QUY LUẬT SỐ 1: Bạn kiếm được bao nhiêu = bạn tạo ra bao nhiêu giá trị cho người khác."
+        - generic [ref=e414]: Income = Value Created × Capture%
+        - generic [ref=e415]:
+          - generic [ref=e416]: Giá trị
+          - generic [ref=e417]: Nguyên lý gốc
+          - generic [ref=e418]: Universal
+        - generic [ref=e419]:
+          - generic [ref=e420]: "Scale: ⭐⭐⭐⭐⭐"
+          - generic [ref=e421]: Tùy giá trị
+  - generic [ref=e423]:
+    - button "✕" [ref=e424] [cursor=pointer]
+    - generic [ref=e425]:
+      - heading "🏹 Săn Bắt - Hái Lượm" [level=2] [ref=e426]
+      - paragraph [ref=e427]: ~200,000 TCN • Mô hình kiếm sống đầu tiên của loài người
+      - heading "📋 Tổng Quan" [level=3] [ref=e428]
+      - paragraph [ref=e429]: "Đây là mô hình kinh tế đầu tiên: con người trực tiếp lấy tài nguyên từ thiên nhiên. Không có khái niệm \"tiền\" hay \"trao đổi thương mại\" — chỉ có sống sót."
+      - heading "🧠 Giải Thích Sâu Hơn" [level=3] [ref=e430]
+      - paragraph [ref=e432]: Điểm cốt lõi của mô hình này là người lao động và "tài sản tạo thu nhập" là một. Không có kho hàng, máy móc, thương hiệu hay hệ thống làm việc thay bạn. Khi bạn ngừng săn, ngừng hái, dòng thu nhập gần như dừng ngay lập tức. Vì vậy đây là mô hình tốt để hiểu giới hạn của thu nhập không có đòn bẩy.
+      - heading "⚙️ Cách Hoạt Động" [level=3] [ref=e433]
+      - list [ref=e434]:
+        - listitem [ref=e435]: Săn bắt động vật để lấy thịt, da, xương
+        - listitem [ref=e436]: Hái lượm trái cây, rau củ, hạt giống
+        - listitem [ref=e437]: Đánh bắt cá ở sông, biển
+        - listitem [ref=e438]: Chia sẻ trong bộ lạc (kinh tế cộng đồng)
+      - generic [ref=e439]:
+        - generic [ref=e440]: Thu nhập = Sức lực × Kỹ năng × Tài nguyên có sẵn
+        - generic [ref=e441]: Thu nhập phụ thuộc hoàn toàn vào sức khỏe bản thân và tài nguyên thiên nhiên xung quanh.
+      - heading "📖 Ví Dụ Thực Tế" [level=3] [ref=e442]
+      - generic [ref=e443]:
+        - generic [ref=e444]: 🦣 Thợ săn Mammoth
+        - paragraph [ref=e445]: Một nhóm 10-20 người cùng săn 1 con voi ma mút, đủ nuôi bộ lạc 50 người trong 2 tuần.
+      - generic [ref=e446]:
+        - generic [ref=e447]: 🫐 Người hái lượm
+        - paragraph [ref=e448]: Phụ nữ và trẻ em thu hoạch 60-80% lượng thức ăn hàng ngày của bộ lạc từ hái lượm.
+      - generic [ref=e449]:
+        - generic [ref=e450]: 🐟 Làng chài ven biển
+        - paragraph [ref=e451]: Ngư dân đi biển trong ngày, đánh được bao nhiêu thì bán bấy nhiêu. Hôm biển động hoặc hỏng lưới là thu nhập gần như bằng 0, cho thấy mô hình phụ thuộc trực tiếp vào công sức hàng ngày.
+      - heading "🧭 Góc Nhìn Thực Tế" [level=3] [ref=e452]
+      - generic [ref=e453]:
+        - generic [ref=e454]:
+          - heading "✅ Hợp Khi..." [level=5] [ref=e455]
+          - list [ref=e456]:
+            - listitem [ref=e457]: Phù hợp khi mục tiêu chỉ là sinh tồn ngắn hạn, có gì làm nấy trong ngày.
+            - listitem [ref=e458]: Hữu ích như mô hình nền để thấy vì sao con người luôn tìm cách tích lũy, lưu trữ và tạo đòn bẩy.
+        - generic [ref=e459]:
+          - heading "⚠️ Cần Cẩn Thận" [level=5] [ref=e460]
+          - list [ref=e461]:
+            - listitem [ref=e462]: "Không có buffer: ốm đau, thời tiết xấu hoặc cạn tài nguyên là thu nhập sụp rất nhanh."
+            - listitem [ref=e463]: Không tạo tài sản tích lũy, nên rất khó đi từ "đủ sống" sang "giàu có".
+      - heading "⚖️ Ưu & Nhược Điểm" [level=3] [ref=e464]
+      - generic [ref=e465]:
+        - generic [ref=e466]:
+          - heading "✅ Ưu điểm" [level=5] [ref=e467]
+          - list [ref=e468]:
+            - listitem [ref=e469]: Tự do, không phụ thuộc ai
+            - listitem [ref=e470]: Không cần vốn
+            - listitem [ref=e471]: Cuộc sống hòa hợp tự nhiên
+        - generic [ref=e472]:
+          - heading "❌ Nhược điểm" [level=5] [ref=e473]
+          - list [ref=e474]:
+            - listitem [ref=e475]: Phụ thuộc thời tiết, mùa vụ
+            - listitem [ref=e476]: Không tích lũy được
+            - listitem [ref=e477]: Nguy hiểm, tuổi thọ thấp
+            - listitem [ref=e478]: Không mở rộng được
+      - generic [ref=e479]:
+        - generic [ref=e480]: Scalability
+        - generic [ref=e483]: 1/5
+      - heading "🔄 Phiên Bản Hiện Đại" [level=3] [ref=e484]
+      - paragraph [ref=e485]: Nghề tự do (freelancer) — dùng kỹ năng cá nhân kiếm sống, nhưng không có "hệ thống" đằng sau.

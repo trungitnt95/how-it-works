@@ -10,6 +10,8 @@ const allModels = [
     ...earningFormulas
 ];
 
+applyPopupEnhancements(allModels);
+
 // State
 let currentLevel = 'beginner';
 
@@ -141,6 +143,22 @@ function filterNodes(category) {
     });
 }
 
+function applyPopupEnhancements(models) {
+    models.forEach(model => {
+        if (!model.detail) return;
+
+        const extra = popupEnhancements?.[model.id];
+        if (!extra) return;
+
+        if (extra.deepDive) model.detail.deepDive = extra.deepDive;
+        if (extra.examples?.length) {
+            model.detail.examples = [...(model.detail.examples || []), ...extra.examples].slice(0, 10);
+        }
+        if (extra.whoFits?.length) model.detail.whoFits = extra.whoFits;
+        if (extra.watchouts?.length) model.detail.watchouts = extra.watchouts;
+    });
+}
+
 // ==================== DETAIL MODAL ====================
 function openDetail(id) {
     const model = allModels.find(m => m.id === id);
@@ -155,7 +173,17 @@ function openDetail(id) {
 
         <h3>📋 Tổng Quan</h3>
         <p>${d.overview.replace(/\n/g, '<br>')}</p>
+    `;
 
+    if (d.deepDive) {
+        html += `
+        <h3>🧠 Giải Thích Sâu Hơn</h3>
+        <div class="insight-box">
+            <p>${d.deepDive.replace(/\n/g, '<br>')}</p>
+        </div>`;
+    }
+
+    html += `
         <h3>⚙️ Cách Hoạt Động</h3>
         <ol>${d.howItWorks.map(s => `<li>${s}</li>`).join('')}</ol>
 
@@ -166,13 +194,34 @@ function openDetail(id) {
 
     // Examples
     if (d.examples && d.examples.length) {
-        html += '<h3>📖 Ví Dụ Thực Tế</h3>';
+        html += `<h3>📖 Ví Dụ Thực Tế (${d.examples.length})</h3><div class="examples-grid">`;
         d.examples.forEach(ex => {
             html += `<div class="example-box">
                 <div class="example-title">${ex.title}</div>
                 <p>${ex.desc}</p>
             </div>`;
         });
+        html += '</div>';
+    }
+
+    if ((d.whoFits && d.whoFits.length) || (d.watchouts && d.watchouts.length)) {
+        html += '<h3>🧭 Góc Nhìn Thực Tế</h3><div class="detail-grid">';
+
+        if (d.whoFits && d.whoFits.length) {
+            html += `<div class="detail-card fit-card">
+                <h5>✅ Hợp Khi...</h5>
+                <ul>${d.whoFits.map(item => `<li>${item}</li>`).join('')}</ul>
+            </div>`;
+        }
+
+        if (d.watchouts && d.watchouts.length) {
+            html += `<div class="detail-card watchout-card">
+                <h5>⚠️ Cần Cẩn Thận</h5>
+                <ul>${d.watchouts.map(item => `<li>${item}</li>`).join('')}</ul>
+            </div>`;
+        }
+
+        html += '</div>';
     }
 
     // Pros/Cons

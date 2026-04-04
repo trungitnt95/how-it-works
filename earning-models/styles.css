@@ -455,12 +455,32 @@ header {
     color: rgba(255, 255, 255, 0.6);
 }
 
+.insight-box {
+    background: rgba(243, 156, 18, 0.1);
+    border: 1px solid rgba(243, 156, 18, 0.28);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin: 0.8rem 0 1.1rem;
+}
+
+.insight-box p:last-child {
+    margin-bottom: 0;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin: 0.8rem 0 1rem;
+}
+
 .example-box {
     background: rgba(52, 152, 219, 0.1);
     border: 1px solid rgba(52, 152, 219, 0.3);
     border-radius: 10px;
     padding: 1rem;
-    margin: 0.8rem 0;
+    margin: 0;
+    height: 100%;
 }
 
 .example-box .example-title {
@@ -473,6 +493,51 @@ header {
 .example-box p {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.detail-card {
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.detail-card h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.detail-card ul {
+    margin: 0 0 0 1.1rem;
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
+.detail-card li:last-child {
+    margin-bottom: 0;
+}
+
+.fit-card {
+    background: rgba(52, 152, 219, 0.12);
+    border: 1px solid rgba(52, 152, 219, 0.28);
+}
+
+.fit-card h5 {
+    color: #5dade2;
+}
+
+.watchout-card {
+    background: rgba(243, 156, 18, 0.12);
+    border: 1px solid rgba(243, 156, 18, 0.28);
+}
+
+.watchout-card h5 {
+    color: #f5b041;
 }
 
 .pros-cons {
@@ -786,6 +851,10 @@ header {
     .modal-body { padding: 1rem 1.2rem 1.5rem; }
 
     .pros-cons { grid-template-columns: 1fr; }
+
+    .examples-grid { grid-template-columns: 1fr; }
+
+    .detail-grid { grid-template-columns: 1fr; }
 
     .compare-table { font-size: 0.75rem; }
 
