@@ -9,11 +9,13 @@ const grammarMistakesData = {
         simple: `
             <h3>📍 Giới từ nhỏ nhưng sai rất dễ mất điểm</h3>
             <p>Giới từ thể hiện thời gian, vị trí, hướng đi và quan hệ giữa các thành phần trong câu.</p>
+            <div class="formula-box">at + point | on + day/surface | in + month/year/space | to/into/onto + movement</div>
             <div class="example-box">
                 <strong>Ví dụ cơ bản:</strong><br>
                 • <em>at 7 o'clock</em><br>
                 • <em>on Monday</em><br>
-                • <em>in June</em>
+                • <em>in June</em><br>
+                • <em>go to school</em> / <em>walk into the room</em>
             </div>
             <ul>
                 <li><strong>at:</strong> điểm nhỏ, giờ giấc</li>
@@ -34,6 +36,7 @@ const grammarMistakesData = {
                 <li>Nhiều giới từ đi theo collocation: <em>interested in</em>, <em>good at</em>, <em>depend on</em>.</li>
                 <li>Không phải lúc nào tiếng Việt có giới từ thì tiếng Anh cũng giống hệt.</li>
                 <li>Một số động từ không đi với giới từ mà người học hay thêm thừa: <em>discuss</em>, <em>enter</em>, <em>marry</em>.</li>
+                <li>Cụm thời gian cố định rất nên học nguyên khối: <em>at night</em>, <em>in the morning</em>, <em>on time</em>, <em>in time</em>.</li>
             </ul>
         `,
         advanced: `

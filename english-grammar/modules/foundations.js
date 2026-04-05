@@ -111,10 +111,12 @@ const grammarFoundationsData = {
         simple: `
             <h3>📰 A, an, the và "không dùng gì"</h3>
             <p>Mạo từ giúp người nghe biết bạn đang nói về <strong>một thứ bất kỳ</strong>, <strong>một thứ đã xác định</strong>, hay đang nói chung.</p>
+            <div class="formula-box">a/an + countable singular noun | the + specific noun | Ø + plural/uncountable noun (general)</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>I bought a book.</em> = một quyển sách bất kỳ<br>
-                • <em>The book is on the table.</em> = quyển sách đã được xác định
+                • <em>The book is on the table.</em> = quyển sách đã được xác định<br>
+                • <em>Books are useful.</em> = nói chung về sách
             </div>
             <ul>
                 <li><strong>a / an:</strong> danh từ đếm được số ít, chưa xác định</li>
@@ -159,9 +161,11 @@ const grammarFoundationsData = {
         simple: `
             <h3>🫱 Đại từ giúp tránh lặp lại danh từ</h3>
             <p>Thay vì lặp đi lặp lại một danh từ, tiếng Anh dùng đại từ như <strong>I, me, she, it, they, mine, myself</strong>.</p>
+            <div class="formula-box">Subject pronoun + Verb | Verb + object pronoun | possessive determiner + noun | possessive pronoun</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>Anna has a laptop. She uses it every day.</em><br>
+                • <em>This is my pen.</em><br>
                 • <em>This pen is mine.</em>
             </div>
             <ul>
@@ -208,9 +212,11 @@ const grammarFoundationsData = {
         simple: `
             <h3>🎨 Tính từ miêu tả danh từ, trạng từ miêu tả phần còn lại</h3>
             <p>Nếu muốn nói một chiếc xe đẹp, dùng tính từ. Nếu muốn nói lái đẹp/khéo, dùng trạng từ.</p>
+            <div class="formula-box">adjective + noun | be/seem/look + adjective | verb + adverb</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>a careful driver</em><br>
+                • <em>She looks careful.</em><br>
                 • <em>She drives carefully.</em>
             </div>
             <ul>
