@@ -261,6 +261,48 @@ header h1 {
 .verb-bank-header h2 { font-size: 1.3rem; margin-bottom: 0.35rem; color: #dbeafe; }
 .verb-bank-header p { color: rgba(255, 255, 255, 0.72); max-width: 840px; line-height: 1.6; }
 
+.memory-bank { padding: 0 2rem 2rem; }
+.memory-bank-header { margin-bottom: 1rem; }
+.memory-bank-header h2 { font-size: 1.3rem; margin-bottom: 0.35rem; color: #dbeafe; }
+.memory-bank-header p { color: rgba(255, 255, 255, 0.72); max-width: 840px; line-height: 1.6; }
+
+.memory-bank-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1.15rem;
+    backdrop-filter: blur(10px);
+}
+
+.memory-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fcd34d;
+}
+
+.memory-note {
+    color: rgba(157, 220, 255, 0.9);
+    font-size: 0.88rem;
+    margin-bottom: 0.8rem;
+}
+
+.memory-list {
+    padding-left: 1.2rem;
+}
+
+.memory-list li {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+    margin-bottom: 0.45rem;
+    font-size: 0.9rem;
+}
+
 .verb-bank-toolbar {
     display: flex;
     align-items: center;
@@ -338,6 +380,36 @@ header h1 {
     margin-bottom: 1rem;
     padding-bottom: 0.55rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reference-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 1rem;
+}
+
+.reference-label {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.88rem;
+    align-self: center;
+}
+
+.reference-link {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.84);
+    padding: 0.46rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.reference-link:hover {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: #dbeafe;
 }
 
 .nodes-container {
@@ -454,6 +526,68 @@ header h1 {
 .panel-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
 .panel-content th, .panel-content td { padding: 0.55rem; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; }
 .panel-content th { background: rgba(56, 189, 248, 0.16); }
+
+.practice-intro,
+.practice-empty,
+.practice-block {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.practice-intro p,
+.practice-empty p,
+.practice-instruction {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.practice-list,
+.practice-answer-list {
+    padding-left: 1.2rem;
+}
+
+.practice-list li,
+.practice-answer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.practice-answer {
+    margin-top: 0.9rem;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+}
+
+.practice-answer summary {
+    cursor: pointer;
+    color: #9ddcff;
+    font-weight: 700;
+}
+
+.practice-answer[open] summary {
+    margin-bottom: 0.7rem;
+}
+
+.practice-related {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.practice-related strong {
+    color: #fcd34d;
+}
+
+.practice-checkpoint {
+    padding-left: 1.2rem;
+}
+
+.practice-checkpoint li {
+    margin-bottom: 0.45rem;
+}
 
 .example-box {
     background: rgba(56, 189, 248, 0.1);
@@ -608,7 +742,7 @@ header h1 {
     .info-panel { width: 100%; right: -100%; }
     .nodes-container { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     header { padding: 1rem; }
-    .category-filter, .quick-tips, .reference-hub, .concepts-grid, .verb-bank, .tour-progress { padding-left: 1rem; padding-right: 1rem; }
+    .category-filter, .quick-tips, .reference-hub, .concepts-grid, .memory-bank, .verb-bank, .tour-progress { padding-left: 1rem; padding-right: 1rem; }
     .tour-panel { margin: 1rem; }
     .verb-bank-toolbar input { min-width: 100%; }
 }

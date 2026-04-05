@@ -94,10 +94,12 @@ const grammarPatternsData = {
         simple: `
             <h3>🔗 Liên từ giúp nối ý logic</h3>
             <p>Liên từ cho biết quan hệ giữa hai ý: thêm ý, đối lập, nguyên nhân, kết quả, điều kiện...</p>
+            <div class="formula-box">Clause, coordinating conjunction + clause | subordinating conjunction + clause, clause</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>I was tired, but I finished the report.</em><br>
-                • <em>She stayed home because it was raining.</em>
+                • <em>She stayed home because it was raining.</em><br>
+                • <em>Although he was late, he still joined the meeting.</em>
             </div>
             <ul>
                 <li><strong>and:</strong> thêm ý</li>

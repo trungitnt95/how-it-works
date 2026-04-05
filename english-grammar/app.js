@@ -16,7 +16,8 @@
         ...grammarPronunciationData,
         ...grammarPatternsData,
         ...grammarStructuresData,
-        ...grammarMistakesData
+        ...grammarMistakesData,
+        ...grammarSupplementsData
     };
 
     const elements = {
@@ -50,6 +51,8 @@
         irregularVerbSearch: document.getElementById('irregularVerbSearch'),
         irregularVerbCount: document.getElementById('irregularVerbCount'),
         irregularVerbsTableBody: document.getElementById('irregularVerbsTableBody'),
+        memoryBankGrid: document.getElementById('memoryBankGrid'),
+        referenceLinks: document.querySelectorAll('.reference-link'),
         filterBtns: document.querySelectorAll('.filter-btn'),
         nodes: document.querySelectorAll('.node'),
         tabBtns: document.querySelectorAll('.tab-btn')
@@ -151,11 +154,25 @@
             node.addEventListener('click', () => {
                 if (node.classList.contains('locked')) return;
 
-                showComponentInfo(node.dataset.component);
-                elements.nodes.forEach(item => item.classList.remove('active'));
-                node.classList.add('active');
+                activateComponent(node.dataset.component);
             });
         });
+    }
+
+    function activateComponent(id, options = {}) {
+        const component = allComponents[id];
+        if (!component) return;
+
+        showComponentInfo(id);
+        elements.nodes.forEach(item => item.classList.remove('active'));
+
+        const targetNode = document.querySelector(`.node[data-component="${id}"]`);
+        if (targetNode) {
+            targetNode.classList.add('active');
+            if (options.scrollIntoView) {
+                targetNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
     }
 
     function showComponentInfo(id) {
@@ -176,6 +193,11 @@
         if (!component) return;
 
         elements.tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
+        if (tab === 'practice') {
+            elements.panelContent.innerHTML = renderPracticeContent(state.selectedComponent, component);
+            return;
+        }
+
         elements.panelContent.innerHTML = component[tab] || component.simple || '';
     }
 
@@ -191,7 +213,7 @@
         }).join('');
 
         elements.relatedConcepts.querySelectorAll('.related-btn').forEach(button => {
-            button.addEventListener('click', () => showComponentInfo(button.dataset.component));
+            button.addEventListener('click', () => activateComponent(button.dataset.component, { scrollIntoView: true }));
         });
     }
 
@@ -340,6 +362,82 @@
         render();
     }
 
+    function renderPracticeContent(id, component) {
+        const practice = grammarPracticeData && grammarPracticeData[id];
+
+        if (!practice) {
+            const relatedTitles = (component.connections || [])
+                .map(connectionId => allComponents[connectionId] && allComponents[connectionId].title)
+                .filter(Boolean)
+                .slice(0, 4);
+
+            return `
+                <div class="practice-empty">
+                    <h3>🧪 Chưa có bài tập riêng</h3>
+                    <p>Mục này chưa có block luyện tập tách riêng. Bạn có thể ôn qua các mục liên quan trước rồi quay lại.</p>
+                    ${relatedTitles.length ? `
+                        <div class="practice-related">
+                            <strong>Gợi ý ôn tiếp:</strong>
+                            <p>${relatedTitles.join(' • ')}</p>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        return `
+            <div class="practice-intro">
+                <h3>🧪 Bài tập nhanh</h3>
+                <p>${practice.source || 'Bài luyện ngắn để khóa lại điểm ngữ pháp vừa học.'}</p>
+            </div>
+            ${practice.sections.map(section => `
+                <section class="practice-block">
+                    <h4>${section.title}</h4>
+                    ${section.instruction ? `<p class="practice-instruction">${section.instruction}</p>` : ''}
+                    <ol class="practice-list">
+                        ${section.questions.map(question => `<li>${question}</li>`).join('')}
+                    </ol>
+                    <details class="practice-answer">
+                        <summary>Xem đáp án</summary>
+                        <ol class="practice-answer-list">
+                            ${section.answers.map(answer => `<li>${answer}</li>`).join('')}
+                        </ol>
+                    </details>
+                </section>
+            `).join('')}
+            ${Array.isArray(practice.checkpoint) && practice.checkpoint.length ? `
+                <section class="practice-block checkpoint-block">
+                    <h4>✅ Checkpoint</h4>
+                    <ul class="practice-checkpoint">
+                        ${practice.checkpoint.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </section>
+            ` : ''}
+        `;
+    }
+
+    function renderMemoryBank() {
+        if (!elements.memoryBankGrid || !Array.isArray(grammarMemoryBank)) return;
+
+        elements.memoryBankGrid.innerHTML = grammarMemoryBank.map(group => `
+            <article class="memory-card">
+                <h3>${group.title}</h3>
+                <p class="memory-note">${group.note}</p>
+                <ul class="memory-list">
+                    ${group.items.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </article>
+        `).join('');
+    }
+
+    function initReferenceShortcuts() {
+        elements.referenceLinks.forEach(button => {
+            button.addEventListener('click', () => {
+                activateComponent(button.dataset.component, { scrollIntoView: true });
+            });
+        });
+    }
+
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
 
@@ -359,6 +457,8 @@
         initPanelControls();
         initTourSystem();
         initChecklistModal();
+        initReferenceShortcuts();
+        renderMemoryBank();
         initIrregularVerbBank();
         if (state.currentLevel) filterNodesByLevel();
     }
