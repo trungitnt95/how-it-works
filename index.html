@@ -436,6 +436,11 @@
             --card-color-2: #f39c12;
         }
 
+        .topic-card.language {
+            --card-color-1: #38bdf8;
+            --card-color-2: #f59e0b;
+        }
+
         /* Search Box */
         .search-container {
             max-width: 600px;
@@ -536,7 +541,7 @@
     <div class="search-container">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Tìm kiếm chủ đề... (tiền, quyền lực, trading, tâm lý...)">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm chủ đề... (tiền, quyền lực, grammar, tâm lý...)">
             <button class="clear-search" id="clearSearch">✕</button>
         </div>
     </div>
@@ -544,7 +549,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">22 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">23 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -1063,6 +1068,30 @@
                 <div class="card-footer">
                     <div class="card-stats">
                         <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- English Grammar - Available -->
+            <div class="topic-card language" onclick="location.href='english-grammar/'" data-tags="grammar english ngữ pháp tiếng anh tense modal clause article preposition ipa pronunciation ielts toeic">
+                <div class="card-icon">📘</div>
+                <h3 class="card-title">Ngữ Pháp Tiếng Anh Hoạt Động Như Thế Nào</h3>
+                <p class="card-subtitle">Hiểu câu tiếng Anh từ nền tảng đến cấu trúc nâng cao</p>
+                <p class="card-description">
+                    Hệ thống lại ngữ pháp tiếng Anh theo cách dễ nhìn: trật tự câu, từ loại, mạo từ, các thì,
+                    câu hỏi, câu phủ định, mệnh đề quan hệ, reported speech, conditionals, bị động, bản phiên âm IPA và các lỗi phổ biến khiến bạn mất điểm.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Tenses</span>
+                    <span class="tag">Articles</span>
+                    <span class="tag">Conditionals</span>
+                    <span class="tag">IPA</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 48 chủ điểm</span>
+                        <span class="stat">📖 6 nhóm nội dung</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>
