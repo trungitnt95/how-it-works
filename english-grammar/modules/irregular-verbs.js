@@ -1,5 +1,5 @@
 // Common irregular verbs for quick reference
-const irregularVerbs = [
+window.irregularVerbs = [
     { base: 'arise', past: 'arose', participle: 'arisen', meaning: 'phát sinh, nảy sinh' },
     { base: 'awake', past: 'awoke', participle: 'awoken', meaning: 'thức dậy' },
     { base: 'be', past: 'was/were', participle: 'been', meaning: 'thì, là, ở' },
