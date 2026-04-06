@@ -5,8 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngữ Pháp Tiếng Anh - How It Works</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-mlh.css">
+    <style>
+        #version-bar {
+            position: sticky;
+            top: 0;
+            z-index: 500;
+            background: rgba(13,17,23,0.97);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 1.5rem;
+            height: 44px;
+            border-bottom: 1px solid rgba(48,54,61,0.8);
+            box-sizing: border-box;
+        }
+        .ver-label { font-size: 0.8rem; color: #8b949e; }
+        .ver-btn {
+            background: transparent;
+            border: 1px solid rgba(48,54,61,0.8);
+            color: #8b949e;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        .ver-btn:hover { border-color: #58a6ff; color: #cdd9e5; }
+        .ver-btn.active { background: rgba(88,166,255,0.15); border-color: #58a6ff; color: #58a6ff; }
+        /* Offset sticky elements below the 44px version bar */
+        .v-ai header { position: sticky; top: 44px; }
+        .v-mlh .site-header { top: 44px; }
+        .v-mlh #atlas { top: 104px; }
+    </style>
 </head>
 <body>
+    <div id="version-bar">
+        <span class="ver-label">Phiên bản:</span>
+        <button class="ver-btn active" data-ver="ai">🤖 AI Version</button>
+        <button class="ver-btn" data-ver="mlh">📚 Mai Lan Hương</button>
+    </div>
+
+    <div class="v-ai" id="ver-ai">
     <div class="level-overlay" id="levelOverlay">
         <div class="level-container">
             <h1>📘 Ngữ Pháp Tiếng Anh</h1>
@@ -666,6 +707,12 @@
         </div>
     </div>
 
+    </div><!-- /.v-ai -->
+
+    <div class="v-mlh" id="ver-mlh" style="display:none">
+        <!-- MLH content loaded dynamically by app-mlh.js -->
+    </div><!-- /.v-mlh -->
+
     <script src="modules/foundations.js"></script>
     <script src="modules/tenses.js"></script>
     <script src="modules/pronunciation.js"></script>
@@ -676,5 +723,6 @@
     <script src="modules/irregular-verbs.js"></script>
     <script src="modules/tour.js"></script>
     <script src="app.js"></script>
+    <script src="app-mlh.js"></script>
 </body>
 </html>
