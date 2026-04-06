@@ -426,6 +426,11 @@
             --card-color-2: #f39c12;
         }
 
+        .topic-card.english {
+            --card-color-1: #bf5f36;
+            --card-color-2: #1f5660;
+        }
+
         .topic-card.philosophy {
             --card-color-1: #7c4dff;
             --card-color-2: #ff6e40;
@@ -536,7 +541,7 @@
     <div class="search-container">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Tìm kiếm chủ đề... (tiền, quyền lực, trading, tâm lý...)">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm chủ đề... (tiền, grammar, trading, tâm lý...)">
             <button class="clear-search" id="clearSearch">✕</button>
         </div>
     </div>
@@ -544,7 +549,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">22 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">23 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -596,6 +601,31 @@
                     <div class="card-stats">
                         <span class="stat">📊 20 thành phần</span>
                         <span class="stat">📖 32 kịch bản</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- English Grammar - Available -->
+            <div class="topic-card english" onclick="location.href='english-grammar/'" data-tags="tiếng anh english grammar ngữ pháp toeic mai lan hương ipa irregular verbs word form mạo từ giới từ conditionals">
+                <div class="card-icon">📘</div>
+                <h3 class="card-title">Atlas Ngữ Pháp Tiếng Anh</h3>
+                <p class="card-subtitle">Web hóa sách ngữ pháp theo module, có atlas và appendix</p>
+                <p class="card-description">
+                    Chuyển sách scan “Ngữ Pháp Tiếng Anh” thành bản web dễ điều hướng:
+                    atlas tổng quan ở đầu, từng mục có lý thuyết, ví dụ, lỗi thường gặp, 10 bài tập,
+                    và appendix cuối sách cho IPA, động từ bất quy tắc, tín hiệu thì, word-form.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Grammar</span>
+                    <span class="tag">Atlas</span>
+                    <span class="tag">110 bài tập</span>
+                    <span class="tag">Appendix</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 11 module</span>
+                        <span class="stat">📖 IPA + irregular verbs</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>

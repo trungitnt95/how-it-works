@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Ngữ Pháp Tiếng Anh</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-topbar">
+                <a href="../" class="back-link">← Trang chủ</a>
+                <div class="hero-badge">Mai Lan Hương • Bản web hoá theo module</div>
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">English Grammar Atlas</p>
+                    <h1>Atlas Ngữ Pháp Tiếng Anh</h1>
+                    <p class="hero-summary">
+                        Chuyển sách scan thành bản web có atlas điều hướng, lý thuyết gói theo module,
+                        ví dụ, lỗi thường gặp, 10 bài tập mỗi mục và appendix để học thuộc nhanh.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="hero-btn primary" href="#atlas">Mở atlas</a>
+                        <a class="hero-btn" href="#appendix">Đi tới appendix</a>
+                    </div>
+                </div>
+
+                <aside class="hero-note">
+                    <h2>Nguồn</h2>
+                    <p id="sourceNote"></p>
+                    <dl class="hero-stats">
+                        <div>
+                            <dt>Module</dt>
+                            <dd id="moduleCount">0</dd>
+                        </div>
+                        <div>
+                            <dt>Bài tập</dt>
+                            <dd id="exerciseCount">0</dd>
+                        </div>
+                        <div>
+                            <dt>Appendix</dt>
+                            <dd id="appendixCount">0</dd>
+                        </div>
+                    </dl>
+                </aside>
+            </div>
+        </header>
+
+        <main class="content-shell">
+            <section class="toolbar">
+                <label class="search-box" for="searchInput">
+                    <span>Tìm nhanh</span>
+                    <input id="searchInput" type="search" placeholder="thì, conditionals, mạo từ, word form, IPA...">
+                </label>
+                <div class="toolbar-actions">
+                    <button id="expandAnswersBtn" class="tool-btn">Mở toàn bộ đáp án</button>
+                    <button id="collapseAnswersBtn" class="tool-btn muted">Thu gọn đáp án</button>
+                </div>
+            </section>
+
+            <section class="atlas-panel" id="atlas">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-kicker">Atlas tổng quan</p>
+                        <h2>Điều hướng theo cụm kiến thức</h2>
+                    </div>
+                    <p class="panel-summary">
+                        Số trang dưới đây theo số in trong sách, không theo số trang PDF scan.
+                    </p>
+                </div>
+                <div class="atlas-grid" id="atlasGrid"></div>
+            </section>
+
+            <section class="section-stack" id="sectionsRoot"></section>
+
+            <section class="appendix-panel" id="appendix">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-kicker">Appendix</p>
+                        <h2>Phần cần học thuộc và tra cứu nhanh</h2>
+                    </div>
+                    <p class="panel-summary">
+                        Gồm IPA, động từ bất quy tắc, bảng tín hiệu thì và mẹo word-form để ôn cấp tốc.
+                    </p>
+                </div>
+                <div class="appendix-grid" id="appendixGrid"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
