@@ -640,6 +640,43 @@ main {
 
 .mem-tag-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
+.prep-memory-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.mem-pair-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.mem-pair-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 0.8rem;
+    align-items: start;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.mem-pair-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.mem-pair-item strong {
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+}
+
+.mem-pair-item span {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
 .mem-tag {
     background: rgba(255,255,255,0.06);
     border: 1px solid var(--border);
@@ -655,6 +692,13 @@ main {
 .mem-tag.blue  { background: rgba(88,166,255,0.1); border-color: rgba(88,166,255,0.3); color: var(--accent-blue); }
 .mem-tag.red   { background: rgba(248,81,73,0.1); border-color: rgba(248,81,73,0.3); color: var(--accent-red); }
 .mem-tag.cyan  { background: rgba(57,211,83,0.1); border-color: rgba(57,211,83,0.3); color: var(--accent-cyan); }
+
+@media(max-width:700px){
+    .mem-pair-item {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}
 
 /* ========================================
    TENSE OVERVIEW CHART
