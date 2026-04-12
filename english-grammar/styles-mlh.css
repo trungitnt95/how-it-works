@@ -130,6 +130,19 @@
     border-color: var(--accent-purple);
 }
 
+.v-mlh .atlas-btn.minor{
+    font-size: 0.76rem;
+    padding: 0.28rem 0.72rem;
+}
+
+.v-mlh .atlas-divider{
+    width: 1px;
+    height: 22px;
+    background: var(--border);
+    flex: 0 0 auto;
+    margin: 0 0.1rem;
+}
+
 /* ========================================
    MAIN LAYOUT
    ======================================== */
@@ -144,6 +157,11 @@
    ======================================== */
 .v-mlh .grammar-section{
     margin-bottom: 3.5rem;
+    scroll-margin-top: 136px;
+}
+
+.v-mlh .accordion-item[id]{
+    scroll-margin-top: 136px;
 }
 
 .v-mlh .section-header{
@@ -744,4 +762,27 @@
     border: none;
     border-top: 1px solid var(--border);
     margin: 1.5rem 0;
+}
+
+@media(max-width:768px){
+    .v-mlh #atlas{
+        position: static;
+        top: auto;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0.65rem 1rem;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+    }
+
+    .v-mlh .atlas-label,
+    .v-mlh .atlas-btn,
+    .v-mlh .atlas-divider{
+        flex: 0 0 auto;
+    }
+
+    .v-mlh .grammar-section,
+    .v-mlh .accordion-item[id]{
+        scroll-margin-top: 92px;
+    }
 }

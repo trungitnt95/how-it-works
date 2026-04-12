@@ -37,6 +37,7 @@
         tourNext: document.getElementById('tourNext'),
         tourSkip: document.getElementById('tourSkip'),
         infoPanel: document.getElementById('infoPanel'),
+        panelBackdrop: document.getElementById('panelBackdrop'),
         closePanel: document.getElementById('closePanel'),
         panelIcon: document.getElementById('panelIcon'),
         panelTitle: document.getElementById('panelTitle'),
@@ -184,7 +185,21 @@
         elements.panelTitle.textContent = component.title;
         showTabContent('simple');
         renderRelated(component.connections || []);
+        openInfoPanel();
+    }
+
+    function openInfoPanel() {
         elements.infoPanel.classList.add('open');
+        if (elements.panelBackdrop) {
+            elements.panelBackdrop.classList.add('open');
+        }
+    }
+
+    function closeInfoPanel() {
+        elements.infoPanel.classList.remove('open');
+        if (elements.panelBackdrop) {
+            elements.panelBackdrop.classList.remove('open');
+        }
     }
 
     function showTabContent(tab) {
@@ -218,9 +233,10 @@
     }
 
     function initPanelControls() {
-        elements.closePanel.addEventListener('click', () => {
-            elements.infoPanel.classList.remove('open');
-        });
+        elements.closePanel.addEventListener('click', closeInfoPanel);
+        if (elements.panelBackdrop) {
+            elements.panelBackdrop.addEventListener('click', closeInfoPanel);
+        }
 
         elements.tabBtns.forEach(btn => {
             btn.addEventListener('click', () => showTabContent(btn.dataset.tab));
@@ -444,7 +460,7 @@
         if (elements.checklistModal.style.display === 'flex') {
             elements.checklistModal.style.display = 'none';
         } else if (elements.infoPanel.classList.contains('open')) {
-            elements.infoPanel.classList.remove('open');
+            closeInfoPanel();
         } else if (state.isTourActive) {
             endTour();
         }

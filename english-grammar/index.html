@@ -38,6 +38,12 @@
         .v-ai header { position: sticky; top: 44px; }
         .v-mlh .site-header { top: 44px; }
         .v-mlh #atlas { top: 104px; }
+        @media (max-width: 768px) {
+            .v-mlh #atlas {
+                position: static;
+                top: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -677,8 +683,10 @@
         </section>
     </main>
 
+    <button class="panel-backdrop" id="panelBackdrop" aria-label="Đóng popup chi tiết"></button>
+
     <div class="info-panel" id="infoPanel">
-        <button class="close-panel" id="closePanel">×</button>
+        <button class="close-panel" id="closePanel" aria-label="Đóng popup chi tiết">← Đóng</button>
         <div class="panel-header">
             <span class="panel-icon" id="panelIcon">📘</span>
             <h2 id="panelTitle">Tiêu đề</h2>

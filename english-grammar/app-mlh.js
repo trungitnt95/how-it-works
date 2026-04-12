@@ -20,10 +20,19 @@ function initAccordions() {
 // ==========================================
 //  ATLAS ACTIVE HIGHLIGHT
 // ==========================================
+function expandAccordionTarget(target) {
+    if (target && target.classList.contains('accordion-item')) {
+        target.classList.add('open');
+    }
+}
+
 function initAtlasScroll() {
-    const sections = document.querySelectorAll('.grammar-section');
-    const buttons  = document.querySelectorAll('.atlas-btn[data-target]');
-    if (!sections.length) return;
+    const buttons = Array.from(document.querySelectorAll('.atlas-btn[data-target]'));
+    const targets = buttons
+        .map(button => document.getElementById(button.dataset.target))
+        .filter(Boolean);
+
+    if (!targets.length) return;
 
     const io = new IntersectionObserver(entries => {
         entries.forEach(e => {
@@ -34,9 +43,21 @@ function initAtlasScroll() {
                 });
             }
         });
-    }, { threshold: 0.25, rootMargin: '-80px 0px -60% 0px' });
+    }, { threshold: 0.3, rootMargin: '-110px 0px -55% 0px' });
 
-    sections.forEach(s => io.observe(s));
+    targets.forEach(target => io.observe(target));
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            expandAccordionTarget(document.getElementById(button.dataset.target));
+        });
+    });
+}
+
+function openHashTarget() {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+
+    expandAccordionTarget(document.getElementById(hash));
 }
 
 // ==========================================
@@ -231,6 +252,7 @@ function initVersionSwitcher() {
             initAtlasScroll();
             initScrollTop();
             initIrregularVerbs();
+            openHashTarget();
         } catch (e) {
             console.error('Failed to load MLH version:', e);
             vMlh.innerHTML = '<p style="padding:3rem;color:#f85149">Không thể tải nội dung. Vui lòng dùng HTTP server.</p>';
@@ -249,4 +271,5 @@ function initVersionSwitcher() {
 // ==========================================
 //  INIT
 // ==========================================
+window.addEventListener('hashchange', openHashTarget);
 document.addEventListener('DOMContentLoaded', initVersionSwitcher);
