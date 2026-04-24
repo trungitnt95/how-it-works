@@ -1332,5 +1332,216 @@ const grammarMemoryBank = [
             'in time / on time, at the weekend / on the weekend',
             'for two hours, since 2022, by Friday, until tomorrow'
         ]
+    },
+    {
+        title: 'Stative Verbs Cần Nhận Diện Nhanh',
+        note: 'Nhiều động từ có nghĩa trạng thái nên thường không dùng continuous.',
+        items: [
+            'know, understand, believe, remember, forget, realize, mean',
+            'love, hate, like, prefer, want, need, wish',
+            'own, belong, contain, consist, exist, seem, appear',
+            'Các verb đổi nghĩa: think, have, see, taste, smell, feel, be'
+        ]
+    },
+    {
+        title: 'Verb + Preposition Fixed Patterns',
+        note: 'Đây là vùng phải học như cụm hoàn chỉnh.',
+        items: [
+            'apologize to sb for sth, blame sb for sth, accuse sb of sth',
+            'congratulate sb on sth, provide sb with sth, prevent sb from V-ing',
+            'depend on, rely on, insist on, object to, succeed in, participate in',
+            'arrive at a place nhỏ, arrive in a city/country'
+        ]
+    },
+    {
+        title: 'Adjective + Preposition Fixed Patterns',
+        note: 'Không có quy tắc đủ chắc để suy từ nghĩa tiếng Việt.',
+        items: [
+            'good/bad/clever/skilful at; interested/successful/rich in',
+            'afraid/aware/proud/capable/fond/jealous of',
+            'responsible/famous/suitable/ready/sorry for',
+            'similar/accustomed/addicted/contrary/grateful to',
+            'pleased/satisfied/familiar/bored/angry with; worried/excited about'
+        ]
+    },
+    {
+        title: 'Noun + Preposition Fixed Patterns',
+        note: 'Rất hay xuất hiện trong writing và academic English.',
+        items: [
+            'reason for, solution to, answer to, key to, access to',
+            'increase/decrease/rise/fall in, effect/impact/influence on',
+            'advantage/disadvantage of, demand/need for, relationship with/between',
+            'evidence of/for, exception to, attitude to/towards'
+        ]
+    },
+    {
+        title: 'Phrasal Verbs Cốt Lõi',
+        note: 'Cần học theo nghĩa và khả năng tách object.',
+        items: [
+            'look after, look for, look up, look forward to, give up',
+            'put on, put off, take off, turn on/off, turn up/down',
+            'bring up, find out, work out, carry on, get along with',
+            'Separable: turn it off, put it on; inseparable: look after it, look forward to it'
+        ]
+    },
+    {
+        title: 'Make / Do / Take / Have Collocations',
+        note: 'Collocation sai làm câu nghe không tự nhiên dù đúng ngữ pháp bề mặt.',
+        items: [
+            'make a decision, make a mistake, make progress, make an effort',
+            'do homework, do business, do research, do your best',
+            'take a risk, take responsibility, take notes, take a break',
+            'have breakfast, have a rest, have trouble, have an effect on'
+        ]
+    },
+    {
+        title: 'Give / Pay / Keep / Catch Collocations',
+        note: 'Các verb phổ thông này tạo rất nhiều cụm cố định.',
+        items: [
+            'give advice, give a speech, give permission, give someone a hand',
+            'pay attention, pay a fine, pay respect, pay by card',
+            'keep calm, keep a promise, keep in touch, keep track of',
+            'catch a bus, catch a cold, catch fire, catch someone’s attention'
+        ]
+    },
+    {
+        title: 'Verb Patterns: Bare Infinitive / V-ing / V3',
+        note: 'Sau một số verb, dạng sau object phải nhớ riêng.',
+        items: [
+            'make/let/help + O + bare V: make him wait, let me go, help me do/to do',
+            'see/hear/watch/feel + O + bare V = thấy toàn bộ hành động',
+            'see/hear/watch/feel + O + V-ing = thấy hành động đang diễn ra',
+            'have/get + O + V3: have my hair cut, get the car repaired'
+        ]
+    },
+    {
+        title: 'Reporting Verb Patterns',
+        note: 'Không thể dùng mọi reporting verb theo cùng một cấu trúc.',
+        items: [
+            'say sth to sb; tell sb sth; explain sth to sb',
+            'ask/tell/advise/allow/encourage/remind/warn sb to V',
+            'suggest/recommend/admit/deny/avoid + V-ing hoặc that-clause',
+            'apologize for V-ing; insist on V-ing; accuse sb of V-ing'
+        ]
+    },
+    {
+        title: 'Cặp Verb Dễ Nhầm',
+        note: 'Phải học theo vai trò trong câu, không chỉ học nghĩa.',
+        items: [
+            'say + words / tell + person; speak to / talk to',
+            'borrow from / lend to; bring here / take there',
+            'rise = tự tăng, raise = làm tăng; lie-lay-lain vs lay-laid-laid',
+            'sit-sat-sat vs set-set-set; fall-fell-fallen vs feel-felt-felt'
+        ]
+    },
+    {
+        title: 'Confusing Pairs Cần Thuộc',
+        note: 'Các cặp này thường đúng chính tả nhưng sai nghĩa/chức năng.',
+        items: [
+            'its / it’s, your / you’re, whose / who’s, there / their / they’re',
+            'affect (v) / effect (n), advice (n) / advise (v), practice (n) / practise (v BrE)',
+            'fewer + countable / less + uncountable, between / among',
+            'beside = bên cạnh, besides = ngoài ra; then = sau đó, than = so sánh'
+        ]
+    },
+    {
+        title: 'Fixed Article / Zero Article Expressions',
+        note: 'Nhiều cụm article không nên dịch từng chữ.',
+        items: [
+            'go to school, go to bed, be in hospital/prison/church, at home',
+            'by car/bus/train, on foot, by mistake, by chance, in fact',
+            'have breakfast/lunch/dinner, play football, play the piano',
+            'the same, the only, the first/last, the rich/the poor'
+        ]
+    },
+    {
+        title: 'Agreement Traps',
+        note: 'Chủ ngữ thật thường bị che bởi cụm giới từ hoặc cụm chen giữa.',
+        items: [
+            'The number of students is; a number of students are',
+            'Each/every/either/neither + singular verb',
+            'Neither A nor B / either A or B: verb thường hòa theo noun gần nhất',
+            'Ten years is a long time; five dollars is enough; the police are'
+        ]
+    },
+    {
+        title: 'Subjunctive & Fixed Formal Formulas',
+        note: 'Các công thức này ít suy luận được nếu chưa từng gặp.',
+        items: [
+            'It is essential/important/vital that S + bare V',
+            'suggest/recommend/insist/demand that S + bare V',
+            'If I were you; as if/as though S + past/past perfect',
+            'It is time S + past; lest S should V / lest S V'
+        ]
+    },
+    {
+        title: 'Linkers Có Pattern Riêng',
+        note: 'Sai pattern sau linker là lỗi rất phổ biến trong writing.',
+        items: [
+            'although/even though + clause; despite/in spite of + noun/V-ing',
+            'because + clause; because of/due to/owing to + noun/V-ing',
+            'so that + clause; in order to/so as to + V',
+            'therefore/however/moreover thường nối câu, không nối như conjunction thường'
+        ]
+    },
+    {
+        title: 'Preposition: Place & Movement',
+        note: 'Một phần có quy tắc, nhưng nhiều cụm địa điểm vẫn phải nhớ.',
+        items: [
+            'at the door/station/airport, in the room/city/country, on the wall/floor/page',
+            'go to, get into/out of, jump onto/off, walk across/through/along',
+            'at work, at school, in class, on the bus/train/plane',
+            'in the picture/photo, on the screen, at the top/bottom'
+        ]
+    },
+    {
+        title: 'Pronunciation: -s / -ed Endings',
+        note: 'Đây là bảng học thuộc cho speaking và listening.',
+        items: [
+            '-s đọc /s/ sau âm vô thanh: cups, books, laughs',
+            '-s đọc /z/ sau âm hữu thanh/nguyên âm: bags, plays, dreams',
+            '-s đọc /ɪz/ sau sibilants: buses, watches, judges',
+            '-ed đọc /t/ sau âm vô thanh, /d/ sau âm hữu thanh, /ɪd/ sau /t/ hoặc /d/'
+        ]
+    },
+    {
+        title: 'Weak Forms Cần Nghe Quen',
+        note: 'Không thuộc weak forms thì nghe câu thật rất dễ hụt từ chức năng.',
+        items: [
+            'a /ə/, the /ðə/ hoặc /ði/, to /tə/, of /əv/',
+            'and /ən/ hoặc /n/, for /fə/, from /frəm/, can /kən/',
+            'have /həv/ khi là auxiliary, has /həz/, had /həd/',
+            'should have → should’ve /ʃʊdəv/, could have → could’ve /kʊdəv/'
+        ]
+    },
+    {
+        title: 'Stress Suffixes Cần Nhớ',
+        note: 'Trọng âm từ có nhóm quy tắc nhưng vẫn cần học theo hậu tố.',
+        items: [
+            '-tion/-sion/-ic/-ity: stress thường rơi ngay trước suffix',
+            '-ee/-eer/-ese/-oo/-oon: stress thường rơi vào suffix',
+            '-ous/-ful/-less/-ness/-ment/-ly: thường không đổi stress gốc',
+            'Cặp N/V: PREsent vs preSENT, REcord vs reCORD, CONduct vs conDUCT'
+        ]
+    },
+    {
+        title: 'Irregular Adverbs & Meaning Shifts',
+        note: 'Thêm -ly máy móc có thể đổi nghĩa hoặc tạo từ sai.',
+        items: [
+            'good → well; fast → fast; hard → hard; late → late',
+            'hardly = gần như không, lately = gần đây, highly = rất/đánh giá cao',
+            'near = gần, nearly = gần như; most = nhiều nhất, mostly = chủ yếu',
+            'friendly/lively/lovely/costly là adjectives, không phải adverbs thường'
+        ]
+    },
+    {
+        title: 'Word Family Dễ Sai Từ Loại',
+        note: 'Nên học theo họ từ để tránh điền đúng nghĩa nhưng sai grammar.',
+        items: [
+            'success / succeed / successful / successfully',
+            'decision / decide / decisive / decisively',
+            'effect / affect / effective / effectively',
+            'comfort / comfortable / comfortably; economy / economic / economical / economically'
+        ]
     }
 ];

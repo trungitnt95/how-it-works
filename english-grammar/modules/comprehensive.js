@@ -229,6 +229,199 @@ const grammarComprehensiveData = {
             <li>Prosody không tuyệt đối 100%, nhưng nếu một từ cứ lặp đi lặp lại trong ngữ cảnh xấu/tốt thì người bản ngữ sẽ cảm nhận được màu đó.</li></ul>`
     },
 
+    'auxiliary-system': {
+        icon: '🛠️', title: 'Auxiliary System (Be / Do / Have)', category: 'foundations', level: 'beginner',
+        connections: ['question-forms', 'negatives', 'present-perfect', 'passive-voice'],
+        simple: `<h3>🛠️ Trợ động từ là khung kỹ thuật của câu</h3>
+            <p><strong>Be, do, have</strong> giúp tiếng Anh tạo câu hỏi, phủ định, thì hoàn thành, tiếp diễn, bị động và nhấn mạnh.</p>
+            <div class="formula-box">
+                Be + V-ing / V3<br>
+                Have + V3<br>
+                Do + bare verb
+            </div>`,
+        detail: `<h3>📚 Vai trò chính</h3>
+            <table><tr><th>Auxiliary</th><th>Chức năng</th><th>Ví dụ</th></tr>
+            <tr><td>be</td><td>continuous / passive</td><td>She is working. / It was built.</td></tr>
+            <tr><td>have</td><td>perfect</td><td>They have left.</td></tr>
+            <tr><td>do</td><td>question / negative / emphasis</td><td>Do you agree? / I don't know. / I do agree.</td></tr>
+            <tr><td>modal</td><td>modality</td><td>can, must, should, might...</td></tr></table>
+            <p><strong>Do-support</strong> xuất hiện khi câu không có be, modal hoặc auxiliary khác: <em>Did she call?</em>, <em>She didn't call.</em></p>`,
+        advanced: `<h3>🎯 NICE properties</h3>
+            <ul><li><strong>Negation:</strong> auxiliaries nhận <em>not</em>: <em>cannot, isn't, haven't</em>.</li>
+            <li><strong>Inversion:</strong> auxiliaries đảo lên trước chủ ngữ trong câu hỏi: <em>Has she arrived?</em></li>
+            <li><strong>Code:</strong> thay thế phần verb phrase: <em>She can swim and I can too.</em></li>
+            <li><strong>Emphasis:</strong> nhấn mạnh bằng aux: <em>I do want to help.</em></li>
+            <li>Hiểu auxiliary system giúp nối các mảng tưởng rời rạc như question, negation, tense, passive và ellipsis thành một hệ thống.</li></ul>`
+    },
+
+    'verb-types-transitivity': {
+        icon: '⚙️', title: 'Verb Types & Transitivity', category: 'foundations', level: 'intermediate',
+        connections: ['verbs-overview', 'direct-indirect-objects', 'sentence-patterns-complements', 'verb-complementation'],
+        simple: `<h3>⚙️ Động từ quyết định câu cần gì phía sau</h3>
+            <p>Mỗi động từ có <strong>valency</strong>: nó cần không, một, hai hay nhiều thành phần để câu đủ nghĩa.</p>
+            <div class="example-box">
+                • <em>Sleep</em> không cần object: The baby slept.<br>
+                • <em>Open</em> cần object: She opened the door.<br>
+                • <em>Give</em> thường cần hai object: He gave me a key.
+            </div>`,
+        detail: `<h3>📚 Các loại verb chính</h3>
+            <table><tr><th>Loại</th><th>Mẫu</th><th>Ví dụ</th></tr>
+            <tr><td>Intransitive</td><td>S + V</td><td>The child laughed.</td></tr>
+            <tr><td>Transitive</td><td>S + V + O</td><td>She wrote a letter.</td></tr>
+            <tr><td>Ditransitive</td><td>S + V + IO + DO</td><td>They sent us an email.</td></tr>
+            <tr><td>Linking</td><td>S + V + subject complement</td><td>The soup tastes good.</td></tr>
+            <tr><td>Complex transitive</td><td>S + V + O + object complement</td><td>They elected him president.</td></tr></table>`,
+        advanced: `<h3>🎯 Ambitransitive verbs</h3>
+            <ul><li>Nhiều verb dùng được cả transitive và intransitive: <em>She opened the door</em> / <em>The door opened</em>.</li>
+            <li>Một số verb đổi nghĩa khi đổi transitivity: <em>run a company</em> khác <em>run fast</em>.</li>
+            <li>Trong academic grammar, transitivity không chỉ là "có object hay không" mà là cách clause mã hóa participant, action, process và responsibility.</li></ul>`
+    },
+
+    'sentence-patterns-complements': {
+        icon: '🧱', title: 'Basic Sentence Patterns & Complements', category: 'foundations', level: 'beginner',
+        connections: ['sentence-order', 'verb-types-transitivity', 'subject-complement-object-complement'],
+        simple: `<h3>🧱 5 mẫu câu nền</h3>
+            <p>Nếu nắm chắc 5 mẫu này, bạn có thể kiểm tra gần như mọi câu tiếng Anh cơ bản.</p>
+            <div class="formula-box">
+                S + V<br>S + V + O<br>S + V + C<br>S + V + IO + DO<br>S + V + O + C
+            </div>`,
+        detail: `<h3>📚 Ví dụ từng mẫu</h3>
+            <table><tr><th>Mẫu</th><th>Ví dụ</th><th>Điểm nhớ</th></tr>
+            <tr><td>S + V</td><td>Birds fly.</td><td>verb tự đủ nghĩa</td></tr>
+            <tr><td>S + V + O</td><td>She likes music.</td><td>object nhận hành động</td></tr>
+            <tr><td>S + V + C</td><td>He became a doctor.</td><td>complement mô tả subject</td></tr>
+            <tr><td>S + V + IO + DO</td><td>She gave me advice.</td><td>ai nhận + nhận cái gì</td></tr>
+            <tr><td>S + V + O + C</td><td>They made him angry.</td><td>complement mô tả object</td></tr></table>`,
+        advanced: `<h3>🎯 Complement không phải modifier</h3>
+            <ul><li><strong>Complement</strong> là phần verb hoặc noun/adj cần để đủ nghĩa: <em>depend on you</em>, <em>aware of this</em>.</li>
+            <li><strong>Modifier</strong> là phần thêm thông tin và thường bỏ được: <em>yesterday, in the room, very quickly</em>.</li>
+            <li>Phân biệt complement/modifier giúp tránh câu thiếu thành phần và giúp đọc câu dài chính xác hơn.</li></ul>`
+    },
+
+    'subject-complement-object-complement': {
+        icon: '🎯', title: 'Subject & Object Complements', category: 'structures', level: 'intermediate',
+        connections: ['sentence-patterns-complements', 'verbs-overview', 'adjectives-adverbs'],
+        simple: `<h3>🎯 Complement hoàn tất nghĩa cho subject hoặc object</h3>
+            <p><strong>Subject complement</strong> nói thêm chủ ngữ sau linking verb. <strong>Object complement</strong> nói thêm object sau động từ.</p>
+            <div class="example-box">
+                • She is <strong>kind</strong>. / He became <strong>a teacher</strong>.<br>
+                • They painted the wall <strong>blue</strong>.<br>
+                • We consider him <strong>reliable</strong>.
+            </div>`,
+        detail: `<h3>📚 Linking verbs và object complement</h3>
+            <ul><li>Linking verbs: <em>be, become, seem, appear, look, sound, smell, taste, feel, remain, grow, turn</em>.</li>
+            <li>Subject complement có thể là adjective, noun phrase hoặc prepositional phrase: <em>She is ready / a doctor / in trouble</em>.</li>
+            <li>Object complement thường đi sau verbs như <em>make, keep, find, call, consider, elect, paint</em>.</li></ul>`,
+        advanced: `<h3>🎯 Lỗi hay gặp</h3>
+            <ul><li>Sau linking verb dùng adjective, không dùng adverb: <em>The soup tastes good</em>, không phải <em>well</em> nếu nói vị.</li>
+            <li><em>Make someone do</em> khác <em>make someone happy</em>: một bên là bare infinitive, một bên là object complement.</li>
+            <li>Object complement giải thích các cấu trúc như <em>leave the door open</em>, <em>keep me informed</em>, <em>find it difficult</em>.</li></ul>`
+    },
+
+    'adjective-complements': {
+        icon: '🎨', title: 'Adjective Complements', category: 'structures', level: 'intermediate',
+        connections: ['adjectives-adverbs', 'prepositional-phrases', 'noun-clauses', 'gerunds-infinitives'],
+        simple: `<h3>🎨 Nhiều tính từ cần phần bổ sung phía sau</h3>
+            <p>Không chỉ nói <em>afraid</em>, <em>interested</em>, <em>ready</em>; nhiều adjective cần preposition, infinitive hoặc clause để đủ nghĩa.</p>
+            <div class="example-box">
+                afraid of spiders · ready to leave · aware that this matters
+            </div>`,
+        detail: `<h3>📚 Các mẫu chính</h3>
+            <table><tr><th>Mẫu</th><th>Ví dụ</th></tr>
+            <tr><td>Adj + preposition + noun/V-ing</td><td>interested in music / interested in learning</td></tr>
+            <tr><td>Adj + to-infinitive</td><td>ready to start, likely to fail, easy to understand</td></tr>
+            <tr><td>Adj + that-clause</td><td>sure that he is right, aware that it changed</td></tr>
+            <tr><td>It + be + adj + clause</td><td>It is important that we act.</td></tr></table>`,
+        advanced: `<h3>🎯 Tough movement và extraposition</h3>
+            <ul><li><em>This book is easy to read</em> nghĩa là "read this book", dù subject không tự làm hành động.</li>
+            <li><em>It is likely that she will win</em> có thể tương ứng với <em>She is likely to win</em>.</li>
+            <li>Mỗi adjective có pattern riêng: <em>responsible for</em>, <em>capable of</em>, <em>keen on</em>, <em>eager to</em>, <em>aware of/that</em>.</li></ul>`
+    },
+
+    'adverb-types-position': {
+        icon: '🧭', title: 'Adverb Types & Position', category: 'patterns', level: 'intermediate',
+        connections: ['adjectives-adverbs', 'adverb-placement-focus', 'sentence-stress'],
+        simple: `<h3>🧭 Trạng từ có nhiều loại, không chỉ "một cách..."</h3>
+            <p>Adverbs có thể chỉ cách thức, nơi chốn, thời gian, tần suất, mức độ, thái độ và liên kết ý.</p>
+            <div class="example-box">
+                carefully · here · yesterday · often · very · frankly · however
+            </div>`,
+        detail: `<h3>📚 Vị trí thường gặp</h3>
+            <table><tr><th>Loại</th><th>Vị trí thường dùng</th><th>Ví dụ</th></tr>
+            <tr><td>Manner</td><td>cuối câu</td><td>She spoke clearly.</td></tr>
+            <tr><td>Frequency</td><td>trước verb chính, sau be</td><td>She often reads. / She is often late.</td></tr>
+            <tr><td>Degree</td><td>trước adj/adv</td><td>very good, quite slowly</td></tr>
+            <tr><td>Stance</td><td>đầu câu / giữa câu</td><td>Frankly, I disagree.</td></tr>
+            <tr><td>Linking</td><td>đầu câu hoặc giữa câu</td><td>However, this failed.</td></tr></table>`,
+        advanced: `<h3>🎯 Order cuối câu</h3>
+            <ul><li>Thứ tự mặc định: <strong>manner + place + time</strong>: <em>She sang beautifully at the concert last night.</em></li>
+            <li>Đưa adverb lên đầu thường để framing hoặc contrast: <em>Last night, she sang beautifully.</em></li>
+            <li>Focusing adverbs như <em>only, even, just, almost</em> phải đặt sát phần được nhấn để tránh đổi nghĩa.</li></ul>`
+    },
+
+    'preposition-system': {
+        icon: '📍', title: 'Preposition System', category: 'foundations', level: 'intermediate',
+        connections: ['prepositions', 'prepositional-phrases', 'phrasal-prepositions', 'time-prepositions-deep'],
+        simple: `<h3>📍 Giới từ tạo quan hệ giữa các ý</h3>
+            <p>Prepositions không chỉ là <em>in/on/at</em>; chúng tạo quan hệ về thời gian, nơi chốn, hướng, nguyên nhân, phương tiện, chủ đề và ngoại lệ.</p>
+            <div class="example-box">
+                at the station · in June · by train · because of rain · with care · about grammar
+            </div>`,
+        detail: `<h3>📚 Nhóm quan hệ chính</h3>
+            <table><tr><th>Nhóm</th><th>Ví dụ</th><th>Gợi nghĩa</th></tr>
+            <tr><td>Place</td><td>at, in, on, under, between</td><td>vị trí</td></tr>
+            <tr><td>Time</td><td>at, on, in, by, until, since, for</td><td>mốc/khoảng thời gian</td></tr>
+            <tr><td>Movement</td><td>to, into, onto, through, across</td><td>hướng và đường đi</td></tr>
+            <tr><td>Cause/Reason</td><td>because of, due to, from</td><td>nguyên nhân</td></tr>
+            <tr><td>Means/Agent</td><td>by, with</td><td>phương tiện/tác nhân/công cụ</td></tr></table>`,
+        advanced: `<h3>🎯 Complement hay adjunct</h3>
+            <ul><li>Một số prepositional phrases là complement bắt buộc: <em>depend on you</em>, <em>interested in music</em>.</li>
+            <li>Một số chỉ là adjunct thêm thông tin: <em>She read in the library</em>.</li>
+            <li>Preposition stranding tự nhiên trong văn nói: <em>Who are you talking to?</em>; fronting trang trọng hơn: <em>To whom are you speaking?</em></li></ul>`
+    },
+
+    'infinitive-purposes': {
+        icon: '🎯', title: 'Infinitive of Purpose & Result', category: 'patterns', level: 'beginner',
+        connections: ['gerunds-infinitives', 'result-structures', 'verb-patterns'],
+        simple: `<h3>🎯 To-V thường nói mục đích</h3>
+            <p>Dùng <strong>to + V</strong> để trả lời "để làm gì".</p>
+            <div class="example-box">
+                I went to the shop <strong>to buy</strong> milk.<br>
+                She called me <strong>to ask</strong> for help.
+            </div>`,
+        detail: `<h3>📚 Các biến thể</h3>
+            <ul><li><strong>in order to / so as to</strong>: trang trọng hơn <em>to</em>.</li>
+            <li>Phủ định: <em>in order not to</em>, <em>so as not to</em>: <em>She whispered so as not to wake the baby.</em></li>
+            <li><strong>too + adj + to-V</strong>: quá... để: <em>too tired to work</em>.</li>
+            <li><strong>adj + enough + to-V</strong>: đủ... để: <em>old enough to vote</em>.</li></ul>`,
+        advanced: `<h3>🎯 Purpose vs result</h3>
+            <ul><li><em>He worked hard to pass the exam</em> = mục đích.</li>
+            <li><em>He lived to see his grandchildren grow up</em> = kết quả cuối cùng trong đời.</li>
+            <li>Không dùng <em>for to</em>: ❌ <em>I came for to help</em> → ✓ <em>I came to help</em>.</li></ul>`
+    },
+
+    'participle-adjectives': {
+        icon: '🪶', title: '-ing / -ed Participial Adjectives', category: 'foundations', level: 'intermediate',
+        connections: ['adjectives-adverbs', 'participle-clauses', 'passive-voice'],
+        simple: `<h3>🪶 Boring hay bored?</h3>
+            <p><strong>-ing</strong> mô tả thứ gây cảm xúc. <strong>-ed</strong> mô tả người/vật nhận cảm xúc.</p>
+            <div class="example-box">
+                The movie is boring. I am bored.<br>
+                The news was shocking. We were shocked.
+            </div>`,
+        detail: `<h3>📚 Cặp thường gặp</h3>
+            <table><tr><th>-ing</th><th>-ed</th></tr>
+            <tr><td>interesting</td><td>interested</td></tr>
+            <tr><td>exciting</td><td>excited</td></tr>
+            <tr><td>confusing</td><td>confused</td></tr>
+            <tr><td>frightening</td><td>frightened</td></tr>
+            <tr><td>disappointing</td><td>disappointed</td></tr></table>`,
+        advanced: `<h3>🎯 Liên hệ với voice và aspect</h3>
+            <ul><li><strong>-ing</strong> thường có nghĩa active/causing: <em>a developing country</em>, <em>a falling leaf</em>.</li>
+            <li><strong>-ed/V3</strong> thường có nghĩa passive/result: <em>a broken window</em>, <em>a written report</em>.</li>
+            <li>Một số từ cố định không đối xứng hoàn toàn: <em>learned professor</em>, <em>beloved friend</em>.</li></ul>`
+    },
+
     /* ========== TENSES ========== */
 
     'stative-verbs': {

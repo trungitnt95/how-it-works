@@ -352,6 +352,29 @@ header h1 {
     font-size: 0.9rem;
 }
 
+.usage-deep-dive {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 12px;
+    background: rgba(14, 165, 233, 0.08);
+}
+
+.usage-deep-dive h3 {
+    color: #7dd3fc;
+    margin-bottom: 0.75rem;
+}
+
+.usage-deep-dive h4 {
+    color: #fcd34d;
+    margin: 1rem 0 0.5rem;
+}
+
+.usage-deep-dive li {
+    line-height: 1.65;
+    margin-bottom: 0.35rem;
+}
+
 .verb-bank-toolbar {
     display: flex;
     align-items: center;

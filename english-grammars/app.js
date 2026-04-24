@@ -98,30 +98,27 @@ function hydrateCefrBadges(root = document) {
     });
 }
 
-const MASTERY_TOPIC_IDS = [
-        'determiner-system',
-        'advanced-article-system',
-        'noun-phrase-architecture',
-        'adverb-placement-focus',
-        'advanced-adverbial-clauses',
-        'noun-complement-clauses',
-        'advanced-relative-clauses',
-        'verb-complementation',
-        'clause-system',
-        'advanced-agreement',
-        'spoken-grammar'
-];
+const COMPREHENSIVE_SECTION_META = {
+    foundations: { icon: '🧱', title: 'Nền tảng & từ loại' },
+    tenses: { icon: '⏰', title: 'Thì, thể & động từ' },
+    patterns: { icon: '🧩', title: 'Mẫu câu & mạch ý' },
+    structures: { icon: '🏗️', title: 'Cấu trúc nâng cao' },
+    mistakes: { icon: '⚠️', title: 'Cơ khí câu & lỗi thường gặp' },
+    pronunciation: { icon: '🗣️', title: 'Phát âm & ngữ điệu' }
+};
+
+function getComprehensiveTopics() {
+        if (typeof grammarComprehensiveData === 'undefined') return [];
+        return Object.entries(grammarComprehensiveData).map(([id, component]) => ({ id, component }));
+}
 
 function injectMasterySection(root = document) {
         const main = root.querySelector('main');
         const atlas = root.querySelector('#atlas');
-        const hasData = typeof grammarComprehensiveData !== 'undefined';
         const cefr = window.englishGrammarCefr;
-        if (!main || !hasData || root.querySelector('#mastery-systems')) return;
+        if (!main || root.querySelector('#complete-grammar-coverage')) return;
 
-        const topics = MASTERY_TOPIC_IDS
-                .map(id => ({ id, component: grammarComprehensiveData[id] }))
-                .filter(entry => entry.component)
+        const topics = getComprehensiveTopics()
                 .map(entry => ({
                         ...entry,
                         meta: cefr ? cefr.resolveComponent(entry.id, entry.component) : { label: 'C2', badgeClass: 'badge-c2', name: 'Mastery' }
@@ -129,41 +126,186 @@ function injectMasterySection(root = document) {
 
         if (!topics.length) return;
 
+        const grouped = topics.reduce((acc, topic) => {
+                const category = topic.component.category || 'structures';
+                if (!acc[category]) acc[category] = [];
+                acc[category].push(topic);
+                return acc;
+        }, {});
+
         const section = document.createElement('section');
         section.className = 'grammar-section';
-        section.id = 'mastery-systems';
+        section.id = 'complete-grammar-coverage';
         section.innerHTML = `
                 <div class="section-header">
-                    <span class="section-icon">👑</span>
-                    <h2 class="section-title">Mastery Systems</h2>
-                    <span class="section-sub">C1-C2 grammar architecture, nuance, spoken grammar, and register control</span>
+                    <span class="section-icon">🗺️</span>
+                    <h2 class="section-title">Complete Grammar Coverage</h2>
+                    <span class="section-sub">Các chủ điểm bổ sung từ A1 đến C2 để phủ kín hệ thống ngữ pháp tiếng Anh</span>
                 </div>
-                ${topics.map(({ id, component, meta }) => `
-                    <div class="accordion-item" id="${id}">
-                        <div class="accordion-header">
-                            <span class="acc-badge ${meta.badgeClass}">${meta.label}</span>
-                            <span class="acc-title">${component.title}</span>
-                            <span class="acc-en">${meta.label} · ${meta.name}</span>
-                            <span class="acc-arrow">▼</span>
+                ${Object.entries(COMPREHENSIVE_SECTION_META).map(([category, group]) => {
+                        const items = grouped[category] || [];
+                        if (!items.length) return '';
+                        return `
+                        <div class="coverage-subsection">
+                            <h3>${group.icon} ${group.title}</h3>
+                            ${items.map(({ id, component, meta }) => `
+                                <div class="accordion-item" id="coverage-${id}">
+                                    <div class="accordion-header">
+                                        <span class="acc-badge ${meta.badgeClass}">${meta.label}</span>
+                                        <span class="acc-title">${component.title}</span>
+                                        <span class="acc-en">${meta.label} · ${meta.name}</span>
+                                        <span class="acc-arrow">▼</span>
+                                    </div>
+                                    <div class="accordion-body"><div class="acc-content">
+                                        ${component.simple || ''}
+                                        ${component.detail || ''}
+                                        ${component.advanced || ''}
+                                    </div></div>
+                                </div>
+                            `).join('')}
                         </div>
-                        <div class="accordion-body"><div class="acc-content">
-                            ${component.simple || ''}
-                            ${component.detail || ''}
-                            ${component.advanced || ''}
-                        </div></div>
-                    </div>
-                `).join('')}
+                        `;
+                }).join('')}
         `;
 
         const anchor = main.querySelector('#memory-tables');
         main.insertBefore(section, anchor || null);
 
-        if (atlas && !atlas.querySelector('[data-target="mastery-systems"]')) {
+        if (atlas && !atlas.querySelector('[data-target="complete-grammar-coverage"]')) {
                 const link = document.createElement('a');
                 link.className = 'atlas-btn special';
-                link.href = '#mastery-systems';
-                link.dataset.target = 'mastery-systems';
-                link.textContent = '👑 Mastery Systems';
+                link.href = '#complete-grammar-coverage';
+                link.dataset.target = 'complete-grammar-coverage';
+                link.textContent = '🗺️ Complete Coverage';
+                const before = atlas.querySelector('[data-target="memory-tables"]');
+                atlas.insertBefore(link, before || null);
+        }
+}
+
+function getRoteMemoryTopics() {
+        if (typeof grammarMemoryBank === 'undefined' || !Array.isArray(grammarMemoryBank)) return [];
+        return grammarMemoryBank;
+}
+
+function injectRoteMemorySection(root = document) {
+        const main = root.querySelector('main');
+        const atlas = root.querySelector('#atlas');
+        const topics = getRoteMemoryTopics();
+        if (!main || !topics.length || root.querySelector('#rote-memory-bank')) return;
+
+        const section = document.createElement('section');
+        section.className = 'grammar-section';
+        section.id = 'rote-memory-bank';
+        section.innerHTML = `
+                <div class="section-header">
+                    <span class="section-icon">🧠</span>
+                    <h2 class="section-title">Rote Memory Bank</h2>
+                    <span class="section-sub">Những cụm, ngoại lệ và pattern không thể suy bằng một quy tắc duy nhất</span>
+                </div>
+                ${topics.map((group, index) => `
+                    <div class="accordion-item" id="rote-memory-${index + 1}">
+                        <div class="accordion-header">
+                            <span class="acc-badge badge-mem">MEM</span>
+                            <span class="acc-title">${group.title}</span>
+                            <span class="acc-en">${group.note || 'Cần học thuộc theo cụm'}</span>
+                            <span class="acc-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body"><div class="acc-content">
+                            ${group.note ? `<p>${group.note}</p>` : ''}
+                            <ul>${(group.items || []).map(item => `<li>${item}</li>`).join('')}</ul>
+                        </div></div>
+                    </div>
+                `).join('')}
+        `;
+
+        const memoryTables = main.querySelector('#memory-tables');
+        const irregular = main.querySelector('#irregular');
+        if (memoryTables && memoryTables.nextSibling) {
+                main.insertBefore(section, memoryTables.nextSibling);
+        } else {
+                main.insertBefore(section, irregular || null);
+        }
+
+        if (atlas && !atlas.querySelector('[data-target="rote-memory-bank"]')) {
+                const link = document.createElement('a');
+                link.className = 'atlas-btn special';
+                link.href = '#rote-memory-bank';
+                link.dataset.target = 'rote-memory-bank';
+                link.textContent = '🧠 Rote Memory';
+                const before = atlas.querySelector('[data-target="ipa"]') || atlas.querySelector('[data-target="irregular"]');
+                atlas.insertBefore(link, before || null);
+        }
+}
+
+const USAGE_SECTION_META = {
+    tenses: { icon: '⏰', title: 'Thì & mốc thời gian' },
+    foundations: { icon: '🧱', title: 'Nền tảng câu' },
+    patterns: { icon: '🧩', title: 'Mẫu câu & chức năng giao tiếp' },
+    structures: { icon: '🏗️', title: 'Cấu trúc nâng cao' },
+    mistakes: { icon: '⚠️', title: 'Lỗi dùng sai ngữ cảnh' },
+    pronunciation: { icon: '🗣️', title: 'Phát âm theo ngữ cảnh' }
+};
+
+function getUsageDeepDiveTopics() {
+        if (typeof grammarUsageDeepDiveData === 'undefined') return [];
+        return Object.entries(grammarUsageDeepDiveData).map(([id, entry]) => ({ id, entry }));
+}
+
+function injectUsageDeepDiveSection(root = document) {
+        const main = root.querySelector('main');
+        const atlas = root.querySelector('#atlas');
+        const topics = getUsageDeepDiveTopics();
+        if (!main || !topics.length || root.querySelector('#usage-deep-dives')) return;
+
+        const grouped = topics.reduce((acc, topic) => {
+                const category = topic.entry.category || 'structures';
+                if (!acc[category]) acc[category] = [];
+                acc[category].push(topic);
+                return acc;
+        }, {});
+
+        const section = document.createElement('section');
+        section.className = 'grammar-section';
+        section.id = 'usage-deep-dives';
+        section.innerHTML = `
+                <div class="section-header">
+                    <span class="section-icon">🧭</span>
+                    <h2 class="section-title">Usage Deep Dive</h2>
+                    <span class="section-sub">Khi nào dùng, khi nào tránh, và nên so sánh với cấu trúc nào</span>
+                </div>
+                ${Object.entries(USAGE_SECTION_META).map(([category, group]) => {
+                        const items = grouped[category] || [];
+                        if (!items.length) return '';
+                        return `
+                        <div class="coverage-subsection">
+                            <h3>${group.icon} ${group.title}</h3>
+                            ${items.map(({ id, entry }) => `
+                                <div class="accordion-item" id="usage-${id}">
+                                    <div class="accordion-header">
+                                        <span class="acc-badge badge-mid">${entry.cefr || 'USE'}</span>
+                                        <span class="acc-title">${entry.title || id}</span>
+                                        <span class="acc-en">${entry.category || 'usage'} · usage map</span>
+                                        <span class="acc-arrow">▼</span>
+                                    </div>
+                                    <div class="accordion-body"><div class="acc-content">
+                                        ${typeof renderGrammarUsageDeepDive === 'function' ? renderGrammarUsageDeepDive(entry) : ''}
+                                    </div></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        `;
+                }).join('')}
+        `;
+
+        const memoryTables = main.querySelector('#memory-tables');
+        main.insertBefore(section, memoryTables || null);
+
+        if (atlas && !atlas.querySelector('[data-target="usage-deep-dives"]')) {
+                const link = document.createElement('a');
+                link.className = 'atlas-btn special';
+                link.href = '#usage-deep-dives';
+                link.dataset.target = 'usage-deep-dives';
+                link.textContent = '🧭 Usage Deep Dive';
                 const before = atlas.querySelector('[data-target="memory-tables"]');
                 atlas.insertBefore(link, before || null);
         }
@@ -375,6 +517,8 @@ function initIrregularVerbs() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     injectMasterySection();
+    injectUsageDeepDiveSection();
+    injectRoteMemorySection();
     hydrateCefrBadges();
     initAccordions();
     initAtlasScroll();

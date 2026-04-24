@@ -251,6 +251,25 @@ main {
 .accordion-item:hover { border-color: rgba(255,255,255,0.2); }
 .accordion-item.open { border-color: var(--accent-blue); }
 
+.coverage-subsection {
+    margin: 1.5rem 0 2rem;
+}
+.coverage-subsection h3 {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+}
+
+.usage-deep-dive {
+    padding: 1rem;
+    border: 1px solid rgba(88,166,255,0.22);
+    border-radius: 10px;
+    background: rgba(88,166,255,0.08);
+}
+.usage-deep-dive h3 { color: var(--accent-blue); margin-bottom: 0.75rem; }
+.usage-deep-dive h4 { color: var(--accent-yellow); margin: 1rem 0 0.5rem; }
+.usage-deep-dive li { line-height: 1.65; margin-bottom: 0.35rem; }
+
 .accordion-header {
     padding: 1rem 1.25rem;
     cursor: pointer;
