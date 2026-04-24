@@ -14,7 +14,7 @@
 <header class="site-header">
   <a href="../" class="back-btn">← Trang chủ</a>
   <h1>📖 Ngữ Pháp Tiếng Anh</h1>
-  <span class="header-meta">Từ cơ bản → Nâng cao · Nguồn: Ngữ Pháp Tiếng Anh – Mai Lan Hương</span>
+  <span class="header-meta">CEFR A1 → C2 · Nguồn: Ngữ Pháp Tiếng Anh – Mai Lan Hương</span>
 </header>
 
 <!-- ========================================
@@ -40,10 +40,23 @@
   <a class="atlas-btn" href="#comparison"  data-target="comparison">📊 So sánh</a>
   <a class="atlas-btn" href="#articles"    data-target="articles">🅰 Mạo từ</a>
   <a class="atlas-btn" href="#prepositions" data-target="prepositions">📍 Giới từ</a>
+  <a class="atlas-btn" href="#foundations-extra" data-target="foundations-extra">🏛️ Danh từ &amp; Đại từ</a>
+  <a class="atlas-btn" href="#verbs-time-extra" data-target="verbs-time-extra">⏰ Động từ &amp; Thời gian (mở rộng)</a>
+  <a class="atlas-btn" href="#cohesion" data-target="cohesion">🧩 Câu hỏi, Cảm thán &amp; Liên kết</a>
+  <a class="atlas-btn" href="#adv-structures" data-target="adv-structures">🏗️ Cấu trúc nâng cao</a>
+  <a class="atlas-btn" href="#pron-extra" data-target="pron-extra">🗣️ Phát âm nâng cao</a>
+  <a class="atlas-btn" href="#word-form" data-target="word-form">🧬 Cấu tạo từ &amp; Collocations</a>
+  <a class="atlas-btn" href="#spelling-punc" data-target="spelling-punc">✏️ Chính tả, Dấu câu &amp; Số</a>
   <a class="atlas-btn" href="#memory-tables" data-target="memory-tables">🧠 Bảng ghi nhớ</a>
   <a class="atlas-btn special" href="#ipa" data-target="ipa">🔊 IPA</a>
   <a class="atlas-btn special" href="#irregular" data-target="irregular">📋 Động từ bất quy tắc</a>
 </nav>
+
+<div class="grammar-search-panel">
+  <label for="mlh-search">Tìm nhanh:</label>
+  <input type="text" id="mlh-search" placeholder="Tìm theo từ khóa như subjunctive, since, on purpose, formal...">
+  <button type="button" id="mlh-search-clear">Xóa</button>
+</div>
 
 <!-- ========================================
      MAIN
@@ -243,6 +256,21 @@
         <div class="example-en" style="margin-top:0.5rem">You're out of breath. Have you been running?</div>
         <div class="example-vi">Anh thở dốc vậy. Anh vừa chạy xong à?</div>
       </div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#3fb950">Nhấn quá trình kéo dài</div>
+          <div class="usage-desc">Hành động bắt đầu trong quá khứ, kéo dài đến hiện tại và có thể còn tiếp tục.</div>
+          <div class="usage-ex">She has been working here since 2022.</div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#58a6ff">Giải thích dấu hiệu hiện tại</div>
+          <div class="usage-desc">Hiện tại có kết quả nhìn thấy được vì quá trình vừa diễn ra.</div>
+          <div class="usage-ex">He is tired because he has been running.</div>
+        </div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Từ tín hiệu</div>
+        <div class="signal-tags"><span class="signal-tag">for + khoảng thời gian</span><span class="signal-tag">since + mốc thời gian</span><span class="signal-tag">all day</span><span class="signal-tag">recently</span><span class="signal-tag">lately</span></div>
+      </div>
       <div class="note-box"><strong>PP vs PPCT:</strong> Hiện tại hoàn thành nhấn mạnh <em>kết quả</em>. Hiện tại hoàn thành tiếp diễn nhấn mạnh <em>quá trình / thời gian</em>. Không dùng với stative verbs.</div>
     </div></div>
   </div>
@@ -336,9 +364,22 @@
         <div class="example-en">When I arrived, the movie had already started.</div>
         <div class="example-vi">Khi tôi đến, phim đã bắt đầu rồi.</div>
       </div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#3fb950">Quá khứ của quá khứ</div>
+          <div class="usage-desc">Có 2 hành động ở quá khứ và cần làm rõ hành động nào xảy ra trước.</div>
+          <div class="usage-ex">She had left before I got there.</div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#58a6ff">Reported speech / conditionals</div>
+          <div class="usage-desc">Hay gặp trong câu tường thuật và điều kiện loại 3.</div>
+          <div class="usage-ex">He said he had finished the task.</div>
+        </div>
+      </div>
       <div class="signal-box"><div class="signal-title">Từ tín hiệu</div>
         <div class="signal-tags"><span class="signal-tag">before</span><span class="signal-tag">after</span><span class="signal-tag">already</span><span class="signal-tag">by the time</span><span class="signal-tag">until then</span><span class="signal-tag">no sooner…than</span></div>
       </div>
+      <div class="note-box"><strong>Khi không cần Past Perfect:</strong> Nếu trình tự đã quá rõ nhờ <em>before, after, then</em>, nhiều câu chỉ cần Past Simple. Dùng Past Perfect khi bạn muốn nhấn mạnh thứ tự hoặc tránh mơ hồ.</div>
     </div></div>
   </div>
 
@@ -360,6 +401,21 @@
         <div class="example-en">They had been living in London for 10 years when I met them.</div>
         <div class="example-vi">Họ đã sống ở London được 10 năm khi tôi gặp họ.</div>
       </div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#3fb950">Nhấn thời lượng trước mốc quá khứ</div>
+          <div class="usage-ex">He had been working there for ten years before he moved.</div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#58a6ff">Giải thích nguyên nhân trong quá khứ</div>
+          <div class="usage-desc">Một trạng thái ở quá khứ là kết quả của quá trình kéo dài trước đó.</div>
+          <div class="usage-ex">Her eyes were red because she had been crying.</div>
+        </div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Từ tín hiệu</div>
+        <div class="signal-tags"><span class="signal-tag">for</span><span class="signal-tag">since</span><span class="signal-tag">before</span><span class="signal-tag">until</span><span class="signal-tag">when + past clause</span></div>
+      </div>
+      <div class="note-box"><strong>Past Perfect vs Past Perfect Continuous:</strong> Past Perfect nhấn <em>kết quả / thứ tự</em>. Past Perfect Continuous nhấn <em>quá trình / thời lượng</em>. Không dùng dạng continuous với nhiều stative verbs như <em>know, believe, own</em>.</div>
     </div></div>
   </div>
 
@@ -407,6 +463,9 @@
         <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Kế hoạch đã định trước</div><div class="usage-ex">I'm going to visit grandma on Sunday.</div></div>
         <div class="usage-card"><div class="usage-heading" style="color:#d29922">Dự đoán có bằng chứng</div><div class="usage-ex">Look at those clouds — it's going to rain.</div></div>
       </div>
+      <div class="signal-box"><div class="signal-title">Dấu hiệu nhận biết</div>
+        <div class="signal-tags"><span class="signal-tag">intention / plan</span><span class="signal-tag">look!</span><span class="signal-tag">watch out!</span><span class="signal-tag">evidence now</span></div>
+      </div>
       <div class="note-box"><strong>will vs be going to:</strong> <em>will</em> → quyết định tức thì / chưa lên kế hoạch. <em>be going to</em> → kế hoạch đã có hoặc tình huống sắp xảy ra rõ ràng.</div>
     </div></div>
   </div>
@@ -429,6 +488,21 @@
         <div class="example-en">This time next week, I will be lying on the beach.</div>
         <div class="example-vi">Giờ này tuần sau tôi sẽ đang nằm trên bãi biển.</div>
       </div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#3fb950">Đang diễn ra tại mốc tương lai</div>
+          <div class="usage-ex">At noon tomorrow, she will be having lunch.</div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#58a6ff">Hỏi kế hoạch lịch sự hơn</div>
+          <div class="usage-desc">Nghe mềm hơn <em>will</em> khi hỏi xem người khác có bận dùng thứ gì không.</div>
+          <div class="usage-ex">Will you be using the car tonight?</div>
+        </div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Từ tín hiệu</div>
+        <div class="signal-tags"><span class="signal-tag">this time tomorrow</span><span class="signal-tag">at 8 p.m. tonight</span><span class="signal-tag">next week at this time</span></div>
+      </div>
+      <div class="note-box"><strong>Future Simple vs Future Continuous:</strong> <em>will + V</em> nhấn việc sẽ xảy ra. <em>will be + V-ing</em> nhấn quá trình đang diễn ra tại một mốc tương lai.</div>
     </div></div>
   </div>
 
@@ -449,6 +523,17 @@
       <div class="example-box">
         <div class="example-en">By this time next year, I will have graduated.</div>
         <div class="example-vi">Vào giờ này năm sau tôi sẽ đã tốt nghiệp.</div>
+      </div>
+      <div class="usage-grid">
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#3fb950">Hoàn tất trước mốc tương lai</div>
+          <div class="usage-ex">She will have finished the report by 5 p.m.</div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-heading" style="color:#58a6ff">Nhìn từ tương lai về trước</div>
+          <div class="usage-desc">Dùng khi mốc tương lai là điểm chuẩn, và việc cần nói đã xong trước mốc đó.</div>
+          <div class="usage-ex">By next June, they will have built the bridge.</div>
+        </div>
       </div>
       <div class="signal-box"><div class="signal-title">Từ tín hiệu</div>
         <div class="signal-tags"><span class="signal-tag">by + time</span><span class="signal-tag">before + time</span><span class="signal-tag">by the time</span></div>
@@ -1293,6 +1378,1138 @@
 </section>
 
 <!-- ==================================================
+     DANH TỪ, ĐẠI TỪ & MẠO TỪ MỞ RỘNG
+     ================================================== -->
+<section class="grammar-section" id="foundations-extra">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <h2 class="section-title">Danh Từ, Đại Từ &amp; Mạo Từ (Mở Rộng)</h2>
+    <span class="section-sub">Định lượng, tham chiếu, sở hữu, đại từ chỉ định</span>
+  </div>
+
+  <div class="accordion-item" id="ex-count-uncount">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Countable vs Uncountable</span><span class="acc-en">Đếm được vs không đếm được</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai loại danh từ</div><div class="formula-line"><b>Countable:</b> có số ít / số nhiều, đếm được — book/books, idea/ideas</div><div class="formula-line"><b>Uncountable:</b> luôn số ít, không có a/an — water, music, advice, news, information, furniture, luggage, bread, money, traffic</div><div class="formula-note">Đếm uncountable cần đơn vị: a piece of advice, two glasses of water, a slice of bread.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">a/an + countable</div><div class="usage-ex">a book, an idea</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">some/any + cả hai</div><div class="usage-ex">some water, any books</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">many/much</div><div class="usage-ex">many books / much water</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Bẫy phổ biến</div><div class="usage-desc">advice, information, news, furniture, luggage, equipment, homework, traffic — KHÔNG có dạng số nhiều!</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-quantifiers">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Quantifiers (Định Lượng)</span><span class="acc-en">much/many/few/little/some/any/all/most</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Phân theo đối tượng</div><div class="formula-line"><b>Đếm được:</b> many, few, a few, several, a number of, both</div><div class="formula-line"><b>Không đếm:</b> much, little, a little, a great deal of, a bit of</div><div class="formula-line"><b>Cả hai:</b> some, any, all, most, no, none, plenty of, a lot of, lots of, enough</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">few vs a few</div><div class="usage-desc">few = ít (nghĩa tiêu cực) | a few = một vài (tích cực)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">little vs a little</div><div class="usage-desc">little = ít (tiêu cực) | a little = một chút (tích cực)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">most vs most of</div><div class="usage-ex">most people / most of the people</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">none vs no</div><div class="usage-ex">No students came. / None of them came.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Bẫy chia động từ</div><div class="signal-tags"><span class="signal-tag">none of + N (số nhiều) → V có thể số ít hoặc nhiều</span><span class="signal-tag">a number of + N → V số nhiều</span><span class="signal-tag">the number of + N → V số ít</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-demonstratives">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Demonstratives</span><span class="acc-en">this / that / these / those</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Khoảng cách + số lượng</div><div class="formula-line"><b>this/these</b> → gần (về không gian, thời gian, hoặc cảm xúc)</div><div class="formula-line"><b>that/those</b> → xa</div><div class="formula-line">Có thể đứng làm từ định ngữ (this book) hoặc đại từ độc lập (This is mine).</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Không gian</div><div class="usage-ex">This pen here vs that pen over there.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Thời gian</div><div class="usage-ex">this morning (sáng nay) / that morning (sáng hôm đó)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Tham chiếu trước/sau</div><div class="usage-desc">that → quay lại điều vừa nói; this → giới thiệu điều sắp nói</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Trên điện thoại</div><div class="usage-ex">This is John speaking. — Who's that?</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-anaphoric">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Tham Chiếu (Anaphoric Reference)</span><span class="acc-en">Đại từ &amp; tiền tố</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Quy tắc</div><div class="formula-line">Đại từ phải có <b>antecedent</b> (tiền tố) rõ ràng và đồng nhất về số/giống.</div><div class="formula-line">Khoảng cách giữa đại từ và tiền tố không quá xa để tránh mơ hồ.</div><div class="formula-line"><b>Cataphoric reference:</b> đại từ xuất hiện trước, danh từ thật xuất hiện sau để tạo nhịp hoặc suspense.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Rõ ràng</div><div class="usage-ex">John saw Mary. He waved at her.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Mơ hồ</div><div class="usage-ex">She told her friend she was sick. (ai bệnh?)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Tham chiếu trước</div><div class="usage-ex">When she arrived, Mary was happy. (cataphoric)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">It / They chung chung</div><div class="usage-ex">They say money can't buy happiness.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Lưu ý hiện đại</div><div class="signal-tags"><span class="signal-tag">Singular they: If anyone calls, tell them I'm busy.</span><span class="signal-tag">Nếu đại từ làm câu mơ hồ, lặp lại danh từ sẽ tốt hơn</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-gender-neutral">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Gender-neutral Grammar</span><span class="acc-en">Ngữ pháp trung tính về giới</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 cách tự nhiên nhất</div><div class="formula-line"><b>Singular they:</b> If a student has a question, <b>they</b> should ask.</div><div class="formula-line"><b>Viết lại số nhiều:</b> Customers should bring <b>their</b> receipts.</div><div class="formula-line"><b>Danh từ trung tính:</b> police officer, chairperson, flight attendant.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Tự nhiên hiện đại</div><div class="usage-ex">Each employee must submit their form.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Số nhiều để nhẹ hơn</div><div class="usage-ex">Managers should review their teams regularly.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Tên nghề</div><div class="usage-ex">firefighter / spokesperson / server</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Agreement</div><div class="usage-ex">Someone left their umbrella. They were in a hurry.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-apposition">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Apposition (Đồng Vị Ngữ)</span><span class="acc-en">My friend John, ...</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai loại</div><div class="formula-line"><b>Restrictive (không phẩy):</b> The poet Robert Frost wrote...</div><div class="formula-line"><b>Non-restrictive (có phẩy):</b> Robert Frost, the poet, wrote...</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Identifying</div><div class="usage-ex">My brother Tom is here. (có nhiều anh em)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Adding info</div><div class="usage-ex">My brother, Tom, is here. (chỉ có 1 anh em)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <h3 style="color:#58a6ff;margin:1.5rem 0 0.75rem 0">📚 Đại từ & cấu trúc tồn tại</h3>
+
+  <div class="accordion-item" id="ex-there-is">
+    <div class="accordion-header">
+      <span class="acc-badge badge-basic">Cơ bản</span>
+      <span class="acc-title">There is / There are</span>
+      <span class="acc-en">Existential structures</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box">
+        <div class="formula-title">Công thức</div>
+        <div class="formula-line"><b>There is</b> + N số ít / không đếm được</div>
+        <div class="formula-line"><b>There are</b> + N số nhiều</div>
+        <div class="formula-note">Biến theo thì: There was/were, There has/have been, There will be, There must be...</div>
+      </div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Giới thiệu tồn tại</div><div class="usage-ex">There is a book on the table.</div><div class="usage-ex-vi">Có một cuốn sách trên bàn.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Số nhiều</div><div class="usage-ex">There are many students here.</div><div class="usage-ex-vi">Có nhiều học sinh ở đây.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Quy tắc chia</div><div class="usage-desc">Khi liệt kê hỗn hợp, chia theo danh từ đầu tiên.</div><div class="usage-ex">There is a pen and two books.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Lưu ý</div><div class="signal-tags"><span class="signal-tag">Tiếng Việt "Có..." → There is/are</span><span class="signal-tag">Không nhầm với It is</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-dummy-it">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Dummy "It"</span>
+      <span class="acc-en">It as empty subject</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line">It + be + (adj) + (to-V / that-clause)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Thời tiết</div><div class="usage-ex">It is raining.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Thời gian</div><div class="usage-ex">It is 7 o'clock.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Khoảng cách</div><div class="usage-ex">It is 5 km from here.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Đánh giá</div><div class="usage-ex">It is important to study.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Phân biệt</div><div class="signal-tags"><span class="signal-tag">It (giả) ≠ There (tồn tại)</span><span class="signal-tag">It is X that... (cleft)</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-reflexive">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Reflexive &amp; Reciprocal Pronouns</span>
+      <span class="acc-en">myself / each other</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Bộ đại từ phản thân</div><div class="formula-line">myself, yourself, himself, herself, itself, oneself</div><div class="formula-line">ourselves, yourselves, themselves</div><div class="formula-line"><b>Reciprocal:</b> each other (2 đối tượng) / one another (3+)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Tân ngữ phản thân</div><div class="usage-ex">She introduced herself.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Nhấn mạnh</div><div class="usage-ex">I made the cake myself.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Tương hỗ</div><div class="usage-ex">They love each other.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Lưu ý</div><div class="usage-desc">Wash/shave/dress: không cần reflexive.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-possessive">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Compound Nouns &amp; Possessives</span>
+      <span class="acc-en">'s vs of vs N+N</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 cách diễn đạt "của"</div><div class="formula-line">N + 's + N → cho người, động vật, thời gian</div><div class="formula-line">N + of + N → cho vật, khái niệm</div><div class="formula-line">N + N (compound) → quan hệ phân loại</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">'s</div><div class="usage-ex">John's car / today's news</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">of</div><div class="usage-ex">the leg of the table</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">N+N</div><div class="usage-ex">a coffee cup, a bus stop</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Double genitive</div><div class="usage-ex">a friend of mine</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Bẫy</div><div class="signal-tags"><span class="signal-tag">its (sở hữu) ≠ it's (it is)</span><span class="signal-tag">a five-year-old boy (gạch nối)</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-distributives">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Both / Either / Neither / All</span>
+      <span class="acc-en">Distributives</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Nghĩa cốt lõi</div><div class="formula-line"><b>both</b> = cả hai (+ N số nhiều, V số nhiều)</div><div class="formula-line"><b>either</b> = một trong hai (+ N số ít)</div><div class="formula-line"><b>neither</b> = không cả hai (+ N số ít, nghĩa phủ định)</div><div class="formula-line"><b>all</b> = tất cả (3+)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Cặp tương hỗ</div><div class="usage-ex">both...and / either...or / neither...nor</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">So / Neither</div><div class="usage-ex">I do too. → So do I. / Me neither.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Vị trí giữa</div><div class="usage-ex">We both agree. / They are all ready.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Bẫy</div><div class="signal-tags"><span class="signal-tag">Neither đã mang nghĩa (-) → KHÔNG dùng "not"</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-indef-pronouns">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Indefinite Pronouns</span>
+      <span class="acc-en">someone / anything / nobody...</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Ma trận some/any/no/every + one/body/thing/where</div><div class="formula-line">someone, somebody, something, somewhere</div><div class="formula-line">anyone, anybody, anything, anywhere</div><div class="formula-line">no one, nobody, nothing, nowhere</div><div class="formula-line">everyone, everybody, everything, everywhere</div><div class="formula-note">Tất cả đều là số ít: <b>Everyone <u>is</u> here.</b></div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">some vs any</div><div class="usage-desc">some: khẳng định / mời. any: phủ định, câu hỏi, "bất kỳ".</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">one / another / the other</div><div class="usage-ex">I prefer the red one. Have another. The others left.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">each vs every</div><div class="usage-desc">each: từng cái. every: mọi cái.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-phrasal-prep">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Phrasal Prepositions &amp; Fixed Phrases</span>
+      <span class="acc-en">because of, by mistake, on purpose...</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Cụm giới từ thông dụng</div><div class="formula-line"><b>Vị trí:</b> in front of, next to, on top of, far from</div><div class="formula-line"><b>Lý do:</b> because of, due to, owing to, thanks to</div><div class="formula-line"><b>Tham chiếu:</b> according to, with regard to</div><div class="formula-line"><b>Tương phản:</b> in spite of, despite, instead of</div><div class="formula-line"><b>Cụm cố định:</b> by mistake, on purpose, in the long run, in time, on time, in private</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">by mistake</div><div class="usage-ex">I took your umbrella by mistake.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">on purpose</div><div class="usage-ex">He didn't ignore you on purpose.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">in time / on time</div><div class="usage-ex">We arrived in time for the film. / The train left on time.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">in the long run</div><div class="usage-ex">In the long run, patience saves money.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Phân biệt</div><div class="signal-tags"><span class="signal-tag">because of + N | because + clause</span><span class="signal-tag">despite + N/V-ing | although + clause</span><span class="signal-tag">at the end ≠ in the end</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-adj-order">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Trật Tự Tính Từ</span>
+      <span class="acc-en">OSASCOMP</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Trật tự cố định</div><div class="formula-line"><b>O</b>pinion → <b>S</b>ize → <b>A</b>ge → <b>S</b>hape → <b>C</b>olour → <b>O</b>rigin → <b>M</b>aterial → <b>P</b>urpose → NOUN</div><div class="formula-note">a <i>lovely little old round black</i> Italian leather riding boot</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Ví dụ</div><div class="usage-ex">a beautiful big new white wooden table</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Quy tắc</div><div class="usage-desc">Hiếm khi dùng quá 3 tính từ liền nhau.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-spelling">
+    <div class="accordion-header">
+      <span class="acc-badge badge-basic">Cơ bản</span>
+      <span class="acc-title">Quy Tắc Chính Tả</span>
+      <span class="acc-en">-ing / -ed / -es / doubling</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">5 nguyên tắc cốt lõi</div><div class="formula-line">1. Tận cùng <b>e</b> câm → bỏ <i>e</i>: make → making</div><div class="formula-line">2. Tận cùng <b>ie</b> → đổi <i>y</i>: die → dying</div><div class="formula-line">3. Phụ âm + <b>y</b> → <i>i</i>: study → studies, happy → happier</div><div class="formula-line">4. Nguyên âm + <b>y</b> → giữ nguyên: play → plays</div><div class="formula-line">5. 1 âm tiết, 1 nguyên âm + 1 phụ âm → gấp đôi: stop → stopping</div></div>
+      <div class="signal-box"><div class="signal-title">Số nhiều danh từ</div><div class="signal-tags"><span class="signal-tag">s/x/sh/ch/o + es</span><span class="signal-tag">f/fe → ves</span><span class="signal-tag">man→men, child→children</span></div></div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     ĐỘNG TỪ & THỜI GIAN MỞ RỘNG
+     ================================================== -->
+<section class="grammar-section" id="verbs-time-extra">
+  <div class="section-header">
+    <span class="section-icon">⏰</span>
+    <h2 class="section-title">Động Từ &amp; Thời Gian (Mở Rộng)</h2>
+    <span class="section-sub">Stative verbs, semi-modal, các biến thể tương lai</span>
+  </div>
+
+  <div class="accordion-item" id="ex-stative">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Stative vs Dynamic Verbs</span><span class="acc-en">Động từ trạng thái — KHÔNG dùng tiếp diễn</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Nguyên tắc</div><div class="formula-line">Động từ trạng thái mô tả tình trạng tĩnh → KHÔNG dùng V-ing.</div><div class="formula-line">Nhưng khi nghĩa chuyển sang <b>hành động</b>, <b>hành vi tạm thời</b> hoặc <b>trải nghiệm đang diễn ra</b>, dạng tiếp diễn có thể đúng.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Cảm xúc / suy nghĩ</div><div class="usage-desc">love, like, hate, want, need, prefer, believe, know, understand, remember, forget, mean</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Sở hữu / tồn tại</div><div class="usage-desc">have (sở hữu), own, possess, belong, contain, consist, exist</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Giác quan</div><div class="usage-desc">see, hear, smell, taste, feel, seem, appear, sound, look</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Một số có 2 nghĩa</div><div class="usage-desc">have (sở hữu) tĩnh / having lunch (động); think (cho rằng) tĩnh / thinking about (động)</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Bẫy &amp; ngoại lệ</div><div class="signal-tags"><span class="signal-tag">I am loving it: có thể gặp trong slogan/khẩu ngữ giàu cảm xúc</span><span class="signal-tag">I'm understanding ❌ → I understand ✓</span><span class="signal-tag">You're being rude = hành vi tạm thời, không phải tính cách cố định</span><span class="signal-tag">I'm seeing the dentist tomorrow = see mang nghĩa gặp / hẹn</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-going-vs-will">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Will vs Be Going To</span><span class="acc-en">Hai cách diễn đạt tương lai</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Phân biệt</div><div class="formula-line"><b>will</b> → quyết định ngay lúc nói, dự đoán dựa trên ý kiến, lời hứa</div><div class="formula-line"><b>be going to</b> → kế hoạch đã quyết định từ trước, dự đoán dựa trên dấu hiệu hiện tại</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">will (quyết tức thì)</div><div class="usage-ex">— The phone is ringing. — I'll get it!</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">going to (kế hoạch)</div><div class="usage-ex">I'm going to study abroad next year.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">going to (dấu hiệu)</div><div class="usage-ex">Look at those clouds! It's going to rain.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">will (dự đoán quan điểm)</div><div class="usage-ex">I think it will be sunny tomorrow.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Cách khác</div><div class="signal-tags"><span class="signal-tag">Present Continuous → kế hoạch chắc chắn (I'm meeting her at 5)</span><span class="signal-tag">Present Simple → lịch trình cố định (The train leaves at 7)</span><span class="signal-tag">be about to → sắp ngay tức thì</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-semi-modals">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Semi-modals</span><span class="acc-en">had better / would rather / dare / need</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">4 semi-modal cốt lõi</div><div class="formula-line"><b>had better (+ V):</b> tốt hơn nên — cảnh báo, lời khuyên mạnh</div><div class="formula-line"><b>would rather (+ V):</b> thà... hơn — sở thích</div><div class="formula-line"><b>need (+ V):</b> cần (dùng như modal trong câu phủ định/hỏi: needn't / Need I?)</div><div class="formula-line"><b>dare (+ V):</b> dám (Dare you ask?)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">had better</div><div class="usage-ex">You'd better leave now (or you'll be late).</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">would rather + V</div><div class="usage-ex">I'd rather stay home tonight.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">would rather + S + V (past)</div><div class="usage-ex">I'd rather you didn't smoke here.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">needn't have V3</div><div class="usage-ex">You needn't have brought a gift.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-narrative">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Narrative / Historical Present</span><span class="acc-en">Hiện tại kể chuyện</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Khi nào</div><div class="formula-line">Dùng Present Simple để kể chuyện quá khứ sống động hơn — báo chí, phim, chỉ dẫn, tóm tắt sách.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Tin tức</div><div class="usage-ex">President signs new law. (thay vì signed)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Tóm tắt phim</div><div class="usage-ex">Romeo meets Juliet at the ball.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Kể chuyện hài</div><div class="usage-ex">So I walk in, and he says...</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-sequence-tenses">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Sequence of Tenses</span><span class="acc-en">Sự phối hợp thì trong câu phức</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Logic lõi</div><div class="formula-line"><b>Main clause ở hiện tại</b> → mệnh đề phụ linh hoạt theo ngữ cảnh.</div><div class="formula-line"><b>Main clause ở quá khứ</b> → mệnh đề phụ thường lùi về past / past perfect / would.</div><div class="formula-line"><b>Ngoại lệ:</b> chân lý, định nghĩa, sự thật còn đúng → có thể giữ hiện tại.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Reported speech</div><div class="usage-ex">She said that she was tired.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Chân lý giữ hiện tại</div><div class="usage-ex">The teacher said that water boils at 100°C.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Tương lai nhìn từ quá khứ</div><div class="usage-ex">I knew that he would call me.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Time clause vẫn có quy tắc riêng</div><div class="usage-ex">I knew he would call when he arrived.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Mẹo quyết định nhanh</div><div class="signal-tags"><span class="signal-tag">Xác định mốc thời gian gốc trước</span><span class="signal-tag">Không lùi thì máy móc với chân lý</span><span class="signal-tag">Time clause ≠ reported speech</span></div></div>
+    </div></div>
+  </div>
+
+  <h3 style="color:#58a6ff;margin:1.5rem 0 0.75rem 0">⏰ Have got, Used to & giới từ thời gian</h3>
+
+  <div class="accordion-item" id="ex-have-got">
+    <div class="accordion-header">
+      <span class="acc-badge badge-basic">Cơ bản</span>
+      <span class="acc-title">Have / Have got</span>
+      <span class="acc-en">Two ways to say "have"</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Tương đương</div><div class="formula-line">I have a car. = I've got a car.</div><div class="formula-line">Don't have / Haven't got | Do you have? / Have you got?</div><div class="formula-note">Quá khứ chỉ dùng <b>had</b> (không dùng "had got").</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">have to vs have got to</div><div class="usage-desc">have to: nghĩa vụ chung. have got to: nghĩa vụ ngay lúc này, văn nói.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Bẫy</div><div class="usage-desc">Không dùng have got cho hành động (eat, drink, take...).</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-used-to">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Used to / Be used to / Get used to</span>
+      <span class="acc-en">3 cấu trúc dễ nhầm</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 cấu trúc</div><div class="formula-line"><b>used to + V</b> → thói quen QUÁ KHỨ, nay không còn</div><div class="formula-line"><b>be used to + V-ing/N</b> → đã quen rồi</div><div class="formula-line"><b>get used to + V-ing/N</b> → đang dần quen</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">used to</div><div class="usage-ex">I used to smoke.</div><div class="usage-ex-vi">Trước đây tôi hút thuốc.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">be used to</div><div class="usage-ex">I am used to getting up early.</div><div class="usage-ex-vi">Tôi đã quen dậy sớm.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">get used to</div><div class="usage-ex">I'm getting used to the cold.</div><div class="usage-ex-vi">Tôi đang dần quen với cái lạnh.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Lưu ý</div><div class="signal-tags"><span class="signal-tag">Did you USE to (không "d")</span><span class="signal-tag">be/get used TO + V-ing</span><span class="signal-tag">would: chỉ cho hành động lặp</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-time-prep">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">For / Since / During / While / By / Until</span>
+      <span class="acc-en">Time prepositions deep dive</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Bộ giới từ thời gian</div><div class="formula-line"><b>for</b> + khoảng | <b>since</b> + mốc bắt đầu</div><div class="formula-line"><b>during</b> + N | <b>while</b> + clause</div><div class="formula-line"><b>by</b> + hạn cuối | <b>until/till</b> + tới khi nào</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">for vs since</div><div class="usage-ex">for 5 years vs since 2020</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">during vs while</div><div class="usage-ex">during the film vs while I watched</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">by vs until</div><div class="usage-ex">Submit by Friday. / Wait until 5pm.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">ago vs before</div><div class="usage-ex">2 days ago vs 2 days before he left</div></div>
+      </div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     CÂU HỎI, CẢM THÁN & LIÊN KẾT
+     ================================================== -->
+<section class="grammar-section" id="cohesion">
+  <div class="section-header">
+    <span class="section-icon">🧩</span>
+    <h2 class="section-title">Câu Hỏi, Cảm Thán &amp; Liên Kết</h2>
+    <span class="section-sub">Question forms, negation, discourse markers, ellipsis</span>
+  </div>
+
+  <div class="accordion-item" id="ex-yesno-q">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Yes/No Questions</span><span class="acc-en">Câu hỏi có/không</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line"><b>Aux/Be + S + V</b> ?</div><div class="formula-line">Nếu không có aux/be, mượn do/does/did.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Be</div><div class="usage-ex">Are you tired? — Yes, I am.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Modal</div><div class="usage-ex">Can you swim? — Yes, I can.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Do-support</div><div class="usage-ex">Do you like coffee? — No, I don't.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Negative Q</div><div class="usage-ex">Don't you like it? (kỳ vọng có)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-wh-q">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Wh-Questions</span><span class="acc-en">Who/What/Where/When/Why/How</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai khung</div><div class="formula-line"><b>Wh + Aux + S + V?</b> (hỏi về tân ngữ/ngữ cảnh) — What did you eat?</div><div class="formula-line"><b>Wh + V?</b> (Wh là chủ ngữ, không đảo) — Who broke it?</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Hỏi về chủ ngữ</div><div class="usage-ex">Who called you? (no "did")</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Hỏi về tân ngữ</div><div class="usage-ex">Who(m) did you call?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">How + adj/adv</div><div class="usage-ex">How tall? How often? How much?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Prep ở cuối</div><div class="usage-ex">Who are you talking to?</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-embedded-q">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Embedded / Indirect Questions</span><span class="acc-en">Câu hỏi gián tiếp</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Quy tắc vàng</div><div class="formula-line">Trong câu hỏi gián tiếp, <b>KHÔNG đảo ngữ</b>, KHÔNG dùng do/does/did.</div><div class="formula-line">Yes/No → if/whether + S + V. Wh → wh + S + V.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Gián tiếp wh</div><div class="usage-ex">Could you tell me where the bank is?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Gián tiếp yes/no</div><div class="usage-ex">I wonder if she will come.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Sai phổ biến</div><div class="usage-ex">Tell me where IS the bank ❌ → where the bank IS ✓</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-negation">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Negation Patterns</span><span class="acc-en">no, not, none, never, hardly, scarcely</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Các cách phủ định</div><div class="formula-line"><b>not:</b> đứng sau aux/be (don't, isn't, can't)</div><div class="formula-line"><b>no + N:</b> phủ định mạnh (I have no idea)</div><div class="formula-line"><b>none / nobody / nothing / never / nowhere:</b> đại từ/trạng từ phủ định, dùng với V dạng khẳng định</div><div class="formula-line"><b>hardly / scarcely / barely:</b> hầu như không (= almost not)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">no vs not any</div><div class="usage-ex">I have no money. = I don't have any money.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Double negative ❌</div><div class="usage-ex">I don't know nothing → I don't know anything ✓</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Hardly = phủ định</div><div class="usage-ex">I hardly ever go out. (tag = do I?)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Phạm vi phủ định</div><div class="usage-ex">I don't think she will come (NOT "I think she won't").</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <h3 style="color:#58a6ff;margin:1.5rem 0 0.75rem 0">🧩 Tag question, cảm thán, liên kết</h3>
+
+  <div class="accordion-item" id="ex-tag-q">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Tag Questions</span>
+      <span class="acc-en">Câu hỏi đuôi</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Quy tắc</div><div class="formula-line">Câu (+) → tag (–) | Câu (–) → tag (+)</div><div class="formula-line">Lặp lại trợ động từ / be; nếu không có → dùng do/does/did</div><div class="formula-note">Đặc biệt: I am... → aren't I? | Let's... → shall we?</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Khẳng → Phủ</div><div class="usage-ex">You're a doctor, aren't you?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Phủ → Khẳng</div><div class="usage-ex">She doesn't smoke, does she?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Ngữ điệu</div><div class="usage-desc">↘ mong đồng ý | ↗ thật sự hỏi</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Never/Hardly</div><div class="usage-ex">He never lies, does he? (tag +)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-discourse">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Linking Words &amp; Discourse Markers</span>
+      <span class="acc-en">Từ nối văn viết</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Phân nhóm theo mục đích</div><div class="formula-line"><b>Bổ sung:</b> moreover, furthermore, in addition, besides</div><div class="formula-line"><b>Tương phản:</b> however, nevertheless, on the other hand</div><div class="formula-line"><b>Kết quả:</b> therefore, thus, hence, as a result</div><div class="formula-line"><b>Ví dụ:</b> for example, for instance, namely</div><div class="formula-line"><b>Tóm tắt:</b> in short, in conclusion, overall</div><div class="formula-line"><b>Trình tự:</b> first, then, next, finally</div></div>
+      <div class="signal-box"><div class="signal-title">Dấu câu</div><div class="signal-tags"><span class="signal-tag">However + dấu phẩy</span><span class="signal-tag">However ≠ liên từ</span><span class="signal-tag">; however,</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-hedges-boosters">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Hedges &amp; Boosters</span>
+      <span class="acc-en">Làm mềm và làm mạnh phát ngôn</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai nhóm</div><div class="formula-line"><b>Hedges:</b> perhaps, probably, somewhat, relatively, seem to, tend to</div><div class="formula-line"><b>Boosters:</b> clearly, certainly, definitely, indeed, absolutely</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Hedge trong academic writing</div><div class="usage-ex">This may suggest a broader trend.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Booster có bằng chứng</div><div class="usage-ex">The results clearly indicate a decline.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Giảm va chạm</div><div class="usage-ex">It seems a bit unclear at this stage.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Tránh overclaim</div><div class="usage-ex">This proves... ❌ khi bằng chứng chưa đủ mạnh.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-politeness">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Politeness &amp; Indirectness</span>
+      <span class="acc-en">Mức độ trực tiếp trong giao tiếp</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Direct → Polite</div><div class="formula-line">Open the window. → <b>Can you</b> open the window? → <b>Could you</b> open the window, please? → <b>I was wondering if you could</b> open the window.</div><div class="formula-line"><b>Would you mind + V-ing</b> / <b>I wanted to ask whether...</b> giúp câu mềm hơn.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Yêu cầu lịch sự</div><div class="usage-ex">Could you send me the file when you have a moment?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Hỏi gián tiếp</div><div class="usage-ex">Do you happen to know where the meeting room is?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Từ chối mềm</div><div class="usage-ex">I'm afraid that won't be possible today.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Lưu ý</div><div class="usage-ex">Would you mind closing the door? (mind + V-ing)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-information-flow">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Information Flow &amp; End-weight</span>
+      <span class="acc-en">Đặt phần nhẹ trước, phần nặng sau</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Nguyên tắc</div><div class="formula-line">Tiếng Anh thích đưa thông tin <b>ngắn / quen / nhẹ</b> lên trước và để phần <b>dài / mới / nặng</b> ở cuối câu.</div><div class="formula-line"><b>it / there</b> thường được dùng để đẩy mệnh đề hoặc cụm dài ra sau.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Extraposition với it</div><div class="usage-ex">It is important to understand the risks.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Existential there</div><div class="usage-ex">There are several reasons why the plan failed.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Heavy-first kém tự nhiên</div><div class="usage-ex">To understand the risks of the plan is important.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">End-focus</div><div class="usage-ex">Điểm nhấn thường rơi ở cuối câu, nơi thông tin mới xuất hiện.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-exclamatory">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Câu Cảm Thán</span>
+      <span class="acc-en">What / How / So / Such</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai khung chính</div><div class="formula-line"><b>What</b> (+ a/an) + adj + N!</div><div class="formula-line"><b>How</b> + adj/adv (+ S + V)!</div><div class="formula-line"><b>So/Such:</b> It's such a nice day! / He's so kind!</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">What + N đếm được</div><div class="usage-ex">What a great idea!</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">What + N không đếm</div><div class="usage-ex">What nice weather!</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">How + adj</div><div class="usage-ex">How wonderful!</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-substitution">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Substitution &amp; Ellipsis</span>
+      <span class="acc-en">Tránh lặp bằng so/do/one</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Từ thay thế</div><div class="formula-line"><b>so / not</b> sau think, hope, expect: I think so. / I'm afraid not.</div><div class="formula-line"><b>do / does / did</b> thay cả cụm động từ: She runs faster than I do.</div><div class="formula-line"><b>one / ones</b> thay danh từ đếm được: the red one(s)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">So + aux + S</div><div class="usage-ex">I'm tired. — So am I.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Neither + aux + S</div><div class="usage-ex">I don't know. — Neither do I.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Lược bỏ</div><div class="usage-ex">She's taller than her brother (is).</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-correlative">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">The more... the more...</span>
+      <span class="acc-en">Comparative correlatives</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Cấu trúc "càng... càng..."</div><div class="formula-line"><b>The</b> + comparative + S + V, <b>the</b> + comparative + S + V</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Tính từ ngắn</div><div class="usage-ex">The harder you study, the better you score.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Tính từ dài</div><div class="usage-ex">The more expensive, the more luxurious.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Lược văn nói</div><div class="usage-ex">The sooner, the better.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     CẤU TRÚC NÂNG CAO
+     ================================================== -->
+<section class="grammar-section" id="adv-structures">
+  <div class="section-header">
+    <span class="section-icon">🏗️</span>
+    <h2 class="section-title">Cấu Trúc Nâng Cao</h2>
+    <span class="section-sub">Inversion, fronting, emphasis, causative, cleft, subjunctive</span>
+  </div>
+
+  <div class="accordion-item" id="ex-inversion-neg">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Inversion sau Negative Adverbials</span><span class="acc-en">Đảo ngữ sau trạng từ phủ định</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line"><b>NEG ADV + AUX + S + V</b> (giống cấu trúc câu hỏi)</div><div class="formula-line">Trạng từ phủ định: never, rarely, seldom, hardly, scarcely, barely, no sooner, not only, not until, little, on no account, under no circumstances, only then, only after, only when</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Never</div><div class="usage-ex">Never have I seen such beauty.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Hardly...when</div><div class="usage-ex">Hardly had I arrived when it started raining.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">No sooner...than</div><div class="usage-ex">No sooner had he left than she called.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Not only...but also</div><div class="usage-ex">Not only is he kind, but he is also rich.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Only when/after</div><div class="usage-ex">Only after she left did I realize.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-fronting">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Fronting (Đưa Lên Đầu Câu)</span><span class="acc-en">Đảo trật tự nhấn mạnh</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Mẫu</div><div class="formula-line">Đưa <b>tân ngữ / bổ ngữ / trạng ngữ</b> lên đầu câu để nhấn mạnh hoặc tạo mạch.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Tân ngữ</div><div class="usage-ex">That book, I have already read.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Trạng từ chỉ nơi → đảo</div><div class="usage-ex">In the corner stood an old man.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Bổ ngữ</div><div class="usage-ex">So beautiful was the view that we stayed.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Khi nào tự nhiên</div><div class="signal-tags"><span class="signal-tag">Mạnh trong văn kể chuyện, báo chí, diễn văn</span><span class="signal-tag">Locative inversion giúp để chủ ngữ dài xuống cuối</span><span class="signal-tag">Văn nói thường ngày ít dùng hơn</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-complex-inversion">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Complex Inversion</span><span class="acc-en">Đảo ngữ với cụm hướng / địa điểm phức tạp</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Khung điển hình</div><div class="formula-line"><b>Place/Direction phrase + Verb + full subject</b></div><div class="formula-line">Hay gặp với: come, go, walk, run, stand, sit, lie, hang, roll</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Direction</div><div class="usage-ex">Into the room walked the man we had been waiting for.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Movement</div><div class="usage-ex">Down the hill rolled the cart.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Location</div><div class="usage-ex">On the wall hung a portrait of her grandfather.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Restriction</div><div class="usage-ex">Tự nhiên nhất với noun phrase đầy đủ, không phải he/she/they.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-do-emphasis">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Do/Does/Did Nhấn Mạnh</span><span class="acc-en">Emphatic do</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line"><b>S + do/does/did + V (bare)</b> → khẳng định nhấn mạnh, đáp lại nghi ngờ</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Đáp lại nghi ngờ</div><div class="usage-ex">— You don't love me. — I DO love you!</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Mệnh lệnh nhấn</div><div class="usage-ex">Do come in! / Do sit down.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Đối lập</div><div class="usage-ex">She doesn't sing well, but she does dance beautifully.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-causative">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Causative (Have/Get Something Done)</span><span class="acc-en">Câu nhờ vả / sai khiến</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 dạng</div><div class="formula-line"><b>have + O + V (bare):</b> nhờ ai đó làm gì — I had John fix my car.</div><div class="formula-line"><b>get + O + to-V:</b> thuyết phục ai làm — I got him to fix it.</div><div class="formula-line"><b>have/get + O + V3:</b> nhờ làm cho mình (không cần biết ai làm) — I had my hair cut.</div><div class="formula-line"><b>make + O + V (bare):</b> bắt ai làm — She made me cry.</div><div class="formula-line"><b>let + O + V (bare):</b> cho phép — Let me go.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">have/get + V3</div><div class="usage-ex">I'll have my watch repaired tomorrow.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Bị động make</div><div class="usage-ex">She was made to apologize. (cần "to" trong bị động!)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <h3 style="color:#58a6ff;margin:1.5rem 0 0.75rem 0">🏗️ Phrasal verb, verb pattern, conditional, cleft</h3>
+
+  <div class="accordion-item" id="ex-phrasal-v">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Phrasal Verbs</span>
+      <span class="acc-en">Động từ + tiểu từ</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">4 loại phrasal verb</div><div class="formula-line"><b>1. Intransitive:</b> không có tân ngữ — break down, get up</div><div class="formula-line"><b>2. Transitive separable:</b> turn the light off / turn it off</div><div class="formula-line"><b>3. Transitive inseparable:</b> look after the kids / look after them</div><div class="formula-line"><b>4. 3 từ (V+adv+prep):</b> look forward to, put up with, get along with</div><div class="formula-line"><b>Particle families:</b> up = hoàn tất/tăng, out = lộ ra/hết, off = tách/hủy, down = giảm/ghi lại</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">get</div><div class="usage-ex">get up, get on, get over, get rid of</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">take</div><div class="usage-ex">take off, take after, take care of</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">put</div><div class="usage-ex">put on, put off, put up with</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">look</div><div class="usage-ex">look up, look after, look forward to</div></div>
+      </div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Công việc</div><div class="usage-ex">carry out a plan, follow up an email, hand in a report</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Học tập</div><div class="usage-ex">look up a word, go over notes, catch up on lessons</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Đời sống</div><div class="usage-ex">wake up, drop by, eat out, pick up the kids</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Quan hệ</div><div class="usage-ex">get along with, fall out with, make up with</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Mẹo</div><div class="signal-tags"><span class="signal-tag">Đại từ bắt buộc đặt giữa: turn it off (✓)</span><span class="signal-tag">Văn trang trọng → postpone / discover / abandon</span><span class="signal-tag">Học theo tiểu từ + chủ đề</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-verb-patterns">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Verb Patterns</span>
+      <span class="acc-en">Mỗi động từ đòi cấu trúc riêng</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">7 mẫu thường gặp</div><div class="formula-line"><b>V + to-V:</b> want, decide, hope, plan, agree, refuse</div><div class="formula-line"><b>V + V-ing:</b> enjoy, finish, avoid, mind, suggest</div><div class="formula-line"><b>V + O + to-V:</b> tell, ask, want, allow, force, advise</div><div class="formula-line"><b>V + O + V (bare):</b> let, make, help, see, hear, watch</div><div class="formula-line"><b>V + that-clause:</b> think, believe, say, know, hope</div><div class="formula-line"><b>V + wh-clause:</b> know, ask, wonder, decide</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">remember</div><div class="usage-desc">to do = nhớ phải / doing = nhớ đã</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">stop</div><div class="usage-desc">to do = dừng để / doing = ngừng làm</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">try</div><div class="usage-desc">to do = cố gắng / doing = thử xem</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">need</div><div class="usage-desc">to do = cần làm / doing = cần được làm</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-mixed-cond">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Mixed &amp; Inverted Conditionals</span>
+      <span class="acc-en">Điều kiện hỗn hợp / đảo ngữ</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Mixed (hỗn hợp)</div><div class="formula-line"><b>3→2:</b> If + had V3, would V (quá khứ → hiện tại)</div><div class="formula-line"><b>2→3:</b> If + V2, would have V3 (hiện tại → quá khứ)</div></div>
+      <div class="formula-box"><div class="formula-title">Inverted (đảo ngữ — trang trọng)</div><div class="formula-line"><b>Should</b> you need help, please call.</div><div class="formula-line"><b>Were</b> I in your shoes, I would accept.</div><div class="formula-line"><b>Had</b> I known, I would have come.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Mixed 3→2</div><div class="usage-ex">If I had studied medicine, I would be a doctor now.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Thay if</div><div class="usage-desc">unless, provided, as long as, suppose, but for</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-cleft">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Cleft &amp; Pseudo-cleft Sentences</span>
+      <span class="acc-en">Câu chẻ đôi nhấn mạnh</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai khung</div><div class="formula-line"><b>It-cleft:</b> It + be + X + that/who + ...</div><div class="formula-line"><b>Wh-cleft:</b> What + clause + be + X</div><div class="formula-line"><b>All-cleft:</b> All + S + V + be + X</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Nhấn người</div><div class="usage-ex">It was John who broke the vase.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Nhấn thời gian</div><div class="usage-ex">It was yesterday that John broke it.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Pseudo</div><div class="usage-ex">What I need is more time.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">All</div><div class="usage-ex">All I want is peace.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-reduced-rel">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Reduced Relative Clauses</span>
+      <span class="acc-en">Rút gọn mệnh đề quan hệ</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 dạng rút gọn</div><div class="formula-line">who/which + be + V-ing → <b>V-ing</b> (chủ động)</div><div class="formula-line">who/which + be + V3 → <b>V3</b> (bị động)</div><div class="formula-line">who/which + can/should + V → <b>to-V</b></div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Chủ động</div><div class="usage-ex">The man standing over there is my dad.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Bị động</div><div class="usage-ex">The book written by him is famous.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Misplaced</div><div class="usage-ex">Walking down the street, the building looked beautiful. (sai)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-reducing-adv">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Reducing Adverbial Clauses</span>
+      <span class="acc-en">Rút gọn mệnh đề trạng ngữ</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">4 dạng chính</div><div class="formula-line"><b>After/Before/While + S + V</b> → after/before/while + <b>V-ing</b></div><div class="formula-line"><b>Because/Since/As + be + adj/V3</b> → <b>adj / V3 phrase</b></div><div class="formula-line"><b>After + had + V3</b> → <b>Having + V3</b></div><div class="formula-line"><b>Điều kiện bắt buộc:</b> 2 mệnh đề phải cùng chủ ngữ logic</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">After finishing...</div><div class="usage-ex">After finishing the report, she sent it.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Warned in advance...</div><div class="usage-ex">Warned in advance, he avoided the mistake.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Having completed...</div><div class="usage-ex">Having completed the survey, they analyzed the data.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Dangling participle</div><div class="usage-ex">While driving home, the rain started. ❌</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Lưu ý</div><div class="signal-tags"><span class="signal-tag">Chỉ rút gọn khi cùng chủ ngữ</span><span class="signal-tag">Formal writing dùng rất nhiều</span><span class="signal-tag">Không rút nếu gây mơ hồ</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-subjunctive">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Subjunctive Mood</span>
+      <span class="acc-en">Thức giả định</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line">S + suggest/insist/recommend + that + S + <b>V (bare)</b></div><div class="formula-line">It is essential/important/vital + that + S + <b>V (bare)</b></div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Sau động từ</div><div class="usage-desc">suggest, recommend, insist, demand, request, propose, urge, require</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Sau tính từ</div><div class="usage-desc">essential, important, vital, necessary, crucial, imperative</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Ví dụ</div><div class="usage-ex">I suggest that he be on time.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Cụm cố định</div><div class="usage-ex">If I were you / Long live the king!</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Anh-Mỹ vs Anh-Anh</div><div class="signal-tags"><span class="signal-tag">Mỹ: I insist that he go.</span><span class="signal-tag">Anh: I insist that he should go.</span><span class="signal-tag">Formal writing dùng rất nhiều sau essential / vital / imperative</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-archaisms">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Archaisms in Modern Grammar</span>
+      <span class="acc-en">Lest, be that as it may, come what may</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Các mẫu cổ còn gặp</div><div class="formula-line"><b>lest + clause:</b> kẻo, để khỏi</div><div class="formula-line"><b>be that as it may:</b> dù vậy đi nữa</div><div class="formula-line"><b>come what may / so be it:</b> dù chuyện gì xảy ra / đành vậy</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">lest</div><div class="usage-ex">He spoke softly lest he should wake the baby.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Nhượng bộ</div><div class="usage-ex">Be that as it may, we must continue.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Cụm cố định</div><div class="usage-ex">Come what may. / So be it.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Lưu ý</div><div class="usage-ex">Hiểu để đọc tốt; đừng lạm dụng trong email hay hội thoại thường.</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-academic-style">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Academic Grammar: Nominalization &amp; Gerund Subjects</span>
+      <span class="acc-en">Ngữ pháp học thuật</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 công cụ chính</div><div class="formula-line"><b>Nominalization:</b> decide → decision, improve → improvement</div><div class="formula-line"><b>Gerund subject:</b> <b>Studying abroad</b> requires adaptability.</div><div class="formula-line"><b>Objective tone:</b> The analysis of the data revealed...</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Danh hóa</div><div class="usage-ex">The decision to invest was controversial.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Gerund làm chủ ngữ</div><div class="usage-ex">Reducing waste requires long-term planning.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Report style</div><div class="usage-ex">A careful analysis of the data was conducted.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Đừng nặng quá</div><div class="usage-ex">The making of improvements... ❌ → Improving... ✓</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Khi nào dùng</div><div class="signal-tags"><span class="signal-tag">Essay / report / academic paragraph</span><span class="signal-tag">Muốn giọng văn khách quan hơn</span><span class="signal-tag">Tránh danh hóa quá mức</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-registers">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Grammar Registers</span>
+      <span class="acc-en">BrE vs AmE, formal vs informal</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Cùng ý, khác register</div><div class="formula-line"><b>BrE spoken:</b> Have you got a pen?</div><div class="formula-line"><b>AmE neutral:</b> Do you have a pen?</div><div class="formula-line"><b>Formal writing:</b> postpone / obtain / therefore</div><div class="formula-line"><b>Informal speech:</b> put off / get / so</div><div class="formula-line"><b>BrE collective nouns:</b> The team <b>are</b> winning.</div><div class="formula-line"><b>AmE collective nouns:</b> The team <b>is</b> winning.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">BrE vs AmE</div><div class="usage-ex">I've just eaten. / I just ate.</div><div class="usage-ex">at the weekend / on the weekend</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Subjunctive</div><div class="usage-ex">he should go (BrE) / he go (AmE)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Formal</div><div class="usage-ex">The findings indicate... / conduct research</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Informal</div><div class="usage-ex">find out / kids / have got / anyway</div><div class="usage-ex">Monday through Friday / in the hospital</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Mẹo chọn cấu trúc</div><div class="signal-tags"><span class="signal-tag">Essay → formal</span><span class="signal-tag">Conversation → natural/informal</span><span class="signal-tag">BrE giữ Present Perfect mạnh hơn với just/already/yet</span><span class="signal-tag">Không trộn register quá mạnh trong cùng đoạn</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-modal-perf">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Modal Perfect</span>
+      <span class="acc-en">must have / should have / could have...</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Công thức</div><div class="formula-line">modal + <b>have + V3</b> → nói về QUÁ KHỨ</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">must have V3</div><div class="usage-ex">It must have rained. (suy luận chắc)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">can't have V3</div><div class="usage-ex">She can't have seen me. (không thể)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">might/could have V3</div><div class="usage-ex">He might have forgotten. (50/50)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">should have V3</div><div class="usage-ex">You should have called. (tiếc nuối)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">needn't have V3</div><div class="usage-ex">You needn't have cooked. (lỡ làm)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">would have V3</div><div class="usage-ex">I would have come if I'd known.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Chính tả</div><div class="signal-tags"><span class="signal-tag">could of ❌ → could have ✓</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-direct-indirect">
+    <div class="accordion-header">
+      <span class="acc-badge badge-mid">Trung cấp</span>
+      <span class="acc-title">Direct &amp; Indirect Objects</span>
+      <span class="acc-en">Động từ 2 tân ngữ</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Hai trật tự</div><div class="formula-line">S + V + <b>IO</b> + <b>DO</b>: She gave me a book.</div><div class="formula-line">S + V + <b>DO</b> + <b>to/for</b> + IO: She gave a book to me.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">to</div><div class="usage-desc">give, send, tell, show, lend, offer, teach, write</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">for</div><div class="usage-desc">buy, make, cook, get, find, build, save, order</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Chỉ dùng "to + IO"</div><div class="usage-desc">explain, describe, suggest, mention, introduce, announce</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Bị động</div><div class="usage-ex">I was given a book. / A book was given to me.</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Bẫy</div><div class="signal-tags"><span class="signal-tag">She explained me the lesson ❌</span><span class="signal-tag">She explained the lesson to me ✓</span></div></div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     PHÁT ÂM NÂNG CAO
+     ================================================== -->
+<section class="grammar-section" id="pron-extra">
+  <div class="section-header">
+    <span class="section-icon">🗣️</span>
+    <h2 class="section-title">Phát Âm Nâng Cao</h2>
+    <span class="section-sub">Stress, intonation, connected speech</span>
+  </div>
+
+  <div class="accordion-item" id="ex-word-stress">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Word Stress (Trọng Âm Từ)</span><span class="acc-en">Quy tắc đánh dấu trọng âm</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">5 quy tắc cơ bản</div><div class="formula-line">1. Danh từ/tính từ 2 âm tiết → trọng âm thường ở âm tiết <b>đầu</b>: TAble, HAPpy</div><div class="formula-line">2. Động từ 2 âm tiết → thường ở âm tiết <b>cuối</b>: deCIDE, beGIN</div><div class="formula-line">3. Cặp danh-động giống nhau: PREsent (n) vs preSENT (v); CONduct (n) vs conDUCT (v)</div><div class="formula-line">4. Hậu tố -tion/-sion/-ic/-ical/-ity → trọng âm rơi vào âm tiết <b>ngay trước</b>: naTION, ecoNOmic, cuRIosity</div><div class="formula-line">5. Hậu tố -ate/-ize/-fy/-ary → trọng âm thường lùi <b>2 âm tiết</b>: COMmunicate, ORganize</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Compound nouns</div><div class="usage-ex">BLACKboard, COFfee shop (trọng âm trước)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Compound adj</div><div class="usage-ex">good-LOOKing, well-KNOWN (trọng âm sau)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-sentence-stress">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Sentence Stress</span><span class="acc-en">Trọng âm câu</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Quy tắc</div><div class="formula-line"><b>Content words</b> (N, V chính, Adj, Adv, đại từ chỉ định, đại từ nghi vấn) → <b>nhấn mạnh</b></div><div class="formula-line"><b>Function words</b> (a/an/the, in/on/of, is/are/was, can/will, but/and) → <b>yếu, schwa /ə/</b></div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Stress thông thường</div><div class="usage-ex">I WANT to GO to the BEACH toMORrow.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Contrastive stress</div><div class="usage-ex">I want THIS one, not THAT one.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Tin mới quan trọng</div><div class="usage-ex">Stress đặt ở thông tin mới (focus).</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-intonation">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Intonation (Ngữ Điệu)</span><span class="acc-en">Rising / Falling / Fall-rise</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 mẫu chính</div><div class="formula-line"><b>Falling ↘:</b> trần thuật, mệnh lệnh, wh-question, kết thúc dứt khoát</div><div class="formula-line"><b>Rising ↗:</b> yes/no question, liệt kê chưa hết, lịch sự nhẹ</div><div class="formula-line"><b>Fall-rise ↘↗:</b> nghi ngờ, do dự, tế nhị</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Trần thuật ↘</div><div class="usage-ex">She lives in Hanoi↘.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Yes/No ↗</div><div class="usage-ex">Are you ready↗?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Wh ↘</div><div class="usage-ex">Where do you live↘?</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Liệt kê ↗ ↗ ↘</div><div class="usage-ex">apples↗, oranges↗, and bananas↘</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Tag question</div><div class="usage-ex">↘ kỳ vọng đồng ý / ↗ thực sự hỏi</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <h3 style="color:#58a6ff;margin:1.5rem 0 0.75rem 0">🗣️ Connected speech</h3>
+
+  <div class="accordion-item" id="ex-connected-speech">
+    <div class="accordion-header">
+      <span class="acc-badge badge-adv">Nâng cao</span>
+      <span class="acc-title">Connected Speech &amp; Weak Forms</span>
+      <span class="acc-en">Nối âm, nuốt âm, ngữ điệu</span>
+      <span class="acc-arrow">▼</span>
+    </div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">4 hiện tượng chính</div><div class="formula-line"><b>Linking:</b> nối phụ âm cuối + nguyên âm đầu — turn off /tɜːʳ nɒf/</div><div class="formula-line"><b>Intrusion:</b> thêm /j/, /w/, /r/ — I am /aɪ jæm/</div><div class="formula-line"><b>Elision:</b> nuốt âm — next day /neks deɪ/</div><div class="formula-line"><b>Assimilation:</b> âm đổi — good boy /ɡʊb bɔɪ/</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Weak forms</div><div class="usage-desc">a, an, the, and, of, to, for, can, do, have... → schwa /ə/</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">can vs can't</div><div class="usage-desc">can yếu /kən/ | can't luôn mạnh /kɑːnt/</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Intonation</div><div class="usage-desc">↘ trần thuật / ↗ yes-no / ↘↗ nghi ngờ</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Sentence stress</div><div class="usage-desc">Nội dung (N/V/Adj/Adv) mạnh; ngữ pháp yếu</div></div>
+      </div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     CẤU TẠO TỪ & COLLOCATIONS
+     ================================================== -->
+<section class="grammar-section" id="word-form">
+  <div class="section-header">
+    <span class="section-icon">🧬</span>
+    <h2 class="section-title">Cấu Tạo Từ &amp; Collocations</h2>
+    <span class="section-sub">Prefixes, suffixes, compounding, conversion, false friends</span>
+  </div>
+
+  <div class="accordion-item" id="ex-prefixes">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Tiền Tố (Prefixes)</span><span class="acc-en">Đứng trước, thay đổi nghĩa</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Phân nhóm theo nghĩa</div><div class="formula-line"><b>Phủ định:</b> un- (unhappy), in-/im-/il-/ir- (impossible), dis- (disagree), non- (non-stop), mis- (misunderstand)</div><div class="formula-line"><b>Số lượng:</b> mono- (monorail), bi- (bicycle), tri- (triangle), multi- (multimedia)</div><div class="formula-line"><b>Mức độ:</b> over- (overeat), under- (underestimate), super- (superman), hyper- (hyperactive)</div><div class="formula-line"><b>Thời gian:</b> pre- (prepay), post- (postwar), re- (rewrite)</div><div class="formula-line"><b>Vị trí:</b> sub- (subway), inter- (international), trans- (transport), ex- (export)</div></div>
+      <div class="signal-box"><div class="signal-title">Quy tắc chính tả</div><div class="signal-tags"><span class="signal-tag">in- + l → il-: illegal</span><span class="signal-tag">in- + r → ir-: irregular</span><span class="signal-tag">in- + b/m/p → im-: impossible</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-suffixes">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Hậu Tố (Suffixes)</span><span class="acc-en">Đứng sau, chuyển từ loại</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Phân theo từ loại tạo ra</div><div class="formula-line"><b>→ Danh từ:</b> -tion (action), -ment (movement), -ness (happiness), -ity (ability), -er/-or (teacher), -ist (artist), -ism (heroism)</div><div class="formula-line"><b>→ Động từ:</b> -ize/-ise (modernize), -ify (clarify), -en (widen), -ate (activate)</div><div class="formula-line"><b>→ Tính từ:</b> -able (readable), -ful (useful), -less (hopeless), -ous (famous), -ive (active), -ish (childish), -al (natural)</div><div class="formula-line"><b>→ Trạng từ:</b> -ly (quickly), -ward(s) (forward), -wise (clockwise)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Chuỗi liên tục</div><div class="usage-ex">act → action → actional → actionally (theo nguyên tắc)</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">-ed vs -ing (adj)</div><div class="usage-desc">bored (cảm thấy chán) vs boring (gây chán)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-compounding">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Compounding (Ghép Từ)</span><span class="acc-en">N+N, Adj+N, V+Adv...</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 dạng viết</div><div class="formula-line"><b>Closed:</b> firefighter, smartphone, classroom</div><div class="formula-line"><b>Hyphenated:</b> mother-in-law, long-term, well-known</div><div class="formula-line"><b>Open:</b> high school, ice cream, post office</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">N + N</div><div class="usage-ex">bus stop, coffee cup, traffic light</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Adj + N</div><div class="usage-ex">blackboard, hot dog</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">V + N</div><div class="usage-ex">washing machine, swimming pool</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Số đếm + N</div><div class="usage-ex">a five-year-old boy (số nhiều mất "s" khi gạch nối)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-conversion">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Conversion (Chuyển Loại)</span><span class="acc-en">Cùng dạng, đổi từ loại</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Mẫu phổ biến</div><div class="formula-line"><b>N → V:</b> water (n) → to water (v) the plants</div><div class="formula-line"><b>V → N:</b> to run → a run; to call → a call</div><div class="formula-line"><b>Adj → V:</b> empty (adj) → to empty the bin</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Email/Google</div><div class="usage-ex">I'll email you. / Google it.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Trọng âm khác</div><div class="usage-ex">PREsent (n) vs preSENT (v)</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-collocations">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Collocations</span><span class="acc-en">Từ thường đi đôi</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Các kiểu collocation</div><div class="formula-line"><b>V + N:</b> make a decision, take a risk, do homework, have breakfast, give advice, pay attention</div><div class="formula-line"><b>Adj + N:</b> heavy traffic, strong coffee, fast food, deep sleep, high speed</div><div class="formula-line"><b>Adv + Adj:</b> highly recommended, deeply sorry, fully aware, well aware</div><div class="formula-line"><b>V + Prep:</b> depend on, listen to, look at, wait for, agree with, apologize for</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Writing học thuật</div><div class="usage-ex">conduct research, draw a conclusion, play a crucial role</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Công việc</div><div class="usage-ex">meet a deadline, hold a meeting, take responsibility</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Speaking hằng ngày</div><div class="usage-ex">make friends, catch a bus, pay by card, have a nap</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#bc8cff">Vấn đề xã hội</div><div class="usage-ex">raise awareness, reduce emissions, break the law</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Make vs Do (bẫy lớn)</div><div class="signal-tags"><span class="signal-tag">make: a decision/mistake/noise/effort/money/coffee/dinner/bed</span><span class="signal-tag">do: homework/laundry/dishes/business/exercise/the shopping/a favor</span><span class="signal-tag">Học theo chunk hoàn chỉnh</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-semantic-prosody">
+    <div class="accordion-header"><span class="acc-badge badge-adv">Nâng cao</span><span class="acc-title">Semantic Prosody</span><span class="acc-en">Màu nghĩa do ngữ cảnh đi kèm</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Ý chính</div><div class="formula-line">Một từ có thể mang sắc thái <b>tích cực / tiêu cực / trung tính</b> vì nó thường đi với loại ngữ cảnh đó.</div><div class="formula-line">Vì vậy từ đúng nghĩa từ điển chưa chắc đã đúng "màu" trong sử dụng thực tế.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Negative</div><div class="usage-ex">cause damage / cause concern / cause trouble</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Also negative</div><div class="usage-ex">panic set in / decay set in / bent on revenge</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Positive / neutral</div><div class="usage-ex">provide support / provide evidence / commitment to quality</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Writing choice</div><div class="usage-ex">bring about improvements ✓ / cause improvements △</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Mẹo</div><div class="signal-tags"><span class="signal-tag">Học luôn môi trường đi kèm, không chỉ nghĩa từng từ</span><span class="signal-tag">Semantic prosody giải thích vì sao có câu đúng từ điển nhưng vẫn nghe lạ</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-false-friends">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Confusing Pairs &amp; False Friends</span><span class="acc-en">Từ dễ nhầm</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Cặp đồng âm/đồng dạng</div><div class="formula-line"><b>its</b> (sở hữu của "it") vs <b>it's</b> (it is)</div><div class="formula-line"><b>your</b> (sở hữu) vs <b>you're</b> (you are)</div><div class="formula-line"><b>their / there / they're</b></div><div class="formula-line"><b>then</b> (sau đó) vs <b>than</b> (so sánh)</div><div class="formula-line"><b>affect</b> (v: ảnh hưởng) vs <b>effect</b> (n: tác động)</div><div class="formula-line"><b>lose</b> (v: mất) vs <b>loose</b> (adj: lỏng)</div><div class="formula-line"><b>accept</b> (chấp nhận) vs <b>except</b> (ngoại trừ)</div><div class="formula-line"><b>advice</b> (n) vs <b>advise</b> (v)</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">among vs between</div><div class="usage-desc">between: 2 đối tượng cụ thể. among: 3+ hoặc nhóm chung.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">few vs little</div><div class="usage-desc">few + đếm được. little + không đếm.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">fewer vs less</div><div class="usage-desc">fewer + đếm được. less + không đếm.</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">borrow vs lend</div><div class="usage-desc">borrow from (mượn). lend to (cho mượn).</div></div>
+      </div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
+     CHÍNH TẢ, DẤU CÂU & SỐ
+     ================================================== -->
+<section class="grammar-section" id="spelling-punc">
+  <div class="section-header">
+    <span class="section-icon">✏️</span>
+    <h2 class="section-title">Chính Tả, Dấu Câu &amp; Số</h2>
+    <span class="section-sub">Punctuation, capitalization, numbers, dates, apostrophe</span>
+  </div>
+
+  <div class="accordion-item" id="ex-punctuation">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Quy Tắc Dấu Câu</span><span class="acc-en">Comma, semicolon, colon, dash</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Comma (,)</div><div class="formula-line">- Liệt kê: red, white, and blue (Oxford comma tùy chọn)</div><div class="formula-line">- Sau mệnh đề trạng ngữ đầu câu: When I arrived, ...</div><div class="formula-line">- Trước FANBOYS nối hai mệnh đề độc lập: I came, and I saw.</div><div class="formula-line">- Mệnh đề quan hệ không xác định: My brother, who lives in NY, ...</div><div class="formula-line">- Bao chêm xen: The book, however, was great.</div></div>
+      <div class="formula-box"><div class="formula-title">Semicolon (;) vs Colon (:) vs Dash (—)</div><div class="formula-line"><b>;</b> nối 2 mệnh đề độc lập có liên quan: I came; I saw; I conquered.</div><div class="formula-line"><b>:</b> giới thiệu liệt kê, giải thích, trích dẫn: I need three things: pen, paper, ink.</div><div class="formula-line"><b>—</b> chêm xen mạnh, ngắt nhịp: She told me—and I believed her—that he was guilty.</div></div>
+      <div class="signal-box"><div class="signal-title">Lỗi phổ biến</div><div class="signal-tags"><span class="signal-tag">Comma splice: I came, I saw ❌ → I came; I saw ✓</span><span class="signal-tag">Run-on: I came I saw ❌</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-apostrophe">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Apostrophe (Dấu Phẩy Trên)</span><span class="acc-en">Sở hữu &amp; viết tắt</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 chức năng</div><div class="formula-line"><b>1. Sở hữu:</b> John's car / the children's toys / James's book (hoặc James')</div><div class="formula-line"><b>2. Số nhiều sở hữu:</b> the boys' room (đã có "s") / the men's room</div><div class="formula-line"><b>3. Viết tắt:</b> don't (do not), it's (it is), '90s (1990s), o'clock (of the clock)</div></div>
+      <div class="signal-box"><div class="signal-title">Bẫy lớn nhất</div><div class="signal-tags"><span class="signal-tag">its (sở hữu) ≠ it's (it is)</span><span class="signal-tag">whose ≠ who's</span><span class="signal-tag">KHÔNG dùng cho số nhiều: apple's ❌ → apples ✓</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-capitalization">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Quy Tắc Viết Hoa</span><span class="acc-en">Capitalization</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Khi nào viết hoa</div><div class="formula-line">- Đầu câu, đầu trích dẫn trực tiếp</div><div class="formula-line">- Đại từ <b>I</b> luôn viết hoa</div><div class="formula-line">- Tên riêng: người, địa danh, công ty, thương hiệu</div><div class="formula-line">- Quốc tịch, ngôn ngữ, tôn giáo: Vietnamese, English, Buddhism</div><div class="formula-line">- Ngày trong tuần, tháng, ngày lễ: Monday, January, Christmas</div><div class="formula-line">- Tiêu đề: viết hoa từ chính (Title Case)</div></div>
+      <div class="signal-box"><div class="signal-title">KHÔNG viết hoa</div><div class="signal-tags"><span class="signal-tag">Mùa: spring, summer, fall, winter</span><span class="signal-tag">Hướng: north, south (trừ khi là vùng: the South)</span><span class="signal-tag">Môn học chung: math, history (trừ ngôn ngữ)</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-numbers">
+    <div class="accordion-header"><span class="acc-badge badge-basic">Cơ bản</span><span class="acc-title">Số Đếm, Số Thứ Tự &amp; Ngày Tháng</span><span class="acc-en">Numbers &amp; dates</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Số đếm vs Số thứ tự</div><div class="formula-line"><b>Cardinal:</b> one, two, three, twenty-one, one hundred</div><div class="formula-line"><b>Ordinal:</b> first (1st), second (2nd), third (3rd), fourth (4th), twenty-first (21st)</div></div>
+      <div class="formula-box"><div class="formula-title">Phân số &amp; thập phân</div><div class="formula-line"><b>Phân số:</b> 1/2 = a half / one half; 1/3 = a third; 3/4 = three-quarters</div><div class="formula-line"><b>Thập phân:</b> 0.5 = "point five" (KHÔNG "comma five"); 3.14 = "three point one four"</div><div class="formula-line"><b>Phần trăm:</b> 25% = twenty-five percent</div></div>
+      <div class="formula-box"><div class="formula-title">Ngày tháng năm</div><div class="formula-line"><b>Anh-Anh:</b> 5(th) May 2024 — "the fifth of May"</div><div class="formula-line"><b>Anh-Mỹ:</b> May 5(th), 2024 — "May fifth"</div><div class="formula-line"><b>Năm:</b> 1999 = "nineteen ninety-nine"; 2024 = "twenty twenty-four" hoặc "two thousand and twenty-four"</div><div class="formula-line"><b>Thập kỷ:</b> the 1990s / the '90s = "the nineties"</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Giờ</div><div class="usage-ex">7:30 = half past seven / seven thirty</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#58a6ff">Tuổi</div><div class="usage-ex">in his twenties / a 5-year-old</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#d29922">Số nhiều</div><div class="usage-ex">hundreds of people / in the 1980s</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-fragments">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Fragments, Run-ons &amp; Comma Splice</span><span class="acc-en">3 lỗi câu cốt lõi</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">3 lỗi cấu trúc câu</div><div class="formula-line"><b>Fragment (mảnh câu):</b> thiếu chủ ngữ hoặc động từ. Ví dụ: "Walking down the street." (sai)</div><div class="formula-line"><b>Run-on:</b> 2 mệnh đề độc lập viết liền không dấu/từ nối. "I came I saw." (sai)</div><div class="formula-line"><b>Comma splice:</b> 2 mệnh đề độc lập nối bằng MỖI dấu phẩy. "I came, I saw." (sai)</div></div>
+      <div class="signal-box"><div class="signal-title">3 cách sửa run-on/splice</div><div class="signal-tags"><span class="signal-tag">Thêm chấm: I came. I saw.</span><span class="signal-tag">Thêm ";": I came; I saw.</span><span class="signal-tag">Thêm liên từ: I came, and I saw.</span><span class="signal-tag">Đổi 1 thành mệnh đề phụ: When I came, I saw.</span></div></div>
+    </div></div>
+  </div>
+
+  <div class="accordion-item" id="ex-parallelism">
+    <div class="accordion-header"><span class="acc-badge badge-mid">Trung cấp</span><span class="acc-title">Parallel Structure (Cấu Trúc Song Song)</span><span class="acc-en">Same form in series</span><span class="acc-arrow">▼</span></div>
+    <div class="accordion-body"><div class="acc-content">
+      <div class="formula-box"><div class="formula-title">Quy tắc</div><div class="formula-line">Các thành phần liệt kê hoặc so sánh phải <b>cùng dạng ngữ pháp</b>: cùng V-ing, cùng to-V, cùng N, cùng Adj.</div></div>
+      <div class="usage-grid">
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Sai</div><div class="usage-ex">I like swimming, hiking, and to ski. ❌</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Đúng</div><div class="usage-ex">I like swimming, hiking, and skiing. ✓</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#f85149">Sai (so sánh)</div><div class="usage-ex">She is smart and a hard worker. ❌</div></div>
+        <div class="usage-card"><div class="usage-heading" style="color:#3fb950">Đúng</div><div class="usage-ex">She is smart and hardworking. ✓</div></div>
+      </div>
+      <div class="signal-box"><div class="signal-title">Đặc biệt với cặp tương quan</div><div class="signal-tags"><span class="signal-tag">both...and / either...or / not only...but also → 2 vế cùng dạng</span></div></div>
+    </div></div>
+  </div>
+
+</section>
+
+<!-- ==================================================
      BẢNG GHI NHỚ  (Memory Tables)
      ================================================== -->
 <section class="grammar-section" id="memory-tables">
@@ -1758,6 +2975,9 @@
 <!-- Scroll to top -->
 <a id="scrollTop" href="#atlas" title="Lên đầu trang">↑</a>
 
+<script src="../english-grammar/modules/cefr.js"></script>
+<script src="../english-grammar/modules/comprehensive.js"></script>
 <script src="app.js"></script>
+  <script src="../chat-widget.js"></script>
 </body>
 </html>

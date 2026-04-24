@@ -3,11 +3,13 @@
     'use strict';
 
     const state = {
-        currentLevel: localStorage.getItem('englishGrammarLevel') || null,
+        currentLevel: null,
         currentTab: 'simple',
         isTourActive: false,
         tourStepIndex: 0,
-        selectedComponent: null
+        selectedComponent: null,
+        activeCategory: 'all',
+        searchQuery: ''
     };
 
     const allComponents = {
@@ -17,7 +19,9 @@
         ...grammarPatternsData,
         ...grammarStructuresData,
         ...grammarMistakesData,
-        ...grammarSupplementsData
+        ...grammarSupplementsData,
+        ...(typeof grammarExtrasData !== 'undefined' ? grammarExtrasData : {}),
+        ...(typeof grammarComprehensiveData !== 'undefined' ? grammarComprehensiveData : {})
     };
 
     const elements = {
@@ -56,8 +60,38 @@
         referenceLinks: document.querySelectorAll('.reference-link'),
         filterBtns: document.querySelectorAll('.filter-btn'),
         nodes: document.querySelectorAll('.node'),
-        tabBtns: document.querySelectorAll('.tab-btn')
+        tabBtns: document.querySelectorAll('.tab-btn'),
+        grammarSearch: document.getElementById('grammarSearch'),
+        clearGrammarSearch: document.getElementById('clearGrammarSearch'),
+        levelCards: document.getElementById('levelCards')
     };
+
+    const cefr = window.englishGrammarCefr || {
+        order: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+        meta: {},
+        normalizeLevel(level) {
+            return level || 'B1';
+        },
+        getMeta(level) {
+            return { code: level, className: String(level || 'b1').toLowerCase(), icon: '📘', name: level, description: '' };
+        },
+        getRank(level) {
+            return this.order.indexOf(level);
+        },
+        resolveComponent(id, component) {
+            return this.getMeta(this.normalizeLevel(component && component.level));
+        }
+    };
+
+    state.currentLevel = cefr.normalizeLevel(localStorage.getItem('englishGrammarLevel') || 'A1');
+
+    function stripHtml(html) {
+        return String(html || '')
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
 
     function normalizeText(text) {
         return String(text || '')
@@ -68,7 +102,74 @@
             .replace(/Đ/g, 'D');
     }
 
+    const componentSearchIndex = Object.fromEntries(
+        Object.entries(allComponents).map(([id, component]) => [
+            id,
+            normalizeText([
+                component.title,
+                component.category,
+                stripHtml(component.simple),
+                stripHtml(component.detail),
+                stripHtml(component.advanced)
+            ].join(' '))
+        ])
+    );
+
+    function escapeHtml(text) {
+        return String(text || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function getComponentLevel(id, component) {
+        return cefr.resolveComponent(id, component || allComponents[id]);
+    }
+
+    function renderLevelCards() {
+        if (!elements.levelCards) return;
+
+        elements.levelCards.innerHTML = cefr.order.map(levelCode => {
+            const meta = cefr.getMeta(levelCode);
+            return `
+                <div class="level-card" data-level="${meta.code}">
+                    <div class="level-icon">${meta.icon}</div>
+                    <h3>${meta.code} · ${meta.name}</h3>
+                    <p>${meta.description}</p>
+                    <button class="level-btn">Chọn ${meta.code}</button>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderConceptNodes() {
+        document.querySelectorAll('.concept-section').forEach(section => {
+            const grid = section.querySelector('.concepts-grid');
+            if (!grid) return;
+
+            const category = section.dataset.category;
+            const entries = Object.entries(allComponents).filter(([, component]) => component.category === category);
+
+            grid.innerHTML = entries.map(([id, component]) => {
+                const meta = getComponentLevel(id, component);
+                return `
+                    <div class="node" data-component="${escapeHtml(id)}" data-cefr="${meta.code}">
+                        <span class="node-icon">${escapeHtml(component.icon || '📘')}</span>
+                        <span class="node-title">${escapeHtml(component.title)}</span>
+                        <span class="node-badge ${meta.className}">${meta.code}</span>
+                    </div>
+                `;
+            }).join('');
+        });
+
+        elements.nodes = document.querySelectorAll('.node');
+    }
+
     function initLevelSelection() {
+        renderLevelCards();
+
         if (state.currentLevel) {
             hideOverlay();
             updateLevelUI();
@@ -84,11 +185,12 @@
     }
 
     function selectLevel(level) {
-        state.currentLevel = level;
-        localStorage.setItem('englishGrammarLevel', level);
+        state.currentLevel = cefr.normalizeLevel(level);
+        localStorage.setItem('englishGrammarLevel', state.currentLevel);
         hideOverlay();
         updateLevelUI();
         filterNodesByLevel();
+        updateConceptVisibility();
     }
 
     function hideOverlay() {
@@ -96,15 +198,10 @@
     }
 
     function updateLevelUI() {
-        const names = {
-            beginner: '🌱 Người Mới',
-            intermediate: '🌿 Trung Cấp',
-            advanced: '🌳 Nâng Cao'
-        };
+        const meta = cefr.getMeta(state.currentLevel);
+        elements.levelBadge.textContent = `${meta.icon} ${meta.code} ${meta.name}`;
 
-        elements.levelBadge.textContent = names[state.currentLevel];
-
-        if (state.currentLevel === 'beginner') {
+        if (state.currentLevel === 'A1' || state.currentLevel === 'A2') {
             elements.quickTips.style.display = 'block';
             elements.tipsGrid.innerHTML = quickTips.map(tip => `
                 <div class="tip-card"><span class="tip-icon">${tip.icon}</span><p>${tip.text}</p></div>
@@ -115,18 +212,10 @@
     }
 
     function filterNodesByLevel() {
-        const order = ['beginner', 'intermediate', 'advanced'];
-        const currentIndex = order.indexOf(state.currentLevel);
+        const currentIndex = cefr.getRank(state.currentLevel);
 
         elements.nodes.forEach(node => {
-            const badge = node.querySelector('.node-badge');
-            if (!badge) return;
-
-            const levelIndex = badge.classList.contains('beginner')
-                ? 0
-                : badge.classList.contains('intermediate')
-                    ? 1
-                    : 2;
+            const levelIndex = cefr.getRank(node.dataset.cefr || 'A1');
 
             node.classList.toggle('locked', levelIndex > currentIndex);
             node.style.opacity = levelIndex > currentIndex ? '0.5' : '1';
@@ -140,14 +229,47 @@
                 elements.filterBtns.forEach(item => item.classList.remove('active'));
                 btn.classList.add('active');
 
-                const category = btn.dataset.category;
-                document.querySelectorAll('.concept-section').forEach(section => {
-                    section.style.display = category === 'all' || section.dataset.category === category
-                        ? 'block'
-                        : 'none';
-                });
+                state.activeCategory = btn.dataset.category;
+                updateConceptVisibility();
             });
         });
+    }
+
+    function updateConceptVisibility() {
+        document.querySelectorAll('.concept-section').forEach(section => {
+            const matchesCategory = state.searchQuery
+                ? true
+                : state.activeCategory === 'all' || section.dataset.category === state.activeCategory;
+
+            let visibleNodes = 0;
+
+            section.querySelectorAll('.node').forEach(node => {
+                const matchesSearch = !state.searchQuery || (componentSearchIndex[node.dataset.component] || '').includes(state.searchQuery);
+                const visible = matchesCategory && matchesSearch;
+                node.style.display = visible ? '' : 'none';
+                if (visible) visibleNodes += 1;
+            });
+
+            section.style.display = visibleNodes > 0 ? 'block' : 'none';
+        });
+    }
+
+    function initGrammarSearch() {
+        if (!elements.grammarSearch) return;
+
+        elements.grammarSearch.addEventListener('input', () => {
+            state.searchQuery = normalizeText(elements.grammarSearch.value.trim());
+            updateConceptVisibility();
+        });
+
+        if (elements.clearGrammarSearch) {
+            elements.clearGrammarSearch.addEventListener('click', () => {
+                elements.grammarSearch.value = '';
+                state.searchQuery = '';
+                updateConceptVisibility();
+                elements.grammarSearch.focus();
+            });
+        }
     }
 
     function initNodeInteraction() {
@@ -181,8 +303,9 @@
         if (!component) return;
 
         state.selectedComponent = id;
+        const meta = getComponentLevel(id, component);
         elements.panelIcon.textContent = component.icon;
-        elements.panelTitle.textContent = component.title;
+        elements.panelTitle.textContent = `${component.title} · ${meta.code}`;
         showTabContent('simple');
         renderRelated(component.connections || []);
         openInfoPanel();
@@ -247,7 +370,7 @@
         elements.startTourBtn.addEventListener('click', startTour);
         elements.tourPrev.addEventListener('click', () => showTourStep(state.tourStepIndex - 1));
         elements.tourNext.addEventListener('click', () => {
-            const steps = tourSteps[state.currentLevel] || tourSteps.beginner;
+            const steps = tourSteps[state.currentLevel] || tourSteps.A1;
             if (state.tourStepIndex >= steps.length - 1) {
                 endTour();
             } else {
@@ -260,7 +383,7 @@
     function startTour() {
         state.isTourActive = true;
         state.tourStepIndex = 0;
-        const steps = tourSteps[state.currentLevel] || tourSteps.beginner;
+        const steps = tourSteps[state.currentLevel] || tourSteps.A1;
         elements.totalSteps.textContent = steps.length;
         elements.tourProgress.style.display = 'block';
         elements.tourPanel.style.display = 'block';
@@ -268,7 +391,7 @@
     }
 
     function showTourStep(index) {
-        const steps = tourSteps[state.currentLevel] || tourSteps.beginner;
+        const steps = tourSteps[state.currentLevel] || tourSteps.A1;
         if (index < 0 || index >= steps.length) return;
 
         state.tourStepIndex = index;
@@ -467,8 +590,10 @@
     });
 
     function init() {
+        renderConceptNodes();
         initLevelSelection();
         initCategoryFilter();
+        initGrammarSearch();
         initNodeInteraction();
         initPanelControls();
         initTourSystem();
@@ -477,6 +602,7 @@
         renderMemoryBank();
         initIrregularVerbBank();
         if (state.currentLevel) filterNodesByLevel();
+        updateConceptVisibility();
     }
 
     if (document.readyState === 'loading') {

@@ -277,6 +277,19 @@ const grammarSupplementsData = {
                 <li>Đừng lùi thì máy móc nếu câu đang nói về chân lý, lịch trình cố định hoặc định nghĩa.</li>
                 <li>Khi đọc câu dài, hãy xác định <strong>mốc thời gian gốc</strong> của người nói trước rồi mới chia thì các mệnh đề còn lại.</li>
             </ul>
+            <h4>📚 Logic trong câu phức nhiều tầng</h4>
+            <ul>
+                <li><em>She said that she had realized that the data were incomplete.</em> → động từ tường thuật ở quá khứ kéo mệnh đề sau lùi theo từng lớp.</li>
+                <li><em>The professor explained that water boils at 100°C.</em> → chân lý giữ hiện tại dù reporting verb ở quá khứ.</li>
+                <li><em>I knew that he would call when he arrived.</em> → <em>would</em> cho tương lai nhìn từ quá khứ, nhưng mệnh đề thời gian vẫn là <em>arrived</em>, không dùng <em>would arrive</em>.</li>
+            </ul>
+            <h4>Khung quyết định nhanh</h4>
+            <ol>
+                <li>Xác định thời điểm gốc: hiện tại hay một mốc quá khứ.</li>
+                <li>Kiểm tra mệnh đề phụ nói về sự thật chung hay một sự kiện lệ thuộc mốc gốc.</li>
+                <li>Nếu là tương lai nhìn từ quá khứ, cân nhắc <em>would / was going to</em>.</li>
+                <li>Nếu là time clause, áp quy tắc riêng của time clause trước.</li>
+            </ol>
             <div class="warning-box">
                 <strong>⚠️ Lỗi phổ biến:</strong> Thấy động từ chính ở quá khứ là lùi mọi thứ về quá khứ, kể cả chân lý hoặc sự kiện vẫn đang đúng.
             </div>
@@ -486,6 +499,138 @@ const grammarPracticeData = {
             'Phân biệt được a/an với the theo mức độ xác định của danh từ.',
             'Không thêm article vào school, bed, church, home trong các cụm cố định thông dụng.',
             'Biết khi nào dùng zero article với plural nouns và uncountable nouns ở nghĩa chung.'
+        ]
+    },
+    'sequence-of-tenses': {
+        source: 'Bài luyện thêm cho phần phối hợp thì trong reported speech và câu phức.',
+        sections: [
+            {
+                title: 'Chọn thì đúng theo mốc thời gian',
+                instruction: 'Điền hoặc chọn dạng động từ hợp logic trong câu gián tiếp/câu phức.',
+                questions: [
+                    'She said that she ___ tired. (be)',
+                    'The teacher explained that the earth ___ around the sun. (move)',
+                    'I knew that he ___ me when he arrived. (call)',
+                    'They realized that they ___ the wrong train. (take)',
+                    'He said that he ___ on the project since Monday. (work)'
+                ],
+                answers: [
+                    'was',
+                    'moves',
+                    'would call',
+                    'had taken',
+                    'had been working'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Biết phân biệt backshift với ngoại lệ chân lý/sự thật vẫn còn đúng.',
+            'Không dùng would sai trong mệnh đề thời gian chỉ vì mệnh đề chính ở quá khứ.',
+            'Nhìn câu theo mốc thời gian tổng thể thay vì chia từng vế độc lập.'
+        ]
+    },
+    'reducing-adverbial-clauses': {
+        source: 'Mini practice cho phần reduction trong văn viết học thuật.',
+        sections: [
+            {
+                title: 'Rút gọn mệnh đề trạng ngữ',
+                instruction: 'Viết lại câu bằng cụm rút gọn phù hợp.',
+                questions: [
+                    'After she finished the draft, she emailed it to her tutor.',
+                    'Because he was warned in advance, he avoided the mistake.',
+                    'While I was waiting for the bus, I reviewed my notes.',
+                    'After they had completed the survey, they analyzed the data.'
+                ],
+                answers: [
+                    'After finishing the draft, she emailed it to her tutor.',
+                    'Warned in advance, he avoided the mistake.',
+                    'While waiting for the bus, I reviewed my notes.',
+                    'Having completed the survey, they analyzed the data.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Chỉ rút gọn khi hai mệnh đề có cùng chủ ngữ logic.',
+            'Biết khi nào dùng V-ing, V3 và having + V3.',
+            'Tránh dangling participles.'
+        ]
+    },
+    'prepositional-phrases': {
+        source: 'Bài luyện cụm giới từ cố định và sắc thái nghĩa.',
+        sections: [
+            {
+                title: 'Chọn cụm đúng theo nghĩa',
+                instruction: 'Điền cụm phù hợp: by mistake, on purpose, on time, in time, in the long run.',
+                questions: [
+                    'I took your notebook ___ and only noticed later.',
+                    'She arrived just ___ to catch the last train.',
+                    'He didn\'t delete the file ___; it was an accident.',
+                    'The meeting started exactly ___ at 9:00.',
+                    '___, investing in skills pays off.'
+                ],
+                answers: [
+                    'by mistake',
+                    'in time',
+                    'on purpose',
+                    'on time',
+                    'In the long run'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Phân biệt được on time với in time.',
+            'Học cụm giới từ như một khối nghĩa hoàn chỉnh.',
+            'Nhận ra cụm cố định hữu ích cho cả speaking và writing.'
+        ]
+    },
+    'academic-style-grammar': {
+        source: 'Bài luyện nominalization và gerund subject cho văn học thuật.',
+        sections: [
+            {
+                title: 'Chọn cách viết học thuật hơn',
+                instruction: 'So sánh hai cách diễn đạt và chọn cách phù hợp hơn cho essay/report.',
+                questions: [
+                    'The government decided to reform the system. / The government\'s decision to reform the system...',
+                    'People recycle more. / Recycling more reduces waste.',
+                    'They analyzed the data carefully. / A careful analysis of the data...'
+                ],
+                answers: [
+                    'Dạng nominalization phù hợp hơn khi cần giọng văn học thuật và khách quan.',
+                    'Gerund subject phù hợp hơn để nêu luận điểm chung.',
+                    'Nominalization phù hợp hơn cho report, nhưng tránh lạm dụng nếu câu trở nên nặng.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Biết dùng gerund phrase làm chủ ngữ để nêu luận điểm.',
+            'Biết khi nào danh hóa giúp câu học thuật hơn.',
+            'Không danh hóa quá mức làm câu khó đọc.'
+        ]
+    },
+    'grammar-registers': {
+        source: 'Bài luyện phân biệt ngữ pháp theo register và variety.',
+        sections: [
+            {
+                title: 'BrE / AmE / formal / informal',
+                instruction: 'Ghép cách diễn đạt với ngữ cảnh phù hợp nhất.',
+                questions: [
+                    'Have you got a minute? / Do you have a minute?',
+                    'put off the meeting / postpone the meeting',
+                    'I\'ve just eaten. / I just ate.',
+                    'kids / children'
+                ],
+                answers: [
+                    'BrE spoken / neutral AmE',
+                    'neutral spoken / formal writing',
+                    'BrE common / AmE common',
+                    'informal / more formal-neutral'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Biết không phải cấu trúc nào đúng cũng hợp mọi ngữ cảnh.',
+            'Nhận ra khác biệt BrE và AmE ở một số cấu trúc trọng điểm.',
+            'Biết đổi từ informal sang formal khi viết essay hoặc email công việc.'
         ]
     },
     'pronouns-possessives': {

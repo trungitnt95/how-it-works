@@ -61,6 +61,151 @@ function openHashTarget() {
     expandAccordionTarget(document.getElementById(hash));
 }
 
+function normalizeText(text) {
+    return String(text || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
+}
+
+function hydrateCefrBadges(root = document) {
+    const cefr = window.englishGrammarCefr;
+    if (!cefr) return;
+
+    root.querySelectorAll('.accordion-item').forEach(item => {
+        const badge = item.querySelector('.acc-badge');
+        const title = item.querySelector('.acc-title');
+        if (!badge || !title) return;
+
+        const legacyLevel = badge.classList.contains('badge-basic')
+            ? 'basic'
+            : badge.classList.contains('badge-mid')
+                ? 'mid'
+                : badge.classList.contains('badge-adv')
+                    ? 'adv'
+                    : badge.classList.contains('badge-mem')
+                        ? 'mem'
+                        : 'mid';
+
+        const meta = cefr.resolveAccordion(`${title.textContent} ${badge.textContent}`, legacyLevel, item.id);
+        badge.classList.remove('badge-basic', 'badge-mid', 'badge-adv', 'badge-mem', 'badge-a1', 'badge-a2', 'badge-b1', 'badge-b2', 'badge-c1', 'badge-c2');
+        badge.classList.add(meta.badgeClass);
+        badge.textContent = meta.label;
+        badge.title = `${meta.label} · ${meta.name}`;
+        item.dataset.cefr = meta.code;
+    });
+}
+
+const MASTERY_TOPIC_IDS = [
+        'determiner-system',
+        'advanced-article-system',
+        'noun-phrase-architecture',
+        'adverb-placement-focus',
+        'advanced-adverbial-clauses',
+        'noun-complement-clauses',
+        'advanced-relative-clauses',
+        'verb-complementation',
+        'clause-system',
+        'advanced-agreement',
+        'spoken-grammar'
+];
+
+function injectMasterySection(root = document) {
+        const main = root.querySelector('main');
+        const atlas = root.querySelector('#atlas');
+        const hasData = typeof grammarComprehensiveData !== 'undefined';
+        const cefr = window.englishGrammarCefr;
+        if (!main || !hasData || root.querySelector('#mastery-systems')) return;
+
+        const topics = MASTERY_TOPIC_IDS
+                .map(id => ({ id, component: grammarComprehensiveData[id] }))
+                .filter(entry => entry.component)
+                .map(entry => ({
+                        ...entry,
+                        meta: cefr ? cefr.resolveComponent(entry.id, entry.component) : { label: 'C2', badgeClass: 'badge-c2', name: 'Mastery' }
+                }));
+
+        if (!topics.length) return;
+
+        const section = document.createElement('section');
+        section.className = 'grammar-section';
+        section.id = 'mastery-systems';
+        section.innerHTML = `
+                <div class="section-header">
+                    <span class="section-icon">👑</span>
+                    <h2 class="section-title">Mastery Systems</h2>
+                    <span class="section-sub">C1-C2 grammar architecture, nuance, spoken grammar, and register control</span>
+                </div>
+                ${topics.map(({ id, component, meta }) => `
+                    <div class="accordion-item" id="${id}">
+                        <div class="accordion-header">
+                            <span class="acc-badge ${meta.badgeClass}">${meta.label}</span>
+                            <span class="acc-title">${component.title}</span>
+                            <span class="acc-en">${meta.label} · ${meta.name}</span>
+                            <span class="acc-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body"><div class="acc-content">
+                            ${component.simple || ''}
+                            ${component.detail || ''}
+                            ${component.advanced || ''}
+                        </div></div>
+                    </div>
+                `).join('')}
+        `;
+
+        const anchor = main.querySelector('#memory-tables');
+        main.insertBefore(section, anchor || null);
+
+        if (atlas && !atlas.querySelector('[data-target="mastery-systems"]')) {
+                const link = document.createElement('a');
+                link.className = 'atlas-btn special';
+                link.href = '#mastery-systems';
+                link.dataset.target = 'mastery-systems';
+                link.textContent = '👑 Mastery Systems';
+                const before = atlas.querySelector('[data-target="memory-tables"]');
+                atlas.insertBefore(link, before || null);
+        }
+}
+
+function filterGrammarContent(query = '') {
+    const normalizedQuery = normalizeText(query.trim());
+    document.querySelectorAll('.grammar-section').forEach(section => {
+        const items = Array.from(section.querySelectorAll('.accordion-item'));
+        if (!items.length) return;
+
+        let visibleItems = 0;
+        items.forEach(item => {
+            const text = normalizeText(item.textContent);
+            const matched = !normalizedQuery || text.includes(normalizedQuery);
+            item.style.display = matched ? '' : 'none';
+            if (matched && normalizedQuery) {
+                item.classList.add('open');
+            }
+            if (matched) visibleItems += 1;
+        });
+
+        section.style.display = visibleItems > 0 ? '' : 'none';
+    });
+}
+
+function initGrammarSearch() {
+    const input = document.getElementById('mlh-search');
+    const clearBtn = document.getElementById('mlh-search-clear');
+    if (!input) return;
+
+    input.addEventListener('input', () => filterGrammarContent(input.value));
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            filterGrammarContent('');
+            input.focus();
+        });
+    }
+}
+
 // ==========================================
 //  SCROLL TO TOP
 // ==========================================
@@ -229,10 +374,13 @@ function initIrregularVerbs() {
 //  INIT
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+    injectMasterySection();
+    hydrateCefrBadges();
     initAccordions();
     initAtlasScroll();
     initScrollTop();
     initIrregularVerbs();
+    initGrammarSearch();
     openHashTarget();
 });
 

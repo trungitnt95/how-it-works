@@ -37,10 +37,9 @@ body {
 .level-container > p { color: rgba(255, 255, 255, 0.72); margin-bottom: 2rem; }
 
 .level-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .level-card {
@@ -48,11 +47,14 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 18px;
     padding: 2rem;
-    width: 280px;
+    width: 100%;
     cursor: pointer;
     text-align: left;
     transition: all 0.3s;
     backdrop-filter: blur(12px);
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
 }
 
 .level-card:hover {
@@ -184,6 +186,53 @@ header h1 {
     gap: 0.5rem;
     padding: 1rem 2rem;
     flex-wrap: wrap;
+}
+
+.grammar-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 2rem 1rem;
+    flex-wrap: wrap;
+}
+
+.grammar-search-label {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+}
+
+#grammarSearch {
+    flex: 1 1 320px;
+    min-width: 240px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    padding: 0.72rem 0.95rem;
+    border-radius: 12px;
+    outline: none;
+}
+
+#grammarSearch::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+#grammarSearch:focus {
+    border-color: rgba(56, 189, 248, 0.72);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
+}
+
+.grammar-search-clear {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #fff;
+    padding: 0.68rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.grammar-search-clear:hover {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.4);
 }
 
 .filter-label { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
@@ -459,6 +508,12 @@ header h1 {
 .node-badge.beginner { background: rgba(34, 197, 94, 0.22); color: #86efac; }
 .node-badge.intermediate { background: rgba(245, 158, 11, 0.22); color: #fcd34d; }
 .node-badge.advanced { background: rgba(239, 68, 68, 0.22); color: #fca5a5; }
+.node-badge.a1 { background: rgba(34, 197, 94, 0.18); color: #86efac; }
+.node-badge.a2 { background: rgba(16, 185, 129, 0.18); color: #99f6e4; }
+.node-badge.b1 { background: rgba(14, 165, 233, 0.18); color: #93c5fd; }
+.node-badge.b2 { background: rgba(59, 130, 246, 0.18); color: #bfdbfe; }
+.node-badge.c1 { background: rgba(245, 158, 11, 0.18); color: #fcd34d; }
+.node-badge.c2 { background: rgba(236, 72, 153, 0.18); color: #f9a8d4; }
 
 .tour-highlight { animation: pulse 1.5s infinite; border-color: #f59e0b !important; }
 
