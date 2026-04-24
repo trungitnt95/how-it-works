@@ -441,6 +441,11 @@
             --card-color-2: #f59e0b;
         }
 
+        .topic-card.vietnamese {
+            --card-color-1: #34d399;
+            --card-color-2: #fbbf24;
+        }
+
         /* Search Box */
         .search-container {
             max-width: 600px;
@@ -549,7 +554,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">23 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">24 có sẵn • 3 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -558,6 +563,30 @@
         </div>
 
         <div class="topics-grid">
+            <!-- Vietnamese Grammar - Available -->
+            <div class="topic-card vietnamese" onclick="location.href='vietnamese-grammar/'" data-tags="ngữ pháp tiếng việt tieng viet grammar từ loại câu dấu câu chủ ngữ vị ngữ trạng ngữ">
+                <div class="card-icon">🇻🇳</div>
+                <h3 class="card-title">Ngữ Pháp Tiếng Việt</h3>
+                <p class="card-subtitle">Hiểu cấu trúc tiếng Việt từ tiếng, từ đến câu</p>
+                <p class="card-description">
+                    Bản đồ học nhanh về từ loại, cụm từ, thành phần câu, câu đơn/câu ghép, dấu câu,
+                    liên kết câu và lỗi diễn đạt thường gặp trong tiếng Việt.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Từ loại</span>
+                    <span class="tag">Câu</span>
+                    <span class="tag">Dấu câu</span>
+                    <span class="tag">Luyện tập</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 16 chủ điểm</span>
+                        <span class="stat">📖 Quiz nhanh</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
             <!-- Vietnam State - Available -->
             <div class="topic-card government" onclick="location.href='vietnam-state/vietnam-state.html'" data-tags="nhà nước việt nam vietnam state quốc hội chính phủ chủ tịch nước hđnd ubnd tòa án viện kiểm sát">
                 <div class="card-icon">🏛️</div>
