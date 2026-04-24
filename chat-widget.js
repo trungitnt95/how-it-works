@@ -7,7 +7,7 @@
 
     const API_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
     const API_VERSION = '2026-03-10';
-    const DEFAULT_MODEL = 'gpt-5-mini';
+    const DEFAULT_MODEL = 'gpt-4.1';
     const AVAILABLE_MODELS = [
         {
             label: 'gpt-4o',
@@ -50,13 +50,6 @@
         mountWidget();
         syncModelControls();
         renderGreeting();
-
-        if (!state.token) {
-            openSettings({
-                force: true,
-                message: 'Nhập GitHub PAT có quyền models:read để bắt đầu chat với nội dung của trang này.'
-            });
-        }
     }
 
     function ensureWidgetStyles() {
@@ -139,7 +132,7 @@
             '                <span>Model mặc định</span>',
             '                <select class="hiw-chat-settings-model"></select>',
             '            </label>',
-            '            <p class="hiw-chat-settings-note">PAT cần có quyền models:read. Nhãn gpt-5-mini trong UI sẽ được map sang model ID GitHub Models tương ứng.</p>',
+            '            <p class="hiw-chat-settings-note">PAT cần có quyền models:read. Nhãn model trong UI sẽ được map sang model ID GitHub Models tương ứng.</p>',
             '            <div class="hiw-chat-settings-actions">',
             '                <button class="hiw-chat-secondary-button" type="button" data-action="close-settings">Để sau</button>',
             '                <button class="hiw-chat-primary-button" type="button" data-action="save-settings">Lưu cấu hình</button>',
