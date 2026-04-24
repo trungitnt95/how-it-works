@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiểu Hết Về Tiền - Dòng Chảy Của Tiền</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Level Selection Overlay -->
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>💰 Hiểu Hết Về Tiền</h1>
+            <p>Chọn cấp độ phù hợp với bạn</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Chưa biết gì về tiền tệ. Bắt đầu từ cơ bản nhất.</p>
+                    <ul>
+                        <li>✅ Flowchart trực quan</li>
+                        <li>✅ Giải thích đơn giản</li>
+                        <li>✅ Ví dụ thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đã hiểu cơ bản, muốn tìm hiểu sâu hơn.</p>
+                    <ul>
+                        <li>✅ Tương tác tự do</li>
+                        <li>✅ Mô phỏng dòng tiền</li>
+                        <li>✅ Kịch bản thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Muốn hiểu sâu về cơ chế tiền tệ.</p>
+                    <ul>
+                        <li>✅ Phân tích chuyên sâu</li>
+                        <li>✅ Công thức & số liệu</li>
+                        <li>✅ Case studies</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>💰 Hiểu Hết Về Tiền</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="scenarioBtn" title="Xem kịch bản">📖 Kịch bản</button>
+            <button class="header-btn" id="theoryBtn" title="Lý thuyết tập trung">📚 Khái niệm</button>
+            <button class="header-btn" id="quizBtn" title="Làm câu hỏi">❓ Câu hỏi</button>
+            <button class="header-btn" id="simulatorBtn" title="Mô phỏng">🧮 Mô phỏng</button>
+            <a class="header-btn" href="./compound-interest.html" title="Trang chi tiết lãi kép">📈 Lãi kép</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Lọc theo nhóm:</span>
+            <button class="filter-btn active" data-category="all">Tất cả (23)</button>
+            <button class="filter-btn" data-category="core">💰 Cốt lõi</button>
+            <button class="filter-btn" data-category="financial">🏦 Tài chính</button>
+            <button class="filter-btn" data-category="market">📈 Thị trường</button>
+            <button class="filter-btn" data-category="services">🛡️ Dịch vụ</button>
+            <button class="filter-btn" data-category="modern">⚡ Hiện đại</button>
+        </div>
+
+        <section class="money-flow-section supplemental-flows-section" aria-labelledby="moneyFlowTitle">
+            <div class="money-flow-intro">
+                <div>
+                    <p class="money-flow-kicker">Mermaid Flowchart</p>
+                    <h2 id="moneyFlowTitle">Dòng tiền giữa các thành phần kinh tế</h2>
+                </div>
+                <p class="money-flow-summary">
+                    Các sơ đồ dưới đây tóm tắt luồng tiền tạo ra, luân chuyển và phân bổ giữa ngân hàng,
+                    chính phủ, doanh nghiệp, người dân và khu vực quốc tế.
+                </p>
+            </div>
+
+            <div class="flowchart-grid">
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>2. Vòng tuần hoàn tiền cơ bản</h3>
+                        <p>Tiền mới đi từ ngân hàng trung ương tới hệ ngân hàng, rồi lan sang sản xuất, tiêu dùng và quay lại qua tiết kiệm, thuế.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    CB["Ngân hàng TW"] -->|"Bơm thanh khoản"| BANK["Ngân hàng thương mại"]
+    BANK -->|"Cho vay sản xuất"| BIZ["Doanh nghiệp"]
+    BANK -->|"Cho vay tiêu dùng"| HH["Người dân"]
+    BIZ -->|"Trả lương"| HH
+    HH -->|"Chi tiêu"| BIZ
+    HH -->|"Gửi tiết kiệm"| BANK
+    HH -->|"Nộp thuế"| GOV["Chính phủ"]
+    BIZ -->|"Nộp thuế"| GOV
+    GOV -->|"Chi đầu tư công"| BIZ
+    GOV -->|"Lương, trợ cấp"| HH
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Tiền mới thường không đi thẳng tới người dân mà đi qua ngân hàng thương mại trước.</li>
+                            <li>Doanh nghiệp biến vốn vay thành lương, hàng hóa và doanh thu bán hàng.</li>
+                            <li>Chính phủ vừa hút tiền về qua thuế, vừa bơm tiền ra lại qua chi đầu tư, lương và trợ cấp.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>3. Luồng tiết kiệm, đầu tư và tài sản</h3>
+                        <p>Tiền nhàn rỗi từ hộ gia đình được đẩy vào quỹ, sàn chứng khoán, trái phiếu và bất động sản để tài trợ tăng trưởng.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    HH["Người dân"] -->|"Tiết kiệm"| BANK["Ngân hàng thương mại"]
+    HH -->|"Góp vốn"| FUND["Quỹ đầu tư"]
+    HH -->|"Mua cổ phiếu"| STOCK["Sàn CK"]
+    HH -->|"Mua trái phiếu"| BOND["Thị trường trái phiếu"]
+    HH -->|"Mua nhà"| RE["Bất động sản"]
+    FUND -->|"Giải ngân"| STOCK
+    STOCK -->|"Huy động vốn"| BIZ["Doanh nghiệp"]
+    BOND -->|"Tài trợ dài hạn"| GOV["Chính phủ"]
+    BOND -->|"Tài trợ dài hạn"| BIZ
+    BANK -->|"Thế chấp"| RE
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Tiền nhàn rỗi của hộ gia đình không đứng yên mà được đẩy sang các kênh tài sản.</li>
+                            <li>Những kênh này biến tiết kiệm ngắn hạn thành vốn dài hạn cho chính phủ và doanh nghiệp.</li>
+                            <li>Khi giá tài sản tăng mạnh, của cải tăng nhanh hơn thu nhập thực, tạo hiệu ứng giàu lên trên giấy.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>4. Cung – Cầu và vòng xoáy lạm phát</h3>
+                        <p>Khi cầu vượt cung, giá tăng; khi chi phí đẩy lan qua chuỗi cung ứng, lạm phát tự củng cố thành vòng xoáy khó kiểm soát.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    DEMAND["Cầu tiêu dùng & đầu tư"] -->|"Tăng chi tiêu"| PRICE["Mặt bằng giá"]
+    SUPPLY["Cung hàng hóa & dịch vụ"] -->|"Thiếu hụt nguồn cung"| PRICE
+    PRICE -->|"Giá tăng"| WAGE["Áp lực tăng lương"]
+    WAGE -->|"Chi phí sản xuất tăng"| BIZ["Doanh nghiệp"]
+    BIZ -->|"Tăng giá bán"| PRICE
+    PRICE -->|"Lạm phát kỳ vọng"| CB["Ngân hàng TW"]
+    CB -->|"Tăng lãi suất"| BANK["NH thương mại"]
+    BANK -->|"Tín dụng đắt hơn"| DEMAND
+    SC["Chuỗi cung ứng"] -->|"Tắc nghẽn, chi phí logistics"| SUPPLY
+    FOR["Quốc tế"] -->|"Giá nguyên liệu nhập khẩu"| SC
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Lạm phát do cầu kéo xảy ra khi sức mua vượt khả năng cung cấp của nền kinh tế.</li>
+                            <li>Lạm phát do chi phí đẩy bắt nguồn từ chuỗi cung ứng, giá năng lượng hoặc tỷ giá.</li>
+                            <li>Ngân hàng trung ương tăng lãi suất để hạ nhiệt, nhưng phải cân bằng giữa ổn định giá và tăng trưởng.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>5. Thị trường lao động và chuỗi cung ứng</h3>
+                        <p>Lao động là đầu vào quan trọng nhất; chuỗi cung ứng kết nối nguyên liệu, sản xuất trung gian và phân phối thành phẩm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    LABOR["Thị trường lao động"] -->|"Cung sức lao động"| BIZ["Doanh nghiệp"]
+    BIZ -->|"Trả lương"| LABOR
+    BIZ -->|"Đặt hàng nguyên liệu"| SC["Chuỗi cung ứng"]
+    SC -->|"Giao hàng thành phẩm"| BIZ
+    SC -->|"Nhập khẩu linh kiện"| FOR["Quốc tế"]
+    FOR -->|"Nguyên liệu thô"| SC
+    LABOR -->|"Tiêu dùng"| BIZ
+    GOV["Chính phủ"] -->|"BHXH, trợ cấp thất nghiệp"| LABOR
+    LABOR -->|"Đóng thuế TNCN, BHXH"| GOV
+    CB["Ngân hàng TW"] -->|"Lãi suất ảnh hưởng tuyển dụng"| BIZ
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Khi thất nghiệp thấp, lương tăng nhanh, doanh nghiệp chịu áp lực chi phí nhưng tiêu dùng mạnh.</li>
+                            <li>Chuỗi cung ứng đứt gãy ảnh hưởng trực tiếp lên sản xuất, giá thành và thời gian giao hàng.</li>
+                            <li>Chính sách lãi suất ảnh hưởng gián tiếp đến tuyển dụng qua kênh tín dụng doanh nghiệp.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>6. Cơ chế truyền dẫn chính sách tiền tệ</h3>
+                        <p>Lãi suất điều hành từ Ngân hàng TW lan tỏa qua tín dụng, tỷ giá, giá tài sản và kỳ vọng để tác động lên GDP thực và lạm phát.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    CB["Ngân hàng TW<br>Lãi suất điều hành"] -->|"Lãi suất liên ngân hàng"| BANK["NH thương mại"]
+    BANK -->|"Lãi vay & gửi"| CREDIT["Kênh tín dụng"]
+    CREDIT -->|"Vay mượn DN & hộ GĐ"| GDP["GDP thực"]
+    CB -->|"Kỳ vọng lạm phát"| EXPECT["Kênh kỳ vọng"]
+    EXPECT -->|"Hành vi tiêu dùng & đầu tư"| GDP
+    CB -->|"Chênh lệch lãi suất"| FX["Kênh tỷ giá"]
+    FX -->|"XNK, giá nhập"| GDP
+    BANK -->|"Tín dụng BĐS, CK"| ASSET["Kênh giá tài sản"]
+    ASSET -->|"Hiệu ứng tài sản"| GDP
+    GDP -->|"Phản hồi"| INFLATION["Lạm phát"]
+    INFLATION -->|"Điều chỉnh chính sách"| CB
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Chính sách tiền tệ không tác động ngay mà đi qua nhiều kênh với độ trễ khác nhau.</li>
+                            <li>Kênh tín dụng mạnh nhất ở nền kinh tế phụ thuộc ngân hàng; kênh tài sản mạnh ở thị trường phát triển.</li>
+                            <li>Phản hồi lạm phát khiến ngân hàng TW phải liên tục điều chỉnh, tạo chu kỳ chính sách.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>7. Luồng thanh toán hiện đại và quốc tế</h3>
+                        <p>Fintech, ngoại hối và dòng vốn xuyên biên giới làm tiền di chuyển nhanh hơn giữa tiêu dùng nội địa và thị trường toàn cầu.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    HH["Người dân"] -->|"Thanh toán số"| FIN["Fintech / Ví điện tử"]
+    FIN -->|"Kết nối tài khoản"| BANK["Ngân hàng thương mại"]
+    BIZ["Doanh nghiệp"] -->|"Nhập khẩu"| FOR["Quốc tế"]
+    FOR -->|"Hàng hóa, dịch vụ"| BIZ
+    BANK -->|"Mua bán ngoại tệ"| FX["Forex"]
+    FX -->|"Tỷ giá"| FOR
+    FOR -->|"FDI, kiều hối"| BANK
+    HH -->|"Giữ tài sản rủi ro"| CRYPTO["Crypto"]
+    VC["Startup / VC"] -->|"Rót vốn"| BIZ
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Fintech tăng tốc giao dịch nhưng phần lớn vẫn bám vào tài khoản ngân hàng phía sau.</li>
+                            <li>Kiều hối, FDI và nhập khẩu làm tiền liên tục đi qua biên giới và phụ thuộc tỷ giá.</li>
+                            <li>Một phần dòng tiền tách ra sang crypto và startup, nên biến động cao hơn kênh truyền thống.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>8. Vay mua nhà và trả nợ thế chấp</h3>
+                        <p>Đây là dòng tiền rất thực tế: tiền mua nhà được trả ngay cho người bán, còn người mua gánh dòng tiền trả nợ kéo dài nhiều năm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    HH["Người mua nhà"] -->|"Vốn tự có"| SELL["Người bán / chủ đầu tư"]
+    BANK["Ngân hàng thương mại"] -->|"Giải ngân khoản vay"| SELL
+    HH -->|"Trả gốc + lãi hàng tháng"| BANK
+    HH -->|"Phí hồ sơ, bảo hiểm vay"| BANK
+    HH -->|"Thuế, phí trước bạ"| GOV["Chính phủ / địa phương"]
+    HH -->|"Phí quản lý, bảo trì"| RE["Ban quản lý / chung cư"]
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Người bán nhận tiền gần như ngay khi ngân hàng giải ngân và người mua nộp phần vốn tự có.</li>
+                            <li>Sau đó dòng tiền đổi chiều: hộ gia đình trả gốc và lãi cho ngân hàng trong nhiều năm.</li>
+                            <li>Ngoài giá nhà còn có thêm thuế, phí công chứng, phí quản lý và các khoản bảo hiểm liên quan.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>9. Thẻ tín dụng, trả góp và phí giao dịch</h3>
+                        <p>Khi quẹt thẻ hay mua trả góp, cửa hàng thường được thanh toán sớm còn người mua trả sau; phần chênh nằm ở lãi và phí.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    HH["Người tiêu dùng"] -->|"Quẹt thẻ / BNPL"| SHOP["Cửa hàng / sàn TMĐT"]
+    FIN["Ngân hàng / công ty tài chính"] -->|"Thanh toán cho merchant"| SHOP
+    HH -->|"Trả sao kê đúng hạn"| FIN
+    HH -->|"Trả chậm -> lãi + phí"| FIN
+    SHOP -->|"Phí MDR / chiết khấu"| FIN
+    FIN -->|"Hoàn tiền / điểm thưởng"| HH
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Cửa hàng nhận tiền sớm từ bên tài chính, còn người mua dời nghĩa vụ thanh toán về tương lai.</li>
+                            <li>Nếu trả đủ sao kê, chi phí thấp; nếu trả chậm, lãi và phí tăng rất nhanh.</li>
+                            <li>Merchant fee và cashback là hai dòng tiền phụ thường bị bỏ qua nhưng xuất hiện trong hầu hết giao dịch thẻ.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>10. Bảo hiểm, tái bảo hiểm và bồi thường</h3>
+                        <p>Phí nhỏ đóng đều được gom lại thành quỹ lớn, rồi chỉ chảy ngược về người tham gia khi có tổn thất hoặc sự kiện bảo hiểm.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    CUS["Cá nhân / doanh nghiệp"] -->|"Đóng phí bảo hiểm"| INS["Công ty bảo hiểm"]
+    INS -->|"Đầu tư quỹ dự phòng"| SAFE["Tiền gửi / trái phiếu"]
+    HOSP["Bệnh viện / bên bị thiệt hại"] -->|"Phát sinh tổn thất"| CUS
+    INS -->|"Chi trả bồi thường"| CUS
+    INS -->|"Thanh toán trực tiếp"| HOSP
+    REINS["Tái bảo hiểm"] -->|"Chia sẻ rủi ro lớn"| INS
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Phí bảo hiểm được thu đều đặn trước, còn bồi thường chỉ phát sinh khi có sự kiện rủi ro.</li>
+                            <li>Trong thời gian chờ chi trả, doanh nghiệp bảo hiểm thường đầu tư quỹ dự phòng vào tài sản an toàn.</li>
+                            <li>Tái bảo hiểm là lớp đệm giúp công ty bảo hiểm nội địa không vỡ khi gặp tổn thất quá lớn.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>11. Lương, thuế, BHXH và lương hưu</h3>
+                        <p>Chi phí lao động thực tế không chỉ là lương mang về; một phần tiền được chuyển sang thuế và các quỹ an sinh bắt buộc.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid medium">
+flowchart TD
+    BIZ["Doanh nghiệp"] -->|"Trả lương net"| WORKER["Người lao động"]
+    BIZ -->|"Đóng BHXH, BHYT, BHTN"| PENSION["BHXH / quỹ hưu trí"]
+    WORKER -->|"Khấu trừ BHXH + BHYT"| PENSION
+    WORKER -->|"Thuế TNCN"| GOV["Chính phủ"]
+    PENSION -->|"Lương hưu / trợ cấp"| RET["Người nghỉ hưu"]
+    GOV -->|"Trợ cấp an sinh"| RET
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>Lương người lao động nhận về chỉ là một phần trong tổng chi phí lao động của doanh nghiệp.</li>
+                            <li>Một phần dòng tiền đi sang thuế và quỹ bảo hiểm bắt buộc ngay ở thời điểm trả lương.</li>
+                            <li>Nhiều năm sau, dòng tiền đó quay lại dưới dạng lương hưu, trợ cấp thất nghiệp hoặc hỗ trợ an sinh.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="flowchart-card">
+                    <div class="flowchart-copy">
+                        <h3>10. Dòng chảy trong thị trường vàng</h3>
+                        <p>Vàng đi từ mỏ khai thác qua tinh luyện vào tay ngân hàng bullion, rồi phân ra 4 kênh: trang sức, đầu tư vật chất, ETF và NHTW. Giá được neo bởi lãi suất thực và tâm lý phòng thủ.</p>
+                    </div>
+                    <pre class="mermaid money-flow-mermaid tall">
+flowchart TD
+    MINE["⛏️ Khai thác vàng<br/>~3.500 tấn/năm"] -->|"Vàng thô"| REFINE["🏭 Tinh luyện<br/>LBMA 400oz good delivery"]
+    REFINE -->|"Vàng thanh chuẩn"| BULLION["🏢 Bullion Banks<br/>LBMA London"]
+    BULLION -->|"Đầu tư trực tiếp 25%"| PHYS["🪙 Vàng vật chất<br/>Miếng, xu, thỏi, SJC"]
+    BULLION -->|"Trang sức & CN 35%"| JEWELRY["💍 Trang sức & Công nghiệp<br/>Ấn Độ, Trung Quốc, Trung Đông"]
+    BULLION -->|"Quỹ lưu ký 20%"| ETF["📊 ETF vàng<br/>GLD, IAU — dễ mua bán"]
+    BULLION -->|"Hợp đồng futures"| COMEX["📈 COMEX Futures<br/>NYC — đòn bẩy cao, ít giao vàng thật"]
+    CB["🏛️ Ngân hàng Trung Ương<br/>Dự trữ vàng quốc gia 20%"] -->|"Mua ròng 1.100+ tấn/năm"| BULLION
+    ETF -->|"Dòng vào/ra phản ánh"| SENT["🧠 Tâm lý phòng thủ<br/>Barometer institutionals"]
+    COMEX -->|"Vị thế speculators"| SENT
+    MACRO["🌍 Vĩ mô<br/>Lãi suất thực • USD • Lạm phát kỳ vọng"] -->|"Định hướng tâm lý"| SENT
+    SENT -->|"Cầu tăng/giảm"| PRICE["📈 Giá vàng quốc tế<br/>XAUUSD spot"]
+    CB -->|"Tín hiệu phi USD hóa"| PRICE
+    PRICE -->|"Phản hồi lên hành vi"| SENT
+    PRICE -->|"Tác động"| PHYS
+    PRICE -->|"Tác động"| JEWELRY
+                    </pre>
+                    <div class="flowchart-explainer">
+                        <h4>Diễn giải nhanh</h4>
+                        <ul class="flowchart-points">
+                            <li>LBMA (London) là sàn giao ngay chuẩn quốc tế; COMEX (New York) là sàn futures — phần lớn hợp đồng COMEX được đóng bằng tiền mặt, không thực sự giao vàng.</li>
+                            <li>Ngân hàng trung ương mua ròng hơn 1.000 tấn/năm từ 2022 là trụ đỡ cầu bền vững nhất, độc lập với tâm lý nhà đầu tư ngắn hạn.</li>
+                            <li>ETF holdings (số tấn lưu ký trong kho) là "nhiệt kế" tâm lý institutionals: dòng vàng đổ vào ETF khi lo sợ, rút ra khi tự tin vào rủi ro.</li>
+                            <li>Lãi suất thực âm = không có chi phí cơ hội khi giữ vàng → nhà đầu tư sẵn sàng trả giá cao hơn.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Diagram Container -->
+        <div class="diagram-container expanded" id="diagramContainer">
+            <!-- Story Mode Narration -->
+            <div class="story-narration" id="storyNarration">
+                <div class="story-text" id="storyText"></div>
+            </div>
+
+            <!-- ==================== CORE COMPONENTS (1-6) ==================== -->
+            
+            <div class="node central-bank" data-component="central-bank" data-category="core" data-step="1">
+                <div class="node-number">1</div>
+                <div class="node-icon">🏛️</div>
+                <div class="node-label">Ngân Hàng TW</div>
+                <div class="node-hint">Tạo ra tiền</div>
+            </div>
+
+            <div class="node commercial-bank" data-component="commercial-bank" data-category="core" data-step="2">
+                <div class="node-number">2</div>
+                <div class="node-icon">🏦</div>
+                <div class="node-label">NH Thương Mại</div>
+                <div class="node-hint">Nhân bản tiền</div>
+            </div>
+
+            <div class="node government" data-component="government" data-category="core" data-step="3">
+                <div class="node-number">3</div>
+                <div class="node-icon">🏢</div>
+                <div class="node-label">Chính Phủ</div>
+                <div class="node-hint">Thuế & chi tiêu</div>
+            </div>
+
+            <div class="node business" data-component="business" data-category="core" data-step="4">
+                <div class="node-number">4</div>
+                <div class="node-icon">🏭</div>
+                <div class="node-label">Doanh Nghiệp</div>
+                <div class="node-hint">Sản xuất</div>
+            </div>
+
+            <div class="node individual" data-component="individual" data-category="core" data-step="5">
+                <div class="node-number">5</div>
+                <div class="node-icon">👥</div>
+                <div class="node-label">Người Dân</div>
+                <div class="node-hint">Tiêu dùng</div>
+            </div>
+
+            <div class="node foreign" data-component="foreign" data-category="core" data-step="6">
+                <div class="node-number">6</div>
+                <div class="node-icon">🌍</div>
+                <div class="node-label">Quốc Tế</div>
+                <div class="node-hint">XNK</div>
+            </div>
+
+            <!-- ==================== FINANCIAL (7-10) ==================== -->
+
+            <div class="node stock-exchange" data-component="stock-exchange" data-category="financial" data-step="7">
+                <div class="node-number">7</div>
+                <div class="node-icon">📈</div>
+                <div class="node-label">Sàn CK</div>
+                <div class="node-hint">Cổ phiếu</div>
+            </div>
+
+            <div class="node investment-fund" data-component="investment-fund" data-category="financial" data-step="8">
+                <div class="node-number">8</div>
+                <div class="node-icon">💼</div>
+                <div class="node-label">Quỹ Đầu Tư</div>
+                <div class="node-hint">Quản lý TS</div>
+            </div>
+
+            <div class="node consumer-finance" data-component="consumer-finance" data-category="financial" data-step="9">
+                <div class="node-number">9</div>
+                <div class="node-icon">💳</div>
+                <div class="node-label">Tín Dụng TD</div>
+                <div class="node-hint">Thẻ, trả góp</div>
+            </div>
+
+            <div class="node shadow-banking" data-component="shadow-banking" data-category="financial" data-step="10">
+                <div class="node-number">10</div>
+                <div class="node-icon">🌑</div>
+                <div class="node-label">Shadow Bank</div>
+                <div class="node-hint">Cho vay ngoài</div>
+            </div>
+
+            <!-- ==================== MARKETS (11-14) ==================== -->
+
+            <div class="node bond-market" data-component="bond-market" data-category="market" data-step="11">
+                <div class="node-number">11</div>
+                <div class="node-icon">📜</div>
+                <div class="node-label">Trái Phiếu</div>
+                <div class="node-hint">Cho vay DH</div>
+            </div>
+
+            <div class="node real-estate" data-component="real-estate" data-category="market" data-step="12">
+                <div class="node-number">12</div>
+                <div class="node-icon">🏠</div>
+                <div class="node-label">Bất Động Sản</div>
+                <div class="node-hint">Nhà đất</div>
+            </div>
+
+            <div class="node commodity" data-component="commodity" data-category="market" data-step="13">
+                <div class="node-number">13</div>
+                <div class="node-icon">🥇</div>
+                <div class="node-label">Hàng Hóa</div>
+                <div class="node-hint">Vàng, dầu</div>
+            </div>
+
+            <div class="node forex" data-component="forex" data-category="market" data-step="14">
+                <div class="node-number">14</div>
+                <div class="node-icon">💱</div>
+                <div class="node-label">Forex</div>
+                <div class="node-hint">Tỷ giá</div>
+            </div>
+
+            <!-- ==================== SERVICES (15-17) ==================== -->
+
+            <div class="node insurance" data-component="insurance" data-category="services" data-step="15">
+                <div class="node-number">15</div>
+                <div class="node-icon">🛡️</div>
+                <div class="node-label">Bảo Hiểm</div>
+                <div class="node-hint">Bảo vệ rủi ro</div>
+            </div>
+
+            <div class="node pension-fund" data-component="pension-fund" data-category="services" data-step="16">
+                <div class="node-number">16</div>
+                <div class="node-icon">👴</div>
+                <div class="node-label">Hưu Trí</div>
+                <div class="node-hint">BHXH</div>
+            </div>
+
+            <div class="node credit-rating" data-component="credit-rating" data-category="services" data-step="17">
+                <div class="node-number">17</div>
+                <div class="node-icon">⭐</div>
+                <div class="node-label">Xếp Hạng</div>
+                <div class="node-hint">Đánh giá</div>
+            </div>
+
+            <!-- ==================== MODERN (18-20) ==================== -->
+
+            <div class="node fintech" data-component="fintech" data-category="modern" data-step="18">
+                <div class="node-number">18</div>
+                <div class="node-icon">📱</div>
+                <div class="node-label">Fintech</div>
+                <div class="node-hint">Ví điện tử</div>
+            </div>
+
+            <div class="node crypto" data-component="crypto" data-category="modern" data-step="19">
+                <div class="node-number">19</div>
+                <div class="node-icon">₿</div>
+                <div class="node-label">Crypto</div>
+                <div class="node-hint">Bitcoin</div>
+            </div>
+
+            <div class="node startup" data-component="startup" data-category="modern" data-step="20">
+                <div class="node-number">20</div>
+                <div class="node-icon">🚀</div>
+                <div class="node-label">Startup/VC</div>
+                <div class="node-hint">Vốn mạo hiểm</div>
+            </div>
+
+            <!-- ==================== ECONOMICS (21-22) ==================== -->
+
+            <div class="node labor-market" data-component="labor-market" data-category="core" data-step="21">
+                <div class="node-number">21</div>
+                <div class="node-icon">👷</div>
+                <div class="node-label">Thị Trường LĐ</div>
+                <div class="node-hint">Lương & việc làm</div>
+            </div>
+
+            <div class="node supply-chain" data-component="supply-chain" data-category="core" data-step="22">
+                <div class="node-number">22</div>
+                <div class="node-icon">🔗</div>
+                <div class="node-label">Chuỗi Cung Ứng</div>
+                <div class="node-hint">Sản xuất & logistics</div>
+            </div>
+
+            <!-- ==================== GOLD (23) ==================== -->
+            <div class="node gold" data-component="gold" data-category="market" data-step="23">
+                <div class="node-number">23</div>
+                <div class="node-icon">🪙</div>
+                <div class="node-label">Thị Trường Vàng</div>
+                <div class="node-hint">Tài sản trú ẩn</div>
+            </div>
+        </div>
+
+        <section class="money-flow-section system-map-section" aria-labelledby="systemMapTitle">
+            <div class="money-flow-intro">
+                <div>
+                    <p class="money-flow-kicker">System Map</p>
+                    <h2 id="systemMapTitle">Bản đồ quan hệ đầy đủ giữa các thành phần kinh tế</h2>
+                </div>
+                <p class="money-flow-summary">
+                    Bản đồ cuối trang này gom đủ 23 thành phần trong cùng một mạng lưới để bạn thấy nơi
+                    vốn được tạo ra, nơi rủi ro được chuyển đi, và nơi các chu kỳ tài sản được khuếch đại.
+                </p>
+            </div>
+
+            <article class="flowchart-card">
+                <div class="flowchart-copy">
+                    <h3>1. Mạng lưới toàn hệ thống</h3>
+                    <p>Một sơ đồ duy nhất để nhìn quan hệ giữa khối cốt lõi, thị trường tài sản, dịch vụ tài chính và dòng vốn hiện đại.</p>
+                </div>
+                <pre class="mermaid money-flow-mermaid map">
+flowchart TB
+    subgraph CORE["Khối cốt lõi"]
+        CB["1. Ngân hàng TW"]
+        BANK["2. NH thương mại"]
+        GOV["3. Chính phủ"]
+        BIZ["4. Doanh nghiệp"]
+        HH["5. Người dân"]
+        FOR["6. Quốc tế"]
+    end
+
+    subgraph FIN["Khối tài chính"]
+        STOCK["7. Sàn CK"]
+        FUND["8. Quỹ đầu tư"]
+        CF["9. Tín dụng tiêu dùng"]
+        SHADOW["10. Shadow Bank"]
+    end
+
+    subgraph MARKET["Khối thị trường"]
+        BOND["11. Trái phiếu"]
+        RE["12. Bất động sản"]
+        COM["13. Hàng hóa"]
+        FX["14. Forex"]
+        GOLD["23. Vàng 🪙"]
+    end
+
+    subgraph SERVICES["Khối dịch vụ tài chính"]
+        INS["15. Bảo hiểm"]
+        PENSION["16. Hưu trí"]
+        RATING["17. Xếp hạng tín nhiệm"]
+    end
+
+    subgraph MODERN["Khối hiện đại"]
+        FINTECH["18. Fintech"]
+        CRYPTO["19. Crypto"]
+        STARTUP["20. Startup / VC"]
+    end
+
+    subgraph ECON["Khối kinh tế"]
+        LABOR["21. Thị trường LĐ"]
+        SUPPLYCHAIN["22. Chuỗi cung ứng"]
+    end
+
+    CB -->|"Thanh khoản, lãi suất"| BANK
+    CB -->|"OMO, QE, mua giấy tờ có giá"| BOND
+    BANK -->|"Cho vay sản xuất"| BIZ
+    BANK <-->|"Cho vay tiêu dùng, thế chấp / tiết kiệm, gửi tiền"| HH
+    GOV <-->|"Chi tiêu công, trợ cấp / thuế TNCN"| HH
+    GOV <-->|"Đầu tư công, mua sắm / thuế, phí"| BIZ
+    BIZ <-->|"Trả lương, cổ tức / mua hàng hóa, dịch vụ"| HH
+    BIZ <-->|"Xuất nhập khẩu"| FOR
+    FOR -->|"FDI, kiều hối"| BANK
+    FOR -->|"Dòng vốn, thương mại quốc tế"| FX
+    BANK -->|"Ngoại tệ, hedging"| FX
+    COM -->|"Giá đầu vào"| BIZ
+    HH -->|"Mua xăng, vàng, hàng thiết yếu"| COM
+    BANK -->|"Bảo lãnh phát hành"| BOND
+    BOND -->|"Vốn nợ dài hạn"| GOV
+    BOND -->|"Vốn nợ dài hạn"| BIZ
+    RATING -->|"Đánh giá tín nhiệm"| BOND
+    RATING -->|"Đánh giá DN phát hành"| BIZ
+    HH -->|"Mua cổ phiếu, ETF"| STOCK
+    HH -->|"Góp vốn"| FUND
+    FUND -->|"Giải ngân, nắm giữ danh mục"| STOCK
+    STOCK -->|"Huy động vốn cổ phần"| BIZ
+    HH -->|"Mua nhà, đầu tư đất"| RE
+    BANK -->|"Thế chấp, vay mua nhà"| RE
+    SHADOW -->|"Tín dụng ngoài ngân hàng"| BIZ
+    SHADOW -->|"Đòn bẩy tài sản"| RE
+    CF -->|"Thẻ, trả góp, BNPL"| HH
+    CF -->|"Thanh toán merchant"| BIZ
+    HH -->|"Phí, lãi trả chậm"| CF
+    HH <-->|"Phí bảo hiểm / bồi thường, hoàn trả"| INS
+    BIZ <-->|"Bảo hiểm tài sản, nhân sự / bồi thường tổn thất"| INS
+    INS -->|"Đầu tư dự phòng"| BOND
+    HH <-->|"Đóng BHXH, hưu trí / chi trả hưu trí"| PENSION
+    BIZ -->|"Đóng góp lao động"| PENSION
+    PENSION -->|"Đầu tư dài hạn"| BOND
+    HH -->|"Thanh toán QR, ví"| FINTECH
+    FINTECH -->|"Kết nối tài khoản, settlement"| BANK
+    FINTECH -->|"Thanh toán số cho merchant"| BIZ
+    HH -->|"Đầu cơ, lưu trữ giá trị"| CRYPTO
+    FOR -->|"Dòng vốn số, stablecoin"| CRYPTO
+    FUND -->|"PE/VC"| STARTUP
+    STARTUP -->|"Gọi vốn, tăng trưởng"| BIZ
+    STOCK -->|"IPO, thoái vốn"| STARTUP
+    BIZ -->|"Tuyển dụng, trả lương"| LABOR
+    LABOR -->|"Cung sức lao động"| BIZ
+    GOV -->|"BHXH, trợ cấp"| LABOR
+    BIZ -->|"Đặt hàng NVL"| SUPPLYCHAIN
+    SUPPLYCHAIN -->|"Giao hàng, logistics"| BIZ
+    FOR -->|"Nguyên liệu nhập"| SUPPLYCHAIN
+    SUPPLYCHAIN -->|"Xuất khẩu TP"| FOR
+    LABOR -->|"Chi tiêu tiêu dùng"| BIZ
+    HH -->|"Tích trữ vàng, mua ETF vàng"| GOLD
+    CB -->|"Dự trữ vàng quốc gia"| GOLD
+    FX <-->|"Tương quan âm: USD mạnh/vàng yếu"| GOLD
+    FOR -->|"NHTW nước ngoài mua vàng"| GOLD
+    COM ---|"Kim loại quý liên quan"| GOLD
+                </pre>
+                <div class="flowchart-legend" aria-label="Chú thích màu khối thành phần">
+                    <div class="flowchart-legend-title">Chú thích màu khối</div>
+                    <div class="flowchart-legend-items">
+                        <div class="flowchart-legend-item core">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối cốt lõi</span>
+                        </div>
+                        <div class="flowchart-legend-item finance">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối tài chính</span>
+                        </div>
+                        <div class="flowchart-legend-item market">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối thị trường</span>
+                        </div>
+                        <div class="flowchart-legend-item services">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Dịch vụ tài chính</span>
+                        </div>
+                        <div class="flowchart-legend-item modern">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối hiện đại</span>
+                        </div>
+                        <div class="flowchart-legend-item economics">
+                            <span class="flowchart-legend-swatch"></span>
+                            <span>Khối kinh tế</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flowchart-explainer">
+                    <h4>Giải thích sơ đồ tổng hợp</h4>
+                    <ul class="flowchart-points">
+                        <li>Khối cốt lõi tạo tiền, thu thuế, chi tiêu và truyền tiền sang nền kinh tế thực.</li>
+                        <li>Khối tài chính và thị trường chuyển tiền tiết kiệm thành vốn nợ, vốn cổ phần và đòn bẩy tài sản.</li>
+                        <li>Khối dịch vụ tài chính định giá rủi ro, gom dòng tiền dài hạn và hấp thụ tổn thất.</li>
+                        <li>Khối hiện đại tăng tốc giao dịch và kéo thêm các dòng vốn rủi ro, đầu cơ, hoặc vốn mạo hiểm vào hệ thống.</li>
+                        <li>Màu nền của từng node biểu diễn khối thành phần; các khung vuông bao quanh khối đã được bỏ để sơ đồ thoáng hơn.</li>
+                        <li>Mũi tên hai chiều biểu diễn quan hệ phản hồi, nơi tiền hoặc nghĩa vụ quay ngược lại thành dòng trả nợ, thuế, bồi thường hoặc chi trả.</li>
+                        <li>Màu mũi tên chỉ dùng để tách các hướng đi của cùng một node; chúng độc lập với màu khối của node.</li>
+                        <li>Nếu nhìn riêng một thành phần như `Người dân` hoặc `NH thương mại`, các mũi tên của node đó sẽ không trùng màu để bạn lần theo luồng nhanh hơn.</li>
+                    </ul>
+                    <p class="flowchart-note">Mẹo đọc nhanh: bắt đầu từ `2. NH thương mại` hoặc `5. Người dân`, vì đây là hai node có nhiều nhánh kết nối nhất trong toàn bộ hệ thống.</p>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-icon" id="modalIcon"></span>
+                <div>
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-level-tabs">
+                        <button class="level-tab active" data-tab="simple">Đơn giản</button>
+                        <button class="level-tab" data-tab="detail">Chi tiết</button>
+                        <button class="level-tab" data-tab="advanced">Chuyên sâu</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <div class="tab-content active" data-content="simple"></div>
+                <div class="tab-content" data-content="detail"></div>
+                <div class="tab-content" data-content="advanced"></div>
+                <section class="asset-structure-card" id="assetStructureCard" hidden>
+                    <div class="asset-structure-header">
+                        <div>
+                            <h4>Cơ cấu tài sản điển hình</h4>
+                            <p id="assetStructureLead">Tỷ trọng minh họa để bạn hình dung giá trị thường nằm ở đâu trong thành phần này.</p>
+                        </div>
+                    </div>
+                    <div class="asset-structure-list" id="assetStructureList"></div>
+                    <div class="asset-structure-insights" id="assetStructureInsights"></div>
+                    <p class="asset-structure-note" id="assetStructureNote"></p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <div class="connections-section">
+                    <h4>🔗 Kết nối với:</h4>
+                    <div class="connections-list" id="connectionsList"></div>
+                </div>
+                <div class="key-points" id="keyPoints"></div>
+                <div class="modal-nav">
+                    <button id="modalPrev" class="modal-nav-btn">← Trước</button>
+                    <button id="modalNext" class="modal-nav-btn">Tiếp →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenario Modal -->
+    <div class="scenario-overlay" id="scenarioModal">
+        <div class="scenario-content">
+            <button class="modal-close" id="closeScenario">&times;</button>
+            <h2>📖 Kịch Bản Thực Tế (50+ kịch bản)</h2>
+            <p class="scenario-intro">Chọn một hoặc nhiều kịch bản để xem tiền chảy như thế nào. Di chuột vào từng kịch bản để xem sơ đồ Mermaid tổng quan.</p>
+            
+            <!-- Country/Region Selector -->
+            <div class="country-selector">
+                <label>🌍 Quốc gia/Khu vực:</label>
+                <select id="countrySelect">
+                    <option value="vn" selected>🇻🇳 Việt Nam</option>
+                    <option value="us">🇺🇸 Mỹ (USA)</option>
+                    <option value="cn">🇨🇳 Trung Quốc</option>
+                    <option value="jp">🇯🇵 Nhật Bản</option>
+                    <option value="eu">🇪🇺 Châu Âu (EU)</option>
+                    <option value="kr">🇰🇷 Hàn Quốc</option>
+                </select>
+            </div>
+            
+            <div class="scenario-categories">
+                <button class="scenario-cat-btn active" data-cat="all">Tất cả</button>
+                <button class="scenario-cat-btn" data-cat="personal">👤 Cá nhân</button>
+                <button class="scenario-cat-btn" data-cat="business">🏭 Doanh nghiệp</button>
+                <button class="scenario-cat-btn" data-cat="investment">📈 Đầu tư</button>
+                <button class="scenario-cat-btn" data-cat="crisis">⚠️ Khủng hoảng</button>
+                <button class="scenario-cat-btn" data-cat="fraud">🦹 Gian lận</button>
+                <button class="scenario-cat-btn" data-cat="war">⚔️ Chiến tranh tiền tệ</button>
+                <button class="scenario-cat-btn" data-cat="modern">⚡ Hiện đại</button>
+            </div>
+            
+            <div class="scenario-selection-bar">
+                <span id="selectedCount">0 kịch bản được chọn</span>
+                <div class="play-mode-toggle">
+                    <label class="mode-label">Chế độ:</label>
+                    <button class="mode-btn active" id="modeSequential" data-mode="sequential">📋 Tuần tự</button>
+                    <button class="mode-btn" id="modeParallel" data-mode="parallel">⚡ Song song</button>
+                </div>
+                <button class="run-selected-btn" id="runSelectedBtn" disabled>▶️ Chạy các kịch bản đã chọn</button>
+                <button class="clear-selection-btn" id="clearSelectionBtn">✖️ Bỏ chọn</button>
+            </div>
+
+            <section class="scenario-preview-panel" id="scenarioPreviewPanel" aria-labelledby="scenarioPreviewTitle">
+                <div class="scenario-preview-header">
+                    <div>
+                        <p class="scenario-preview-kicker">Mermaid Tổng Quan</p>
+                        <h3 id="scenarioPreviewTitle">Đang tải kịch bản...</h3>
+                    </div>
+                    <div class="scenario-preview-meta" id="scenarioPreviewMeta"></div>
+                </div>
+                <p class="scenario-preview-desc" id="scenarioPreviewDesc"></p>
+                <div class="scenario-preview-mermaid-wrap">
+                    <div class="scenario-preview-mermaid" id="scenarioPreviewMermaid"></div>
+                </div>
+                <div class="scenario-preview-notes" id="scenarioPreviewNotes"></div>
+            </section>
+            
+            <div class="scenario-list" id="scenarioList"></div>
+        </div>
+    </div>
+
+    <!-- Interactive Scenario Player Modal -->
+    <div class="scenario-player-overlay" id="scenarioPlayerModal">
+        <div class="scenario-player-content">
+            <button class="modal-close" id="closePlayer">&times;</button>
+            <div class="player-header">
+                <h2 id="playerTitle">📖 Kịch bản</h2>
+                <div class="player-progress">
+                    <span id="playerStepInfo">Bước 1/--</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="playerProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="player-body">
+                <section class="player-overview-card" aria-labelledby="playerOverviewTitle">
+                    <div class="player-overview-header">
+                        <div>
+                            <p class="scenario-preview-kicker">Mermaid Trong Kịch Bản</p>
+                            <h4 id="playerOverviewTitle">Luồng tổng quan</h4>
+                        </div>
+                        <div class="player-overview-meta" id="playerOverviewMeta"></div>
+                    </div>
+                    <div class="scenario-preview-mermaid player-scenario-mermaid" id="playerScenarioMermaid"></div>
+                </section>
+
+                <div class="player-step-content" id="playerStepContent">
+                    <div class="step-node-icon" id="stepNodeIcon"></div>
+                    <div class="step-text" id="stepText"></div>
+                </div>
+                
+                <div class="player-simulation" id="playerSimulation">
+                    <h4>📊 Chi tiết tính toán:</h4>
+                    <div class="simulation-inputs" id="simInputs"></div>
+                    <div class="simulation-outputs" id="simOutputs"></div>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="playerPrev">⬅️ Trước</button>
+                <button class="player-btn pause-btn" id="playerPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="playerNext">Tiếp ➡️</button>
+                <button class="player-btn skip-btn" id="playerSkip">⏭️ Bỏ qua kịch bản này</button>
+            </div>
+            
+            <!-- Simulation Dashboard -->
+            <div class="sim-dashboard" id="simDashboard">
+                <h4>📊 Bảng điều khiển Mô phỏng</h4>
+                <div class="sim-indicators">
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💰</span>
+                        <span class="sim-label">Cung tiền</span>
+                        <span class="sim-value" id="simMoneySupply">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📈</span>
+                        <span class="sim-label">Chỉ số CK</span>
+                        <span class="sim-value" id="simStockIndex">1000</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏠</span>
+                        <span class="sim-label">BĐS</span>
+                        <span class="sim-value" id="simRealEstate">100</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📊</span>
+                        <span class="sim-label">Lạm phát</span>
+                        <span class="sim-value" id="simInflation">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">👥</span>
+                        <span class="sim-label">Thất nghiệp</span>
+                        <span class="sim-value" id="simUnemployment">5%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">😊</span>
+                        <span class="sim-label">Niềm tin</span>
+                        <span class="sim-value" id="simConfidence">70</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏦</span>
+                        <span class="sim-label">Nợ xấu</span>
+                        <span class="sim-value" id="simNPL">2%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💱</span>
+                        <span class="sim-label">Tỷ giá</span>
+                        <span class="sim-value" id="simExchangeRate">100</span>
+                    </div>
+                </div>
+                <div class="sim-step-detail" id="simStepDetail">
+                    <!-- Current step inputs/outputs will appear here -->
+                </div>
+                <div class="sim-status" id="simStatus">
+                    <span class="status-icon">✅</span>
+                    <span class="status-text">Đang chạy bình thường</span>
+                </div>
+            </div>
+            
+            <div class="player-queue" id="playerQueue">
+                <h4>📋 Hàng đợi kịch bản:</h4>
+                <div class="queue-list" id="queueList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parallel Scenario Player Modal -->
+    <div class="scenario-player-overlay parallel-mode" id="parallelPlayerModal">
+        <div class="scenario-player-content parallel-player-content">
+            <button class="modal-close" id="closeParallelPlayer">&times;</button>
+            <div class="player-header">
+                <h2>⚡ Chế độ Song song - Nhiều kịch bản cùng lúc</h2>
+                <div class="parallel-step-indicator">
+                    <span id="parallelStepInfo">Bước 1</span>
+                    <div class="player-progress-bar">
+                        <div class="player-progress-fill" id="parallelProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simulation Dashboard for Parallel Mode -->
+            <div class="sim-dashboard parallel-dashboard" id="parallelSimDashboard">
+                <h4>📊 Tác động tổng hợp từ tất cả kịch bản</h4>
+                <div class="sim-indicators">
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💰</span>
+                        <span class="sim-label">Cung tiền</span>
+                        <span class="sim-value" id="pSimMoneySupply">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📈</span>
+                        <span class="sim-label">Chỉ số CK</span>
+                        <span class="sim-value" id="pSimStockIndex">1000</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏠</span>
+                        <span class="sim-label">BĐS</span>
+                        <span class="sim-value" id="pSimRealEstate">100</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">📊</span>
+                        <span class="sim-label">Lạm phát</span>
+                        <span class="sim-value" id="pSimInflation">--</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">👥</span>
+                        <span class="sim-label">Thất nghiệp</span>
+                        <span class="sim-value" id="pSimUnemployment">5%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">😊</span>
+                        <span class="sim-label">Niềm tin</span>
+                        <span class="sim-value" id="pSimConfidence">70</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">🏦</span>
+                        <span class="sim-label">Nợ xấu</span>
+                        <span class="sim-value" id="pSimNPL">2%</span>
+                    </div>
+                    <div class="sim-indicator">
+                        <span class="sim-icon">💱</span>
+                        <span class="sim-label">Tỷ giá</span>
+                        <span class="sim-value" id="pSimExchangeRate">100</span>
+                    </div>
+                </div>
+                <div class="sim-status" id="parallelSimStatus">
+                    <span class="status-icon">✅</span>
+                    <span class="status-text">Đang chạy bình thường</span>
+                </div>
+            </div>
+            
+            <div class="parallel-grid" id="parallelGrid">
+                <!-- Scenario cards will be dynamically inserted here -->
+            </div>
+            
+            <div class="player-controls">
+                <button class="player-btn" id="parallelPrev">⬅️ Bước trước</button>
+                <button class="player-btn pause-btn" id="parallelPause">⏸️ Tạm dừng</button>
+                <button class="player-btn" id="parallelNext">Bước tiếp ➡️</button>
+            </div>
+            
+            <div class="parallel-legend">
+                <h4>🎯 Các kịch bản đang chạy:</h4>
+                <div class="legend-list" id="parallelLegend"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulator Modal -->
+    <div class="simulator-overlay" id="simulatorModal">
+        <div class="simulator-content">
+            <button class="modal-close" id="closeSimulator">&times;</button>
+            <h2>🧮 Các Công Cụ Mô Phỏng</h2>
+            
+            <div class="simulator-tabs" id="simulatorTabs"></div>
+
+            <div class="simulator-panels" id="simulatorPanels"></div>
+        </div>
+    </div>
+
+    <!-- Theory Modal -->
+    <div class="theory-overlay" id="theoryModal">
+        <div class="theory-content">
+            <button class="modal-close" id="closeTheory">&times;</button>
+            <h2>📚 Lý Thuyết & Khái Niệm Kinh Tế</h2>
+            <p class="theory-intro">Tập trung toàn bộ lý thuyết, khái niệm và mô hình kinh tế trong trang. Chọn chủ đề để đọc.</p>
+            <div class="theory-search">
+                <input type="text" id="theorySearch" placeholder="🔍 Tìm khái niệm..." autocomplete="off">
+            </div>
+            <div class="theory-categories" id="theoryCategories"></div>
+            <div class="theory-list" id="theoryList"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-overlay" id="quizModal">
+        <div class="quiz-content">
+            <button class="modal-close" id="closeQuiz">&times;</button>
+            <h2>❓ Ngân Hàng Câu Hỏi Trắc Nghiệm</h2>
+            <p class="quiz-intro" id="quizIntro">Chọn một đáp án để xem ngay đáp án đúng và lời giải thích. Phần này không chấm điểm.</p>
+
+            <div class="quiz-categories" id="quizCategories"></div>
+            <div class="quiz-list" id="quizList"></div>
+        </div>
+    </div>
+
+    <!-- Glossary Popup -->
+    <div class="glossary-popup" id="glossaryPopup">
+        <div class="glossary-term" id="glossaryTerm"></div>
+        <div class="glossary-definition" id="glossaryDefinition"></div>
+    </div>
+
+    <footer>
+        <p>Dựa trên kiến thức từ sách "Hiểu Hết Về Tiền" 📚</p>
+        <p class="footer-hint">💡 Click vào bất kỳ thành phần nào để xem chi tiết | 22 thành phần | 50+ kịch bản</p>
+    </footer>
+
+    <!-- Module Scripts -->
+    <script src="modules/components.js"></script>
+    <script src="modules/theory.js"></script>
+    <script src="modules/simulation.js"></script>
+    <script src="modules/scenarios.js"></script>
+    <script src="modules/quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        function decorateSystemMapMermaid() {
+            const container = document.querySelector('.money-flow-mermaid.map');
+            const svg = container?.querySelector('svg.flowchart');
+            if (!container || !svg) return;
+
+            const blockStyles = {
+                CORE: { fill: '#214866', stroke: '#8fd3ff', text: '#f5fbff' },
+                FIN: { fill: '#6a3d1f', stroke: '#ffbf80', text: '#fff7ed' },
+                MARKET: { fill: '#2f5d3b', stroke: '#96f2a8', text: '#f3fff7' },
+                SERVICES: { fill: '#5b3659', stroke: '#f0abfc', text: '#fff5ff' },
+                MODERN: { fill: '#1f5560', stroke: '#7ce3ff', text: '#effcff' },
+                ECON: { fill: '#5c4d1e', stroke: '#fde68a', text: '#fffef5' }
+            };
+            const nodeBlocks = {
+                CB: 'CORE',
+                BANK: 'CORE',
+                GOV: 'CORE',
+                BIZ: 'CORE',
+                HH: 'CORE',
+                FOR: 'CORE',
+                STOCK: 'FIN',
+                FUND: 'FIN',
+                CF: 'FIN',
+                SHADOW: 'FIN',
+                BOND: 'MARKET',
+                RE: 'MARKET',
+                COM: 'MARKET',
+                FX: 'MARKET',
+                INS: 'SERVICES',
+                PENSION: 'SERVICES',
+                RATING: 'SERVICES',
+                FINTECH: 'MODERN',
+                CRYPTO: 'MODERN',
+                STARTUP: 'MODERN',
+                LABOR: 'ECON',
+                SUPPLYCHAIN: 'ECON'
+            };
+            const palette = [
+                '#ff6b6b', '#ffa94d', '#ffd43b', '#94d82d', '#69db7c', '#38d9a9',
+                '#3bc9db', '#4dabf7', '#748ffc', '#9775fa', '#da77f2', '#f783ac',
+                '#ff8787', '#fcc419', '#20c997', '#66d9e8', '#a5d8ff', '#b197fc'
+            ];
+            const nodeColorUsage = new Map();
+            const nodeGroups = Array.from(svg.querySelectorAll('g.node'));
+            const clusters = Array.from(svg.querySelectorAll('g.cluster'));
+            const edgePaths = Array.from(svg.querySelectorAll('g.edgePaths path[data-edge="true"]'));
+            const edgeLabels = Array.from(svg.querySelectorAll('g.edgeLabels > g'));
+            const markerStore = svg.querySelector('defs') || svg;
+
+            if (!edgePaths.length) return;
+
+            clusters.forEach((cluster) => {
+                cluster.style.display = 'none';
+            });
+
+            nodeGroups.forEach((nodeGroup) => {
+                const nodeId = nodeGroup.id.replace(/^flowchart-/, '').replace(/-\d+$/, '');
+                const blockKey = nodeBlocks[nodeId];
+                const blockStyle = blockStyles[blockKey];
+                if (!blockStyle) return;
+
+                nodeGroup.querySelectorAll('rect, circle, ellipse, polygon, path').forEach((shape) => {
+                    shape.style.fill = blockStyle.fill;
+                    shape.style.stroke = blockStyle.stroke;
+                    shape.style.strokeWidth = '1.6px';
+                });
+
+                nodeGroup.querySelectorAll('text, tspan, span, p').forEach((labelNode) => {
+                    labelNode.style.fill = blockStyle.text;
+                    labelNode.style.color = blockStyle.text;
+                });
+            });
+
+            const getColorBucket = (nodeId) => {
+                if (!nodeColorUsage.has(nodeId)) {
+                    nodeColorUsage.set(nodeId, new Set());
+                }
+                return nodeColorUsage.get(nodeId);
+            };
+
+            const pickEdgeColor = (source, target, fallbackIndex) => {
+                const sourceColors = getColorBucket(source);
+                const targetColors = getColorBucket(target);
+                const blocked = new Set([...sourceColors, ...targetColors]);
+                const color = palette.find((candidate) => !blocked.has(candidate))
+                    || palette[fallbackIndex % palette.length];
+
+                sourceColors.add(color);
+                targetColors.add(color);
+
+                return color;
+            };
+
+            const applyMarkerColor = (path, markerAttr, color, edgeIndex) => {
+                const markerRef = path.getAttribute(markerAttr);
+                const markerId = markerRef?.match(/#([^)]+)/)?.[1];
+                if (!markerId) return;
+
+                const defaultMarker = document.getElementById(markerId);
+                if (!defaultMarker) return;
+
+                const coloredMarkerId = `${svg.id}-${markerAttr}-marker-${edgeIndex}`;
+                let marker = document.getElementById(coloredMarkerId);
+
+                if (!marker) {
+                    marker = defaultMarker.cloneNode(true);
+                    marker.id = coloredMarkerId;
+                    marker.querySelectorAll('path').forEach((markerPath) => {
+                        markerPath.setAttribute('fill', color);
+                        markerPath.setAttribute('stroke', color);
+                    });
+                    markerStore.appendChild(marker);
+                }
+
+                path.setAttribute(markerAttr, `url(#${coloredMarkerId})`);
+            };
+
+            const viewBoxWidth = svg.viewBox?.baseVal?.width || container.clientWidth;
+            svg.style.maxWidth = 'none';
+            svg.style.width = `${Math.max(container.clientWidth, Math.ceil(viewBoxWidth))}px`;
+            svg.style.height = 'auto';
+
+            edgePaths.forEach((path, index) => {
+                const edgeId = path.dataset.id || path.id || `edge-${index}`;
+                const [source = `source-${index}`, target = `target-${index}`] = edgeId.replace(/^L_/, '').split('_');
+                const color = pickEdgeColor(source, target, index);
+
+                path.style.stroke = color;
+                path.style.strokeWidth = '2.8px';
+                path.style.opacity = '0.96';
+                applyMarkerColor(path, 'marker-start', color, index);
+                applyMarkerColor(path, 'marker-end', color, index);
+
+                const labelGroup = edgeLabels[index];
+                if (labelGroup) {
+                    labelGroup.querySelectorAll('span, text, tspan').forEach((labelNode) => {
+                        labelNode.style.color = color;
+                        labelNode.style.fill = color;
+                    });
+                    labelGroup.querySelectorAll('rect').forEach((labelBg) => {
+                        labelBg.style.stroke = color;
+                        labelBg.style.fill = 'rgba(16, 32, 56, 0.92)';
+                    });
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!window.mermaid) return;
+
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'base',
+                flowchart: {
+                    curve: 'basis',
+                    htmlLabels: false
+                },
+                themeVariables: {
+                    background: '#102038',
+                    primaryColor: '#17345d',
+                    primaryBorderColor: '#f39c12',
+                    primaryTextColor: '#f7fafc',
+                    secondaryColor: '#1d426f',
+                    tertiaryColor: '#0d1a2b',
+                    lineColor: '#74c0fc',
+                    edgeLabelBackground: '#102038'
+                }
+            });
+
+            await mermaid.run({
+                querySelector: '.money-flow-mermaid'
+            });
+
+            window.requestAnimationFrame(decorateSystemMapMermaid);
+        });
+    </script>
+    <!-- Main Application -->
+    <script src="app.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngữ Pháp Tiếng Việt - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <a href="../" class="back-home">← Trang chủ</a>
+            <div>
+                <h1>Ngữ Pháp Tiếng Việt</h1>
+                <p>Từ tiếng, từ, cụm từ đến câu, dấu câu và lỗi thường gặp.</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="header-btn" id="openQuiz">Luyện tập</button>
+            <button class="header-btn" id="resetProgress">Reset</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Bản đồ học nhanh</span>
+                <h2>Hiểu cấu trúc câu tiếng Việt bằng ví dụ gần gũi.</h2>
+                <p>
+                    Trang này gom các khái niệm nền tảng của ngữ pháp tiếng Việt thành từng nhóm:
+                    đơn vị ngôn ngữ, từ loại, cụm từ, thành phần câu, kiểu câu, dấu câu và phong cách diễn đạt.
+                </p>
+            </div>
+            <div class="hero-board" aria-label="Sơ đồ cấu trúc câu">
+                <div class="sentence-strip">
+                    <span class="subject">Tôi</span>
+                    <span class="time">đang</span>
+                    <span class="verb">học</span>
+                    <span class="object">ngữ pháp</span>
+                    <span class="place">ở nhà</span>
+                </div>
+                <div class="role-row">
+                    <span>Chủ ngữ</span>
+                    <span>Phụ từ</span>
+                    <span>Vị ngữ</span>
+                    <span>Bổ ngữ</span>
+                    <span>Trạng ngữ</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="toolbar" aria-label="Bộ lọc chủ điểm">
+            <div class="search-box">
+                <span>🔎</span>
+                <input id="searchInput" type="search" placeholder="Tìm: chủ ngữ, động từ, dấu phẩy, câu ghép...">
+            </div>
+            <div class="filters" id="filters">
+                <button class="filter active" data-category="all">Tất cả</button>
+                <button class="filter" data-category="foundation">Nền tảng</button>
+                <button class="filter" data-category="word">Từ loại</button>
+                <button class="filter" data-category="phrase">Cụm từ</button>
+                <button class="filter" data-category="sentence">Câu</button>
+                <button class="filter" data-category="punctuation">Dấu câu</button>
+                <button class="filter" data-category="style">Diễn đạt</button>
+            </div>
+        </section>
+
+        <section class="learning-path">
+            <h2>Lộ trình gợi ý</h2>
+            <div class="path-grid">
+                <article>
+                    <strong>1. Nhận diện đơn vị</strong>
+                    <span>Tiếng → từ → cụm từ → câu</span>
+                </article>
+                <article>
+                    <strong>2. Nắm vai trò</strong>
+                    <span>Chủ ngữ, vị ngữ, trạng ngữ, bổ ngữ</span>
+                </article>
+                <article>
+                    <strong>3. Sửa câu</strong>
+                    <span>Thiếu thành phần, lặp từ, mơ hồ, sai dấu</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="concepts">
+            <div class="section-title-row">
+                <h2>Chủ điểm ngữ pháp</h2>
+                <span id="resultCount">0 mục</span>
+            </div>
+            <div class="concept-grid" id="conceptGrid"></div>
+            <div class="empty-state" id="emptyState">Không tìm thấy chủ điểm phù hợp.</div>
+        </section>
+
+        <section class="examples">
+            <h2>Phân tích câu mẫu</h2>
+            <div class="example-grid">
+                <article class="example-card">
+                    <p class="example-sentence">Sáng nay, Lan đọc sách trong thư viện.</p>
+                    <dl>
+                        <div><dt>Trạng ngữ</dt><dd>Sáng nay</dd></div>
+                        <div><dt>Chủ ngữ</dt><dd>Lan</dd></div>
+                        <div><dt>Vị ngữ</dt><dd>đọc sách trong thư viện</dd></div>
+                    </dl>
+                </article>
+                <article class="example-card">
+                    <p class="example-sentence">Vì trời mưa, chúng tôi ở nhà.</p>
+                    <dl>
+                        <div><dt>Vế phụ</dt><dd>Vì trời mưa</dd></div>
+                        <div><dt>Vế chính</dt><dd>chúng tôi ở nhà</dd></div>
+                        <div><dt>Quan hệ</dt><dd>Nguyên nhân - kết quả</dd></div>
+                    </dl>
+                </article>
+                <article class="example-card">
+                    <p class="example-sentence">Bạn đã hoàn thành bài tập chưa?</p>
+                    <dl>
+                        <div><dt>Kiểu câu</dt><dd>Câu nghi vấn</dd></div>
+                        <div><dt>Dấu hiệu</dt><dd>đã... chưa</dd></div>
+                        <div><dt>Dấu câu</dt><dd>Dấu chấm hỏi</dd></div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <button class="drawer-backdrop" id="drawerBackdrop" aria-label="Đóng chi tiết"></button>
+    <aside class="detail-drawer" id="detailDrawer" aria-live="polite">
+        <button class="close-drawer" id="closeDrawer">← Đóng</button>
+        <div class="detail-icon" id="detailIcon">📘</div>
+        <h2 id="detailTitle">Chủ điểm</h2>
+        <p id="detailSummary"></p>
+        <div class="detail-section">
+            <h3>Cách hiểu nhanh</h3>
+            <div id="detailRules"></div>
+        </div>
+        <div class="detail-section">
+            <h3>Ví dụ</h3>
+            <ul id="detailExamples"></ul>
+        </div>
+        <div class="detail-section">
+            <h3>Lỗi hay gặp</h3>
+            <p id="detailMistake"></p>
+        </div>
+    </aside>
+
+    <div class="modal" id="quizModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeQuiz">×</button>
+            <h2>Luyện tập nhanh</h2>
+            <p id="quizQuestion"></p>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-feedback" id="quizFeedback"></div>
+            <button class="primary-btn" id="nextQuiz">Câu tiếp theo</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>

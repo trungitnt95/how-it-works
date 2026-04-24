@@ -392,7 +392,7 @@ function initVersionSwitcher() {
         if (mlhLoaded) return;
         try {
             vMlh.innerHTML = '<p style="padding:3rem;color:#cdd9e5">Đang tải phiên bản Mai Lan Hương...</p>';
-            const sourceUrl = new URL('../english-grammars/index.html', window.location.href);
+            const sourceUrl = new URL('../english-grammars/english-grammars.html', window.location.href);
             const res = await fetch(sourceUrl);
             if (!res.ok) {
                 throw new Error(`HTTP ${res.status}`);
