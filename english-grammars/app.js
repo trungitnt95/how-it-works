@@ -237,78 +237,115 @@ function injectRoteMemorySection(root = document) {
         }
 }
 
-const USAGE_SECTION_META = {
-    tenses: { icon: '⏰', title: 'Thì & mốc thời gian' },
-    foundations: { icon: '🧱', title: 'Nền tảng câu' },
-    patterns: { icon: '🧩', title: 'Mẫu câu & chức năng giao tiếp' },
-    structures: { icon: '🏗️', title: 'Cấu trúc nâng cao' },
-    mistakes: { icon: '⚠️', title: 'Lỗi dùng sai ngữ cảnh' },
-    pronunciation: { icon: '🗣️', title: 'Phát âm theo ngữ cảnh' }
+const MLH_USAGE_ID_MAP = {
+    't-simple-present': 'present-simple',
+    't-present-cont': 'present-continuous',
+    't-present-perf': 'present-perfect',
+    't-present-perf-cont': 'present-perfect-continuous',
+    't-simple-past': 'past-simple',
+    't-past-cont': 'past-continuous',
+    't-past-perf': 'past-perfect',
+    't-past-perf-cont': 'past-perfect-continuous',
+    't-simple-future': 'future-simple',
+    't-be-going-to': 'near-future',
+    't-future-cont': 'future-continuous',
+    't-future-perf': 'future-perfect',
+    't-future-perf-cont': 'future-perfect-continuous',
+    'ex-countable': 'countable-uncountable',
+    'ex-quantifiers': 'quantifiers-deep',
+    'ex-demonstratives': 'demonstratives-deep',
+    'ex-anaphoric': 'anaphoric-reference',
+    'ex-gender-neutral': 'gender-neutral-grammar',
+    'ex-apposition': 'apposition',
+    'ex-stative': 'stative-verbs',
+    'ex-will-going': 'will-vs-going-to',
+    'ex-semi-modals': 'semi-modals',
+    'ex-narrative-present': 'narrative-present',
+    'ex-sequence-tenses': 'sequence-of-tenses',
+    'ex-yes-no': 'yes-no-questions',
+    'ex-wh': 'wh-questions',
+    'ex-embedded': 'embedded-questions',
+    'ex-negation': 'negation-patterns',
+    'ex-hedges': 'hedges-boosters',
+    'ex-politeness': 'politeness-indirectness',
+    'ex-info-flow': 'information-flow',
+    'ex-fronting': 'fronting',
+    'ex-complex-inversion': 'complex-inversion',
+    'ex-do-emphasis': 'do-emphasis',
+    'ex-causative-have-get': 'causative-have-get',
+    'ex-archaisms': 'archaisms-modern-grammar',
+    'ex-spoken-grammar': 'spoken-grammar',
+    'ex-word-stress': 'word-stress',
+    'ex-sentence-stress': 'sentence-stress',
+    'ex-intonation': 'intonation-patterns'
 };
 
-function getUsageDeepDiveTopics() {
-        if (typeof grammarUsageDeepDiveData === 'undefined') return [];
-        return Object.entries(grammarUsageDeepDiveData).map(([id, entry]) => ({ id, entry }));
+const MLH_USAGE_TITLE_RULES = [
+    [/điều kiện|conditional/i, 'conditionals'],
+    [/wish|if only/i, 'wish-if-only'],
+    [/mục đích|to \/ in order|so as to/i, 'infinitive-purposes'],
+    [/kết quả|so … that|such … that|too … to|enough/i, 'result-structures'],
+    [/can \/ could|may \/ might|must \/ have to|should|ought/i, 'modal-verbs'],
+    [/bị động|passive/i, 'passive-voice'],
+    [/tường thuật|reported|lùi thì/i, 'reported-speech'],
+    [/quan hệ|relative/i, 'relative-clauses'],
+    [/to-infinitive|v-ing|gerund/i, 'gerunds-infinitives'],
+    [/make \/ let \/ have \/ help/i, 'causatives'],
+    [/so sánh|comparative|superlative/i, 'comparisons'],
+    [/mạo từ|a \/ an|the/i, 'articles-determiners'],
+    [/giới từ|preposition|at \/ on \/ in|for \/ since/i, 'prepositions'],
+    [/there is|there are/i, 'existential-there'],
+    [/dummy/i, 'dummy-it'],
+    [/reflexive|reciprocal/i, 'reflexive-reciprocal'],
+    [/compound nouns|possessives/i, 'compound-nouns-possessives'],
+    [/both \/ either|neither|all/i, 'distributives'],
+    [/indefinite pronouns/i, 'indefinite-pronouns'],
+    [/phrasal prepositions/i, 'phrasal-prepositions'],
+    [/trật tự tính từ/i, 'adjective-order'],
+    [/chính tả/i, 'spelling-rules'],
+    [/tag questions/i, 'tag-questions'],
+    [/discourse markers|linking words/i, 'discourse-markers'],
+    [/câu cảm thán/i, 'exclamatory-sentences'],
+    [/substitution|ellipsis/i, 'substitution-ellipsis'],
+    [/the more/i, 'comparative-correlatives'],
+    [/inversion sau negative/i, 'inversion-negative'],
+    [/phrasal verbs/i, 'phrasal-verbs'],
+    [/verb patterns/i, 'verb-patterns'],
+    [/mixed/i, 'mixed-conditionals'],
+    [/cleft/i, 'cleft-sentences'],
+    [/reduced relative/i, 'reduced-relatives'],
+    [/reducing adverbial/i, 'reducing-adverbial-clauses'],
+    [/subjunctive/i, 'subjunctive'],
+    [/academic/i, 'academic-style-grammar'],
+    [/register|brE|amE/i, 'grammar-registers'],
+    [/punctuation|dấu câu/i, 'punctuation-deep'],
+    [/ipa overview/i, 'ipa-overview'],
+    [/nguyên âm|vowels/i, 'ipa-vowels'],
+    [/phụ âm|consonants/i, 'ipa-consonants'],
+    [/connected speech|weak forms/i, 'connected-speech']
+];
+
+function resolveUsageIdForAccordion(item) {
+    if (!item) return '';
+    if (MLH_USAGE_ID_MAP[item.id]) return MLH_USAGE_ID_MAP[item.id];
+    const title = item.querySelector('.acc-title')?.textContent || '';
+    const subtitle = item.querySelector('.acc-en')?.textContent || '';
+    const text = `${title} ${subtitle}`;
+    const rule = MLH_USAGE_TITLE_RULES.find(([pattern]) => pattern.test(text));
+    return rule ? rule[1] : '';
 }
 
-function injectUsageDeepDiveSection(root = document) {
-        const main = root.querySelector('main');
-        const atlas = root.querySelector('#atlas');
-        const topics = getUsageDeepDiveTopics();
-        if (!main || !topics.length || root.querySelector('#usage-deep-dives')) return;
+function mergeUsageIntoExistingAccordions(root = document) {
+    if (typeof grammarUsageDeepDiveData === 'undefined' || typeof renderGrammarUsageDeepDive !== 'function') return;
 
-        const grouped = topics.reduce((acc, topic) => {
-                const category = topic.entry.category || 'structures';
-                if (!acc[category]) acc[category] = [];
-                acc[category].push(topic);
-                return acc;
-        }, {});
-
-        const section = document.createElement('section');
-        section.className = 'grammar-section';
-        section.id = 'usage-deep-dives';
-        section.innerHTML = `
-                <div class="section-header">
-                    <span class="section-icon">🧭</span>
-                    <h2 class="section-title">Usage Deep Dive</h2>
-                    <span class="section-sub">Khi nào dùng, khi nào tránh, và nên so sánh với cấu trúc nào</span>
-                </div>
-                ${Object.entries(USAGE_SECTION_META).map(([category, group]) => {
-                        const items = grouped[category] || [];
-                        if (!items.length) return '';
-                        return `
-                        <div class="coverage-subsection">
-                            <h3>${group.icon} ${group.title}</h3>
-                            ${items.map(({ id, entry }) => `
-                                <div class="accordion-item" id="usage-${id}">
-                                    <div class="accordion-header">
-                                        <span class="acc-badge badge-mid">${entry.cefr || 'USE'}</span>
-                                        <span class="acc-title">${entry.title || id}</span>
-                                        <span class="acc-en">${entry.category || 'usage'} · usage map</span>
-                                        <span class="acc-arrow">▼</span>
-                                    </div>
-                                    <div class="accordion-body"><div class="acc-content">
-                                        ${typeof renderGrammarUsageDeepDive === 'function' ? renderGrammarUsageDeepDive(entry) : ''}
-                                    </div></div>
-                                </div>
-                            `).join('')}
-                        </div>
-                        `;
-                }).join('')}
-        `;
-
-        const memoryTables = main.querySelector('#memory-tables');
-        main.insertBefore(section, memoryTables || null);
-
-        if (atlas && !atlas.querySelector('[data-target="usage-deep-dives"]')) {
-                const link = document.createElement('a');
-                link.className = 'atlas-btn special';
-                link.href = '#usage-deep-dives';
-                link.dataset.target = 'usage-deep-dives';
-                link.textContent = '🧭 Usage Deep Dive';
-                const before = atlas.querySelector('[data-target="memory-tables"]');
-                atlas.insertBefore(link, before || null);
-        }
+    root.querySelectorAll('.accordion-item').forEach(item => {
+        if (item.querySelector('.usage-deep-dive')) return;
+        const usageId = resolveUsageIdForAccordion(item);
+        const usage = grammarUsageDeepDiveData[usageId];
+        const content = item.querySelector('.acc-content');
+        if (!usage || !content) return;
+        content.insertAdjacentHTML('beforeend', renderGrammarUsageDeepDive(usage));
+    });
 }
 
 function filterGrammarContent(query = '') {
@@ -517,8 +554,8 @@ function initIrregularVerbs() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     injectMasterySection();
-    injectUsageDeepDiveSection();
     injectRoteMemorySection();
+    mergeUsageIntoExistingAccordions();
     hydrateCefrBadges();
     initAccordions();
     initAtlasScroll();

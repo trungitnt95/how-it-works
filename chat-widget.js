@@ -111,7 +111,7 @@
             '            <textarea class="hiw-chat-input" rows="1" placeholder="Hỏi về nội dung của trang này..."></textarea>',
             '            <button class="hiw-chat-send" type="submit">Gửi</button>',
             '        </form>',
-            '        <p class="hiw-chat-footnote">PAT được lưu local trong trình duyệt này. Widget dùng GitHub Models API và ưu tiên trả lời theo nội dung trang hiện tại.</p>',
+            
             '    </aside>',
             '    <div class="hiw-chat-settings" hidden>',
             '        <div class="hiw-chat-settings-backdrop" data-action="close-settings"></div>',
@@ -787,7 +787,7 @@
     function loadSetting(key, fallbackValue) {
         try {
             return window.localStorage.getItem(key) || fallbackValue;
-        } catch (error) {
+        } catch (error) {e
             return fallbackValue;
         }
     }

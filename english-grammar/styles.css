@@ -21,10 +21,18 @@ body {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 2rem 1rem 3rem;
+    overscroll-behavior: contain;
 }
 
-.level-container { text-align: center; max-width: 920px; padding: 2rem; }
+.level-container {
+    text-align: center;
+    width: 100%;
+    max-width: 920px;
+    padding: 2rem;
+}
 
 .level-container h1 {
     font-size: 2.6rem;
@@ -851,8 +859,12 @@ header h1 {
 }
 
 @media (max-width: 768px) {
-    .level-cards { flex-direction: column; align-items: center; }
-    .level-card { width: 100%; max-width: 340px; }
+    .level-container { padding: 1.25rem; }
+    .level-container h1 { font-size: 2.05rem; }
+    .level-container > p { margin-bottom: 1.25rem; }
+    .level-cards { grid-template-columns: 1fr; gap: 1rem; }
+    .level-card { width: 100%; max-width: 520px; min-height: 0; padding: 1.25rem; }
+    .level-icon { font-size: 2.4rem; }
     .panel-backdrop { top: 44px; }
     .info-panel {
         width: 100%;
