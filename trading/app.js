@@ -118,7 +118,7 @@ function showWelcomeMessage(level) {
         'advanced': 'Chào trader có kinh nghiệm! Tìm hiểu các kỹ thuật nâng cao và tâm lý trading.'
     };
     
-    alert(messages[level]);
+    // Welcome message removed per request - no longer showing alerts
 }
 
 // ==================== COMPONENT INFO ====================
