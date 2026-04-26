@@ -158,6 +158,10 @@ const optimizationData = {
             <p>Ngẫu nhiên hóa quyết định theo xác suất tối ưu. Ví dụ: Trong bóng đá, penalty nên sút trái/phải/giữa với tỉ lệ nhất định.</p>
             <h4>Thiết kế cơ chế (Mechanism Design)</h4>
             <p>Thiết kế "luật chơi" sao cho mọi người hành động vì lợi ích cá nhân nhưng kết quả tốt cho cả xã hội. Giải Nobel Kinh tế 2007.</p>
+            <div class="tip-box">
+                <strong>📚 Trang chuyên sâu:</strong> Xem bản đầy đủ về nền tảng, cân bằng Nash, chiến lược, đấu giá, chính sách và case study tại
+                <a href="../game-theory/game-theory.html">Lý Thuyết Trò Chơi</a>.
+            </div>
         `
     },
     'probability-daily': {

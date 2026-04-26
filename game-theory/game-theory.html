@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý Thuyết Trò Chơi - How It Works</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="level-overlay" id="levelOverlay">
+        <div class="level-container">
+            <h1>♟️ Hiểu Hết Về Lý Thuyết Trò Chơi</h1>
+            <p>Chọn cấp độ để mở nội dung phù hợp với nền tảng hiện tại của bạn.</p>
+            <div class="level-cards">
+                <div class="level-card" data-level="beginner">
+                    <div class="level-icon">🌱</div>
+                    <h3>Người Mới</h3>
+                    <p>Hiểu trò chơi, người chơi, chiến lược, payoff và các ví dụ kinh điển.</p>
+                    <ul>
+                        <li>✅ Ma trận payoff</li>
+                        <li>✅ Song đề tù nhân</li>
+                        <li>✅ Chiến lược trội</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">🌿</div>
+                    <h3>Trung Cấp</h3>
+                    <p>Đi sâu vào Nash, trò chơi lặp lại, tín hiệu, cam kết và đàm phán.</p>
+                    <ul>
+                        <li>✅ Cân bằng Nash</li>
+                        <li>✅ Trò chơi lặp lại</li>
+                        <li>✅ Đấu giá & cơ chế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">🌳</div>
+                    <h3>Nâng Cao</h3>
+                    <p>Dùng lý thuyết trò chơi để phân tích thị trường, chính sách, AI và hệ thống phức tạp.</p>
+                    <ul>
+                        <li>✅ Bayesian games</li>
+                        <li>✅ Mechanism design</li>
+                        <li>✅ Case study thực tế</li>
+                    </ul>
+                    <button class="level-btn">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>♟️ Lý Thuyết Trò Chơi</h1>
+            <span class="level-badge" id="levelBadge">🌱 Người Mới</span>
+        </div>
+        <div class="header-right">
+            <button class="header-btn icon-only" id="changeLevelBtn" title="Đổi cấp độ">⚙️</button>
+            <button class="header-btn" id="startTourBtn" title="Học theo lộ trình">🎓 Lộ trình</button>
+            <button class="header-btn" id="simulatorBtn" title="Mở mô phỏng payoff">🧮 Ma trận</button>
+            <button class="header-btn" id="practiceBtn" title="Luyện tập qua trắc nghiệm">📝 Luyện tập</button>
+        </div>
+    </header>
+
+    <div class="tour-progress" id="tourProgress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <main>
+        <section class="intro-band">
+            <div class="intro-copy">
+                <span class="eyebrow">Game theory for real decisions</span>
+                <h2>Khi kết quả của bạn phụ thuộc vào lựa chọn của người khác</h2>
+                <p>
+                    Lý thuyết trò chơi giúp phân tích cạnh tranh, hợp tác, đàm phán, đấu giá,
+                    chiến tranh giá, chính sách công, an ninh mạng, thị trường tài chính và cả những quyết định đời thường.
+                </p>
+                <div class="intro-stats">
+                    <div><strong id="componentCount">0</strong><span>khái niệm</span></div>
+                    <div><strong>6</strong><span>nhóm kiến thức</span></div>
+                    <div><strong>4</strong><span>mô phỏng payoff</span></div>
+                </div>
+            </div>
+            <div class="matrix-preview" aria-hidden="true">
+                <div class="matrix-title">Payoff Matrix</div>
+                <div class="matrix-grid">
+                    <span></span><span>B hợp tác</span><span>B phản bội</span>
+                    <span>A hợp tác</span><strong>3, 3</strong><strong>0, 5</strong>
+                    <span>A phản bội</span><strong>5, 0</strong><strong class="danger-cell">1, 1</strong>
+                </div>
+                <p>Điểm thú vị: lựa chọn hợp lý cá nhân đôi khi tạo ra kết quả tệ cho cả nhóm.</p>
+            </div>
+        </section>
+
+        <div class="tour-panel" id="tourPanel">
+            <div class="tour-content">
+                <div class="tour-step-indicator">Bước <span id="currentStep">1</span>/<span id="totalSteps">8</span></div>
+                <h3 id="tourTitle">Bắt đầu</h3>
+                <p id="tourDescription">Theo lộ trình để học từ nền tảng đến ứng dụng.</p>
+                <div class="tour-actions">
+                    <button id="tourPrev" class="tour-btn">← Trước</button>
+                    <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
+                    <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-filter" id="categoryFilter"></div>
+
+        <section class="quick-tips" id="quickTips">
+            <h3>💡 Mẹo đọc nhanh</h3>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </section>
+
+        <section class="learning-path">
+            <div>
+                <span class="eyebrow">Cách học gợi ý</span>
+                <h2>Lộ trình 4 tầng</h2>
+            </div>
+            <div class="path-grid">
+                <button class="path-card" data-component="what-is-game-theory">
+                    <span>1</span>
+                    <strong>Nắm luật chơi</strong>
+                    <small>Người chơi, chiến lược, payoff, thông tin.</small>
+                </button>
+                <button class="path-card" data-component="prisoners-dilemma">
+                    <span>2</span>
+                    <strong>Học trò chơi mẫu</strong>
+                    <small>Song đề tù nhân, chicken, stag hunt, coordination.</small>
+                </button>
+                <button class="path-card" data-component="nash-equilibrium">
+                    <span>3</span>
+                    <strong>Tìm điểm cân bằng</strong>
+                    <small>Nash, chiến lược hỗn hợp, Pareto, subgame perfect.</small>
+                </button>
+                <button class="path-card" data-component="business-pricing">
+                    <span>4</span>
+                    <strong>Áp dụng thực tế</strong>
+                    <small>Giá bán, đàm phán, chính sách, bảo mật, AI.</small>
+                </button>
+            </div>
+        </section>
+
+        <div class="concepts-grid" id="conceptsGrid"></div>
+    </main>
+
+    <aside class="info-panel" id="infoPanel">
+        <button class="close-panel" id="closePanel">×</button>
+        <div class="panel-header">
+            <span class="panel-icon" id="panelIcon">♟️</span>
+            <div>
+                <h2 id="panelTitle">Tiêu đề</h2>
+                <span class="panel-subtitle" id="panelSubtitle"></span>
+            </div>
+        </div>
+        <div class="panel-tabs">
+            <button class="tab-btn active" data-tab="simple">Đơn giản</button>
+            <button class="tab-btn" data-tab="detail">Chi tiết</button>
+            <button class="tab-btn" data-tab="advanced">Nâng cao</button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+        <div class="panel-footer">
+            <h4>📚 Liên quan</h4>
+            <div class="related-concepts" id="relatedConcepts"></div>
+        </div>
+    </aside>
+
+    <div class="modal" id="simulatorModal">
+        <div class="modal-content simulator-modal">
+            <button class="modal-close" id="closeSimulator">×</button>
+            <div class="modal-heading">
+                <span class="eyebrow">Interactive payoff matrix</span>
+                <h2>🧮 Mô phỏng ma trận payoff</h2>
+                <p>Chọn một trò chơi để xem best response và cân bằng Nash thuần nếu có.</p>
+            </div>
+            <div class="simulator-controls">
+                <label>
+                    Trò chơi
+                    <select id="gamePresetSelect"></select>
+                </label>
+            </div>
+            <div class="simulator-body">
+                <div id="payoffMatrix"></div>
+                <div class="simulator-explain" id="simulatorExplain"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="practiceModal">
+        <div class="modal-content practice-modal">
+            <button class="modal-close" id="closePractice">×</button>
+            <div class="modal-heading">
+                <span class="eyebrow">Learn by doing</span>
+                <h2>📝 Luyện tập</h2>
+                <p>Chọn trắc nghiệm, làm bài, xem đúng/sai, giải thích và hậu quả của từng lựa chọn sai.</p>
+            </div>
+
+            <div class="practice-setup" id="practiceSetup">
+                <div class="practice-controls">
+                    <label>
+                        Chế độ
+                        <select id="practiceMode">
+                            <option value="random10">Ngẫu nhiên 10 câu</option>
+                            <option value="all">Tất cả câu hỏi</option>
+                            <option value="byCategory">Theo chủ đề</option>
+                        </select>
+                    </label>
+                    <label>
+                        Chủ đề
+                        <select id="practiceCategory"></select>
+                    </label>
+                    <label>
+                        Cấp độ
+                        <select id="practiceLevel">
+                            <option value="beginner">Cơ bản</option>
+                            <option value="intermediate">Trung cấp</option>
+                            <option value="advanced">Nâng cao</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="practice-actions">
+                    <button class="practice-primary" id="startPractice">Bắt đầu</button>
+                    <button class="practice-secondary" id="resumePractice" style="display:none">Tiếp tục</button>
+                    <button class="practice-tertiary" id="resetPractice" title="Xóa tiến độ luyện tập">Reset</button>
+                </div>
+            </div>
+
+            <div class="practice-session" id="practiceSession" style="display:none">
+                <div class="practice-top">
+                    <div class="practice-progress">
+                        <strong id="practiceProgressLabel">Câu 1/10</strong>
+                        <span id="practiceScoreLabel">Điểm: 0/0</span>
+                    </div>
+                    <div class="practice-nav">
+                        <button class="practice-secondary" id="practicePrev" title="Câu trước">← Trước</button>
+                        <button class="practice-secondary" id="practiceNext" title="Câu tiếp theo">Tiếp →</button>
+                    </div>
+                </div>
+
+                <div class="practice-card" id="practiceCard"></div>
+
+                <div class="practice-summary" id="practiceSummary" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="modules/catalog.js"></script>
+    <script src="modules/foundations.js"></script>
+    <script src="modules/classic-games.js"></script>
+    <script src="modules/equilibria.js"></script>
+    <script src="modules/strategies.js"></script>
+    <script src="modules/applications.js"></script>
+    <script src="modules/cases.js"></script>
+    <script src="modules/practice.js"></script>
+    <script src="app.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>

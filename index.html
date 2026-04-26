@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How It Works - Hiểu Mọi Thứ Hoạt Động</title>
+    <link rel="icon" href="data:,">
     <style>
         * {
             margin: 0;
@@ -446,6 +447,11 @@
             --card-color-2: #fbbf24;
         }
 
+        .topic-card.game-theory {
+            --card-color-1: #2dd4bf;
+            --card-color-2: #f59e0b;
+        }
+
         /* Search Box */
         .search-container {
             max-width: 600px;
@@ -554,7 +560,7 @@
     <section class="topics-section">
         <div class="section-header">
             <h3>📚 Các chủ đề</h3>
-            <span class="topic-count" id="topicCount">24 có sẵn • 3 sắp ra mắt</span>
+            <span class="topic-count" id="topicCount">27 có sẵn • 0 sắp ra mắt</span>
         </div>
         <div class="no-results" id="noResults">
             <span style="font-size: 3rem;">🔍</span>
@@ -677,6 +683,30 @@
                 <div class="card-footer">
                     <div class="card-stats">
                         <span class="stat">📊 Đang phát triển</span>
+                    </div>
+                    <button class="explore-btn">Khám phá →</button>
+                </div>
+            </div>
+
+            <!-- Game Theory - Available -->
+            <div class="topic-card game-theory" onclick="location.href='game-theory/game-theory.html'" data-tags="lý thuyết trò chơi game theory nash cân bằng chiến lược payoff đàm phán đấu giá kinh doanh chính sách">
+                <div class="card-icon">♟️</div>
+                <h3 class="card-title">Lý Thuyết Trò Chơi</h3>
+                <p class="card-subtitle">Tư duy chiến lược khi nhiều bên cùng ra quyết định</p>
+                <p class="card-description">
+                    Hiểu cách phân tích người chơi, chiến lược, payoff, cân bằng Nash,
+                    trò chơi lặp lại, tín hiệu, đấu giá, thiết kế cơ chế và ứng dụng trong kinh doanh, chính sách, tài chính, AI.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Nash</span>
+                    <span class="tag">Payoff</span>
+                    <span class="tag">Đàm phán</span>
+                    <span class="tag">Ứng dụng</span>
+                </div>
+                <div class="card-footer">
+                    <div class="card-stats">
+                        <span class="stat">📊 40+ khái niệm</span>
+                        <span class="stat">🧮 Mô phỏng</span>
                     </div>
                     <button class="explore-btn">Khám phá →</button>
                 </div>
