@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How It Works - Hiểu Mọi Thứ Hoạt Động</title>
     <link rel="icon" href="data:,">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="theme-color" content="#12233f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="How It Works">
     <style>
         * {
             margin: 0;
@@ -304,6 +308,177 @@
             color: #fff;
         }
 
+
+        .header-settings-btn {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .worker-modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none;
+            align-items: center; justify-content: center; z-index: 9999;
+        }
+        .worker-modal-overlay.visible { display:flex; }
+        .worker-modal {
+            width: min(620px, 92vw); background: #12233f; border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px; padding: 1.25rem; color: #fff;
+            max-height: min(88vh, 900px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .worker-modal > p { flex-shrink: 0; }
+        .worker-form-row { margin-top: 0.8rem; }
+        .worker-form-row input, .worker-form-row select {
+            width:100%; margin-top:0.35rem; padding:0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color:#fff;
+        }
+        .worker-config-note {
+            margin-top: 0.8rem;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            background: rgba(52, 152, 219, 0.12);
+            border: 1px solid rgba(52, 152, 219, 0.28);
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+        }
+        .worker-checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        .worker-checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.75rem 0.8rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .worker-checkbox-item input {
+            width: auto;
+            margin: 0.15rem 0 0;
+        }
+        .worker-checkbox-item span {
+            display: block;
+            font-size: 0.86rem;
+            color: rgba(255,255,255,0.72);
+            margin-top: 0.15rem;
+        }
+        .worker-actions { display:flex; gap:0.5rem; margin-top:1rem; flex-wrap:wrap; }
+        .worker-actions button { border:none; border-radius:8px; padding:0.55rem 0.9rem; cursor:pointer; }
+        .btn-primary { background:#2ecc71; color:#092; font-weight:700; }
+        .btn-secondary { background: rgba(255,255,255,0.15); color:#fff; }
+        .worker-status { margin-top:0.8rem; font-size:0.9rem; color: rgba(255,255,255,0.8); }
+        .job-list {
+            margin-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.16);
+            padding-top: 0.8rem;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .job-list-body {
+            margin-top: 0.7rem;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 0.25rem;
+        }
+        .job-item {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:0.8rem;
+            padding:0.8rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            margin-bottom: 0.7rem;
+            background: rgba(255,255,255,0.05);
+        }
+        .job-item:last-child { border-bottom: none; }
+        .job-meta { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+        .job-item.enabled {
+            background: rgba(46, 204, 113, 0.12);
+            border-color: rgba(46, 204, 113, 0.35);
+        }
+        .job-item.disabled {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.1);
+        }
+        .job-state {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+        }
+        .job-item.enabled .job-state {
+            background: rgba(46, 204, 113, 0.18);
+            color: #7dffb0;
+        }
+        .job-item.disabled .job-state {
+            background: rgba(148, 163, 184, 0.18);
+            color: #cbd5e1;
+        }
+        .job-toggle-btn.enabled {
+            background: rgba(46, 204, 113, 0.22);
+            color: #d1fae5;
+        }
+        .job-toggle-btn.disabled {
+            background: rgba(148, 163, 184, 0.2);
+            color: #e2e8f0;
+        }
+        .worker-toast-stack {
+            position: fixed;
+            right: 1rem;
+            top: 1rem;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: min(420px, calc(100vw - 2rem));
+        }
+        .worker-toast {
+            border-radius: 14px;
+            padding: 0.95rem 1rem;
+            background: rgba(8, 16, 34, 0.94);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+            color: #fff;
+        }
+        .worker-toast strong {
+            display: block;
+            margin-bottom: 0.45rem;
+        }
+        .worker-toast p {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: rgba(255,255,255,0.86);
+            white-space: pre-line;
+        }
+        .worker-toast-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .worker-toast-actions button {
+            border: none;
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            cursor: pointer;
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -539,6 +714,7 @@
                 </div>
             </div>
             <nav class="header-links">
+                <a id="openWorkerSettings" class="header-settings-btn" href="./worker-settings.html">⚙️ Cài đặt worker</a>
                 <a href="https://github.com/trungitnt95" target="_blank">GitHub</a>
             </nav>
         </div>
@@ -1211,10 +1387,36 @@
         </div>
     </section>
 
+
+    <div class="worker-modal-overlay" id="workerModalOverlay">
+        <div class="worker-modal">
+            <h3>⚙️ Worker quiz nền</h3>
+            <p style="margin-top:0.4rem;color:rgba(255,255,255,0.75)">Mỗi job sẽ dùng lại cùng conversation theo từng nội dung để câu hỏi tiếp nối nhau. Chọn worker type, chọn nội dung cần bật, rồi worker sẽ gửi thông báo theo chu kỳ.</p>
+            <div class="worker-config-note" id="workerConfigNote"></div>
+            <div class="worker-form-row"><label>Worker type</label><select id="workerType"></select></div>
+            <div class="worker-form-row">
+                <label>Nội dung</label>
+                <div id="jobContentOptions" class="worker-checkbox-grid"></div>
+            </div>
+            <div class="worker-form-row"><label>Chu kỳ chạy (phút)</label><input id="jobInterval" type="number" min="1" step="1" value="30" /></div>
+            <div class="worker-actions">
+                <button class="btn-primary" id="saveWorkerSettings">Lưu & Bật</button>
+                <button class="btn-secondary" id="runNowWorker">Chạy ngay</button>
+                <button class="btn-secondary" id="closeWorkerModal">Đóng</button>
+            </div>
+            <div class="job-list">
+                <h4>Danh sách job đang chạy</h4>
+                <div id="runningJobs" class="job-list-body"></div>
+            </div>
+            <div id="workerStatus" class="worker-status"></div>
+        </div>
+    </div>
+
     <footer>
         <p>Made with ❤️ by <a href="https://github.com/trungitnt95" target="_blank">trungitnt95</a></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">Kiến thức phức tạp, trình bày đơn giản</p>
     </footer>
+    <div id="workerToastStack" class="worker-toast-stack" aria-live="polite"></div>
 
     <script>
         // Search functionality
@@ -1318,6 +1520,747 @@
 
             cards.forEach(card => grid.appendChild(card));
         })();
+
+
+        const WORKER_CONFIG_KEY = 'backgroundWorkerJobsConfig';
+        const WORKER_HISTORY_KEY_PREFIX = 'backgroundWorkerConversation';
+        const COPILOT_STORAGE_KEYS = {
+            token: 'hiw_copilot_token',
+            model: 'hiw_copilot_model'
+        };
+        const GITHUB_MODELS_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
+        const GITHUB_API_VERSION = '2026-03-10';
+        const DEFAULT_COPILOT_MODEL = 'gpt-4.1';
+        const AVAILABLE_MODELS = [
+            { label: 'gpt-4o', ids: ['openai/gpt-4o'] },
+            { label: 'gpt-4.1', ids: ['openai/gpt-4.1'] },
+            { label: 'gpt-5-mini', ids: ['openai/gpt-5-mini'] }
+        ];
+        const MAX_WORKER_HISTORY_MESSAGES = 12;
+        const DEFAULT_WORKER_CONTENTS = [
+            { id: 'exercise', label: 'Bài tập', description: 'Tạo 1 câu trắc nghiệm ôn nhanh theo chủ đề đã chọn.' }
+        ];
+        const ENGLISH_WORKER_CONTENTS = [
+            { id: 'theory', label: 'Lý thuyết', description: 'Câu hỏi khái niệm và cấu trúc ngữ pháp bằng tiếng Việt.' },
+            { id: 'exercise', label: 'Bài tập', description: 'Điền từ, chọn đáp án, luyện phản xạ tiếng Anh.' },
+            { id: 'vocabulary', label: 'Từ vựng', description: 'Hỏi nghĩa và dùng từ tiếng Anh thông dụng trong đời sống.' }
+        ];
+        const TOPIC_SPECS = [
+            { id: 'vietnamese-grammar', label: 'Ngữ Pháp Tiếng Việt', subtitle: 'Hiểu cấu trúc tiếng Việt từ tiếng, từ đến câu' },
+            { id: 'vietnam-state', label: 'Bộ Máy Nhà Nước Việt Nam', subtitle: 'Hiểu hệ thống và chức năng từng cơ quan' },
+            { id: 'money', label: 'Tiền', subtitle: 'Hiểu hết về tiền tệ và hệ thống tài chính' },
+            { id: 'power', label: 'Quyền Lực', subtitle: 'Hiểu hết về quyền lực và các hình thái xã hội' },
+            { id: 'decision', label: 'Quyết Định', subtitle: 'Hiểu hết về đưa ra quyết định' },
+            { id: 'game-theory', label: 'Lý Thuyết Trò Chơi', subtitle: 'Tư duy chiến lược khi nhiều bên cùng ra quyết định' },
+            { id: 'trading', label: 'Trading', subtitle: 'Hiểu hết về giao dịch tài chính' },
+            { id: 'psychology', label: 'Tâm Lý', subtitle: 'Hiểu hết về các kiểu người và lòng người' },
+            { id: 'fengshui', label: 'Phong Thủy', subtitle: 'Hiểu hết về phong thủy và năng lượng' },
+            { id: 'marketing', label: 'Marketing', subtitle: 'Từ 4P đến Digital Marketing, Growth Hacking' },
+            { id: 'sales', label: 'Sales', subtitle: 'Từ tâm lý bán hàng đến chốt deal chuyên nghiệp' },
+            { id: 'affiliate', label: 'Affiliate Marketing', subtitle: 'Từ cơ chế hoa hồng đến xây dựng thu nhập thụ động' },
+            { id: 'business', label: 'Kinh Doanh', subtitle: 'Từ ý tưởng đến vận hành — hiểu toàn bộ cơ chế doanh nghiệp' },
+            { id: 'reverse-thinking', label: 'Tư Duy Ngược', subtitle: 'Nghĩ ngược để tránh sai lầm — từ Munger đến Stoicism' },
+            { id: 'philosophy', label: 'Triết Học Mác-Lênin', subtitle: 'Môn học nền tảng cho sinh viên Việt Nam' },
+            { id: 'earning-models', label: 'Cách Kiếm Tiền', subtitle: 'Từ cổ đại đến AI — hệ thống mọi mô hình kiếm tiền' },
+            { id: 'design-patterns', label: 'Design Patterns', subtitle: 'Hiểu hết về các mẫu thiết kế phần mềm' },
+            { id: 'beauty', label: 'Làm Đẹp', subtitle: 'Hiểu hết về chăm sóc da, trang điểm và làm đẹp' },
+            { id: 'management', label: 'Quản Lý', subtitle: 'Hiểu hết về quản lý và lãnh đạo' },
+            { id: 'ai-for-everyone', label: 'AI', subtitle: 'AI cho mọi người và developer' },
+            { id: 'practical-math', label: 'Toán Học Thực Tế', subtitle: 'Toán học ứng dụng trong đời sống hàng ngày' },
+            { id: 'english-grammar', label: 'Ngữ Pháp Tiếng Anh', subtitle: 'Hiểu câu tiếng Anh từ nền tảng đến cấu trúc nâng cao' },
+            { id: 'solution-architect', label: 'Kiến Trúc Hệ Thống', subtitle: 'Hiểu hết về thiết kế kiến trúc phần mềm' },
+            { id: 'probability', label: 'Xác Suất Thống Kê', subtitle: 'Hiểu hết về xác suất và thống kê' },
+            { id: 'problem-solving', label: 'Giải Quyết Vấn Đề', subtitle: 'Hiểu hết về kỹ năng giải quyết vấn đề' },
+            { id: 'quality-management', label: 'Quản Lý Chất Lượng', subtitle: 'Hiểu hết về hệ thống quản lý chất lượng' },
+            { id: 'how-world-works', label: 'Thế Giới Vận Hành', subtitle: 'Hiểu hết về cách thế giới hoạt động' }
+        ];
+        const WORKER_TYPE_ALIASES = {
+            english: 'english-grammar'
+        };
+        const WORKER_TYPE_OVERRIDES = {
+            'english-grammar': {
+                systemPrompt: 'Bạn là trợ lý tạo câu hỏi học tiếng Anh ngắn, rõ ràng, phù hợp tự học. Ưu tiên giao tiếp đời sống hằng ngày và giải thích dễ hiểu bằng tiếng Việt khi phù hợp.',
+                contents: ENGLISH_WORKER_CONTENTS,
+                prompts: {
+                    theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
+                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm tiếng Anh với 4 lựa chọn, bám sát ngữ pháp hoặc giao tiếp hằng ngày. Chỉ dùng từ/cụm từ thông dụng trong đời sống thường ngày như chào hỏi, ăn uống, đi lại, mua sắm, công việc cơ bản, gia đình, cảm xúc đơn giản. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
+                    vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                },
+                fallbacks: {
+                    theory: {
+                        question: 'Trong tiếng Anh, khi nào thường dùng thì hiện tại đơn?',
+                        choices: ['Diễn tả thói quen hoặc sự thật hiển nhiên', 'Diễn tả hành động đang xảy ra ngay lúc nói', 'Diễn tả hành động đã kết thúc trong quá khứ có mốc thời gian rõ', 'Diễn tả một kế hoạch đã hoàn thành từ lâu'],
+                        answerIndex: 0,
+                        explanation: 'Thì hiện tại đơn thường dùng cho thói quen, lịch trình, và sự thật hiển nhiên.'
+                    },
+                    exercise: {
+                        question: 'Fill in the blank: I usually ___ coffee in the morning.',
+                        choices: ['drink', 'drinks am', 'drinking is', 'to drank'],
+                        answerIndex: 0,
+                        explanation: 'Sau "usually" trong câu hiện tại đơn với chủ ngữ "I", dùng động từ nguyên mẫu "drink".'
+                    },
+                    vocabulary: {
+                        question: 'Từ tiếng Anh nào có nghĩa là "đói"?',
+                        choices: ['hungry', 'sleepy', 'thirsty', 'angry'],
+                        answerIndex: 0,
+                        explanation: '"Hungry" có nghĩa là "đói", là từ rất thông dụng trong giao tiếp hằng ngày.'
+                    }
+                }
+            },
+            money: {
+                systemPrompt: 'Bạn là trợ lý tạo bài tập ngắn về tiền và hệ thống tài chính. Câu hỏi phải thực tế, dễ hiểu, giải thích ngắn bằng tiếng Việt.',
+                prompts: {
+                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                },
+                fallbacks: {
+                    exercise: {
+                        question: 'Nếu lãi suất tăng mạnh, khoản nào thường chịu áp lực giảm giá trước?',
+                        choices: ['Tài sản dùng đòn bẩy cao', 'Tiền mặt', 'Lương tháng đã nhận', 'Thuế đã nộp'],
+                        answerIndex: 0,
+                        explanation: 'Lãi suất tăng làm chi phí vốn cao hơn và giảm sức hấp dẫn của các tài sản phụ thuộc vào tín dụng rẻ.'
+                    }
+                }
+            }
+        };
+        function resolveWorkerTypeId(rawWorkerType, rawJobId) {
+            const aliasedWorkerType = WORKER_TYPE_ALIASES[rawWorkerType] || rawWorkerType;
+            if (WORKER_TYPES[aliasedWorkerType]) return aliasedWorkerType;
+            const jobId = String(rawJobId || '');
+            const fromId = Object.keys(WORKER_TYPES).find((typeId) => jobId === typeId || jobId.startsWith(typeId + '-'));
+            if (fromId) return fromId;
+            const fallbackLegacy = WORKER_TYPE_ALIASES[jobId.split('-').slice(0, -1).join('-')];
+            if (fallbackLegacy && WORKER_TYPES[fallbackLegacy]) return fallbackLegacy;
+            return String(jobId || '').startsWith('money-') ? 'money' : getDefaultWorkerTypeId();
+        }
+        function buildGenericFallback(label, subtitle) {
+            return {
+                question: `Trong chủ đề "${label}", mục tiêu của bài tập nhanh là gì?`,
+                choices: [
+                    `Ôn lại ý chính của ${subtitle || label}`,
+                    'Bỏ qua ngữ cảnh và chọn ngẫu nhiên',
+                    'Chỉ học thuộc đáp án mà không cần hiểu',
+                    'Không cần xem giải thích sau khi làm'
+                ],
+                answerIndex: 0,
+                explanation: `Worker của chủ đề "${label}" được tạo để ôn nhanh các ý chính và hiểu lại ngữ cảnh của chủ đề.`
+            };
+        }
+        function buildGenericExercisePrompt(label, subtitle, description, tags) {
+            return [
+                `Tạo đúng 1 bài tập trắc nghiệm với 4 lựa chọn về chủ đề "${label}".`,
+                subtitle ? `Bối cảnh ngắn: ${subtitle}.` : '',
+                description ? `Mô tả chủ đề: ${description}.` : '',
+                tags ? `Từ khóa liên quan: ${tags}.` : '',
+                'Câu hỏi phải cụ thể, dễ hiểu, có thể học nhanh trong 1 lần đọc.',
+                'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+            ].filter(Boolean).join(' ');
+        }
+        function buildWorkerTypesFromSpecs() {
+            return Object.fromEntries(TOPIC_SPECS.map((topic) => {
+                const override = WORKER_TYPE_OVERRIDES[topic.id] || {};
+                const contents = override.contents || DEFAULT_WORKER_CONTENTS;
+                return [topic.id, {
+                    label: topic.label,
+                    notificationTitle: 'How It Works',
+                    systemPrompt: override.systemPrompt || `Bạn là trợ lý tạo bài tập ngắn, rõ ràng, đúng trọng tâm cho chủ đề "${topic.label}".`,
+                    contents,
+                    prompts: override.prompts || {
+                        exercise: buildGenericExercisePrompt(topic.label, topic.subtitle, '', topic.label)
+                    },
+                    fallbacks: override.fallbacks || {
+                        exercise: buildGenericFallback(topic.label, topic.subtitle)
+                    }
+                }];
+            }));
+        }
+        const WORKER_TYPES = buildWorkerTypesFromSpecs();
+        let backgroundTimer = null;
+
+        const workerModalOverlay = document.getElementById('workerModalOverlay');
+        const openWorkerSettings = document.getElementById('openWorkerSettings');
+        const closeWorkerModal = document.getElementById('closeWorkerModal');
+        const saveWorkerSettings = document.getElementById('saveWorkerSettings');
+        const runNowWorker = document.getElementById('runNowWorker');
+        const workerStatus = document.getElementById('workerStatus');
+        const runningJobs = document.getElementById('runningJobs');
+        const workerToastStack = document.getElementById('workerToastStack');
+        const workerConfigNote = document.getElementById('workerConfigNote');
+        const workerTypeInput = document.getElementById('workerType');
+        const jobContentOptions = document.getElementById('jobContentOptions');
+        const jobIntervalInput = document.getElementById('jobInterval');
+        let serviceWorkerRegistrationPromise = null;
+
+        function getWorkerConfig() { try { return JSON.parse(localStorage.getItem(WORKER_CONFIG_KEY) || '{}'); } catch { return {}; } }
+        function setWorkerConfig(cfg) { localStorage.setItem(WORKER_CONFIG_KEY, JSON.stringify(cfg)); }
+        function setStatus(msg) { workerStatus.textContent = msg; }
+        function createConversationId() {
+            return `conv_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+        }
+        function loadLocalSetting(key, fallback = '') {
+            try {
+                return window.localStorage.getItem(key) || fallback;
+            } catch {
+                return fallback;
+            }
+        }
+        function normalizeStoredModel(value) {
+            const rawValue = String(value || '').trim().toLowerCase();
+            if (!rawValue) return DEFAULT_COPILOT_MODEL;
+            const matchedModel = AVAILABLE_MODELS.find((model) => model.label.toLowerCase() === rawValue || model.ids.some((id) => id.toLowerCase() === rawValue));
+            return matchedModel ? matchedModel.label : DEFAULT_COPILOT_MODEL;
+        }
+        function getCopilotToken() {
+            return loadLocalSetting(COPILOT_STORAGE_KEYS.token, '');
+        }
+        function getCopilotModel() {
+            return normalizeStoredModel(loadLocalSetting(COPILOT_STORAGE_KEYS.model, DEFAULT_COPILOT_MODEL));
+        }
+        function isIOSFamily() {
+            const ua = navigator.userAgent || '';
+            const platform = navigator.platform || '';
+            return /iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        }
+        function isAndroidFamily() {
+            return /Android/i.test(navigator.userAgent || '');
+        }
+        function isMacChrome() {
+            const ua = navigator.userAgent || '';
+            return /Mac OS X/.test(ua) && /Chrome\//.test(ua) && !/Edg\//.test(ua) && !/OPR\//.test(ua);
+        }
+        function isStandaloneDisplayMode() {
+            return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        }
+        function getNotificationSupportInfo() {
+            const hasNotificationApi = typeof Notification !== 'undefined';
+            const hasServiceWorkerApi = typeof navigator !== 'undefined' && 'serviceWorker' in navigator;
+            const secure = window.isSecureContext;
+            const notificationPermission = hasNotificationApi ? Notification.permission : 'unsupported';
+            const maxActions = hasNotificationApi && typeof Notification.maxActions === 'number' ? Notification.maxActions : 0;
+            const ios = isIOSFamily();
+            const android = isAndroidFamily();
+            const standalone = isStandaloneDisplayMode();
+            const persistentCandidate = secure && hasServiceWorkerApi;
+            const windowCandidate = secure && hasNotificationApi && !ios && !android;
+            let guidance = 'Notifications sẽ dùng system notification nếu trình duyệt và thiết bị hỗ trợ.';
+
+            if (!secure) {
+                guidance = 'Notifications cần HTTPS hoặc localhost. Nếu đang mở file trực tiếp hoặc HTTP không an toàn, worker sẽ rơi về toast trong trang.';
+            } else if (ios && !standalone) {
+                guidance = 'Trên iPhone/iPad, web notifications chỉ đáng tin cậy khi site được Add to Home Screen và mở như web app standalone. Bản trong tab sẽ rơi về toast trong trang.';
+            } else if (ios && standalone) {
+                guidance = 'iPhone/iPad đã ở chế độ web app. Nếu chưa thấy prompt, hãy mở từ icon Home Screen rồi bật Notifications cho web app này.';
+            } else if (isMacChrome()) {
+                guidance = 'Chrome trên macOS còn phụ thuộc vào quyền Notifications của chính Chrome trong Site Settings và System Settings của macOS.';
+            } else if (android) {
+                guidance = 'Android nên dùng service worker notification bình thường khi site chạy trên HTTPS hoặc localhost.';
+            }
+
+            return {
+                hasNotificationApi,
+                hasServiceWorkerApi,
+                secure,
+                ios,
+                android,
+                standalone,
+                notificationPermission,
+                maxActions,
+                canUsePersistentNotifications: persistentCandidate && (!ios || standalone),
+                canUseWindowNotifications: windowCandidate,
+                guidance
+            };
+        }
+        function getModelIds(modelLabel) {
+            const normalized = normalizeStoredModel(modelLabel);
+            return (AVAILABLE_MODELS.find((model) => model.label === normalized) || AVAILABLE_MODELS[1]).ids;
+        }
+        function getDefaultWorkerTypeId() {
+            return Object.keys(WORKER_TYPES)[0] || 'money';
+        }
+        function getJobKey(job) {
+            return `${job.workerType}-${job.contentId}`;
+        }
+        function migrateJob(rawJob) {
+            const rawWorkerType = rawJob?.workerType || String(rawJob?.id || '').split('-').slice(0, -1).join('-') || '';
+            const workerType = resolveWorkerTypeId(rawWorkerType, rawJob?.id || '');
+            const contentId = 'exercise';
+            return {
+                id: `${workerType}-${contentId}`,
+                workerType,
+                contentId,
+                intervalMinutes: Math.max(1, Number(rawJob?.intervalMinutes || 30)),
+                enabled: Boolean(rawJob?.enabled),
+                conversationId: rawJob?.conversationId || createConversationId(),
+                lastRunAt: Number(rawJob?.lastRunAt || 0)
+            };
+        }
+        function getJobs() {
+            const cfg = getWorkerConfig();
+            if (!Array.isArray(cfg.jobs)) return [];
+            const jobs = cfg.jobs.map(migrateJob);
+            if (JSON.stringify(cfg.jobs) !== JSON.stringify(jobs)) {
+                cfg.jobs = jobs;
+                setWorkerConfig(cfg);
+            }
+            return jobs;
+        }
+        function getContentMeta(workerType, contentId) {
+            return WORKER_TYPES[workerType]?.contents.find((content) => content.id === contentId) || null;
+        }
+        function escapeHtml(text) {
+            return String(text || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        function updateWorkerConfigNote() {
+            const tokenReady = Boolean(getCopilotToken());
+            const model = getCopilotModel();
+            const notificationSupport = getNotificationSupportInfo();
+            workerConfigNote.textContent = tokenReady
+                ? `Đang dùng GitHub Models từ popup AI • model: ${model} • PAT: đã có • ${notificationSupport.guidance}`
+                : `Chưa thấy GitHub PAT trong popup AI • worker vẫn lưu job nhưng sẽ dùng bộ câu hỏi mẫu • ${notificationSupport.guidance}`;
+        }
+        function renderWorkerTypeOptions() {
+            workerTypeInput.innerHTML = Object.entries(WORKER_TYPES).map(([id, config]) => {
+                return `<option value="${id}">${config.label}</option>`;
+            }).join('');
+        }
+        function getCheckedContentIds() {
+            return Array.from(jobContentOptions.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+        }
+        function hydrateWorkerForm(workerType) {
+            const config = WORKER_TYPES[workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            const fallbackType = WORKER_TYPES[getDefaultWorkerTypeId()];
+            const resolvedConfig = config || fallbackType;
+            const jobs = getJobs().filter((job) => job.workerType === workerType);
+            const activeContentIds = new Set(jobs.filter((job) => job.enabled).map((job) => job.contentId));
+            const hasActiveContent = activeContentIds.size > 0;
+
+            jobContentOptions.innerHTML = resolvedConfig.contents.map((content, index) => {
+                const checked = hasActiveContent ? activeContentIds.has(content.id) : index === 0;
+                return `
+                    <label class="worker-checkbox-item">
+                        <input type="checkbox" value="${content.id}" ${checked ? 'checked' : ''}>
+                        <div>
+                            <strong>${escapeHtml(content.label)}</strong>
+                            <span>${escapeHtml(content.description)}</span>
+                        </div>
+                    </label>
+                `;
+            }).join('');
+
+            const intervalSource = jobs.find((job) => job.enabled) || jobs[0];
+            jobIntervalInput.value = intervalSource?.intervalMinutes || 30;
+        }
+        function renderJobs() {
+            const jobs = getJobs();
+            if (!jobs.length) {
+                runningJobs.innerHTML = '<div class="job-meta">Chưa có job nào.</div>';
+                return;
+            }
+            runningJobs.innerHTML = jobs.map(job => `
+                <div class="job-item ${job.enabled ? 'enabled' : 'disabled'}">
+                    <div>
+                        <div class="job-state">${job.enabled ? '● Đang bật' : '● Đang tắt'}</div>
+                        <div><strong>${escapeHtml(WORKER_TYPES[job.workerType]?.label || job.workerType)} • ${escapeHtml(getContentMeta(job.workerType, job.contentId)?.label || job.contentId)}</strong></div>
+                        <div class="job-meta">Chu kỳ: ${job.intervalMinutes} phút</div>
+                    </div>
+                    <button class="btn-secondary job-toggle-btn ${job.enabled ? 'enabled' : 'disabled'}" onclick="toggleJob('${job.id}')">${job.enabled ? 'Tắt' : 'Bật'}</button>
+                </div>
+            `).join('');
+        }
+        window.toggleJob = function(jobId) {
+            const cfg = getWorkerConfig();
+            const jobs = getJobs().map(job => job.id === jobId ? { ...job, enabled: !job.enabled } : job);
+            cfg.jobs = jobs;
+            setWorkerConfig(cfg);
+            renderJobs();
+            startBackgroundWorker();
+        };
+
+        async function requestNotificationPermission() {
+            if (!('Notification' in window)) throw new Error('Trình duyệt không hỗ trợ Notification');
+            if (Notification.permission === 'granted') return true;
+            let result;
+            if (Notification.requestPermission.length > 0) {
+                result = await new Promise((resolve) => Notification.requestPermission(resolve));
+            } else {
+                result = await Notification.requestPermission();
+            }
+            return result === 'granted';
+        }
+        function getNotificationIconUrl() {
+            return new URL('./pwa-icon.svg', window.location.href).toString();
+        }
+        function buildWorkerNotificationPayload(job, quiz) {
+            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            const content = getContentMeta(job.workerType, job.contentId);
+            const topicLabel = workerConfig.label || job.workerType;
+            const contentLabel = content?.label || job.contentId;
+            return {
+                title: 'How It Works',
+                toastTitle: `${topicLabel} • ${contentLabel}`,
+                body: `${quiz.question}\nA. ${quiz.choices[0]}\nB. ${quiz.choices[1]}\nC. ${quiz.choices[2]}\nD. ${quiz.choices[3]}`,
+                answerTitle: 'How It Works',
+                answerToastTitle: `${topicLabel} • Đáp án`,
+                answerBody: `Đáp án đúng: ${String.fromCharCode(65 + quiz.answerIndex)}. ${quiz.choices[quiz.answerIndex]} | Giải thích: ${quiz.explanation}`
+            };
+        }
+        function showAnswerToast(payload) {
+            showWorkerToast(payload.answerToastTitle || payload.answerTitle, payload.answerBody, []);
+        }
+        function showWorkerToast(title, body, actions) {
+            const toast = document.createElement('section');
+            toast.className = 'worker-toast';
+            toast.innerHTML = `
+                <strong>${escapeHtml(title)}</strong>
+                <p>${escapeHtml(body)}</p>
+                <div class="worker-toast-actions"></div>
+            `;
+            const actionContainer = toast.querySelector('.worker-toast-actions');
+            (actions || []).forEach((action) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.textContent = action.label;
+                button.addEventListener('click', () => {
+                    action.onClick();
+                    if (!action.keepOpen) {
+                        toast.remove();
+                    }
+                });
+                actionContainer.appendChild(button);
+            });
+            const closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.textContent = 'Đóng';
+            closeButton.addEventListener('click', () => toast.remove());
+            actionContainer.appendChild(closeButton);
+            workerToastStack.prepend(toast);
+            window.setTimeout(() => {
+                toast.remove();
+            }, 25000);
+        }
+        async function ensureServiceWorkerRegistration() {
+            if (!('serviceWorker' in navigator) || !window.isSecureContext) {
+                return null;
+            }
+            if (!serviceWorkerRegistrationPromise) {
+                const workerUrl = new URL('./home-quiz-worker.js', window.location.href);
+                serviceWorkerRegistrationPromise = navigator.serviceWorker.register(workerUrl, {
+                    scope: './'
+                }).catch((error) => {
+                    serviceWorkerRegistrationPromise = null;
+                    throw error;
+                });
+            }
+            return serviceWorkerRegistrationPromise;
+        }
+        async function showPersistentWorkerNotification(payload, supportInfo) {
+            if (!supportInfo.canUsePersistentNotifications) return false;
+            const reg = await ensureServiceWorkerRegistration();
+            if (!reg || typeof reg.showNotification !== 'function') return false;
+            const notificationOptions = {
+                body: payload.body,
+                icon: getNotificationIconUrl(),
+                badge: getNotificationIconUrl(),
+                tag: payload.title,
+                renotify: true,
+                data: {
+                    answerNotification: {
+                        title: payload.answerTitle,
+                        body: payload.answerBody,
+                        icon: getNotificationIconUrl(),
+                        badge: getNotificationIconUrl()
+                    }
+                }
+            };
+            if (supportInfo.maxActions > 0) {
+                notificationOptions.actions = [{ action: 'show-answer', title: 'Xem đáp án + giải thích' }];
+            }
+            await reg.showNotification(payload.title, notificationOptions);
+            return true;
+        }
+        function showWindowNotification(payload, supportInfo) {
+            if (!supportInfo.canUseWindowNotifications || Notification.permission !== 'granted') return false;
+            const notification = new Notification(payload.title, {
+                body: payload.body,
+                icon: getNotificationIconUrl(),
+                tag: payload.title
+            });
+            notification.onclick = () => {
+                window.focus();
+                showAnswerToast(payload);
+                notification.close();
+            };
+            return true;
+        }
+        async function dispatchWorkerNotification(payload) {
+            const supportInfo = getNotificationSupportInfo();
+            if (document.visibilityState === 'visible') {
+                showWorkerToast(payload.toastTitle || payload.title, payload.body, [
+                    { label: 'Xem đáp án', onClick: () => showAnswerToast(payload), keepOpen: true }
+                ]);
+            }
+            try {
+                if (supportInfo.notificationPermission === 'granted') {
+                    if (await showPersistentWorkerNotification(payload, supportInfo)) {
+                        return 'persistent';
+                    }
+                    if (showWindowNotification(payload, supportInfo)) {
+                        return 'window';
+                    }
+                }
+            } catch (error) {
+                setStatus(`System notification lỗi, đã rơi về toast trong trang: ${error.message}`);
+            }
+            return 'toast';
+        }
+
+        function getConversationHistoryKey(conversationId) {
+            return `${WORKER_HISTORY_KEY_PREFIX}:${conversationId}`;
+        }
+        function getConversationHistory(conversationId) {
+            try {
+                const data = JSON.parse(localStorage.getItem(getConversationHistoryKey(conversationId)) || '[]');
+                return Array.isArray(data) ? data : [];
+            } catch {
+                return [];
+            }
+        }
+        function saveConversationHistory(conversationId, history) {
+            localStorage.setItem(getConversationHistoryKey(conversationId), JSON.stringify(history.slice(-MAX_WORKER_HISTORY_MESSAGES)));
+        }
+        function extractTextFromPayload(payload) {
+            if (typeof payload === 'string') return payload;
+            if (Array.isArray(payload)) return payload.map(extractTextFromPayload).join('');
+            if (payload && typeof payload === 'object') {
+                if (typeof payload.text === 'string') return payload.text;
+                if (typeof payload.content === 'string') return payload.content;
+            }
+            return '';
+        }
+        function parseQuizPayload(rawText) {
+            const cleaned = String(rawText || '').trim().replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/, '').trim();
+            return JSON.parse(cleaned);
+        }
+        async function createHttpError(response) {
+            let payload;
+            try {
+                const contentType = (response.headers.get('content-type') || '').toLowerCase();
+                payload = contentType.includes('application/json') ? await response.json() : await response.text();
+            } catch {
+                payload = '';
+            }
+            const rawMessage = typeof payload === 'string'
+                ? payload
+                : payload?.error?.message || payload?.message || '';
+            const error = new Error(rawMessage || `GitHub Models API trả về lỗi HTTP ${response.status}.`);
+            error.status = response.status;
+            throw error;
+        }
+        function buildWorkerMessages(job, prompt, history) {
+            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            const content = getContentMeta(job.workerType, job.contentId);
+            const systemPrompt = [
+                workerConfig.systemPrompt,
+                `Worker type: ${workerConfig.label}`,
+                `Nội dung hiện tại: ${content?.label || job.contentId}`,
+                'Không lặp lại nguyên xi câu hỏi gần nhất nếu history đã có.',
+                'Giải thích ngắn, rõ, hữu ích cho tự học.',
+                'Chỉ trả về đúng JSON hợp lệ, không kèm markdown.'
+            ].join('\n');
+            return [{ role: 'system', content: systemPrompt }].concat(history).concat([{ role: 'user', content: prompt }]);
+        }
+        function getFallbackQuiz(job) {
+            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            return workerConfig.fallbacks[job.contentId] || workerConfig.fallbacks[workerConfig.contents[0].id];
+        }
+        async function sendWorkerRequest(modelId, token, messages) {
+            const response = await fetch(GITHUB_MODELS_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/vnd.github+json, application/json',
+                    'X-GitHub-Api-Version': GITHUB_API_VERSION
+                },
+                body: JSON.stringify({
+                    model: modelId,
+                    messages,
+                    stream: false
+                })
+            });
+            if (!response.ok) {
+                await createHttpError(response);
+            }
+            const data = await response.json();
+            return extractTextFromPayload(data?.choices?.[0]?.message?.content || data?.message || '');
+        }
+        async function generateWorkerQuiz(job) {
+            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            const prompt = workerConfig.prompts[job.contentId] || workerConfig.prompts[workerConfig.contents[0].id];
+            const token = getCopilotToken();
+            if (!token) {
+                return getFallbackQuiz(job);
+            }
+            const modelIds = getModelIds(getCopilotModel());
+            const history = getConversationHistory(job.conversationId);
+            const messages = buildWorkerMessages(job, prompt, history);
+            let lastError = null;
+
+            for (const modelId of modelIds) {
+                try {
+                    const rawText = await sendWorkerRequest(modelId, token, messages);
+                    const quiz = parseQuizPayload(rawText);
+                    saveConversationHistory(job.conversationId, history.concat([
+                        { role: 'user', content: prompt },
+                        { role: 'assistant', content: rawText }
+                    ]));
+                    return quiz;
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+
+            if (lastError) {
+                setStatus(`GitHub Models lỗi ở job ${job.id}, đang dùng câu hỏi mẫu.`);
+            }
+            return getFallbackQuiz(job);
+        }
+        async function markJobRun(jobId, timestamp) {
+            const cfg = getWorkerConfig();
+            cfg.jobs = getJobs().map((job) => job.id === jobId ? { ...job, lastRunAt: timestamp } : job);
+            setWorkerConfig(cfg);
+        }
+        function isJobDue(job, now) {
+            const intervalMs = Math.max(1, Number(job.intervalMinutes || 30)) * 60 * 1000;
+            return !job.lastRunAt || now - job.lastRunAt >= intervalMs;
+        }
+        async function runWorkerJob(job, options = {}) {
+            if (!job.enabled) return false;
+            const now = Date.now();
+            if (!options.force && !isJobDue(job, now)) return false;
+            const quiz = await generateWorkerQuiz(job);
+            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            const content = getContentMeta(job.workerType, job.contentId);
+            const payload = buildWorkerNotificationPayload(job, quiz);
+            const deliveryMode = await dispatchWorkerNotification(payload);
+            await markJobRun(job.id, now);
+            setStatus(`Đã gửi quiz cho ${workerConfig.label} • ${content?.label || job.contentId} lúc ${new Date(now).toLocaleTimeString()} • kênh: ${deliveryMode}`);
+            renderJobs();
+            return true;
+        }
+
+        async function runAllEnabledJobs(options = {}) {
+            const jobs = getJobs().filter(job => job.enabled);
+            let ranCount = 0;
+            for (const job of jobs) {
+                if (await runWorkerJob(job, options)) {
+                    ranCount += 1;
+                }
+            }
+            return ranCount;
+        }
+
+        function startBackgroundWorker() {
+            if (backgroundTimer) clearInterval(backgroundTimer);
+            const jobs = getJobs().filter(job => job.enabled);
+            if (!jobs.length) {
+                setStatus('Không có job nào đang bật.');
+                return;
+            }
+            backgroundTimer = setInterval(() => { runAllEnabledJobs().catch(e => setStatus('Lỗi job: ' + e.message)); }, 60 * 1000);
+            setStatus(`Worker đang theo dõi ${jobs.length} job bật. Mỗi phút sẽ kiểm tra job nào đến hạn.`);
+        }
+
+        if (openWorkerSettings && openWorkerSettings.tagName === 'BUTTON') {
+            openWorkerSettings.addEventListener('click', () => {
+                const jobs = getJobs();
+                updateWorkerConfigNote();
+                workerTypeInput.value = jobs[0]?.workerType || getDefaultWorkerTypeId();
+                hydrateWorkerForm(workerTypeInput.value);
+                renderJobs();
+                workerModalOverlay.classList.add('visible');
+            });
+        }
+        closeWorkerModal.addEventListener('click', () => workerModalOverlay.classList.remove('visible'));
+        workerTypeInput.addEventListener('change', () => hydrateWorkerForm(workerTypeInput.value));
+        saveWorkerSettings.addEventListener('click', async () => {
+            const cfg = getWorkerConfig();
+            const jobs = getJobs();
+            const workerType = workerTypeInput.value || getDefaultWorkerTypeId();
+            const selectedContentIds = new Set(getCheckedContentIds());
+            const intervalMinutes = Math.max(1, Number(jobIntervalInput.value || 30));
+            const managedContentIds = new Set(WORKER_TYPES[workerType].contents.map((content) => content.id));
+            const existingWorkerJobs = jobs.filter((job) => job.workerType === workerType && managedContentIds.has(job.contentId));
+            if (!selectedContentIds.size && !existingWorkerJobs.length) {
+                setStatus('Chọn ít nhất 1 nội dung để tạo job mới.');
+                return;
+            }
+            const nextJobs = jobs
+                .filter((job) => !(job.workerType === workerType && managedContentIds.has(job.contentId)))
+                .concat(
+                    WORKER_TYPES[workerType].contents
+                        .filter((content) => selectedContentIds.has(content.id) || existingWorkerJobs.some((job) => job.contentId === content.id))
+                        .map((content) => {
+                            const existing = jobs.find((job) => job.workerType === workerType && job.contentId === content.id);
+                            return existing
+                                ? { ...existing, intervalMinutes, enabled: selectedContentIds.has(content.id) }
+                                : {
+                                    id: `${workerType}-${content.id}`,
+                                    workerType,
+                                    contentId: content.id,
+                                    intervalMinutes,
+                                    enabled: true,
+                                    conversationId: createConversationId(),
+                                    lastRunAt: 0
+                                };
+                        })
+                )
+                .sort((a, b) => a.id.localeCompare(b.id));
+            cfg.jobs = nextJobs;
+            setWorkerConfig(cfg);
+            const supportInfo = getNotificationSupportInfo();
+            if (supportInfo.hasNotificationApi) {
+                await requestNotificationPermission();
+            }
+            updateWorkerConfigNote();
+            renderJobs();
+            startBackgroundWorker();
+            setStatus(selectedContentIds.size
+                ? `Đã lưu ${selectedContentIds.size} nội dung cho worker ${WORKER_TYPES[workerType].label}.`
+                : `Đã tắt toàn bộ nội dung của worker ${WORKER_TYPES[workerType].label}.`);
+        });
+        runNowWorker.addEventListener('click', async () => {
+            try {
+                const supportInfo = getNotificationSupportInfo();
+                if (supportInfo.hasNotificationApi && Notification.permission === 'default') {
+                    await requestNotificationPermission();
+                }
+                const ranCount = await runAllEnabledJobs({ force: true });
+                if (!ranCount) {
+                    setStatus('Không có job bật để chạy ngay.');
+                }
+            } catch (e) {
+                setStatus('Lỗi chạy ngay: ' + e.message);
+            }
+        });
+
+        renderWorkerTypeOptions();
+        updateWorkerConfigNote();
+        hydrateWorkerForm(getDefaultWorkerTypeId());
+
+        ensureServiceWorkerRegistration().then(() => {
+            renderJobs();
+            startBackgroundWorker();
+        }).catch((e) => {
+            renderJobs();
+            startBackgroundWorker();
+            setStatus(`Service worker không sẵn sàng: ${e.message}. Worker sẽ thử notification khác hoặc toast trong trang.`);
+        });
+
     </script>
     <script src="./chat-widget.js"></script>
 </body>

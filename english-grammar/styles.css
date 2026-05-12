@@ -887,3 +887,212 @@ header h1 {
     .tour-panel { margin: 1rem; }
     .verb-bank-toolbar input { min-width: 100%; }
 }
+
+/* ==================== EXERCISE MODAL STYLES ==================== */
+.exercise-modal {
+    max-width: 700px;
+}
+
+.exercise-header {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-header h2 {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.exercise-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+.exercise-progress .progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.exercise-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #58a6ff, #a371f7);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.exercise-content {
+    padding: 1rem 0;
+}
+
+.exercise-topic {
+    font-size: 0.85rem;
+    color: #58a6ff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exercise-text {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.exercise-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.exercise-option {
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #cdd9e5;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.exercise-option:hover {
+    background: rgba(88, 166, 255, 0.1);
+    border-color: rgba(88, 166, 255, 0.4);
+}
+
+.exercise-option.correct {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: #22c55e;
+    color: #4ade80;
+}
+
+.exercise-option.incorrect {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    color: #f87171;
+}
+
+.exercise-result {
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.result-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.result-message {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.result-explanation {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.25rem;
+    border-radius: 10px;
+    text-align: left;
+    color: #cdd9e5;
+    line-height: 1.6;
+}
+
+.result-explanation strong {
+    color: #58a6ff;
+}
+
+.exercise-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.exercise-btn.primary {
+    background: linear-gradient(135deg, #58a6ff, #a371f7);
+    color: #fff;
+}
+
+.exercise-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+.exercise-summary {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.exercise-summary h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.summary-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.score-emoji {
+    font-size: 4rem;
+}
+
+.score-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.score-percent {
+    font-size: 1.2rem;
+    color: #58a6ff;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.summary-item.correct {
+    border-left: 3px solid #22c55e;
+}
+
+.summary-item.incorrect {
+    border-left: 3px solid #ef4444;
+}
+
+.summary-icon {
+    font-size: 1rem;
+}
+
+.summary-text {
+    color: #cdd9e5;
+}

@@ -72,7 +72,7 @@
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn">⚙️</button>
             <button class="header-btn" id="startTourBtn">🎓 Hướng dẫn</button>
-            <button class="header-btn" id="checklistBtn">✅ Checklist</button>
+            <button class="header-btn" id="exerciseBtn">📝 Bài tập</button>
         </div>
     </header>
 
@@ -91,6 +91,35 @@
                     <button id="tourPrev" class="tour-btn">← Trước</button>
                     <button id="tourNext" class="tour-btn primary">Tiếp theo →</button>
                     <button id="tourSkip" class="tour-btn skip">Bỏ qua</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="exerciseModal">
+            <div class="modal-content exercise-modal">
+                <button class="modal-close" id="closeExercise">×</button>
+                <div class="exercise-header">
+                    <h2>📝 Bài Tập Ngữ Pháp</h2>
+                    <div class="exercise-progress">
+                        <span id="exerciseProgress">Câu 1/10</span>
+                        <div class="progress-bar"><div class="progress-fill" id="exerciseProgressFill"></div></div>
+                    </div>
+                </div>
+                <div class="exercise-content" id="exerciseContent">
+                    <div class="exercise-question" id="exerciseQuestion"></div>
+                    <div class="exercise-options" id="exerciseOptions"></div>
+                </div>
+                <div class="exercise-result" id="exerciseResult" style="display:none">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <div class="result-message" id="resultMessage"></div>
+                    <div class="result-explanation" id="resultExplanation"></div>
+                    <button class="exercise-btn primary" id="nextQuestion">Câu tiếp theo →</button>
+                </div>
+                <div class="exercise-summary" id="exerciseSummary" style="display:none">
+                    <h3>🎉 Hoàn thành!</h3>
+                    <div class="summary-score" id="summaryScore"></div>
+                    <div class="summary-details" id="summaryDetails"></div>
+                    <button class="exercise-btn primary" id="restartExercise">🔄 Làm lại</button>
                 </div>
             </div>
         </div>
@@ -974,17 +1003,6 @@
         <div class="panel-footer">
             <h4>📚 Liên quan:</h4>
             <div class="related-concepts" id="relatedConcepts"></div>
-        </div>
-    </div>
-
-    <div class="modal" id="checklistModal">
-        <div class="modal-content checklist-modal">
-            <button class="modal-close" id="closeChecklist">×</button>
-            <h2>✅ Checklist Ngữ Pháp Tiếng Anh</h2>
-            <div class="checklist-items" id="checklistItems"></div>
-            <div class="checklist-actions">
-                <button class="btn-reset" id="resetChecklist">🔄 Reset</button>
-            </div>
         </div>
     </div>
 

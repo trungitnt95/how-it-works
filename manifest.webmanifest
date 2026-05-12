@@ -1,0 +1,19 @@
+{
+  "name": "How It Works",
+  "short_name": "HIW",
+  "description": "Khám phá cách mọi thứ hoạt động với các sơ đồ và worker quiz.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12233f",
+  "theme_color": "#12233f",
+  "id": "./index.html",
+  "icons": [
+    {
+      "src": "./pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
