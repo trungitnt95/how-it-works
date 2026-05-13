@@ -460,10 +460,46 @@
         const runNowWorker = document.getElementById('runNowWorker');
         const workerToastStack = document.getElementById('workerToastStack');
         let serviceWorkerRegistrationPromise = null;
+        let backgroundTimer = null;
+        const RUNTIME_LEASE_KEY = 'hiwWorkerRuntimeLease';
+        const runtimeTabId = `tab_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+        const RUNTIME_LEASE_MS = 45000;
+        let runtimeLeaseHeartbeat = null;
 
         function getWorkerConfig() { try { return JSON.parse(localStorage.getItem(WORKER_CONFIG_KEY) || '{}'); } catch { return {}; } }
         function setWorkerConfig(cfg) { localStorage.setItem(WORKER_CONFIG_KEY, JSON.stringify(cfg)); }
         function setStatus(msg) { workerStatus.textContent = msg; }
+        function getRuntimeLease() {
+            try { return JSON.parse(localStorage.getItem(RUNTIME_LEASE_KEY) || 'null'); } catch { return null; }
+        }
+        function setRuntimeLease(lease) {
+            localStorage.setItem(RUNTIME_LEASE_KEY, JSON.stringify(lease));
+        }
+        function isRuntimeLeaseActive(lease) {
+            return Boolean(lease && lease.expiresAt && lease.expiresAt > Date.now());
+        }
+        function hasRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            return Boolean(lease && lease.owner === runtimeTabId && isRuntimeLeaseActive(lease));
+        }
+        function acquireRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            if (!isRuntimeLeaseActive(lease) || lease.owner === runtimeTabId) {
+                setRuntimeLease({ owner: runtimeTabId, expiresAt: Date.now() + RUNTIME_LEASE_MS });
+                return true;
+            }
+            return false;
+        }
+        function releaseRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            if (lease && lease.owner === runtimeTabId) {
+                localStorage.removeItem(RUNTIME_LEASE_KEY);
+            }
+        }
+        function maintainRuntimeLeadership() {
+            acquireRuntimeLeadership();
+            return hasRuntimeLeadership();
+        }
         function loadLocalSetting(key, fallback = '') { try { return window.localStorage.getItem(key) || fallback; } catch { return fallback; } }
         function createConversationId() { return `conv_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`; }
         function normalizeStoredModel(value) {
@@ -830,6 +866,28 @@
             }
             return count;
         }
+        function startBackgroundWorker() {
+            if (backgroundTimer) clearInterval(backgroundTimer);
+            if (runtimeLeaseHeartbeat) clearInterval(runtimeLeaseHeartbeat);
+            const jobs = getJobs().filter((job) => job.enabled);
+            if (!jobs.length) {
+                setStatus('Không có job nào đang bật.');
+                return;
+            }
+            maintainRuntimeLeadership();
+            runtimeLeaseHeartbeat = setInterval(() => {
+                maintainRuntimeLeadership();
+            }, 15000);
+            backgroundTimer = setInterval(() => {
+                if (maintainRuntimeLeadership()) {
+                    runAllEnabledJobs().catch((error) => setStatus('Lỗi job: ' + error.message));
+                }
+            }, 60 * 1000);
+            if (hasRuntimeLeadership()) {
+                runAllEnabledJobs().catch((error) => setStatus('Lỗi job: ' + error.message));
+            }
+            setStatus(`Worker đang theo dõi ${jobs.length} job bật. Sẽ có 1 tab active chịu trách nhiệm chạy theo chu kỳ.`);
+        }
 
         workerTypeInput.addEventListener('change', () => hydrateWorkerForm(workerTypeInput.value));
         saveWorkerSettings.addEventListener('click', async () => {
@@ -869,6 +927,7 @@
             setWorkerConfig(cfg);
             if (getNotificationSupportInfo().hasNotificationApi) await requestNotificationPermission();
             renderJobs();
+            startBackgroundWorker();
             setStatus(selectedContentIds.size
                 ? `Đã lưu ${selectedContentIds.size} nội dung cho ${WORKER_TYPES[workerType].label}.`
                 : `Đã tắt toàn bộ nội dung của ${WORKER_TYPES[workerType].label}.`);
@@ -891,6 +950,19 @@
         hydrateWorkerForm(workerTypeInput.value);
         renderJobs();
         ensureServiceWorkerRegistration().catch(() => {});
+        startBackgroundWorker();
+        window.addEventListener('beforeunload', releaseRuntimeLeadership);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && maintainRuntimeLeadership()) {
+                runAllEnabledJobs().catch((error) => setStatus('Lỗi job: ' + error.message));
+            }
+        });
+        window.addEventListener('storage', (event) => {
+            if (event.key === WORKER_CONFIG_KEY) {
+                renderJobs();
+                updateWorkerConfigNote();
+            }
+        });
     </script>
 </body>
 </html>

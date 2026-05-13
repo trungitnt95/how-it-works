@@ -1689,10 +1689,45 @@
         const jobContentOptions = document.getElementById('jobContentOptions');
         const jobIntervalInput = document.getElementById('jobInterval');
         let serviceWorkerRegistrationPromise = null;
+        const RUNTIME_LEASE_KEY = 'hiwWorkerRuntimeLease';
+        const runtimeTabId = `tab_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+        const RUNTIME_LEASE_MS = 45000;
+        let runtimeLeaseHeartbeat = null;
 
         function getWorkerConfig() { try { return JSON.parse(localStorage.getItem(WORKER_CONFIG_KEY) || '{}'); } catch { return {}; } }
         function setWorkerConfig(cfg) { localStorage.setItem(WORKER_CONFIG_KEY, JSON.stringify(cfg)); }
         function setStatus(msg) { workerStatus.textContent = msg; }
+        function getRuntimeLease() {
+            try { return JSON.parse(localStorage.getItem(RUNTIME_LEASE_KEY) || 'null'); } catch { return null; }
+        }
+        function setRuntimeLease(lease) {
+            localStorage.setItem(RUNTIME_LEASE_KEY, JSON.stringify(lease));
+        }
+        function isRuntimeLeaseActive(lease) {
+            return Boolean(lease && lease.expiresAt && lease.expiresAt > Date.now());
+        }
+        function hasRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            return Boolean(lease && lease.owner === runtimeTabId && isRuntimeLeaseActive(lease));
+        }
+        function acquireRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            if (!isRuntimeLeaseActive(lease) || lease.owner === runtimeTabId) {
+                setRuntimeLease({ owner: runtimeTabId, expiresAt: Date.now() + RUNTIME_LEASE_MS });
+                return true;
+            }
+            return false;
+        }
+        function releaseRuntimeLeadership() {
+            const lease = getRuntimeLease();
+            if (lease && lease.owner === runtimeTabId) {
+                localStorage.removeItem(RUNTIME_LEASE_KEY);
+            }
+        }
+        function maintainRuntimeLeadership() {
+            acquireRuntimeLeadership();
+            return hasRuntimeLeadership();
+        }
         function createConversationId() {
             return `conv_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
         }
@@ -2166,13 +2201,25 @@
 
         function startBackgroundWorker() {
             if (backgroundTimer) clearInterval(backgroundTimer);
+            if (runtimeLeaseHeartbeat) clearInterval(runtimeLeaseHeartbeat);
             const jobs = getJobs().filter(job => job.enabled);
             if (!jobs.length) {
                 setStatus('Không có job nào đang bật.');
                 return;
             }
-            backgroundTimer = setInterval(() => { runAllEnabledJobs().catch(e => setStatus('Lỗi job: ' + e.message)); }, 60 * 1000);
-            setStatus(`Worker đang theo dõi ${jobs.length} job bật. Mỗi phút sẽ kiểm tra job nào đến hạn.`);
+            maintainRuntimeLeadership();
+            runtimeLeaseHeartbeat = setInterval(() => {
+                maintainRuntimeLeadership();
+            }, 15000);
+            backgroundTimer = setInterval(() => {
+                if (maintainRuntimeLeadership()) {
+                    runAllEnabledJobs().catch(e => setStatus('Lỗi job: ' + e.message));
+                }
+            }, 60 * 1000);
+            if (hasRuntimeLeadership()) {
+                runAllEnabledJobs().catch(e => setStatus('Lỗi job: ' + e.message));
+            }
+            setStatus(`Worker đang theo dõi ${jobs.length} job bật. Sẽ có 1 tab active chịu trách nhiệm chạy theo chu kỳ.`);
         }
 
         if (openWorkerSettings && openWorkerSettings.tagName === 'BUTTON') {
@@ -2251,6 +2298,18 @@
         renderWorkerTypeOptions();
         updateWorkerConfigNote();
         hydrateWorkerForm(getDefaultWorkerTypeId());
+        window.addEventListener('beforeunload', releaseRuntimeLeadership);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && maintainRuntimeLeadership()) {
+                runAllEnabledJobs().catch(e => setStatus('Lỗi job: ' + e.message));
+            }
+        });
+        window.addEventListener('storage', (event) => {
+            if (event.key === WORKER_CONFIG_KEY) {
+                renderJobs();
+                updateWorkerConfigNote();
+            }
+        });
 
         ensureServiceWorkerRegistration().then(() => {
             renderJobs();
