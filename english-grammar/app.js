@@ -476,7 +476,7 @@
         
         // ==================== 6. PAST CONTINUOUS ====================
         questions.push(createQuestion(questionId + 20, 'Past Continuous', 'I ___ TV when the phone rang.', ['watch', 'watched', 'was watching', 'watching'], 2, 'Hành động đang xảy ra khi có hành động khác xen vào → Past Continuous.'));
-        questions.push(createQuestion(questionId + 21, 'Past Continuous', 'At 7 o'clock yesterday, I ___ breakfast.', ['have', 'had', 'was having', 'having'], 2, 'Thời điểm cụ thể trong quá khứ → Past Continuous.'));
+        questions.push(createQuestion(questionId + 21, 'Past Continuous', 'At 7 o\'clock yesterday, I ___ breakfast.', ['have', 'had', 'was having', 'having'], 2, 'Thời điểm cụ thể trong quá khứ → Past Continuous.'));
         questions.push(createQuestion(questionId + 22, 'Past Continuous', 'She ___ when the accident happened.', ['drive', 'drove', 'was driving', 'driving'], 2, 'Đang lái xe khi xảy ra tai nạn → Past Continuous.'));
         
         // ==================== 7. PRESENT PERFECT ====================
@@ -611,7 +611,7 @@
         questions.push(createQuestion(questionId + 107, 'Negatives', 'I ___ go to the party tonight.', ['do not', 'does not', 'not', 'am not'], 3, 'Với be: am not + V-ing.'));
         
         // ==================== 31. TAG QUESTIONS ====================
-        questions.push(createQuestion(questionId + 108, 'Tag Questions', 'She is a teacher, ___ she?', ['isn\'t', 'is', 'doesn\'t', 'does'], 0, 'Tag question phủ định: "isn't she?".'));
+        questions.push(createQuestion(questionId + 108, 'Tag Questions', 'She is a teacher, ___ she?', ['isn\'t', 'is', 'doesn\'t', 'does'], 0, 'Tag question phủ định: "isn\'t she?".'));
         questions.push(createQuestion(questionId + 109, 'Tag Questions', 'You don\'t smoke, ___ you?', ['do', 'does', 'don\'t', 'are'], 0, 'Tag question khẳng định: "do you?".'));
         
         // ==================== 32. NUMBERS ====================
