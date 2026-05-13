@@ -6,6 +6,7 @@
 
     const WORKER_CONFIG_KEY = 'backgroundWorkerJobsConfig';
     const WORKER_HISTORY_KEY_PREFIX = 'backgroundWorkerConversation';
+    const CUSTOM_PROMPTS_KEY = 'hiwWorkerCustomPrompts';
     const COPILOT_STORAGE_KEYS = { token: 'hiw_copilot_token', model: 'hiw_copilot_model' };
     const GITHUB_MODELS_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
     const GITHUB_API_VERSION = '2026-03-10';
@@ -60,7 +61,7 @@
             contents: ENGLISH_WORKER_CONTENTS,
             prompts: {
                 theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                exercise: 'Tạo đúng 1 bài tập trắc nghiệm tiếng Anh với 4 lựa chọn, bám sát ngữ pháp hoặc giao tiếp hằng ngày. Chỉ dùng từ/cụm từ thông dụng trong đời sống thường ngày như chào hỏi, ăn uống, đi lại, mua sắm, công việc cơ bản, gia đình, cảm xúc đơn giản. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
+                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngữ pháp tiếng Anh với 4 lựa chọn. Mỗi lần hãy chọn ngẫu nhiên một chủ đề ngữ pháp khác nhau, ví dụ: các thì (tenses), câu điều kiện, so sánh, mạo từ, giới từ, câu bị động, danh động từ vs nguyên mẫu, đại từ quan hệ, trợ động từ, cấu trúc câu hỏi, tag questions, reported speech, modal verbs. Ưu tiên ngữ pháp thông dụng, hay gặp trong giao tiếp và viết hằng ngày. Không dùng ngữ pháp hiếm, học thuật, hoặc quá nâng cao. Giải thích ngắn gọn bằng tiếng Việt. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
                 vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
             },
             fallbacks: {
@@ -467,9 +468,21 @@
         return extractTextFromPayload(data?.choices?.[0]?.message?.content || data?.message || '');
     }
 
+    function getCustomPrompts() {
+        try { return JSON.parse(localStorage.getItem(CUSTOM_PROMPTS_KEY) || '{}'); } catch { return {}; }
+    }
+
+    function getEffectivePrompt(workerType, contentId) {
+        const key = `${workerType}:${contentId}`;
+        const custom = getCustomPrompts()[key];
+        if (custom !== undefined && custom !== '') return custom;
+        const wc = WORKER_TYPES[workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+        return wc.prompts[contentId] || wc.prompts[wc.contents[0].id] || '';
+    }
+
     async function generateWorkerQuiz(job) {
         const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
-        const prompt = workerConfig.prompts[job.contentId] || workerConfig.prompts[workerConfig.contents[0].id];
+        const prompt = getEffectivePrompt(job.workerType, job.contentId);
         const token = getCopilotToken();
         if (!token) return getFallbackQuiz(job);
         const modelIds = getModelIds(getCopilotModel());

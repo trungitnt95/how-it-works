@@ -62,6 +62,37 @@
             background: rgba(255,255,255,0.08);
             color: #fff;
         }
+        .worker-form-row textarea {
+            width: 100%;
+            margin-top: 0.45rem;
+            padding: 0.7rem 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            resize: vertical;
+            min-height: 90px;
+        }
+        .worker-form-row textarea:focus {
+            border-color: rgba(255,255,255,0.32);
+            outline: none;
+        }
+        .prompt-editor-actions {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .prompt-editor-actions .prompt-save-hint {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+        }
+        .prompt-editor-actions .prompt-save-hint.saved {
+            color: #2ecc71;
+        }
         .worker-config-note {
             margin-top: 0.9rem;
             padding: 0.9rem 1rem;
@@ -277,6 +308,15 @@
                 <div id="jobContentOptions" class="worker-checkbox-grid"></div>
             </div>
             <div class="worker-form-row">
+                <label for="promptContentSelect">Prompt gửi AI</label>
+                <select id="promptContentSelect" style="margin-bottom:0.4rem"></select>
+                <textarea id="customPromptInput" rows="6" placeholder="Prompt gửi cho AI mỗi lần tạo câu hỏi..."></textarea>
+                <div class="prompt-editor-actions">
+                    <button class="btn-secondary" id="resetPromptBtn" type="button">Reset về mặc định</button>
+                    <span id="promptSaveStatus" class="prompt-save-hint"></span>
+                </div>
+            </div>
+            <div class="worker-form-row">
                 <label for="jobInterval">Chu kỳ chạy (phút)</label>
                 <input id="jobInterval" type="number" min="1" step="1" value="30">
             </div>
@@ -356,6 +396,7 @@
     <script>
         const WORKER_CONFIG_KEY = 'backgroundWorkerJobsConfig';
         const WORKER_HISTORY_KEY_PREFIX = 'backgroundWorkerConversation';
+        const CUSTOM_PROMPTS_KEY = 'hiwWorkerCustomPrompts';
         const COPILOT_STORAGE_KEYS = { token: 'hiw_copilot_token', model: 'hiw_copilot_model' };
         const GITHUB_MODELS_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
         const GITHUB_API_VERSION = '2026-03-10';
@@ -410,7 +451,7 @@
                 contents: ENGLISH_WORKER_CONTENTS,
                 prompts: {
                     theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm tiếng Anh với 4 lựa chọn, bám sát ngữ pháp hoặc giao tiếp hằng ngày. Chỉ dùng từ/cụm từ thông dụng trong đời sống thường ngày như chào hỏi, ăn uống, đi lại, mua sắm, công việc cơ bản, gia đình, cảm xúc đơn giản. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
+                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngữ pháp tiếng Anh với 4 lựa chọn. Mỗi lần hãy chọn ngẫu nhiên một chủ đề ngữ pháp khác nhau, ví dụ: các thì (tenses), câu điều kiện, so sánh, mạo từ, giới từ, câu bị động, danh động từ vs nguyên mẫu, đại từ quan hệ, trợ động từ, cấu trúc câu hỏi, tag questions, reported speech, modal verbs. Ưu tiên ngữ pháp thông dụng, hay gặp trong giao tiếp và viết hằng ngày. Không dùng ngữ pháp hiếm, học thuật, hoặc quá nâng cao. Giải thích ngắn gọn bằng tiếng Việt. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
                     vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
                 },
                 fallbacks: {
@@ -459,6 +500,10 @@
         const saveWorkerSettings = document.getElementById('saveWorkerSettings');
         const runNowWorker = document.getElementById('runNowWorker');
         const workerToastStack = document.getElementById('workerToastStack');
+        const promptContentSelect = document.getElementById('promptContentSelect');
+        const customPromptInput = document.getElementById('customPromptInput');
+        const resetPromptBtn = document.getElementById('resetPromptBtn');
+        const promptSaveStatus = document.getElementById('promptSaveStatus');
         let serviceWorkerRegistrationPromise = null;
         let backgroundTimer = null;
         const RUNTIME_LEASE_KEY = 'hiwWorkerRuntimeLease';
@@ -469,6 +514,17 @@
         function getWorkerConfig() { try { return JSON.parse(localStorage.getItem(WORKER_CONFIG_KEY) || '{}'); } catch { return {}; } }
         function setWorkerConfig(cfg) { localStorage.setItem(WORKER_CONFIG_KEY, JSON.stringify(cfg)); }
         function setStatus(msg) { workerStatus.textContent = msg; }
+        function getCustomPrompts() { try { return JSON.parse(localStorage.getItem(CUSTOM_PROMPTS_KEY) || '{}'); } catch { return {}; } }
+        function setCustomPrompts(prompts) { localStorage.setItem(CUSTOM_PROMPTS_KEY, JSON.stringify(prompts)); }
+        function customPromptKey(workerType, contentId) { return `${workerType}:${contentId}`; }
+        function getDefaultPrompt(workerType, contentId) {
+            const wc = WORKER_TYPES[workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            return wc.prompts[contentId] || wc.prompts[wc.contents[0].id] || '';
+        }
+        function getEffectivePrompt(workerType, contentId) {
+            const custom = getCustomPrompts()[customPromptKey(workerType, contentId)];
+            return (custom !== undefined && custom !== '') ? custom : getDefaultPrompt(workerType, contentId);
+        }
         function getRuntimeLease() {
             try { return JSON.parse(localStorage.getItem(RUNTIME_LEASE_KEY) || 'null'); } catch { return null; }
         }
@@ -609,6 +665,47 @@
             }).join('');
             const intervalSource = jobs.find((job) => job.enabled) || jobs[0];
             jobIntervalInput.value = intervalSource?.intervalMinutes || 30;
+            hydratePromptEditor(workerType);
+        }
+        function hydratePromptEditor(workerType) {
+            const config = WORKER_TYPES[workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+            promptContentSelect.innerHTML = config.contents.map((c) => `<option value="${c.id}">${escapeHtml(c.label)}</option>`).join('');
+            loadPromptForSelected();
+        }
+        function loadPromptForSelected() {
+            const wt = workerTypeInput.value || getDefaultWorkerTypeId();
+            const cid = promptContentSelect.value;
+            if (!cid) return;
+            const custom = getCustomPrompts()[customPromptKey(wt, cid)];
+            customPromptInput.value = (custom !== undefined && custom !== '') ? custom : getDefaultPrompt(wt, cid);
+            promptSaveStatus.textContent = (custom !== undefined && custom !== '') ? '✏️ Đang dùng prompt tùy chỉnh' : '';
+            promptSaveStatus.className = 'prompt-save-hint';
+        }
+        let _promptSaveTimer = null;
+        function autoSavePrompt() {
+            clearTimeout(_promptSaveTimer);
+            promptSaveStatus.textContent = '...';
+            promptSaveStatus.className = 'prompt-save-hint';
+            _promptSaveTimer = setTimeout(() => {
+                const wt = workerTypeInput.value || getDefaultWorkerTypeId();
+                const cid = promptContentSelect.value;
+                if (!cid) return;
+                const value = customPromptInput.value.trim();
+                const defaultVal = getDefaultPrompt(wt, cid);
+                const prompts = getCustomPrompts();
+                const key = customPromptKey(wt, cid);
+                if (!value || value === defaultVal) {
+                    delete prompts[key];
+                } else {
+                    prompts[key] = value;
+                }
+                setCustomPrompts(prompts);
+                promptSaveStatus.textContent = (prompts[key]) ? '✅ Đã lưu prompt tùy chỉnh' : '✅ Đang dùng prompt mặc định';
+                promptSaveStatus.className = 'prompt-save-hint saved';
+                setTimeout(() => {
+                    promptSaveStatus.className = 'prompt-save-hint';
+                }, 2000);
+            }, 600);
         }
         function renderJobs() {
             const jobs = getJobs();
@@ -769,7 +866,7 @@
         }
         async function generateWorkerQuiz(job) {
             const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
-            const prompt = workerConfig.prompts[job.contentId] || workerConfig.prompts[workerConfig.contents[0].id];
+            const prompt = getEffectivePrompt(job.workerType, job.contentId);
             const token = getCopilotToken();
             if (!token) return getFallbackQuiz(job);
             const modelIds = getModelIds(getCopilotModel());
@@ -890,6 +987,20 @@
         }
 
         workerTypeInput.addEventListener('change', () => hydrateWorkerForm(workerTypeInput.value));
+        promptContentSelect.addEventListener('change', loadPromptForSelected);
+        customPromptInput.addEventListener('input', autoSavePrompt);
+        resetPromptBtn.addEventListener('click', () => {
+            const wt = workerTypeInput.value || getDefaultWorkerTypeId();
+            const cid = promptContentSelect.value;
+            if (!cid) return;
+            const prompts = getCustomPrompts();
+            delete prompts[customPromptKey(wt, cid)];
+            setCustomPrompts(prompts);
+            customPromptInput.value = getDefaultPrompt(wt, cid);
+            promptSaveStatus.textContent = '↩️ Đã reset về mặc định';
+            promptSaveStatus.className = 'prompt-save-hint saved';
+            setTimeout(() => { promptSaveStatus.textContent = ''; promptSaveStatus.className = 'prompt-save-hint'; }, 2000);
+        });
         saveWorkerSettings.addEventListener('click', async () => {
             const cfg = getWorkerConfig();
             const jobs = getJobs();
