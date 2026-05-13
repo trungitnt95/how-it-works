@@ -161,6 +161,53 @@
             color: #cbd5e1;
         }
         .job-meta { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+        .guide-section {
+            margin-top: 1.8rem;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            padding-top: 1.2rem;
+        }
+        .guide-section > p {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.55;
+            margin-top: 0.45rem;
+        }
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.9rem;
+            margin-top: 1rem;
+        }
+        .guide-card {
+            border-radius: 16px;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .guide-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.55rem;
+        }
+        .guide-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+            font-size: 0.92rem;
+        }
+        .guide-card ul {
+            margin: 0.7rem 0 0 1rem;
+            color: rgba(255,255,255,0.86);
+            line-height: 1.5;
+            font-size: 0.92rem;
+        }
+        .guide-card li + li {
+            margin-top: 0.35rem;
+        }
+        .guide-card a {
+            color: #8fd3ff;
+            text-decoration: none;
+        }
+        .guide-card a:hover {
+            text-decoration: underline;
+        }
         .worker-toast-stack {
             position: fixed;
             right: 1rem;
@@ -241,6 +288,66 @@
             <div class="job-list">
                 <h3>Danh sách job hiện có</h3>
                 <div id="runningJobs" class="job-list-body"></div>
+            </div>
+            <div class="guide-section">
+                <h3>Hướng Dẫn Setup Thông Báo Theo OS</h3>
+                <p>Nếu worker chạy nhưng không thấy popup hệ thống, kiểm tra theo đúng nền tảng đang dùng. Các bước dưới đây bám theo tài liệu chính thức của Apple, Google, Microsoft và Mozilla.</p>
+                <div class="guide-grid">
+                    <article class="guide-card">
+                        <h4>macOS</h4>
+                        <p>Dùng Chrome hoặc Safari đều cần 2 lớp quyền: quyền của website trong trình duyệt và quyền của trình duyệt/website trong Notifications của macOS.</p>
+                        <ul>
+                            <li>Chrome: vào `Chrome > Settings > Privacy and security > Site settings > Notifications`, cho phép site này gửi thông báo.</li>
+                            <li>Safari: vào `Safari > Settings > Websites > Notifications`, cho phép website này.</li>
+                            <li>macOS: vào `System Settings > Notifications`, bật notifications cho Chrome hoặc website/Safari tương ứng.</li>
+                            <li>Nếu đang bật Focus hoặc Do Not Disturb, popup có thể bị chặn dù permission đã granted.</li>
+                        </ul>
+                        <p style="margin-top:0.7rem">Nguồn: <a href="https://support.google.com/chrome/answer/3220216?hl=en-GB" target="_blank" rel="noreferrer">Chrome Help</a>, <a href="https://support.apple.com/guide/safari/customize-website-notifications-sfri40734/mac" target="_blank" rel="noreferrer">Apple Safari on Mac</a>.</p>
+                    </article>
+                    <article class="guide-card">
+                        <h4>Windows</h4>
+                        <p>Windows có thể cho phép site trong browser nhưng vẫn không hiện banner nếu hệ điều hành đang tắt notifications hoặc đang ở Do Not Disturb.</p>
+                        <ul>
+                            <li>Trong browser, bật Notifications cho site này.</li>
+                            <li>Windows: vào `Settings > System > Notifications`, bật `Notifications`.</li>
+                            <li>Trong cùng màn hình đó, bật notifications cho browser đang dùng nếu nó xuất hiện trong danh sách apps.</li>
+                            <li>Kiểm tra `Do not disturb` và tắt nếu đang cần thấy popup ngay.</li>
+                        </ul>
+                        <p style="margin-top:0.7rem">Nguồn: <a href="https://support.microsoft.com/en-us/windows/get-notifications-you-want-feeca47f-0baf-5680-16f0-8801db1a8466" target="_blank" rel="noreferrer">Microsoft Support</a>.</p>
+                    </article>
+                    <article class="guide-card">
+                        <h4>Android</h4>
+                        <p>Android thường hoạt động tốt nhất với Chrome trên site chạy bằng `https` hoặc `localhost`.</p>
+                        <ul>
+                            <li>Chrome Android: vào `Settings > Site settings > Notifications`, bật thông báo.</li>
+                            <li>Mở đúng site này, kiểm tra biểu tượng ổ khóa rồi cho phép Notifications nếu cần.</li>
+                            <li>Android system: vào `Settings > Notifications > App notifications`, bảo đảm Chrome được phép gửi thông báo.</li>
+                            <li>Nếu đang ở chế độ pin tiết kiệm hoặc chặn background, thông báo có thể đến chậm hơn.</li>
+                        </ul>
+                        <p style="margin-top:0.7rem">Nguồn: <a href="https://support.google.com/chrome/answer/3220216?co=GENIE.Platform%3DAndroid&hl=en-GB" target="_blank" rel="noreferrer">Chrome Android Help</a>.</p>
+                    </article>
+                    <article class="guide-card">
+                        <h4>iPhone / iPad</h4>
+                        <p>iOS/iPadOS không hỗ trợ web notifications theo kiểu tab thường như desktop. Muốn nhận được push đúng chuẩn, phải dùng web app đã thêm ra Home Screen.</p>
+                        <ul>
+                            <li>Mở site bằng Safari.</li>
+                            <li>Chọn `Share > Add to Home Screen`, và nếu hiện tùy chọn thì chọn `Open as Web App`.</li>
+                            <li>Mở site từ icon ngoài Home Screen, không dùng tab Safari thường.</li>
+                            <li>Sau khi web app xin quyền, vào `Settings > Notifications` để kiểm tra web app này đã được phép gửi thông báo.</li>
+                        </ul>
+                        <p style="margin-top:0.7rem">Ghi chú: WebKit công bố Web Push cho Home Screen web apps từ iOS/iPadOS 16.4. Nếu chưa cài kiểu web app, trang này sẽ rơi về toast trong app thay vì push hệ thống.</p>
+                        <p style="margin-top:0.7rem">Nguồn: <a href="https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/" target="_blank" rel="noreferrer">WebKit</a>, <a href="https://support.apple.com/guide/iphone/bookmark-a-website-iph42ab2f3a7/ios" target="_blank" rel="noreferrer">Apple Support</a>.</p>
+                    </article>
+                    <article class="guide-card">
+                        <h4>Firefox</h4>
+                        <p>Nếu anh test trên Firefox desktop, nhớ kiểm tra riêng quyền web push của Firefox vì nó tách khỏi Chrome/Safari.</p>
+                        <ul>
+                            <li>Firefox desktop: vào `Settings` và tìm phần `Notifications` để quản lý website đã được phép gửi push.</li>
+                            <li>Nếu permission đã cấp nhưng chưa thấy popup, kiểm tra Notifications của hệ điều hành như macOS/Windows ở các mục bên trên.</li>
+                        </ul>
+                        <p style="margin-top:0.7rem">Nguồn: <a href="https://support.mozilla.org/en-US/products/firefox/settings/notifications" target="_blank" rel="noreferrer">Firefox Help</a>.</p>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
