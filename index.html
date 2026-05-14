@@ -1855,7 +1855,24 @@
         function getJobs() {
             const cfg = getWorkerConfig();
             if (!Array.isArray(cfg.jobs)) return [];
-            const jobs = cfg.jobs.map(migrateJob);
+            const migratedJobs = cfg.jobs.map(migrateJob);
+            const dedupedById = new Map();
+            for (const job of migratedJobs) {
+                const existing = dedupedById.get(job.id);
+                if (!existing) {
+                    dedupedById.set(job.id, job);
+                    continue;
+                }
+                dedupedById.set(job.id, {
+                    ...existing,
+                    ...job,
+                    enabled: Boolean(existing.enabled || job.enabled),
+                    intervalMinutes: Math.max(1, Number(job.intervalMinutes || existing.intervalMinutes || 30)),
+                    lastRunAt: Math.max(Number(existing.lastRunAt || 0), Number(job.lastRunAt || 0)),
+                    conversationId: existing.conversationId || job.conversationId || createConversationId()
+                });
+            }
+            const jobs = Array.from(dedupedById.values()).sort((a, b) => a.id.localeCompare(b.id));
             if (JSON.stringify(cfg.jobs) !== JSON.stringify(jobs)) {
                 cfg.jobs = jobs;
                 setWorkerConfig(cfg);
