@@ -16,7 +16,6 @@
         { label: 'gpt-4.1', ids: ['openai/gpt-4.1'] },
         { label: 'gpt-5-mini', ids: ['openai/gpt-5-mini'] }
     ];
-    const MAX_WORKER_HISTORY_MESSAGES = 12;
     const DEFAULT_WORKER_CONTENTS = [
         { id: 'exercise', label: 'Bài tập', description: 'Tạo 1 câu trắc nghiệm ôn nhanh theo chủ đề đã chọn.' }
     ];
@@ -67,20 +66,20 @@
             fallbacks: {
                 theory: {
                     question: 'Trong tiếng Anh, khi nào thường dùng thì hiện tại đơn?',
-                    choices: ['Diễn tả thói quen hoặc sự thật hiển nhiên', 'Diễn tả hành động đang xảy ra ngay lúc nói', 'Diễn tả hành động đã kết thúc trong quá khứ có mốc thời gian rõ', 'Diễn tả một kế hoạch đã hoàn thành từ lâu'],
-                    answerIndex: 0,
+                    choices: ['Diễn tả hành động đang xảy ra ngay lúc nói', 'Diễn tả thói quen hoặc sự thật hiển nhiên', 'Diễn tả hành động đã kết thúc trong quá khứ có mốc thời gian rõ', 'Diễn tả một kế hoạch đã hoàn thành từ lâu'],
+                    answerIndex: 1,
                     explanation: 'Thì hiện tại đơn thường dùng cho thói quen, lịch trình, và sự thật hiển nhiên.'
                 },
                 exercise: {
                     question: 'Fill in the blank: I usually ___ coffee in the morning.',
-                    choices: ['drink', 'drinks am', 'drinking is', 'to drank'],
-                    answerIndex: 0,
+                    choices: ['drinks am', 'drink', 'drinking is', 'to drank'],
+                    answerIndex: 1,
                     explanation: 'Sau "usually" trong câu hiện tại đơn với chủ ngữ "I", dùng động từ nguyên mẫu "drink".'
                 },
                 vocabulary: {
                     question: 'Từ tiếng Anh nào có nghĩa là "đói"?',
-                    choices: ['hungry', 'sleepy', 'thirsty', 'angry'],
-                    answerIndex: 0,
+                    choices: ['sleepy', 'thirsty', 'hungry', 'angry'],
+                    answerIndex: 2,
                     explanation: '"Hungry" có nghĩa là "đói", là từ rất thông dụng trong giao tiếp hằng ngày.'
                 }
             }
@@ -93,8 +92,8 @@
             fallbacks: {
                 exercise: {
                     question: 'Nếu lãi suất tăng mạnh, khoản nào thường chịu áp lực giảm giá trước?',
-                    choices: ['Tài sản dùng đòn bẩy cao', 'Tiền mặt', 'Lương tháng đã nhận', 'Thuế đã nộp'],
-                    answerIndex: 0,
+                    choices: ['Tiền mặt', 'Lương tháng đã nhận', 'Tài sản dùng đòn bẩy cao', 'Thuế đã nộp'],
+                    answerIndex: 2,
                     explanation: 'Lãi suất tăng làm chi phí vốn cao hơn và giảm sức hấp dẫn của các tài sản phụ thuộc vào tín dụng rẻ.'
                 }
             }
@@ -103,6 +102,7 @@
 
     const runtimeScript = document.currentScript || Array.from(document.querySelectorAll('script[src]')).reverse().find((script) => script.src.includes('worker-runtime.js'));
     const runtimeUrl = runtimeScript?.src ? new URL(runtimeScript.src, window.location.href) : new URL('./worker-runtime.js', window.location.href);
+    const MIN_JOB_INTERVAL_MINUTES = 5;
     const RUNTIME_LEASE_KEY = 'hiwWorkerRuntimeLease';
     const runtimeTabId = `tab_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     const RUNTIME_LEASE_MS = 45000;
@@ -209,10 +209,24 @@
     function buildGenericFallback(label, subtitle) {
         return {
             question: `Trong chủ đề "${label}", mục tiêu của bài tập nhanh là gì?`,
-            choices: [`Ôn lại ý chính của ${subtitle || label}`, 'Bỏ qua ngữ cảnh và chọn ngẫu nhiên', 'Chỉ học thuộc đáp án mà không cần hiểu', 'Không cần xem giải thích sau khi làm'],
-            answerIndex: 0,
+            choices: ['Bỏ qua ngữ cảnh và chọn ngẫu nhiên', `Ôn lại ý chính của ${subtitle || label}`, 'Chỉ học thuộc đáp án mà không cần hiểu', 'Không cần xem giải thích sau khi làm'],
+            answerIndex: 1,
             explanation: `Worker của chủ đề "${label}" được tạo để ôn nhanh các ý chính và hiểu lại ngữ cảnh của chủ đề.`
         };
+    }
+
+    function randomAnswerIndex() {
+        return Math.floor(Math.random() * 4);
+    }
+
+    function resolveAnswerIndex(answerIndex) {
+        const parsedIndex = Number(answerIndex);
+        if (Number.isInteger(parsedIndex) && parsedIndex >= 0 && parsedIndex <= 3) return parsedIndex;
+        return randomAnswerIndex();
+    }
+
+    function normalizeIntervalMinutes(value) {
+        return Math.max(MIN_JOB_INTERVAL_MINUTES, Number(value || 30));
     }
 
     function buildGenericExercisePrompt(label, subtitle) {
@@ -274,19 +288,24 @@
         return String(jobId || '').startsWith('money-') ? 'money' : getDefaultWorkerTypeId();
     }
 
+    function getDefaultContentId(workerType) {
+        return (WORKER_TYPES[workerType]?.contents || DEFAULT_WORKER_CONTENTS)[0]?.id || 'exercise';
+    }
+
     function migrateJob(rawJob) {
         const rawJobId = String(rawJob?.id || '');
         const rawWorkerType = rawJob?.workerType || rawJobId.split('-').slice(0, -1).join('-') || '';
         const workerType = resolveWorkerTypeId(rawWorkerType, rawJobId);
         const allowedContentIds = new Set((WORKER_TYPES[workerType]?.contents || DEFAULT_WORKER_CONTENTS).map((content) => content.id));
         const inferredFromId = Array.from(allowedContentIds).find((contentId) => rawJobId.endsWith(`-${contentId}`));
-        const inferredContentId = rawJob?.contentId || rawJob?.type || inferredFromId || 'exercise';
-        const contentId = allowedContentIds.has(inferredContentId) ? inferredContentId : 'exercise';
+        const defaultContentId = getDefaultContentId(workerType);
+        const inferredContentId = rawJob?.contentId || rawJob?.type || inferredFromId || defaultContentId;
+        const contentId = allowedContentIds.has(inferredContentId) ? inferredContentId : defaultContentId;
         return {
             id: `${workerType}-${contentId}`,
             workerType,
             contentId,
-            intervalMinutes: Math.max(1, Number(rawJob?.intervalMinutes || 30)),
+            intervalMinutes: normalizeIntervalMinutes(rawJob?.intervalMinutes),
             enabled: Boolean(rawJob?.enabled),
             conversationId: rawJob?.conversationId || createConversationId(),
             lastRunAt: Number(rawJob?.lastRunAt || 0)
@@ -308,7 +327,7 @@
                 ...existing,
                 ...job,
                 enabled: Boolean(existing.enabled || job.enabled),
-                intervalMinutes: Math.max(1, Number(job.intervalMinutes || existing.intervalMinutes || 30)),
+                intervalMinutes: normalizeIntervalMinutes(job.intervalMinutes || existing.intervalMinutes),
                 lastRunAt: Math.max(Number(existing.lastRunAt || 0), Number(job.lastRunAt || 0)),
                 conversationId: existing.conversationId || job.conversationId || createConversationId()
             });
@@ -410,15 +429,31 @@
 
     function getConversationHistory(conversationId) {
         try {
-            const data = JSON.parse(localStorage.getItem(getConversationHistoryKey(conversationId)) || '[]');
-            return Array.isArray(data) ? data : [];
+            const data = JSON.parse(localStorage.getItem(getConversationHistoryKey(conversationId)) || 'null');
+            if (typeof data === 'string') return data;
+            if (data && typeof data.lastAssistant === 'string') return data.lastAssistant;
+            if (Array.isArray(data)) {
+                for (let i = data.length - 1; i >= 0; i--) {
+                    if (data[i]?.role === 'assistant' && typeof data[i].content === 'string') return data[i].content;
+                }
+            }
+            return '';
         } catch {
-            return [];
+            return '';
         }
     }
 
-    function saveConversationHistory(conversationId, history) {
-        localStorage.setItem(getConversationHistoryKey(conversationId), JSON.stringify(history.slice(-MAX_WORKER_HISTORY_MESSAGES)));
+    function saveConversationHistory(conversationId, assistantContent) {
+        localStorage.setItem(getConversationHistoryKey(conversationId), JSON.stringify({ lastAssistant: String(assistantContent || '') }));
+    }
+
+    function buildLastQuizHint(lastAssistantContent) {
+        if (!lastAssistantContent) return '';
+        try {
+            const quiz = parseQuizPayload(lastAssistantContent);
+            if (quiz?.question) return `Câu hỏi gần nhất là: "${String(quiz.question).slice(0, 220)}". Hãy tạo câu mới khác rõ ràng, không lặp lại câu này.`;
+        } catch {}
+        return '';
     }
 
     function extractTextFromPayload(payload) {
@@ -450,19 +485,20 @@
         throw error;
     }
 
-    function buildWorkerMessages(job, prompt, history) {
+    function buildWorkerMessages(job, prompt, lastAssistantContent) {
         const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
         const content = getContentMeta(job.workerType, job.contentId);
         const systemPrompt = [
             workerConfig.systemPrompt,
             `Worker type: ${workerConfig.label}`,
             `Nội dung hiện tại: ${content?.label || job.contentId}`,
-            'Không lặp lại nguyên xi câu hỏi gần nhất nếu history đã có. Hãy luôn luôn tạo câu hỏi mới ngẫu nhiên.',
+            'Không lặp lại nguyên xi câu hỏi gần nhất. Hãy luôn luôn tạo câu hỏi mới ngẫu nhiên.',
+            buildLastQuizHint(lastAssistantContent),
             'Hãy xáo trộn vị trí đáp án đúng ngẫu nhiên, KHÔNG phải lúc nào cũng nằm ở vị trí đầu tiên. answerIndex phải là ngẫu nhiên từ 0 đến 3.',
             'Giải thích ngắn, rõ, hữu ích cho tự học.',
             'Chỉ trả về đúng JSON hợp lệ, không kèm markdown.'
-        ].join('\n');
-        return [{ role: 'system', content: systemPrompt }].concat(history).concat([{ role: 'user', content: prompt }]);
+        ].filter(Boolean).join('\n');
+        return [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }];
     }
 
     function getFallbackQuiz(job) {
@@ -502,7 +538,7 @@
 
     function shuffleQuizChoices(quiz) {
         if (!quiz || !Array.isArray(quiz.choices) || quiz.choices.length !== 4) return quiz;
-        const correctIndex = Math.max(0, Math.min(3, Number(quiz.answerIndex) || 0));
+        const correctIndex = resolveAnswerIndex(quiz.answerIndex);
         const indices = [0, 1, 2, 3];
         for (let i = indices.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -519,15 +555,15 @@
         const token = getCopilotToken();
         if (!token) return shuffleQuizChoices(getFallbackQuiz(job));
         const modelIds = getModelIds(getCopilotModel());
-        const history = getConversationHistory(job.conversationId);
-        const messages = buildWorkerMessages(job, prompt, history);
+        const lastAssistantContent = getConversationHistory(job.conversationId);
+        const messages = buildWorkerMessages(job, prompt, lastAssistantContent);
         let lastError = null;
 
         for (const modelId of modelIds) {
             try {
                 const rawText = await sendWorkerRequest(modelId, token, messages);
                 const quiz = parseQuizPayload(rawText);
-                saveConversationHistory(job.conversationId, history.concat([{ role: 'user', content: prompt }, { role: 'assistant', content: rawText }]));
+                saveConversationHistory(job.conversationId, rawText);
                 return shuffleQuizChoices(quiz);
             } catch (error) {
                 lastError = error;
@@ -631,7 +667,7 @@
     }
 
     function isJobDue(job, now) {
-        const intervalMs = Math.max(1, Number(job.intervalMinutes || 30)) * 60 * 1000;
+        const intervalMs = normalizeIntervalMinutes(job.intervalMinutes) * 60 * 1000;
         return !job.lastRunAt || now - job.lastRunAt >= intervalMs;
     }
 
