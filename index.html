@@ -1582,9 +1582,9 @@
                 systemPrompt: 'Bạn là trợ lý tạo câu hỏi học tiếng Anh ngắn, rõ ràng, phù hợp tự học. Ưu tiên giao tiếp đời sống hằng ngày và giải thích dễ hiểu bằng tiếng Việt khi phù hợp.',
                 contents: ENGLISH_WORKER_CONTENTS,
                 prompts: {
-                    theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm tiếng Anh với 4 lựa chọn, bám sát ngữ pháp hoặc giao tiếp hằng ngày. Chỉ dùng từ/cụm từ thông dụng trong đời sống thường ngày như chào hỏi, ăn uống, đi lại, mua sắm, công việc cơ bản, gia đình, cảm xúc đơn giản. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                    vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                    theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
+                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm tiếng Anh với 4 lựa chọn, bám sát ngữ pháp hoặc giao tiếp hằng ngày. Chỉ dùng từ/cụm từ thông dụng trong đời sống thường ngày như chào hỏi, ăn uống, đi lại, mua sắm, công việc cơ bản, gia đình, cảm xúc đơn giản. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
+                    vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
                 },
                 fallbacks: {
                     theory: {
@@ -1610,7 +1610,7 @@
             money: {
                 systemPrompt: 'Bạn là trợ lý tạo bài tập ngắn về tiền và hệ thống tài chính. Câu hỏi phải thực tế, dễ hiểu, giải thích ngắn bằng tiếng Việt.',
                 prompts: {
-                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                    exercise: 'Tạo đúng 1 bài tập trắc nghiệm về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
                 },
                 fallbacks: {
                     exercise: {
@@ -1652,7 +1652,7 @@
                 description ? `Mô tả chủ đề: ${description}.` : '',
                 tags ? `Từ khóa liên quan: ${tags}.` : '',
                 'Câu hỏi phải cụ thể, dễ hiểu, có thể học nhanh trong 1 lần đọc.',
-                'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
             ].filter(Boolean).join(' ');
         }
         function buildWorkerTypesFromSpecs() {
@@ -1692,6 +1692,8 @@
         const RUNTIME_LEASE_KEY = 'hiwWorkerRuntimeLease';
         const runtimeTabId = `tab_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
         const RUNTIME_LEASE_MS = 45000;
+        const WORKER_JOB_LOCK_KEY = 'hiwWorkerJobRunLock';
+        const WORKER_JOB_LOCK_TTL_MS = 90000;
         let runtimeLeaseHeartbeat = null;
 
         function getWorkerConfig() { try { return JSON.parse(localStorage.getItem(WORKER_CONFIG_KEY) || '{}'); } catch { return {}; } }
@@ -1727,6 +1729,28 @@
         function maintainRuntimeLeadership() {
             acquireRuntimeLeadership();
             return hasRuntimeLeadership();
+        }
+        function getWorkerJobLocks() {
+            try { return JSON.parse(localStorage.getItem(WORKER_JOB_LOCK_KEY) || '{}'); } catch { return {}; }
+        }
+        function setWorkerJobLocks(locks) {
+            localStorage.setItem(WORKER_JOB_LOCK_KEY, JSON.stringify(locks));
+        }
+        function acquireJobRunLock(jobId, now = Date.now()) {
+            const locks = getWorkerJobLocks();
+            const lock = locks[jobId];
+            if (lock && lock.expiresAt > now && lock.owner !== runtimeTabId) return false;
+            locks[jobId] = { owner: runtimeTabId, expiresAt: now + WORKER_JOB_LOCK_TTL_MS };
+            setWorkerJobLocks(locks);
+            const latest = getWorkerJobLocks()[jobId];
+            return Boolean(latest && latest.owner === runtimeTabId && latest.expiresAt > now);
+        }
+        function releaseJobRunLock(jobId) {
+            const locks = getWorkerJobLocks();
+            if (locks[jobId]?.owner === runtimeTabId) {
+                delete locks[jobId];
+                setWorkerJobLocks(locks);
+            }
         }
         function createConversationId() {
             return `conv_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
@@ -2103,6 +2127,7 @@
                 `Worker type: ${workerConfig.label}`,
                 `Nội dung hiện tại: ${content?.label || job.contentId}`,
                 'Không lặp lại nguyên xi câu hỏi gần nhất nếu history đã có.',
+                'Hãy xáo trộn vị trí đáp án đúng ngẫu nhiên, KHÔNG phải lúc nào cũng nằm ở vị trí đầu tiên. answerIndex phải là ngẫu nhiên từ 0 đến 3.',
                 'Giải thích ngắn, rõ, hữu ích cho tự học.',
                 'Chỉ trả về đúng JSON hợp lệ, không kèm markdown.'
             ].join('\n');
@@ -2133,12 +2158,24 @@
             const data = await response.json();
             return extractTextFromPayload(data?.choices?.[0]?.message?.content || data?.message || '');
         }
+        function shuffleQuizChoices(quiz) {
+            if (!quiz || !Array.isArray(quiz.choices) || quiz.choices.length !== 4) return quiz;
+            const correctIndex = Math.max(0, Math.min(3, Number(quiz.answerIndex) || 0));
+            const indices = [0, 1, 2, 3];
+            for (let i = indices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indices[i], indices[j]] = [indices[j], indices[i]];
+            }
+            const shuffledChoices = indices.map((idx) => quiz.choices[idx]);
+            const newAnswerIndex = indices.indexOf(correctIndex);
+            return { ...quiz, choices: shuffledChoices, answerIndex: newAnswerIndex };
+        }
         async function generateWorkerQuiz(job) {
             const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
             const prompt = workerConfig.prompts[job.contentId] || workerConfig.prompts[workerConfig.contents[0].id];
             const token = getCopilotToken();
             if (!token) {
-                return getFallbackQuiz(job);
+                return shuffleQuizChoices(getFallbackQuiz(job));
             }
             const modelIds = getModelIds(getCopilotModel());
             const history = getConversationHistory(job.conversationId);
@@ -2153,7 +2190,7 @@
                         { role: 'user', content: prompt },
                         { role: 'assistant', content: rawText }
                     ]));
-                    return quiz;
+                    return shuffleQuizChoices(quiz);
                 } catch (error) {
                     lastError = error;
                 }
@@ -2162,7 +2199,7 @@
             if (lastError) {
                 setStatus(`GitHub Models lỗi ở job ${job.id}, đang dùng câu hỏi mẫu.`);
             }
-            return getFallbackQuiz(job);
+            return shuffleQuizChoices(getFallbackQuiz(job));
         }
         async function markJobRun(jobId, timestamp) {
             const cfg = getWorkerConfig();
@@ -2177,15 +2214,24 @@
             if (!job.enabled) return false;
             const now = Date.now();
             if (!options.force && !isJobDue(job, now)) return false;
-            const quiz = await generateWorkerQuiz(job);
-            const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
-            const content = getContentMeta(job.workerType, job.contentId);
-            const payload = buildWorkerNotificationPayload(job, quiz);
-            const deliveryMode = await dispatchWorkerNotification(payload);
-            await markJobRun(job.id, now);
-            setStatus(`Đã gửi quiz cho ${workerConfig.label} • ${content?.label || job.contentId} lúc ${new Date(now).toLocaleTimeString()} • kênh: ${deliveryMode}`);
-            renderJobs();
-            return true;
+            if (!acquireJobRunLock(job.id, now)) return false;
+            if (!hasRuntimeLeadership()) {
+                releaseJobRunLock(job.id);
+                return false;
+            }
+            try {
+                const quiz = await generateWorkerQuiz(job);
+                const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
+                const content = getContentMeta(job.workerType, job.contentId);
+                const payload = buildWorkerNotificationPayload(job, quiz);
+                const deliveryMode = await dispatchWorkerNotification(payload);
+                await markJobRun(job.id, now);
+                setStatus(`Đã gửi quiz cho ${workerConfig.label} • ${content?.label || job.contentId} lúc ${new Date(now).toLocaleTimeString()} • kênh: ${deliveryMode}`);
+                renderJobs();
+                return true;
+            } finally {
+                releaseJobRunLock(job.id);
+            }
         }
 
         async function runAllEnabledJobs(options = {}) {
