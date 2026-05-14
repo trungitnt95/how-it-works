@@ -481,11 +481,24 @@
         return wc.prompts[contentId] || wc.prompts[wc.contents[0].id] || '';
     }
 
+    function shuffleQuizChoices(quiz) {
+        if (!quiz || !Array.isArray(quiz.choices) || quiz.choices.length !== 4) return quiz;
+        const correctIndex = Math.max(0, Math.min(3, Number(quiz.answerIndex) || 0));
+        const indices = [0, 1, 2, 3];
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        const shuffledChoices = indices.map((idx) => quiz.choices[idx]);
+        const newAnswerIndex = indices.indexOf(correctIndex);
+        return { ...quiz, choices: shuffledChoices, answerIndex: newAnswerIndex };
+    }
+
     async function generateWorkerQuiz(job) {
         const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
         const prompt = getEffectivePrompt(job.workerType, job.contentId);
         const token = getCopilotToken();
-        if (!token) return getFallbackQuiz(job);
+        if (!token) return shuffleQuizChoices(getFallbackQuiz(job));
         const modelIds = getModelIds(getCopilotModel());
         const history = getConversationHistory(job.conversationId);
         const messages = buildWorkerMessages(job, prompt, history);
@@ -496,13 +509,13 @@
                 const rawText = await sendWorkerRequest(modelId, token, messages);
                 const quiz = parseQuizPayload(rawText);
                 saveConversationHistory(job.conversationId, history.concat([{ role: 'user', content: prompt }, { role: 'assistant', content: rawText }]));
-                return quiz;
+                return shuffleQuizChoices(quiz);
             } catch (error) {
                 lastError = error;
             }
         }
         if (lastError) logRuntimeError(lastError);
-        return getFallbackQuiz(job);
+        return shuffleQuizChoices(getFallbackQuiz(job));
     }
 
     function buildWorkerNotificationPayload(job, quiz) {
