@@ -275,10 +275,12 @@
     }
 
     function migrateJob(rawJob) {
-        const rawWorkerType = rawJob?.workerType || String(rawJob?.id || '').split('-').slice(0, -1).join('-') || '';
-        const workerType = resolveWorkerTypeId(rawWorkerType, rawJob?.id || '');
+        const rawJobId = String(rawJob?.id || '');
+        const rawWorkerType = rawJob?.workerType || rawJobId.split('-').slice(0, -1).join('-') || '';
+        const workerType = resolveWorkerTypeId(rawWorkerType, rawJobId);
         const allowedContentIds = new Set((WORKER_TYPES[workerType]?.contents || DEFAULT_WORKER_CONTENTS).map((content) => content.id));
-        const inferredContentId = rawJob?.contentId || rawJob?.type || 'exercise';
+        const inferredFromId = Array.from(allowedContentIds).find((contentId) => rawJobId.endsWith(`-${contentId}`));
+        const inferredContentId = rawJob?.contentId || rawJob?.type || inferredFromId || 'exercise';
         const contentId = allowedContentIds.has(inferredContentId) ? inferredContentId : 'exercise';
         return {
             id: `${workerType}-${contentId}`,
