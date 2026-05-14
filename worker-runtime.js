@@ -60,9 +60,9 @@
             systemPrompt: 'Bạn là trợ lý tạo câu hỏi học tiếng Anh ngắn, rõ ràng, phù hợp tự học. Ưu tiên giao tiếp đời sống hằng ngày và giải thích dễ hiểu bằng tiếng Việt khi phù hợp.',
             contents: ENGLISH_WORKER_CONTENTS,
             prompts: {
-                theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngữ pháp tiếng Anh với 4 lựa chọn. Mỗi lần hãy chọn ngẫu nhiên một chủ đề ngữ pháp khác nhau, ví dụ: các thì (tenses), câu điều kiện, so sánh, mạo từ, giới từ, câu bị động, danh động từ vs nguyên mẫu, đại từ quan hệ, trợ động từ, cấu trúc câu hỏi, tag questions, reported speech, modal verbs. Ưu tiên ngữ pháp thông dụng, hay gặp trong giao tiếp và viết hằng ngày. Không dùng ngữ pháp hiếm, học thuật, hoặc quá nâng cao. Giải thích ngắn gọn bằng tiếng Việt. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}',
-                vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
+                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngữ pháp tiếng Anh với 4 lựa chọn. Mỗi lần hãy chọn ngẫu nhiên một chủ đề ngữ pháp khác nhau, ví dụ: các thì (tenses), câu điều kiện, so sánh, mạo từ, giới từ, câu bị động, danh động từ vs nguyên mẫu, đại từ quan hệ, trợ động từ, cấu trúc câu hỏi, tag questions, reported speech, modal verbs. Ưu tiên ngữ pháp thông dụng, hay gặp trong giao tiếp và viết hằng ngày. Không dùng ngữ pháp hiếm, học thuật, hoặc quá nâng cao. Giải thích ngắn gọn bằng tiếng Việt. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
+                vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
             },
             fallbacks: {
                 theory: {
@@ -88,7 +88,7 @@
         money: {
             systemPrompt: 'Bạn là trợ lý tạo bài tập ngắn về tiền và hệ thống tài chính. Câu hỏi phải thực tế, dễ hiểu, giải thích ngắn bằng tiếng Việt.',
             prompts: {
-                exercise: 'Tạo đúng 1 bài tập trắc nghiệm về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngẫu nhiên về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
             },
             fallbacks: {
                 exercise: {
@@ -217,10 +217,10 @@
 
     function buildGenericExercisePrompt(label, subtitle) {
         return [
-            `Tạo đúng 1 bài tập trắc nghiệm với 4 lựa chọn về chủ đề "${label}".`,
+            `Tạo đúng 1 bài tập trắc nghiệm với 4 lựa chọn về chủ đề "${label}". Hãy tạo nội dung ngẫu nhiên để tránh lặp lại.`,
             subtitle ? `Bối cảnh ngắn: ${subtitle}.` : '',
             'Câu hỏi phải cụ thể, dễ hiểu, có thể học nhanh trong 1 lần đọc.',
-            'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":0,"explanation":"..."}'
+            'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
         ].filter(Boolean).join(' ');
     }
 
@@ -438,7 +438,8 @@
             workerConfig.systemPrompt,
             `Worker type: ${workerConfig.label}`,
             `Nội dung hiện tại: ${content?.label || job.contentId}`,
-            'Không lặp lại nguyên xi câu hỏi gần nhất nếu history đã có.',
+            'Không lặp lại nguyên xi câu hỏi gần nhất nếu history đã có. Hãy luôn luôn tạo câu hỏi mới ngẫu nhiên.',
+            'Hãy xáo trộn vị trí đáp án đúng ngẫu nhiên, KHÔNG phải lúc nào cũng nằm ở vị trí đầu tiên. answerIndex phải là ngẫu nhiên từ 0 đến 3.',
             'Giải thích ngắn, rõ, hữu ích cho tự học.',
             'Chỉ trả về đúng JSON hợp lệ, không kèm markdown.'
         ].join('\n');
