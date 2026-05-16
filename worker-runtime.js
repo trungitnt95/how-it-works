@@ -505,18 +505,30 @@
     }
 
     function extractTextFromPayload(payload) {
-        if (typeof payload === 'string') return payload;
-        if (Array.isArray(payload)) return payload.map(extractTextFromPayload).join('');
+        if (typeof payload === 'string') return payload.trim();
+        if (Array.isArray(payload)) {
+            const text = payload.map(extractTextFromPayload).join('');
+            return text.trim();
+        }
         if (payload && typeof payload === 'object') {
-            if (typeof payload.text === 'string') return payload.text;
-            if (typeof payload.content === 'string') return payload.content;
+            if (typeof payload.text === 'string') return payload.text.trim();
+            if (typeof payload.content === 'string') return payload.content.trim();
         }
         return '';
     }
 
     function parseQuizPayload(rawText) {
         const cleaned = String(rawText || '').trim().replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/, '').trim();
-        return JSON.parse(cleaned);
+        try {
+            const parsed = JSON.parse(cleaned);
+            if (!parsed.question || !Array.isArray(parsed.choices) || parsed.choices.length !== 4 || typeof parsed.answerIndex === 'undefined') {
+                throw new Error('Invalid quiz structure: missing question, choices, or answerIndex');
+            }
+            return parsed;
+        } catch (error) {
+            console.error('[HIW Worker] Parse error. Raw text:', cleaned.slice(0, 200));
+            throw new Error(`Invalid JSON response: ${error.message}`);
+        }
     }
 
     async function createHttpError(response) {
@@ -551,9 +563,14 @@
             '=== TRÁNH LẶP LẠI ===',
             lastQuizHint || '(Đây là câu hỏi đầu tiên - không giới hạn)',
             '',
-            '=== FORMAT XUẤT ===',
-            'JSON hợp lệ duy nhất (không markdown, không text thêm):',
-            '{\"question\":\"...\",\"choices\":[\"A\",\"B\",\"C\",\"D\"],\"answerIndex\":0-3,\"explanation\":\"...\"}'
+            '=== FORMAT XUẤT (QUAN TRỌNG) ===',
+            'Trả về JSON CHÍNH XÁC, không kèm text hay markdown:',
+            '{\"question\":\"Câu hỏi ở đây?\",\"choices\":[\"Lựa chọn 1\",\"Lựa chọn 2\",\"Lựa chọn 3\",\"Lựa chọn 4\"],\"answerIndex\":0,\"explanation\":\"Giải thích tại sao đáp án đó đúng\"}',
+            '',
+            'CHÚ Ý:',
+            '- choices: Mảng 4 chuỗi, KHÔNG có chữ cái A/B/C/D ở trước',
+            '- answerIndex: Số từ 0 đến 3 (vị trí của đáp án đúng)',
+            '- Không thêm dấu backtick, không markdown, chỉ JSON thuần'
         ].filter(Boolean).join('\\n');
         return [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }];
     }
@@ -624,6 +641,7 @@
                 return { quiz: shuffleQuizChoices(quiz), error: null };
             } catch (error) {
                 lastError = error;
+                console.warn(`[HIW Worker] Model ${modelId} failed, trying next model:`, error.message);
             }
         }
         if (lastError) {
