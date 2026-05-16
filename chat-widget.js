@@ -24,7 +24,8 @@
     ];
     const STORAGE_KEYS = {
         token: 'hiw_copilot_token',
-        model: 'hiw_copilot_model'
+        model: 'hiw_copilot_model',
+        notes: 'hiw_notes_data'
     };
     const MAX_PAGE_CONTEXT = 3600;
     const MAX_HISTORY_MESSAGES = 12;
@@ -34,7 +35,9 @@
         history: [],
         pending: false,
         pageContext: null,
-        elements: {}
+        elements: {},
+        notes: loadNotes(),
+        currentNoteCategory: ''
     };
 
     ensureWidgetStyles();
@@ -85,7 +88,10 @@
         container.innerHTML = [
             '<button class="hiw-chat-launcher" type="button" aria-label="Mở trợ lý AI" aria-expanded="false">',
             '    <span class="hiw-chat-launcher-icon">AI</span>',
-            '    <span class="hiw-chat-launcher-label">Hỏi trang này</span>',
+            '    <span class="hiw-chat-launcher-label">AI</span>',
+            '</button>',
+            '<button class="hiw-notes-launcher" type="button" aria-label="Mở ghi chú" aria-expanded="false">',
+            '    <span class="hiw-notes-launcher-icon">📝</span>',
             '</button>',
             '    <aside class="hiw-chat-panel" hidden>',
             '        <div class="hiw-chat-header">',
@@ -138,6 +144,33 @@
             '                <button class="hiw-chat-primary-button" type="button" data-action="save-settings">Lưu cấu hình</button>',
             '            </div>',
             '        </div>',
+            '    </div>',
+            '    <div class="hiw-notes-modal" hidden>',
+            '        <div class="hiw-notes-backdrop" data-action="close-notes"></div>',
+            '        <div class="hiw-notes-card" role="dialog" aria-modal="true" aria-labelledby="hiw-notes-title">',
+            '            <div class="hiw-notes-head">',
+            '                <div>',
+            '                    <p class="hiw-notes-eyebrow">GHI CHÚ</p>',
+            '                    <h3 id="hiw-notes-title">Ghi chú của tôi</h3>',
+            '                </div>',
+            '                <button class="hiw-notes-icon-button" type="button" data-action="close-notes" aria-label="Đóng ghi chú">✕</button>',
+            '            </div>',
+            '            <div class="hiw-notes-input-section">',
+            '                <label class="hiw-notes-field">',
+            '                    <span>Ghi chú mới</span>',
+            '                    <textarea class="hiw-notes-input" placeholder="Nhập ghi chú..."></textarea>',
+            '                </label>',
+            '                <label class="hiw-notes-field">',
+            '                    <span>Danh mục</span>',
+            '                    <div class="hiw-notes-category-select">',
+            '                        <select class="hiw-notes-category"></select>',
+            '                        <button class="hiw-notes-add-category" type="button" data-action="add-category" aria-label="Thêm danh mục mới">+</button>',
+            '                    </div>',
+            '                </label>',
+            '                <button class="hiw-notes-save-btn" type="button" data-action="save-note">Lưu ghi chú</button>',
+            '            </div>',
+            '            <div class="hiw-notes-list"></div>',
+            '        </div>',
             '    </div>'
         ].join('\n');
 
@@ -145,6 +178,7 @@
 
         state.elements.root = container;
         state.elements.launcher = container.querySelector('.hiw-chat-launcher');
+        state.elements.notesLauncher = container.querySelector('.hiw-notes-launcher');
         state.elements.panel = container.querySelector('.hiw-chat-panel');
         state.elements.messages = container.querySelector('.hiw-chat-messages');
         state.elements.form = container.querySelector('.hiw-chat-compose');
@@ -156,18 +190,27 @@
         state.elements.settingsMessage = container.querySelector('.hiw-chat-settings-message');
         state.elements.tokenInput = container.querySelector('.hiw-chat-token-input');
         state.elements.settingsModel = container.querySelector('.hiw-chat-settings-model');
+        state.elements.notesModal = container.querySelector('.hiw-notes-modal');
+        state.elements.notesInput = container.querySelector('.hiw-notes-input');
+        state.elements.notesCategory = container.querySelector('.hiw-notes-category');
+        state.elements.notesList = container.querySelector('.hiw-notes-list');
 
         populateModelSelect(state.elements.modelSelect, state.model);
         populateModelSelect(state.elements.settingsModel, state.model);
 
         state.elements.launcher.addEventListener('click', togglePanel);
+        state.elements.notesLauncher.addEventListener('click', toggleNotesModal);
         state.elements.form.addEventListener('submit', handleSubmit);
         state.elements.input.addEventListener('keydown', handleInputKeydown);
         state.elements.modelSelect.addEventListener('change', handleModelChange);
         state.elements.settingsModel.addEventListener('change', handleSettingsModelChange);
+        state.elements.notesInput.addEventListener('keydown', handleNotesInputKeydown);
         container.addEventListener('click', handleContainerClick);
         autoResizeInput();
         state.elements.input.addEventListener('input', autoResizeInput);
+        state.elements.notesInput.addEventListener('input', autoResizeNotesInput);
+        
+        initializeNotesUI();
 
         updateStatus([
             'Trang hiện tại: ' + state.pageContext.title,
@@ -246,6 +289,28 @@
 
         if (action === 'close-settings') {
             closeSettings();
+            return;
+        }
+
+        if (action === 'close-notes') {
+            closeNotesModal();
+            return;
+        }
+
+        if (action === 'save-note') {
+            saveNote();
+            return;
+        }
+
+        if (action === 'add-category') {
+            addNewCategory();
+            return;
+        }
+
+        if (action === 'delete-note') {
+            const noteIndex = parseInt(event.target.getAttribute('data-note-index'), 10);
+            deleteNote(noteIndex);
+            return;
         }
     }
 
@@ -787,7 +852,7 @@
     function loadSetting(key, fallbackValue) {
         try {
             return window.localStorage.getItem(key) || fallbackValue;
-        } catch (error) {e
+        } catch (error) {
             return fallbackValue;
         }
     }
@@ -798,5 +863,187 @@
         } catch (error) {
             updateStatus('Không thể lưu cấu hình vào localStorage trên trình duyệt này.', 'warning');
         }
+    }
+
+    // Notes Functions
+    function loadNotes() {
+        try {
+            const data = window.localStorage.getItem(STORAGE_KEYS.notes);
+            return data ? JSON.parse(data) : { categories: ['Chung', 'Quan trọng', 'Để sau'], notes: [] };
+        } catch (error) {
+            return { categories: ['Chung', 'Quan trọng', 'Để sau'], notes: [] };
+        }
+    }
+
+    function saveNotes() {
+        try {
+            window.localStorage.setItem(STORAGE_KEYS.notes, JSON.stringify(state.notes));
+        } catch (error) {
+            console.error('Lỗi lưu ghi chú:', error);
+        }
+    }
+
+    function initializeNotesUI() {
+        updateNotesCategories();
+        renderNotesList();
+    }
+
+    function updateNotesCategories() {
+        state.elements.notesCategory.innerHTML = '';
+        state.notes.categories.forEach((category) => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            state.elements.notesCategory.appendChild(option);
+        });
+        if (state.notes.categories.length > 0) {
+            state.elements.notesCategory.value = state.notes.categories[0];
+            state.currentNoteCategory = state.notes.categories[0];
+        }
+    }
+
+    function toggleNotesModal() {
+        const willOpen = state.elements.notesModal.hasAttribute('hidden');
+        if (willOpen) {
+            openNotesModal();
+        } else {
+            closeNotesModal();
+        }
+    }
+
+    function openNotesModal() {
+        state.elements.notesModal.removeAttribute('hidden');
+        state.elements.notesLauncher.setAttribute('aria-expanded', 'true');
+        renderNotesList();
+        window.requestAnimationFrame(() => state.elements.notesInput.focus());
+    }
+
+    function closeNotesModal() {
+        state.elements.notesModal.setAttribute('hidden', 'hidden');
+        state.elements.notesLauncher.setAttribute('aria-expanded', 'false');
+    }
+
+    function handleNotesInputKeydown(event) {
+        if (event.key === 'Enter' && event.ctrlKey) {
+            event.preventDefault();
+            saveNote();
+        }
+    }
+
+    function autoResizeNotesInput() {
+        const input = state.elements.notesInput;
+        if (!input) return;
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 160) + 'px';
+    }
+
+    function saveNote() {
+        const text = state.elements.notesInput.value.trim();
+        const category = state.elements.notesCategory.value;
+
+        if (!text) {
+            state.elements.notesInput.focus();
+            return;
+        }
+
+        const note = {
+            id: Date.now(),
+            text: text,
+            category: category,
+            timestamp: new Date().toLocaleString('vi-VN')
+        };
+
+        state.notes.notes.push(note);
+        saveNotes();
+        state.elements.notesInput.value = '';
+        autoResizeNotesInput();
+        renderNotesList();
+    }
+
+    function deleteNote(index) {
+        if (index >= 0 && index < state.notes.notes.length) {
+            state.notes.notes.splice(index, 1);
+            saveNotes();
+            renderNotesList();
+        }
+    }
+
+    function addNewCategory() {
+        const categoryName = prompt('Nhập tên danh mục mới:');
+        if (!categoryName) return;
+
+        const trimmed = categoryName.trim();
+        if (!trimmed) return;
+
+        if (state.notes.categories.includes(trimmed)) {
+            alert('Danh mục này đã tồn tại!');
+            return;
+        }
+
+        state.notes.categories.push(trimmed);
+        saveNotes();
+        updateNotesCategories();
+        state.elements.notesCategory.value = trimmed;
+    }
+
+    function renderNotesList() {
+        state.elements.notesList.innerHTML = '';
+
+        if (state.notes.notes.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'hiw-notes-empty';
+            empty.textContent = 'Chưa có ghi chú nào';
+            state.elements.notesList.appendChild(empty);
+            return;
+        }
+
+        // Group notes by category
+        const grouped = {};
+        state.notes.categories.forEach((category) => {
+            grouped[category] = state.notes.notes.filter((note) => note.category === category);
+        });
+
+        // Render grouped notes
+        Object.entries(grouped).forEach(([category, notes]) => {
+            if (notes.length === 0) return;
+
+            const group = document.createElement('div');
+            group.className = 'hiw-notes-group';
+
+            const categoryLabel = document.createElement('h4');
+            categoryLabel.className = 'hiw-notes-group-label';
+            categoryLabel.textContent = category;
+            group.appendChild(categoryLabel);
+
+            notes.forEach((note, idx) => {
+                const originalIndex = state.notes.notes.findIndex((n) => n.id === note.id);
+                const noteEl = document.createElement('div');
+                noteEl.className = 'hiw-notes-item';
+
+                const content = document.createElement('div');
+                content.className = 'hiw-notes-item-content';
+                content.innerHTML = '<p class=\"hiw-notes-item-text\">' + escapeHtml(note.text) + '</p><p class=\"hiw-notes-item-time\">' + note.timestamp + '</p>';
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'hiw-notes-delete-btn';
+                deleteBtn.type = 'button';
+                deleteBtn.textContent = '✕';
+                deleteBtn.setAttribute('data-action', 'delete-note');
+                deleteBtn.setAttribute('data-note-index', originalIndex);
+                deleteBtn.setAttribute('aria-label', 'Xóa ghi chú');
+
+                noteEl.appendChild(content);
+                noteEl.appendChild(deleteBtn);
+                group.appendChild(noteEl);
+            });
+
+            state.elements.notesList.appendChild(group);
+        });
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 })();
