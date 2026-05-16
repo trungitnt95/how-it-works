@@ -88,7 +88,6 @@
         container.innerHTML = [
             '<button class="hiw-chat-launcher" type="button" aria-label="Mở trợ lý AI" aria-expanded="false">',
             '    <span class="hiw-chat-launcher-icon">AI</span>',
-            '    <span class="hiw-chat-launcher-label">AI</span>',
             '</button>',
             '<button class="hiw-notes-launcher" type="button" aria-label="Mở ghi chú" aria-expanded="false">',
             '    <span class="hiw-notes-launcher-icon">📝</span>',

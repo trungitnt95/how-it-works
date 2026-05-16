@@ -56,45 +56,45 @@
     const WORKER_TYPE_ALIASES = { english: 'english-grammar' };
     const WORKER_TYPE_OVERRIDES = {
         'english-grammar': {
-            systemPrompt: 'Bạn là trợ lý tạo câu hỏi học tiếng Anh ngắn, rõ ràng, phù hợp tự học. Ưu tiên giao tiếp đời sống hằng ngày và giải thích dễ hiểu bằng tiếng Việt khi phù hợp.',
+            systemPrompt: 'Bạn là chuyên gia tạo bài tập ngữ pháp tiếng Anh. Mỗi câu hỏi phải thực tế, dùng từ thường gặp, và giải thích bằng tiếng Việt dễ hiểu.',
             contents: ENGLISH_WORKER_CONTENTS,
             prompts: {
-                theory: 'Tạo đúng 1 câu hỏi trắc nghiệm lý thuyết tiếng Anh với 4 lựa chọn. Câu hỏi và cả 4 đáp án đều phải viết bằng tiếng Việt, nội dung hỏi về ngữ pháp hoặc cách dùng tiếng Anh. Có thể giữ ví dụ tiếng Anh ngắn nếu thật sự cần. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
-                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngữ pháp tiếng Anh với 4 lựa chọn. Mỗi lần hãy chọn ngẫu nhiên một chủ đề ngữ pháp khác nhau, ví dụ: các thì (tenses), câu điều kiện, so sánh, mạo từ, giới từ, câu bị động, danh động từ vs nguyên mẫu, đại từ quan hệ, trợ động từ, cấu trúc câu hỏi, tag questions, reported speech, modal verbs. Ưu tiên ngữ pháp thông dụng, hay gặp trong giao tiếp và viết hằng ngày. Không dùng ngữ pháp hiếm, học thuật, hoặc quá nâng cao. Giải thích ngắn gọn bằng tiếng Việt. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}',
-                vocabulary: 'Tạo đúng 1 câu hỏi trắc nghiệm từ vựng tiếng Anh với 4 lựa chọn. Câu hỏi phải viết bằng tiếng Việt. Từ hoặc cụm từ cần hỏi là tiếng Anh thông dụng trong giao tiếp đời sống hằng ngày. Các lựa chọn trả lời là các từ/cụm từ tiếng Anh. Không dùng từ hiếm, học thuật, chuyên ngành, hoặc quá nâng cao. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
+                theory: 'Tạo 1 câu hỏi lý thuyết ngữ pháp tiếng Anh chất lượng cao. Câu hỏi và đáp án viết bằng tiếng Việt, hỏi về kiến thức ngữ pháp. Đáp án sai phải là lỗi PHỔ BIẾN. Ví dụ tiếng Anh nếu cần phải ngắn rõ ràng. Trả về JSON: {"question":"...","choices":["A","B","C","D"],"answerIndex":<0-3>,"explanation":"Giải thích tại sao đáp án đó đúng..."}',
+                exercise: 'Tạo 1 BÀI TẬP NGỮPHÁP tiếng Anh thực tế với 4 lựa chọn. Chọn ngữ pháp khác biệt: tenses, conditionals, comparatives, articles, prepositions, passive voice, gerunds vs infinitives, relative pronouns, modal verbs, question tags, reported speech. Từ thông dụng, tình huống có thực, câu tự nhiên. Giải thích tại sao và chỉ ra quy tắc. Trả về JSON: {"question":"...","choices":["A","B","C","D"],"answerIndex":<0-3>,"explanation":"..."}',
+                vocabulary: 'Tạo 1 CÂU HỎI TỪ VỰNG tiếng Anh với 4 lựa chọn. Câu hỏi bằng tiếng Việt, từ/cụm từ hỏi = tiếng Anh thông dụng. Lựa chọn = từ tiếng Anh khác nhau. Đáp án sai gây nhầm lẫn (homophone, similar meaning). Giải thích cách dùng. Trả về JSON: {"question":"...","choices":["A","B","C","D"],"answerIndex":<0-3>,"explanation":"..."}'
             },
             fallbacks: {
                 theory: {
-                    question: 'Trong tiếng Anh, khi nào thường dùng thì hiện tại đơn?',
-                    choices: ['Diễn tả hành động đang xảy ra ngay lúc nói', 'Diễn tả thói quen hoặc sự thật hiển nhiên', 'Diễn tả hành động đã kết thúc trong quá khứ có mốc thời gian rõ', 'Diễn tả một kế hoạch đã hoàn thành từ lâu'],
+                    question: 'Câu "I have been working here for 5 years" sử dụng thì gì?',
+                    choices: ['Hiện tại hoàn thành đơn', 'Hiện tại hoàn thành tiếp diễn', 'Hiện tại tiếp diễn', 'Quá khứ hoàn thành'],
                     answerIndex: 1,
-                    explanation: 'Thì hiện tại đơn thường dùng cho thói quen, lịch trình, và sự thật hiển nhiên.'
+                    explanation: 'Dùng HIỆN TẠI HOÀN THÀNH TIẾP DIỄN: hành động từ quá khứ, kéo dài đến hiện tại, vẫn tiếp tục ("for 5 years" = khoảng thời gian).'
                 },
                 exercise: {
-                    question: 'Fill in the blank: I usually ___ coffee in the morning.',
-                    choices: ['drinks am', 'drink', 'drinking is', 'to drank'],
-                    answerIndex: 1,
-                    explanation: 'Sau "usually" trong câu hiện tại đơn với chủ ngữ "I", dùng động từ nguyên mẫu "drink".'
+                    question: 'If you ___ earlier, you wouldn\'t have missed the train.',
+                    choices: ['leave', 'left', 'had left', 'would leave'],
+                    answerIndex: 2,
+                    explanation: 'CÂU ĐIỀU KIỆN LOẠI 3: "had left" (quá khứ hoàn thành) trong IF clause để diễn tả điều không có thực trong quá khứ.'
                 },
                 vocabulary: {
-                    question: 'Từ tiếng Anh nào có nghĩa là "đói"?',
-                    choices: ['sleepy', 'thirsty', 'hungry', 'angry'],
-                    answerIndex: 2,
-                    explanation: '"Hungry" có nghĩa là "đói", là từ rất thông dụng trong giao tiếp hằng ngày.'
+                    question: 'Từ tiếng Anh nào có nghĩa là "chì chóe, lắp bắp"?',
+                    choices: ['stutter', 'whisper', 'mutter', 'yell'],
+                    answerIndex: 0,
+                    explanation: '"Stutter" = nói lắp bắp. "Whisper" = nói thầm, "mutter" = lầm bầm, "yell" = hét.'
                 }
             }
         },
         money: {
-            systemPrompt: 'Bạn là trợ lý tạo bài tập ngắn về tiền và hệ thống tài chính. Câu hỏi phải thực tế, dễ hiểu, giải thích ngắn bằng tiếng Việt.',
+            systemPrompt: 'Bạn là chuyên gia tạo bài tập về tiền tệ và tài chính. Mỗi câu hỏi thực tế, liên quan đến cuộc sống, giải thích rõ lý do. Tránh quá học thuật.',
             prompts: {
-                exercise: 'Tạo đúng 1 bài tập trắc nghiệm ngẫu nhiên về chủ đề tiền, ngân hàng, lạm phát, lãi suất, đầu tư hoặc tài chính cá nhân với 4 lựa chọn. Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
+                exercise: 'Tạo 1 BÀI TẬP trắc nghiệm với 4 lựa chọn về tiền bạc tài chính. TRÁNH LẶP LẠI. Chọn khía cạnh KHÁC BIỆT: lần này KHÁI NIỆM, lần khác ÁP DỤNG, lần khác CHIẾN LƯỢC. Tình huống tự nhiên, đáp án sai phải rõ ràng. Trả về JSON: {"question":"...","choices":["A","B","C","D"],"answerIndex":<0-3>,"explanation":"Giải thích lý do..."}'
             },
             fallbacks: {
                 exercise: {
-                    question: 'Nếu lãi suất tăng mạnh, khoản nào thường chịu áp lực giảm giá trước?',
-                    choices: ['Tiền mặt', 'Lương tháng đã nhận', 'Tài sản dùng đòn bẩy cao', 'Thuế đã nộp'],
-                    answerIndex: 2,
-                    explanation: 'Lãi suất tăng làm chi phí vốn cao hơn và giảm sức hấp dẫn của các tài sản phụ thuộc vào tín dụng rẻ.'
+                    question: 'Khi lạm phát tăng cao, nhóm nào CHỊU LỖ NHẤT trước?',
+                    choices: ['Người có lương cố định', 'Người có tài sản bất động sản', 'Chủ doanh nghiệp có đòn bẩy', 'Người gửi tiền tiết kiệm'],
+                    answerIndex: 0,
+                    explanation: 'Lạm phát tăng = chi tiêu tốn tiền hơn, lương CỐ ĐỊNH không thay đổi nên sức mua GIẢM. Tài sản bất động sản và doanh nghiệp có thể TĂNG GIÁ theo lạm phát.'
                 }
             }
         }
@@ -231,11 +231,21 @@
 
     function buildGenericExercisePrompt(label, subtitle) {
         return [
-            `Tạo đúng 1 bài tập trắc nghiệm với 4 lựa chọn về chủ đề "${label}". Hãy tạo nội dung ngẫu nhiên để tránh lặp lại.`,
-            subtitle ? `Bối cảnh ngắn: ${subtitle}.` : '',
-            'Câu hỏi phải cụ thể, dễ hiểu, có thể học nhanh trong 1 lần đọc.',
+            `Tạo đúng 1 bài tập trắc nghiệm chất lượng cao với 4 lựa chọn về chủ đề "${label}".`,
+            subtitle ? `Bối cảnh: ${subtitle}` : '',
+            'YÊUQ CẦU CHẤT LƯỢNG:',
+            '• Câu hỏi phải CỤTH, THỰC TẾ, không mơ hồ',
+            '• Tránh câu hỏi quá dễ hoặc quá khó - độ khó vừa phải',
+            '• 4 lựa chọn phải XA NHAU, không nhầm lẫn',
+            '• Đáp án sai phải hợp lý (không là "không cái nào cả")',
+            '• Giải thích phải CHỨNG MINH rõ tại sao đáp án đó đúng',
+            'TRÁNH LẶP LẠI:',
+            '• Chọn các khía cạnh KHÁC BIỆT so với câu cũ',
+            '• Nếu câu cũ hỏi về ĐẠI THƯ, hãy hỏi về ÁP DỤNG hoặc PHÂN TÍCH',
+            '• Đa dạng hóa các loại câu hỏi, không lặp cùng pattern',
+            'ĐỊNH DẠNG:',
             'Trả về JSON duy nhất: {"question":"...","choices":["A","B","C","D"],"answerIndex":<số từ 0 đến 3>,"explanation":"..."}'
-        ].filter(Boolean).join(' ');
+        ].filter(Boolean).join('\n');
     }
 
     function logRuntime(message) {
@@ -432,6 +442,7 @@
             const data = JSON.parse(localStorage.getItem(getConversationHistoryKey(conversationId)) || 'null');
             if (typeof data === 'string') return data;
             if (data && typeof data.lastAssistant === 'string') return data.lastAssistant;
+            if (data && Array.isArray(data.quizHistory)) return data.quizHistory;
             if (Array.isArray(data)) {
                 for (let i = data.length - 1; i >= 0; i--) {
                     if (data[i]?.role === 'assistant' && typeof data[i].content === 'string') return data[i].content;
@@ -443,15 +454,52 @@
         }
     }
 
-    function saveConversationHistory(conversationId, assistantContent) {
-        localStorage.setItem(getConversationHistoryKey(conversationId), JSON.stringify({ lastAssistant: String(assistantContent || '') }));
+    function savePastQuizzes(conversationId, newQuizJson) {
+        try {
+            const key = getConversationHistoryKey(conversationId);
+            const stored = localStorage.getItem(key);
+            let history = [];
+            if (stored) {
+                try {
+                    const data = JSON.parse(stored);
+                    if (Array.isArray(data.quizHistory)) history = data.quizHistory.slice();
+                } catch {}
+            }
+            history.push(newQuizJson);
+            history = history.slice(-8);
+            localStorage.setItem(key, JSON.stringify({ quizHistory: history, lastAssistant: newQuizJson }));
+        } catch {}
     }
 
-    function buildLastQuizHint(lastAssistantContent) {
-        if (!lastAssistantContent) return '';
+    function saveConversationHistory(conversationId, assistantContent) {
+        savePastQuizzes(conversationId, assistantContent);
+    }
+
+    function buildLastQuizHint(historyData) {
+        if (!historyData) return '';
+        const history = Array.isArray(historyData) ? historyData : [historyData];
+        const recentQuizzes = history.slice(-5);
         try {
-            const quiz = parseQuizPayload(lastAssistantContent);
-            if (quiz?.question) return `Câu hỏi gần nhất là: "${String(quiz.question).slice(0, 220)}". Hãy tạo câu mới khác rõ ràng, không lặp lại câu này.`;
+            const topics = [];
+            const questions = [];
+            for (const item of recentQuizzes) {
+                try {
+                    const quiz = typeof item === 'string' ? parseQuizPayload(item) : item;
+                    if (quiz?.question) {
+                        questions.push(String(quiz.question).slice(0, 150));
+                        if (quiz.choices?.[quiz.answerIndex]) {
+                            topics.push(String(quiz.choices[quiz.answerIndex]).slice(0, 80));
+                        }
+                    }
+                } catch {}
+            }
+            const recent = questions.slice(-2).join(' | ');
+            const uniqueTopics = [...new Set(topics)].slice(-3).join(', ');
+            return [
+                recent ? `CÂU HỎI GẦN ĐÂY: ${recent}` : '',
+                uniqueTopics ? `CHỦĐỀ ĐÃ HỎI: ${uniqueTopics}` : '',
+                '→ KHÔNG được lặp lại! Chọn khía cạnh KHÁC BIỆT, chủ đề MỚI, cấp độ KHÁC!'
+            ].filter(Boolean).join(' | ');
         } catch {}
         return '';
     }
@@ -480,24 +528,33 @@
             payload = '';
         }
         const rawMessage = typeof payload === 'string' ? payload : payload?.error?.message || payload?.message || '';
-        const error = new Error(rawMessage || `GitHub Models API trả về lỗi HTTP ${response.status}.`);
-        error.status = response.status;
-        throw error;
+        return new Error(`GitHub Models API error: ${response.status} ${rawMessage}`);
     }
 
-    function buildWorkerMessages(job, prompt, lastAssistantContent) {
+    function buildWorkerMessages(job, prompt, historyData) {
         const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
         const content = getContentMeta(job.workerType, job.contentId);
+        const lastQuizHint = buildLastQuizHint(historyData);
         const systemPrompt = [
             workerConfig.systemPrompt,
-            `Worker type: ${workerConfig.label}`,
-            `Nội dung hiện tại: ${content?.label || job.contentId}`,
-            'Không lặp lại nguyên xi câu hỏi gần nhất. Hãy luôn luôn tạo câu hỏi mới ngẫu nhiên.',
-            buildLastQuizHint(lastAssistantContent),
-            'Hãy xáo trộn vị trí đáp án đúng ngẫu nhiên, KHÔNG phải lúc nào cũng nằm ở vị trí đầu tiên. answerIndex phải là ngẫu nhiên từ 0 đến 3.',
-            'Giải thích ngắn, rõ, hữu ích cho tự học.',
-            'Chỉ trả về đúng JSON hợp lệ, không kèm markdown.'
-        ].filter(Boolean).join('\n');
+            '',
+            '=== HƯỚNG DẪN ===',
+            `Chủ đề: ${workerConfig.label}`,
+            `Nội dung: ${content?.label || job.contentId}`,
+            '',
+            '=== NGUYÊN TẮC CHẤT LƯỢNG ===',
+            '1. NGẪU NHIÊN & KHÁC BIỆT: Mỗi câu hỏi phải độc lập, không lặp lại pattern cũ',
+            '2. ĐA DẠNG: Thay đổi loại câu, cấp độ khó, chủ đề con',
+            '3. TÍNH XÁO TRỘN: answerIndex phải thực sự ngẫu nhiên (0, 1, 2, hoặc 3)',
+            '4. CHẤT LƯỢNG GIẢI THÍCH: Phải chỉ ra TẠI SAO, không chỉ xác nhận',
+            '',
+            '=== TRÁNH LẶP LẠI ===',
+            lastQuizHint || '(Đây là câu hỏi đầu tiên - không giới hạn)',
+            '',
+            '=== FORMAT XUẤT ===',
+            'JSON hợp lệ duy nhất (không markdown, không text thêm):',
+            '{\"question\":\"...\",\"choices\":[\"A\",\"B\",\"C\",\"D\"],\"answerIndex\":0-3,\"explanation\":\"...\"}'
+        ].filter(Boolean).join('\\n');
         return [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }];
     }
 
@@ -518,7 +575,7 @@
             body: JSON.stringify({ model: modelId, messages, stream: false })
         });
         if (!response.ok) {
-            await createHttpError(response);
+            throw await createHttpError(response);
         }
         const data = await response.json();
         return extractTextFromPayload(data?.choices?.[0]?.message?.content || data?.message || '');
@@ -553,24 +610,26 @@
         const workerConfig = WORKER_TYPES[job.workerType] || WORKER_TYPES[getDefaultWorkerTypeId()];
         const prompt = getEffectivePrompt(job.workerType, job.contentId);
         const token = getCopilotToken();
-        if (!token) return shuffleQuizChoices(getFallbackQuiz(job));
+        if (!token) return { quiz: shuffleQuizChoices(getFallbackQuiz(job)), error: null };
         const modelIds = getModelIds(getCopilotModel());
-        const lastAssistantContent = getConversationHistory(job.conversationId);
-        const messages = buildWorkerMessages(job, prompt, lastAssistantContent);
+        const historyData = getConversationHistory(job.conversationId);
+        const messages = buildWorkerMessages(job, prompt, historyData);
         let lastError = null;
 
         for (const modelId of modelIds) {
             try {
                 const rawText = await sendWorkerRequest(modelId, token, messages);
                 const quiz = parseQuizPayload(rawText);
-                saveConversationHistory(job.conversationId, rawText);
-                return shuffleQuizChoices(quiz);
+                savePastQuizzes(job.conversationId, rawText);
+                return { quiz: shuffleQuizChoices(quiz), error: null };
             } catch (error) {
                 lastError = error;
             }
         }
-        if (lastError) logRuntimeError(lastError);
-        return shuffleQuizChoices(getFallbackQuiz(job));
+        if (lastError) {
+            console.error(`[HIW Worker] Error generating quiz for job ${job.id}:`, lastError);
+        }
+        return { quiz: shuffleQuizChoices(getFallbackQuiz(job)), error: lastError };
     }
 
     function buildWorkerNotificationPayload(job, quiz) {
@@ -679,10 +738,15 @@
         if (supportInfo.hasNotificationApi && Notification.permission === 'default') {
             await requestNotificationPermission();
         }
-        const quiz = await generateWorkerQuiz(job);
+        const result = await generateWorkerQuiz(job);
+        const { quiz, error } = result;
+        await markJobRun(job.id, now);
+        if (error) {
+            console.error(`[HIW Worker] Job ${job.id} failed with error, skipping notification`, error);
+            return false;
+        }
         const payload = buildWorkerNotificationPayload(job, quiz);
         const deliveryMode = await dispatchWorkerNotification(payload);
-        await markJobRun(job.id, now);
         logRuntime(`Ran ${job.id} via ${deliveryMode}`);
         return true;
     }
