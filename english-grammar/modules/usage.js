@@ -582,19 +582,22 @@ const grammarUsageDeepDiveData = {
             'Làm subject: What she said matters.',
             'Làm object sau verbs of thinking/saying: I know that he left.',
             'Làm complement sau be: The problem is that we are late.',
+            'Làm object của giới từ: We talked about whether we should leave.',
             'Embedded questions: I wonder where he lives.',
             'Whether/if clauses cho lựa chọn hoặc nghi vấn.',
-            'That-clauses sau adjectives: I’m sure that...',
-            'Academic stance: It is clear that...'
+            'That-clauses sau adjectives và nouns trừu tượng: I’m sure that..., the fact that...',
+            'Academic stance và extraposition: It is clear that...'
         ],
         avoid: [
             'Không đảo như direct question trong noun clause.',
             'Không dùng if sau preposition; dùng whether.',
-            'Không bỏ that nếu câu có thể mơ hồ trong formal writing.'
+            'Không bỏ that nếu câu có thể mơ hồ trong formal writing.',
+            'Không nhầm noun clause với relative clause: noun clause làm chức năng danh từ, không bổ nghĩa cho một noun trước đó.'
         ],
         compare: [
             'Where does he live? = câu hỏi trực tiếp.',
-            'I know where he lives = noun clause.'
+            'I know where he lives = noun clause.',
+            'The house where I live = relative clause.'
         ]
     },
     'inversion': {
@@ -1518,17 +1521,23 @@ Object.assign(grammarUsageDeepDiveData, {
         compare: ['So difficult that...; such a difficult test that...']
     },
     'relative-pronouns-adverbs': {
-        category: 'patterns', cefr: 'B2', title: 'Relative Pronouns & Adverbs',
+        category: 'patterns', cefr: 'A2', title: 'Relative Pronouns & Adverbs',
         uses: [
-            'Who/whom cho người, which cho vật, that cho defining clauses.',
-            'Whose cho sở hữu của người/vật.',
-            'Where cho place khi nghĩa là in/at which.',
-            'When cho time khi nghĩa là at/on/in which.',
-            'Why thường sau reason.',
-            'Preposition + which/whom cho formal style.'
+            'Chọn đúng từ quan hệ cơ bản: who, whom, whose, which, that, where, when, why.',
+            'Who/whom dùng cho người; whose dùng cho sở hữu.',
+            'Which/that dùng cho vật; where/when/why dùng cho nơi chốn, thời gian, lý do.',
+            'Mức này chỉ nhận diện từ đúng trong câu ngắn hoặc câu mẫu đơn giản.',
+            'Ở văn trang trọng, có thể gặp preposition + which/whom.'
         ],
-        avoid: ['Không dùng where cho mọi noun chỉ nơi nếu quan hệ thật ra là object.', 'Không dùng that sau comma.'],
-        compare: ['The house where I live = in which; the house which I bought = object.']
+        avoid: [
+            'Không nhầm mục này với Relative Clauses, nơi bạn phải ghép hai câu thành một câu hoàn chỉnh.',
+            'Không dùng that sau dấu phẩy trong mệnh đề không xác định.',
+            'Không chọn where/when/why chỉ vì câu có chỗ trống.'
+        ],
+        compare: [
+            'Relative Pronouns & Adverbs = chọn từ đúng.',
+            'Relative Clauses = dùng từ đó để ghép câu và bổ nghĩa cho danh từ.'
+        ]
     },
     'yes-no-questions': {
         category: 'patterns', cefr: 'A1', title: 'Yes/No Questions',

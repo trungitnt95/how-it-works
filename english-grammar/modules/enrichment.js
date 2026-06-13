@@ -344,44 +344,46 @@ const grammarSupplementsData = {
         icon: '🧷',
         title: 'Relative Pronouns & Adverbs',
         category: 'patterns',
-        level: 'advanced',
+        level: 'beginner',
         connections: ['relative-clauses', 'pronouns-possessives', 'conjunctions', 'sentence-order'],
         simple: `
-            <h3>🧷 Phần lõi của relative clause nằm ở đại từ và trạng từ quan hệ</h3>
-            <p>Nếu chỉ nhớ chung chung "mệnh đề quan hệ" thì chưa đủ. Bài thi thường hỏi đúng vào việc chọn <strong>who, whom, whose, which, that, where, when, why</strong>.</p>
+            <h3>🧷 Đây là phần nhập môn để chọn từ quan hệ đúng</h3>
+            <p>Mục này không dạy ghép câu dài. Nó chỉ giúp bạn nhận ra khi nào dùng <strong>who, whom, whose, which, that, where, when, why</strong> trong câu ngắn và câu mẫu cơ bản.</p>
             <div class="formula-box">person → who/whom/whose | thing → which/that | place → where | time → when | reason → why</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
-                • <em>The woman who helped me is a doctor.</em><br>
-                • <em>The house where I was born is still there.</em>
+                • <em>The man who called me is my uncle.</em><br>
+                • <em>The house where I was born is still there.</em><br>
+                • <em>The reason why I called is important.</em>
             </div>
         `,
         detail: `
-            <h3>📚 Chọn từ quan hệ đúng</h3>
+            <h3>📚 Chọn từ nào trong tình huống nào</h3>
             <table>
                 <tr><th>Từ</th><th>Dùng cho</th><th>Ví dụ</th></tr>
-                <tr><td>who / whom</td><td>người</td><td>the boy who called / the girl whom I met</td></tr>
+                <tr><td>who</td><td>người làm chủ ngữ</td><td>the man who called me</td></tr>
+                <tr><td>whom</td><td>người làm tân ngữ, thường trang trọng hơn</td><td>the girl whom I met</td></tr>
                 <tr><td>whose</td><td>sở hữu</td><td>the writer whose book won</td></tr>
-                <tr><td>which</td><td>vật / mệnh đề</td><td>the car which he bought</td></tr>
-                <tr><td>that</td><td>người hoặc vật</td><td>the song that I like</td></tr>
+                <tr><td>which</td><td>vật hoặc ý</td><td>the car which he bought</td></tr>
+                <tr><td>that</td><td>người hoặc vật trong mệnh đề xác định</td><td>the song that I like</td></tr>
                 <tr><td>where / when / why</td><td>nơi chốn / thời gian / lý do</td><td>the town where I grew up</td></tr>
             </table>
-            <h4>Rút gọn nhanh</h4>
+            <h4>Nhận diện nhanh</h4>
             <ul>
-                <li>Có thể bỏ <strong>who/which/that</strong> khi nó làm tân ngữ trong mệnh đề xác định.</li>
-                <li><strong>whom</strong> thường được thay bằng <strong>who</strong> trong văn nói hiện đại, nhưng đề thi vẫn hay kiểm tra.</li>
-                <li><strong>why</strong> thường đi sau <em>reason</em>; <strong>where</strong> có thể đổi thành <em>in which</em>.</li>
+                <li>Nhìn danh từ ngay trước chỗ trống để biết đang nói về người, vật, nơi chốn, thời gian hay lý do.</li>
+                <li><strong>where/when/why</strong> là cách rất thường gặp ở mức cơ bản.</li>
+                <li>Mục này chỉ giúp chọn từ đúng; phần ghép câu đầy đủ nằm ở Relative Clauses.</li>
             </ul>
         `,
         advanced: `
-            <h3>🎯 Các lỗi đề thi rất thích</h3>
+            <h3>🎯 Điều cần tránh nhầm với Relative Clauses</h3>
             <ul>
-                <li>Không dùng <strong>that</strong> trong non-defining clauses có dấu phẩy.</li>
+                <li><strong>Relative Pronouns & Adverbs</strong> là phần chọn từ; <strong>Relative Clauses</strong> là phần ghép câu và bổ nghĩa cho danh từ.</li>
+                <li>Trong writing trang trọng, <strong>whom</strong> và <strong>preposition + which</strong> vẫn hữu ích.</li>
                 <li><strong>whose</strong> có thể dùng cho cả vật trong văn viết: <em>a company whose profits fell</em>.</li>
-                <li><strong>which</strong> đôi khi thay cho cả mệnh đề phía trước: <em>He missed the train, which annoyed his boss.</em></li>
             </ul>
             <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Thấy nói về thời gian là dùng <em>when</em> trong mọi trường hợp, dù chỗ đó thật ra cần giới từ + which.
+                <strong>⚠️ Lỗi phổ biến:</strong> Học thuộc công thức rời rạc nhưng không biết từ nào dùng cho người, vật, nơi chốn hay thời gian.
             </div>
         `
     },
@@ -1662,6 +1664,114 @@ const grammarPracticeData = {
             'Nhìn mốc thời gian của main clause trước rồi mới phối hợp các clause còn lại.'
         ]
     },
+    'noun-clauses': {
+        source: 'Bài luyện Noun Clauses B2 tập trung vào that-clause, whether/if, wh-clause và trật tự câu trần thuật trong mệnh đề danh từ.',
+        sections: [
+            {
+                title: 'Chọn cấu trúc noun clause đúng',
+                instruction: 'Điền that, if, whether hoặc wh-word phù hợp và giữ trật tự câu trần thuật.',
+                items: [
+                    {
+                        prompt: 'I don\'t know ___ she will come.',
+                        answer: 'whether / if',
+                        explanation: 'Sau know có thể dùng whether/if cho một câu nghi vấn gián tiếp.'
+                    },
+                    {
+                        prompt: 'She asked me ___ I was ready.',
+                        answer: 'if / whether',
+                        explanation: 'Yes/no question trong noun clause dùng if hoặc whether.'
+                    },
+                    {
+                        prompt: 'Tell me ___ you need.',
+                        answer: 'what',
+                        explanation: 'Wh-clause giữ trật tự câu trần thuật: what you need.'
+                    },
+                    {
+                        prompt: 'I wonder ___ he lives.',
+                        answer: 'where',
+                        explanation: 'Sau wonder, mệnh đề danh từ hỏi nơi chốn dùng where + statement order.'
+                    },
+                    {
+                        prompt: 'The problem is ___ we are late.',
+                        answer: 'that',
+                        explanation: 'That-clause bổ sung ý cho bổ ngữ sau be.'
+                    },
+                    {
+                        prompt: 'It is clear ___ he is right.',
+                        answer: 'that',
+                        explanation: 'Extraposition thường dùng it + be + adjective + that-clause.'
+                    },
+                    {
+                        prompt: '___ he said surprised everyone.',
+                        answer: 'What',
+                        explanation: 'Wh-word làm chủ ngữ trong noun clause không cần đảo trợ động từ.'
+                    },
+                    {
+                        prompt: 'I am sure ___ he is honest.',
+                        answer: 'that',
+                        explanation: 'That-clause sau adjective là mẫu rất phổ biến.'
+                    },
+                    {
+                        prompt: 'We discussed ___ we should leave early.',
+                        answer: 'whether',
+                        explanation: 'Whether dùng tốt hơn if khi diễn tả lựa chọn / thảo luận.'
+                    }
+                ]
+            },
+            {
+                title: 'Đổi câu hỏi trực tiếp thành noun clause',
+                instruction: 'Viết lại câu để noun clause giữ trật tự câu trần thuật bình thường.',
+                items: [
+                    {
+                        prompt: 'Where does he live?',
+                        answer: 'I don\'t know where he lives.',
+                        explanation: 'Câu gián tiếp giữ vị trí subject + verb, không đảo như câu hỏi trực tiếp.'
+                    },
+                    {
+                        prompt: 'What time will the meeting start?',
+                        answer: 'Tell me what time the meeting will start.',
+                        explanation: 'Wh-clause làm object của tell.'
+                    },
+                    {
+                        prompt: 'Will she come tomorrow?',
+                        answer: 'I wonder whether she will come tomorrow.',
+                        explanation: 'Yes/no question đổi sang whether clause.'
+                    },
+                    {
+                        prompt: 'Why did he leave?',
+                        answer: 'She asked why he left.',
+                        explanation: 'Past simple trong câu hỏi trực tiếp thường chuyển sang trật tự câu trần thuật.'
+                    },
+                    {
+                        prompt: 'Who wrote this note?',
+                        answer: 'Do you know who wrote this note?',
+                        explanation: 'Who là chủ ngữ trong noun clause nên không đảo.'
+                    },
+                    {
+                        prompt: 'Are they ready?',
+                        answer: 'I wonder whether they are ready.',
+                        explanation: 'Whether dùng để nói nghi vấn / lựa chọn.'
+                    },
+                    {
+                        prompt: 'How much does it cost?',
+                        answer: 'Could you tell me how much it costs?',
+                        explanation: 'Wh-question giữ câu trần thuật bình thường: it costs.'
+                    },
+                    {
+                        prompt: 'Can you help me?',
+                        answer: 'I asked whether you could help me.',
+                        explanation: 'Can thường đổi thành could trong câu hỏi tường thuật / noun clause.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'That-clause thường làm chủ ngữ, tân ngữ hoặc bổ ngữ.',
+            'Whether/if dùng cho yes/no content; whether hợp hơn khi có or not hoặc sau preposition.',
+            'Wh-clause giữ trật tự câu trần thuật, không đảo trợ động từ như direct question.',
+            'Khi wh-word là chủ ngữ, không dùng do-support: What happened?, Who called?'
+        ]
+    },
     'adverbial-time-clauses': {
         source: 'Biên tập theo phần adverbial clauses of time trong sách.',
         sections: [
@@ -1814,7 +1924,7 @@ const grammarPracticeData = {
         ]
     },
     'relative-pronouns-adverbs': {
-        source: 'Bài luyện riêng cho relative pronouns và relative adverbs trong sách.',
+        source: 'Bài luyện nhận diện từ quan hệ cơ bản cho người học A2, tách riêng khỏi phần ghép câu ở Relative Clauses.',
         sections: [
             {
                 title: 'Chọn từ quan hệ đúng',
@@ -1842,9 +1952,9 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Biết who/whom/whose dành cho người, which/that cho vật, where/when/why cho adverbs quan hệ.',
-            'Không dùng that trong non-defining clauses có dấu phẩy.',
-            'Nhận ra khi nào where/when/why có thể đổi thành preposition + which.'
+            'Biết who/whom/whose dành cho người, which/that cho vật, where/when/why cho nơi chốn/thời gian/lý do.',
+            'Mục này chỉ giúp chọn từ đúng; phần ghép câu đầy đủ nằm ở Relative Clauses.',
+            'Không dùng that trong non-defining clauses có dấu phẩy.'
         ]
     },
     'result-structures': {
@@ -2347,7 +2457,7 @@ const grammarMemoryBank = [
     },
     {
         title: 'Relative Pronouns Và Relative Adverbs',
-        note: 'Nên học theo nhóm chức năng chứ không học rời nghĩa.',
+        note: 'Mức nhập môn: chỉ để nhận diện từ quan hệ đúng, không phải bài ghép câu.',
         items: [
             'who/whom = người, whose = sở hữu',
             'which/that = vật hoặc mệnh đề, where = nơi chốn, when = thời gian, why = lý do',

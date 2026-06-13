@@ -159,11 +159,12 @@ const grammarStructuresData = {
         connections: ['question-forms', 'reported-speech', 'relative-clauses', 'sentence-order'],
         simple: `
             <h3>🧠 Noun clause là một mệnh đề nhưng hoạt động như danh từ</h3>
-            <p>Nó có thể làm chủ ngữ, tân ngữ hoặc bổ ngữ trong câu.</p>
+            <p>Nó có thể làm chủ ngữ, tân ngữ, bổ ngữ hoặc tân ngữ của giới từ trong câu.</p>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>What he said surprised me.</em><br>
-                • <em>I know that she is busy.</em>
+                • <em>I know that she is busy.</em><br>
+                • <em>The problem is that we are late.</em>
             </div>
             <ul>
                 <li>Mở đầu bằng <strong>that, if, whether, wh- words</strong></li>
@@ -177,10 +178,13 @@ const grammarStructuresData = {
                 <tr><td>That-clause</td><td>that + clause</td><td>I believe that he is honest.</td></tr>
                 <tr><td>Whether/if clause</td><td>whether/if + clause</td><td>I don't know whether she will come.</td></tr>
                 <tr><td>Wh-clause</td><td>what/where/why/how + clause</td><td>Tell me what you need.</td></tr>
+                <tr><td>Extraposition</td><td>It + be + adjective + that-clause</td><td>It is clear that he is right.</td></tr>
             </table>
             <h4>Điểm rất quan trọng</h4>
             <ul>
                 <li>Trong noun clause, không đảo trợ động từ như câu hỏi trực tiếp: <em>I wonder where he is</em>, không phải <em>where is he</em>.</li>
+                <li>Khi wh-word là chủ ngữ, không cần do-support: <em>Who called you?</em>, <em>What happened?</em></li>
+                <li><strong>whether</strong> dùng được sau giới từ và với <em>or not</em>; <strong>if</strong> không tự nhiên sau giới từ.</li>
                 <li><strong>that</strong> đôi khi có thể lược bỏ ở vị trí tân ngữ trong văn nói.</li>
             </ul>
         `,
@@ -190,6 +194,7 @@ const grammarStructuresData = {
                 <li>Noun clauses giúp câu văn học thuật đa dạng hơn: <em>What matters most is consistency.</em></li>
                 <li><strong>whether</strong> trang trọng và rộng phạm vi hơn <strong>if</strong>, đặc biệt khi đi với <em>or not</em>.</li>
                 <li>Noun clause thường xuất hiện sau các động từ tư duy, tri giác, thông báo: <em>know, think, believe, say, explain, wonder</em>.</li>
+                <li>Chúng cũng xuất hiện sau tính từ và danh từ trừu tượng: <em>It is important that...</em>, <em>the fact that...</em></li>
             </ul>
             <div class="warning-box">
                 <strong>⚠️ Lỗi phổ biến:</strong> Giữ nguyên trật tự câu hỏi trong noun clause, tạo ra câu như <em>I don't know where is she</em>.
