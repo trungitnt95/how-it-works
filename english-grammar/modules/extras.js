@@ -766,10 +766,10 @@ const grammarExtrasData = {
         connections: ['verbs-overview', 'prepositions', 'gerunds-infinitives', 'word-formation'],
         simple: `
             <h3>🧩 Động từ + tiểu từ = nghĩa mới</h3>
-            <p>Phrasal verb là động từ ghép với <strong>giới từ / trạng từ</strong> tạo nghĩa khác hẳn nghĩa gốc của động từ. Đây là một trong những phần thực dụng nhất của tiếng Anh đời sống.</p>
+            <p>Phrasal verb là động từ ghép với <strong>giới từ / trạng từ</strong> để tạo nghĩa mới. Nghĩa của cả cụm thường <strong>không thể đoán đơn giản từ từng từ riêng lẻ</strong>, nên phải học theo cụm và theo ngữ cảnh.</p>
             <div class="example-box">
                 • <em>look</em> = nhìn, nhưng <em>look after</em> = chăm sóc, <em>look up</em> = tra cứu, <em>look for</em> = tìm.<br>
-                • <em>give up</em> = từ bỏ, <em>put off</em> = trì hoãn.
+                • <em>give up</em> = từ bỏ, <em>put off</em> = trì hoãn, <em>take off</em> = cất cánh / cởi ra.
             </div>
         `,
         detail: `
@@ -779,8 +779,13 @@ const grammarExtrasData = {
                 <tr><td>Intransitive</td><td>không có tân ngữ</td><td>break down, get up, take off (máy bay)</td></tr>
                 <tr><td>Transitive separable</td><td>tân ngữ đặt giữa hoặc cuối; đại từ phải đặt giữa</td><td>turn the light off / turn it off (✓), turn off it (✗)</td></tr>
                 <tr><td>Transitive inseparable</td><td>không tách rời được</td><td>look after the kids / look after them</td></tr>
-                <tr><td>3 từ (V + adv + prep)</td><td>luôn liền nhau</td><td>look forward to, put up with, get along with</td></tr>
+                <tr><td>3 từ (V + adv + prep)</td><td>luôn đi liền nhau</td><td>look forward to, put up with, get along with</td></tr>
             </table>
+            <h4>Nhớ thêm 2 điều quan trọng</h4>
+            <ul>
+                <li>Một phrasal verb có thể có <strong>nhiều nghĩa</strong>: <em>take off</em> = cất cánh / cởi áo / thành công nhanh.</li>
+                <li>Nghĩa đen và nghĩa thành ngữ có thể khác xa nhau: <em>put off</em> không phải "đặt ra phía sau" mà là "trì hoãn".</li>
+            </ul>
             <h4>Nhóm thông dụng nhất</h4>
             <ul>
                 <li><strong>get</strong>: get up, get on, get along, get over, get rid of</li>
@@ -798,8 +803,10 @@ const grammarExtrasData = {
             <ul>
                 <li>Học theo <strong>nhóm tiểu từ</strong> (up/down/in/out) – mỗi tiểu từ thường mang sắc thái riêng: <em>up</em> = hoàn tất / tăng; <em>down</em> = giảm / ghi lại; <em>out</em> = phát ra / hết; <em>off</em> = tách / khởi đầu.</li>
                 <li>Học theo <strong>câu</strong> chứ không học rời – tra cụm trong từ điển ví dụ.</li>
+                <li>Với phrasal verb tách được, <strong>pronoun object</strong> phải đứng giữa: <em>turn it off</em>, <em>pick it up</em>.</li>
                 <li>Văn trang trọng thường thay phrasal verb bằng động từ Latin: <em>put off</em> → <em>postpone</em>; <em>find out</em> → <em>discover</em>; <em>give up</em> → <em>abandon</em>.</li>
                 <li>Một phrasal verb có thể có nhiều nghĩa: <em>take off</em> = cất cánh / cởi (áo) / nghỉ làm.</li>
+                <li>Ba từ như <em>look forward to</em>, <em>put up with</em> phải giữ nguyên cụm, không chen tân ngữ vào giữa.</li>
             </ul>
             <h4>📚 Phân loại theo tiểu từ</h4>
             <table>

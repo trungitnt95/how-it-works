@@ -208,8 +208,8 @@ const grammarStructuresData = {
         level: 'advanced',
         connections: ['passive-voice', 'modal-verbs', 'gerunds-infinitives', 'sentence-order'],
         simple: `
-            <h3>⚙️ Causative diễn tả việc khiến ai đó làm gì hoặc nhờ ai làm gì</h3>
-            <p>Nhóm cấu trúc này rất thường gặp trong giao tiếp và writing nhưng người học hay bỏ sót.</p>
+            <h3>⚙️ Causative diễn tả việc khiến ai đó làm gì, cho phép, hoặc nhờ dịch vụ làm gì</h3>
+            <p>Nhóm cấu trúc này rất thường gặp trong giao tiếp và writing nhưng người học hay bỏ sót. Có hai nhánh lớn: <strong>make/let/get someone to do</strong> và <strong>have/get something done</strong>.</p>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>My boss made me rewrite the report.</em><br>
@@ -225,6 +225,7 @@ const grammarStructuresData = {
                 <tr><td>have + object + V</td><td>sắp xếp/nhờ ai làm</td><td>I'll have Tom check it.</td></tr>
                 <tr><td>get + object + to V</td><td>thuyết phục/nhờ được ai làm</td><td>She got him to apologize.</td></tr>
                 <tr><td>have/get + object + V3</td><td>thuê/nhờ làm một việc</td><td>We had the car washed.</td></tr>
+                <tr><td>be made to + V</td><td>bị bắt buộc trong dạng bị động</td><td>He was made to apologize.</td></tr>
             </table>
         `,
         advanced: `
@@ -233,6 +234,8 @@ const grammarStructuresData = {
                 <li><strong>make</strong> mạnh hơn, mang nghĩa ép buộc.</li>
                 <li><strong>get</strong> thường nhấn việc thuyết phục hoặc đạt được kết quả.</li>
                 <li><strong>have/get something done</strong> rất hay dùng khi đi sửa chữa, kiểm tra, thiết kế, cắt tóc.</li>
+                <li>Ở dạng bị động, <strong>make</strong> đổi thành <em>be made to + V</em>; với <strong>let</strong> thường dùng <em>be allowed to + V</em>.</li>
+                <li>Khi chủ ngữ không trực tiếp làm việc đó, hãy kiểm tra xem bạn đang nói về <strong>một người được thuyết phục</strong> hay <strong>một dịch vụ được thuê</strong>.</li>
             </ul>
             <div class="tip-box">
                 <strong>💡 Mẹo:</strong> Nếu bản thân không trực tiếp làm mà khiến hoặc nhờ người khác làm, hãy nghĩ tới causative trước.

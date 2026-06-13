@@ -321,6 +321,20 @@ const grammarFoundationsData = {
                 <tr><td>Complex sentence</td><td>1 main + 1 dependent clause</td><td>She reads because she enjoys learning.</td></tr>
                 <tr><td>Compound-complex</td><td>nhiều mệnh đề kết hợp</td><td>She reads, and he listens while they study.</td></tr>
             </table>
+            <h4>Nhận diện nhanh</h4>
+            <ul>
+                <li><strong>Statement</strong>: cung cấp thông tin.</li>
+                <li><strong>Question</strong>: hỏi thông tin hoặc xác nhận.</li>
+                <li><strong>Command</strong>: yêu cầu, chỉ dẫn, nhờ vả.</li>
+                <li><strong>Exclamation</strong>: bộc lộ cảm xúc mạnh.</li>
+            </ul>
+            <h4>Điều cần nhìn trước khi phân loại</h4>
+            <ul>
+                <li>Đếm số <strong>independent clause</strong> trước, rồi mới xem câu là simple/compound/complex.</li>
+                <li>Simple sentence có thể rất dài nếu vẫn chỉ có một mệnh đề độc lập.</li>
+                <li>Với complex sentence, phần dependent clause thường bắt đầu bằng because, although, when, if, since, after, before...</li>
+                <li>Compound-complex = có ít nhất 2 independent clauses và 1 dependent clause.</li>
+            </ul>
             <ul>
                 <li>Simple sentence không có nghĩa là câu ngắn; nó chỉ có một mệnh đề độc lập.</li>
                 <li>Complex sentence thường giúp writing mượt hơn nếu dùng đúng.</li>
@@ -332,6 +346,7 @@ const grammarFoundationsData = {
                 <li>Trộn nhiều loại câu tạo nhịp điệu tốt hơn trong writing.</li>
                 <li>Quá nhiều simple sentences làm văn rời rạc; quá nhiều compound-complex sentences làm văn nặng.</li>
                 <li>Việc chọn loại câu phù hợp quan trọng hơn việc cố viết câu thật dài.</li>
+                <li>Khi viết lại câu, nhớ giữ đúng dấu câu giữa các independent clauses: comma + coordinator, semicolon, hoặc tách thành hai câu.</li>
             </ul>
             <div class="warning-box">
                 <strong>⚠️ Lỗi phổ biến:</strong> Ghép nhiều mệnh đề mà không kiểm soát dấu câu, khiến câu từ complex biến thành run-on.

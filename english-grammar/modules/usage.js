@@ -806,7 +806,10 @@ Object.assign(grammarUsageDeepDiveData, {
             'Không viết câu quá dài nếu quan hệ logic không rõ.',
             'Không dùng exclamation trong academic writing trừ khi có chủ ý đặc biệt.'
         ],
-        compare: ['Simple sentence không đồng nghĩa với câu ngắn; nó chỉ có một independent clause.']
+        compare: [
+            'Simple sentence không đồng nghĩa với câu ngắn; nó chỉ có một independent clause.',
+            'Command là chức năng; imperative là cấu trúc thường dùng để tạo command.'
+        ]
     },
     'verbs-overview': {
         category: 'foundations', cefr: 'A1', title: 'Verb System',
@@ -967,16 +970,28 @@ Object.assign(grammarUsageDeepDiveData, {
             'Superlative để chọn cực trị trong một nhóm.',
             'As...as để so ngang bằng.',
             'Not as/so...as để nói kém hơn.',
+            'More/most dùng với tính từ/trạng từ dài; -er/-est thường dùng với dạng ngắn.',
+            'Fewer/less đi với danh từ đếm được/không đếm được; more/most đi với danh từ hoặc mức độ.',
             'Less/least để giảm mức độ.',
             'The more..., the more... cho quan hệ tăng giảm song hành.',
+            'The same as / different from để nói giống nhau hoặc khác nhau.',
+            'Much/far/a lot/a bit làm mức độ so sánh mạnh hoặc nhẹ hơn.',
+            'So sánh bất quy tắc: good/bad/far/many/much/little.',
             'Dùng that/those để tránh so sánh lệch đối tượng.'
         ],
         avoid: [
             'Không dùng double comparative: more easier.',
             'Không so sánh người/vật với thuộc tính của người/vật khác.',
-            'Không quên the trước superlative khi cần.'
+            'Không quên the trước superlative khi cần.',
+            'Không dùng fewer với danh từ không đếm được, hoặc less với danh từ đếm được số nhiều.',
+            'Không bỏ than/as trong cấu trúc so sánh tương ứng.',
+            'Không quên from trong different from nếu viết theo chuẩn phổ biến.'
         ],
-        compare: ['My salary is higher than yours, không phải higher than you.']
+        compare: [
+            'My salary is higher than yours, không phải higher than you.',
+            'good → better → best; bad → worse → worst; far → farther/further → farthest/furthest.',
+            'the same as / different from / similar to là các mẫu rất hay gặp trong viết lại.'
+        ]
     },
     'imperatives-requests': {
         category: 'patterns', cefr: 'A2', title: 'Imperatives & Requests',
@@ -1099,18 +1114,21 @@ Object.assign(grammarUsageDeepDiveData, {
         category: 'structures', cefr: 'B1', title: 'Phrasal Verbs',
         uses: [
             'Dùng trong spoken/informal English rất thường xuyên.',
-            'Một số thay thế verb formal: continue → carry on.',
-            'Separable phrasal verbs cho phép object ở giữa: turn it off.',
-            'Inseparable giữ particle sau verb: look after it.',
+            'Nhiều cụm rất thông dụng thay cho động từ đơn: continue → carry on, postpone → put off.',
+            'Separable phrasal verbs cho phép object ở giữa hoặc cuối: turn off the light / turn the light off.',
+            'Với pronoun object, tân ngữ phải đứng giữa: turn it off, pick it up.',
+            'Inseparable giữ particle sau verb: look after it, look forward to it.',
             'Three-word verbs: look forward to, get along with.',
+            'Một số cụm có nhiều nghĩa tùy ngữ cảnh: take off = cất cánh / cởi ra / bắt đầu thành công.',
             'Học nghĩa theo context vì particle không luôn suy được.'
         ],
         avoid: [
             'Không tách inseparable phrasal verbs.',
             'Không đặt pronoun object sau particle với separable verbs: turn off it sai.',
+            'Không suy nghĩa từng từ theo kiểu dịch word-by-word.',
             'Không dùng phrasal verbs quá informal trong academic writing nếu có lựa chọn formal hơn.'
         ],
-        compare: ['Put off = postpone; put on = wear/start wearing; put up with = tolerate.']
+        compare: ['Put off = postpone; put on = wear/start wearing; put up with = tolerate; carry on = continue.']
     },
     'verb-patterns': {
         category: 'structures', cefr: 'B1', title: 'Verb Patterns',
@@ -1119,15 +1137,24 @@ Object.assign(grammarUsageDeepDiveData, {
             'V + to V sau decide, hope, plan, promise.',
             'V + object + to V sau ask, tell, advise, allow.',
             'V + object + bare V sau make/let/perception verbs.',
+            'V + preposition + V-ing sau insist on, succeed in, think about, look forward to.',
             'That-clauses sau think, believe, suggest, insist.',
-            'Meaning-change verbs: stop, remember, forget, try, regret.'
+            'Wh-clauses sau know, ask, wonder, decide.',
+            'Meaning-change verbs: stop, remember, forget, try, regret.',
+            'Một số verb đổi pattern nhưng đổi cả nghĩa: stop to do vs stop doing, remember to do vs remember doing.'
         ],
         avoid: [
             'Không suy pattern chỉ từ nghĩa tiếng Việt.',
             'Không dùng suggest someone to do trong chuẩn thông thường.',
-            'Không bỏ object khi verb cần object control.'
+            'Không bỏ object khi verb cần object control.',
+            'Không lẫn V-ing, to V và bare V sau cùng một verb.',
+            'Không quên preposition cố định trước V-ing khi verb cần.'
         ],
-        compare: ['Try to open = cố mở; try opening = thử cách mở.']
+        compare: [
+            'Try to open = cố mở; try opening = thử cách mở.',
+            'remember to do = nhớ phải làm; remember doing = nhớ đã làm.',
+            'insist on doing = khăng khăng làm; succeed in doing = thành công trong việc làm.'
+        ]
     },
     'causatives': {
         category: 'structures', cefr: 'B2', title: 'Causatives',
@@ -1137,14 +1164,16 @@ Object.assign(grammarUsageDeepDiveData, {
             'Have + O + V cho giao việc/nhờ ai làm.',
             'Get + O + to V cho thuyết phục/nhờ được.',
             'Have/get + O + V3 cho thuê/nhờ dịch vụ.',
+            'Passive của make là be made to V; passive gần nghĩa của let thường là be allowed to V.',
             'Dùng khi chủ ngữ không trực tiếp thực hiện hành động.'
         ],
         avoid: [
             'Không dùng to sau make/let ở active voice.',
             'Trong passive của make cần to: was made to apologize.',
+            'Không nhầm make + object + bare V với have/get + object + V3.',
             'Không nhầm have something done với tự làm.'
         ],
-        compare: ['I cut my hair = tôi tự cắt; I had my hair cut = tôi đi cắt tóc.']
+        compare: ['I cut my hair = tôi tự cắt; I had my hair cut = tôi đi cắt tóc; I was made to leave = tôi bị bắt phải rời đi.']
     },
     'wish-if-only': {
         category: 'structures', cefr: 'B2', title: 'Wish / If Only',

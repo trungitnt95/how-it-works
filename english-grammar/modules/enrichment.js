@@ -609,6 +609,1263 @@ const grammarPracticeData = {
             'Không dùng future perfect nếu câu chỉ nói một hành động tương lai đơn giản mà không có mốc hoàn tất.'
         ]
     },
+    'sentence-types': {
+        source: 'Bài luyện Các Loại Câu · A2 tập trung vào nhận diện câu theo chức năng và theo cấu trúc câu.',
+        sections: [
+            {
+                title: 'Nhận diện theo chức năng',
+                instruction: 'Xác định mỗi câu là Statement, Question, Command hay Exclamation.',
+                questions: [
+                    'Please close the door.',
+                    'Do you like this song?',
+                    'She is very happy today.',
+                    'What a lovely day it is!',
+                    'Sit down and listen carefully.',
+                    'Where are you from?',
+                    'I do not understand this rule.',
+                    'How quickly he ran!'
+                ],
+                answers: [
+                    'Command',
+                    'Question',
+                    'Statement',
+                    'Exclamation',
+                    'Command',
+                    'Question',
+                    'Statement',
+                    'Exclamation'
+                ],
+                explanations: [
+                    'Please + verb là dạng yêu cầu / mệnh lệnh lịch sự.',
+                    'Dấu hỏi và trợ động từ trước chủ ngữ cho thấy đây là question.',
+                    'Câu kể thông tin là statement.',
+                    'What a + noun phrase là exclamation.',
+                    'Câu mệnh lệnh có verb mở đầu và không có chủ ngữ rõ.',
+                    'Wh-question là câu hỏi.',
+                    'Câu phủ định vẫn là statement nếu mục đích là trình bày thông tin.',
+                    'How + adjective/adverb tạo câu cảm thán.'
+                ]
+            },
+            {
+                title: 'Nhận diện theo cấu trúc',
+                instruction: 'Xác định câu là Simple, Compound hay Complex.',
+                questions: [
+                    'She reads every night.',
+                    'She reads, and he writes.',
+                    'She reads because she enjoys learning.',
+                    'She reads, and he writes while they listen to music.',
+                    'After dinner, we walked home.',
+                    'I finished my homework, so I watched a movie.',
+                    'The children played outside.',
+                    'Although it was raining, we went out.'
+                ],
+                answers: [
+                    'Simple',
+                    'Compound',
+                    'Complex',
+                    'Compound-complex',
+                    'Complex',
+                    'Compound',
+                    'Simple',
+                    'Complex'
+                ],
+                explanations: [
+                    'Một independent clause = simple sentence.',
+                    'Hai independent clauses nối bằng and = compound sentence.',
+                    'Có main clause + dependent clause = complex sentence.',
+                    'Có ít nhất hai independent clauses và một dependent clause = compound-complex.',
+                    'Mệnh đề trạng ngữ ở đầu câu làm câu trở thành complex.',
+                    'Hai mệnh đề độc lập nối bằng so = compound.',
+                    'Chỉ một mệnh đề độc lập = simple.',
+                    'Although là mệnh đề phụ nên đây là complex.'
+                ]
+            },
+            {
+                title: 'Viết lại theo yêu cầu',
+                instruction: 'Viết lại câu để đúng loại câu được yêu cầu.',
+                questions: [
+                    'She was tired. She went to bed early. / Rewrite as a complex sentence.',
+                    'I was late. I still caught the bus. / Rewrite as a compound sentence.',
+                    'Open the window. / Rewrite as a polite command.',
+                    'Is he at home? / Rewrite as a statement.',
+                    'What a beautiful painting it is! / Rewrite as a statement.',
+                    'She studies hard because she wants to pass the exam. / Rewrite as two simple sentences.',
+                    'The weather was bad, so we stayed home. / Rewrite as two simple sentences.',
+                    'I love this song! / Rewrite as a statement.'
+                ],
+                answers: [
+                    'Because she was tired, she went to bed early.',
+                    'I was late, but I still caught the bus.',
+                    'Please open the window.',
+                    'He is at home.',
+                    'It is a beautiful painting.',
+                    'She studies hard. She wants to pass the exam.',
+                    'The weather was bad. We stayed home.',
+                    'I love this song.'
+                ],
+                explanations: [
+                    'Because introduces a dependent clause, so the sentence becomes complex.',
+                    'But nối hai independent clauses, so the sentence is compound.',
+                    'Please makes the command more polite.',
+                    'A statement ends with a period and gives information.',
+                    'An exclamation can often be rewritten as a normal statement.',
+                    'Two simple sentences each have one independent clause.',
+                    'Split the compound sentence into two independent clauses.',
+                    'The exclamation can be reduced to a plain statement.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Statement, question, command, exclamation là 4 chức năng cơ bản.',
+            'Simple/compound/complex/compound-complex là phân loại theo cấu trúc.',
+            'Simple sentence không nhất thiết phải ngắn; nó chỉ có một independent clause.'
+        ]
+    },
+    'verb-patterns': {
+        source: '70 câu luyện Verb Patterns B1 bao phủ V-ing, to V, object + to V, bare V, preposition + V-ing, that/wh-clause và các verb đổi nghĩa.',
+        sections: [
+            {
+                title: 'Nhóm 1: V-ing sau động từ',
+                instruction: 'Điền dạng V-ing phù hợp sau động từ chính.',
+                questions: [
+                    'She enjoys ___ dinner for her family. (cook)',
+                    'I avoid ___ coffee at night. (drink)',
+                    'They finished ___ the room yesterday. (paint)',
+                    'Would you mind ___ the window? (open)',
+                    'He suggested ___ a taxi. (take)',
+                    'We keep ___ every day. (practice)',
+                    'She admitted ___ a mistake. (make)',
+                    'He denied ___ the vase. (break)',
+                    'I do not mind ___ early on weekends. (get up)',
+                    'They considered ___ to another city. (move)'
+                ],
+                answers: [
+                    'cooking',
+                    'drinking',
+                    'painting',
+                    'opening',
+                    'taking',
+                    'practicing',
+                    'making',
+                    'breaking',
+                    'getting up',
+                    'moving'
+                ],
+                explanations: [
+                    'Enjoy thường đi với V-ing.',
+                    'Avoid luôn đi với V-ing.',
+                    'Finish đi với V-ing.',
+                    'Mind đi với V-ing.',
+                    'Suggest đi với V-ing.',
+                    'Keep đi với V-ing để nói hành động tiếp diễn.',
+                    'Admit đi với V-ing.',
+                    'Deny đi với V-ing.',
+                    'Mind vẫn cần V-ing.',
+                    'Consider đi với V-ing.'
+                ]
+            },
+            {
+                title: 'Nhóm 2: To V sau động từ',
+                instruction: 'Điền to V phù hợp sau động từ chính.',
+                questions: [
+                    'I decided ___ for the job. (apply)',
+                    'She hopes ___ abroad next year. (travel)',
+                    'We plan ___ Hanoi in summer. (visit)',
+                    'He promised ___ me. (help)',
+                    'They refused ___ the question. (answer)',
+                    'She managed ___ the work on time. (finish)',
+                    'He learned ___ when he was a child. (swim)',
+                    'We agreed ___ at 8. (meet)',
+                    'I chose ___ home. (stay)',
+                    'She offered ___ me to the station. (drive)'
+                ],
+                answers: [
+                    'to apply',
+                    'to travel',
+                    'to visit',
+                    'to help',
+                    'to answer',
+                    'to finish',
+                    'to swim',
+                    'to meet',
+                    'to stay',
+                    'to drive'
+                ],
+                explanations: [
+                    'Decide đi với to V.',
+                    'Hope đi với to V.',
+                    'Plan đi với to V.',
+                    'Promise đi với to V.',
+                    'Refuse đi với to V.',
+                    'Manage đi với to V.',
+                    'Learn đi với to V.',
+                    'Agree đi với to V.',
+                    'Choose đi với to V.',
+                    'Offer đi với to V.'
+                ]
+            },
+            {
+                title: 'Nhóm 3: Object + to V',
+                instruction: 'Điền to V sau object đúng với động từ cho sẵn.',
+                questions: [
+                    'The teacher asked us ___ quiet. (be)',
+                    'I told him ___ outside. (wait)',
+                    'She advised me ___ a break. (take)',
+                    'The school allowed students ___ phones in class. (use)',
+                    'He encouraged her ___ the club. (join)',
+                    'Please remind me ___ my mother. (call)',
+                    'The doctor warned him ___ soda. (not drink)',
+                    'They invited us ___ to the party. (come)',
+                    'I persuaded my friend ___ with me. (go)',
+                    'The storm forced us ___ the picnic. (cancel)'
+                ],
+                answers: [
+                    'to be',
+                    'to wait',
+                    'to take',
+                    'to use',
+                    'to join',
+                    'to call',
+                    'not to drink',
+                    'to come',
+                    'to go',
+                    'to cancel'
+                ],
+                explanations: [
+                    'Ask + object + to V.',
+                    'Tell + object + to V.',
+                    'Advise + object + to V.',
+                    'Allow + object + to V.',
+                    'Encourage + object + to V.',
+                    'Remind + object + to V.',
+                    'Warn + object + not to V.',
+                    'Invite + object + to V.',
+                    'Persuade + object + to V.',
+                    'Force + object + to V.'
+                ]
+            },
+            {
+                title: 'Nhóm 4: That-clause và wh-clause',
+                instruction: 'Điền that hoặc wh-word phù hợp.',
+                questions: [
+                    'I think ___ he is right.',
+                    'She said ___ she was tired.',
+                    'I do not know ___ to do.',
+                    'Can you tell me ___ she lives?',
+                    'I wonder ___ the meeting will start.',
+                    'He asked ___ you left early.',
+                    'We know ___ this machine works.',
+                    'They believe ___ he is honest.',
+                    'I asked ___ called me last night.',
+                    'She explained ___ to solve the problem.'
+                ],
+                answers: [
+                    'that',
+                    'that',
+                    'what',
+                    'where',
+                    'when',
+                    'why',
+                    'how',
+                    'that',
+                    'who',
+                    'how'
+                ],
+                explanations: [
+                    'Think thường nhận that-clause.',
+                    'Say thường nhận that-clause.',
+                    'What giới thiệu wh-clause.',
+                    'Where giới thiệu wh-clause về nơi chốn.',
+                    'When giới thiệu wh-clause về thời gian.',
+                    'Why giới thiệu wh-clause về lý do.',
+                    'How giới thiệu cách thức.',
+                    'Believe thường nhận that-clause.',
+                    'Who là wh-word cho người.',
+                    'How giới thiệu cách giải quyết.'
+                ]
+            },
+            {
+                title: 'Nhóm 5: Bare V và đổi nghĩa',
+                instruction: 'Điền dạng đúng của động từ trong ngoặc.',
+                questions: [
+                    'My mother made me ___ my room. (clean)',
+                    'The teacher let us ___ early. (leave)',
+                    'The manager had the assistant ___ the email. (send)',
+                    'I saw him ___ the street. (cross)',
+                    'We heard her ___ in the hall. (sing)',
+                    'They watched the children ___ football. (play)',
+                    'I stopped ___ last year. (smoke)',
+                    'I stopped ___ the phone. (answer)',
+                    'She tried ___ the window. (open)',
+                    'He regretted ___ those words. (say)'
+                ],
+                answers: [
+                    'clean',
+                    'leave',
+                    'send',
+                    'cross',
+                    'sing',
+                    'play',
+                    'smoking',
+                    'to answer',
+                    'to open',
+                    'saying'
+                ],
+                explanations: [
+                    'Make + object + bare V.',
+                    'Let + object + bare V.',
+                    'Have + object + bare V trong causative.',
+                    'See + object + bare V.',
+                    'Hear + object + bare V.',
+                    'Watch + object + bare V.',
+                    'Stop doing = ngừng một thói quen.',
+                    'Stop to do = dừng lại để làm việc khác.',
+                    'Try to do = cố gắng làm.',
+                    'Regret doing = hối tiếc về việc đã làm.'
+                ]
+            }
+            ,
+            {
+                title: 'Nhóm 6: Verb + preposition + V-ing',
+                instruction: 'Điền dạng V-ing đúng sau preposition cố định.',
+                questions: [
+                    'She insisted on ___ the truth. (tell)',
+                    'He succeeded in ___ the exam. (pass)',
+                    'They are thinking about ___ a new car. (buy)',
+                    'I apologized for ___ late. (be)',
+                    'We are looking forward to ___ you again. (see)',
+                    'He prevented me from ___ the meeting. (attend)',
+                    'She is interested in ___ architecture. (study)',
+                    'They accused him of ___ the rules. (break)',
+                    'I am tired of ___ the same mistake. (make)',
+                    'He is good at ___ people. (understand)'
+                ],
+                answers: [
+                    'telling',
+                    'passing',
+                    'buying',
+                    'being',
+                    'seeing',
+                    'attending',
+                    'studying',
+                    'breaking',
+                    'making',
+                    'understanding'
+                ],
+                explanations: [
+                    'Insist on đi với V-ing.',
+                    'Succeed in đi với V-ing.',
+                    'Think about đi với V-ing.',
+                    'Apologize for đi với V-ing.',
+                    'Look forward to đi với V-ing.',
+                    'Prevent from đi với V-ing.',
+                    'Interested in đi với V-ing.',
+                    'Accuse of đi với V-ing.',
+                    'Tired of đi với V-ing.',
+                    'Good at đi với V-ing.'
+                ]
+            },
+            {
+                title: 'Nhóm 7: Sửa lỗi Verb Patterns',
+                instruction: 'Viết lại câu cho đúng cấu trúc verb pattern.',
+                questions: [
+                    'I remember to lock the door yesterday.',
+                    'She stopped smoke last year.',
+                    'We tried opening the box when the key was lost.',
+                    'He regretted to say that.',
+                    'Please help me to carrying this.',
+                    'I want that you come early.',
+                    'They made him to apologize.',
+                    'She let us to leave early.',
+                    'The teacher suggested us to revise harder.',
+                    'He succeeded to solve the problem.'
+                ],
+                answers: [
+                    'I remember locking the door yesterday.',
+                    'She stopped smoking last year.',
+                    'We tried to open the box when the key was lost.',
+                    'He regretted saying that.',
+                    'Please help me carry this.',
+                    'I want you to come early.',
+                    'They made him apologize.',
+                    'She let us leave early.',
+                    'The teacher suggested that we revise harder.',
+                    'He succeeded in solving the problem.'
+                ],
+                explanations: [
+                    'Remember doing = nhớ đã làm.',
+                    'Stop doing = ngừng làm.',
+                    'Try to do = cố gắng làm.',
+                    'Regret doing = hối tiếc vì đã làm.',
+                    'Help có thể đi với bare V hoặc to V; bare V tự nhiên hơn.',
+                    'Want + object + to V.',
+                    'Make + object + bare V, không có to.',
+                    'Let + object + bare V, không có to.',
+                    'Suggest thường dùng that-clause hoặc V-ing.',
+                    'Succeed in + V-ing.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Verb patterns phải học theo từng nhóm verb, không suy bằng tiếng Việt.',
+            'Một số verb đổi pattern có thể đổi cả nghĩa: stop doing / stop to do.',
+            'That-clause và wh-clause thường dùng để báo nội dung, câu hỏi gián tiếp hoặc giải thích.',
+            'Bare infinitive thường xuất hiện sau make, let, help, see, hear, watch, feel.',
+            'V + preposition + V-ing là vùng rất hay sai: insist on, succeed in, look forward to, prevent from.'
+        ]
+    },
+    'comparisons': {
+        source: '60 câu luyện So Sánh B1 bao phủ comparative, superlative, as...as, less/fewer, irregular forms, rewrite/correction và modifiers.',
+        sections: [
+            {
+                title: 'Nhóm 1: Dạng so sánh đúng',
+                instruction: 'Điền dạng comparative hoặc superlative đúng của từ trong ngoặc.',
+                questions: [
+                    'This book is ___ than the last one. (interesting)',
+                    'She is the ___ student in the class. (smart)',
+                    'Today is ___ than yesterday. (cold)',
+                    'This is the ___ restaurant in town. (good)',
+                    'My bag is ___ than yours. (heavy)',
+                    'He is the ___ runner on the team. (fast)',
+                    'This exercise is ___ than the previous one. (easy)',
+                    'They are the ___ people I know. (kind)',
+                    'Her answer was ___ than mine. (bad)',
+                    'That was the ___ movie of the year. (exciting)'
+                ],
+                answers: [
+                    'more interesting',
+                    'smartest',
+                    'colder',
+                    'best',
+                    'heavier',
+                    'fastest',
+                    'easier',
+                    'kindest',
+                    'worse',
+                    'most exciting'
+                ],
+                explanations: [
+                    'Interesting is a long adjective, so use more.',
+                    'Smart typically takes -est in B1 level patterns.',
+                    'Short adjective colder uses -er.',
+                    'Good is irregular: best.',
+                    'Heavy ends in -y after consonant, so change y to i and add -er.',
+                    'Fast is short, so fastest.',
+                    'Easy changes y to i before -er.',
+                    'Kind takes -est.',
+                    'Bad is irregular: worse.',
+                    'Exciting is long, so most exciting.'
+                ]
+            },
+            {
+                title: 'Nhóm 2: as...as / not as...as',
+                instruction: 'Điền as phù hợp để hoàn thành cấu trúc so sánh ngang bằng.',
+                questions: [
+                    'My sister is ___ tall as my mother.',
+                    'This hotel is not ___ expensive as the one we stayed in before.',
+                    'He runs ___ fast as his brother.',
+                    'The new job is not ___ easy as I expected.',
+                    'She sings ___ beautifully as her teacher.',
+                    'My phone is not ___ good as yours.',
+                    'This road is ___ long as the old one.',
+                    'The test was not ___ difficult as the practice test.',
+                    'He is ___ patient as his father.',
+                    'This task is not ___ simple as it looks.'
+                ],
+                answers: [
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as',
+                    'as'
+                ],
+                explanations: [
+                    'The pattern is as + adjective + as.',
+                    'Not as + adjective + as expresses a lower degree.',
+                    'Run is compared with as...as using adverb fast.',
+                    'The second as is required in the full pattern.',
+                    'Use as...as for equality in manner.',
+                    'Good becomes as good as, not so good as in B1 formality.',
+                    'The pattern keeps the same structure.',
+                    'Not as...as is a common comparison of difficulty.',
+                    'As patient as shows equality.',
+                    'The comparison still needs as...as.'
+                ]
+            },
+            {
+                title: 'Nhóm 3: fewer, less, more, most',
+                instruction: 'Chọn fewer, less, more hoặc most.',
+                questions: [
+                    'There are ___ students this year than last year.',
+                    'We have ___ time than before.',
+                    'She needs ___ money to buy the laptop.',
+                    'This class has the ___ participants in the school.',
+                    'I ate ___ cookies than my brother.',
+                    'He drinks ___ water now.',
+                    'The store sells ___ books than the library.',
+                    'They made the ___ mistakes of all.',
+                    'We should use ___ plastic if possible.',
+                    'I have ___ homework today than yesterday.'
+                ],
+                answers: [
+                    'fewer',
+                    'less',
+                    'more',
+                    'most',
+                    'fewer',
+                    'less',
+                    'more',
+                    'fewest',
+                    'less',
+                    'more'
+                ],
+                explanations: [
+                    'Fewer goes with countable plural nouns.',
+                    'Less goes with uncountable nouns.',
+                    'More is used for quantity with uncountable money.',
+                    'Most is the superlative for quantity.',
+                    'Cookies are countable, so fewer.',
+                    'Water is uncountable, so less.',
+                    'Books are countable, so more.',
+                    'Fewest is the superlative for countable nouns.',
+                    'Plastic is usually uncountable in this context.',
+                    'Homework is uncountable, so more.'
+                ]
+            },
+            {
+                title: 'Nhóm 4: So sánh bất quy tắc và nâng cao',
+                instruction: 'Điền dạng đúng của từ trong ngoặc.',
+                questions: [
+                    'Your plan is ___ than mine. (good)',
+                    'This situation is ___ than before. (bad)',
+                    'Hanoi is ___ than my hometown. (far)',
+                    'This result is the ___ of all. (little)',
+                    'He has ___ experience than his colleague. (much)',
+                    'This road is the ___ route to the station. (far)',
+                    'She is ___ at English than her brother. (good)',
+                    'We need ___ help than we expected. (much)',
+                    'His idea is ___ than yours. (bad)',
+                    'That was the ___ day of my life. (good)'
+                ],
+                answers: [
+                    'better',
+                    'worse',
+                    'farther',
+                    'least',
+                    'more',
+                    'farthest',
+                    'better',
+                    'more',
+                    'worse',
+                    'best'
+                ],
+                explanations: [
+                    'Good is irregular: better.',
+                    'Bad is irregular: worse.',
+                    'Far can be farther/further; farther is fine for physical distance.',
+                    'Little is irregular: least.',
+                    'Much becomes more in comparative form.',
+                    'Farthest is superlative for physical distance.',
+                    'Good at is compared with better at.',
+                    'More help is the comparative of quantity.',
+                    'Bad again becomes worse.',
+                    'Best is the superlative of good.'
+                ]
+            },
+            {
+                title: 'Nhóm 5: Rewrite và sửa lỗi',
+                instruction: 'Viết lại câu cho đúng hoặc sửa lỗi trong câu so sánh.',
+                questions: [
+                    'This car is more faster than that one.',
+                    'She is as tall than her brother.',
+                    'This is the most cheapest phone here.',
+                    'I have less books than you.',
+                    'He is more kinder than his friend.',
+                    'The blue dress is not as pretty as the red one. / Rewrite with so...as.',
+                    'This problem is easier than the previous problem. / Rewrite with comparative + than.',
+                    'My house is biger than yours.',
+                    'They are the happiest people I know. / Change to comparative.',
+                    'We have the most time than them.'
+                ],
+                answers: [
+                    'This car is faster than that one.',
+                    'She is as tall as her brother.',
+                    'This is the cheapest phone here.',
+                    'I have fewer books than you.',
+                    'He is kinder than his friend.',
+                    'The blue dress is not so pretty as the red one.',
+                    'This problem is easier than the previous one.',
+                    'My house is bigger than yours.',
+                    'They are happier than the people I know.',
+                    'We have more time than them.'
+                ],
+                explanations: [
+                    'Do not use more before faster.',
+                    'The pattern is as + adjective + as, not as...than.',
+                    'Do not stack most and cheapest.',
+                    'Books are countable, so fewer.',
+                    'Do not use more before kinder.',
+                    'So...as can replace not as...as in this rewrite.',
+                    'The second noun phrase can be shortened to previous one.',
+                    'Big needs double g before -er.',
+                    'Happiest changes to happier when comparing two groups.',
+                    'Time is uncountable, so more.'
+                ]
+            },
+            {
+                title: 'Nhóm 6: same / different / modifiers',
+                instruction: 'Điền cụm hoặc trạng từ phù hợp trước tính từ/trạng từ so sánh.',
+                questions: [
+                    'This phone is ___ the same as mine.',
+                    'Their idea is ___ different from ours.',
+                    'This road is ___ shorter than the old one.',
+                    'Her bag is ___ heavier than mine.',
+                    'My room is ___ cleaner than before.',
+                    'The weather today is ___ better than yesterday.',
+                    'His work is ___ more organized than mine.',
+                    'That restaurant is ___ less expensive than this one.',
+                    'Her answer is ___ more detailed than his.',
+                    'This plan is ___ similar to the old one.'
+                ],
+                answers: [
+                    'exactly',
+                    'completely',
+                    'much',
+                    'a lot',
+                    'a bit',
+                    'far',
+                    'much',
+                    'far',
+                    'a little',
+                    'very'
+                ],
+                explanations: [
+                    'Exactly the same as nhấn mức độ trùng khớp hoàn toàn.',
+                    'Completely different from là mẫu rất tự nhiên.',
+                    'Much thường đứng trước comparative để nhấn mạnh.',
+                    'A lot cũng dùng trước comparative để nhấn mạnh.',
+                    'A bit làm mức so sánh nhẹ hơn.',
+                    'Far là modifier mạnh trước comparative.',
+                    'Much + comparative là cách nhấn mức độ phổ biến.',
+                    'Far + comparative làm câu mạnh hơn.',
+                    'A little làm mức so sánh nhẹ hơn.',
+                    'Very similar to là cụm chuẩn.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Short adjectives usually take -er/-est; longer adjectives usually take more/most.',
+            'As...as shows equality; not as/so...as shows a lower degree.',
+            'Fewer goes with countable plural nouns; less goes with uncountable nouns.',
+            'Irregular comparisons like good-better-best, bad-worse-worst, far-farther/further, little-less-least must be memorized.',
+            'Avoid double comparatives and double superlatives.',
+            'The same as / different from / similar to are fixed comparison patterns that need memorization.'
+        ]
+    },
+    'wish-if-only': {
+        source: 'Bài luyện Wish / If only tập trung vào hiện tại trái thực tế, quá khứ tiếc nuối, than phiền / mong thay đổi, phủ định và chuyển đổi với conditionals.',
+        sections: [
+            {
+                title: 'Chọn dạng wish đúng',
+                instruction: 'Điền dạng đúng của động từ sau wish/if only.',
+                questions: [
+                    'I wish I ___ more free time. / Tôi ước mình có nhiều thời gian rảnh hơn.',
+                    'She wishes she ___ taller. / Cô ấy ước mình cao hơn.',
+                    'I wish I ___ harder for the exam. / Tôi ước mình đã học chăm hơn cho kỳ thi.',
+                    'He wishes he ___ more carefully yesterday. / Anh ấy ước hôm qua mình đã lái xe cẩn thận hơn.',
+                    'I wish it ___ raining. / Tôi ước trời ngừng mưa.',
+                    'If only he ___ us what happened. / Giá như anh ấy nói cho chúng tôi biết chuyện gì đã xảy ra.',
+                    'If only I ___ that decision last year. / Giá như năm ngoái tôi đã không đưa ra quyết định đó.',
+                    'I wish my neighbors ___ so loudly at night. / Tôi ước hàng xóm của tôi đừng ồn ào vào ban đêm như vậy.'
+                ],
+                answers: [
+                    'had',
+                    'were',
+                    'had studied',
+                    'had driven',
+                    'would stop',
+                    'would tell',
+                    'had not made',
+                    'would not talk'
+                ],
+                explanations: [
+                    'Wish về hiện tại thường dùng past simple để nói điều trái thực tế.',
+                    'Were được dùng thay cho was trong giả định trang trọng.',
+                    'Wish về quá khứ dùng past perfect: had studied.',
+                    'Hành động đã xảy ra ở quá khứ nên dùng had driven.',
+                    'Wish + would thường dùng cho điều muốn thay đổi hoặc than phiền.',
+                    'If only có thể đi với would khi mong người khác thay đổi hành vi.',
+                    'Wish về quá khứ dùng had + V3: had not made.',
+                    'Would not talk diễn tả mong hành vi gây phiền chấm dứt.'
+                ]
+            },
+            {
+                title: 'Đổi câu theo đúng ý nghĩa',
+                instruction: 'Viết lại câu với wish hoặc if only để giữ đúng nghĩa tiếng Việt.',
+                questions: [
+                    'I do not have enough money. / Tôi ước mình có đủ tiền.',
+                    'He lost his passport yesterday. / Anh ấy ước hôm qua mình không làm mất hộ chiếu.',
+                    'The weather is terrible. / Giá như thời tiết đẹp hơn.',
+                    'She never listens to me. / Tôi ước cô ấy chịu lắng nghe tôi.',
+                    'We did not arrive earlier. / Giá như chúng tôi đến sớm hơn.',
+                    'It is impossible for me to travel this week. / Tôi ước mình có thể đi du lịch tuần này.'
+                ],
+                answers: [
+                    'I wish I had enough money.',
+                    'He wishes he had not lost his passport yesterday.',
+                    'If only the weather were better.',
+                    'I wish she would listen to me.',
+                    'If only we had arrived earlier.',
+                    'I wish I could travel this week.'
+                ],
+                explanations: [
+                    'Điều trái thực tế ở hiện tại dùng wish + past simple.',
+                    'Mất hộ chiếu là việc đã xảy ra xong nên dùng wish + past perfect.',
+                    'If only thường mạnh hơn wish và rất hợp để than phiền về hiện tại.',
+                    'Khi muốn người khác thay đổi hành vi, wish + would là tự nhiên.',
+                    'Nếu thời điểm đã qua, phải dùng past perfect trong mệnh đề wish.',
+                    'Với khả năng không có thật hiện tại, có thể dùng wish + could.'
+                ]
+            },
+            {
+                title: 'Phân biệt wish, if only và hope',
+                instruction: 'Chọn từ phù hợp nhất: wish, if only hoặc hope.',
+                questions: [
+                    'I ___ I could speak English fluently one day.',
+                    '___ I had brought my umbrella!',
+                    'I ___ she stops calling me at midnight.',
+                    'We ___ you have a great trip tomorrow.',
+                    'I ___ I had not said that yesterday.',
+                    '___ this traffic would move faster!'
+                ],
+                answers: [
+                    'hope',
+                    'If only',
+                    'wish',
+                    'hope',
+                    'wish',
+                    'If only'
+                ],
+                explanations: [
+                    'Hope dùng cho hy vọng thực tế, có khả năng xảy ra.',
+                    'If only mạnh cảm xúc và bày tỏ tiếc nuối rõ hơn wish.',
+                    'Wish + would hợp khi than phiền / mong người khác đổi hành vi.',
+                    'Hope dùng cho mong điều tốt trong tương lai.',
+                    'Wish + past perfect dùng cho tiếc nuối về quá khứ.',
+                    'If only rất tự nhiên trong câu than thở hoặc cảm thán.'
+                ]
+            },
+            {
+                title: 'Dạng phủ định',
+                instruction: 'Điền dạng phủ định đúng sau wish/if only.',
+                questions: [
+                    'I wish I ___ have to work tomorrow. / Tôi ước ngày mai mình không phải đi làm.',
+                    'She wishes he ___ smoke near her. / Cô ấy ước anh ấy đừng hút thuốc gần cô ấy.',
+                    'I wish I ___ forgotten your birthday. / Tôi ước mình đã không quên sinh nhật bạn.',
+                    'If only we ___ so late. / Giá như chúng ta không quá muộn.',
+                    'They wish they ___ argued yesterday. / Họ ước hôm qua họ đã không cãi nhau.',
+                    'I wish my boss ___ call me so late. / Tôi ước sếp đừng gọi cho tôi muộn thế.'
+                ],
+                answers: [
+                    'didn’t',
+                    'wouldn’t',
+                    'hadn’t',
+                    'weren’t',
+                    'hadn’t',
+                    'wouldn’t'
+                ],
+                explanations: [
+                    'Wish về hiện tại trái thực tế thường dùng didn’t + bare verb sau wish.',
+                    'Wish + wouldn’t dùng cho hành vi/ thói quen gây phiền mà bạn muốn dừng lại.',
+                    'Quá khứ tiếc nuối dùng had not + V3.',
+                    'If only + past simple để nói hiện tại trái thực tế, ở đây là weren’t so late.',
+                    'Sau wish về quá khứ, dùng had not + bare form như một negative past perfect.',
+                    'Wouldn’t diễn tả mong hành vi người khác thay đổi.'
+                ]
+            },
+            {
+                title: 'Chuyển đổi với conditionals',
+                instruction: 'Viết lại câu để giữ nghĩa gần nhất giữa wish / if only và conditional.',
+                questions: [
+                    'If I had more free time, I would learn guitar. / Viết lại bằng wish.',
+                    'If she had studied harder, she would have passed the exam. / Viết lại bằng wish.',
+                    'If it stopped raining, we would go out. / Viết lại bằng wish.',
+                    'I wish I were rich. / Viết lại bằng conditional.',
+                    'I wish he would stop making noise. / Viết lại bằng conditional.',
+                    'If only I had not said that. / Viết lại bằng conditional.'
+                ],
+                answers: [
+                    'I wish I had more free time.',
+                    'She wishes she had studied harder.',
+                    'I wish it would stop raining.',
+                    'If I were rich, I would buy a house.',
+                    'If he stopped making noise, I would be grateful.',
+                    'If I had not said that, I would feel better now.'
+                ],
+                explanations: [
+                    'Conditional type 2 với tình huống trái thực tế hiện tại tương ứng với wish + past simple.',
+                    'Conditional type 3 tương ứng với wish + past perfect.',
+                    'Wish + would thường đi với mong thay đổi trong tương lai.',
+                    'Câu conditional type 2 là cách diễn đạt song song với wish + adj/verb trái thực tế.',
+                    'Dạng conditional có thể diễn đạt ý muốn thay đổi hành vi tương lai, dù sắc thái hơi khác.',
+                    'Đây là dạng viết lại kiểm tra khả năng đổi từ regret sang conditional type 3.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Wish + past simple: mong hiện tại khác đi.',
+            'Wish + past perfect: tiếc nuối về quá khứ.',
+            'Wish + would: mong sự việc hoặc hành vi thay đổi trong tương lai.',
+            'If only mạnh cảm xúc hơn wish; hope dùng cho mong muốn thực tế.',
+            'Wish/if only thường map rất gần với conditional type 2 và type 3.'
+        ]
+    },
+    'causatives': {
+        source: 'Bài luyện Causatives tập trung vào make/let/have/get, have/get something done và dạng bị động be made to / be allowed to.',
+        sections: [
+            {
+                title: 'Chọn causative đúng',
+                instruction: 'Điền make, let, have hoặc get ở dạng đúng.',
+                questions: [
+                    'The teacher ___ us stay after class. / Giáo viên bắt chúng tôi ở lại sau giờ học.',
+                    'My parents ___ me go out tonight. / Bố mẹ cho tôi đi chơi tối nay.',
+                    'I need to ___ my car checked this week. / Tôi cần mang xe đi kiểm tra tuần này.',
+                    'She ___ her brother to drive her to school. / Cô ấy nhờ anh trai chở đến trường.',
+                    'The manager ___ the staff work overtime. / Quản lý bắt nhân viên làm thêm giờ.',
+                    'We ___ the house painted last month. / Chúng tôi đã thuê sơn nhà tháng trước.',
+                    'Please ___ me open the window. / Làm ơn cho tôi mở cửa sổ.',
+                    'He ___ his hair cut every month. / Anh ấy cắt tóc mỗi tháng.',
+                    'They ___ the mechanic inspect the brakes. / Họ nhờ thợ máy kiểm tra phanh.',
+                    'The guard ___ us enter the building. / Bảo vệ cho chúng tôi vào tòa nhà.'
+                ],
+                answers: [
+                    'made',
+                    'let',
+                    'have',
+                    'got',
+                    'made',
+                    'had',
+                    'let',
+                    'has',
+                    'got',
+                    'let'
+                ],
+                explanations: [
+                    'Make + object + bare V diễn tả ép buộc.',
+                    'Let + object + bare V diễn tả cho phép.',
+                    'Have + object + V3 dùng khi nhờ làm dịch vụ.',
+                    'Get + object + to V nhấn việc thuyết phục/nhờ được.',
+                    'Made cho thấy mức ép buộc mạnh hơn have.',
+                    'Had the house painted là causative passive: thuê người sơn nhà.',
+                    'Let me open the window = cho phép tôi làm việc đó.',
+                    'Has his hair cut là thói quen/đi dịch vụ cắt tóc.',
+                    'Got the mechanic to inspect... nhấn việc nhờ thành công.',
+                    'Let us enter = cho phép vào.'
+                ]
+            },
+            {
+                title: 'Viết lại với have/get something done',
+                instruction: 'Viết lại câu theo mẫu have/get + object + V3.',
+                questions: [
+                    'I repaired my phone yesterday.',
+                    'She is cleaning the air conditioner tomorrow.',
+                    'We will service the car next week.',
+                    'The dentist checked my teeth.',
+                    'The tailor made my suit.',
+                    'They will fix the roof before winter.'
+                ],
+                answers: [
+                    'I had my phone repaired yesterday.',
+                    'She is having the air conditioner cleaned tomorrow.',
+                    'We will have the car serviced next week.',
+                    'I had my teeth checked by the dentist.',
+                    'I had my suit made by the tailor.',
+                    'They will have the roof fixed before winter.'
+                ],
+                explanations: [
+                    'Causative passive dùng khi người nói không trực tiếp sửa.',
+                    'Be having + object + V3 diễn tả kế hoạch dịch vụ đã sắp xếp.',
+                    'Will have + object + V3 nói về việc thuê hoặc nhờ làm trong tương lai.',
+                    'Có thể thêm by + agent để rõ người thực hiện.',
+                    'Have + object + V3 rất tự nhiên cho quần áo may đo.',
+                    'Have the roof fixed là dạng nhờ dịch vụ sửa chữa.'
+                ]
+            },
+            {
+                title: 'Nâng cao: have/get something done',
+                instruction: 'Viết lại câu sao cho đúng mẫu have/get + object + V3 và giữ đúng thì.',
+                questions: [
+                    'We need to translate the report into English before Monday.',
+                    'She is asking someone to redesign her website.',
+                    'He repaired the broken screen at the service center.',
+                    'I will renew my passport next week.',
+                    'They are cleaning the windows right now.',
+                    'The company had someone deliver the package late yesterday.',
+                    'Could you print these documents for me?',
+                    'By Friday, we will finish installing the new software.',
+                    'She had the mechanic check the brakes after the trip.',
+                    'I have just asked the barber to cut my hair.'
+                ],
+                answers: [
+                    'We need to have the report translated into English before Monday.',
+                    'She is having her website redesigned.',
+                    'He had the broken screen repaired at the service center.',
+                    'I will have my passport renewed next week.',
+                    'They are having the windows cleaned right now.',
+                    'The company had the package delivered late yesterday.',
+                    'Could you get these documents printed for me?',
+                    'By Friday, we will have the new software installed.',
+                    'She had the brakes checked after the trip.',
+                    'I have just had my hair cut.'
+                ],
+                explanations: [
+                    'Need to + have + object + V3 là dạng rất tự nhiên khi thuê dịch vụ.',
+                    'Be having + object + V3 diễn tả việc đang sắp xếp / đang thực hiện dịch vụ.',
+                    'Had + object + V3 dùng khi người nói không tự sửa mà nhờ dịch vụ.',
+                    'Will have + object + V3 nói kế hoạch tương lai với một việc được sắp đặt.',
+                    'Câu hiện tại tiếp diễn vẫn giữ được ý dịch vụ đang diễn ra.',
+                    'Had the package delivered = thuê/nhờ giao hàng.',
+                    'Get + object + V3 cũng dùng được trong văn nói khi nhờ ai làm.',
+                    'Will have + object + V3 nhấn việc sẽ hoàn tất trước Friday.',
+                    'Have + object + V3 phù hợp khi mang xe đi kiểm tra.',
+                    'I have just had my hair cut = vừa đi cắt tóc xong.'
+                ]
+            },
+            {
+                title: 'Phân biệt make, let, have, get',
+                instruction: 'Chọn verb phù hợp nhất: make, let, have hoặc get.',
+                questions: [
+                    'The boss ___ us work late yesterday.',
+                    'My sister ___ me borrow her notes.',
+                    'I ___ the electrician fix the lights.',
+                    'The news ___ her cry.',
+                    'We ___ the doctor call us back.',
+                    'My parents ___ me stay out after 10 p.m.',
+                    'He ___ his son clean the room every Sunday.',
+                    'She ___ me to explain everything twice.'
+                ],
+                answers: [
+                    'made',
+                    'let',
+                    'had',
+                    'made',
+                    'got',
+                    'let',
+                    'makes',
+                    'got'
+                ],
+                explanations: [
+                    'Make = ép buộc hoặc bắt làm.',
+                    'Let = cho phép.',
+                    'Have + object + bare V có thể dùng khi nhờ ai làm việc.',
+                    'Make + object + bare V còn dùng cho phản ứng cảm xúc.',
+                    'Get + object + to V nhấn việc thuyết phục hoặc nhờ được.',
+                    'Let = cho phép làm điều gì.',
+                    'Make + object + bare V cho nghĩa bắt buộc lặp lại.',
+                    'Get + object + to V: thuyết phục ai đó làm gì.'
+                ]
+            },
+            {
+                title: 'Nâng cao: make / let trong câu khó',
+                instruction: 'Điền make hoặc let đúng thì, chú ý phủ định và bị động.',
+                questions: [
+                    'The strict teacher ___ us rewrite the essay three times.',
+                    'My boss ___ me leave early yesterday because I was sick.',
+                    'The loud music ___ me unable to concentrate.',
+                    'They never ___ the children play near the river.',
+                    'The guard ___ us enter until we showed our ID cards.',
+                    'The news of her success ___ her mother cry with joy.',
+                    'Please ___ me explain what happened.',
+                    'His parents ___ him stay up late on weekends.'
+                ],
+                answers: [
+                    'made',
+                    'let',
+                    'made',
+                    'let',
+                    'let',
+                    'made',
+                    'let',
+                    'let'
+                ],
+                explanations: [
+                    'Make + object + bare V dùng khi ép buộc làm nhiều lần.',
+                    'Let + object + bare V = cho phép.',
+                    'Make + object + adjective / bare V có thể diễn tả khiến ai rơi vào trạng thái nào.',
+                    'Never let = không bao giờ cho phép.',
+                    'Until we showed our ID cards cho thấy điều kiện được phép vào.',
+                    'Make + object + bare V cũng dùng cho phản ứng cảm xúc.',
+                    'Please let me explain = cho phép tôi giải thích.',
+                    'Let him stay up late = cho phép thức khuya.'
+                ]
+            },
+            {
+                title: 'Nâng cao: causatives trong câu đảo',
+                instruction: 'Viết lại câu với cấu trúc đảo để nhấn mạnh.',
+                questions: [
+                    'I had never had my passport renewed so quickly before.',
+                    'We had only then let the children go outside.',
+                    'She had rarely been allowed to use the lab alone.',
+                    'He had scarcely got the car repaired when it broke again.',
+                    'The school had not until that day let the students use the gym.',
+                    'I had never made anyone wait that long.'
+                ],
+                answers: [
+                    'Never had I had my passport renewed so quickly before.',
+                    'Only then had we let the children go outside.',
+                    'Rarely had she been allowed to use the lab alone.',
+                    'Scarcely had he got the car repaired when it broke again.',
+                    'Not until that day had the school let the students use the gym.',
+                    'Never had I made anyone wait that long.'
+                ],
+                explanations: [
+                    'Đảo ngữ với never thường đứng đầu câu và đảo trợ động từ lên trước chủ ngữ.',
+                    'Only then + đảo nhấn một mốc thời gian cụ thể.',
+                    'Rarely + đảo rất hợp với cấu trúc bị động của let.',
+                    'Scarcely...when là cặp đảo quen thuộc để nói sự việc xảy ra gần như ngay sau đó.',
+                    'Not until + mốc thời gian thường kéo đảo ở mệnh đề chính.',
+                    'Never + đảo nhấn mức độ cực đoan của hành động.'
+                ]
+            },
+            {
+                title: 'Nâng cao: causatives trong câu điều kiện',
+                instruction: 'Điền dạng causative đúng trong mệnh đề điều kiện.',
+                questions: [
+                    'If the manager ___ us leave early, we will finish the report tonight.',
+                    'If they had ___ the car repaired, they would not have missed the trip.',
+                    'If my parents had ___ me study abroad, I would have accepted the offer.',
+                    'If she ___ her hair cut tomorrow, she will look different at the party.',
+                    'If the school had ___ the students rewrite the essay, they would have learned more.',
+                    'If the mechanic had ___ the brakes checked, the accident might have been avoided.'
+                ],
+                answers: [
+                    'lets',
+                    'had',
+                    'let',
+                    'gets',
+                    'made',
+                    'had'
+                ],
+                explanations: [
+                    'Câu điều kiện loại 1 cần present simple ở mệnh đề if: lets.',
+                    'Had something done là mẫu causative passive trong past perfect.',
+                    'Let + object + bare V diễn tả được cho phép trong quá khứ giả định.',
+                    'Get + object + past participle dùng cho kế hoạch tương lai gần.',
+                    'Made + object + bare V là ép buộc trong quá khứ.',
+                    'Had the brakes checked là cách nói nhờ người khác kiểm tra phanh.'
+                ]
+            },
+            {
+                title: 'Nâng cao: causatives trong câu gián tiếp',
+                instruction: 'Chuyển sang reported speech, giữ đúng nghĩa causative.',
+                questions: [
+                    'He said, "Have the report translated by Friday."',
+                    'She said, "Let me use your laptop for a minute."',
+                    'The coach said, "Make the players run one more lap."',
+                    'My mother said, "Get your hair cut before the interview."',
+                    'The director said, "Have the documents prepared immediately."',
+                    'He said, "Let the children stay in the garden."'
+                ],
+                answers: [
+                    'He told us to have the report translated by Friday.',
+                    'She asked to be allowed to use the laptop for a minute.',
+                    'The coach told them to make the players run one more lap.',
+                    'My mother told me to get my hair cut before the interview.',
+                    'The director told them to have the documents prepared immediately.',
+                    'He told us to let the children stay in the garden.'
+                ],
+                explanations: [
+                    'Reported speech của mệnh lệnh có thể giữ causative bằng động từ nguyên mẫu.',
+                    'Be allowed to giữ nghĩa "được phép" rõ hơn trong câu này.',
+                    'Tell + object + to V là cách báo lại mệnh lệnh trực tiếp.',
+                    'Get + object + past participle vẫn giữ ý nhờ/dịch vụ.',
+                    'Have the documents prepared là causative passive trong reported speech.',
+                    'Let có thể giữ nghĩa cho phép trong lời tường thuật.'
+                ]
+            },
+            {
+                title: 'Chuyển sang dạng bị động phù hợp',
+                instruction: 'Viết lại câu theo dạng passive causative hoặc be made to / be allowed to.',
+                questions: [
+                    'The teacher made the students stay.',
+                    'They let us use the room.',
+                    'The boss made her rewrite the report.',
+                    'My parents let me use the car.',
+                    'The guard made them leave the building.',
+                    'The school let the children play outside.'
+                ],
+                answers: [
+                    'The students were made to stay.',
+                    'We were allowed to use the room.',
+                    'She was made to rewrite the report.',
+                    'I was allowed to use the car.',
+                    'They were made to leave the building.',
+                    'The children were allowed to play outside.'
+                ],
+                explanations: [
+                    'Make trong bị động đổi thành be made to + V.',
+                    'Let thường tương ứng với be allowed to + V trong bị động.',
+                    'Passive causative giữ ý nghĩa bị bắt làm.',
+                    'Ở bị động, người được phép làm gì = be allowed to.',
+                    'Các câu ép buộc trong bị động thường cần to sau made.',
+                    'Let chuyển sang be allowed to nghe tự nhiên hơn.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Make = ép buộc; let = cho phép; have = nhờ/sắp xếp; get = thuyết phục/nhờ được.',
+            'Have/get + object + V3 dùng cho dịch vụ, sửa chữa, chăm sóc, kiểm tra.',
+            'Passive của make là be made to + V; passive gần nghĩa của let là be allowed to + V.',
+            'Causatives thường cần nhìn xem chủ ngữ tự làm hay nhờ/người khác làm.'
+        ]
+    },
+    'phrasal-verbs': {
+        source: 'Bài luyện Phrasal Verbs B1 tập trung vào nghĩa cụm, vị trí tân ngữ và cách hiểu theo ngữ cảnh.',
+        sections: [
+            {
+                title: 'Chọn phrasal verb đúng theo ngữ cảnh',
+                instruction: 'Điền phrasal verb phù hợp nhất vào chỗ trống.',
+                questions: [
+                    'Please ___ the lights before you leave. / Hãy tắt đèn trước khi bạn rời đi.',
+                    'I need to ___ this problem before the meeting. / Tôi cần giải quyết vấn đề này trước cuộc họp.',
+                    'She decided to ___ smoking last year. / Cô ấy quyết định bỏ thuốc lá năm ngoái.',
+                    'Can you ___ my bag for a minute? / Bạn trông giúp túi của tôi một lát được không?',
+                    'The plane will ___ at 9:30. / Máy bay sẽ cất cánh lúc 9 giờ 30.',
+                    'We had to ___ the meeting because the manager was sick. / Chúng tôi phải hoãn cuộc họp vì quản lý bị ốm.',
+                    'I always ___ new words in the dictionary. / Tôi luôn tra từ mới trong từ điển.',
+                    'He managed to ___ with his new classmates quickly. / Cậu ấy đã hòa đồng với bạn cùng lớp mới rất nhanh.',
+                    'I do not know the answer yet, but I will ___ it later. / Tôi chưa biết đáp án, nhưng lát nữa tôi sẽ tìm ra.',
+                    'Let us ___ with the presentation. / Hãy tiếp tục với bài thuyết trình.'
+                ],
+                answers: [
+                    'turn off',
+                    'work out',
+                    'give up',
+                    'look after',
+                    'take off',
+                    'put off',
+                    'look up',
+                    'get along',
+                    'find out',
+                    'carry on'
+                ],
+                explanations: [
+                    'Turn off = tắt thiết bị hoặc nguồn điện.',
+                    'Work out = giải quyết hoặc tìm ra một vấn đề.',
+                    'Give up = bỏ, từ bỏ một thói quen hoặc việc đang làm.',
+                    'Look after = trông nom, chăm sóc.',
+                    'Take off = cất cánh.',
+                    'Put off = hoãn, dời lại.',
+                    'Look up = tra cứu thông tin.',
+                    'Get along (with) = hòa hợp, hòa đồng.',
+                    'Find out = phát hiện ra, tìm ra.',
+                    'Carry on = tiếp tục.'
+                ]
+            },
+            {
+                title: 'Flashcard mở rộng: các cụm phải thuộc',
+                instruction: 'Đọc nhanh từng cụm, che phần đáp án và tự nhắc lại nghĩa trước khi xem.',
+                items: [
+                    { prompt: 'wake up', answer: 'thức dậy', explanation: 'Dùng khi tỉnh giấc.' },
+                    { prompt: 'get up', answer: 'ra khỏi giường / thức dậy', explanation: 'Nhấn hành động rời khỏi giường.' },
+                    { prompt: 'go out', answer: 'đi ra ngoài', explanation: 'Rời khỏi nhà hoặc phòng.' },
+                    { prompt: 'come back', answer: 'quay lại', explanation: 'Trở về nơi vừa rời đi.' },
+                    { prompt: 'sit down', answer: 'ngồi xuống', explanation: 'Nhấn hành động chuyển sang tư thế ngồi.' },
+                    { prompt: 'stand up', answer: 'đứng dậy', explanation: 'Nhấn hành động chuyển sang tư thế đứng.' },
+                    { prompt: 'lie down', answer: 'nằm xuống', explanation: 'Thường dùng khi nghỉ ngơi hoặc ngủ.' },
+                    { prompt: 'run out of', answer: 'hết / cạn', explanation: 'Dùng cho tiền, thời gian, nhiên liệu, đồ dùng...' },
+                    { prompt: 'fill in', answer: 'điền vào', explanation: 'Điền thông tin vào chỗ trống.' },
+                    { prompt: 'fill out', answer: 'điền đầy đủ', explanation: 'Hoàn thành một mẫu hoặc form.' },
+                    { prompt: 'look up', answer: 'tra cứu', explanation: 'Tìm thông tin trong từ điển, internet...' },
+                    { prompt: 'look over', answer: 'xem lại / kiểm tra nhanh', explanation: 'Đọc hoặc kiểm tra qua trước khi quyết định.' },
+                    { prompt: 'hand in', answer: 'nộp', explanation: 'Nộp bài, nộp báo cáo, nộp giấy tờ.' },
+                    { prompt: 'hand out', answer: 'phát', explanation: 'Phát tài liệu, phát tờ rơi, phát đề.' },
+                    { prompt: 'go over', answer: 'ôn lại / xem kỹ', explanation: 'Rà soát nội dung hoặc học lại.' },
+                    { prompt: 'catch up on', answer: 'bù đắp / cập nhật', explanation: 'Làm lại phần đã bỏ lỡ.' },
+                    { prompt: 'work out', answer: 'giải quyết / tìm ra', explanation: 'Có thể cũng mang nghĩa tập luyện.' },
+                    { prompt: 'carry out', answer: 'tiến hành / thực hiện', explanation: 'Thực hiện một kế hoạch, nhiệm vụ, nghiên cứu.' },
+                    { prompt: 'set up', answer: 'thiết lập / dựng lên', explanation: 'Thiết lập hệ thống hoặc sắp đặt một thứ gì đó.' },
+                    { prompt: 'find out', answer: 'phát hiện ra / tìm ra', explanation: 'Biết được thông tin sau quá trình tìm kiếm.' },
+                    { prompt: 'give up', answer: 'từ bỏ', explanation: 'Ngừng cố gắng hoặc bỏ thói quen.' },
+                    { prompt: 'put off', answer: 'hoãn / trì hoãn', explanation: 'Dời việc sang lúc khác.' },
+                    { prompt: 'turn down', answer: 'từ chối / vặn nhỏ', explanation: 'Có thể là từ chối lời mời hoặc giảm âm lượng.' },
+                    { prompt: 'calm down', answer: 'bình tĩnh lại', explanation: 'Trở nên ít kích động hơn.' }
+                ]
+            },
+            {
+                title: 'Đặt tân ngữ đúng vị trí',
+                instruction: 'Viết lại câu sao cho object đứng đúng chỗ với phrasal verb.',
+                questions: [
+                    'She turned off the radio. / Viết lại để object đứng giữa verb và particle.',
+                    'She turned off it. / Sửa câu này cho đúng.',
+                    'He looked after the children. / Viết lại bằng đại từ object.',
+                    'They put on their coats. / Viết lại với noun object đứng giữa.',
+                    'She looked forward to the trip. / Viết lại với đại từ object.',
+                    'He picked up the phone. / Viết lại bằng đại từ object.'
+                ],
+                answers: [
+                    'She turned the radio off.',
+                    'She turned it off.',
+                    'He looked after them.',
+                    'They put their coats on.',
+                    'She looked forward to it.',
+                    'He picked it up.'
+                ],
+                explanations: [
+                    'Turn off là separable, nên noun object có thể đứng giữa hoặc sau particle.',
+                    'Với pronoun object, không được để it sau particle: turn it off mới đúng.',
+                    'Look after là inseparable, không tách object vào giữa được.',
+                    'Put on là separable, noun object có thể chen vào giữa verb và particle.',
+                    'Look forward to là three-word verb, phải giữ nguyên cụm look forward to it.',
+                    'Pick up là separable, đại từ it phải đứng giữa.'
+                ]
+            },
+            {
+                title: 'Phân biệt nghĩa theo ngữ cảnh',
+                instruction: 'Xác định nghĩa đúng của phrasal verb trong câu.',
+                questions: [
+                    'The plane took off at 8 a.m. / took off nghĩa là gì?',
+                    'He took off his shoes before entering. / took off nghĩa là gì?',
+                    'I work out three times a week. / work out nghĩa là gì?',
+                    'We worked out the answer together. / work out nghĩa là gì?',
+                    'She is putting on a coat. / put on nghĩa là gì?',
+                    'He has put on weight recently. / put on nghĩa là gì?',
+                    'I cannot put up with this noise. / put up with nghĩa là gì?',
+                    'I am looking forward to the trip. / look forward to nghĩa là gì?'
+                ],
+                answers: [
+                    'cất cánh',
+                    'cởi ra',
+                    'tập thể dục',
+                    'giải ra / tìm ra',
+                    'mặc vào / khoác vào',
+                    'tăng lên / tăng cân',
+                    'chịu đựng',
+                    'mong đợi / háo hức chờ'
+                ],
+                explanations: [
+                    'Take off có thể là cất cánh khi nói về máy bay.',
+                    'Take off cũng có nghĩa là cởi quần áo hoặc giày dép.',
+                    'Work out thường là tập thể dục hoặc rèn luyện.',
+                    'Work out có thể nghĩa là giải quyết, tìm ra đáp án.',
+                    'Put on = mặc vào, đội vào, đeo vào.',
+                    'Put on weight = tăng cân.',
+                    'Put up with = chịu đựng điều khó chịu.',
+                    'Look forward to = mong chờ điều gì đó.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Học phrasal verb theo cụm, không dịch từng từ riêng lẻ.',
+            'Phân biệt separable, inseparable và three-word verbs trước khi làm bài.',
+            'Nhớ rằng một phrasal verb có thể có nhiều nghĩa tùy ngữ cảnh.'
+        ]
+    },
     'verbs-overview': {
         source: 'Tổng hợp theo phần VERBS trong sách Mai Lan Hương.',
         sections: [
@@ -2422,9 +3679,11 @@ const grammarMemoryBank = [
         title: 'Verb Patterns Cần Flashcard',
         note: 'Không có quy tắc đủ chắc, nên học theo cụm.',
         items: [
-            'V + V-ing: enjoy, avoid, finish, keep, suggest',
-            'V + to V: want, decide, hope, plan, promise',
-            'V + object + to V: ask, tell, advise, allow, encourage',
+            'V + V-ing: enjoy, avoid, finish, keep, suggest, mind, admit, deny',
+            'V + to V: want, decide, hope, plan, promise, refuse, manage',
+            'V + object + to V: ask, tell, advise, allow, encourage, remind, warn',
+            'V + preposition + V-ing: insist on, succeed in, look forward to, prevent from',
+            'Bare V after object: make, let, help, see, hear, watch, feel',
             'Cặp đổi nghĩa: stop doing / stop to do, remember doing / remember to do'
         ]
     },
@@ -2524,13 +3783,63 @@ const grammarMemoryBank = [
         ]
     },
     {
-        title: 'Phrasal Verbs Cốt Lõi',
-        note: 'Cần học theo nghĩa và khả năng tách object.',
+        title: 'Phrasal Verbs - Daily Actions',
+        note: 'Nhóm này xuất hiện rất thường xuyên trong giao tiếp hằng ngày.',
         items: [
-            'look after, look for, look up, look forward to, give up',
-            'put on, put off, take off, turn on/off, turn up/down',
-            'bring up, find out, work out, carry on, get along with',
-            'Separable: turn it off, put it on; inseparable: look after it, look forward to it'
+            'wake up, get up, sit down, stand up, lie down',
+            'go out, come back, come in, go back, come over',
+            'run out of, fill in, fill out, hand in, hand out',
+            'turn on, turn off, turn up, turn down, set off',
+            'pick up, drop off, put away, clean up, take off',
+            'take up, put on, put off, give up, calm down'
+        ]
+    },
+    {
+        title: 'Phrasal Verbs - Study & Work',
+        note: 'Đây là nhóm rất hay gặp trong homework, project và workplace English.',
+        items: [
+            'look up, look over, go over, check out, find out',
+            'hand in, hand out, fill out, fill in, write down',
+            'carry out, set up, sort out, work out, figure out',
+            'catch up on, follow up, bring up, point out, carry on',
+            'take over, take on, turn in, get through, move on',
+            'go through, make up, pay off, come up with, read through'
+        ]
+    },
+    {
+        title: 'Phrasal Verbs - Problems & Change',
+        note: 'Nhóm này giúp bạn diễn tả vấn đề, phản ứng và thay đổi trạng thái.',
+        items: [
+            'give up, put off, turn down, break down, calm down',
+            'break up, make up, bring up, blow up, mess up',
+            'carry on, go on, move on, get over, sort out',
+            'figure out, work out, run into, come across, deal with',
+            'take off, take over, pick up, turn up, turn out',
+            'run out of, cut down on, slow down, build up, wear off'
+        ]
+    },
+    {
+        title: 'Phrasal Verbs - People & Communication',
+        note: 'Rất hữu ích khi nói về quan hệ, trao đổi và tương tác.',
+        items: [
+            'look after, look for, look forward to, get along with, get on with',
+            'fall out with, make up with, keep in touch, call back, call off',
+            'hang out, come over, drop by, chat up, check in',
+            'talk over, bring up, point out, ask around, speak up',
+            'run into, come across, get together, meet up, reach out',
+            'hear from, get back to, fill in for, pass on, hand over'
+        ]
+    },
+    {
+        title: 'Phrasal Verbs - Movement & Result',
+        note: 'Nhóm này giúp nói về di chuyển, khởi hành và kết quả.',
+        items: [
+            'set off, take off, get in, get out, get on',
+            'get off, come in, go back, come back, move in',
+            'move out, pass by, run past, drive off, pull over',
+            'pick up, drop off, turn around, head out, check out',
+            'go through, get over, carry out, carry through, turn out',
+            'end up, come out, come through, break out, build up'
         ]
     },
     {
