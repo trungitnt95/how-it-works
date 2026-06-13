@@ -469,18 +469,22 @@ const grammarUsageDeepDiveData = {
             'Tường thuật yes/no questions với if/whether.',
             'Tường thuật wh-questions với wh + statement order.',
             'Tường thuật commands/requests với ask/tell + object + to V.',
-            'Lùi thì khi reporting verb ở quá khứ.',
-            'Đổi pronouns/time/place theo góc nhìn người tường thuật.',
-            'Giữ thì nếu nói sự thật chung hoặc điều vẫn đúng.'
+            'Lùi thì khi reporting verb ở quá khứ: present simple → past simple, will → would, can → could, may → might.',
+            'Đổi pronouns/time/place/demonstratives theo góc nhìn người tường thuật.',
+            'Giữ thì nếu nói sự thật chung, chân lý, định nghĩa hoặc điều vẫn đúng.',
+            'Có thể lùi cả present perfect continuous, future continuous, future perfect khi cần.'
         ],
         avoid: [
             'Không giữ trật tự câu hỏi trong reported questions.',
             'Không dùng say someone; dùng tell someone.',
-            'Không lùi thì máy móc với chân lý.'
+            'Không lùi thì máy móc với chân lý, lịch trình cố định hay định nghĩa.',
+            'Không quên đổi here/this/today/yesterday/tomorrow theo mốc tham chiếu phù hợp.'
         ],
         compare: [
             'She said, “I’m tired.” → She said she was tired.',
-            '“Where are you?” → He asked where I was.'
+            '“Where are you?” → He asked where I was.',
+            '“I will have finished it by Friday.” → She said she would have finished it by Friday.',
+            '“I am going to leave now.” → He said he was going to leave then.'
         ]
     },
     'modal-verbs': {
@@ -533,17 +537,22 @@ const grammarUsageDeepDiveData = {
             'Academic/scientific/process writing.',
             'News/reporting khi agent chưa rõ hoặc cần khách quan.',
             'Formal notices/rules: Smoking is prohibited.',
-            'Causative passive-like: have something done.',
-            'Modal passive: must be completed, can be seen.'
+            'Các thì phổ biến ở bị động: present simple, past simple, present continuous, present perfect, future simple.',
+            'Modal passive: must be completed, can be seen.',
+            'Get-passive khi muốn nhấn sự việc xảy ra hoặc kết quả bất ngờ: He got injured.',
+            'Causative passive-like: have something done.'
         ],
         avoid: [
             'Không dùng bị động nếu câu chủ động rõ hơn và agent quan trọng.',
             'Không quên be + V3.',
-            'Không dùng passive với intransitive verbs.'
+            'Không dùng passive với intransitive verbs.',
+            'Không cố ép mọi câu có hai mệnh đề hoặc động từ trạng thái vào bị động.'
         ],
         compare: [
             'They built the bridge = nhấn người xây.',
-            'The bridge was built = nhấn cây cầu/việc hoàn thành.'
+            'The bridge was built = nhấn cây cầu/việc hoàn thành.',
+            'She gave me a book = chủ động tự nhiên; I was given a book = nhấn người nhận.',
+            'He got hurt = get-passive, mang sắc thái tự nhiên/biến cố hơn was hurt.'
         ]
     },
     'gerunds-infinitives': {

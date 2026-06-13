@@ -93,13 +93,14 @@ const grammarStructuresData = {
         level: 'advanced',
         connections: ['subject-verb-agreement', 'relative-clauses', 'past-simple', 'causatives'],
         simple: `
-            <h3>🏭 Bị động dùng khi muốn nhấn vào hành động hoặc kết quả</h3>
-            <p>Thay vì nhấn ai làm, câu bị động nhấn điều gì đã xảy ra.</p>
-            <div class="formula-box">S + be + V3</div>
+            <h3>🏭 Bị động dùng khi muốn nhấn vào điều gì đã xảy ra</h3>
+            <p>Thay vì nhấn ai làm, câu bị động nhấn đối tượng, kết quả hoặc quy trình.</p>
+            <div class="formula-box">object + be + V3 (+ by agent)</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>The report was finished yesterday.</em><br>
-                • <em>English is spoken worldwide.</em>
+                • <em>English is spoken worldwide.</em><br>
+                • <em>The bridge is being repaired.</em>
             </div>
         `,
         detail: `
@@ -114,6 +115,19 @@ const grammarStructuresData = {
                 <tr><td>People make cars in Japan.</td><td>Cars are made in Japan.</td></tr>
                 <tr><td>They built the bridge in 2010.</td><td>The bridge was built in 2010.</td></tr>
                 <tr><td>Someone has stolen my bike.</td><td>My bike has been stolen.</td></tr>
+                <tr><td>They are repairing the road.</td><td>The road is being repaired.</td></tr>
+                <tr><td>They will announce the results tomorrow.</td><td>The results will be announced tomorrow.</td></tr>
+                <tr><td>She can solve the problem.</td><td>The problem can be solved.</td></tr>
+            </table>
+            <h4>Các mẫu phổ biến theo thì</h4>
+            <table>
+                <tr><th>Thì</th><th>Mẫu bị động</th></tr>
+                <tr><td>Present simple</td><td>am/is/are + V3</td></tr>
+                <tr><td>Past simple</td><td>was/were + V3</td></tr>
+                <tr><td>Present continuous</td><td>am/is/are being + V3</td></tr>
+                <tr><td>Present perfect</td><td>have/has been + V3</td></tr>
+                <tr><td>Future simple</td><td>will be + V3</td></tr>
+                <tr><td>Modal verbs</td><td>modal + be + V3</td></tr>
             </table>
         `,
         advanced: `
@@ -122,7 +136,15 @@ const grammarStructuresData = {
                 <li>Khi người làm không quan trọng hoặc không biết: <em>My wallet was stolen.</em></li>
                 <li>Trong văn học thuật, báo cáo và mô tả quy trình, bị động giúp câu khách quan hơn.</li>
                 <li>Không nên lạm dụng, vì quá nhiều bị động làm văn bản nặng và thiếu năng lượng.</li>
-                <li>Các dạng nâng cao gồm <strong>modal passive</strong> và <strong>passive infinitive/gerund</strong>: <em>must be completed</em>, <em>being watched</em>.</li>
+                <li>Các dạng nâng cao gồm <strong>modal passive</strong>, <strong>get-passive</strong> và <strong>passive infinitive/gerund</strong>: <em>must be completed</em>, <em>got injured</em>, <em>being watched</em>.</li>
+                <li>Với hai tân ngữ, có thể chuyển tân ngữ gián tiếp hoặc tân ngữ trực tiếp lên đầu: <em>I was given a letter</em> / <em>A letter was given to me</em>.</li>
+                <li>Với động từ có giới từ cố định, giới từ thường giữ nguyên: <em>They laughed at him → He was laughed at.</em></li>
+            </ul>
+            <h4>Không dùng bị động khi</h4>
+            <ul>
+                <li>Động từ không có tân ngữ trực tiếp: <em>arrive, die, sleep, happen</em>.</li>
+                <li>Người thực hiện hành động rất quan trọng và cần nhấn mạnh.</li>
+                <li>Câu chủ động tự nhiên, ngắn và rõ hơn câu bị động.</li>
             </ul>
             <div class="tip-box">
                 <strong>💡 Mẹo:</strong> Nếu bạn vẫn muốn nêu tác nhân, thêm <em>by + agent</em>. Nếu tác nhân không quan trọng, bỏ hẳn phần đó đi.

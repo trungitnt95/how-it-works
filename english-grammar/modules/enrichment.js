@@ -675,34 +675,6 @@ const grammarPracticeData = {
             'Biết khi nào dùng zero article với plural nouns và uncountable nouns ở nghĩa chung.'
         ]
     },
-    'sequence-of-tenses': {
-        source: 'Bài luyện thêm cho phần phối hợp thì trong reported speech và câu phức.',
-        sections: [
-            {
-                title: 'Chọn thì đúng theo mốc thời gian',
-                instruction: 'Điền hoặc chọn dạng động từ hợp logic trong câu gián tiếp/câu phức.',
-                questions: [
-                    'She said that she ___ tired. (be)',
-                    'The teacher explained that the earth ___ around the sun. (move)',
-                    'I knew that he ___ me when he arrived. (call)',
-                    'They realized that they ___ the wrong train. (take)',
-                    'He said that he ___ on the project since Monday. (work)'
-                ],
-                answers: [
-                    'was',
-                    'moves',
-                    'would call',
-                    'had taken',
-                    'had been working'
-                ]
-            }
-        ],
-        checkpoint: [
-            'Biết phân biệt backshift với ngoại lệ chân lý/sự thật vẫn còn đúng.',
-            'Không dùng would sai trong mệnh đề thời gian chỉ vì mệnh đề chính ở quá khứ.',
-            'Nhìn câu theo mốc thời gian tổng thể thay vì chia từng vế độc lập.'
-        ]
-    },
     'reducing-adverbial-clauses': {
         source: 'Mini practice cho phần reduction trong văn viết học thuật.',
         sections: [
@@ -1191,6 +1163,412 @@ const grammarPracticeData = {
             'Nhận ra timetable khác với plan đã sắp xếp và quyết định tức thì.'
         ]
     },
+    'passive-voice': {
+        source: 'Bài luyện Passive Voice bao phủ be + V3, các thì phổ biến, câu hỏi, phủ định và by-agent.',
+        sections: [
+            {
+                title: 'Nhận diện cấu trúc bị động',
+                instruction: 'Đọc câu ví dụ và xác định kiểu bị động đang dùng.',
+                items: [
+                    {
+                        prompt: '<strong>1. Present simple passive:</strong><br>The cake is made every morning.<br><em>Cái bánh được làm mỗi sáng.</em>',
+                        answer: 'Present simple passive',
+                        explanation: 'Be + V3 ở hiện tại đơn dùng cho hành động lặp lại hoặc sự thật chung.'
+                    },
+                    {
+                        prompt: '<strong>2. Past simple passive:</strong><br>The window was broken last night.<br><em>Cửa sổ đã bị vỡ tối qua.</em>',
+                        answer: 'Past simple passive',
+                        explanation: 'Was/Were + V3 diễn tả việc bị động đã xảy ra và kết thúc trong quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>3. Present continuous passive:</strong><br>The room is being cleaned now.<br><em>Phòng đang được dọn bây giờ.</em>',
+                        answer: 'Present continuous passive',
+                        explanation: 'Be being + V3 dùng khi hành động bị động đang diễn ra ngay lúc nói.'
+                    },
+                    {
+                        prompt: '<strong>4. Present perfect passive:</strong><br>The documents have been sent already.<br><em>Các tài liệu đã được gửi rồi.</em>',
+                        answer: 'Present perfect passive',
+                        explanation: 'Have/has been + V3 nhấn kết quả đã hoàn tất tính đến hiện tại.'
+                    },
+                    {
+                        prompt: '<strong>5. Future passive:</strong><br>The bridge will be repaired tomorrow.<br><em>Cây cầu sẽ được sửa ngày mai.</em>',
+                        answer: 'Future passive',
+                        explanation: 'Will be + V3 là dạng bị động cho sự việc sẽ xảy ra trong tương lai.'
+                    },
+                    {
+                        prompt: '<strong>6. Modal passive:</strong><br>The form should be signed today.<br><em>Mẫu đơn nên được ký hôm nay.</em>',
+                        answer: 'Modal passive',
+                        explanation: 'Modal + be + V3 là khung chuẩn cho bị động sau động từ khuyết thiếu.'
+                    },
+                    {
+                        prompt: '<strong>7. Negative passive:</strong><br>The letters were not delivered.<br><em>Những lá thư đã không được giao.</em>',
+                        answer: 'Negative passive',
+                        explanation: 'Chỉ thêm not sau be, phần V3 giữ nguyên.'
+                    },
+                    {
+                        prompt: '<strong>8. Passive question:</strong><br>Was the bridge built in 1990?<br><em>Cây cầu có được xây vào năm 1990 không?</em>',
+                        answer: 'Passive question',
+                        explanation: 'Đưa be lên đầu câu để tạo câu hỏi yes/no trong thể bị động.'
+                    }
+                ]
+            },
+            {
+                title: 'Chuyển câu chủ động sang bị động',
+                instruction: 'Viết lại câu sao cho tân ngữ của câu chủ động trở thành chủ ngữ ở câu bị động.',
+                items: [
+                    {
+                        prompt: 'The chef bakes the bread every morning.',
+                        answer: 'The bread is baked every morning by the chef.',
+                        explanation: 'Hiện tại đơn chủ động đổi sang is/are + V3; by the chef là tác nhân.'
+                    },
+                    {
+                        prompt: 'They built the bridge in 2010.',
+                        answer: 'The bridge was built in 2010.',
+                        explanation: 'Quá khứ đơn chủ động đổi sang was/were + V3.'
+                    },
+                    {
+                        prompt: 'The company will launch the app next week.',
+                        answer: 'The app will be launched next week.',
+                        explanation: 'Tương lai đơn bị động dùng will be + V3.'
+                    },
+                    {
+                        prompt: 'She has finished the report.',
+                        answer: 'The report has been finished.',
+                        explanation: 'Hiện tại hoàn thành bị động dùng has/have been + V3.'
+                    },
+                    {
+                        prompt: 'The workers are repairing the road.',
+                        answer: 'The road is being repaired.',
+                        explanation: 'Hiện tại tiếp diễn bị động dùng is/are being + V3.'
+                    },
+                    {
+                        prompt: 'People speak English in many countries.',
+                        answer: 'English is spoken in many countries.',
+                        explanation: 'Với câu mang nghĩa chung, chủ ngữ giả people thường bị lược khi đổi sang bị động.'
+                    },
+                    {
+                        prompt: 'The manager gave me a letter.',
+                        answer: 'I was given a letter by the manager.',
+                        explanation: 'Câu có hai tân ngữ có thể đưa tân ngữ gián tiếp lên làm chủ ngữ bị động.'
+                    },
+                    {
+                        prompt: 'They did not send the emails.',
+                        answer: 'The emails were not sent.',
+                        explanation: 'Phủ định bị động đặt not sau be.'
+                    },
+                    {
+                        prompt: 'Someone should clean the classroom.',
+                        answer: 'The classroom should be cleaned.',
+                        explanation: 'Sau modal luôn là modal + be + V3.'
+                    },
+                    {
+                        prompt: 'They are going to announce the results tomorrow.',
+                        answer: 'The results are going to be announced tomorrow.',
+                        explanation: 'Be going to cũng có thể chuyển sang bị động bằng be going to be + V3.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Khung bị động cơ bản là be + V3; mỗi thì sẽ đổi phần be cho đúng thời gian.',
+            'Nhìn xem câu chủ động có object nào để đẩy lên làm chủ ngữ bị động.',
+            'Sau modal dùng modal + be + V3; sau be going to dùng be going to be + V3.'
+        ]
+    },
+    'reported-speech': {
+        source: 'Bài luyện Reported Speech bao phủ lùi thì, modal, câu hỏi/mệnh lệnh, đổi đại từ và các trường hợp không lùi thì.',
+        sections: [
+            {
+                title: 'Lùi thì mở rộng trong câu kể',
+                instruction: 'Đổi từ lời nói trực tiếp sang câu tường thuật phù hợp, bao gồm cả các thì hoàn thành và tương lai.',
+                items: [
+                    {
+                        prompt: '<strong>1.</strong> "I am tired," she said.<br><em>Cô ấy nói: "Tôi mệt."</em>',
+                        answer: 'She said (that) she was tired.',
+                        explanation: 'Am/is/are thường lùi về was/were trong reported speech.'
+                    },
+                    {
+                        prompt: '<strong>2.</strong> "I like coffee," he said.<br><em>Anh ấy nói: "Tôi thích cà phê."</em>',
+                        answer: 'He said (that) he liked coffee.',
+                        explanation: 'Present simple thường lùi sang past simple.'
+                    },
+                    {
+                        prompt: '<strong>3.</strong> "I have finished the work," she said.<br><em>Cô ấy nói: "Tôi đã xong việc."</em>',
+                        answer: 'She said (that) she had finished the work.',
+                        explanation: 'Present perfect thường lùi sang past perfect.'
+                    },
+                    {
+                        prompt: '<strong>4.</strong> "I have been waiting for an hour," she said.<br><em>Cô ấy nói: "Tôi đã đợi được một tiếng rồi."</em>',
+                        answer: 'She said (that) she had been waiting for an hour.',
+                        explanation: 'Present perfect continuous thường lùi sang past perfect continuous.'
+                    },
+                    {
+                        prompt: '<strong>5.</strong> "I will call Anna tomorrow," Tom said.<br><em>Tom nói: "Tôi sẽ gọi Anna vào ngày mai."</em>',
+                        answer: 'Tom said (that) he would call Anna the next day.',
+                        explanation: 'Will đổi thành would; tomorrow đổi thành the next day.'
+                    },
+                    {
+                        prompt: '<strong>6.</strong> "We are studying now," they said.<br><em>Họ nói: "Chúng tôi đang học bây giờ."</em>',
+                        answer: 'They said (that) they were studying then.',
+                        explanation: 'Now đổi thành then; am/is/are + V-ing lùi về was/were + V-ing.'
+                    },
+                    {
+                        prompt: '<strong>7.</strong> "I saw her yesterday," he said.<br><em>Anh ấy nói: "Tôi đã gặp cô ấy hôm qua."</em>',
+                        answer: 'He said (that) he had seen her the day before.',
+                        explanation: 'Yesterday đổi thành the day before; past simple có thể lùi sang past perfect.'
+                    },
+                    {
+                        prompt: '<strong>8.</strong> "The project will be completed next week," she said.<br><em>Cô ấy nói: "Dự án sẽ hoàn thành vào tuần sau."</em>',
+                        answer: 'She said (that) the project would be completed the following week.',
+                        explanation: 'Future passive trong reported speech thường lùi sang would be + V3.'
+                    },
+                    {
+                        prompt: '<strong>9.</strong> "They will be traveling next week," he said.<br><em>Anh ấy nói: "Họ sẽ đang đi du lịch vào tuần tới."</em>',
+                        answer: 'He said (that) they would be traveling the following week.',
+                        explanation: 'Future continuous thường lùi thành would be + V-ing.'
+                    },
+                    {
+                        prompt: '<strong>10.</strong> "She can swim," he said.<br><em>Anh ấy nói: "Cô ấy có thể bơi."</em>',
+                        answer: 'He said (that) she could swim.',
+                        explanation: 'Can thường đổi thành could trong câu tường thuật.'
+                    },
+                    {
+                        prompt: '<strong>11.</strong> "It may rain tonight," they said.<br><em>Họ nói: "Tối nay có thể trời mưa."</em>',
+                        answer: 'They said (that) it might rain that night.',
+                        explanation: 'May thường đổi thành might; tonight đổi thành that night.'
+                    },
+                    {
+                        prompt: '<strong>12.</strong> "You must wear a helmet," the officer said.<br><em>Viên cảnh sát nói: "Bạn phải đội mũ bảo hiểm."</em>',
+                        answer: 'The officer said (that) I had to wear a helmet.',
+                        explanation: 'Must về nghĩa bắt buộc thường đổi thành had to.'
+                    }
+                ]
+            },
+            {
+                title: 'Câu hỏi, mệnh lệnh và lời nhờ',
+                instruction: 'Xử lý yes/no questions, wh-questions, câu yêu cầu và các đại từ/trạng từ thay đổi theo ngữ cảnh.',
+                items: [
+                    {
+                        prompt: '<strong>1.</strong> "Will you help me?" she asked.<br><em>Cô ấy hỏi: "Bạn sẽ giúp tôi chứ?"</em>',
+                        answer: 'She asked if I would help her.',
+                        explanation: 'Câu hỏi yes/no thường dùng if / whether trong câu tường thuật.'
+                    },
+                    {
+                        prompt: '<strong>2.</strong> "Where do you live?" he asked.<br><em>Anh ấy hỏi: "Bạn sống ở đâu?"</em>',
+                        answer: 'He asked where I lived.',
+                        explanation: 'Wh-question giữ từ để hỏi và lùi thì của mệnh đề.'
+                    },
+                    {
+                        prompt: '<strong>3.</strong> "Please open the window," the teacher said.<br><em>Giáo viên nói: "Làm ơn mở cửa sổ."</em>',
+                        answer: 'The teacher told us to open the window.',
+                        explanation: 'Lời yêu cầu thường đổi sang told/asked + object + to V.'
+                    },
+                    {
+                        prompt: '<strong>4.</strong> "Don\'t be late," she said.<br><em>Cô ấy nói: "Đừng đến muộn."</em>',
+                        answer: 'She told me not to be late.',
+                        explanation: 'Câu phủ định mệnh lệnh dùng not to + V.'
+                    },
+                    {
+                        prompt: '<strong>5.</strong> "Can I use your phone?" she asked.<br><em>Cô ấy hỏi: "Tôi có thể dùng điện thoại của bạn không?"</em>',
+                        answer: 'She asked if she could use my phone.',
+                        explanation: 'Can lùi thành could; your đổi theo người nghe / người được nhắc tới.'
+                    },
+                    {
+                        prompt: '<strong>6.</strong> "What time does the train leave?" he asked.<br><em>Anh ấy hỏi: "Mấy giờ tàu chạy?"</em>',
+                        answer: 'He asked what time the train left.',
+                        explanation: 'Wh-question giữ cấu trúc câu tường thuật và đổi mốc thời gian theo ngữ cảnh.'
+                    },
+                    {
+                        prompt: '<strong>7.</strong> "I must finish this today," he said.<br><em>Anh ấy nói: "Tôi phải xong việc này hôm nay."</em>',
+                        answer: 'He said he had to finish that then.',
+                        explanation: 'Must thường đổi thành had to; this/today đổi thành that/then.'
+                    },
+                    {
+                        prompt: '<strong>8.</strong> "Bring me the report tomorrow," she said.<br><em>Cô ấy nói: "Mang cho tôi bản báo cáo vào ngày mai."</em>',
+                        answer: 'She told me to bring her the report the next day.',
+                        explanation: 'Mệnh lệnh khẳng định dùng told + object + to V; tomorrow đổi thành the next day.'
+                    },
+                    {
+                        prompt: '<strong>9.</strong> "Could you pass me the salt?" he asked.<br><em>Anh ấy hỏi: "Bạn có thể đưa tôi lọ muối không?"</em>',
+                        answer: 'He asked me to pass him the salt.',
+                        explanation: 'Câu nhờ vả lịch sự có thể đổi sang asked + object + to V.'
+                    },
+                    {
+                        prompt: '<strong>10.</strong> "I am here now," she said.<br><em>Cô ấy nói: "Tôi đang ở đây bây giờ."</em>',
+                        answer: 'She said she was there then.',
+                        explanation: 'Here đổi thành there; now đổi thành then.'
+                    },
+                    {
+                        prompt: '<strong>11.</strong> "These files are mine," he said.<br><em>Anh ấy nói: "Những tập hồ sơ này là của tôi."</em>',
+                        answer: 'He said those files were his.',
+                        explanation: 'These đổi thành those; mine đổi thành his.'
+                    },
+                    {
+                        prompt: '<strong>12.</strong> "I saw you here yesterday," she said.<br><em>Cô ấy nói: "Tôi đã thấy bạn ở đây hôm qua."</em>',
+                        answer: 'She said she had seen me there the day before.',
+                        explanation: 'Hôm qua và ở đây đều đổi theo góc nhìn mới: yesterday → the day before, here → there.'
+                    }
+                ]
+            },
+            {
+                title: 'Trường hợp không lùi thì',
+                instruction: 'Giữ hoặc xử lý theo ngữ cảnh khi câu nói là chân lý, lịch trình cố định hoặc reporting verb ở hiện tại.',
+                items: [
+                    {
+                        prompt: '<strong>1.</strong> "The earth moves around the sun," the teacher said.<br><em>Cô giáo nói: "Trái đất quay quanh mặt trời."</em>',
+                        answer: 'The teacher said (that) the earth moves around the sun.',
+                        explanation: 'Chân lý khoa học vẫn đúng nên thường không lùi thì.'
+                    },
+                    {
+                        prompt: '<strong>2.</strong> "The train leaves at 8," he said.<br><em>Anh ấy nói: "Tàu rời ga lúc 8 giờ."</em>',
+                        answer: 'He said (that) the train leaves at 8.',
+                        explanation: 'Lịch trình cố định/timetable có thể giữ present simple.'
+                    },
+                    {
+                        prompt: '<strong>3.</strong> "I am a doctor," she said.<br><em>Cô ấy nói: "Tôi là bác sĩ."</em>',
+                        answer: 'She said (that) she is a doctor.',
+                        explanation: 'Nếu nghề nghiệp/trạng thái vẫn còn đúng, câu có thể giữ hiện tại.'
+                    },
+                    {
+                        prompt: '<strong>4.</strong> "Water boils at 100 degrees Celsius," the student said.<br><em>Học sinh nói: "Nước sôi ở 100 độ C."</em>',
+                        answer: 'The student said (that) water boils at 100 degrees Celsius.',
+                        explanation: 'Định nghĩa/sự thật chung không cần lùi thì.'
+                    },
+                    {
+                        prompt: '<strong>5.</strong> "I am busy," she says.<br><em>Cô ấy nói: "Tôi đang bận."</em>',
+                        answer: 'She says she is busy.',
+                        explanation: 'Khi reporting verb ở hiện tại (says), thường không backshift.'
+                    },
+                    {
+                        prompt: '<strong>6.</strong> "I am a teacher," she said.<br><em>Cô ấy nói: "Tôi là giáo viên."</em>',
+                        answer: 'She said (that) she is a teacher.',
+                        explanation: 'Nghề nghiệp/trạng thái hiện tại còn đúng có thể giữ present simple.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Theo dõi bốn lớp thay đổi: thì, đại từ, trạng từ chỉ thời gian/nơi chốn và từ chỉ định.',
+            'Yes/no question thường dùng if hoặc whether; wh-question giữ từ để hỏi.',
+            'Lời yêu cầu / mệnh lệnh thường dùng told/asked + object + to V hoặc not to V.',
+            'Không lùi thì nếu câu là chân lý, định nghĩa, timetable cố định hoặc reporting verb ở hiện tại.'
+        ]
+    },
+    'conditionals': {
+        source: 'Bài luyện Conditionals bao phủ zero, first, second, third và các biến thể thường gặp.',
+        sections: [
+            {
+                title: 'Nhận diện 4 loại câu điều kiện',
+                instruction: 'Đọc câu, xác định loại câu điều kiện và lý do dùng thì đó.',
+                items: [
+                    {
+                        prompt: '<strong>1. Zero conditional:</strong><br>If you heat ice, it melts.<br><em>Nếu bạn làm nóng đá, nó sẽ tan chảy.</em>',
+                        answer: 'Zero conditional',
+                        explanation: 'Cả hai mệnh đề dùng hiện tại đơn để nói quy luật / sự thật chung.'
+                    },
+                    {
+                        prompt: '<strong>2. First conditional:</strong><br>If it rains, we will stay home.<br><em>Nếu trời mưa, chúng tôi sẽ ở nhà.</em>',
+                        answer: 'First conditional',
+                        explanation: 'If + hiện tại đơn, mệnh đề chính dùng will + V để nói khả năng thật ở tương lai.'
+                    },
+                    {
+                        prompt: '<strong>3. Second conditional:</strong><br>If I had more time, I would learn Spanish.<br><em>Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Tây Ban Nha.</em>',
+                        answer: 'Second conditional',
+                        explanation: 'If + quá khứ đơn, would + V để nói giả định hiện tại / tương lai không thật.'
+                    },
+                    {
+                        prompt: '<strong>4. Third conditional:</strong><br>If she had left earlier, she would have caught the train.<br><em>Nếu cô ấy đi sớm hơn, cô ấy đã kịp chuyến tàu.</em>',
+                        answer: 'Third conditional',
+                        explanation: 'If + had + V3, would have + V3 để nói điều trái với quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>5. Mixed conditional:</strong><br>If I had studied harder, I would have a better job now.<br><em>Nếu tôi học chăm hơn, bây giờ tôi đã có công việc tốt hơn.</em>',
+                        answer: 'Mixed conditional',
+                        explanation: 'Điều kiện ở quá khứ nhưng kết quả ở hiện tại.'
+                    },
+                    {
+                        prompt: '<strong>6. Unless:</strong><br>We will not go unless you come with us.<br><em>Chúng tôi sẽ không đi nếu bạn không đi cùng.</em>',
+                        answer: 'Unless = if not',
+                        explanation: 'Unless diễn tả điều kiện phủ định, gần nghĩa với if...not.'
+                    },
+                    {
+                        prompt: '<strong>7. Inversion:</strong><br>Had I known, I would have called you.<br><em>Nếu tôi biết thì tôi đã gọi cho bạn.</em>',
+                        answer: 'Inverted third conditional',
+                        explanation: 'Had I known = if I had known, dùng trong văn viết trang trọng.'
+                    },
+                    {
+                        prompt: '<strong>8. Dạng đảo ngữ với were:</strong><br>Were I you, I would take the job.<br><em>Nếu tôi là bạn, tôi sẽ nhận công việc đó.</em>',
+                        answer: 'Inverted second conditional',
+                        explanation: 'Were I you = if I were you, thường dùng trong văn trang trọng.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Zero: present + present.',
+            'First: present + will.',
+            'Second: past + would.',
+            'Third: had + V3 + would have + V3.',
+            'Unless thường tương đương if not nhưng không thay máy móc mọi trường hợp.'
+        ]
+    },
+    'used-to': {
+        source: 'Bài luyện Used to / Be used to / Get used to để phân biệt thói quen quá khứ và trạng thái quen dần.',
+        sections: [
+            {
+                title: 'Phân biệt 3 cấu trúc chính',
+                instruction: 'Đọc câu, xác định cấu trúc đúng và ý nghĩa của used.',
+                items: [
+                    {
+                        prompt: '<strong>1. Thói quen trong quá khứ:</strong><br>I used to smoke.<br><em>Trước đây tôi từng hút thuốc.</em>',
+                        answer: 'used to + V',
+                        explanation: 'Diễn tả thói quen / trạng thái trong quá khứ nhưng bây giờ không còn.'
+                    },
+                    {
+                        prompt: '<strong>2. Đã quen với việc gì:</strong><br>I am used to getting up early.<br><em>Tôi đã quen dậy sớm.</em>',
+                        answer: 'be used to + V-ing / N',
+                        explanation: 'Be used to nói về trạng thái đã quen, không phải thói quen quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>3. Đang làm quen:</strong><br>She is getting used to the cold weather.<br><em>Cô ấy đang dần quen với thời tiết lạnh.</em>',
+                        answer: 'get used to + V-ing / N',
+                        explanation: 'Get used to nhấn quá trình thích nghi / làm quen dần.'
+                    },
+                    {
+                        prompt: '<strong>4. Phủ định used to:</strong><br>I did not use to like coffee.<br><em>Trước đây tôi không thích cà phê.</em>',
+                        answer: 'did not use to + V',
+                        explanation: 'Khi có did, động từ sau use dùng dạng nguyên mẫu use, không thêm d.'
+                    },
+                    {
+                        prompt: '<strong>5. Câu hỏi used to:</strong><br>Did you use to live here?<br><em>Trước đây bạn có sống ở đây không?</em>',
+                        answer: 'Did + subject + use to + V?',
+                        explanation: 'Dạng hỏi dùng Did và use to, không phải used to sau did.'
+                    },
+                    {
+                        prompt: '<strong>6. Phân biệt với would:</strong><br>Every summer, we would visit Grandma.<br><em>Mỗi mùa hè, chúng tôi thường đến thăm bà.</em>',
+                        answer: 'would = thói quen lặp lại',
+                        explanation: 'Would chỉ dùng cho hành động lặp lại trong quá khứ, không dùng cho trạng thái.'
+                    },
+                    {
+                        prompt: '<strong>7. Không dùng would cho trạng thái:</strong><br>We used to live in Hue.<br><em>Chúng tôi từng sống ở Huế.</em>',
+                        answer: 'used to + state',
+                        explanation: 'Live là trạng thái trong quá khứ, nên dùng used to chứ không dùng would.'
+                    },
+                    {
+                        prompt: '<strong>8. Be used to + danh từ:</strong><br>She is used to the noise.<br><em>Cô ấy đã quen với tiếng ồn.</em>',
+                        answer: 'be used to + N',
+                        explanation: 'Sau be used to có thể là danh từ hoặc V-ing; used là tính từ trong cấu trúc này.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'used to + V = thói quen / trạng thái quá khứ, nay không còn.',
+            'be used to + N/V-ing = đã quen.',
+            'get used to + N/V-ing = đang dần quen.',
+            'Sau did phải dùng use, không dùng used.'
+        ]
+    },
     'present-perfect': {
         source: 'Biên tập từ các bài present perfect và past simple trong sách.',
         sections: [
@@ -1250,6 +1628,31 @@ const grammarPracticeData = {
                     'had finished',
                     'will look',
                     'would capture'
+                ]
+            },
+            {
+                title: 'Phối hợp thì trong reported speech',
+                instruction: 'Chia động từ theo mốc thời gian và quan hệ giữa các mệnh đề.',
+                questions: [
+                    'She said that she (be) tired.',
+                    'The teacher explained that the earth (move) around the sun.',
+                    'I knew that he (call) me when he arrived.',
+                    'They realized that they (take) the wrong train.',
+                    'He said that he (work) on the project since Monday.'
+                ],
+                answers: [
+                    'was',
+                    'moves',
+                    'would call',
+                    'had taken',
+                    'had been working'
+                ],
+                explanations: [
+                    'Mệnh đề tường thuật ở quá khứ nên be thường lùi thành was.',
+                    'Chân lý hiển nhiên không lùi thì, nên dùng present simple.',
+                    'Câu nói về hành động tương lai so với mốc quá khứ nên dùng would.',
+                    'Hành động xảy ra trước một quá khứ khác nên dùng past perfect.',
+                    'Hành động kéo dài trước một mốc quá khứ nên dùng past perfect continuous.'
                 ]
             }
         ],
@@ -1319,12 +1722,95 @@ const grammarPracticeData = {
                     'The writer whose first novel was translated into six languages won the prize.',
                     'The restaurant where we had dinner last night is closing.'
                 ]
+            },
+            {
+                title: 'Chọn đại từ / trạng từ quan hệ đúng',
+                instruction: 'Điền who, whom, whose, which, that, where, when hoặc why khi phù hợp.',
+                items: [
+                    {
+                        prompt: 'The scientist ___ discovered the vaccine is speaking today.',
+                        answer: 'who / that',
+                        explanation: 'Dùng who hoặc that cho người làm chủ ngữ trong mệnh đề quan hệ.'
+                    },
+                    {
+                        prompt: 'The book ___ I bought yesterday is excellent.',
+                        answer: 'which / that',
+                        explanation: 'Dùng which hoặc that cho vật; ở vị trí tân ngữ còn có thể lược bỏ.'
+                    },
+                    {
+                        prompt: 'The woman ___ bag was stolen reported it.',
+                        answer: 'whose',
+                        explanation: 'Whose diễn tả quan hệ sở hữu.'
+                    },
+                    {
+                        prompt: 'The café ___ we met last week is closed.',
+                        answer: 'where',
+                        explanation: 'Where dùng cho địa điểm, tương đương at/in which trong văn trang trọng.'
+                    },
+                    {
+                        prompt: 'Monday was the day ___ we arrived in Hanoi.',
+                        answer: 'when',
+                        explanation: 'When dùng cho thời gian.'
+                    },
+                    {
+                        prompt: 'I do not know the reason ___ he left early.',
+                        answer: 'why',
+                        explanation: 'Why dùng sau reason để chỉ lý do.'
+                    },
+                    {
+                        prompt: 'The house ___ we stayed was small.',
+                        answer: 'where / in which',
+                        explanation: 'Where là cách tự nhiên; in which là dạng trang trọng hơn.'
+                    },
+                    {
+                        prompt: 'My sister, ___ lives in Da Nang, is a nurse.',
+                        answer: 'who',
+                        explanation: 'Mệnh đề không xác định vẫn dùng who/which/whose nhưng không dùng that.'
+                    }
+                ]
+            },
+            {
+                title: 'Lược bỏ và dấu phẩy',
+                instruction: 'Xác định khi nào có thể lược bỏ đại từ quan hệ và khi nào phải dùng dấu phẩy.',
+                items: [
+                    {
+                        prompt: 'The movie (which/that) we watched last night was great.',
+                        answer: 'which/that can be omitted',
+                        explanation: 'Khi đại từ quan hệ làm tân ngữ, nó có thể được lược bỏ.'
+                    },
+                    {
+                        prompt: 'The boy (whom/who/that) I met yesterday is my cousin.',
+                        answer: 'whom/who/that can be omitted',
+                        explanation: 'Đại từ quan hệ làm tân ngữ có thể bỏ trong mệnh đề xác định.'
+                    },
+                    {
+                        prompt: 'The teacher who teaches us math is strict.',
+                        answer: 'who cannot be omitted',
+                        explanation: 'Who ở đây là chủ ngữ của mệnh đề quan hệ nên không thể lược bỏ.'
+                    },
+                    {
+                        prompt: 'My brother, who lives in Hue, is a doctor.',
+                        answer: 'non-defining relative clause',
+                        explanation: 'Mệnh đề không xác định có dấu phẩy và không dùng that.'
+                    },
+                    {
+                        prompt: 'The car whose engine is broken is mine.',
+                        answer: 'whose',
+                        explanation: 'Whose vẫn dùng bình thường dù là defining clause.'
+                    },
+                    {
+                        prompt: 'The place where we first met was a café.',
+                        answer: 'where',
+                        explanation: 'Where thay cho at / in / on which trong nhiều ngữ cảnh địa điểm.'
+                    }
+                ]
             }
         ],
         checkpoint: [
             'Phân biệt được defining và non-defining relative clauses.',
             'Biết khi nào có thể lược bỏ who/which/that làm tân ngữ.',
-            'Chọn đúng who/which/that/whose/where theo chức năng trong clause.'
+            'Chọn đúng who/which/that/whose/where/when/why theo chức năng trong clause.',
+            'Non-defining clauses có dấu phẩy và không dùng that.'
         ]
     },
     'relative-pronouns-adverbs': {

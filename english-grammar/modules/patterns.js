@@ -284,36 +284,55 @@ const grammarPatternsData = {
                 • Reported: <em>She said that she was tired.</em>
             </div>
             <ul>
-                <li>Thường đổi đại từ theo người nói/người nghe</li>
-                <li>Thường lùi thì khi động từ tường thuật ở quá khứ</li>
+                <li>Thường đổi đại từ, trạng từ chỉ thời gian và nơi chốn theo góc nhìn người tường thuật.</li>
+                <li>Thường lùi thì khi reporting verb ở quá khứ, nhưng không phải mọi trường hợp đều lùi.</li>
             </ul>
         `,
         detail: `
             <h3>📚 Các quy tắc đổi cơ bản</h3>
             <table>
-                <tr><th>Direct</th><th>Reported</th></tr>
-                <tr><td>present simple</td><td>past simple</td></tr>
-                <tr><td>present continuous</td><td>past continuous</td></tr>
-                <tr><td>present perfect</td><td>past perfect</td></tr>
-                <tr><td>will</td><td>would</td></tr>
-                <tr><td>can</td><td>could</td></tr>
+                <tr><th>Direct</th><th>Reported</th><th>Ghi chú</th></tr>
+                <tr><td>present simple</td><td>past simple</td><td>Thường lùi một bậc khi reporting verb ở quá khứ.</td></tr>
+                <tr><td>present continuous</td><td>past continuous</td><td>Dùng khi hành động đang diễn ra tại thời điểm nói.</td></tr>
+                <tr><td>present perfect</td><td>past perfect</td><td>Nhấn việc đã hoàn tất trước mốc tường thuật.</td></tr>
+                <tr><td>present perfect continuous</td><td>past perfect continuous</td><td>Nhấn quá trình kéo dài trước mốc tường thuật.</td></tr>
+                <tr><td>past continuous</td><td>past continuous / past perfect continuous</td><td>Tùy ngữ cảnh có thể giữ nguyên hoặc lùi để rõ quan hệ thời gian.</td></tr>
+                <tr><td>past simple</td><td>past perfect</td><td>Dùng khi cần làm rõ hành động xảy ra trước một mốc quá khứ khác.</td></tr>
+                <tr><td>future simple (will)</td><td>would</td><td>Cả future simple lẫn future-in-the-past đều thường đổi về would.</td></tr>
+                <tr><td>future continuous (will be V-ing)</td><td>would be V-ing</td><td>Giữ ý đang diễn ra trong tương lai nhìn từ quá khứ.</td></tr>
+                <tr><td>future perfect (will have V3)</td><td>would have V3</td><td>Diễn tả việc hoàn tất trước một mốc nhìn từ quá khứ.</td></tr>
+                <tr><td>can</td><td>could</td><td>Khả năng / cho phép thường lùi thành could.</td></tr>
+                <tr><td>may</td><td>might</td><td>Mức độ khả năng thường yếu đi một bậc.</td></tr>
+                <tr><td>shall</td><td>should</td><td>Thường gặp trong lời đề nghị / dự đoán.</td></tr>
+                <tr><td>must</td><td>had to / must</td><td>Obligation thường lùi thành had to; deduction đôi khi giữ must.</td></tr>
+                <tr><td>am/is/are going to</td><td>was/were going to</td><td>Kế hoạch / dự định cũng có thể lùi.</td></tr>
             </table>
             <h4>Các thay đổi khác</h4>
             <ul>
-                <li><strong>now → then</strong>, <strong>today → that day</strong>, <strong>tomorrow → the next day</strong></li>
+                <li><strong>now → then</strong>, <strong>today → that day</strong>, <strong>tomorrow → the next day</strong>, <strong>yesterday → the day before</strong></li>
+                <li><strong>here → there</strong>, <strong>this/these → that/those</strong>, <strong>ago → before/earlier</strong>, <strong>last week → the week before</strong></li>
                 <li>Câu hỏi yes/no dùng <strong>if / whether</strong></li>
                 <li>Mệnh lệnh dùng <strong>tell/ask + object + to V</strong></li>
+                <li>Say + clause thường đổi thành <strong>say (that)</strong>; tell cần tân ngữ: <strong>tell someone (that)</strong></li>
             </ul>
         `,
         advanced: `
             <h3>🎯 Khi nào không cần lùi thì</h3>
             <ul>
-                <li>Nếu phát biểu vẫn luôn đúng hoặc còn đúng ở hiện tại: <em>The teacher said that the Earth revolves around the Sun.</em></li>
-                <li>Trong văn nói hiện đại, một số trường hợp không lùi thì để giữ tính gần gũi, nhưng trong bài thi chuẩn nên tuân quy tắc.</li>
-                <li>Nên theo dõi đồng thời 3 thứ: thì, đại từ và thời gian tham chiếu.</li>
+                <li>Nếu phát biểu là chân lý, định nghĩa, quy luật khoa học hoặc sự thật vẫn còn đúng: <em>The teacher said that the Earth revolves around the Sun.</em></li>
+                <li>Nếu reporting verb ở hiện tại, hiện tại hoàn thành hoặc tương lai, thường không cần backshift: <em>She says she is tired.</em></li>
+                <li>Nếu ngữ cảnh vẫn giữ nguyên tính xác thực, một số lịch trình hoặc thông báo cố định có thể không lùi thì.</li>
+                <li>Trong lời tường thuật chuẩn, hãy xử lý theo 4 lớp: reporting verb, verb tense, pronouns, time/place words.</li>
+            </ul>
+            <h4>Những mẫu hay gặp trong bài thi</h4>
+            <ul>
+                <li><strong>Statements:</strong> He said (that) he was busy.</li>
+                <li><strong>Questions:</strong> She asked where I was.</li>
+                <li><strong>Requests:</strong> He told me to sit down.</li>
+                <li><strong>Offers/Promises:</strong> She offered to help; he promised that he would call.</li>
             </ul>
             <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Khi chuyển sang câu gián tiếp, hãy sửa theo thứ tự: người nói, thời điểm, rồi mới tới thì.
+                <strong>💡 Mẹo:</strong> Khi chuyển sang câu gián tiếp, hãy sửa theo thứ tự: nghĩa câu, đại từ, mốc thời gian/nơi chốn, rồi mới tới thì.
             </div>
         `
     },
