@@ -914,21 +914,52 @@
                 <h3>🧪 Bài tập nhanh</h3>
                 <p>${practice.source || 'Bài luyện ngắn để khóa lại điểm ngữ pháp vừa học.'}</p>
             </div>
-            ${practice.sections.map(section => `
-                <section class="practice-block">
-                    <h4>${section.title}</h4>
-                    ${section.instruction ? `<p class="practice-instruction">${section.instruction}</p>` : ''}
-                    <ol class="practice-list">
-                        ${section.questions.map(question => `<li>${question}</li>`).join('')}
-                    </ol>
-                    <details class="practice-answer">
-                        <summary>Xem đáp án</summary>
-                        <ol class="practice-answer-list">
-                            ${section.answers.map(answer => `<li>${answer}</li>`).join('')}
+            ${practice.sections.map(section => {
+                if (Array.isArray(section.items)) {
+                    return `
+                        <section class="practice-block">
+                            <h4>${section.title}</h4>
+                            ${section.instruction ? `<p class="practice-instruction">${section.instruction}</p>` : ''}
+                            <div class="practice-items">
+                                ${section.items.map((item, index) => `
+                                    <article class="practice-item">
+                                        <div class="practice-item-question"><strong>${index + 1}.</strong> ${item.prompt || item.question || ''}</div>
+                                        <div class="practice-item-answer"><strong>Đáp án:</strong> ${item.answer || ''}</div>
+                                        ${item.explanation ? `<div class="practice-item-explanation"><strong>Giải thích:</strong> ${item.explanation}</div>` : ''}
+                                    </article>
+                                `).join('')}
+                            </div>
+                        </section>
+                    `;
+                }
+
+                return `
+                    <section class="practice-block">
+                        <h4>${section.title}</h4>
+                        ${section.instruction ? `<p class="practice-instruction">${section.instruction}</p>` : ''}
+                        <ol class="practice-list">
+                            ${section.questions.map(question => `<li>${question}</li>`).join('')}
                         </ol>
-                    </details>
-                </section>
-            `).join('')}
+                        <details class="practice-answer">
+                            <summary>Xem đáp án</summary>
+                            ${Array.isArray(section.explanations) && section.explanations.length ? `
+                            <ol class="practice-answer-list">
+                                ${section.answers.map((answer, index) => `
+                                    <li>
+                                        <div><strong>Đáp án:</strong> ${answer}</div>
+                                        ${section.explanations[index] ? `<div class="practice-item-explanation"><strong>Giải thích:</strong> ${section.explanations[index]}</div>` : ''}
+                                    </li>
+                                `).join('')}
+                            </ol>
+                            ` : `
+                            <ol class="practice-answer-list">
+                                ${section.answers.map(answer => `<li>${answer}</li>`).join('')}
+                            </ol>
+                            `}
+                        </details>
+                    </section>
+                `;
+            }).join('')}
             ${Array.isArray(practice.checkpoint) && practice.checkpoint.length ? `
                 <section class="practice-block checkpoint-block">
                     <h4>✅ Checkpoint</h4>

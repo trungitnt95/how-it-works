@@ -433,6 +433,180 @@ const grammarSupplementsData = {
 };
 
 const grammarPracticeData = {
+    'present-simple': {
+        source: '18 cách dùng hiện tại đơn theo các trường hợp thường gặp nhất trong bài học.',
+        sections: [
+            {
+                title: 'Nhận diện nhanh 18 trường hợp',
+                instruction: 'Đọc ví dụ bên dưới và ghép với chức năng dùng hiện tại đơn tương ứng.',
+                questions: [
+                    '<strong>1. Sự thật hiển nhiên:</strong><br>The sun rises in the east.<br><em>Mặt trời mọc ở phía đông.</em>',
+                    '<strong>2. Thói quen:</strong><br>I drink coffee every morning.<br><em>Tôi uống cà phê mỗi sáng.</em>',
+                    '<strong>3. Lịch trình, sự kiện cố định:</strong><br>The train leaves at 8 o’clock.<br><em>Tàu rời đi lúc 8 giờ.</em>',
+                    '<strong>4. Sự kiện hoàn tất / chân lý khoa học:</strong><br>Water boils at 100 degrees Celsius.<br><em>Nước sôi ở 100 độ C.</em>',
+                    '<strong>5. Mô tả trạng thái:</strong><br>She likes chocolate.<br><em>Cô ấy thích socola.</em>',
+                    '<strong>6. Ý kiến, cảm xúc:</strong><br>I think this movie is interesting.<br><em>Tôi nghĩ bộ phim này thú vị.</em>',
+                    '<strong>7. Câu điều kiện loại 0:</strong><br>If you heat ice, it melts.<br><em>Nếu bạn làm nóng đá, nó sẽ tan chảy.</em>',
+                    '<strong>8. Hành động lặp lại với tần suất:</strong><br>He usually goes to school by bike.<br><em>Anh ấy thường đi học bằng xe đạp.</em>',
+                    '<strong>9. Hướng dẫn / chỉ dẫn:</strong><br>You add sugar, then stir well.<br><em>Bạn thêm đường, rồi khuấy đều.</em>',
+                    '<strong>10. Miêu tả sự việc theo từng bước:</strong><br>First, you mix the flour with water.<br><em>Đầu tiên, bạn trộn bột với nước.</em>',
+                    '<strong>11. Miêu tả tóm tắt sự việc, truyện, phim:</strong><br>In this movie, the hero saves the city.<br><em>Trong bộ phim này, người hùng cứu thành phố.</em>',
+                    '<strong>12. Miêu tả đặc điểm, ngoại hình:</strong><br>She has long black hair.<br><em>Cô ấy có mái tóc dài màu đen.</em>',
+                    '<strong>13. Miêu tả tính cách:</strong><br>He is very kind and helpful.<br><em>Anh ấy rất tử tế và hay giúp đỡ.</em>',
+                    '<strong>14. Báo cáo khoa học / mẫu thí nghiệm:</strong><br>This solution changes color when you add acid.<br><em>Dung dịch này đổi màu khi thêm axit.</em>',
+                    '<strong>15. Động từ trạng thái / sở hữu:</strong><br>He owns a bookstore.<br><em>Anh ấy sở hữu một tiệm sách.</em>',
+                    '<strong>16. Sự kiện tương lai gần theo lịch trình cố định:</strong><br>The flight departs at 7 am tomorrow.<br><em>Chuyến bay khởi hành lúc 7 giờ sáng ngày mai.</em>',
+                    '<strong>17. Tường thuật trong thể thao / truyền hình trực tiếp:</strong><br>He shoots, he scores!<br><em>Anh ấy sút bóng, ghi bàn!</em>',
+                    '<strong>18. Lời nhận xét / đánh giá:</strong><br>This tastes delicious!<br><em>Món này ngon quá!</em>'
+                ],
+                answers: [
+                    'Sự thật hiển nhiên',
+                    'Thói quen',
+                    'Lịch trình, sự kiện cố định',
+                    'Sự kiện hoàn tất / chân lý khoa học',
+                    'Mô tả trạng thái',
+                    'Ý kiến, cảm xúc',
+                    'Câu điều kiện loại 0',
+                    'Hành động lặp lại với tần suất',
+                    'Hướng dẫn / chỉ dẫn',
+                    'Miêu tả sự việc theo từng bước',
+                    'Miêu tả tóm tắt sự việc, truyện, phim',
+                    'Miêu tả đặc điểm, ngoại hình',
+                    'Miêu tả tính cách',
+                    'Báo cáo khoa học / mẫu thí nghiệm',
+                    'Động từ trạng thái / sở hữu',
+                    'Sự kiện tương lai gần theo lịch trình cố định',
+                    'Tường thuật trong thể thao / truyền hình trực tiếp',
+                    'Lời nhận xét / đánh giá'
+                ],
+                explanations: [
+                    'The sun rises in the east là chân lý chung, nên dùng present simple.',
+                    'Every morning là tín hiệu của thói quen lặp lại.',
+                    'Lịch tàu cố định thường dùng present simple thay vì will.',
+                    'Đây là sự thật khoa học mang tính lặp lại.',
+                    'Like là động từ trạng thái, diễn tả cảm xúc hoặc sở thích ổn định.',
+                    'Think ở đây là ý kiến hiện tại của người nói.',
+                    'Zero conditional dùng present simple ở cả hai mệnh đề để nói quy luật chung.',
+                    'Usually cho biết hành động diễn ra lặp lại đều đặn.',
+                    'You add sugar, then stir well là kiểu chỉ dẫn từng bước.',
+                    'First cho thấy đây là một quy trình, không phải hành động đơn lẻ.',
+                    'Khi tóm tắt nội dung phim/truyện, present simple tạo cảm giác thuật lại.',
+                    'Has long black hair mô tả đặc điểm cơ thể, không phải hành động.',
+                    'Be + adjective dùng để mô tả tính cách hoặc trạng thái.',
+                    'Mô tả hiện tượng khoa học lặp lại theo điều kiện.',
+                    'Own diễn tả trạng thái sở hữu ổn định.',
+                    'Lịch bay đã cố định nên present simple được dùng cho tương lai.',
+                    'Bình luận thể thao trực tiếp thường dùng present simple để tăng nhịp kể.',
+                    'Taste ở đây là linking verb, nối chủ ngữ với tính từ delicious.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Nhìn từ dấu hiệu ngữ cảnh để nhận ra hiện tại đơn, không chỉ nhìn vào thời gian hiện tại.',
+            'Nhớ thêm -s/-es với ngôi thứ ba số ít trong câu khẳng định.',
+            'Phân biệt hiện tại đơn với hiện tại tiếp diễn khi câu nói về thói quen, lịch trình hoặc sự thật.'
+        ]
+    },
+    'future-perfect': {
+        source: '10 ví dụ tiêu biểu cho future perfect với mốc tương lai và sự hoàn tất.',
+        sections: [
+            {
+                title: 'Nhận diện future perfect',
+                instruction: 'Đọc ví dụ bên dưới và xác định đây là thì future perfect: will have + V3.',
+                questions: [
+                    '<strong>1. Thời điểm cụ thể trong tương lai:</strong><br>I will have finished my homework by 8 p.m.<br><em>Tôi sẽ hoàn thành bài tập về nhà trước 8 giờ tối.</em>',
+                    '<strong>2. Trước khi sự kiện khác xảy ra:</strong><br>She will have left before you arrive.<br><em>Cô ấy sẽ rời đi trước khi bạn đến.</em>',
+                    '<strong>3. Đến một mốc, đạt được thành tích:</strong><br>By next year, they will have graduated from university.<br><em>Đến năm sau, họ sẽ tốt nghiệp đại học.</em>',
+                    '<strong>4. Tích lũy kết quả trong quá khứ đến tương lai:</strong><br>By the end of this month, I will have saved enough money.<br><em>Đến cuối tháng này, tôi sẽ tiết kiệm đủ tiền.</em>',
+                    '<strong>5. Hoàn thành số lượng / mục tiêu:</strong><br>By 2025, scientists will have discovered hundreds of new planets.<br><em>Đến năm 2025, các nhà khoa học sẽ phát hiện hàng trăm hành tinh mới.</em>',
+                    '<strong>6. Kết thúc hành trình / trải nghiệm:</strong><br>We will have visited all the museums in the city by tomorrow.<br><em>Chúng tôi sẽ thăm tất cả các bảo tàng trong thành phố trước ngày mai.</em>',
+                    '<strong>7. Dùng trong báo cáo, dự đoán kế hoạch:</strong><br>He will have completed the project by the deadline.<br><em>Anh ấy sẽ hoàn thành dự án trước hạn cuối.</em>',
+                    '<strong>8. Miêu tả trong phong cách kể chuyện:</strong><br>By the time she gets home, the dinner will have been prepared.<br><em>Tới khi cô ấy về nhà, bữa tối sẽ được chuẩn bị xong.</em>',
+                    '<strong>9. Ước lượng số lần / kinh nghiệm:</strong><br>By the end of the week, you will have asked me this question five times.<br><em>Đến cuối tuần, bạn sẽ hỏi tôi câu này năm lần rồi.</em>',
+                    '<strong>10. Hành động nối tiếp trước một thời điểm:</strong><br>When you arrive, I will have finished my meeting.<br><em>Khi bạn đến, tôi sẽ kết thúc cuộc họp rồi.</em>'
+                ],
+                answers: [
+                    'I will have finished my homework by 8 p.m.',
+                    'She will have left before you arrive.',
+                    'By next year, they will have graduated from university.',
+                    'By the end of this month, I will have saved enough money.',
+                    'By 2025, scientists will have discovered hundreds of new planets.',
+                    'We will have visited all the museums in the city by tomorrow.',
+                    'He will have completed the project by the deadline.',
+                    'By the time she gets home, the dinner will have been prepared.',
+                    'By the end of the week, you will have asked me this question five times.',
+                    'When you arrive, I will have finished my meeting.'
+                ],
+                explanations: [
+                    'By 8 p.m. là mốc hoàn tất trong tương lai, nên dùng will have + V3.',
+                    'Before you arrive cho biết việc rời đi xảy ra trước một hành động khác.',
+                    'By next year là mốc tương lai, nhấn việc tốt nghiệp đã xong trước lúc đó.',
+                    'Câu này nhấn kết quả tích lũy tiền đến cuối tháng.',
+                    'By 2025 đặt giới hạn thời gian cho việc phát hiện hành tinh.',
+                    'We will have visited... cho thấy hành trình sẽ hoàn tất trước tomorrow.',
+                    'By the deadline là ngữ cảnh rất điển hình của future perfect.',
+                    'By the time she gets home đặt mốc để so sánh với sự hoàn tất trước đó.',
+                    'Đây là cách ước lượng số lần lặp lại tính đến một mốc tương lai.',
+                    'When you arrive là mốc sau, nên việc họp xong phải xảy ra trước.'
+                ]
+            },
+            {
+                title: 'Dạng phủ định',
+                instruction: 'Chuyển các câu sang dạng phủ định với will not have + V3.',
+                questions: [
+                    'I will have finished my homework by 8 p.m.',
+                    'She will have left before you arrive.',
+                    'They will have graduated from university by next year.',
+                    'We will have visited all the museums in the city by tomorrow.',
+                    'He will have completed the project by the deadline.'
+                ],
+                answers: [
+                    'I won’t have finished my homework by 8 p.m.',
+                    'She won’t have left before you arrive.',
+                    'They won’t have graduated from university by next year.',
+                    'We won’t have visited all the museums in the city by tomorrow.',
+                    'He won’t have completed the project by the deadline.'
+                ],
+                explanations: [
+                    'Thêm won’t trước have và giữ V3 sau have.',
+                    'Phủ định giữ nguyên mốc before you arrive nhưng đổi ý nghĩa sang chưa hoàn tất.',
+                    'Cấu trúc phủ định future perfect vẫn là won’t have + V3.',
+                    'Won’t have visited diễn tả việc chưa kịp hoàn tất trước mốc tomorrow.',
+                    'Câu phủ định dùng để nói dự án chưa xong trước deadline.'
+                ]
+            },
+            {
+                title: 'Dạng nghi vấn',
+                instruction: 'Đổi các câu sau sang dạng câu hỏi với Will + subject + have + V3?',
+                questions: [
+                    'I will have finished my homework by 8 p.m.',
+                    'She will have left before you arrive.',
+                    'They will have graduated from university by next year.',
+                    'We will have visited all the museums in the city by tomorrow.',
+                    'He will have completed the project by the deadline.'
+                ],
+                answers: [
+                    'Will you have finished your homework by 8 p.m.?',
+                    'Will she have left before you arrive?',
+                    'Will they have graduated from university by next year?',
+                    'Will we have visited all the museums in the city by tomorrow?',
+                    'Will he have completed the project by the deadline?'
+                ],
+                explanations: [
+                    'Đưa Will lên đầu câu để tạo câu hỏi yes/no.',
+                    'Câu hỏi vẫn giữ before you arrive vì đó là mốc so sánh.',
+                    'Mẫu hỏi chuẩn là Will + subject + have + V3?',
+                    'Câu hỏi hỏi về khả năng hoàn tất trước mốc tomorrow.',
+                    'Dạng hỏi này dùng khi muốn kiểm tra việc hoàn thành trước deadline.'
+                ]
+            }
+        ],
+        checkpoint: [
+            'Dùng will have + V3 khi muốn nhấn việc sẽ hoàn tất trước một mốc tương lai.',
+            'Các dấu hiệu rất hay gặp là by, before, by the time, when và by the end of...',
+            'Không dùng future perfect nếu câu chỉ nói một hành động tương lai đơn giản mà không có mốc hoàn tất.'
+        ]
+    },
     'verbs-overview': {
         source: 'Tổng hợp theo phần VERBS trong sách Mai Lan Hương.',
         sections: [
@@ -998,6 +1172,16 @@ const grammarPracticeData = {
                     'am taking',
                     'begins',
                     'will enjoy'
+                ],
+                explanations: [
+                    'Black clouds là dấu hiệu rõ ràng, nên dùng be going to để nói dự đoán có căn cứ.',
+                    'Đã hẹn gặp vào 9 a.m. tomorrow, nên present continuous rất tự nhiên cho lịch đã xếp.',
+                    'Train schedule là timetable cố định, nên present simple.',
+                    'Forgot my notebook là quyết định tức thì, nên dùng will.',
+                    'Already booked cho thấy kế hoạch đã có trước, nên be going to.',
+                    'At 8 tonight là một lịch đã chốt, nên present continuous.',
+                    'The conference begin on Monday là lịch cố định, nên present simple.',
+                    'I am sure... là dự đoán / niềm tin, nên will.'
                 ]
             }
         ],
@@ -1209,6 +1393,375 @@ const grammarPracticeData = {
             'Phân biệt được so + adj/adv với such + noun phrase.',
             'Biết enough đứng sau adjective/adverb nhưng trước noun.',
             'Nhận ra các câu too...to có thể đổi sang not...enough to hoặc so...that...not.'
+        ]
+    },
+    'present-continuous': {
+        source: 'Bài luyện tổng hợp Present Continuous: đang xảy ra, tạm thời, thay đổi và kế hoạch gần.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của present continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Đang xảy ra lúc nói:</strong><br>I am reading now.<br><em>Tôi đang đọc sách lúc này.</em>',
+                        answer: 'Hành động đang diễn ra',
+                        explanation: 'now và am + V-ing cho thấy hành động xảy ra ngay thời điểm nói.'
+                    },
+                    {
+                        prompt: '<strong>2. Tình huống tạm thời:</strong><br>She is living with her aunt this month.<br><em>Tháng này cô ấy đang ở với dì của mình.</em>',
+                        answer: 'Tình huống tạm thời',
+                        explanation: 'this month cho biết trạng thái chỉ kéo dài tạm thời, không phải sự thật lâu dài.'
+                    },
+                    {
+                        prompt: '<strong>3. Xu hướng thay đổi:</strong><br>The price is rising fast.<br><em>Giá đang tăng nhanh.</em>',
+                        answer: 'Sự thay đổi dần',
+                        explanation: 'is rising diễn tả một quá trình thay đổi đang diễn ra.'
+                    },
+                    {
+                        prompt: '<strong>4. Hành động lặp lại gây khó chịu:</strong><br>He is always losing his keys.<br><em>Anh ấy lúc nào cũng làm mất chìa khóa.</em>',
+                        answer: 'Phàn nàn về việc lặp lại',
+                        explanation: 'always + present continuous thường dùng để than phiền về thói quen gây bực.'
+                    },
+                    {
+                        prompt: '<strong>5. Kế hoạch gần đã sắp xếp:</strong><br>We are meeting the client tomorrow.<br><em>Ngày mai chúng tôi sẽ gặp khách hàng.</em>',
+                        answer: 'Kế hoạch gần',
+                        explanation: 'Cấu trúc am/is/are + V-ing có thể nói lịch hẹn đã chốt trong tương lai gần.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Present continuous thường đi với now, right now, at the moment, this week, tomorrow.',
+            'Không dùng cho mọi ý tương lai; chỉ dùng khi có kế hoạch hoặc sắp xếp rõ.',
+            'Động từ trạng thái thường không dùng ở dạng tiếp diễn trừ khi đổi nghĩa.'
+        ]
+    },
+    'past-simple': {
+        source: 'Bài luyện Past Simple: sự việc đã hoàn tất, thói quen quá khứ và trình tự kể chuyện.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của past simple và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Việc đã kết thúc:</strong><br>I visited Da Nang last summer.<br><em>Tôi đã đi Đà Nẵng vào mùa hè năm ngoái.</em>',
+                        answer: 'Hành động đã hoàn tất trong quá khứ',
+                        explanation: 'last summer là mốc thời gian đã đóng nên dùng past simple.'
+                    },
+                    {
+                        prompt: '<strong>2. Thói quen trong quá khứ:</strong><br>When I was a child, I played outside every day.<br><em>Khi còn nhỏ, tôi chơi ngoài trời mỗi ngày.</em>',
+                        answer: 'Thói quen quá khứ',
+                        explanation: 'every day + bối cảnh quá khứ cho thấy hành động lặp lại trong quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>3. Trình tự hành động:</strong><br>She opened the door, walked in, and sat down.<br><em>Cô ấy mở cửa, đi vào rồi ngồi xuống.</em>',
+                        answer: 'Chuỗi hành động nối tiếp',
+                        explanation: 'Past simple rất hợp để kể các sự việc nối nhau theo trình tự.'
+                    },
+                    {
+                        prompt: '<strong>4. Sự kiện lịch sử:</strong><br>The Titanic sank in 1912.<br><em>Con tàu Titanic chìm vào năm 1912.</em>',
+                        answer: 'Sự kiện lịch sử / факт quá khứ',
+                        explanation: '1912 là mốc quá khứ đã kết thúc, nên cần past simple.'
+                    },
+                    {
+                        prompt: '<strong>5. Mốc thời gian rõ ràng:</strong><br>He finished the report at 5 p.m.<br><em>Anh ấy hoàn thành báo cáo lúc 5 giờ chiều.</em>',
+                        answer: 'Hành động hoàn tất tại mốc quá khứ',
+                        explanation: 'at 5 p.m. xác định chính xác thời điểm xảy ra trong quá khứ.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Past simple dùng cho việc đã xong, mốc thời gian đã đóng hoặc kể chuyện quá khứ.',
+            'Sau did / did not, động từ quay về nguyên mẫu.',
+            'Nếu muốn nói hành động đang diễn ra trong quá khứ, dùng past continuous thay vì past simple.'
+        ]
+    },
+    'past-continuous': {
+        source: 'Bài luyện Past Continuous: hành động đang diễn ra, bối cảnh và hành động chen vào.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của past continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Đang diễn ra tại một thời điểm:</strong><br>I was studying at 9 p.m. yesterday.<br><em>Tối qua lúc 9 giờ, tôi đang học bài.</em>',
+                        answer: 'Hành động đang diễn ra trong quá khứ',
+                        explanation: 'at 9 p.m. yesterday là một thời điểm cụ thể trong quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>2. Hành động bị chen vào:</strong><br>She was cooking when I arrived.<br><em>Cô ấy đang nấu ăn thì tôi đến.</em>',
+                        answer: 'Bối cảnh + hành động chen vào',
+                        explanation: 'was cooking tạo nền, còn when I arrived là hành động ngắn chen vào.'
+                    },
+                    {
+                        prompt: '<strong>3. Hai hành động song song:</strong><br>While they were watching TV, I was finishing my homework.<br><em>Trong lúc họ xem TV, tôi đang làm xong bài tập.</em>',
+                        answer: 'Hai hành động song song',
+                        explanation: 'while thường đi với hai hành động kéo dài xảy ra cùng lúc.'
+                    },
+                    {
+                        prompt: '<strong>4. Tình huống tạm thời trong quá khứ:</strong><br>He was living in Hanoi at that time.<br><em>Lúc đó anh ấy đang sống ở Hà Nội.</em>',
+                        answer: 'Tình huống tạm thời',
+                        explanation: 'at that time cho thấy đây là trạng thái tạm thời ở quá khứ.'
+                    },
+                    {
+                        prompt: '<strong>5. Thói quen gây khó chịu trong quá khứ:</strong><br>The baby was always crying at night.<br><em>Đứa bé lúc nào cũng khóc vào ban đêm.</em>',
+                        answer: 'Thói quen gây phiền trong quá khứ',
+                        explanation: 'always + past continuous dùng để nhấn sự lặp lại gây bực.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Past continuous thường đi với when, while, at that time, all night, yesterday at...',
+            'Dùng để tạo bối cảnh quá khứ hoặc mô tả hành động đang diễn ra.',
+            'Nếu chỉ kể một hành động đã xong, dùng past simple sẽ tự nhiên hơn.'
+        ]
+    },
+    'present-perfect-continuous': {
+        source: 'Bài luyện Present Perfect Continuous: nhấn quá trình, thời lượng và dấu hiệu còn liên quan tới hiện tại.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của present perfect continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Nhấn thời lượng:</strong><br>I have been studying for three hours.<br><em>Tôi đã học suốt ba tiếng.</em>',
+                        answer: 'Nhấn thời lượng của hành động',
+                        explanation: 'for three hours cho thấy trọng tâm là hành động kéo dài bao lâu.'
+                    },
+                    {
+                        prompt: '<strong>2. Kết quả hiện tại từ quá trình:</strong><br>She is tired because she has been working all day.<br><em>Cô ấy mệt vì đã làm việc cả ngày.</em>',
+                        answer: 'Quá trình tạo ra kết quả hiện tại',
+                        explanation: 'has been working giải thích nguyên nhân của trạng thái hiện tại là tired.'
+                    },
+                    {
+                        prompt: '<strong>3. Hành động còn tiếp diễn đến hiện tại:</strong><br>It has been raining since morning.<br><em>Trời đã mưa từ sáng đến giờ.</em>',
+                        answer: 'Hành động kéo dài đến hiện tại',
+                        explanation: 'since morning cho thấy hành động bắt đầu ở quá khứ và còn kéo dài.'
+                    },
+                    {
+                        prompt: '<strong>4. Chú ý vào quá trình:</strong><br>We have been waiting for you.<br><em>Chúng tôi đã chờ bạn.</em>',
+                        answer: 'Nhấn vào quá trình chờ',
+                        explanation: 'Câu này không nhấn kết quả mà nhấn việc chờ đã diễn ra trong một khoảng thời gian.'
+                    },
+                    {
+                        prompt: '<strong>5. Dấu hiệu qua kết quả hiện tại:</strong><br>He has been running, so he is out of breath.<br><em>Anh ấy vừa chạy nên đang thở dốc.</em>',
+                        answer: 'Hành động vừa diễn ra để lại dấu hiệu hiện tại',
+                        explanation: 'Trạng thái out of breath cho thấy dấu vết của một quá trình vừa kéo dài.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Present perfect continuous thường đi với for, since và các dấu hiệu kết quả hiện tại.',
+            'Dùng khi trọng tâm là quá trình hoặc thời lượng, không chỉ là kết quả.',
+            'Nhiều stative verbs không tự nhiên ở dạng continuous.'
+        ]
+    },
+    'past-perfect': {
+        source: 'Bài luyện Past Perfect: một việc đã xảy ra trước một mốc quá khứ khác.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của past perfect và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Việc xảy ra trước một việc quá khứ khác:</strong><br>I had finished my work before I went out.<br><em>Tôi đã làm xong việc trước khi đi ra ngoài.</em>',
+                        answer: 'Hành động xảy ra trước mốc quá khứ khác',
+                        explanation: 'had finished xảy ra trước went out, nên dùng past perfect.'
+                    },
+                    {
+                        prompt: '<strong>2. Hành động sớm hơn trong quá khứ:</strong><br>She had already left when I arrived.<br><em>Khi tôi đến thì cô ấy đã rời đi rồi.</em>',
+                        answer: 'Hành động hoàn tất trước thời điểm khác',
+                        explanation: 'already và when I arrived cho thấy hành động rời đi đã xong trước.'
+                    },
+                    {
+                        prompt: '<strong>3. By the time / before:</strong><br>By the time the movie started, we had found our seats.<br><em>Trước khi phim bắt đầu, chúng tôi đã tìm xong chỗ ngồi.</em>',
+                        answer: 'Mốc trước một sự kiện khác',
+                        explanation: 'by the time the movie started là mốc so sánh để đặt một việc ở quá khứ trước đó.'
+                    },
+                    {
+                        prompt: '<strong>4. Trong tường thuật gián tiếp:</strong><br>He said he had seen the document.<br><em>Anh ấy nói rằng anh ấy đã xem tài liệu.</em>',
+                        answer: 'Lùi thì trong reported speech',
+                        explanation: 'Động từ tường thuật ở quá khứ thường kéo hành động trước đó lùi về past perfect.'
+                    },
+                    {
+                        prompt: '<strong>5. Kinh nghiệm trước một mốc quá khứ:</strong><br>I had never tried sushi before I moved to Japan.<br><em>Tôi chưa từng thử sushi trước khi chuyển đến Nhật.</em>',
+                        answer: 'Kinh nghiệm trước một mốc quá khứ',
+                        explanation: 'never tried đặt trải nghiệm ở một thời điểm trước mốc quá khứ moved.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Past perfect rất hay đi với before, after, by the time, when, already, just, never.',
+            'Dùng để sắp xếp thứ tự hai sự kiện trong quá khứ.',
+            'Nếu không cần phân biệt thứ tự trước-sau, past simple thường đủ.'
+        ]
+    },
+    'past-perfect-continuous': {
+        source: 'Bài luyện Past Perfect Continuous: nhấn thời lượng của hành động đã diễn ra trước một mốc quá khứ.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của past perfect continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Nhấn thời lượng trước một mốc quá khứ:</strong><br>I had been studying for two hours before the power went out.<br><em>Tôi đã học được hai tiếng trước khi mất điện.</em>',
+                        answer: 'Nhấn thời lượng trước quá khứ khác',
+                        explanation: 'had been studying nhấn quá trình kéo dài trước sự kiện the power went out.'
+                    },
+                    {
+                        prompt: '<strong>2. Nguyên nhân của trạng thái quá khứ:</strong><br>She was tired because she had been working all day.<br><em>Cô ấy mệt vì đã làm việc cả ngày.</em>',
+                        answer: 'Quá trình trước đó gây ra kết quả',
+                        explanation: 'Quá trình làm việc dài giải thích vì sao cô ấy mệt.'
+                    },
+                    {
+                        prompt: '<strong>3. Kéo dài đến một mốc quá khứ:</strong><br>By the time they arrived, we had been waiting for an hour.<br><em>Khi họ đến, chúng tôi đã chờ được một tiếng.</em>',
+                        answer: 'Hành động kéo dài đến trước mốc quá khứ',
+                        explanation: 'for an hour cho thấy hành động chờ đã diễn ra liên tục trước khi họ đến.'
+                    },
+                    {
+                        prompt: '<strong>4. Nhấn quá trình nhiều hơn kết quả:</strong><br>He had been driving for many hours when he stopped.<br><em>Anh ấy đã lái xe nhiều giờ trước khi dừng lại.</em>',
+                        answer: 'Nhấn vào quá trình kéo dài',
+                        explanation: 'Câu tập trung vào độ dài của việc lái xe chứ không chỉ việc đã lái.'
+                    },
+                    {
+                        prompt: '<strong>5. Dấu vết còn lại:</strong><br>The ground was wet because it had been raining.<br><em>Mặt đất ướt vì trời đã mưa.</em>',
+                        answer: 'Dấu hiệu của một quá trình đã diễn ra',
+                        explanation: 'wet là kết quả còn lại của quá trình mưa trước đó.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Past perfect continuous nhấn duration, not just completion.',
+            'Thường đi với for, since và câu giải thích nguyên nhân kết quả.',
+            'Nếu chỉ cần nói đã xong trước mốc quá khứ, past perfect thường gọn hơn.'
+        ]
+    },
+    'future-simple': {
+        source: 'Bài luyện Future Simple: dự đoán, quyết định tức thì, lời hứa và đề nghị.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của future simple và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Dự đoán:</strong><br>I think it will rain tomorrow.<br><em>Tôi nghĩ ngày mai trời sẽ mưa.</em>',
+                        answer: 'Dự đoán',
+                        explanation: 'I think cho thấy người nói đang dự đoán về tương lai.'
+                    },
+                    {
+                        prompt: '<strong>2. Quyết định tức thì:</strong><br>I will help you with that.<br><em>Tôi sẽ giúp bạn việc đó.</em>',
+                        answer: 'Quyết định ngay lúc nói',
+                        explanation: 'will dùng khi người nói quyết định ngay tại thời điểm nói.'
+                    },
+                    {
+                        prompt: '<strong>3. Lời hứa:</strong><br>I will call you tonight.<br><em>Tối nay tôi sẽ gọi cho bạn.</em>',
+                        answer: 'Lời hứa / cam kết',
+                        explanation: 'Cấu trúc will + V thường dùng để hứa hoặc cam kết.'
+                    },
+                    {
+                        prompt: '<strong>4. Đề nghị / yêu cầu lịch sự:</strong><br>Will you open the window?<br><em>Bạn mở cửa sổ giúp tôi được không?</em>',
+                        answer: 'Đề nghị lịch sự',
+                        explanation: 'Câu hỏi với will có thể dùng như lời yêu cầu hoặc đề nghị nhã nhặn.'
+                    },
+                    {
+                        prompt: '<strong>5. Tương lai theo niềm tin:</strong><br>He will pass the test if he studies well.<br><em>Anh ấy sẽ đậu nếu học tốt.</em>',
+                        answer: 'Niềm tin về tương lai',
+                        explanation: 'will pass diễn tả một dự đoán dựa trên niềm tin của người nói.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Future simple thường đi với will + V nguyên mẫu.',
+            'Dùng cho prediction, decision, promise, offer, request.',
+            'Nếu ý là kế hoạch đã sắp xếp, hãy cân nhắc present continuous hoặc be going to.'
+        ]
+    },
+    'future-continuous': {
+        source: 'Bài luyện Future Continuous: hành động đang diễn ra ở một thời điểm tương lai.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của future continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Đang diễn ra tại một thời điểm tương lai:</strong><br>At 8 p.m. tonight, I will be studying.<br><em>Tối nay lúc 8 giờ, tôi sẽ đang học.</em>',
+                        answer: 'Hành động đang diễn ra ở tương lai',
+                        explanation: 'at 8 p.m. tonight đặt hành động vào một thời điểm cụ thể trong tương lai.'
+                    },
+                    {
+                        prompt: '<strong>2. Tình huống tạm thời ở tương lai:</strong><br>This time next week, she will be travelling to Da Lat.<br><em>Giờ này tuần sau, cô ấy sẽ đang đi Đà Lạt.</em>',
+                        answer: 'Tình huống tạm thời',
+                        explanation: 'This time next week nhấn một giai đoạn tương lai đang diễn ra.'
+                    },
+                    {
+                        prompt: '<strong>3. Kế hoạch / sắp xếp tương lai:</strong><br>We will be staying at a hotel during the conference.<br><em>Chúng tôi sẽ ở khách sạn trong suốt hội nghị.</em>',
+                        answer: 'Hoạt động kéo dài trong tương lai',
+                        explanation: 'will be staying cho thấy một khoảng thời gian tương lai đang diễn ra.'
+                    },
+                    {
+                        prompt: '<strong>4. Hỏi lịch trình tương lai:</strong><br>Will you be using the car tomorrow morning?<br><em>Sáng mai bạn có dùng xe không?</em>',
+                        answer: 'Hỏi về một việc đang diễn ra ở tương lai',
+                        explanation: 'Câu hỏi này hỏi về một thời điểm cụ thể trong tương lai, không phải ý định đơn lẻ.'
+                    },
+                    {
+                        prompt: '<strong>5. Bối cảnh tương lai:</strong><br>When we arrive, the band will be playing.<br><em>Khi chúng tôi đến, ban nhạc sẽ đang biểu diễn.</em>',
+                        answer: 'Bối cảnh xảy ra đồng thời',
+                        explanation: 'will be playing tạo bối cảnh đang diễn ra khi một sự kiện khác xảy đến.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Future continuous thường đi với at this time tomorrow, this time next week, when/by the time...',
+            'Dùng để nhấn một hành động đang diễn ra ở một thời điểm tương lai.',
+            'Không nhầm với future simple, vốn chỉ nói việc sẽ xảy ra hoặc quyết định tức thì.'
+        ]
+    },
+    'future-perfect-continuous': {
+        source: 'Bài luyện Future Perfect Continuous: nhấn thời lượng của quá trình kéo dài đến mốc tương lai.',
+        sections: [
+            {
+                title: 'Nhận diện các cách dùng chính',
+                instruction: 'Đọc câu ví dụ, ghép với cách dùng của future perfect continuous và xem giải thích.',
+                items: [
+                    {
+                        prompt: '<strong>1. Nhấn thời lượng đến mốc tương lai:</strong><br>By July, I will have been working here for five years.<br><em>Đến tháng 7, tôi sẽ làm ở đây được 5 năm.</em>',
+                        answer: 'Thời lượng kéo dài đến mốc tương lai',
+                        explanation: 'for five years cho thấy trọng tâm là độ dài của quá trình trước mốc tương lai.'
+                    },
+                    {
+                        prompt: '<strong>2. Quá trình dài trước một thời điểm:</strong><br>By the end of the day, she will have been studying for six hours.<br><em>Đến cuối ngày, cô ấy sẽ học được sáu tiếng.</em>',
+                        answer: 'Nhấn vào thời lượng học',
+                        explanation: 'Câu nhấn việc học kéo dài bao lâu tính đến cuối ngày.'
+                    },
+                    {
+                        prompt: '<strong>3. Chờ đợi kéo dài đến tương lai:</strong><br>By the time you arrive, they will have been waiting for an hour.<br><em>Khi bạn đến, họ sẽ chờ được một tiếng.</em>',
+                        answer: 'Quá trình kéo dài trước mốc tương lai',
+                        explanation: 'will have been waiting cho thấy hành động chờ đã diễn ra liên tục trước thời điểm bạn tới.'
+                    },
+                    {
+                        prompt: '<strong>4. Tác động đến trạng thái tương lai:</strong><br>He will be tired because he will have been running all morning.<br><em>Anh ấy sẽ mệt vì đã chạy cả buổi sáng.</em>',
+                        answer: 'Quá trình kéo dài dẫn tới trạng thái tương lai',
+                        explanation: 'all morning giải thích nguyên nhân của trạng thái tired ở tương lai.'
+                    },
+                    {
+                        prompt: '<strong>5. Mốc dài hạn:</strong><br>Next month, we will have been living here for ten years.<br><em>Tháng sau, chúng tôi sẽ sống ở đây được 10 năm.</em>',
+                        answer: 'Mốc dài hạn tính đến tương lai',
+                        explanation: 'Câu dùng future perfect continuous để nhấn thời lượng sống ở đây đến tháng sau.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Future perfect continuous nhấn duration up to a future point.',
+            'Thường đi với for, by, by the time, next year, next month.',
+            'Nếu chỉ cần nói việc sẽ xong trước mốc tương lai, future perfect gọn hơn.'
         ]
     }
 };
