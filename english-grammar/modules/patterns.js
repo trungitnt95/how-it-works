@@ -141,43 +141,56 @@ const grammarPatternsData = {
         level: 'intermediate',
         connections: ['adjectives-adverbs', 'quantifiers', 'sentence-order', 'subject-verb-agreement'],
         simple: `
-            <h3>📏 So sánh giúp đặt hai sự vật trên cùng một thang đo</h3>
-            <p>Bạn dùng so sánh hơn, so sánh nhất, hoặc cấu trúc ngang bằng để nói về mức độ.</p>
+            <h3>📏 So sánh dùng để đối chiếu mức độ, số lượng hoặc chất lượng</h3>
+            <p>Phần này nên học theo mẫu cấu trúc trước, rồi mới học ngoại lệ. Chỉ cần nắm đúng công thức là bạn sẽ viết câu so sánh chính xác hơn nhiều.</p>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>This test is easier than the last one.</em><br>
                 • <em>Mai is the most careful student in the class.</em>
             </div>
             <ul>
-                <li><strong>-er / more:</strong> so sánh hơn</li>
-                <li><strong>-est / most:</strong> so sánh nhất</li>
-                <li><strong>as ... as:</strong> ngang bằng</li>
+                <li><strong>Comparative:</strong> so sánh hơn</li>
+                <li><strong>Superlative:</strong> so sánh nhất</li>
+                <li><strong>Equality:</strong> ngang bằng với <em>as...as</em></li>
             </ul>
         `,
         detail: `
-            <h3>📚 Quy tắc cơ bản</h3>
+            <h3>📚 Công thức mẫu cho từng loại</h3>
             <table>
-                <tr><th>Loại từ</th><th>Comparative</th><th>Superlative</th></tr>
-                <tr><td>Ngắn</td><td>small → smaller</td><td>smallest</td></tr>
-                <tr><td>Dài</td><td>interesting → more interesting</td><td>most interesting</td></tr>
-                <tr><td>Bất quy tắc</td><td>good → better</td><td>best</td></tr>
+                <tr><th>Loại</th><th>Công thức</th><th>Ví dụ</th></tr>
+                <tr><td>So sánh hơn với tính từ ngắn</td><td>S + be + adj-er + than + N/pronoun</td><td>She is taller than me.</td></tr>
+                <tr><td>So sánh hơn với tính từ dài</td><td>S + be + more + adj + than + N/pronoun</td><td>This book is more interesting than that one.</td></tr>
+                <tr><td>So sánh hơn với trạng từ</td><td>S + V + more/adv-er + than + N/pronoun</td><td>He drives more carefully than his brother.</td></tr>
+                <tr><td>So sánh nhất với tính từ ngắn</td><td>S + be + the + adj-est + (in/of + group)</td><td>She is the fastest runner in the team.</td></tr>
+                <tr><td>So sánh nhất với tính từ dài</td><td>S + be + the most + adj + (in/of + group)</td><td>This is the most expensive hotel in town.</td></tr>
+                <tr><td>Ngang bằng</td><td>S + be + as + adj/adv + as + N/pronoun</td><td>He is as tall as his father.</td></tr>
+                <tr><td>Kém hơn</td><td>S + be + not as/so + adj/adv + as + N/pronoun</td><td>This bag is not as heavy as that one.</td></tr>
+                <tr><td>Danh từ đếm được</td><td>fewer + plural noun + than</td><td>I have fewer books than you.</td></tr>
+                <tr><td>Danh từ không đếm được</td><td>less + uncountable noun + than</td><td>We need less water.</td></tr>
+                <tr><td>So sánh tăng dần</td><td>the more + adj, the more + adj</td><td>The more you practice, the better you get.</td></tr>
+                <tr><td>Giống / khác</td><td>the same as / different from / similar to</td><td>This phone is the same as mine.</td></tr>
             </table>
-            <h4>Cấu trúc quan trọng</h4>
+            <h4>Cấu trúc cần nhớ</h4>
             <ul>
-                <li><strong>not as ... as</strong> để nói kém hơn</li>
-                <li><strong>the more..., the more...</strong> cho quan hệ song hành</li>
-                <li><strong>less / least</strong> dùng cho mọi tính từ để nói mức độ thấp hơn/thấp nhất</li>
+                <li><strong>more + adj + than</strong> dùng với nhiều tính từ/trạng từ dài.</li>
+                <li><strong>-er + than</strong> dùng với nhiều tính từ/trạng từ ngắn.</li>
+                <li><strong>the + superlative</strong> thường đi với <em>in + nơi chốn</em> hoặc <em>of + nhóm</em>.</li>
+                <li><strong>as + adj/adv + as</strong> là mẫu ngang bằng chuẩn.</li>
+                <li><strong>fewer / less</strong> phân biệt theo danh từ đếm được và không đếm được.</li>
+                <li><strong>much / far / a lot / a bit / a little</strong> có thể đứng trước comparative để tăng hoặc giảm mức độ.</li>
             </ul>
         `,
         advanced: `
-            <h3>🎯 Những lỗi rất thường gặp</h3>
+            <h3>🎯 Mẹo học nhanh và lỗi cần tránh</h3>
             <ul>
-                <li>Không dùng kép như <em>more easier</em> hoặc <em>most fastest</em>.</li>
-                <li>So sánh cần cùng một nền tảng logic: <em>The salary of company A is higher than that of company B</em> tự nhiên hơn so với so sánh lệch đối tượng.</li>
-                <li>Trong academic writing, so sánh thường đi cùng dữ liệu, biểu đồ, xu hướng và cần sự chính xác về đối tượng được so.</li>
+                <li>Không dùng kép như <em>more easier</em>, <em>most fastest</em>, <em>more better</em>.</li>
+                <li>Không quên <em>than</em> sau comparative và <em>the</em> trước superlative.</li>
+                <li>Không dùng <em>fewer</em> với danh từ không đếm được, hoặc <em>less</em> với danh từ số nhiều đếm được.</li>
+                <li><em>good / bad / far / little</em> là bất quy tắc, phải học thuộc mẫu.</li>
+                <li>So sánh phải cùng loại đối tượng: người với người, vật với vật, số liệu với số liệu.</li>
             </ul>
             <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Dùng sai đại từ thay thế trong phép so sánh khiến câu thành so táo với cam.
+                <strong>⚠️ Lỗi phổ biến:</strong> Dùng sai mẫu như <em>as tall than</em>, <em>the most cheapest</em> hoặc <em>more taller</em>.
             </div>
         `
     },
@@ -188,35 +201,39 @@ const grammarPatternsData = {
         level: 'beginner',
         connections: ['question-forms', 'modal-verbs', 'negatives', 'sentence-types'],
         simple: `
-            <h3>👉 Imperatives dùng để ra lệnh, hướng dẫn, yêu cầu</h3>
-            <p>Chủ ngữ thường được ẩn đi, vì người nghe mặc định là người nhận lệnh hoặc yêu cầu.</p>
+            <h3>👉 Imperatives dùng để ra lệnh, hướng dẫn, yêu cầu hoặc đề nghị</h3>
+            <p>Chủ ngữ thường được ẩn đi. Bạn dùng dạng động từ nguyên mẫu để nói trực tiếp với người nghe.</p>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>Open the window.</em><br>
                 • <em>Please sit down.</em><br>
                 • <em>Don't touch that.</em>
             </div>
+            <div class="formula-box">V + ... | Don't + V + ... | Please + V + ... | Let's + V + ...</div>
         `,
         detail: `
-            <h3>📚 Các dạng thường gặp</h3>
+            <h3>📚 Các mẫu chính</h3>
             <table>
-                <tr><th>Dạng</th><th>Ví dụ</th><th>Sắc thái</th></tr>
-                <tr><td>Imperative trực tiếp</td><td>Close the door.</td><td>ra lệnh/hướng dẫn</td></tr>
-                <tr><td>Please + imperative</td><td>Please wait here.</td><td>lịch sự hơn</td></tr>
-                <tr><td>Negative imperative</td><td>Don't be late.</td><td>cấm/nhắc nhở</td></tr>
-                <tr><td>Let's + V</td><td>Let's start now.</td><td>đề nghị cùng làm</td></tr>
+                <tr><th>Mẫu</th><th>Công thức</th><th>Ví dụ</th></tr>
+                <tr><td>Mệnh lệnh / hướng dẫn</td><td>V + ...</td><td>Open the window.</td></tr>
+                <tr><td>Phủ định</td><td>Don't + V + ...</td><td>Don't touch that.</td></tr>
+                <tr><td>Yêu cầu lịch sự</td><td>Please + V + ...</td><td>Please wait here.</td></tr>
+                <tr><td>Đề nghị cùng làm</td><td>Let's + V + ...</td><td>Let's start now.</td></tr>
+                <tr><td>Lời nhắc / cảnh báo</td><td>Be careful / Watch out / Mind...</td><td>Be careful with the glass.</td></tr>
             </table>
             <ul>
                 <li>Trong giao tiếp lịch sự, yêu cầu thường đổi thành câu hỏi với <em>could, would, can</em>.</li>
                 <li>Instructions, recipes, manuals dùng imperative rất nhiều.</li>
+                <li>Với ngôi phủ định của lời đề nghị: <em>Let's not + V</em>.</li>
             </ul>
         `,
         advanced: `
-            <h3>🎯 Mức độ lịch sự</h3>
+            <h3>🎯 Mức độ lịch sự và biến thể</h3>
             <ul>
                 <li><em>Open the file.</em> trực tiếp hơn <em>Could you open the file?</em></li>
                 <li><strong>let's not</strong> dùng cho phủ định lời đề nghị chung: <em>Let's not argue now.</em></li>
                 <li>Trong email công việc, imperative ngắn gọn vẫn dùng được nếu ngữ cảnh đủ lịch sự: <em>Please find the file attached.</em></li>
+                <li>Một số câu như <em>Have a seat</em>, <em>Take a look</em>, <em>Enjoy your meal</em> là imperative cố định trong giao tiếp.</li>
             </ul>
             <div class="tip-box">
                 <strong>💡 Mẹo:</strong> Nếu không chắc mức độ lịch sự, chuyển imperative thành request với <em>could/would</em>.
@@ -344,26 +361,32 @@ const grammarPatternsData = {
         connections: ['comparisons', 'conjunctions', 'gerunds-infinitives', 'fragments-run-ons'],
         simple: `
             <h3>🪞 Parallel structure là giữ các phần tương đương ở cùng một dạng ngữ pháp</h3>
-            <p>Nó làm câu cân bằng, rõ ràng và tự nhiên hơn, đặc biệt trong danh sách, so sánh, và cấu trúc ghép.</p>
+            <p>Khi liệt kê hoặc nối ý, các phần phải cùng loại: noun với noun, verb với verb, adjective với adjective.</p>
             <div class="example-box">
                 <strong>Đúng:</strong> <em>She likes reading, writing, and speaking.</em><br>
                 <strong>Sai:</strong> <em>She likes reading, to write, and speaking.</em>
             </div>
+            <div class="formula-box">noun + noun + noun | V-ing + V-ing + V-ing | to V + to V + to V</div>
         `,
         detail: `
             <h3>📚 Những nơi cần parallel structure</h3>
-            <ul>
-                <li>Danh sách với <strong>and / or</strong></li>
-                <li>Cặp cấu trúc như <strong>both...and, either...or, neither...nor, not only...but also</strong></li>
-                <li>So sánh với <strong>than / as</strong></li>
-                <li>Các tiêu đề, thesis statement, mục tiêu viết học thuật</li>
-            </ul>
             <table>
-                <tr><th>Cấu trúc</th><th>Đúng</th></tr>
-                <tr><td>both...and</td><td>both efficient and affordable</td></tr>
-                <tr><td>not only...but also</td><td>not only reduced costs but also improved quality</td></tr>
-                <tr><td>than</td><td>more interested in reading than in watching TV</td></tr>
+                <tr><th>Vị trí</th><th>Mẫu song song</th><th>Ví dụ</th></tr>
+                <tr><td>Danh sách</td><td>noun + noun + noun</td><td>books, pens, and notebooks</td></tr>
+                <tr><td>Danh sách động từ</td><td>V-ing + V-ing + V-ing</td><td>reading, writing, and speaking</td></tr>
+                <tr><td>Danh sách to-infinitive</td><td>to V + to V + to V</td><td>to learn, to practice, and to improve</td></tr>
+                <tr><td>both...and</td><td>both + X + and + X</td><td>both efficient and affordable</td></tr>
+                <tr><td>either...or</td><td>either + X + or + X</td><td>either today or tomorrow</td></tr>
+                <tr><td>neither...nor</td><td>neither + X + nor + X</td><td>neither big nor expensive</td></tr>
+                <tr><td>not only...but also</td><td>not only + X + but also + X</td><td>not only saved time but also reduced cost</td></tr>
+                <tr><td>than/as</td><td>same form before and after</td><td>more interested in reading than in watching TV</td></tr>
             </table>
+            <h4>Quy tắc nhanh</h4>
+            <ul>
+                <li>Chỉ cần thấy hai phần song song không cùng dạng, câu thường bị gãy nhịp ngay.</li>
+                <li>Sau cặp liên kết, dạng ở vế sau phải khớp với vế trước.</li>
+                <li>Trong writing, parallel structure giúp câu rõ và “đều” hơn.</li>
+            </ul>
         `,
         advanced: `
             <h3>🎯 Tại sao quan trọng trong writing</h3>
@@ -371,6 +394,7 @@ const grammarPatternsData = {
                 <li>Parallel structure làm câu văn trang trọng và thuyết phục hơn.</li>
                 <li>Rất quan trọng trong thesis, bullet lists, slide, report và văn nghị luận.</li>
                 <li>Nhiều câu không sai hoàn toàn về ngữ pháp nhưng vẫn bị đánh giá thấp vì thiếu tính song song.</li>
+                <li>Trong sửa lỗi, chỉ cần đổi một vế cho cùng dạng với các vế còn lại là câu thường tự nhiên hơn ngay.</li>
             </ul>
             <div class="warning-box">
                 <strong>⚠️ Lỗi phổ biến:</strong> Trộn noun, gerund, infinitive và adjective trong cùng một chuỗi liệt kê.

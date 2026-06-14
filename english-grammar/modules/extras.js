@@ -560,7 +560,7 @@ const grammarExtrasData = {
         connections: ['question-forms', 'negatives', 'modal-verbs', 'subject-verb-agreement'],
         simple: `
             <h3>❔ Câu hỏi đuôi: "đúng không nhỉ?"</h3>
-            <p>Là câu hỏi ngắn gắn vào cuối câu trần thuật để xác nhận thông tin hoặc khẳng định kỳ vọng.</p>
+            <p>Là câu hỏi ngắn gắn vào cuối câu trần thuật để xác nhận thông tin, giữ tương tác hoặc thể hiện kỳ vọng.</p>
             <div class="formula-box">Câu khẳng định, trợ động từ phủ định + S?<br>Câu phủ định, trợ động từ khẳng định + S?</div>
             <div class="example-box">
                 • <em>You're a doctor, aren't you?</em><br>
@@ -572,13 +572,19 @@ const grammarExtrasData = {
             <h3>📚 Quy tắc lập tag</h3>
             <table>
                 <tr><th>Câu chính</th><th>Tag</th><th>Ví dụ</th></tr>
-                <tr><td>be (am/is/are/was/were)</td><td>lặp lại be</td><td>It's hot, isn't it?</td></tr>
-                <tr><td>trợ động từ (do/have/will...)</td><td>lặp lại trợ động từ</td><td>You can swim, can't you?</td></tr>
+                <tr><td>be (am/is/are/was/were)</td><td>lặp lại be, đổi polarity</td><td>It's hot, isn't it?</td></tr>
+                <tr><td>trợ động từ / modal</td><td>lặp lại trợ động từ</td><td>You can swim, can't you?</td></tr>
                 <tr><td>không có trợ động từ</td><td>thêm do/does/did</td><td>He plays piano, doesn't he?</td></tr>
                 <tr><td>I am ... (khẳng định)</td><td>aren't I?</td><td>I'm right, aren't I?</td></tr>
                 <tr><td>Let's ...</td><td>shall we?</td><td>Let's go, shall we?</td></tr>
-                <tr><td>Câu mệnh lệnh</td><td>will/won't/would you?</td><td>Open the door, will you?</td></tr>
+                <tr><td>Câu mệnh lệnh</td><td>will you? / won't you? / would you?</td><td>Open the door, will you?</td></tr>
             </table>
+            <h4>Các bước làm tag</h4>
+            <ul>
+                <li>Xác định câu chính là khẳng định hay phủ định.</li>
+                <li>Chọn đúng auxiliary từ câu chính.</li>
+                <li>Đảo polarity trong tag: khẳng định đi với tag phủ định và ngược lại.</li>
+            </ul>
         `,
         advanced: `
             <h3>🎯 Ngữ điệu & sắc thái</h3>
@@ -587,6 +593,7 @@ const grammarExtrasData = {
                 <li><strong>Tag lên giọng ↗</strong> – thật sự hỏi, chưa chắc: <em>You're going, aren't you? ↗</em></li>
                 <li>Câu chứa từ phủ định nghĩa (never, hardly, no, nothing) → tag <strong>khẳng định</strong>: <em>He never lies, does he?</em></li>
                 <li>Có một số mẫu đặc biệt: <em>I think he is, isn't he?</em> (chia tag theo mệnh đề chính is/isn't, không phải think).</li>
+                <li>Với imperative, tag thường mềm hóa mệnh lệnh thành lời đề nghị nhẹ hơn.</li>
             </ul>
             <div class="tip-box">
                 <strong>💡 Mẹo:</strong> "Khẳng – Phủ" hoặc "Phủ – Khẳng" – luôn đối ngược nhau.
@@ -602,25 +609,26 @@ const grammarExtrasData = {
         connections: ['conjunctions', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
         simple: `
             <h3>🔀 Từ nối câu / liên kết ý cho văn viết</h3>
-            <p>Discourse markers giúp văn bản mạch lạc, không khô. Khác với liên từ (and, but, so) nối <em>trong câu</em>, các từ này nối <em>giữa câu, giữa đoạn</em>.</p>
+            <p>Discourse markers giúp văn bản mạch lạc, không khô. Khác với liên từ (and, but, so) nối <em>trong câu</em>, các từ này thường nối <em>giữa câu, giữa đoạn</em>.</p>
             <div class="example-box">
                 • <em>The price is high. <strong>However</strong>, the quality is excellent.</em><br>
                 • <em>He studies hard. <strong>As a result</strong>, he passed.</em><br>
                 • <em>First, ... Second, ... Finally, ...</em>
             </div>
+            <div class="formula-box">linking word + comma + clause / clause + linking word + comma + clause</div>
         `,
         detail: `
             <h3>📚 Phân nhóm theo mục đích</h3>
             <table>
-                <tr><th>Quan hệ</th><th>Discourse markers</th></tr>
-                <tr><td>Bổ sung</td><td>moreover, furthermore, in addition, besides, also, what's more</td></tr>
-                <tr><td>Tương phản</td><td>however, nevertheless, nonetheless, on the other hand, in contrast, yet</td></tr>
-                <tr><td>Nguyên nhân – kết quả</td><td>therefore, thus, hence, consequently, as a result, accordingly</td></tr>
-                <tr><td>Ví dụ – cụ thể</td><td>for example, for instance, namely, in particular, such as</td></tr>
-                <tr><td>Tóm tắt</td><td>in short, in summary, to sum up, overall, in conclusion</td></tr>
-                <tr><td>Trình tự</td><td>first / firstly, then, next, after that, finally, eventually</td></tr>
-                <tr><td>Diễn đạt lại</td><td>in other words, that is to say, i.e.</td></tr>
-                <tr><td>Khẳng định mạnh</td><td>indeed, in fact, actually, certainly</td></tr>
+                <tr><th>Quan hệ</th><th>Discourse markers</th><th>Dùng khi</th></tr>
+                <tr><td>Bổ sung</td><td>moreover, furthermore, in addition, besides, also, what's more</td><td>thêm ý cùng hướng</td></tr>
+                <tr><td>Tương phản</td><td>however, nevertheless, nonetheless, on the other hand, in contrast, yet</td><td>đổi hướng hoặc đối lập</td></tr>
+                <tr><td>Nguyên nhân – kết quả</td><td>therefore, thus, hence, consequently, as a result, accordingly</td><td>nêu hệ quả</td></tr>
+                <tr><td>Ví dụ – cụ thể</td><td>for example, for instance, namely, in particular, such as</td><td>làm rõ ý trước đó</td></tr>
+                <tr><td>Tóm tắt</td><td>in short, in summary, to sum up, overall, in conclusion</td><td>chốt ý</td></tr>
+                <tr><td>Trình tự</td><td>first / firstly, then, next, after that, finally, eventually</td><td>kể chuỗi bước</td></tr>
+                <tr><td>Diễn đạt lại</td><td>in other words, that is to say, i.e.</td><td>nói lại bằng cách khác</td></tr>
+                <tr><td>Khẳng định mạnh</td><td>indeed, in fact, actually, certainly</td><td>nhấn mạnh sự thật</td></tr>
             </table>
         `,
         advanced: `
@@ -630,6 +638,7 @@ const grammarExtrasData = {
                 <li>Có thể đặt ở giữa câu, ngăn bằng phẩy: <em>The result, however, was clear.</em></li>
                 <li>Văn nói thường dùng từ ngắn: <em>so, anyway, by the way, I mean, you know</em>.</li>
                 <li>Tránh lạm dụng – mỗi đoạn chỉ cần 1–2 marker; nếu lạm dụng sẽ gây rối.</li>
+                <li>Phân biệt <em>however</em> với <em>but</em>: một cái là discourse marker giữa câu/đầu câu, một cái là liên từ trong câu.</li>
             </ul>
             <div class="warning-box">
                 <strong>⚠️ Lỗi phổ biến:</strong> Dùng <em>However</em> như liên từ: ❌ <em>I was tired however I worked.</em> Đúng: <em>I was tired. However, I worked.</em> hoặc <em>I was tired; however, I worked.</em>

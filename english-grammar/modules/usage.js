@@ -966,18 +966,17 @@ Object.assign(grammarUsageDeepDiveData, {
     'comparisons': {
         category: 'patterns', cefr: 'B1', title: 'Comparisons',
         uses: [
-            'Comparative để so hai đối tượng hoặc hai trạng thái.',
-            'Superlative để chọn cực trị trong một nhóm.',
-            'As...as để so ngang bằng.',
-            'Not as/so...as để nói kém hơn.',
-            'More/most dùng với tính từ/trạng từ dài; -er/-est thường dùng với dạng ngắn.',
-            'Fewer/less đi với danh từ đếm được/không đếm được; more/most đi với danh từ hoặc mức độ.',
-            'Less/least để giảm mức độ.',
-            'The more..., the more... cho quan hệ tăng giảm song hành.',
-            'The same as / different from để nói giống nhau hoặc khác nhau.',
-            'Much/far/a lot/a bit làm mức độ so sánh mạnh hoặc nhẹ hơn.',
-            'So sánh bất quy tắc: good/bad/far/many/much/little.',
-            'Dùng that/those để tránh so sánh lệch đối tượng.'
+            'Comparative: S + be/V + comparative + than + N/pronoun.',
+            'Superlative: S + be + the + superlative + (in/of + group).',
+            'Equality: S + be + as + adj/adv + as + N/pronoun.',
+            'Inferiority: S + be + not as/so + adj/adv + as + N/pronoun.',
+            'Long adjectives/adverbs thường dùng more/most thay vì -er/-est.',
+            'Fewer + plural countable nouns; less + uncountable nouns.',
+            'The more..., the more... diễn tả quan hệ tăng dần giữa hai vế.',
+            'The same as / different from / similar to là mẫu cố định cần nhớ.',
+            'Much / far / a lot / a bit / a little đứng trước comparative để tăng hoặc giảm mức độ.',
+            'Irregular comparisons: good-better-best, bad-worse-worst, far-farther/further, little-less-least.',
+            'So sánh phải cùng loại đối tượng: người với người, vật với vật, số liệu với số liệu.'
         ],
         avoid: [
             'Không dùng double comparative: more easier.',
@@ -988,41 +987,44 @@ Object.assign(grammarUsageDeepDiveData, {
             'Không quên from trong different from nếu viết theo chuẩn phổ biến.'
         ],
         compare: [
-            'My salary is higher than yours, không phải higher than you.',
-            'good → better → best; bad → worse → worst; far → farther/further → farthest/furthest.',
-            'the same as / different from / similar to là các mẫu rất hay gặp trong viết lại.'
+            'Comparative: taller than, more interesting than, more carefully than.',
+            'Superlative: the tallest in the class, the most interesting of all.',
+            'Equality: as tall as, not as expensive as.',
+            'Irregulars: good → better → best; bad → worse → worst; far → farther/further → farthest/furthest.'
         ]
     },
     'imperatives-requests': {
         category: 'patterns', cefr: 'A2', title: 'Imperatives & Requests',
         uses: [
-            'Imperative cho hướng dẫn: Click Save.',
-            'Imperative cho mệnh lệnh/cảnh báo: Don’t move.',
-            'Please + imperative cho yêu cầu lịch sự cơ bản.',
-            'Let’s + V cho đề nghị cùng làm.',
-            'Could/Would you...? cho request lịch sự.',
-            'Would you mind + V-ing cho request rất lịch sự.'
+            'Imperative dùng cho hướng dẫn, mệnh lệnh, cảnh báo hoặc chỉ dẫn: Open the window.',
+            'Please + imperative làm câu lịch sự hơn: Please sit down.',
+            'Don’t + V dùng cho phủ định hoặc cấm: Don’t touch that.',
+            'Let’s + V dùng cho đề nghị cùng làm: Let’s start now.',
+            'Could/Would you...? dùng cho request lịch sự hơn imperative.',
+            'Be careful / Watch out / Mind... là các lời nhắc rất phổ biến.'
         ],
         avoid: [
             'Không dùng imperative trần trong email nếu dễ nghe cộc.',
             'Không dùng would you mind + to V.',
-            'Không quên don’t trong negative imperative.'
+            'Không quên don’t trong negative imperative.',
+            'Không nhầm let’s not với don’t nếu ý là lời đề nghị phủ định.'
         ],
-        compare: ['Open the window = trực tiếp; Could you open the window? = lịch sự hơn.']
+        compare: ['Open the window = trực tiếp; Could you open the window? = lịch sự hơn.', 'Let’s leave now = đề nghị cùng làm; Don’t leave now = cấm/nhắc không làm.']
     },
     'parallel-structure': {
         category: 'patterns', cefr: 'B2', title: 'Parallel Structure',
         uses: [
-            'Dùng trong lists: reading, writing, and speaking.',
-            'Dùng sau both…and, either…or, not only…but also.',
-            'Dùng trong comparisons với than/as.',
-            'Dùng trong headings, bullet lists, thesis statements.',
-            'Dùng để câu cân bằng và dễ đọc hơn.'
+            'Giữ cùng dạng ngữ pháp trong lists: reading, writing, and speaking.',
+            'Dùng sau both…and, either…or, neither…nor, not only…but also.',
+            'Dùng cùng dạng ở hai vế so sánh với than/as: more interested in reading than in watching TV.',
+            'Dùng trong headings, bullet lists, thesis statements, reports và essays.',
+            'Dùng để câu cân bằng, rõ và mượt hơn.'
         ],
         avoid: [
             'Không trộn V-ing, to V, noun phrase trong cùng list nếu không có lý do.',
             'Không để not only và but also nối hai thành phần khác cấp.',
-            'Không phá parallelism trong formal writing.'
+            'Không phá parallelism trong formal writing.',
+            'Không đổi một vế thành mệnh đề đầy đủ nếu các vế còn lại chỉ là cụm từ.'
         ],
         compare: ['She likes reading and to write sai nhịp; reading and writing song song.']
     },
@@ -1030,16 +1032,17 @@ Object.assign(grammarUsageDeepDiveData, {
         category: 'patterns', cefr: 'B1', title: 'Tag Questions',
         uses: [
             'Xác nhận thông tin: You’re coming, aren’t you?',
-            'Giữ tương tác trong conversation.',
+            'Giữ tương tác trong conversation và softening statements.',
             'Rising intonation để hỏi thật.',
             'Falling intonation để kỳ vọng đồng ý.',
             'Dùng same auxiliary/modal với main clause.',
-            'Special tags: I am..., aren’t I?; Let’s..., shall we?'
+            'Special tags: I am..., aren’t I?; Let’s..., shall we?; imperative tags như will you?'
         ],
         avoid: [
             'Không dùng positive tag sau positive statement thông thường.',
             'Không quên đổi polarity.',
-            'Không dùng sai auxiliary.'
+            'Không dùng sai auxiliary.',
+            'Không chia tag theo mệnh đề phụ; tag bám theo mệnh đề chính.'
         ],
         compare: ['You are tired, aren’t you?; You aren’t tired, are you?']
     },
@@ -1101,12 +1104,14 @@ Object.assign(grammarUsageDeepDiveData, {
             'Kết quả: therefore, as a result, consequently.',
             'Ví dụ: for example, for instance.',
             'Chuyển chủ đề trong speaking: anyway, by the way.',
-            'Tổ chức lập luận: first, next, finally, in conclusion.'
+            'Tổ chức lập luận: first, next, finally, in conclusion.',
+            'Thường đứng đầu câu hoặc giữa câu với dấu phẩy.'
         ],
         avoid: [
             'Không dùng however như but nếu punctuation sai.',
             'Không lặp một marker liên tục.',
-            'Không dùng marker formal trong chat thân mật nếu không cần.'
+            'Không dùng marker formal trong chat thân mật nếu không cần.',
+            'Không nhét discourse marker vào mọi câu chỉ để “nghe học thuật”.'
         ],
         compare: ['But nối clause; however thường nối câu/ý với punctuation riêng.']
     },
@@ -1540,14 +1545,25 @@ Object.assign(grammarUsageDeepDiveData, {
     'result-structures': {
         category: 'patterns', cefr: 'B1', title: 'Result Structures',
         uses: [
-            'So + adj/adv + that cho kết quả từ mức độ.',
-            'Such + noun phrase + that cho kết quả từ một sự vật/sự việc.',
-            'Too + adj/adv + to V cho quá... không thể.',
-            'Adj/adv + enough + to V cho đủ... để.',
-            'Enough + noun khi enough bổ nghĩa danh từ.'
+            'So + adj/adv + that + clause cho kết quả trực tiếp từ mức độ quá cao hoặc quá thấp.',
+            'Such + (a/an) + adj + noun + that + clause cho kết quả từ một cụm danh từ.',
+            'Too + adj/adv + to V cho nghĩa quá... đến mức không thể.',
+            'Adj/adv + enough + to V cho nghĩa đủ... để làm gì đó.',
+            'Enough + noun khi enough bổ nghĩa cho danh từ.',
+            'So many/few + plural noun và so much/little + uncountable noun diễn tả lượng dẫn đến kết quả.'
         ],
-        avoid: ['Không đặt enough trước adjective.', 'Không dùng so trước noun phrase thường nếu cần such.'],
-        compare: ['So difficult that...; such a difficult test that...']
+        avoid: [
+            'Không đặt enough trước adjective; enough đứng sau adjective/adverb nhưng trước noun.',
+            'Không dùng so trước noun phrase thường nếu cần such.',
+            'Không nhầm too...to với enough...to.',
+            'Không quên that trong so...that và such...that khi diễn tả kết quả đầy đủ.'
+        ],
+        compare: [
+            'so cold that we stayed inside',
+            'such a cold day that we stayed inside',
+            'too cold to stay outside',
+            'cold enough to stay inside'
+        ]
     },
     'relative-pronouns-adverbs': {
         category: 'patterns', cefr: 'A2', title: 'Relative Pronouns & Adverbs',

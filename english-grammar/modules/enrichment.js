@@ -394,30 +394,33 @@ const grammarSupplementsData = {
         level: 'intermediate',
         connections: ['conjunctions', 'comparisons', 'adjectives-adverbs', 'sentence-order'],
         simple: `
-            <h3>🎯 Kết quả có nhiều cấu trúc rất hay lẫn</h3>
-            <p>Phần này gộp các mẫu diễn tả kết quả như <strong>so ... that</strong>, <strong>such ... that</strong>, <strong>too ... to</strong>, <strong>enough to</strong>.</p>
-            <div class="formula-box">so + adj/adv + that | such + noun phrase + that | too + adj/adv + to V | adj/adv + enough + to V</div>
+            <h3>🎯 Dùng để nói một việc dẫn đến kết quả</h3>
+            <p>Phần này nên học theo công thức trước, vì mỗi mẫu có vị trí riêng và không thể thay bừa cho nhau.</p>
+            <div class="formula-box">so + adj/adv + that + clause | such + (a/an) + adj + noun + that + clause | too + adj/adv + to V | adj/adv + enough + to V | enough + noun</div>
             <div class="example-box">
                 <strong>Ví dụ:</strong><br>
                 • <em>It was so cold that we stayed inside.</em><br>
                 • <em>She was too tired to drive.</em><br>
-                • <em>The room was large enough to hold fifty people.</em>
+                • <em>The room was large enough to hold fifty people.</em><br>
+                • <em>It was such a noisy room that nobody could sleep.</em>
             </div>
         `,
         detail: `
             <h3>📚 Mẫu dùng nhanh</h3>
             <table>
-                <tr><th>Cấu trúc</th><th>Mẫu</th><th>Ví dụ</th></tr>
-                <tr><td>so ... that</td><td>so + adj/adv + that</td><td>so difficult that I gave up</td></tr>
-                <tr><td>such ... that</td><td>such + (a/an) + adj + noun + that</td><td>such a long meeting that...</td></tr>
+                <tr><th>Cấu trúc</th><th>Công thức</th><th>Ví dụ</th></tr>
+                <tr><td>so ... that</td><td>so + adj/adv + that + clause</td><td>so difficult that I gave up</td></tr>
+                <tr><td>such ... that</td><td>such + (a/an) + adj + noun + that + clause</td><td>such a long meeting that we left early</td></tr>
                 <tr><td>too ... to</td><td>too + adj/adv + to V</td><td>too weak to lift it</td></tr>
                 <tr><td>adj/adv + enough</td><td>adj/adv + enough + to V</td><td>strong enough to continue</td></tr>
+                <tr><td>enough + noun</td><td>enough + noun</td><td>enough time / enough money</td></tr>
             </table>
             <h4>Điểm dễ lẫn</h4>
             <ul>
-                <li><strong>so many/few + plural noun</strong></li>
-                <li><strong>so much/little + uncountable noun</strong></li>
-                <li><strong>enough</strong> đứng sau adjective/adverb nhưng đứng trước noun: <em>enough money</em>, <em>careful enough</em></li>
+                <li><strong>so</strong> đi với adjective/adverb; <strong>such</strong> đi với noun phrase.</li>
+                <li><strong>too ... to</strong> mang nghĩa quá... đến mức không thể.</li>
+                <li><strong>enough</strong> đứng sau adjective/adverb nhưng đứng trước noun.</li>
+                <li><strong>so many/few</strong> đi với danh từ đếm được số nhiều; <strong>so much/little</strong> đi với danh từ không đếm được.</li>
             </ul>
         `,
         advanced: `
@@ -426,6 +429,7 @@ const grammarSupplementsData = {
                 <li>Các câu <em>too ... to</em> có thể đổi sang <em>so ... that ... not</em> hoặc <em>not ... enough to</em> tùy nghĩa.</li>
                 <li><strong>such</strong> đi với noun phrase, còn <strong>so</strong> đi trực tiếp với adjective/adverb.</li>
                 <li>Đây là nhóm cấu trúc rất hay xuất hiện trong rewrite sentence và sentence transformation.</li>
+                <li>Đừng nhầm result với purpose: ở đây trọng tâm là hệ quả trực tiếp, không phải mục đích.</li>
             </ul>
             <div class="tip-box">
                 <strong>💡 Mẹo:</strong> Trước khi chọn <em>so</em> hay <em>such</em>, hãy nhìn từ đứng ngay sau nó là adjective hay noun phrase.
@@ -607,6 +611,59 @@ const grammarPracticeData = {
             'Dùng will have + V3 khi muốn nhấn việc sẽ hoàn tất trước một mốc tương lai.',
             'Các dấu hiệu rất hay gặp là by, before, by the time, when và by the end of...',
             'Không dùng future perfect nếu câu chỉ nói một hành động tương lai đơn giản mà không có mốc hoàn tất.'
+        ]
+    },
+    'exclamatory-sentences': {
+        source: '24 câu luyện Câu Cảm Thán B1 bao phủ What/How, noun phrase, adj/adv, rewrite và nhận diện sắc thái cảm xúc.',
+        sections: [
+            {
+                title: 'Nhóm 1: Nhận diện cấu trúc',
+                instruction: 'Xác định câu dùng What hay How, hoặc viết lại loại cấu trúc cảm thán.',
+                items: [
+                    { prompt: 'What a beautiful day!<br><em>Nghĩa: Thật là một ngày đẹp!</em>', answer: 'What + a/an + adj + noun', explanation: 'What đi với cụm danh từ số ít đếm được.' },
+                    { prompt: 'How amazing!<br><em>Nghĩa: Thật tuyệt vời!</em>', answer: 'How + adjective', explanation: 'How đứng trước tính từ để nhấn cảm xúc.' },
+                    { prompt: 'What lovely flowers these are!<br><em>Nghĩa: Những bông hoa này thật đẹp!</em>', answer: 'What + adjective + plural noun', explanation: 'What + adj + plural noun là mẫu cảm thán không cần a/an.' },
+                    { prompt: 'How quickly he runs!<br><em>Nghĩa: Anh ấy chạy thật nhanh!</em>', answer: 'How + adverb', explanation: 'How có thể đi với trạng từ để nhấn tốc độ hoặc cách thức.' },
+                    { prompt: 'What a great idea!<br><em>Nghĩa: Thật là một ý tưởng tuyệt vời!</em>', answer: 'What + a/an + adjective + noun', explanation: 'Idea là danh từ số ít đếm được nên cần a/an.' },
+                    { prompt: 'How beautiful the garden is!<br><em>Nghĩa: Khu vườn đẹp làm sao!</em>', answer: 'How + adjective + clause', explanation: 'How + adj + S + V là mẫu cảm thán đầy đủ.' },
+                    { prompt: 'What terrible weather!<br><em>Nghĩa: Thời tiết tệ quá!</em>', answer: 'What + adjective + uncountable noun', explanation: 'Weather là danh từ không đếm được, không có a/an.' },
+                    { prompt: 'How fast time flies!<br><em>Nghĩa: Thời gian trôi nhanh quá!</em>', answer: 'How + adverb + clause', explanation: 'How + adv + clause là mẫu nhấn mức độ.' }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Điền What hoặc How',
+                instruction: 'Điền What hoặc How để hoàn thành câu cảm thán.',
+                items: [
+                    { prompt: '___ a lovely dress!<br><em>Nghĩa: Thật là một chiếc váy đẹp!</em>', answer: 'What', explanation: 'Trước a/an + noun phrase dùng What.' },
+                    { prompt: '___ wonderful news!<br><em>Nghĩa: Thật là tin tuyệt vời!</em>', answer: 'What', explanation: 'News là danh từ không đếm được, dùng What.' },
+                    { prompt: '___ kind she is!<br><em>Nghĩa: Cô ấy tử tế làm sao!</em>', answer: 'How', explanation: 'How đi với tính từ.' },
+                    { prompt: '___ beautifully she sings!<br><em>Nghĩa: Cô ấy hát hay làm sao!</em>', answer: 'How', explanation: 'How đi với trạng từ beautifully.' },
+                    { prompt: '___ an expensive restaurant!<br><em>Nghĩa: Thật là một nhà hàng đắt đỏ!</em>', answer: 'What', explanation: 'What + a/an + adj + noun là mẫu chuẩn.' },
+                    { prompt: '___ interesting this book is!<br><em>Nghĩa: Quyển sách này thú vị làm sao!</em>', answer: 'How', explanation: 'How + adj + clause.' },
+                    { prompt: '___ terrible traffic today!<br><em>Nghĩa: Hôm nay giao thông tệ quá!</em>', answer: 'What', explanation: 'Traffic là danh từ, nên dùng What.' },
+                    { prompt: '___ carefully he works!<br><em>Nghĩa: Anh ấy làm việc cẩn thận làm sao!</em>', answer: 'How', explanation: 'How + adverb.' }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Viết lại câu',
+                instruction: 'Viết lại câu thường thành câu cảm thán hoặc ngược lại.',
+                items: [
+                    { prompt: 'The movie is very interesting.<br><em>Nghĩa: Bộ phim rất thú vị.</em>', answer: 'What an interesting movie!', explanation: 'Câu cảm thán với noun phrase số ít đếm được.' },
+                    { prompt: 'She is very kind.<br><em>Nghĩa: Cô ấy rất tử tế.</em>', answer: 'How kind she is!', explanation: 'How + adj + clause là mẫu phù hợp.' },
+                    { prompt: 'This soup is very hot.<br><em>Nghĩa: Món súp này rất nóng.</em>', answer: 'What hot soup!', explanation: 'Soup là danh từ không đếm được nên không có a/an.' },
+                    { prompt: 'He runs very fast.<br><em>Nghĩa: Anh ấy chạy rất nhanh.</em>', answer: 'How fast he runs!', explanation: 'How + adverb + clause nhấn cách thức/tốc độ.' },
+                    { prompt: 'The view is beautiful.<br><em>Nghĩa: Cảnh đẹp thật.</em>', answer: 'What a beautiful view!', explanation: 'View là danh từ số ít đếm được nên dùng a/an.' },
+                    { prompt: 'The weather is awful.<br><em>Nghĩa: Thời tiết tệ quá.</em>', answer: 'What awful weather!', explanation: 'Weather là danh từ không đếm được.' },
+                    { prompt: 'Your idea is amazing.<br><em>Nghĩa: Ý tưởng của bạn thật tuyệt.</em>', answer: 'What an amazing idea!', explanation: 'Idea là noun phrase số ít đếm được.' },
+                    { prompt: 'She spoke very softly.<br><em>Nghĩa: Cô ấy nói rất nhỏ nhẹ.</em>', answer: 'How softly she spoke!', explanation: 'How + adverb + clause là cấu trúc cảm thán tự nhiên.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'What thường đi với noun phrase; How thường đi với adjective/adverb.',
+            'What a/an + adj + singular countable noun.',
+            'What + adj + plural/uncountable noun.',
+            'How + adj/adv + clause dùng khi muốn nhấn mức độ hoặc cách thức.'
         ]
     },
     'sentence-types': {
@@ -1265,6 +1322,155 @@ const grammarPracticeData = {
             'Irregular comparisons like good-better-best, bad-worse-worst, far-farther/further, little-less-least must be memorized.',
             'Avoid double comparatives and double superlatives.',
             'The same as / different from / similar to are fixed comparison patterns that need memorization.'
+        ]
+    },
+    'comparative-correlatives': {
+        source: '24 câu luyện The + Comparative... The + Comparative · B2 bao phủ nhận diện, hoàn thành cặp “càng... càng...”, và sửa lỗi viết lại.',
+        sections: [
+            {
+                title: 'Nhóm 1: Hoàn thành câu',
+                instruction: 'Điền câu hoàn chỉnh với the + comparative... the + comparative.',
+                items: [
+                    {
+                        prompt: '___ you study, ___ you understand.<br><em>Nghĩa: Bạn học càng nhiều, bạn hiểu càng nhiều.</em>',
+                        answer: 'The more you study, the more you understand.',
+                        explanation: 'The more... the more... diễn tả hai vế tăng song song.'
+                    },
+                    {
+                        prompt: '___ you work, ___ your results will be.<br><em>Nghĩa: Bạn làm việc càng chăm, kết quả càng tốt.</em>',
+                        answer: 'The harder you work, the better your results will be.',
+                        explanation: 'Harder and better are both comparative forms in the pattern.'
+                    },
+                    {
+                        prompt: '___ we start, ___ we finish.<br><em>Nghĩa: Chúng ta bắt đầu càng sớm, chúng ta kết thúc càng sớm.</em>',
+                        answer: 'The sooner we start, the sooner we finish.',
+                        explanation: 'Sooner is the comparative of soon.'
+                    },
+                    {
+                        prompt: '___ you worry, ___ you sleep.<br><em>Nghĩa: Bạn lo lắng càng ít, bạn ngủ càng ngon.</em>',
+                        answer: 'The less you worry, the better you sleep.',
+                        explanation: 'Less and better are a natural pair in this meaning.'
+                    },
+                    {
+                        prompt: '___ he gets, ___ he becomes.<br><em>Nghĩa: Anh ấy càng lớn tuổi, anh ấy càng chín chắn.</em>',
+                        answer: 'The older he gets, the wiser he becomes.',
+                        explanation: 'Older and wiser are comparative adjectives linked by the correlative pattern.'
+                    },
+                    {
+                        prompt: '___ you drive, ___ you are.<br><em>Nghĩa: Bạn lái xe càng cẩn thận, bạn càng an toàn.</em>',
+                        answer: 'The more carefully you drive, the safer you are.',
+                        explanation: 'Carefully becomes more carefully; safe becomes safer.'
+                    },
+                    {
+                        prompt: '___ the task is, ___ it takes.<br><em>Nghĩa: Nhiệm vụ càng khó, nó càng mất nhiều thời gian.</em>',
+                        answer: 'The more difficult the task is, the longer it takes.',
+                        explanation: 'Difficult and long are both comparative in the two clauses.'
+                    },
+                    {
+                        prompt: '___ you practice, ___ confident you become.<br><em>Nghĩa: Bạn luyện tập càng nhiều, bạn càng tự tin.</em>',
+                        answer: 'The more you practice, the more confident you become.',
+                        explanation: 'More confident is the comparative of degree here.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Điền cặp so sánh',
+                instruction: 'Điền phần còn thiếu để hoàn thành cấu trúc “càng... càng...”.',
+                items: [
+                    {
+                        prompt: 'The ___ you read, the more vocabulary you learn.<br><em>Nghĩa: Bạn đọc càng nhiều, bạn học được càng nhiều từ vựng.</em>',
+                        answer: 'more',
+                        explanation: 'The more... the more... is the standard correlative pair.'
+                    },
+                    {
+                        prompt: 'The ___ the price, the more customers buy.<br><em>Nghĩa: Giá càng rẻ, khách hàng mua càng nhiều.</em>',
+                        answer: 'lower',
+                        explanation: 'Lower is the comparative of low.'
+                    },
+                    {
+                        prompt: 'The ___ you arrive, the better seats you get.<br><em>Nghĩa: Bạn đến càng sớm, bạn càng có chỗ ngồi tốt hơn.</em>',
+                        answer: 'earlier',
+                        explanation: 'Earlier is the comparative of early.'
+                    },
+                    {
+                        prompt: 'The ___ carefully you plan, the fewer mistakes you make.<br><em>Nghĩa: Bạn lập kế hoạch càng cẩn thận, bạn càng mắc ít lỗi hơn.</em>',
+                        answer: 'more',
+                        explanation: 'Carefully becomes more carefully in the correlative pattern.'
+                    },
+                    {
+                        prompt: 'The ___ information you have, the better decisions you make.<br><em>Nghĩa: Bạn có càng nhiều thông tin, bạn đưa ra quyết định càng tốt.</em>',
+                        answer: 'more',
+                        explanation: 'More information is the natural quantity expression here.'
+                    },
+                    {
+                        prompt: 'The ___ the weather gets, the less we want to go out.<br><em>Nghĩa: Thời tiết càng xấu, chúng tôi càng không muốn ra ngoài.</em>',
+                        answer: 'worse',
+                        explanation: 'Worse is the comparative of bad.'
+                    },
+                    {
+                        prompt: 'The ___ you save, the more freedom you have later.<br><em>Nghĩa: Bạn tiết kiệm càng nhiều, sau này bạn càng có nhiều tự do hơn.</em>',
+                        answer: 'more money',
+                        explanation: 'More money is a common noun phrase in this pattern.'
+                    },
+                    {
+                        prompt: 'The ___ you go, the colder it gets.<br><em>Nghĩa: Bạn đi càng xa, trời càng lạnh.</em>',
+                        answer: 'further',
+                        explanation: 'Further works naturally for distance here.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Sửa lỗi và viết lại',
+                instruction: 'Sửa lỗi trong câu hoặc viết lại bằng cấu trúc The + Comparative... The + Comparative.',
+                items: [
+                    {
+                        prompt: 'The more you study, more you understand.<br><em>Nghĩa: Bạn học càng nhiều, bạn hiểu càng nhiều.</em>',
+                        answer: 'The more you study, the more you understand.',
+                        explanation: 'The second the is required.'
+                    },
+                    {
+                        prompt: 'The more faster you run, the better you feel.<br><em>Nghĩa: Bạn chạy càng nhanh, bạn càng thấy tốt hơn.</em>',
+                        answer: 'The faster you run, the better you feel.',
+                        explanation: 'Do not use more before faster.'
+                    },
+                    {
+                        prompt: 'The more older I get, the wiser I become.<br><em>Nghĩa: Tôi càng lớn tuổi, tôi càng chín chắn.</em>',
+                        answer: 'The older I get, the wiser I become.',
+                        explanation: 'Older already is a comparative; do not add more.'
+                    },
+                    {
+                        prompt: 'The much you practice, the better you will perform.<br><em>Nghĩa: Bạn luyện tập càng nhiều, bạn sẽ thể hiện càng tốt.</em>',
+                        answer: 'The more you practice, the better you will perform.',
+                        explanation: 'Much is not the correct comparative here; use more.'
+                    },
+                    {
+                        prompt: 'The more carefully you work, the less mistakes you make.<br><em>Nghĩa: Bạn làm việc càng cẩn thận, bạn càng mắc ít lỗi.</em>',
+                        answer: 'The more carefully you work, the fewer mistakes you make.',
+                        explanation: 'Mistakes are countable plural, so use fewer.'
+                    },
+                    {
+                        prompt: 'The less you sleep, the tired you feel.<br><em>Nghĩa: Bạn ngủ càng ít, bạn càng mệt.</em>',
+                        answer: 'The less you sleep, the more tired you feel.',
+                        explanation: 'More tired is the correct comparative of degree.'
+                    },
+                    {
+                        prompt: 'The early you start, the sooner you finish.<br><em>Nghĩa: Bạn bắt đầu càng sớm, bạn kết thúc càng sớm.</em>',
+                        answer: 'The earlier you start, the sooner you finish.',
+                        explanation: 'Early becomes earlier in the comparative form.'
+                    },
+                    {
+                        prompt: 'Write a sentence with this meaning: “Càng đọc nhiều, bạn càng học nhiều.”<br><em>Nghĩa: Viết lại theo cấu trúc so sánh tương quan.</em>',
+                        answer: 'The more you read, the more you learn.',
+                        explanation: 'This is the standard correlative structure for the meaning “càng... càng...”.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Cả hai vế đều cần the + comparative.',
+            'Có thể dùng more / less / fewer / better / worse / older / sooner tùy nghĩa.',
+            'Dùng sai comparative kép như more faster hoặc more older là lỗi rất phổ biến.',
+            'Trong vế sau, cấu trúc vẫn phải giữ song song và tự nhiên.'
         ]
     },
     'wish-if-only': {
@@ -3215,30 +3421,144 @@ const grammarPracticeData = {
         ]
     },
     'result-structures': {
-        source: 'Biên tập từ phần rewrite sentence về so/such/too/enough trong sách.',
+        source: '24 câu luyện Phrases & Clauses of Result bao phủ so...that, such...that, too...to, enough to và các mẫu đổi câu cơ bản.',
         sections: [
             {
-                title: 'Hoàn thành cấu trúc kết quả',
+                title: 'Nhóm 1: Điền cấu trúc đúng',
                 instruction: 'Điền so, such, too hoặc enough khi phù hợp.',
-                questions: [
-                    'It was ___ rotten meat that it had to be thrown away.',
-                    'The water was ___ cold to swim in.',
-                    'The room was large ___ to hold fifty people.',
-                    'She spoke ___ quickly that no one could take notes.',
-                    'They are ___ experienced engineers that the project feels safe.',
-                    'He is ___ young to drive legally.',
-                    'We had ___ few chairs that some guests had to stand.',
-                    'It was ___ a useful checklist that the team adopted it immediately.'
-                ],
-                answers: [
-                    'such',
-                    'too',
-                    'enough',
-                    'so',
-                    'such',
-                    'too',
-                    'so',
-                    'such'
+                items: [
+                    {
+                        prompt: 'It was ___ cold that we stayed inside.<br><em>Nghĩa: Trời lạnh đến mức chúng tôi ở trong nhà.</em>',
+                        answer: 'so',
+                        explanation: 'So + adj + that + clause dùng khi mức độ gây ra kết quả trực tiếp.'
+                    },
+                    {
+                        prompt: 'She was ___ tired to drive.<br><em>Nghĩa: Cô ấy quá mệt để lái xe.</em>',
+                        answer: 'too',
+                        explanation: 'Too + adj + to V mang nghĩa quá... đến mức không thể làm gì.'
+                    },
+                    {
+                        prompt: 'The room was large ___ to hold fifty people.<br><em>Nghĩa: Căn phòng đủ lớn để chứa năm mươi người.</em>',
+                        answer: 'enough',
+                        explanation: 'Adj + enough + to V diễn tả đủ... để làm gì đó.'
+                    },
+                    {
+                        prompt: 'It was ___ a noisy room that nobody could sleep.<br><em>Nghĩa: Đó là một căn phòng ồn đến mức không ai ngủ được.</em>',
+                        answer: 'such',
+                        explanation: 'Such + (a/an) + adj + noun + that + clause dùng với cụm danh từ.'
+                    },
+                    {
+                        prompt: 'He spoke ___ quickly that everyone noticed him.<br><em>Nghĩa: Anh ấy nói nhanh đến mức mọi người đều chú ý.</em>',
+                        answer: 'so',
+                        explanation: 'So + adv + that + clause dùng với trạng từ.'
+                    },
+                    {
+                        prompt: 'He is ___ young to work full-time.<br><em>Nghĩa: Anh ấy quá trẻ để làm việc toàn thời gian.</em>',
+                        answer: 'too',
+                        explanation: 'Too + adj + to V là mẫu quá... đến mức không thể.'
+                    },
+                    {
+                        prompt: 'We had ___ little time that we skipped lunch.<br><em>Nghĩa: Chúng tôi có ít thời gian đến mức phải bỏ bữa trưa.</em>',
+                        answer: 'so',
+                        explanation: 'So + much/little + noun + that + clause diễn tả số lượng gây ra kết quả.'
+                    },
+                    {
+                        prompt: 'Her bag was light ___ for a child to carry.<br><em>Nghĩa: Cái túi của cô ấy đủ nhẹ để một đứa trẻ mang.</em>',
+                        answer: 'enough',
+                        explanation: 'Enough đứng sau adjective, trước to V khi nói “đủ... để”.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Viết lại câu cho đúng',
+                instruction: 'Viết lại câu sao cho nghĩa không đổi.',
+                items: [
+                    {
+                        prompt: 'The film was very interesting. Everyone stayed to the end.<br><em>Nghĩa: Bộ phim rất thú vị. Mọi người ở lại đến cuối.</em>',
+                        answer: 'The film was so interesting that everyone stayed to the end.',
+                        explanation: 'So + adj + that + clause là cách nối hai ý thành nguyên nhân - kết quả.'
+                    },
+                    {
+                        prompt: 'The box was very heavy. I couldn’t lift it.<br><em>Nghĩa: Chiếc hộp rất nặng. Tôi không thể nhấc nó lên.</em>',
+                        answer: 'The box was too heavy for me to lift.',
+                        explanation: 'Too + adj + to V diễn tả quá... đến mức không thể.'
+                    },
+                    {
+                        prompt: 'The teacher spoke clearly. We understood everything.<br><em>Nghĩa: Giáo viên nói rõ ràng. Chúng tôi hiểu mọi thứ.</em>',
+                        answer: 'The teacher spoke clearly enough for us to understand everything.',
+                        explanation: 'Adj/adv + enough + to V nghĩa là đủ để làm gì đó.'
+                    },
+                    {
+                        prompt: 'The story was very long. Some students got bored.<br><em>Nghĩa: Câu chuyện rất dài. Một số học sinh thấy chán.</em>',
+                        answer: 'It was such a long story that some students got bored.',
+                        explanation: 'Such + (a/an) + adj + noun + that + clause dùng với cụm danh từ.'
+                    },
+                    {
+                        prompt: 'The rain was very heavy. We stayed at home.<br><em>Nghĩa: Trời mưa rất to. Chúng tôi ở nhà.</em>',
+                        answer: 'It was so heavy that we stayed at home.',
+                        explanation: 'So + adj + that + clause cho biết mức độ dẫn tới kết quả.'
+                    },
+                    {
+                        prompt: 'The test was easy. We finished it quickly.<br><em>Nghĩa: Bài kiểm tra dễ. Chúng tôi làm xong nhanh.</em>',
+                        answer: 'The test was easy enough for us to finish quickly.',
+                        explanation: 'Enough đứng sau adjective và trước to V.'
+                    },
+                    {
+                        prompt: 'The room was very small. We couldn’t fit in.<br><em>Nghĩa: Căn phòng rất nhỏ. Chúng tôi không thể vào vừa.</em>',
+                        answer: 'The room was too small for us to fit in.',
+                        explanation: 'Too...to mang nghĩa quá... đến mức không thể thực hiện hành động.'
+                    },
+                    {
+                        prompt: 'The hotel was very expensive. We only booked one night.<br><em>Nghĩa: Khách sạn rất đắt. Chúng tôi chỉ đặt một đêm.</em>',
+                        answer: 'It was such an expensive hotel that we only booked one night.',
+                        explanation: 'Such + (a/an) + adj + noun + that + clause nhấn mạnh cụm danh từ.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Lượng từ và biến thể nâng cao',
+                instruction: 'Điền so, such, too hoặc enough để hoàn chỉnh câu.',
+                items: [
+                    {
+                        prompt: 'There were ___ many people that we waited outside.<br><em>Nghĩa: Có nhiều người đến mức chúng tôi phải chờ bên ngoài.</em>',
+                        answer: 'so',
+                        explanation: 'So many + plural noun + that + clause dùng với danh từ đếm được số nhiều.'
+                    },
+                    {
+                        prompt: 'There were ___ few chairs that some guests stood.<br><em>Nghĩa: Có ít ghế đến mức một số khách phải đứng.</em>',
+                        answer: 'so',
+                        explanation: 'So few + plural noun + that + clause diễn tả số lượng quá ít.'
+                    },
+                    {
+                        prompt: 'We had ___ much homework that we worked late.<br><em>Nghĩa: Chúng tôi có nhiều bài tập đến mức phải làm muộn.</em>',
+                        answer: 'so',
+                        explanation: 'So much + uncountable noun + that + clause dùng với danh từ không đếm được.'
+                    },
+                    {
+                        prompt: 'She had ___ little money that she couldn’t buy the ticket.<br><em>Nghĩa: Cô ấy có ít tiền đến mức không thể mua vé.</em>',
+                        answer: 'so',
+                        explanation: 'So little + uncountable noun + that + clause diễn tả số lượng quá ít.'
+                    },
+                    {
+                        prompt: 'He was careful ___ to notice the mistake.<br><em>Nghĩa: Anh ấy đủ cẩn thận để nhận ra lỗi sai.</em>',
+                        answer: 'enough',
+                        explanation: 'Careful enough to V = đủ cẩn thận để làm gì đó.'
+                    },
+                    {
+                        prompt: 'The table was strong ___ for four adults to sit at.<br><em>Nghĩa: Chiếc bàn đủ chắc để bốn người lớn ngồi.</em>',
+                        answer: 'enough',
+                        explanation: 'Adj + enough + for someone + to V là mẫu rất hay gặp.'
+                    },
+                    {
+                        prompt: 'It was ___ a short meeting that we finished before noon.<br><em>Nghĩa: Đó là một cuộc họp ngắn đến mức chúng tôi xong trước buổi trưa.</em>',
+                        answer: 'such',
+                        explanation: 'Such + a/an + adj + noun + that + clause nhấn mạnh một danh từ cụ thể.'
+                    },
+                    {
+                        prompt: 'We had ___ money to pay for lunch.<br><em>Nghĩa: Chúng tôi có đủ tiền để trả bữa trưa.</em>',
+                        answer: 'enough',
+                        explanation: 'Enough + noun nghĩa là đủ số lượng cho nhu cầu đó.'
+                    }
                 ]
             }
         ],
@@ -3246,6 +3566,102 @@ const grammarPracticeData = {
             'Phân biệt được so + adj/adv với such + noun phrase.',
             'Biết enough đứng sau adjective/adverb nhưng trước noun.',
             'Nhận ra các câu too...to có thể đổi sang not...enough to hoặc so...that...not.'
+        ]
+    },
+    'imperatives-requests': {
+        source: '8 câu luyện Imperatives & Requests bao phủ lệnh, yêu cầu, phủ định, đề nghị, lời nhắc và chuyển sang cách nói lịch sự hơn.',
+        sections: [
+            {
+                title: 'Nhận diện và viết lại',
+                instruction: 'Xác định loại câu hoặc viết lại theo yêu cầu lịch sự hơn.',
+                items: [
+                    { prompt: 'Open the window.<br><em>Nghĩa: Mở cửa sổ đi.</em>', answer: 'Imperative trực tiếp', explanation: 'Câu bắt đầu bằng động từ nguyên mẫu là mệnh lệnh/hướng dẫn trực tiếp.' },
+                    { prompt: 'Please sit down.<br><em>Nghĩa: Làm ơn ngồi xuống.</em>', answer: 'Yêu cầu lịch sự', explanation: 'Please + verb làm câu mềm hơn và lịch sự hơn.' },
+                    { prompt: "Don't touch that.<br><em>Nghĩa: Đừng chạm vào cái đó.</em>", answer: 'Negative imperative', explanation: "Don't + V dùng để cấm hoặc nhắc không làm gì." },
+                    { prompt: "Let's start now.<br><em>Nghĩa: Chúng ta bắt đầu ngay nhé.</em>", answer: 'Đề nghị cùng làm', explanation: "Let's + V dùng khi mời gọi cả người nói và người nghe cùng thực hiện." },
+                    { prompt: 'Could you open the file?<br><em>Nghĩa: Bạn có thể mở tệp không?</em>', answer: 'Request lịch sự', explanation: 'Could you... là dạng hỏi lịch sự hơn imperative.' },
+                    { prompt: 'Watch out for the step.<br><em>Nghĩa: Cẩn thận bậc thềm.</em>', answer: 'Lời nhắc / cảnh báo', explanation: 'Watch out là mẫu warning rất phổ biến.' },
+                    { prompt: 'Please find the file attached.<br><em>Nghĩa: Vui lòng tìm tệp đính kèm.</em>', answer: 'Email request', explanation: 'Please + imperative thường dùng nhiều trong email hoặc tin nhắn công việc.' },
+                    { prompt: "Let's not argue now.<br><em>Nghĩa: Đừng cãi nhau bây giờ nhé.</em>", answer: 'Negative suggestion', explanation: "Let's not + V dùng để từ chối hoặc đề nghị tránh làm gì." }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Imperative dùng cho lệnh, hướng dẫn, cảnh báo và chỉ dẫn.',
+            'Please, could you, would you giúp câu lịch sự hơn.',
+            'Let\'s not là lời đề nghị phủ định, khác với don\'t.'
+        ]
+    },
+    'tag-questions': {
+        source: '8 câu luyện Tag Questions bao phủ be, do-support, modal, negative, I am, let\'s và imperative.',
+        sections: [
+            {
+                title: 'Điền tag đúng',
+                instruction: 'Điền câu hỏi đuôi phù hợp vào chỗ trống.',
+                items: [
+                    { prompt: 'You are ready, ___?<br><em>Nghĩa: Bạn đã sẵn sàng, đúng không?</em>', answer: "aren't you?", explanation: 'Câu khẳng định với be dùng tag phủ định.' },
+                    { prompt: "She doesn't like tea, ___?<br><em>Nghĩa: Cô ấy không thích trà, đúng không?</em>", answer: 'does she?', explanation: 'Câu phủ định dùng tag khẳng định.' },
+                    { prompt: 'They went home early, ___?<br><em>Nghĩa: Họ đã về nhà sớm, đúng không?</em>', answer: "didn't they?", explanation: 'Past simple dùng didn\'t trong tag.' },
+                    { prompt: 'You can swim, ___?<br><em>Nghĩa: Bạn biết bơi, đúng không?</em>', answer: "can't you?", explanation: 'Modal can giữ nguyên trong tag và đổi polarity.' },
+                    { prompt: 'I am late, ___?<br><em>Nghĩa: Tôi bị muộn, đúng không?</em>', answer: "aren't I?", explanation: 'I am... có tag đặc biệt là aren\'t I?' },
+                    { prompt: "Let's go now, ___?<br><em>Nghĩa: Chúng ta đi ngay nhé?</em>", answer: 'shall we?', explanation: "Let's... thường đi với shall we?" },
+                    { prompt: 'Open the door, ___?<br><em>Nghĩa: Mở cửa ra nhé?</em>', answer: 'will you?', explanation: 'Imperative thường dùng will you? để làm câu mềm hơn.' },
+                    { prompt: 'He never lies, ___?<br><em>Nghĩa: Anh ấy không bao giờ nói dối, đúng không?</em>', answer: 'does he?', explanation: 'Từ phủ định nghĩa như never làm tag theo hướng khẳng định.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Tag luôn bám theo auxiliary của mệnh đề chính.',
+            'Câu khẳng định đi với tag phủ định, câu phủ định đi với tag khẳng định.',
+            'I am... dùng aren\'t I?; Let\'s... dùng shall we?'
+        ]
+    },
+    'parallel-structure': {
+        source: '8 câu luyện Parallel Structure bao phủ lists, paired conjunctions, comparisons và sửa lỗi song song.',
+        sections: [
+            {
+                title: 'Chọn dạng song song đúng',
+                instruction: 'Điền hoặc sửa thành dạng song song chuẩn.',
+                items: [
+                    { prompt: 'She likes ___, ___, and speaking.<br><em>Nghĩa: Cô ấy thích đọc, viết và nói.</em>', answer: 'reading, writing', explanation: 'Các phần trong list phải cùng dạng V-ing.' },
+                    { prompt: 'He is both ___ and ___.<br><em>Nghĩa: Anh ấy vừa tốt bụng vừa hữu ích.</em>', answer: 'kind, helpful', explanation: 'Both...and cần hai thành phần cùng loại, ở đây là hai tính từ.' },
+                    { prompt: 'We can either ___ or ___.<br><em>Nghĩa: Chúng ta có thể ở lại hoặc đi.</em>', answer: 'stay, leave', explanation: 'Either...or cần hai động từ cùng dạng.' },
+                    { prompt: 'The bag is neither ___ nor ___.<br><em>Nghĩa: Cái túi không vừa cũng không đắt.</em>', answer: 'big, expensive', explanation: 'Neither...nor dùng hai tính từ song song.' },
+                    { prompt: 'She not only saved time but also ___ money.<br><em>Nghĩa: Cô ấy không chỉ tiết kiệm thời gian mà còn tiền.</em>', answer: 'saved', explanation: 'Not only...but also phải giữ cùng cấu trúc động từ.' },
+                    { prompt: 'He is more interested in ___ than in ___.<br><em>Nghĩa: Anh ấy thích đọc hơn xem TV.</em>', answer: 'reading, watching TV', explanation: 'Hai vế sau than phải cùng dạng gerund phrase.' },
+                    { prompt: 'To succeed, you must ___, ___, and ___.<br><em>Nghĩa: Để thành công, bạn phải lập kế hoạch, luyện tập và kiên trì.</em>', answer: 'plan, practice, persist', explanation: 'Các động từ nguyên mẫu phải song song.' },
+                    { prompt: 'Our goals are to ___, to ___, and to ___.<br><em>Nghĩa: Mục tiêu của chúng tôi là học, cải thiện và giúp đỡ.</em>', answer: 'learn, improve, help', explanation: 'Khi mở đầu bằng to, các vế sau cũng giữ to V.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Parallel structure giữ các phần ở cùng dạng ngữ pháp.',
+            'Rất hay gặp trong lists và paired conjunctions.',
+            'Chỉ cần một vế lệch dạng là câu nghe sai nhịp.'
+        ]
+    },
+    'discourse-markers': {
+        source: '8 câu luyện Linking Words & Discourse Markers bao phủ thêm ý, đối lập, nguyên nhân-kết quả, ví dụ, trình tự và chốt ý.',
+        sections: [
+            {
+                title: 'Chọn từ nối phù hợp',
+                instruction: 'Điền discourse marker phù hợp vào chỗ trống.',
+                items: [
+                    { prompt: 'The price is high. ___, the quality is excellent.<br><em>Nghĩa: Giá cao. Tuy nhiên, chất lượng rất tốt.</em>', answer: 'However', explanation: 'However dùng để tạo quan hệ đối lập.' },
+                    { prompt: 'He studies hard. ___, he passed the exam.<br><em>Nghĩa: Cậu ấy học chăm. Kết quả là cậu ấy đậu kỳ thi.</em>', answer: 'As a result', explanation: 'As a result diễn tả kết quả trực tiếp.' },
+                    { prompt: 'We need more time. ___, we should ask for help.<br><em>Nghĩa: Chúng ta cần thêm thời gian. Vì vậy, chúng ta nên nhờ giúp đỡ.</em>', answer: 'Therefore', explanation: 'Therefore là marker nguyên nhân-kết quả trong văn viết.' },
+                    { prompt: 'She likes many sports, ___ football and tennis.<br><em>Nghĩa: Cô ấy thích nhiều môn thể thao, ví dụ như bóng đá và quần vợt.</em>', answer: 'for example', explanation: 'For example dùng để nêu ví dụ cụ thể.' },
+                    { prompt: '___, we need to discuss the budget.<br><em>Nghĩa: Đầu tiên, chúng ta cần bàn về ngân sách.</em>', answer: 'First', explanation: 'First là marker trình tự mở đầu một chuỗi ý.' },
+                    { prompt: 'The machine was new. ___, it broke down.<br><em>Nghĩa: Cái máy còn mới. Thế nhưng nó đã hỏng.</em>', answer: 'Nevertheless', explanation: 'Nevertheless nhấn sự tương phản mạnh hơn however.' },
+                    { prompt: '___, let me summarize the main points.<br><em>Nghĩa: Cuối cùng, để tôi tóm tắt các ý chính.</em>', answer: 'Finally', explanation: 'Finally dùng để chốt chuỗi ý hoặc chuyển sang kết luận.' },
+                    { prompt: 'I was tired. ___, I finished the work.<br><em>Nghĩa: Tôi rất mệt. Dù vậy, tôi vẫn hoàn thành công việc.</em>', answer: 'Nevertheless', explanation: 'Nevertheless thường đứng đầu câu và dùng với ý đối lập.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Discourse markers thường nối giữa câu hoặc giữa đoạn.',
+            'However, therefore, as a result cần dấu phẩy rõ ràng.',
+            'Đừng dùng discourse marker như liên từ trong cùng một mệnh đề nếu dấu câu không đúng.'
         ]
     },
     'present-continuous': {
