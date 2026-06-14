@@ -613,6 +613,59 @@ const grammarPracticeData = {
             'Không dùng future perfect nếu câu chỉ nói một hành động tương lai đơn giản mà không có mốc hoàn tất.'
         ]
     },
+    'existential-there': {
+        source: '24 câu luyện There is / There are · A1 bao phủ khẳng định, phủ định, câu hỏi, số ít/số nhiều, và quantifiers cơ bản.',
+        sections: [
+            {
+                title: 'Nhóm 1: Chọn is hay are',
+                instruction: 'Điền is hoặc are vào chỗ trống.',
+                items: [
+                    { prompt: 'There ___ a book on the table.<br><em>Nghĩa: Có một quyển sách trên bàn.</em>', answer: 'is', explanation: 'Book là danh từ số ít đếm được.' },
+                    { prompt: 'There ___ three chairs in the room.<br><em>Nghĩa: Có ba cái ghế trong phòng.</em>', answer: 'are', explanation: 'Chairs là danh từ số nhiều.' },
+                    { prompt: 'There ___ some milk in the fridge.<br><em>Nghĩa: Có một ít sữa trong tủ lạnh.</em>', answer: 'is', explanation: 'Milk là danh từ không đếm được.' },
+                    { prompt: 'There ___ many students in the class.<br><em>Nghĩa: Có nhiều học sinh trong lớp.</em>', answer: 'are', explanation: 'Students là danh từ số nhiều đếm được.' },
+                    { prompt: 'There ___ a pen and two notebooks on the desk.<br><em>Nghĩa: Có một cây bút và hai quyển vở trên bàn.</em>', answer: 'is', explanation: 'Chia theo danh từ đầu tiên: a pen.' },
+                    { prompt: 'There ___ no time to wait.<br><em>Nghĩa: Không có thời gian để chờ.</em>', answer: 'is', explanation: 'Time là danh từ không đếm được.' },
+                    { prompt: 'There ___ some apples in the basket.<br><em>Nghĩa: Có vài quả táo trong giỏ.</em>', answer: 'are', explanation: 'Apples là danh từ số nhiều.' },
+                    { prompt: 'There ___ a big problem.<br><em>Nghĩa: Có một vấn đề lớn.</em>', answer: 'is', explanation: 'Problem là danh từ số ít.' }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Câu hỏi và phủ định',
+                instruction: 'Viết dạng câu hỏi hoặc phủ định cho there is/are.',
+                items: [
+                    { prompt: 'There is a cat in the garden. / Make it a question.<br><em>Nghĩa: Có một con mèo trong vườn.</em>', answer: 'Is there a cat in the garden?', explanation: 'Đưa is lên đầu câu để hỏi yes/no.' },
+                    { prompt: 'There are many books on the shelf. / Make it a question.<br><em>Nghĩa: Có nhiều sách trên kệ.</em>', answer: 'Are there many books on the shelf?', explanation: 'Are there is the question form for plural nouns.' },
+                    { prompt: 'There is some juice in the bottle. / Make it negative.<br><em>Nghĩa: Có một ít nước trái cây trong chai.</em>', answer: "There isn't any juice in the bottle.", explanation: 'Dùng isn\'t any để phủ định lượng không đếm được.' },
+                    { prompt: 'There are two windows in the room. / Make it negative.<br><em>Nghĩa: Có hai cửa sổ trong phòng.</em>', answer: "There aren't two windows in the room.", explanation: 'Dùng aren\'t cho danh từ số nhiều.' },
+                    { prompt: 'There is a problem. / Make it negative.<br><em>Nghĩa: Có một vấn đề.</em>', answer: "There isn't a problem.", explanation: 'There is becomes there isn\'t in the negative.' },
+                    { prompt: 'There are chairs in the hall. / Make it a question.<br><em>Nghĩa: Có ghế trong hội trường.</em>', answer: 'Are there chairs in the hall?', explanation: 'Question form uses are there for plural nouns.' },
+                    { prompt: 'There is a pen on the desk. / Make it negative.<br><em>Nghĩa: Có một cây bút trên bàn.</em>', answer: "There isn't a pen on the desk.", explanation: 'There is + not becomes there isn\'t.' },
+                    { prompt: 'There are students outside. / Make it negative.<br><em>Nghĩa: Có học sinh ở bên ngoài.</em>', answer: "There aren't any students outside.", explanation: 'Any is common in negative plural statements.' }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Viết lại và chọn đúng',
+                instruction: 'Viết lại câu sao cho đúng với There is / There are.',
+                items: [
+                    { prompt: 'Có một quyển sách trên bàn.<br><em>Nghĩa: Write in English.</em>', answer: 'There is a book on the table.', explanation: 'A book is singular countable, so use there is.' },
+                    { prompt: 'Có nhiều ghế trong lớp.<br><em>Nghĩa: Write in English.</em>', answer: 'There are many chairs in the class.', explanation: 'Chairs is plural, so use there are.' },
+                    { prompt: 'Có một ít nước trong ly.<br><em>Nghĩa: Write in English.</em>', answer: 'There is some water in the glass.', explanation: 'Water is uncountable.' },
+                    { prompt: 'Có vài học sinh trong thư viện.<br><em>Nghĩa: Write in English.</em>', answer: 'There are a few students in the library.', explanation: 'Students is plural; a few is a basic positive quantifier.' },
+                    { prompt: 'There ___ a lot of food on the table.<br><em>Nghĩa: Có rất nhiều thức ăn trên bàn.</em>', answer: 'is', explanation: 'Food is uncountable.' },
+                    { prompt: 'There ___ many people at the party.<br><em>Nghĩa: Có nhiều người ở bữa tiệc.</em>', answer: 'are', explanation: 'People is plural.' },
+                    { prompt: 'There ___ no milk left.<br><em>Nghĩa: Không còn sữa.</em>', answer: 'is', explanation: 'Milk is uncountable, so use is with no.' },
+                    { prompt: 'There ___ no tickets left.<br><em>Nghĩa: Không còn vé.</em>', answer: 'are', explanation: 'Tickets is plural, so use are with no.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'There is dùng với danh từ số ít và danh từ không đếm được.',
+            'There are dùng với danh từ số nhiều.',
+            'Trong câu hỏi: Is there...? / Are there...?',
+            'Trong câu phủ định: There isn\'t... / There aren\'t...'
+        ]
+    },
     'exclamatory-sentences': {
         source: '24 câu luyện Câu Cảm Thán B1 bao phủ What/How, noun phrase, adj/adv, rewrite và nhận diện sắc thái cảm xúc.',
         sections: [
@@ -2551,37 +2604,545 @@ const grammarPracticeData = {
         ]
     },
     'word-formation': {
-        source: 'Bài word form theo mô thức thường gặp trong sách.',
+        source: 'Bộ 100 câu word form mở rộng theo các mô thức thường gặp trong sách.',
         sections: [
             {
-                title: 'Điền đúng từ loại',
-                instruction: 'Dùng dạng đúng của từ trong ngoặc.',
-                questions: [
-                    'The plan was a complete ___. (fail)',
-                    'Our new assistant works very ___. (careful)',
-                    'They were impressed by the team’s ___. (creative)',
-                    'This solution is not practical enough; it is highly ___. (effect)',
-                    'The city has seen rapid ___. (develop)',
-                    'Her presentation was clear and highly ___. (persuade)',
-                    'The board will make a final ___ tomorrow. (decide)',
-                    'This guide is especially ___ for self-study learners. (use)'
-                ],
-                answers: [
-                    'failure',
-                    'carefully',
-                    'creativity',
-                    'ineffective',
-                    'development',
-                    'persuasive',
-                    'decision',
-                    'useful'
+                title: '1. Từ gốc và từ loại cơ bản',
+                instruction: 'Điền dạng đúng của từ trong ngoặc để hoàn thành câu.',
+                items: [
+                    {
+                        prompt: `The plan was a complete ___. (fail)<br><em>Nghĩa: Kế hoạch đó là một thất bại hoàn toàn.</em>`,
+                        answer: `failure`,
+                        explanation: `Fail là động từ, failure là danh từ chỉ kết quả thất bại.`
+                    },
+                    {
+                        prompt: `She is very ___. (care)<br><em>Nghĩa: Cô ấy rất cẩn thận.</em>`,
+                        answer: `careful`,
+                        explanation: `Sau be thường cần tính từ, nên dùng careful.`
+                    },
+                    {
+                        prompt: `He spoke so ___. (care)<br><em>Nghĩa: Anh ấy nói rất cẩn thận.</em>`,
+                        answer: `carefully`,
+                        explanation: `Động từ spoke cần trạng từ bổ nghĩa, nên dùng carefully.`
+                    },
+                    {
+                        prompt: `The design team is very ___. (create)<br><em>Nghĩa: Nhóm thiết kế rất sáng tạo.</em>`,
+                        answer: `creative`,
+                        explanation: `Create là động từ, creative là tính từ miêu tả người hoặc vật.`
+                    },
+                    {
+                        prompt: `The new system is more ___. (effect)<br><em>Nghĩa: Hệ thống mới hiệu quả hơn.</em>`,
+                        answer: `effective`,
+                        explanation: `Đuôi -ive tạo tính từ, effective nghĩa là có hiệu quả.`
+                    },
+                    {
+                        prompt: `The city has seen rapid ___. (develop)<br><em>Nghĩa: Thành phố đã phát triển nhanh chóng.</em>`,
+                        answer: `development`,
+                        explanation: `Develop là động từ, development là danh từ chỉ quá trình.`
+                    },
+                    {
+                        prompt: `Her speech was very ___. (persuade)<br><em>Nghĩa: Bài phát biểu của cô ấy rất thuyết phục.</em>`,
+                        answer: `persuasive`,
+                        explanation: `Persuasive là tính từ dùng để tả lời nói hoặc hành động có sức thuyết phục.`
+                    },
+                    {
+                        prompt: `The board will make a final ___. (decide)<br><em>Nghĩa: Ban quản trị sẽ đưa ra quyết định cuối cùng.</em>`,
+                        answer: `decision`,
+                        explanation: `Sau make a cần danh từ, nên dùng decision.`
+                    },
+                    {
+                        prompt: `This guide is especially ___. (use)<br><em>Nghĩa: Hướng dẫn này đặc biệt hữu ích.</em>`,
+                        answer: `useful`,
+                        explanation: `Use + -ful tạo tính từ useful.`
+                    },
+                    {
+                        prompt: `Their work led to great ___. (succeed)<br><em>Nghĩa: Công việc của họ dẫn tới thành công lớn.</em>`,
+                        answer: `success`,
+                        explanation: `Succeed là động từ, success là danh từ.`
+                    },
+                    {
+                        prompt: `The weather is ___. (danger)<br><em>Nghĩa: Thời tiết nguy hiểm.</em>`,
+                        answer: `dangerous`,
+                        explanation: `Đuôi -ous tạo tính từ từ danh từ danger.`
+                    },
+                    {
+                        prompt: `She was very ___. (help)<br><em>Nghĩa: Cô ấy rất hữu ích.</em>`,
+                        answer: `helpful`,
+                        explanation: `Help + -ful tạo tính từ helpful.`
+                    },
+                    {
+                        prompt: `That is a very ___. (beauty)<br><em>Nghĩa: Đó là một nơi rất đẹp.</em>`,
+                        answer: `beautiful`,
+                        explanation: `Beauty là danh từ, beautiful là tính từ.`
+                    },
+                    {
+                        prompt: `This is a __ culture. (nation)<br><em>Nghĩa: Đây là một nền văn hóa quốc gia.</em>`,
+                        answer: `national`,
+                        explanation: `Nation + -al tạo tính từ national.`
+                    },
+                    {
+                        prompt: `He and his sister have a strong ___. (friend)<br><em>Nghĩa: Anh ấy và em gái có một tình bạn bền chặt.</em>`,
+                        answer: `friendship`,
+                        explanation: `Friend + -ship tạo danh từ friendship.`
+                    },
+                    {
+                        prompt: `The workers showed great ___. (act)<br><em>Nghĩa: Những công nhân thể hiện sự chủ động lớn.</em>`,
+                        answer: `activity`,
+                        explanation: `Active + -ity tạo danh từ activity; câu này cần danh từ.`
+                    },
+                    {
+                        prompt: `The report gave useful ___. (inform)<br><em>Nghĩa: Báo cáo cung cấp thông tin hữu ích.</em>`,
+                        answer: `information`,
+                        explanation: `Inform là động từ, information là danh từ không đếm được.`
+                    },
+                    {
+                        prompt: `He is a very __ person. (logic)<br><em>Nghĩa: Anh ấy là người rất logic.</em>`,
+                        answer: `logical`,
+                        explanation: `Logic + -al tạo tính từ logical.`
+                    },
+                    {
+                        prompt: `The new chair is very ___. (comfort)<br><em>Nghĩa: Chiếc ghế mới rất thoải mái.</em>`,
+                        answer: `comfortable`,
+                        explanation: `Comfort + -able tạo tính từ comfortable.`
+                    },
+                    {
+                        prompt: `The company wants to stay ___. (power)<br><em>Nghĩa: Công ty muốn duy trì sức mạnh.</em>`,
+                        answer: `powerful`,
+                        explanation: `Power + -ful tạo tính từ powerful.`
+                    }
+                ]
+            },
+            {
+                title: '2. Tiền tố và nghĩa phủ định',
+                instruction: 'Điền từ có tiền tố phù hợp để hoàn thành câu.',
+                items: [
+                    {
+                        prompt: `This rule is ___. (regular)<br><em>Nghĩa: Quy tắc này không đều đặn.</em>`,
+                        answer: `irregular`,
+                        explanation: `Tiền tố ir- tạo nghĩa phủ định của regular.`
+                    },
+                    {
+                        prompt: `That action was ___. (legal)<br><em>Nghĩa: Hành động đó là bất hợp pháp.</em>`,
+                        answer: `illegal`,
+                        explanation: `Il- là dạng phủ định của legal.`
+                    },
+                    {
+                        prompt: `It was very __ to interrupt them. (polite)<br><em>Nghĩa: Ngắt lời họ là rất bất lịch sự.</em>`,
+                        answer: `impolite`,
+                        explanation: `Im- thường đứng trước p/b/m để tạo nghĩa phủ định.`
+                    },
+                    {
+                        prompt: `I ___ what he said. (believe)<br><em>Nghĩa: Tôi không tin điều anh ấy nói.</em>`,
+                        answer: `disbelieve`,
+                        explanation: `Dis- tạo nghĩa trái ngược hoặc phủ định.`
+                    },
+                    {
+                        prompt: `Do not ___ with me on this point. (agree)<br><em>Nghĩa: Đừng bất đồng với tôi về điểm này.</em>`,
+                        answer: `disagree`,
+                        explanation: `Disagree là động từ phủ định của agree.`
+                    },
+                    {
+                        prompt: `The thief tried to ___ from the police. (appear)<br><em>Nghĩa: Kẻ trộm cố biến mất khỏi cảnh sát.</em>`,
+                        answer: `disappear`,
+                        explanation: `Dis- mang nghĩa biến mất hoặc ngược lại với appear.`
+                    },
+                    {
+                        prompt: `He may ___ the meaning of the question. (understand)<br><em>Nghĩa: Anh ấy có thể hiểu nhầm nghĩa của câu hỏi.</em>`,
+                        answer: `misunderstand`,
+                        explanation: `Mis- diễn tả hiểu sai hoặc làm sai.`
+                    },
+                    {
+                        prompt: `Please ___ the box before moving it. (pack)<br><em>Nghĩa: Hãy mở thùng ra trước khi di chuyển nó.</em>`,
+                        answer: `unpack`,
+                        explanation: `Un- có nghĩa đảo ngược hành động.`
+                    },
+                    {
+                        prompt: `You need to ___ the cable first. (connect)<br><em>Nghĩa: Bạn cần ngắt kết nối dây cáp trước.</em>`,
+                        answer: `disconnect`,
+                        explanation: `Dis- tạo nghĩa ngắt hoặc tách ra.`
+                    },
+                    {
+                        prompt: `We will ___ the document tomorrow. (order)<br><em>Nghĩa: Chúng tôi sẽ sắp xếp lại tài liệu vào ngày mai.</em>`,
+                        answer: `reorder`,
+                        explanation: `Re- nghĩa là làm lại hoặc lại một lần nữa.`
+                    },
+                    {
+                        prompt: `The company should not ___ the report data. (use)<br><em>Nghĩa: Công ty không nên dùng sai dữ liệu của báo cáo.</em>`,
+                        answer: `misuse`,
+                        explanation: `Mis- diễn tả dùng sai hoặc lạm dụng.`
+                    },
+                    {
+                        prompt: `Do not ___ the facts. (trust)<br><em>Nghĩa: Đừng mất lòng tin vào sự thật.</em>`,
+                        answer: `distrust`,
+                        explanation: `Dis- tạo nghĩa không tin hoặc thiếu tin tưởng.`
+                    },
+                    {
+                        prompt: `The shirt is too small; it is ___. (fit)<br><em>Nghĩa: Chiếc áo quá nhỏ, nó không vừa.</em>`,
+                        answer: `unfit`,
+                        explanation: `Un- tạo nghĩa không phù hợp hoặc không vừa.`
+                    },
+                    {
+                        prompt: `The room was __ after the rain. (comfortable)<br><em>Nghĩa: Căn phòng trở nên không thoải mái sau cơn mưa.</em>`,
+                        answer: `uncomfortable`,
+                        explanation: `Un- làm tính từ mang nghĩa trái ngược.`
+                    },
+                    {
+                        prompt: `The answer is ___. (possible)<br><em>Nghĩa: Câu trả lời là không thể.</em>`,
+                        answer: `impossible`,
+                        explanation: `Im- là tiền tố phủ định của possible.`
+                    },
+                    {
+                        prompt: `This task is ___. (complete)<br><em>Nghĩa: Nhiệm vụ này chưa hoàn chỉnh.</em>`,
+                        answer: `incomplete`,
+                        explanation: `In- tạo nghĩa chưa đầy đủ hoặc không hoàn toàn.`
+                    },
+                    {
+                        prompt: `He felt __ after the mistake. (responsible)<br><em>Nghĩa: Anh ấy cảm thấy vô trách nhiệm sau lỗi đó.</em>`,
+                        answer: `irresponsible`,
+                        explanation: `Ir- là dạng phủ định của responsible.`
+                    },
+                    {
+                        prompt: `The child was too __ for the role. (mature)<br><em>Nghĩa: Đứa trẻ còn quá non nớt cho vai diễn đó.</em>`,
+                        answer: `immature`,
+                        explanation: `Im- tạo nghĩa chưa trưởng thành.`
+                    },
+                    {
+                        prompt: `This is an __ email. (formal)<br><em>Nghĩa: Đây là một email không trang trọng.</em>`,
+                        answer: `informal`,
+                        explanation: `In- tạo nghĩa trái ngược của formal.`
+                    },
+                    {
+                        prompt: `The mountain is __ from here. (visible)<br><em>Nghĩa: Ngọn núi không nhìn thấy từ đây.</em>`,
+                        answer: `invisible`,
+                        explanation: `In- tạo nghĩa không nhìn thấy được.`
+                    }
+                ]
+            },
+            {
+                title: '3. Hậu tố tạo danh từ và tính từ',
+                instruction: 'Dùng đúng hậu tố để tạo danh từ hoặc tính từ trong câu.',
+                items: [
+                    {
+                        prompt: `The government announced a new ___. (organize)<br><em>Nghĩa: Chính phủ công bố một cuộc tổ chức mới.</em>`,
+                        answer: `organization`,
+                        explanation: `-ation / -tion thường tạo danh từ từ động từ.`
+                    },
+                    {
+                        prompt: `The train caused a lot of ___. (move)<br><em>Nghĩa: Chuyến tàu gây ra nhiều chuyển động.</em>`,
+                        answer: `movement`,
+                        explanation: `-ment thường tạo danh từ chỉ kết quả hoặc quá trình.`
+                    },
+                    {
+                        prompt: `Her speech showed great ___. (happy)<br><em>Nghĩa: Bài phát biểu của cô ấy thể hiện niềm hạnh phúc lớn.</em>`,
+                        answer: `happiness`,
+                        explanation: `-ness tạo danh từ từ tính từ.`
+                    },
+                    {
+                        prompt: `The school is full of ___. (active)<br><em>Nghĩa: Ngôi trường đầy các hoạt động.</em>`,
+                        answer: `activity`,
+                        explanation: `-ity tạo danh từ từ tính từ hoặc gốc từ liên quan.`
+                    },
+                    {
+                        prompt: `We need more ___. (inform)<br><em>Nghĩa: Chúng ta cần thêm thông tin.</em>`,
+                        answer: `information`,
+                        explanation: `Information là danh từ không đếm được rất thường gặp.`
+                    },
+                    {
+                        prompt: `The scientist explained the ___. (create)<br><em>Nghĩa: Nhà khoa học giải thích sự sáng tạo.</em>`,
+                        answer: `creation`,
+                        explanation: `-tion tạo danh từ chỉ hành động hoặc kết quả.`
+                    },
+                    {
+                        prompt: `His choice was based on ___. (educate)<br><em>Nghĩa: Quyết định của anh ấy dựa trên giáo dục.</em>`,
+                        answer: `education`,
+                        explanation: `-ation tạo danh từ như education.`
+                    },
+                    {
+                        prompt: `She showed great ___. (kind)<br><em>Nghĩa: Cô ấy thể hiện lòng tốt lớn.</em>`,
+                        answer: `kindness`,
+                        explanation: `-ness tạo danh từ từ tính từ kind.`
+                    },
+                    {
+                        prompt: `This tool has great ___. (use)<br><em>Nghĩa: Công cụ này rất hữu ích.</em>`,
+                        answer: `usefulness`,
+                        explanation: `Use + -ful + -ness tạo danh từ usefulness.`
+                    },
+                    {
+                        prompt: `He made a ___ mistake. (care)<br><em>Nghĩa: Anh ấy mắc một lỗi bất cẩn.</em>`,
+                        answer: `careless`,
+                        explanation: `-less tạo tính từ mang nghĩa thiếu đi.`
+                    },
+                    {
+                        prompt: `The boy felt ___. (hope)<br><em>Nghĩa: Cậu bé cảm thấy tuyệt vọng.</em>`,
+                        answer: `hopeless`,
+                        explanation: `Hope + -less tạo tính từ hopeless.`
+                    },
+                    {
+                        prompt: `The team looked ___. (power)<br><em>Nghĩa: Đội trông yếu thế.</em>`,
+                        answer: `powerless`,
+                        explanation: `-less tạo nghĩa không có hoặc thiếu.`
+                    },
+                    {
+                        prompt: `It was a very ___ afternoon. (peace)<br><em>Nghĩa: Đó là một buổi chiều rất yên bình.</em>`,
+                        answer: `peaceful`,
+                        explanation: `-ful tạo tính từ có nghĩa đầy hoặc mang tính chất đó.`
+                    },
+                    {
+                        prompt: `That was a ___ story. (wonder)<br><em>Nghĩa: Đó là một câu chuyện tuyệt vời.</em>`,
+                        answer: `wonderful`,
+                        explanation: `Wonder + -ful tạo tính từ wonderful.`
+                    },
+                    {
+                        prompt: `The road is ___. (danger)<br><em>Nghĩa: Con đường nguy hiểm.</em>`,
+                        answer: `dangerous`,
+                        explanation: `-ous thường tạo tính từ từ danh từ.`
+                    },
+                    {
+                        prompt: `He is a very ___ actor. (fame)<br><em>Nghĩa: Anh ấy là một diễn viên rất nổi tiếng.</em>`,
+                        answer: `famous`,
+                        explanation: `Fame + -ous tạo tính từ famous.`
+                    },
+                    {
+                        prompt: `That is a ___ suggestion. (reason)<br><em>Nghĩa: Đó là một gợi ý hợp lý.</em>`,
+                        answer: `reasonable`,
+                        explanation: `-able thường tạo tính từ chỉ khả năng hoặc mức độ phù hợp.`
+                    },
+                    {
+                        prompt: `It was a ___ decision. (value)<br><em>Nghĩa: Đó là một quyết định có giá trị.</em>`,
+                        answer: `valuable`,
+                        explanation: `Value + -able tạo tính từ valuable.`
+                    },
+                    {
+                        prompt: `She is in excellent ___. (health)<br><em>Nghĩa: Cô ấy đang có sức khỏe rất tốt.</em>`,
+                        answer: `health`,
+                        explanation: `Câu này cần danh từ sau in excellent.`
+                    },
+                    {
+                        prompt: `He is very ___. (trust)<br><em>Nghĩa: Anh ấy rất đáng tin cậy.</em>`,
+                        answer: `trustworthy`,
+                        explanation: `-worthy tạo tính từ mang nghĩa đáng... / xứng đáng.`
+                    }
+                ]
+            },
+            {
+                title: '4. Trạng từ và động từ phái sinh',
+                instruction: 'Chọn đúng dạng trạng từ hoặc động từ được tạo từ từ gốc.',
+                items: [
+                    {
+                        prompt: `She answered very ___. (careful)<br><em>Nghĩa: Cô ấy trả lời rất cẩn thận.</em>`,
+                        answer: `carefully`,
+                        explanation: `Adverb thường bổ nghĩa cho động từ.`
+                    },
+                    {
+                        prompt: `He completed the task ___. (simple)<br><em>Nghĩa: Anh ấy hoàn thành nhiệm vụ một cách đơn giản.</em>`,
+                        answer: `simply`,
+                        explanation: `-ly là hậu tố trạng từ phổ biến.`
+                    },
+                    {
+                        prompt: `The car moved ___. (quick)<br><em>Nghĩa: Chiếc xe di chuyển nhanh.</em>`,
+                        answer: `quickly`,
+                        explanation: `Quick là tính từ, quickly là trạng từ.`
+                    },
+                    {
+                        prompt: `The rain fell ___. (heavy)<br><em>Nghĩa: Mưa rơi nặng hạt.</em>`,
+                        answer: `heavily`,
+                        explanation: `Heavily là trạng từ từ heavy.`
+                    },
+                    {
+                        prompt: `She smiled ___. (happy)<br><em>Nghĩa: Cô ấy mỉm cười vui vẻ.</em>`,
+                        answer: `happily`,
+                        explanation: `Happy đổi sang trạng từ bằng -ly.`
+                    },
+                    {
+                        prompt: `He won the race ___. (lucky)<br><em>Nghĩa: Anh ấy may mắn giành chiến thắng.</em>`,
+                        answer: `luckily`,
+                        explanation: `Luckily dùng để mở đầu hoặc bổ nghĩa cho mệnh đề.`
+                    },
+                    {
+                        prompt: `___, the train arrived on time. (final)<br><em>Nghĩa: Cuối cùng, tàu cũng đến đúng giờ.</em>`,
+                        answer: `Finally`,
+                        explanation: `Finally dùng để chỉ kết thúc trình tự.`
+                    },
+                    {
+                        prompt: `The children played ___. (noisy)<br><em>Nghĩa: Những đứa trẻ chơi rất ồn ào.</em>`,
+                        answer: `noisily`,
+                        explanation: `Noisy là tính từ, noisily là trạng từ.`
+                    },
+                    {
+                        prompt: `The test was ___. (easy)<br><em>Nghĩa: Bài kiểm tra rất dễ.</em>`,
+                        answer: `easy`,
+                        explanation: `Sau be cần tính từ, nên dùng easy chứ không dùng easily.`
+                    },
+                    {
+                        prompt: `He spoke ___. (bad)<br><em>Nghĩa: Anh ấy nói khá tệ.</em>`,
+                        answer: `badly`,
+                        explanation: `Badly là trạng từ của bad.`
+                    },
+                    {
+                        prompt: `The engineer will ___ the old system. (modern)<br><em>Nghĩa: Kỹ sư sẽ hiện đại hóa hệ thống cũ.</em>`,
+                        answer: `modernize`,
+                        explanation: `-ize thường tạo động từ có nghĩa làm cho trở nên.`
+                    },
+                    {
+                        prompt: `We need to ___ this paragraph. (simple)<br><em>Nghĩa: Chúng ta cần đơn giản hóa đoạn này.</em>`,
+                        answer: `simplify`,
+                        explanation: `-ify cũng tạo động từ nghĩa làm cho trở nên.`
+                    },
+                    {
+                        prompt: `Please ___ the sentence for beginners. (deep)<br><em>Nghĩa: Hãy làm sâu hơn câu này cho người mới học.</em>`,
+                        answer: `deepen`,
+                        explanation: `-en thường tạo động từ từ tính từ.`
+                    },
+                    {
+                        prompt: `We will ___ the road next year. (broad)<br><em>Nghĩa: Chúng ta sẽ mở rộng con đường vào năm sau.</em>`,
+                        answer: `broaden`,
+                        explanation: `Broaden là động từ từ broad.`
+                    },
+                    {
+                        prompt: `The teacher will ___ the students. (weak)<br><em>Nghĩa: Giáo viên sẽ làm cho học sinh mạnh hơn.</em>`,
+                        answer: `weaken`,
+                        explanation: `Weaken là động từ trái nghĩa với strengthen.`
+                    },
+                    {
+                        prompt: `You should ___ the pencil before writing. (sharp)<br><em>Nghĩa: Bạn nên làm sắc bút chì trước khi viết.</em>`,
+                        answer: `sharpen`,
+                        explanation: `-en tạo động từ chỉ làm cho trở nên.`
+                    },
+                    {
+                        prompt: `The fertilizer can ___ the soil. (rich)<br><em>Nghĩa: Phân bón có thể làm đất màu mỡ hơn.</em>`,
+                        answer: `enrich`,
+                        explanation: `En- kết hợp với rich tạo động từ enrich.`
+                    },
+                    {
+                        prompt: `The winter air will ___ the water. (hard)<br><em>Nghĩa: Không khí mùa đông sẽ làm nước cứng lại.</em>`,
+                        answer: `harden`,
+                        explanation: `-en là hậu tố tạo động từ.`
+                    },
+                    {
+                        prompt: `We should ___ the rule before using it. (clear)<br><em>Nghĩa: Chúng ta nên làm rõ quy tắc trước khi dùng.</em>`,
+                        answer: `clarify`,
+                        explanation: `-ify tạo động từ nghĩa làm cho rõ hơn.`
+                    },
+                    {
+                        prompt: `The water is going to ___ before it is used. (pure)<br><em>Nghĩa: Nước sẽ được lọc sạch trước khi dùng.</em>`,
+                        answer: `purify`,
+                        explanation: `-ify tạo động từ từ pure.`
+                    }
+                ]
+            },
+            {
+                title: '5. Ghép từ và chuyển loại',
+                instruction: 'Ghép các phần từ hoặc điền từ đúng theo ngữ cảnh.',
+                items: [
+                    {
+                        prompt: `black + board = ?<br><em>Nghĩa: Ghép thành một từ.</em>`,
+                        answer: `blackboard`,
+                        explanation: `Compound word viết liền.`
+                    },
+                    {
+                        prompt: `mother + in + law = ?<br><em>Nghĩa: Ghép thành một từ có gạch nối.</em>`,
+                        answer: `mother-in-law`,
+                        explanation: `Một số compound dùng dấu gạch nối.`
+                    },
+                    {
+                        prompt: `high + school = ?<br><em>Nghĩa: Ghép thành cụm từ quen thuộc.</em>`,
+                        answer: `high school`,
+                        explanation: `Compound open viết tách nhưng là một khái niệm.`
+                    },
+                    {
+                        prompt: `part + time = ?<br><em>Nghĩa: Ghép thành tính từ chỉ thời gian làm việc.</em>`,
+                        answer: `part-time`,
+                        explanation: `Dạng có gạch nối thường dùng trước danh từ.`
+                    },
+                    {
+                        prompt: `one + way = ?<br><em>Nghĩa: Ghép thành tính từ chỉ một chiều.</em>`,
+                        answer: `one-way`,
+                        explanation: `Số + danh từ thường thành compound có gạch nối.`
+                    },
+                    {
+                        prompt: `water + proof = ?<br><em>Nghĩa: Ghép thành tính từ chống nước.</em>`,
+                        answer: `waterproof`,
+                        explanation: `Closed compound viết liền.`
+                    },
+                    {
+                        prompt: `news + paper = ?<br><em>Nghĩa: Ghép thành danh từ chỉ tờ báo.</em>`,
+                        answer: `newspaper`,
+                        explanation: `Hai danh từ ghép thành một từ mới.`
+                    },
+                    {
+                        prompt: `class + room = ?<br><em>Nghĩa: Ghép thành danh từ chỉ phòng học.</em>`,
+                        answer: `classroom`,
+                        explanation: `Compound noun thường viết liền.`
+                    },
+                    {
+                        prompt: `bed + room = ?<br><em>Nghĩa: Ghép thành danh từ chỉ phòng ngủ.</em>`,
+                        answer: `bedroom`,
+                        explanation: `Bed + room tạo bedroom.`
+                    },
+                    {
+                        prompt: `home + work = ?<br><em>Nghĩa: Ghép thành danh từ chỉ bài tập về nhà.</em>`,
+                        answer: `homework`,
+                        explanation: `Homework là compound noun rất phổ biến.`
+                    },
+                    {
+                        prompt: `child -> ___<br><em>Nghĩa: Điền danh từ chỉ thời thơ ấu.</em>`,
+                        answer: `childhood`,
+                        explanation: `-hood tạo danh từ chỉ giai đoạn hoặc trạng thái.`
+                    },
+                    {
+                        prompt: `day -> ___<br><em>Nghĩa: Điền trạng từ nghĩa hằng ngày.</em>`,
+                        answer: `daily`,
+                        explanation: `-ly tạo trạng từ hoặc tính từ từ day.`
+                    },
+                    {
+                        prompt: `week -> ___<br><em>Nghĩa: Điền trạng từ/tính từ nghĩa hằng tuần.</em>`,
+                        answer: `weekly`,
+                        explanation: `Weekly là dạng rất hay gặp trong lịch trình.`
+                    },
+                    {
+                        prompt: `month -> ___<br><em>Nghĩa: Điền trạng từ/tính từ nghĩa hằng tháng.</em>`,
+                        answer: `monthly`,
+                        explanation: `Monthly là từ thông dụng trong lịch báo cáo.`
+                    },
+                    {
+                        prompt: `year -> ___<br><em>Nghĩa: Điền trạng từ/tính từ nghĩa hằng năm.</em>`,
+                        answer: `yearly`,
+                        explanation: `Yearly là từ phái sinh rất phổ biến.`
+                    },
+                    {
+                        prompt: `friend -> ___<br><em>Nghĩa: Điền tính từ nghĩa thân thiện.</em>`,
+                        answer: `friendly`,
+                        explanation: `-ly đôi khi tạo tính từ, không chỉ trạng từ.`
+                    },
+                    {
+                        prompt: `science -> ___<br><em>Nghĩa: Điền tính từ nghĩa thuộc khoa học.</em>`,
+                        answer: `scientific`,
+                        explanation: `-ific tạo tính từ liên quan đến danh từ khoa học.`
+                    },
+                    {
+                        prompt: `music -> ___<br><em>Nghĩa: Điền tính từ nghĩa thuộc âm nhạc.</em>`,
+                        answer: `musical`,
+                        explanation: `-al tạo tính từ rất thường gặp.`
+                    },
+                    {
+                        prompt: `history -> ___<br><em>Nghĩa: Điền tính từ nghĩa thuộc lịch sử.</em>`,
+                        answer: `historical`,
+                        explanation: `-ical là hậu tố tính từ phổ biến.`
+                    },
+                    {
+                        prompt: `nation -> ___<br><em>Nghĩa: Điền danh từ chỉ quốc tịch.</em>`,
+                        answer: `nationality`,
+                        explanation: `-ality tạo danh từ trừu tượng hoặc tên gọi người/thuộc tính.`
+                    }
                 ]
             }
         ],
         checkpoint: [
             'Đoán từ loại trước bằng vị trí trong câu rồi mới chọn họ từ.',
             'Nhận ra các suffix thường gặp của noun, verb, adjective, adverb.',
-            'Đề phòng negative prefixes như un-, in-, im-, dis-.'
+            'Phân biệt tiền tố phủ định với tiền tố mang nghĩa lặp lại, sai lệch hoặc đảo ngược.',
+            'Nhớ rằng có từ vừa là tính từ vừa là trạng từ hoặc có nhiều nghĩa phái sinh khác nhau.',
+            'Học theo họ từ và ngữ cảnh thay vì chỉ học một từ đơn lẻ.'
         ]
     },
     'near-future': {
@@ -3703,6 +4264,319 @@ const grammarPracticeData = {
             'Present continuous thường đi với now, right now, at the moment, this week, tomorrow.',
             'Không dùng cho mọi ý tương lai; chỉ dùng khi có kế hoạch hoặc sắp xếp rõ.',
             'Động từ trạng thái thường không dùng ở dạng tiếp diễn trừ khi đổi nghĩa.'
+        ]
+    },
+    'stative-verbs': {
+        source: '100 câu luyện Stative vs Dynamic Verbs · B1 bao phủ nhận diện, sửa lỗi, đổi nghĩa và viết lại theo ngữ cảnh.',
+        sections: [
+            {
+                title: 'Nhóm 1: Chọn simple hay continuous',
+                instruction: 'Điền dạng đúng của động từ trong ngoặc.',
+                items: [
+                    { prompt: `I ___ (think) you are right.<br><em>Nghĩa: Tôi nghĩ là bạn đúng.</em>`, answer: `think`, explanation: `Think = opinion, nên dùng present simple.` },
+                    { prompt: `I ___ (think) about the budget right now.<br><em>Nghĩa: Tôi đang nghĩ về ngân sách lúc này.</em>`, answer: `am thinking`, explanation: `Think = consider, nên dùng continuous.` },
+                    { prompt: `She ___ (have) a car.<br><em>Nghĩa: Cô ấy có một chiếc xe.</em>`, answer: `has`, explanation: `Have = sở hữu, là stative.` },
+                    { prompt: `We ___ (have) dinner at the moment.<br><em>Nghĩa: Chúng tôi đang ăn tối lúc này.</em>`, answer: `are having`, explanation: `Have = ăn uống/trải nghiệm, nên dùng continuous.` },
+                    { prompt: `He ___ (see) the doctor tomorrow.<br><em>Nghĩa: Anh ấy sẽ gặp bác sĩ vào ngày mai.</em>`, answer: `is seeing`, explanation: `See = gặp / có lịch hẹn, là nghĩa hành động.` },
+                    { prompt: `I ___ (see) your point now.<br><em>Nghĩa: Tôi hiểu ý bạn rồi.</em>`, answer: `see`, explanation: `See = hiểu / nhận ra, là stative.` },
+                    { prompt: `This soup ___ (taste) delicious.<br><em>Nghĩa: Món súp này có vị ngon.</em>`, answer: `tastes`, explanation: `Taste = có vị, là stative.` },
+                    { prompt: `The chef ___ (taste) the soup now.<br><em>Nghĩa: Đầu bếp đang nếm món súp.</em>`, answer: `is tasting`, explanation: `Taste = nếm thử, nên dùng continuous.` },
+                    { prompt: `This flower ___ (smell) sweet.<br><em>Nghĩa: Bông hoa này có mùi thơm.</em>`, answer: `smells`, explanation: `Smell = có mùi, là stative.` },
+                    { prompt: `The scientist ___ (smell) the gas sample.<br><em>Nghĩa: Nhà khoa học đang ngửi mẫu khí.</em>`, answer: `is smelling`, explanation: `Smell = ngửi chủ động, nên dùng continuous.` },
+                    { prompt: `She ___ (feel) better now.<br><em>Nghĩa: Bây giờ cô ấy cảm thấy khá hơn.</em>`, answer: `is feeling`, explanation: `Feel = cảm nhận trạng thái tạm thời, có thể dùng continuous.` },
+                    { prompt: `The fabric ___ (feel) soft.<br><em>Nghĩa: Chất vải này mềm.</em>`, answer: `feels`, explanation: `Feel = có cảm giác, là stative.` },
+                    { prompt: `Your idea ___ (look) good.<br><em>Nghĩa: Ý tưởng của bạn có vẻ tốt.</em>`, answer: `looks`, explanation: `Look = có vẻ, là linking/stative.` },
+                    { prompt: `She ___ (look) at the map now.<br><em>Nghĩa: Cô ấy đang nhìn vào bản đồ.</em>`, answer: `is looking`, explanation: `Look at = hành động nhìn, nên dùng continuous.` },
+                    { prompt: `The actor ___ (appear) nervous.<br><em>Nghĩa: Diễn viên đó có vẻ lo lắng.</em>`, answer: `appears`, explanation: `Appear = có vẻ, là stative.` },
+                    { prompt: `The band ___ (appear) on stage tonight.<br><em>Nghĩa: Ban nhạc sẽ biểu diễn trên sân khấu tối nay.</em>`, answer: `is appearing`, explanation: `Appear = xuất hiện / biểu diễn, là nghĩa động.` },
+                    { prompt: `This bag ___ (weigh) five kilos.<br><em>Nghĩa: Cái túi này nặng năm ký.</em>`, answer: `weighs`, explanation: `Weigh = có trọng lượng, là stative.` },
+                    { prompt: `The nurse ___ (weigh) the baby now.<br><em>Nghĩa: Y tá đang cân em bé.</em>`, answer: `is weighing`, explanation: `Weigh = cân đo, là hành động.` },
+                    { prompt: `He ___ (own) a small cafe.<br><em>Nghĩa: Anh ấy sở hữu một quán cà phê nhỏ.</em>`, answer: `owns`, explanation: `Own = sở hữu, là stative.` },
+                    { prompt: `The museum ___ (contain) many old paintings.<br><em>Nghĩa: Bảo tàng chứa nhiều bức tranh cũ.</em>`, answer: `contains`, explanation: `Contain = chứa đựng, là stative.` }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Sửa lỗi sai',
+                instruction: 'Viết lại câu cho đúng. Chú ý khi nào cần present simple và khi nào cần continuous.',
+                items: [
+                    { prompt: 'I am knowing the answer.<br><em>Nghĩa: Tôi biết câu trả lời.</em>', answer: 'I know the answer.', explanation: 'Know là stative verb, không dùng am knowing.' },
+                    { prompt: 'She is owning a car.<br><em>Nghĩa: Cô ấy sở hữu một chiếc xe.</em>', answer: 'She owns a car.', explanation: 'Own diễn tả sở hữu, dùng present simple.' },
+                    { prompt: 'We are believing you.<br><em>Nghĩa: Chúng tôi tin bạn.</em>', answer: 'We believe you.', explanation: 'Believe là stative verb, không dùng continuous.' },
+                    { prompt: 'He is needing help.<br><em>Nghĩa: Anh ấy cần giúp đỡ.</em>', answer: 'He needs help.', explanation: 'Need là stative trong nghĩa cần.' },
+                    { prompt: 'They are liking the movie.<br><em>Nghĩa: Họ thích bộ phim.</em>', answer: 'They like the movie.', explanation: 'Like là cảm xúc/sở thích ổn định.' },
+                    { prompt: 'The soup is tasting delicious.<br><em>Nghĩa: Món súp này ngon.</em>', answer: 'The soup tastes delicious.', explanation: 'Taste = có vị, là stative.' },
+                    { prompt: 'The flower is smelling nice.<br><em>Nghĩa: Bông hoa có mùi dễ chịu.</em>', answer: 'The flower smells nice.', explanation: 'Smell = có mùi, dùng simple.' },
+                    { prompt: 'This book is belonging to me.<br><em>Nghĩa: Quyển sách này thuộc về tôi.</em>', answer: 'This book belongs to me.', explanation: 'Belong là stative verb.' },
+                    { prompt: 'I am understanding the lesson.<br><em>Nghĩa: Tôi hiểu bài học.</em>', answer: 'I understand the lesson.', explanation: 'Understand không dùng continuous trong nghĩa hiểu.' },
+                    { prompt: 'She is remembering your name.<br><em>Nghĩa: Cô ấy nhớ tên bạn.</em>', answer: 'She remembers your name.', explanation: 'Remember là stative khi nói về trí nhớ.' },
+                    { prompt: 'He is having two sisters.<br><em>Nghĩa: Anh ấy có hai chị/em gái.</em>', answer: 'He has two sisters.', explanation: 'Have = sở hữu thì dùng simple.' },
+                    { prompt: 'I am thinking you are right.<br><em>Nghĩa: Tôi nghĩ bạn đúng.</em>', answer: 'I think you are right.', explanation: 'Think = opinion, không dùng continuous.' },
+                    { prompt: 'She is seeing the answer.<br><em>Nghĩa: Cô ấy thấy câu trả lời.</em>', answer: 'She sees the answer.', explanation: 'See = hiểu / nhận ra thì dùng simple.' },
+                    { prompt: 'The manager is appearing busy.<br><em>Nghĩa: Người quản lý có vẻ bận.</em>', answer: 'The manager appears busy.', explanation: 'Appear = seem, là stative.' },
+                    { prompt: 'The coat is fitting me perfectly.<br><em>Nghĩa: Chiếc áo vừa với tôi hoàn hảo.</em>', answer: 'The coat fits me perfectly.', explanation: 'Fit = vừa / hợp, thường dùng simple.' },
+                    { prompt: 'I am hearing a strange noise.<br><em>Nghĩa: Tôi nghe thấy một tiếng động lạ.</em>', answer: 'I hear a strange noise.', explanation: 'Hear = nghe thấy, thường là stative trong câu này.' },
+                    { prompt: 'He is preferring tea.<br><em>Nghĩa: Anh ấy thích trà hơn.</em>', answer: 'He prefers tea.', explanation: 'Prefer là stative verb.' },
+                    { prompt: 'They are containing valuable data.<br><em>Nghĩa: Họ chứa dữ liệu quý giá.</em>', answer: 'They contain valuable data.', explanation: 'Contain là stative verb.' },
+                    { prompt: 'This chair is weighing a lot.<br><em>Nghĩa: Cái ghế này nặng nhiều.</em>', answer: 'This chair weighs a lot.', explanation: 'Weigh = có trọng lượng, dùng simple.' },
+                    { prompt: 'The water is feeling cold.<br><em>Nghĩa: Nước này lạnh.</em>', answer: 'The water feels cold.', explanation: 'Feel = có cảm giác, dùng simple.' }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Phân loại nghĩa',
+                instruction: 'Xác định động từ trong câu là stative hay dynamic.',
+                items: [
+                    { prompt: 'I think this plan will work.<br><em>Nghĩa: Tôi nghĩ kế hoạch này sẽ hiệu quả.</em>', answer: 'stative', explanation: 'Think = opinion.' },
+                    { prompt: 'I am thinking about the plan.<br><em>Nghĩa: Tôi đang suy nghĩ về kế hoạch.</em>', answer: 'dynamic', explanation: 'Think = consider.' },
+                    { prompt: 'She has two brothers.<br><em>Nghĩa: Cô ấy có hai anh/em trai.</em>', answer: 'stative', explanation: 'Have = sở hữu.' },
+                    { prompt: 'We are having lunch now.<br><em>Nghĩa: Chúng tôi đang ăn trưa.</em>', answer: 'dynamic', explanation: 'Have = ăn uống.' },
+                    { prompt: 'I see the problem clearly.<br><em>Nghĩa: Tôi hiểu rõ vấn đề.</em>', answer: 'stative', explanation: 'See = hiểu / nhận ra.' },
+                    { prompt: 'She is seeing the doctor at 3 p.m.<br><em>Nghĩa: Cô ấy gặp bác sĩ lúc 3 giờ chiều.</em>', answer: 'dynamic', explanation: 'See = có cuộc hẹn / gặp.' },
+                    { prompt: 'The room smells bad.<br><em>Nghĩa: Căn phòng có mùi khó chịu.</em>', answer: 'stative', explanation: 'Smell = có mùi.' },
+                    { prompt: 'She is smelling the roses.<br><em>Nghĩa: Cô ấy đang ngửi hoa hồng.</em>', answer: 'dynamic', explanation: 'Smell = ngửi chủ động.' },
+                    { prompt: 'The soup tastes salty.<br><em>Nghĩa: Món súp có vị mặn.</em>', answer: 'stative', explanation: 'Taste = có vị.' },
+                    { prompt: 'The chef is tasting the soup.<br><em>Nghĩa: Đầu bếp đang nếm súp.</em>', answer: 'dynamic', explanation: 'Taste = nếm thử.' },
+                    { prompt: 'You look tired.<br><em>Nghĩa: Bạn trông mệt.</em>', answer: 'stative', explanation: 'Look = có vẻ.' },
+                    { prompt: 'She is looking for her keys.<br><em>Nghĩa: Cô ấy đang tìm chìa khóa.</em>', answer: 'dynamic', explanation: 'Look for = tìm kiếm.' },
+                    { prompt: 'This box weighs ten kilos.<br><em>Nghĩa: Cái hộp nặng mười ký.</em>', answer: 'stative', explanation: 'Weigh = có trọng lượng.' },
+                    { prompt: 'The nurse is weighing the baby.<br><em>Nghĩa: Y tá đang cân em bé.</em>', answer: 'dynamic', explanation: 'Weigh = cân đo.' },
+                    { prompt: 'The actor appears calm.<br><em>Nghĩa: Diễn viên có vẻ bình tĩnh.</em>', answer: 'stative', explanation: 'Appear = seem.' },
+                    { prompt: 'The band is appearing on TV tonight.<br><em>Nghĩa: Ban nhạc sẽ xuất hiện trên TV tối nay.</em>', answer: 'dynamic', explanation: 'Appear = xuất hiện / biểu diễn.' },
+                    { prompt: 'He is being rude today.<br><em>Nghĩa: Hôm nay anh ấy đang cư xử thô lỗ.</em>', answer: 'dynamic', explanation: 'Be = hành vi tạm thời, không phải tính cách cố định.' },
+                    { prompt: 'He is rude.<br><em>Nghĩa: Anh ấy thô lỗ.</em>', answer: 'stative', explanation: 'Be = trạng thái / bản chất.' },
+                    { prompt: 'The museum contains many rare books.<br><em>Nghĩa: Bảo tàng chứa nhiều sách quý.</em>', answer: 'stative', explanation: 'Contain = chứa đựng.' },
+                    { prompt: 'The tailor is fitting the jacket to me.<br><em>Nghĩa: Thợ may đang thử / chỉnh áo cho tôi.</em>', answer: 'dynamic', explanation: 'Fit ở đây là hành động đo chỉnh.' }
+                ]
+            },
+            {
+                title: 'Nhóm 4: Viết lại theo ngữ cảnh',
+                instruction: 'Dựa vào nghĩa tiếng Việt, viết câu tiếng Anh đúng với stative hoặc dynamic verb.',
+                items: [
+                    { prompt: 'Tôi nghĩ anh ấy đúng.<br><em>Nghĩa: Write in English.</em>', answer: 'I think he is right.', explanation: 'Think = opinion nên dùng simple.' },
+                    { prompt: 'Tôi đang nghĩ về kế hoạch.<br><em>Nghĩa: Write in English.</em>', answer: 'I am thinking about the plan.', explanation: 'Think = consider.' },
+                    { prompt: 'Chúng tôi có một chiếc xe.<br><em>Nghĩa: Write in English.</em>', answer: 'We have a car.', explanation: 'Have = sở hữu.' },
+                    { prompt: 'Chúng tôi đang ăn tối.<br><em>Nghĩa: Write in English.</em>', answer: 'We are having dinner.', explanation: 'Have = ăn uống.' },
+                    { prompt: 'Tôi hiểu vấn đề.<br><em>Nghĩa: Write in English.</em>', answer: 'I see the problem.', explanation: 'See = hiểu / nhận ra.' },
+                    { prompt: 'Tôi sẽ gặp bác sĩ ngày mai.<br><em>Nghĩa: Write in English.</em>', answer: 'I am seeing the doctor tomorrow.', explanation: 'See = have an appointment.' },
+                    { prompt: 'Món súp này có vị ngon.<br><em>Nghĩa: Write in English.</em>', answer: 'This soup tastes delicious.', explanation: 'Taste = có vị.' },
+                    { prompt: 'Đầu bếp đang nếm món súp.<br><em>Nghĩa: Write in English.</em>', answer: 'The chef is tasting the soup.', explanation: 'Taste = nếm thử.' },
+                    { prompt: 'Cô ấy có vẻ mệt.<br><em>Nghĩa: Write in English.</em>', answer: 'She looks tired.', explanation: 'Look = có vẻ.' },
+                    { prompt: 'Cô ấy đang nhìn vào bản đồ.<br><em>Nghĩa: Write in English.</em>', answer: 'She is looking at the map.', explanation: 'Look at = nhìn vào.' },
+                    { prompt: 'Căn phòng này có mùi dễ chịu.<br><em>Nghĩa: Write in English.</em>', answer: 'The room smells nice.', explanation: 'Smell = có mùi.' },
+                    { prompt: 'Tôi đang ngửi bông hoa.<br><em>Nghĩa: Write in English.</em>', answer: 'I am smelling the flower.', explanation: 'Smell = ngửi chủ động.' },
+                    { prompt: 'Chiếc áo này vừa với tôi.<br><em>Nghĩa: Write in English.</em>', answer: 'This shirt fits me.', explanation: 'Fit = vừa / hợp.' },
+                    { prompt: 'Người thợ may đang chỉnh áo cho tôi.<br><em>Nghĩa: Write in English.</em>', answer: 'The tailor is fitting the shirt for me.', explanation: 'Fit = chỉnh đo, là hành động.' },
+                    { prompt: 'Anh ấy sở hữu một tiệm sách.<br><em>Nghĩa: Write in English.</em>', answer: 'He owns a bookstore.', explanation: 'Own = sở hữu.' },
+                    { prompt: 'Anh ấy đang cư xử thô lỗ hôm nay.<br><em>Nghĩa: Write in English.</em>', answer: 'He is being rude today.', explanation: 'Be = hành vi tạm thời.' },
+                    { prompt: 'Tôi nhớ tên của cô ấy.<br><em>Nghĩa: Write in English.</em>', answer: 'I remember her name.', explanation: 'Remember = trạng thái trí nhớ.' },
+                    { prompt: 'Ban nhạc sẽ biểu diễn tối nay.<br><em>Nghĩa: Write in English.</em>', answer: 'The band is appearing tonight.', explanation: 'Appear = biểu diễn / xuất hiện.' },
+                    { prompt: 'Chiếc hộp này nặng năm ký.<br><em>Nghĩa: Write in English.</em>', answer: 'This box weighs five kilos.', explanation: 'Weigh = có trọng lượng.' },
+                    { prompt: 'Nước này lạnh.<br><em>Nghĩa: Write in English.</em>', answer: 'The water feels cold.', explanation: 'Feel = có cảm giác.' }
+                ]
+            },
+            {
+                title: 'Nhóm 5: Nghĩa đặc biệt và phân biệt nhanh',
+                instruction: 'Chọn nghĩa đúng của động từ trong ngữ cảnh đã cho.',
+                items: [
+                    { prompt: 'think in “I think you are right”<br><em>Nghĩa: I think you are right.</em>', answer: 'opinion / believe', explanation: 'Think = cho rằng, không phải đang suy nghĩ.' },
+                    { prompt: 'think in “I am thinking about it”<br><em>Nghĩa: I am thinking about it.</em>', answer: 'considering', explanation: 'Think = cân nhắc.' },
+                    { prompt: 'have in “I have a car”<br><em>Nghĩa: I have a car.</em>', answer: 'possession', explanation: 'Have = sở hữu.' },
+                    { prompt: 'have in “I am having lunch”<br><em>Nghĩa: I am having lunch.</em>', answer: 'eating', explanation: 'Have = ăn uống / trải nghiệm.' },
+                    { prompt: 'see in “I see your point”<br><em>Nghĩa: I see your point.</em>', answer: 'understand', explanation: 'See = hiểu / nhận ra.' },
+                    { prompt: 'see in “I am seeing the doctor”<br><em>Nghĩa: I am seeing the doctor.</em>', answer: 'meeting / having an appointment', explanation: 'See = gặp theo lịch hẹn.' },
+                    { prompt: 'taste in “The soup tastes salty”<br><em>Nghĩa: The soup tastes salty.</em>', answer: 'has a taste', explanation: 'Taste = có vị.' },
+                    { prompt: 'taste in “The chef is tasting the soup”<br><em>Nghĩa: The chef is tasting the soup.</em>', answer: 'sample / try', explanation: 'Taste = nếm thử.' },
+                    { prompt: 'smell in “The room smells bad”<br><em>Nghĩa: The room smells bad.</em>', answer: 'gives off an odor', explanation: 'Smell = có mùi.' },
+                    { prompt: 'smell in “She is smelling the flowers”<br><em>Nghĩa: She is smelling the flowers.</em>', answer: 'using the nose', explanation: 'Smell = ngửi.' },
+                    { prompt: 'look in “You look tired”<br><em>Nghĩa: You look tired.</em>', answer: 'seem / appear', explanation: 'Look = trông có vẻ.' },
+                    { prompt: 'look in “She is looking at the map”<br><em>Nghĩa: She is looking at the map.</em>', answer: 'directing the eyes', explanation: 'Look at = nhìn vào.' },
+                    { prompt: 'feel in “I feel tired”<br><em>Nghĩa: I feel tired.</em>', answer: 'experience a feeling', explanation: 'Feel = cảm thấy.' },
+                    { prompt: 'feel in “I am feeling the cloth”<br><em>Nghĩa: I am feeling the cloth.</em>', answer: 'touching / checking', explanation: 'Feel = sờ / cảm nhận bằng tay.' },
+                    { prompt: 'appear in “He appears calm”<br><em>Nghĩa: He appears calm.</em>', answer: 'seems', explanation: 'Appear = có vẻ.' },
+                    { prompt: 'appear in “The singer is appearing on stage”<br><em>Nghĩa: The singer is appearing on stage.</em>', answer: 'performing / showing up', explanation: 'Appear = xuất hiện / biểu diễn.' },
+                    { prompt: 'weigh in “This bag weighs 5 kilos”<br><em>Nghĩa: This bag weighs 5 kilos.</em>', answer: 'has a weight of', explanation: 'Weigh = có trọng lượng.' },
+                    { prompt: 'weigh in “The nurse is weighing the baby”<br><em>Nghĩa: The nurse is weighing the baby.</em>', answer: 'measuring weight', explanation: 'Weigh = cân đo.' },
+                    { prompt: 'be in “He is rude”<br><em>Nghĩa: He is rude.</em>', answer: 'state / character', explanation: 'Be = trạng thái hoặc bản chất.' },
+                    { prompt: 'be in “He is being rude”<br><em>Nghĩa: He is being rude.</em>', answer: 'temporary behavior', explanation: 'Be + being = hành vi tạm thời lúc nói.' }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Stative verbs thường không dùng continuous khi nói về trạng thái, suy nghĩ, cảm xúc hoặc sở hữu.',
+            'Nhiều verb đổi nghĩa khi chuyển sang continuous: think, have, see, smell, taste, feel, look, appear, be.',
+            'Nếu câu nói về hành động tạm thời, trải nghiệm, hoặc lịch hẹn, continuous có thể đúng.',
+            'Khi làm bài, luôn hỏi: đây là trạng thái hay là hành động / quá trình?'
+        ]
+    },
+    'semi-modals': {
+        source: '60 câu luyện Semi-modals · B2 bao phủ had better, would rather, needn’t, needn’t have và dare trong ngữ cảnh thực tế.',
+        sections: [
+            {
+                title: 'Nhóm 1: Chọn semi-modal phù hợp',
+                instruction: 'Điền had better, would rather, needn’t, needn’t have hoặc dare vào chỗ trống.',
+                items: [
+                    { prompt: `You ___ leave now if you want to catch the train.<br><em>Nghĩa: Nếu muốn kịp tàu, bạn tốt hơn nên đi ngay bây giờ.</em>`, answer: `had better`, explanation: `Had better dùng để đưa ra lời khuyên có hàm ý hậu quả.` },
+                    { prompt: `I ___ stay home tonight than go to the party.<br><em>Nghĩa: Tối nay tôi thà ở nhà hơn là đi tiệc.</em>`, answer: `would rather`, explanation: `Would rather diễn tả sở thích của chính người nói.` },
+                    { prompt: `You ___ speak so loudly in the library.<br><em>Nghĩa: Bạn không cần nói to trong thư viện.</em>`, answer: `needn’t`, explanation: `Needn’t = không cần.` },
+                    { prompt: `She ___ have bought that coat; it was on sale yesterday.<br><em>Nghĩa: Cô ấy lẽ ra không cần mua cái áo khoác đó.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 = đã làm nhưng thật ra không cần.` },
+                    { prompt: `How ___ you talk to me like that!<br><em>Nghĩa: Sao bạn dám nói với tôi như thế!</em>`, answer: `dare`, explanation: `How dare you! là mẫu cố định thể hiện sự phẫn nộ.` },
+                    { prompt: `We ___ be late for the meeting.<br><em>Nghĩa: Chúng ta tốt hơn nên đừng đến muộn cuộc họp.</em>`, answer: `had better not`, explanation: `Had better not là dạng phủ định của had better.` },
+                    { prompt: `I ___ drink coffee after 6 p.m.; it keeps me awake.<br><em>Nghĩa: Tôi thà không uống cà phê sau 6 giờ tối.</em>`, answer: `would rather not`, explanation: `Would rather not dùng khi người nói không thích làm việc gì.` },
+                    { prompt: `You ___ call him right now; he is already sleeping.<br><em>Nghĩa: Bạn không cần gọi cho anh ấy ngay lúc này.</em>`, answer: `needn’t`, explanation: `Needn’t = không cần làm vì không có yêu cầu hay bắt buộc.` },
+                    { prompt: `He ___ open the window; the room is already cool.<br><em>Nghĩa: Anh ấy không cần mở cửa sổ; phòng đã mát rồi.</em>`, answer: `needn’t`, explanation: `Needn’t dùng khi hành động là không cần thiết.` },
+                    { prompt: `We ___ hurry; the movie starts in 30 minutes.<br><em>Nghĩa: Chúng ta tốt hơn nên nhanh lên; phim bắt đầu sau 30 phút.</em>`, answer: `had better`, explanation: `Had better nhấn lời khuyên mang tính cảnh báo nhẹ.` },
+                    { prompt: `I ___ go to the beach than stay in the office all day.<br><em>Nghĩa: Tôi thà đi biển hơn là ngồi văn phòng cả ngày.</em>`, answer: `would rather`, explanation: `Would rather + V bare diễn tả lựa chọn của chính chủ ngữ.` },
+                    { prompt: `The child ___ touch the stove.<br><em>Nghĩa: Đứa trẻ tốt hơn không nên chạm vào bếp.</em>`, answer: `had better not`, explanation: `Had better not + V là cảnh báo rõ ràng.` },
+                    { prompt: `You ___ pay now if you want to avoid a fine.<br><em>Nghĩa: Bạn tốt hơn nên trả tiền ngay nếu muốn tránh phạt.</em>`, answer: `had better`, explanation: `Had better dùng khi có hậu quả nếu không làm.` },
+                    { prompt: `I ___ read the report first; I already know the conclusion.<br><em>Nghĩa: Tôi không cần đọc báo cáo trước; tôi đã biết kết luận rồi.</em>`, answer: `needn’t`, explanation: `Needn’t = không bắt buộc phải làm.` },
+                    { prompt: `He ___ have sent the email twice; one time was enough.<br><em>Nghĩa: Anh ấy lẽ ra không cần gửi email hai lần.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 nhấn việc đã làm thừa.` }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Viết lại câu với had better / would rather',
+                instruction: 'Viết lại theo đúng nghĩa tiếng Việt.',
+                items: [
+                    { prompt: 'Bạn nên khóa cửa trước khi đi ngủ.<br><em>Nghĩa: Write in English.</em>', answer: 'You had better lock the door before going to bed.', explanation: 'Had better is used for strong advice.' },
+                    { prompt: 'Tôi thà ở nhà tối nay.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather stay home tonight.', explanation: 'Would rather + V bare is used for the speaker’s preference.' },
+                    { prompt: 'Tôi thà bạn đừng hút thuốc ở đây.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather you didn’t smoke here.', explanation: 'Would rather + S + past simple is used when the subject is someone else.' },
+                    { prompt: 'Chúng tôi thà bạn đến sớm hơn.<br><em>Nghĩa: Write in English.</em>', answer: 'We would rather you came earlier.', explanation: 'Past form after would rather can express preference for another person.' },
+                    { prompt: 'Tôi thà bạn đã nói sự thật.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather you had told the truth.', explanation: 'Would rather + S + had V3 is used for past regret.' },
+                    { prompt: 'Bạn tốt hơn nên xin lỗi ngay bây giờ.<br><em>Nghĩa: Write in English.</em>', answer: 'You had better apologize right now.', explanation: 'Had better is a warning-like suggestion.' },
+                    { prompt: 'Anh ấy thà đi bộ hơn là đi xe buýt.<br><em>Nghĩa: Write in English.</em>', answer: 'He would rather walk than take the bus.', explanation: 'Would rather + V bare ... than ... shows preference between two actions.' },
+                    { prompt: 'Tôi thà bạn không kể chuyện này cho ai.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather you did not tell anyone about this.', explanation: 'The past form after would rather refers to another person’s action.' },
+                    { prompt: 'Bạn nên kiểm tra lại email trước khi gửi.<br><em>Nghĩa: Write in English.</em>', answer: 'You had better check the email before sending it.', explanation: 'Had better fits advice with a consequence if ignored.' },
+                    { prompt: 'Tôi thà uống trà hơn cà phê.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather drink tea than coffee.', explanation: 'Would rather + bare infinitive is the natural pattern.' },
+                    { prompt: 'Bạn nên học ngay bây giờ nếu không muốn trượt kỳ thi.<br><em>Nghĩa: Write in English.</em>', answer: 'You had better study now if you do not want to fail the exam.', explanation: 'Had better can express urgent advice linked to a consequence.' },
+                    { prompt: 'Tôi thà ở nhà hơn là ra ngoài khi trời mưa.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather stay at home than go out when it rains.', explanation: 'Use would rather + V bare for the speaker’s own preference.' },
+                    { prompt: 'Cô ấy thà chúng ta bắt đầu sớm hơn.<br><em>Nghĩa: Write in English.</em>', answer: 'She would rather we started earlier.', explanation: 'When the subject is someone else, use past simple after would rather.' },
+                    { prompt: 'Tôi thà bạn đã gọi cho tôi sớm hơn.<br><em>Nghĩa: Write in English.</em>', answer: 'I would rather you had called me earlier.', explanation: 'Past perfect after would rather shows regret about a past action.' },
+                    { prompt: 'Bạn tốt hơn nên nói nhỏ hơn ở thư viện.<br><em>Nghĩa: Write in English.</em>', answer: 'You had better speak more quietly in the library.', explanation: 'Had better is appropriate for behavior with possible consequences.' }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Chọn đúng mẫu would rather',
+                instruction: 'Xác định mẫu đúng theo ngữ cảnh và điền câu hoàn chỉnh.',
+                items: [
+                    { prompt: 'I prefer tea to coffee.<br><em>Nghĩa: Tôi thích trà hơn cà phê.</em>', answer: 'I would rather drink tea than coffee.', explanation: 'Same subject + two choices -> would rather + V bare + than.' },
+                    { prompt: 'He prefers staying in.<br><em>Nghĩa: Anh ấy thích ở nhà hơn.</em>', answer: 'He would rather stay in.', explanation: 'For the same subject, use would rather + bare infinitive.' },
+                    { prompt: 'She wants us to leave now.<br><em>Nghĩa: Cô ấy muốn chúng ta rời đi ngay.</em>', answer: 'She would rather we left now.', explanation: 'Different subject -> past simple after would rather.' },
+                    { prompt: 'I want him to stop talking.<br><em>Nghĩa: Tôi muốn anh ấy ngừng nói.</em>', answer: 'I would rather he stopped talking.', explanation: 'Use past simple with another subject to show preference.' },
+                    { prompt: 'I regret that you did not come yesterday.<br><em>Nghĩa: Tôi tiếc là bạn đã không đến hôm qua.</em>', answer: 'I would rather you had come yesterday.', explanation: 'Past perfect after would rather shows regret about the past.' },
+                    { prompt: 'We prefer to wait until tomorrow.<br><em>Nghĩa: Chúng tôi thích đợi đến ngày mai hơn.</em>', answer: 'We would rather wait until tomorrow.', explanation: 'Would rather + V bare works for the speaker’s own action.' },
+                    { prompt: 'They prefer that the meeting starts earlier.<br><em>Nghĩa: Họ muốn cuộc họp bắt đầu sớm hơn.</em>', answer: 'They would rather the meeting started earlier.', explanation: 'Another subject requires past simple form.' },
+                    { prompt: 'I do not want you to be late.<br><em>Nghĩa: Tôi không muốn bạn đến muộn.</em>', answer: 'I would rather you were on time.', explanation: 'Would rather + S + past can express a preference about another person.' },
+                    { prompt: 'He prefers that I do not drive at night.<br><em>Nghĩa: Anh ấy thích tôi không lái xe ban đêm.</em>', answer: 'He would rather I did not drive at night.', explanation: 'Past simple after would rather is the standard pattern here.' },
+                    { prompt: 'I prefer to stay quiet in meetings.<br><em>Nghĩa: Tôi thích im lặng trong các cuộc họp.</em>', answer: 'I would rather stay quiet in meetings.', explanation: 'Same subject -> bare infinitive.' },
+                    { prompt: 'She prefers that her son studies abroad.<br><em>Nghĩa: Cô ấy muốn con trai mình học ở nước ngoài.</em>', answer: 'She would rather her son studied abroad.', explanation: 'Another subject -> past simple.' },
+                    { prompt: 'I regret that I was not more careful.<br><em>Nghĩa: Tôi tiếc là mình đã không cẩn thận hơn.</em>', answer: 'I would rather I had been more careful.', explanation: 'Past regret -> would rather + had V3.' },
+                    { prompt: 'He prefers to work alone.<br><em>Nghĩa: Anh ấy thích làm việc một mình.</em>', answer: 'He would rather work alone.', explanation: 'Would rather + V bare expresses the preference directly.' },
+                    { prompt: 'I want you to sit down.<br><em>Nghĩa: Tôi muốn bạn ngồi xuống.</em>', answer: 'I would rather you sat down.', explanation: 'Past simple after would rather expresses preference for another person.' },
+                    { prompt: 'They regret that they spent too much money.<br><em>Nghĩa: Họ tiếc là đã tiêu quá nhiều tiền.</em>', answer: 'They would rather they had not spent too much money.', explanation: 'Past perfect after would rather shows a past situation wished differently.' }
+                ]
+            },
+            {
+                title: 'Nhóm 4: Mixed challenge',
+                instruction: 'Điền từ hoặc cụm từ phù hợp nhất: had better, would rather, needn’t, needn’t have, dare.',
+                items: [
+                    { prompt: `You ___ return the book today; the library is closed tomorrow.<br><em>Nghĩa: Bạn nên trả sách hôm nay; ngày mai thư viện đóng cửa.</em>`, answer: `had better`, explanation: `Had better is the strongest natural advice here.` },
+                    { prompt: `I ___ sleep early than stay up late tonight.<br><em>Nghĩa: Tối nay tôi thà ngủ sớm hơn là thức khuya.</em>`, answer: `would rather`, explanation: `Would rather + V bare fits a personal preference.` },
+                    { prompt: `You ___ worry; the results will come next week.<br><em>Nghĩa: Bạn không cần lo; kết quả sẽ có vào tuần tới.</em>`, answer: `needn’t`, explanation: `Needn’t means not necessary.` },
+                    { prompt: `She ___ bought a new phone; her old one still works well.<br><em>Nghĩa: Cô ấy lẽ ra không cần mua điện thoại mới.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 = did it unnecessarily.` },
+                    { prompt: `___ I ask a question?<br><em>Nghĩa: Tôi dám hỏi một câu không?</em>`, answer: `Dare`, explanation: `Dare can function like a semi-modal in questions, though it is less common in everyday speech.` },
+                    { prompt: `We ___ be rude to the guests.<br><em>Nghĩa: Chúng ta tốt hơn đừng cư xử thô lỗ với khách.</em>`, answer: `had better not`, explanation: `Had better not gives a warning against a bad action.` },
+                    { prompt: `He ___ leave the office now; he already finished his work.<br><em>Nghĩa: Anh ấy không cần rời văn phòng bây giờ; anh ấy đã xong việc rồi.</em>`, answer: `needn’t`, explanation: `Needn’t shows the action is unnecessary.` },
+                    { prompt: `I ___ tell her the truth than keep lying.<br><em>Nghĩa: Tôi thà nói thật với cô ấy hơn là tiếp tục nói dối.</em>`, answer: `would rather`, explanation: `Would rather expresses preference between alternatives.` },
+                    { prompt: `They ___ have booked the hotel earlier; now it is full.<br><em>Nghĩa: Họ lẽ ra không cần đặt khách sạn sớm hơn; bây giờ nó đã kín chỗ.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 keeps the focus on unnecessary past action.` },
+                    { prompt: `You ___ speak so fast if you want me to understand.<br><em>Nghĩa: Bạn tốt hơn nên nói chậm hơn nếu muốn tôi hiểu.</em>`, answer: `had better not`, explanation: `Had better not can warn against a style of action that causes problems.` },
+                    { prompt: `I ___ go home now; I am exhausted.<br><em>Nghĩa: Tôi thà về nhà ngay bây giờ; tôi kiệt sức rồi.</em>`, answer: `would rather`, explanation: `Would rather + V bare is natural for self-preference.` },
+                    { prompt: `You ___ have cleaned the room already; it is still dirty.<br><em>Nghĩa: Bạn lẽ ra không cần dọn phòng trước; nó vẫn còn bẩn.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 means the past action was unnecessary.` },
+                    { prompt: `I ___ you do that without asking first.<br><em>Nghĩa: Tôi không dám để bạn làm vậy mà không hỏi trước.</em>`, answer: `dare not`, explanation: `Dare can behave like a semi-modal in negative forms.` },
+                    { prompt: `She ___ miss the train; it is the last one tonight.<br><em>Nghĩa: Cô ấy tốt hơn không nên lỡ chuyến tàu; đó là chuyến cuối hôm nay.</em>`, answer: `had better not`, explanation: `Had better not is used when there may be a negative result.` },
+                    { prompt: `We ___ attend the meeting if the manager is there.<br><em>Nghĩa: Chúng tôi không cần tham dự cuộc họp nếu quản lý có mặt.</em>`, answer: `needn’t`, explanation: `Needn’t means there is no obligation.` }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Had better = lời khuyên mạnh, thường kèm hàm ý hậu quả nếu không làm.',
+            'Would rather + V bare dùng cho sở thích của chính chủ ngữ.',
+            'Would rather + S + past simple dùng khi muốn người khác làm theo ý mình.',
+            'Would rather + S + had V3 dùng cho tiếc nuối về quá khứ.',
+            'Needn’t = không cần; needn’t have + V3 = đã làm nhưng không cần.',
+            'Dare có thể xuất hiện trong câu hỏi/phủ định hoặc cấu trúc cảm thán.'
+        ]
+    },
+    'modifier-errors': {
+        source: '40 câu luyện Misplaced Modifiers · C1 bao phủ sửa lỗi vị trí modifier, dangling modifier và adverbs of focus.',
+        sections: [
+            {
+                title: 'Nhóm 1: Sửa misplaced modifier',
+                instruction: 'Viết lại câu để modifier bám đúng vào từ/cụm từ cần bổ nghĩa.',
+                items: [
+                    { prompt: `She almost drove her kids to school every day.<br><em>Nghĩa: Cô ấy gần như ngày nào cũng lái xe chở con đến trường.</em>`, answer: `She drove her kids to school almost every day.`, explanation: `Almost should modify every day, not drove.` },
+                    { prompt: `He served sandwiches to the children on paper plates.<br><em>Nghĩa: Anh ấy dùng đĩa giấy để phục vụ bánh sandwich cho bọn trẻ.</em>`, answer: `He served sandwiches on paper plates to the children.`, explanation: `On paper plates should modify sandwiches, not children.` },
+                    { prompt: `I saw a man with a telescope in the park.<br><em>Nghĩa: Tôi dùng kính thiên văn để nhìn thấy một người đàn ông trong công viên.</em>`, answer: `Using a telescope, I saw a man in the park.`, explanation: `Rewrite to make the instrument clearly belong to the speaker.` },
+                    { prompt: `She found a wallet in the street with a red cover.<br><em>Nghĩa: Cô ấy tìm thấy một chiếc ví có bìa đỏ trên đường.</em>`, answer: `She found a wallet with a red cover in the street.`, explanation: `With a red cover should attach to wallet.` },
+                    { prompt: `The teacher handed out the papers to the students wearing gloves.<br><em>Nghĩa: Cô giáo đeo găng tay khi phát bài cho học sinh.</em>`, answer: `Wearing gloves, the teacher handed out the papers to the students.`, explanation: `The modifier should describe the teacher, not the students.` },
+                    { prompt: `We saw the boy riding our bikes.<br><em>Nghĩa: Chúng tôi thấy cậu bé đang đi xe đạp của chúng tôi.</em>`, answer: `We saw the boy riding a bike.`, explanation: `Our bikes wrongly suggests the boy owns them; the sentence should be clarified.` },
+                    { prompt: `The man was arrested in the morning driving home.<br><em>Nghĩa: Người đàn ông bị bắt vào buổi sáng khi đang lái xe về nhà.</em>`, answer: `Driving home in the morning, the man was arrested.`, explanation: `Driving home must be placed near the actor who was driving.` },
+                    { prompt: `They served pizza to the children in boxes.<br><em>Nghĩa: Họ phục vụ pizza trong hộp cho bọn trẻ.</em>`, answer: `They served pizza in boxes to the children.`, explanation: `In boxes should modify pizza.` },
+                    { prompt: `The company will only hire engineers from Hanoi.<br><em>Nghĩa: Công ty sẽ chỉ tuyển kỹ sư từ Hà Nội.</em>`, answer: `The company will hire only engineers from Hanoi.`, explanation: `Only should modify engineers if that is the intended meaning.` },
+                    { prompt: `He just told me that he was leaving.<br><em>Nghĩa: Anh ấy vừa nói với tôi rằng anh ấy sắp đi.</em>`, answer: `He told me just now that he was leaving.`, explanation: `Just may be ambiguous; move it to show recent time clearly.` }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Vị trí của only / almost / nearly / just',
+                instruction: 'Sắp xếp lại câu để nghĩa rõ ràng và tự nhiên hơn.',
+                items: [
+                    { prompt: `She only ate vegetables on weekends.<br><em>Nghĩa: Cô ấy chỉ ăn rau vào cuối tuần.</em>`, answer: `She ate vegetables only on weekends.`, explanation: `Only should be placed before the time phrase to limit when she ate vegetables.` },
+                    { prompt: `I almost finished the report yesterday.<br><em>Nghĩa: Hôm qua tôi suýt nữa thì hoàn thành báo cáo.</em>`, answer: `I almost finished the report yesterday.`, explanation: `Almost correctly modifies finished here, meaning nearly completed.` },
+                    { prompt: `He nearly works every day from home.<br><em>Nghĩa: Anh ấy gần như làm việc ở nhà mỗi ngày.</em>`, answer: `He works from home nearly every day.`, explanation: `Nearly should modify every day, not works.` },
+                    { prompt: `We just meet the client in London.<br><em>Nghĩa: Chúng tôi vừa gặp khách hàng ở London.</em>`, answer: `We just met the client in London.`, explanation: `Just for recent past needs a past tense verb.` },
+                    { prompt: `The company only will approve one project.<br><em>Nghĩa: Công ty chỉ phê duyệt một dự án.</em>`, answer: `The company will approve only one project.`, explanation: `Only should modify one project.` },
+                    { prompt: `She nearly won the competition last year.<br><em>Nghĩa: Năm ngoái cô ấy suýt thắng cuộc thi.</em>`, answer: `She nearly won the competition last year.`, explanation: `Nearly correctly modifies won, meaning almost won.` },
+                    { prompt: `I just saw her at the station.<br><em>Nghĩa: Tôi vừa thấy cô ấy ở nhà ga.</em>`, answer: `I just saw her at the station.`, explanation: `Just can mean recently and is fine before the verb here.` },
+                    { prompt: `He only can speak English.<br><em>Nghĩa: Anh ấy chỉ có thể nói tiếng Anh.</em>`, answer: `He can only speak English.`, explanation: `Only should go with can to modify the whole verb phrase.` },
+                    { prompt: `They almost are ready to leave.<br><em>Nghĩa: Họ gần như đã sẵn sàng để đi.</em>`, answer: `They are almost ready to leave.`, explanation: `Almost should modify ready.` },
+                    { prompt: `We just have finished dinner.<br><em>Nghĩa: Chúng tôi vừa ăn tối xong.</em>`, answer: `We have just finished dinner.`, explanation: `Just normally comes after the auxiliary in present perfect.` }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Sửa dangling modifiers',
+                instruction: 'Viết lại câu để chủ ngữ logic xuất hiện rõ ràng.',
+                items: [
+                    { prompt: `Walking to school, the rain started.<br><em>Nghĩa: Khi đang đi học, trời bắt đầu mưa.</em>`, answer: `Walking to school, I was caught in the rain.`, explanation: `The subject walking must be the person, not the rain.` },
+                    { prompt: `After reading the letter, the tears came to her eyes.<br><em>Nghĩa: Sau khi đọc lá thư, cô ấy rơi nước mắt.</em>`, answer: `After reading the letter, she had tears in her eyes.`, explanation: `The sentence needs a clear subject who read the letter.` },
+                    { prompt: `To improve the results, a new method was introduced.<br><em>Nghĩa: Để cải thiện kết quả, một phương pháp mới đã được đưa ra.</em>`, answer: `To improve the results, we introduced a new method.`, explanation: `The actor who improves the results must be explicit.` },
+                    { prompt: `Having studied hard, the exam was easy.<br><em>Nghĩa: Vì đã học chăm chỉ, bài thi thấy dễ.</em>`, answer: `Having studied hard, I found the exam easy.`, explanation: `The person who studied must be the subject of the clause.` },
+                    { prompt: `While packing the bag, the phone rang.<br><em>Nghĩa: Khi đang đóng túi, điện thoại reo.</em>`, answer: `While I was packing the bag, the phone rang.`, explanation: `The person packing should be identified.` },
+                    { prompt: `Covered in dust, the bookshelf looked old.<br><em>Nghĩa: Bị phủ bụi, giá sách trông cũ.</em>`, answer: `Covered in dust, the bookshelf looked old.`, explanation: `This one is actually correct because the bookshelf can be covered in dust.` },
+                    { prompt: `After finishing the project, the presentation began.<br><em>Nghĩa: Sau khi hoàn thành dự án, bài thuyết trình bắt đầu.</em>`, answer: `After finishing the project, we began the presentation.`, explanation: `The finite action needs a human subject.` },
+                    { prompt: `Driving through the city, the lights were beautiful.<br><em>Nghĩa: Khi lái xe qua thành phố, ánh đèn rất đẹp.</em>`, answer: `Driving through the city, we saw the beautiful lights.`, explanation: `The people driving must be the subject.` },
+                    { prompt: `Before entering the room, the shoes were removed.<br><em>Nghĩa: Trước khi vào phòng, giày được cởi ra.</em>`, answer: `Before entering the room, we removed our shoes.`, explanation: `The people entering must remove the shoes.` },
+                    { prompt: `Looking at the photograph, the memories came back.<br><em>Nghĩa: Nhìn bức ảnh, ký ức quay về.</em>`, answer: `Looking at the photograph, I remembered the memories.`, explanation: `A dangling modifier needs a clear subject who is looking.` }
+                ]
+            },
+            {
+                title: 'Nhóm 4: Mixed correction',
+                instruction: 'Viết lại câu để nghĩa không còn mơ hồ.',
+                items: [
+                    { prompt: `She served the children cookies on a plate.<br><em>Nghĩa: Cô ấy phục vụ bánh quy cho lũ trẻ trên một cái đĩa.</em>`, answer: `She served cookies on a plate to the children.`, explanation: `On a plate should modify cookies.` },
+                    { prompt: `I watched a movie with my sister in the evening.<br><em>Nghĩa: Tối hôm đó tôi xem phim với em gái.</em>`, answer: `In the evening, I watched a movie with my sister.`, explanation: `Move the time modifier to the front for clarity.` },
+                    { prompt: `Only John called Mary yesterday.<br><em>Nghĩa: Chỉ John đã gọi Mary hôm qua.</em>`, answer: `Only John called Mary yesterday.`, explanation: `Only correctly modifies John here.` },
+                    { prompt: `The detective found the man in the alley with a flashlight.<br><em>Nghĩa: Thám tử dùng đèn pin để tìm thấy người đàn ông trong con hẻm.</em>`, answer: `Using a flashlight, the detective found the man in the alley.`, explanation: `The flashlight belongs to the detective, not the man.` },
+                    { prompt: `We almost saw the entire city from the hill.<br><em>Nghĩa: Chúng tôi suýt nhìn thấy toàn bộ thành phố từ trên đồi.</em>`, answer: `We almost saw the entire city from the hill.`, explanation: `Almost correctly modifies saw if the meaning is nearly succeeded.` },
+                    { prompt: `The boy carried the basket wearing a blue shirt.<br><em>Nghĩa: Cậu bé mặc áo xanh và mang giỏ.</em>`, answer: `Wearing a blue shirt, the boy carried the basket.`, explanation: `The clothing modifier must attach to the boy.` },
+                    { prompt: `Nearly all the students finished the test on time.<br><em>Nghĩa: Hầu như tất cả học sinh hoàn thành bài thi đúng giờ.</em>`, answer: `Nearly all the students finished the test on time.`, explanation: `Nearly all is correctly placed before the noun phrase.` },
+                    { prompt: `He told me he had just arrived from Hanoi.<br><em>Nghĩa: Anh ấy nói với tôi là anh ấy vừa đến từ Hà Nội.</em>`, answer: `He told me he had just arrived from Hanoi.`, explanation: `Just correctly modifies arrived in the past perfect context.` },
+                    { prompt: `I only want one thing from you: honesty.<br><em>Nghĩa: Tôi chỉ muốn một điều từ bạn: sự trung thực.</em>`, answer: `I only want one thing from you: honesty.`, explanation: `Only correctly modifies want one thing.` },
+                    { prompt: `Running fast, the finish line was close.<br><em>Nghĩa: Chạy nhanh, vạch đích ở gần.</em>`, answer: `Running fast, I was close to the finish line.`, explanation: `The runner, not the finish line, must be the subject.` }
+                ]
+            }
+        ],
+        checkpoint: [
+            'Modifier phải đứng gần từ/cụm từ nó bổ nghĩa.',
+            'Only, almost, nearly, just dễ làm đổi nghĩa nếu đặt sai vị trí.',
+            'Dangling modifier cần có chủ ngữ logic rõ ràng.',
+            'Khi sửa câu, ưu tiên rõ nghĩa trước, rồi mới giữ nhịp câu.'
         ]
     },
     'past-simple': {
