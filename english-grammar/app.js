@@ -636,8 +636,18 @@
         
         // ==================== 37. CAUSATIVE ====================
         questions.push(createQuestion(questionId + 120, 'Causative', 'I had my car ___.', ['repair', 'repairing', 'repaired', 'repairs'], 2, 'Causative: have + O + V3 (để người khác làm).'));
-        questions.push(createQuestion(questionId + 121, 'Causative', 'She got her husband ___ the groceries.', ['buy', 'buying', 'to buy', 'bought'], 0, 'Get + O + V (nguyên mẫu): "buy".'));
-        
+        questions.push(createQuestion(questionId + 121, 'Causative', 'She got her husband ___ the groceries.', ['buy', 'buying', 'to buy', 'bought'], 2, 'Get + O + to V: "to buy" – get yêu cầu to trước động từ nguyên mẫu.'));
+        questions.push(createQuestion(questionId + 144, 'Causative', 'The teacher made the students ___ the essay again.', ['to write', 'writing', 'write', 'written'], 2, 'Make + O + bare V (không to): "write".'));
+        questions.push(createQuestion(questionId + 145, 'Causative', 'My parents let me ___ out with friends last night.', ['going', 'to go', 'go', 'gone'], 2, 'Let + O + bare V (không to): "go".'));
+        questions.push(createQuestion(questionId + 146, 'Causative', 'I need to ___ my laptop ___ before the presentation.', ['have / fixed', 'get / to fix', 'have / fix', 'let / fixed'], 0, 'Have + O + V3 là mẫu causative passive khi thuê/nhờ sửa chữa.'));
+        questions.push(createQuestion(questionId + 147, 'Causative', 'She ___ her nails done at the salon every weekend.', ['makes', 'lets', 'gets', 'does'], 2, 'Get + O + V3 diễn tả đi làm dịch vụ (làm móng).'));
+        questions.push(createQuestion(questionId + 148, 'Causative', 'He was ___ to apologize to the whole class.', ['let', 'made', 'got', 'had'], 1, 'Bị động của make là be made to + V: "was made to apologize".'));
+        questions.push(createQuestion(questionId + 149, 'Causative', 'We had the broken window ___ by a professional.', ['replace', 'replacing', 'replaced', 'to replace'], 2, 'Have + O + V3: "replaced" – thuê người thay cửa sổ.'));
+        questions.push(createQuestion(questionId + 150, 'Causative', 'The manager ___ the team to work overtime last Friday.', ['let', 'got', 'had', 'made'], 3, 'Make + O + bare V diễn tả ép buộc; "made" phù hợp nhất ở đây.'));
+        questions.push(createQuestion(questionId + 151, 'Causative', 'I finally ___ the landlord to fix the leaking pipe.', ['made', 'let', 'got', 'had'], 2, 'Get + O + to V nhấn việc thuyết phục được ai đó làm điều gì.'));
+        questions.push(createQuestion(questionId + 152, 'Causative', 'Which is correct? "He had his teeth ___."', ['check', 'checking', 'to check', 'checked'], 3, 'Have + O + V3 là mẫu đúng: "had his teeth checked" (đi khám răng).'));
+        questions.push(createQuestion(questionId + 153, 'Causative', '"The news made her ___." Choose the correct form.', ['to cry', 'cried', 'cry', 'crying'], 2, 'Make có thể diễn tả cảm xúc: make + O + bare V → "cry".'));
+
         // ==================== 38. WISH CLAUSES ====================
         questions.push(createQuestion(questionId + 122, 'Wish Clauses', 'I wish I ___ richer.', ['am', 'was', 'were', 'be'], 2, 'Wish + quá khứ: "were" (cho tất cả ngôi).'));
         questions.push(createQuestion(questionId + 123, 'Wish Clauses', 'I wish she ___ here now.', ['is', 'was', 'were', 'be'], 2, 'Wish về hiện tại: "were".'));
