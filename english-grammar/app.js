@@ -9,11 +9,15 @@
         tourStepIndex: 0,
         selectedComponent: null,
         activeCategory: 'all',
+        activeView: 'all',
         searchQuery: '',
+        exerciseScope: 'level',
+        exerciseSize: 10,
         exerciseQuestions: [],
         exerciseIndex: 0,
         exerciseScore: 0,
-        exerciseAnswers: []
+        exerciseAnswers: [],
+        exerciseAnswered: false
     };
 
     const allComponents = {
@@ -28,57 +32,102 @@
         ...(typeof grammarComprehensiveData !== 'undefined' ? grammarComprehensiveData : {})
     };
 
+    // Thứ tự hiển thị và tiêu đề của từng nhóm chủ điểm trong lưới học.
+    const categoryMeta = {
+        foundations: { title: '🧱 Nền Tảng Câu Tiếng Anh', note: 'Bộ khung để đặt câu đúng trước khi học các cấu trúc phức tạp.' },
+        tenses: { title: '⏰ Tất Cả 12 Thì', note: 'Chọn đúng thì = xác định mốc thời gian, tính hoàn tất và liên hệ với hiện tại.' },
+        patterns: { title: '🧩 Mẫu Câu & Liên Kết Ý', note: 'Cách hỏi, phủ định, so sánh và nối ý để câu chạy mượt.' },
+        structures: { title: '🏗️ Cấu Trúc Nâng Cao', note: 'Bị động, điều kiện, mệnh đề và đảo ngữ – phần tạo khác biệt ở B2 trở lên.' },
+        mistakes: { title: '⚠️ Lỗi Phổ Biến', note: 'Những lỗi người Việt hay mắc nhất khi viết và nói tiếng Anh.' },
+        pronunciation: { title: '🗣️ IPA & Phát Âm', note: 'Đọc đúng ký hiệu để tự tra từ điển mà không cần đoán.' }
+    };
+
+    const exerciseBank = (typeof grammarExerciseBank !== 'undefined' ? grammarExerciseBank : []);
+    const progress = typeof grammarProgress !== 'undefined' ? grammarProgress : null;
+
+    const el = id => document.getElementById(id);
+
     const elements = {
-        levelOverlay: document.getElementById('levelOverlay'),
-        levelBadge: document.getElementById('levelBadge'),
-        changeLevelBtn: document.getElementById('changeLevelBtn'),
-        startTourBtn: document.getElementById('startTourBtn'),
-        exerciseBtn: document.getElementById('exerciseBtn'),
-        exerciseModal: document.getElementById('exerciseModal'),
-        closeExercise: document.getElementById('closeExercise'),
-        exerciseProgress: document.getElementById('exerciseProgress'),
-        exerciseProgressFill: document.getElementById('exerciseProgressFill'),
-        exerciseQuestion: document.getElementById('exerciseQuestion'),
-        exerciseOptions: document.getElementById('exerciseOptions'),
-        exerciseResult: document.getElementById('exerciseResult'),
-        resultIcon: document.getElementById('resultIcon'),
-        resultMessage: document.getElementById('resultMessage'),
-        resultExplanation: document.getElementById('resultExplanation'),
-        nextQuestion: document.getElementById('nextQuestion'),
-        exerciseSummary: document.getElementById('exerciseSummary'),
-        summaryScore: document.getElementById('summaryScore'),
-        summaryDetails: document.getElementById('summaryDetails'),
-        restartExercise: document.getElementById('restartExercise'),
-        tourProgress: document.getElementById('tourProgress'),
-        tourPanel: document.getElementById('tourPanel'),
-        progressFill: document.getElementById('progressFill'),
-        currentStep: document.getElementById('currentStep'),
-        totalSteps: document.getElementById('totalSteps'),
-        tourTitle: document.getElementById('tourTitle'),
-        tourDescription: document.getElementById('tourDescription'),
-        tourPrev: document.getElementById('tourPrev'),
-        tourNext: document.getElementById('tourNext'),
-        tourSkip: document.getElementById('tourSkip'),
-        infoPanel: document.getElementById('infoPanel'),
-        panelBackdrop: document.getElementById('panelBackdrop'),
-        closePanel: document.getElementById('closePanel'),
-        panelIcon: document.getElementById('panelIcon'),
-        panelTitle: document.getElementById('panelTitle'),
-        panelContent: document.getElementById('panelContent'),
-        relatedConcepts: document.getElementById('relatedConcepts'),
-        quickTips: document.getElementById('quickTips'),
-        tipsGrid: document.getElementById('tipsGrid'),
-        irregularVerbSearch: document.getElementById('irregularVerbSearch'),
-        irregularVerbCount: document.getElementById('irregularVerbCount'),
-        irregularVerbsTableBody: document.getElementById('irregularVerbsTableBody'),
-        memoryBankGrid: document.getElementById('memoryBankGrid'),
+        levelOverlay: el('levelOverlay'),
+        levelBadge: el('levelBadge'),
+        changeLevelBtn: el('changeLevelBtn'),
+        startTourBtn: el('startTourBtn'),
+        exerciseBtn: el('exerciseBtn'),
+        exerciseModal: el('exerciseModal'),
+        closeExercise: el('closeExercise'),
+        exerciseSetup: el('exerciseSetup'),
+        setupScope: el('setupScope'),
+        setupSize: el('setupSize'),
+        setupAvailable: el('setupAvailable'),
+        scopeTopicBtn: el('scopeTopicBtn'),
+        startExerciseBtn: el('startExerciseBtn'),
+        exerciseRunner: el('exerciseRunner'),
+        exerciseProgress: el('exerciseProgress'),
+        exerciseProgressFill: el('exerciseProgressFill'),
+        exerciseScoreLive: el('exerciseScoreLive'),
+        exerciseContent: el('exerciseContent'),
+        exerciseHint: document.querySelector('.exercise-hint'),
+        exerciseQuestion: el('exerciseQuestion'),
+        exerciseOptions: el('exerciseOptions'),
+        exerciseResult: el('exerciseResult'),
+        resultIcon: el('resultIcon'),
+        resultMessage: el('resultMessage'),
+        resultExplanation: el('resultExplanation'),
+        nextQuestion: el('nextQuestion'),
+        exerciseSummary: el('exerciseSummary'),
+        summaryTitle: el('summaryTitle'),
+        summaryScore: el('summaryScore'),
+        summaryTopics: el('summaryTopics'),
+        summaryDetails: el('summaryDetails'),
+        retryWrongBtn: el('retryWrongBtn'),
+        restartExercise: el('restartExercise'),
+        closeSummaryBtn: el('closeSummaryBtn'),
+        tourProgress: el('tourProgress'),
+        tourPanel: el('tourPanel'),
+        progressFill: el('progressFill'),
+        currentStep: el('currentStep'),
+        totalSteps: el('totalSteps'),
+        tourTitle: el('tourTitle'),
+        tourDescription: el('tourDescription'),
+        tourPrev: el('tourPrev'),
+        tourNext: el('tourNext'),
+        tourSkip: el('tourSkip'),
+        infoPanel: el('infoPanel'),
+        panelBackdrop: el('panelBackdrop'),
+        closePanel: el('closePanel'),
+        panelIcon: el('panelIcon'),
+        panelTitle: el('panelTitle'),
+        panelContent: el('panelContent'),
+        panelStat: el('panelStat'),
+        markLearnedBtn: el('markLearnedBtn'),
+        bookmarkBtn: el('bookmarkBtn'),
+        practiceTopicBtn: el('practiceTopicBtn'),
+        relatedConcepts: el('relatedConcepts'),
+        quickTips: el('quickTips'),
+        tipsGrid: el('tipsGrid'),
+        irregularVerbSearch: el('irregularVerbSearch'),
+        irregularVerbCount: el('irregularVerbCount'),
+        irregularVerbsTableBody: el('irregularVerbsTableBody'),
+        memoryBankGrid: el('memoryBankGrid'),
+        conceptsGrid: el('conceptsGrid'),
+        emptyState: el('emptyState'),
+        resultCount: el('resultCount'),
+        statLearned: el('statLearned'),
+        statAvailable: el('statAvailable'),
+        statDue: el('statDue'),
+        statStreak: el('statStreak'),
+        dashProgressFill: el('dashProgressFill'),
+        dashReviewBtn: el('dashReviewBtn'),
+        dashPracticeBtn: el('dashPracticeBtn'),
+        dashResetBtn: el('dashResetBtn'),
         referenceLinks: document.querySelectorAll('.reference-link'),
         filterBtns: document.querySelectorAll('.filter-btn'),
-        nodes: document.querySelectorAll('.node'),
+        chipBtns: document.querySelectorAll('.chip-btn'),
         tabBtns: document.querySelectorAll('.tab-btn'),
-        grammarSearch: document.getElementById('grammarSearch'),
-        clearGrammarSearch: document.getElementById('clearGrammarSearch'),
-        levelCards: document.getElementById('levelCards')
+        grammarSearch: el('grammarSearch'),
+        clearGrammarSearch: el('clearGrammarSearch'),
+        levelCards: el('levelCards'),
+        nodes: []
     };
 
     const cefr = window.englishGrammarCefr || {
@@ -98,7 +147,8 @@
         }
     };
 
-    state.currentLevel = cefr.normalizeLevel(localStorage.getItem('englishGrammarLevel') || 'A1');
+    const storedLevel = localStorage.getItem('englishGrammarLevel');
+    state.currentLevel = storedLevel ? cefr.normalizeLevel(storedLevel) : null;
 
     function stripHtml(html) {
         return String(html || '')
@@ -114,24 +164,25 @@
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/đ/g, 'd')
-            .replace(/Đ/g, 'D');
+            .replace(/Đ/g, 'd')
+            .replace(/\s+/g, ' ')
+            .trim();
     }
 
     const componentSearchIndex = Object.fromEntries(
         Object.entries(allComponents).map(([id, component]) => [
             id,
             normalizeText([
+                id,
                 component.title,
-                component.category,
-                stripHtml(component.simple),
-                stripHtml(component.detail),
-                stripHtml(component.advanced)
+                stripHtml(component.simple).slice(0, 400),
+                stripHtml(component.detail).slice(0, 300)
             ].join(' '))
         ])
     );
 
     function escapeHtml(text) {
-        return String(text || '')
+        return String(text == null ? '' : text)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
@@ -143,43 +194,32 @@
         return cefr.resolveComponent(id, component || allComponents[id]);
     }
 
+    function isWithinLevel(id) {
+        if (!state.currentLevel) return true;
+        return cefr.getRank(getComponentLevel(id).code) <= cefr.getRank(state.currentLevel);
+    }
+
+    // ==================== LEVEL ====================
     function renderLevelCards() {
         if (!elements.levelCards) return;
 
         elements.levelCards.innerHTML = cefr.order.map(levelCode => {
             const meta = cefr.getMeta(levelCode);
+            const count = Object.keys(allComponents).filter(id => getComponentLevel(id).code === meta.code).length;
             return `
                 <div class="level-card" data-level="${meta.code}">
                     <div class="level-icon">${meta.icon}</div>
-                    <h3>${meta.code} · ${meta.name}</h3>
-                    <p>${meta.description}</p>
+                    <h3>${meta.code} · ${escapeHtml(meta.name)}</h3>
+                    <p>${escapeHtml(meta.description)}</p>
+                    <p class="level-count">${count} chủ điểm mới ở mức này</p>
                     <button class="level-btn">Chọn ${meta.code}</button>
                 </div>
             `;
         }).join('');
-    }
 
-    function renderConceptNodes() {
-        document.querySelectorAll('.concept-section').forEach(section => {
-            const grid = section.querySelector('.concepts-grid');
-            if (!grid) return;
-
-            const category = section.dataset.category;
-            const entries = Object.entries(allComponents).filter(([, component]) => component.category === category);
-
-            grid.innerHTML = entries.map(([id, component]) => {
-                const meta = getComponentLevel(id, component);
-                return `
-                    <div class="node" data-component="${escapeHtml(id)}" data-cefr="${meta.code}">
-                        <span class="node-icon">${escapeHtml(component.icon || '📘')}</span>
-                        <span class="node-title">${escapeHtml(component.title)}</span>
-                        <span class="node-badge ${meta.className}">${meta.code}</span>
-                    </div>
-                `;
-            }).join('');
+        elements.levelCards.querySelectorAll('.level-card').forEach(card => {
+            card.addEventListener('click', () => selectLevel(card.dataset.level));
         });
-
-        elements.nodes = document.querySelectorAll('.node');
     }
 
     function initLevelSelection() {
@@ -187,13 +227,12 @@
 
         if (state.currentLevel) {
             hideOverlay();
-            updateLevelUI();
+        } else {
+            state.currentLevel = 'A1';
+            elements.levelOverlay.style.display = 'flex';
         }
 
-        document.querySelectorAll('.level-card').forEach(card => {
-            card.addEventListener('click', () => selectLevel(card.dataset.level));
-        });
-
+        updateLevelUI();
         elements.changeLevelBtn.addEventListener('click', () => {
             elements.levelOverlay.style.display = 'flex';
         });
@@ -204,8 +243,8 @@
         localStorage.setItem('englishGrammarLevel', state.currentLevel);
         hideOverlay();
         updateLevelUI();
-        filterNodesByLevel();
-        updateConceptVisibility();
+        renderConceptNodes();
+        updateDashboard();
     }
 
     function hideOverlay() {
@@ -219,38 +258,87 @@
         if (state.currentLevel === 'A1' || state.currentLevel === 'A2') {
             elements.quickTips.style.display = 'block';
             elements.tipsGrid.innerHTML = quickTips.map(tip => `
-                <div class="tip-card"><span class="tip-icon">${tip.icon}</span><p>${tip.text}</p></div>
+                <div class="tip-card"><span class="tip-icon">${tip.icon}</span><p>${escapeHtml(tip.text)}</p></div>
             `).join('');
         } else {
             elements.quickTips.style.display = 'none';
         }
     }
 
-    function filterNodesByLevel() {
-        const currentIndex = cefr.getRank(state.currentLevel);
+    // ==================== LƯỚI CHỦ ĐIỂM ====================
+    function nodeMarkup(id, component) {
+        const meta = getComponentLevel(id, component);
+        const learned = progress && progress.isLearned(id);
+        const saved = progress && progress.isBookmarked(id);
+        const above = !isWithinLevel(id);
 
-        elements.nodes.forEach(node => {
-            const levelIndex = cefr.getRank(node.dataset.cefr || 'A1');
-
-            node.classList.toggle('locked', levelIndex > currentIndex);
-            node.style.opacity = levelIndex > currentIndex ? '0.5' : '1';
-            node.style.pointerEvents = levelIndex > currentIndex ? 'none' : 'auto';
-        });
+        return `
+            <button type="button" class="node${learned ? ' learned' : ''}${above ? ' above-level' : ''}"
+                    data-component="${escapeHtml(id)}" data-cefr="${meta.code}" data-category="${escapeHtml(component.category || '')}">
+                <span class="node-icon">${escapeHtml(component.icon || '📘')}</span>
+                <span class="node-title">${escapeHtml(component.title)}</span>
+                <span class="node-badge ${meta.className}">${meta.code}</span>
+                <span class="node-flags">
+                    ${learned ? '<span class="node-flag done" title="Đã thuộc">✅</span>' : ''}
+                    ${saved ? '<span class="node-flag save" title="Đã lưu">⭐</span>' : ''}
+                </span>
+            </button>
+        `;
     }
 
-    function initCategoryFilter() {
-        elements.filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                elements.filterBtns.forEach(item => item.classList.remove('active'));
-                btn.classList.add('active');
+    function renderConceptNodes() {
+        if (!elements.conceptsGrid) return;
 
-                state.activeCategory = btn.dataset.category;
-                updateConceptVisibility();
-            });
+        const categories = Object.keys(categoryMeta).filter(category =>
+            Object.values(allComponents).some(component => component.category === category)
+        );
+
+        elements.conceptsGrid.innerHTML = categories.map(category => {
+            const meta = categoryMeta[category];
+            const entries = Object.entries(allComponents).filter(([, component]) => component.category === category);
+
+            return `
+                <section class="concept-section" data-category="${category}">
+                    <div class="section-head">
+                        <h2 class="section-title">${meta.title}</h2>
+                        <p class="section-note">${meta.note}</p>
+                    </div>
+                    <div class="nodes-container">
+                        ${entries.map(([id, component]) => nodeMarkup(id, component)).join('')}
+                    </div>
+                </section>
+            `;
+        }).join('');
+
+        elements.nodes = Array.from(elements.conceptsGrid.querySelectorAll('.node'));
+        elements.nodes.forEach(node => {
+            node.addEventListener('click', () => activateComponent(node.dataset.component));
         });
+
+        updateConceptVisibility();
+    }
+
+    function refreshNode(id) {
+        const node = elements.conceptsGrid.querySelector(`.node[data-component="${CSS.escape(id)}"]`);
+        if (!node) return;
+
+        const learned = progress && progress.isLearned(id);
+        const saved = progress && progress.isBookmarked(id);
+        node.classList.toggle('learned', Boolean(learned));
+        node.querySelector('.node-flags').innerHTML =
+            `${learned ? '<span class="node-flag done" title="Đã thuộc">✅</span>' : ''}${saved ? '<span class="node-flag save" title="Đã lưu">⭐</span>' : ''}`;
+    }
+
+    function matchesView(id) {
+        if (state.activeView === 'level') return isWithinLevel(id);
+        if (state.activeView === 'todo') return !(progress && progress.isLearned(id));
+        if (state.activeView === 'bookmark') return Boolean(progress && progress.isBookmarked(id));
+        return true;
     }
 
     function updateConceptVisibility() {
+        let total = 0;
+
         document.querySelectorAll('.concept-section').forEach(section => {
             const matchesCategory = state.searchQuery
                 ? true
@@ -259,13 +347,42 @@
             let visibleNodes = 0;
 
             section.querySelectorAll('.node').forEach(node => {
-                const matchesSearch = !state.searchQuery || (componentSearchIndex[node.dataset.component] || '').includes(state.searchQuery);
-                const visible = matchesCategory && matchesSearch;
-                node.style.display = visible ? '' : 'none';
+                const id = node.dataset.component;
+                const matchesSearch = !state.searchQuery || (componentSearchIndex[id] || '').includes(state.searchQuery);
+                const visible = matchesCategory && matchesSearch && matchesView(id);
+                node.hidden = !visible;
                 if (visible) visibleNodes += 1;
             });
 
-            section.style.display = visibleNodes > 0 ? 'block' : 'none';
+            section.hidden = visibleNodes === 0;
+            total += visibleNodes;
+        });
+
+        if (elements.resultCount) {
+            elements.resultCount.textContent = `${total}/${Object.keys(allComponents).length} chủ điểm`;
+        }
+        if (elements.emptyState) {
+            elements.emptyState.hidden = total > 0;
+        }
+    }
+
+    function initFilters() {
+        elements.filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                elements.filterBtns.forEach(item => item.classList.remove('active'));
+                btn.classList.add('active');
+                state.activeCategory = btn.dataset.category;
+                updateConceptVisibility();
+            });
+        });
+
+        elements.chipBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                elements.chipBtns.forEach(item => item.classList.remove('active'));
+                btn.classList.add('active');
+                state.activeView = btn.dataset.view;
+                updateConceptVisibility();
+            });
         });
     }
 
@@ -277,26 +394,15 @@
             updateConceptVisibility();
         });
 
-        if (elements.clearGrammarSearch) {
-            elements.clearGrammarSearch.addEventListener('click', () => {
-                elements.grammarSearch.value = '';
-                state.searchQuery = '';
-                updateConceptVisibility();
-                elements.grammarSearch.focus();
-            });
-        }
-    }
-
-    function initNodeInteraction() {
-        elements.nodes.forEach(node => {
-            node.addEventListener('click', () => {
-                if (node.classList.contains('locked')) return;
-
-                activateComponent(node.dataset.component);
-            });
+        elements.clearGrammarSearch.addEventListener('click', () => {
+            elements.grammarSearch.value = '';
+            state.searchQuery = '';
+            updateConceptVisibility();
+            elements.grammarSearch.focus();
         });
     }
 
+    // ==================== PANEL CHI TIẾT ====================
     function activateComponent(id, options = {}) {
         const component = allComponents[id];
         if (!component) return;
@@ -304,7 +410,7 @@
         showComponentInfo(id);
         elements.nodes.forEach(item => item.classList.remove('active'));
 
-        const targetNode = document.querySelector(`.node[data-component="${id}"]`);
+        const targetNode = elements.conceptsGrid.querySelector(`.node[data-component="${CSS.escape(id)}"]`);
         if (targetNode) {
             targetNode.classList.add('active');
             if (options.scrollIntoView) {
@@ -323,21 +429,37 @@
         elements.panelTitle.textContent = `${component.title} · ${meta.code}`;
         showTabContent('simple');
         renderRelated(component.connections || []);
+        updatePanelActions(id);
         openInfoPanel();
+    }
+
+    function updatePanelActions(id) {
+        const learned = progress && progress.isLearned(id);
+        const saved = progress && progress.isBookmarked(id);
+
+        elements.markLearnedBtn.textContent = learned ? '✅ Đã thuộc' : '✅ Đánh dấu đã thuộc';
+        elements.markLearnedBtn.classList.toggle('active', Boolean(learned));
+        elements.bookmarkBtn.textContent = saved ? '⭐ Đã lưu' : '⭐ Lưu lại';
+        elements.bookmarkBtn.classList.toggle('active', Boolean(saved));
+
+        const pool = exerciseBank.filter(question => question.component === id);
+        elements.practiceTopicBtn.hidden = pool.length === 0;
+        elements.practiceTopicBtn.textContent = `📝 Luyện ${pool.length} câu chủ điểm này`;
+
+        const stat = progress && progress.getTopicStat(id);
+        elements.panelStat.textContent = stat
+            ? `Kết quả luyện tập: ${stat.right} đúng / ${stat.right + stat.wrong} câu`
+            : '';
     }
 
     function openInfoPanel() {
         elements.infoPanel.classList.add('open');
-        if (elements.panelBackdrop) {
-            elements.panelBackdrop.classList.add('open');
-        }
+        elements.panelBackdrop.classList.add('open');
     }
 
     function closeInfoPanel() {
         elements.infoPanel.classList.remove('open');
-        if (elements.panelBackdrop) {
-            elements.panelBackdrop.classList.remove('open');
-        }
+        elements.panelBackdrop.classList.remove('open');
     }
 
     function showTabContent(tab) {
@@ -346,6 +468,8 @@
         if (!component) return;
 
         elements.tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
+        elements.panelContent.scrollTop = 0;
+
         if (tab === 'practice') {
             elements.panelContent.innerHTML = renderPracticeContent(state.selectedComponent, component);
             return;
@@ -355,14 +479,16 @@
     }
 
     function renderRelated(connections) {
-        if (!connections.length) {
+        const valid = connections.filter(id => allComponents[id]);
+
+        if (!valid.length) {
             elements.relatedConcepts.innerHTML = '<p class="no-connections">Không có</p>';
             return;
         }
 
-        elements.relatedConcepts.innerHTML = connections.map(id => {
+        elements.relatedConcepts.innerHTML = valid.map(id => {
             const related = allComponents[id];
-            return related ? `<button class="related-btn" data-component="${id}">${related.icon} ${related.title}</button>` : '';
+            return `<button class="related-btn" data-component="${escapeHtml(id)}">${related.icon} ${escapeHtml(related.title)}</button>`;
         }).join('');
 
         elements.relatedConcepts.querySelectorAll('.related-btn').forEach(button => {
@@ -372,15 +498,35 @@
 
     function initPanelControls() {
         elements.closePanel.addEventListener('click', closeInfoPanel);
-        if (elements.panelBackdrop) {
-            elements.panelBackdrop.addEventListener('click', closeInfoPanel);
-        }
+        elements.panelBackdrop.addEventListener('click', closeInfoPanel);
 
         elements.tabBtns.forEach(btn => {
             btn.addEventListener('click', () => showTabContent(btn.dataset.tab));
         });
+
+        elements.markLearnedBtn.addEventListener('click', () => {
+            if (!progress || !state.selectedComponent) return;
+            progress.toggleLearned(state.selectedComponent);
+            updatePanelActions(state.selectedComponent);
+            refreshNode(state.selectedComponent);
+            updateConceptVisibility();
+            updateDashboard();
+        });
+
+        elements.bookmarkBtn.addEventListener('click', () => {
+            if (!progress || !state.selectedComponent) return;
+            progress.toggleBookmark(state.selectedComponent);
+            updatePanelActions(state.selectedComponent);
+            refreshNode(state.selectedComponent);
+            updateConceptVisibility();
+        });
+
+        elements.practiceTopicBtn.addEventListener('click', () => {
+            openExerciseModal('topic');
+        });
     }
 
+    // ==================== TOUR ====================
     function initTourSystem() {
         elements.startTourBtn.addEventListener('click', startTour);
         elements.tourPrev.addEventListener('click', () => showTourStep(state.tourStepIndex - 1));
@@ -411,12 +557,14 @@
 
         state.tourStepIndex = index;
         const step = steps[index];
+
         elements.currentStep.textContent = index + 1;
         elements.tourTitle.textContent = step.title;
         elements.tourDescription.textContent = step.description;
         elements.progressFill.style.width = `${((index + 1) / steps.length) * 100}%`;
 
-        document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+        document.querySelectorAll('.tour-highlight').forEach(node => node.classList.remove('tour-highlight'));
+
         if (step.target) {
             const target = document.querySelector(step.target);
             if (target) {
@@ -426,469 +574,389 @@
         }
 
         elements.tourPrev.disabled = index === 0;
-        elements.tourNext.textContent = index === steps.length - 1 ? 'Hoàn thành' : 'Tiếp theo →';
+        elements.tourNext.textContent = index >= steps.length - 1 ? 'Hoàn thành ✓' : 'Tiếp theo →';
     }
 
     function endTour() {
         state.isTourActive = false;
         elements.tourProgress.style.display = 'none';
         elements.tourPanel.style.display = 'none';
-        document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+        document.querySelectorAll('.tour-highlight').forEach(node => node.classList.remove('tour-highlight'));
     }
 
-    // ==================== EXERCISE SYSTEM ====================
-    function generateExerciseQuestions() {
-        const questions = [];
-        const questionId = Date.now();
-        
-        const createQuestion = (id, topic, question, options, correct, explanation) => {
-            return { id, topic, question, options, correct, explanation };
-        };
-        
-        // ==================== 1. SENTENCE ORDER (Trật tự câu) ====================
-        questions.push(createQuestion(questionId + 1, 'Sentence Order', 'Which word order is correct?', ['She reads books every day', 'She every day reads books', 'Every day she reads books', 'Books she reads every day'], 0, 'Câu khẳng định: Subject + Verb + Object + Time (S+V+O+T).'));
-        questions.push(createQuestion(questionId + 2, 'Sentence Order', 'Choose the correct order: (subject) (verb) (object) - "They / eat / rice"', ['They eat rice', 'They rice eat', 'Eat they rice', 'Rice they eat'], 0, 'Trật tự đúng: Subject + Verb + Object.'));
-        questions.push(createQuestion(questionId + 3, 'Sentence Order', 'Complete: ___ (subject) ___ (verb) ___ (object) - "students / study / English"', ['The / study / English', 'Students / study / English', 'English / study / students', 'Study / students / English'], 1, 'Danh từ số nhiều không cần mạo từ: "Students study English".'));
-        
-        // ==================== 2. PARTS OF SPEECH (Từ loại) ====================
-        questions.push(createQuestion(questionId + 4, 'Parts of Speech', 'Identify: "quickly" is a ___', ['noun', 'verb', 'adverb', 'adjective'], 2, '"-ly" suffix thường là dấu hiệu của trạng từ (adverb).'));
-        questions.push(createQuestion(questionId + 5, 'Parts of Speech', 'Identify: "happiness" is a ___', ['verb', 'adjective', 'noun', 'adverb'], 2, 'Hậu tố "-ness" tạo thành danh từ từ tính từ.'));
-        questions.push(createQuestion(questionId + 6, 'Parts of Speech', 'In "She is a teacher", "teacher" is a ___', ['verb', 'noun', 'adjective', 'adverb'], 1, '"teacher" là danh từ chỉ nghề nghiệp.'));
-        
-        // ==================== 3. PRESENT SIMPLE ====================
-        questions.push(createQuestion(questionId + 7, 'Present Simple', 'She ___ English every day.', ['learns', 'learn', 'learning', 'learned'], 0, 'Với chủ ngữ số ít (she), động từ thêm -s: "learns".'));
-        questions.push(createQuestion(questionId + 8, 'Present Simple', 'Water ___ at 100°C.', ['boils', 'boiling', 'boil', 'boiled'], 0, 'Sự thật chung (chân lý khoa học) dùng Present Simple: "boils".'));
-        questions.push(createQuestion(questionId + 9, 'Present Simple', 'He usually ___ to work by bus.', ['go', 'goes', 'going', 'went'], 1, 'Thói quen với "usually" + ngôi thứ 3 số ít → thêm -s.'));
-        questions.push(createQuestion(questionId + 10, 'Present Simple', 'The sun ___ in the east.', ['rise', 'rises', 'rising', 'rose'], 1, 'Sự thật tự nhiên dùng Present Simple, chủ ngữ số ít → -s.'));
-        questions.push(createQuestion(questionId + 11, 'Present Simple', 'I ___ coffee every morning.', ['drink', 'drinks', 'drinking', 'drank'], 0, 'Ngôi thứ nhất I không thêm -s.'));
-        
-        // ==================== 4. PRESENT CONTINUOUS ====================
-        questions.push(createQuestion(questionId + 12, 'Present Continuous', 'Look! The children ___ in the garden.', ['play', 'playing', 'are playing', 'played'], 2, '"Look!" là dấu hiệu của Present Continuous - hành động đang diễn ra ngay lúc này.'));
-        questions.push(createQuestion(questionId + 13, 'Present Continuous', 'Right now, she ___ for the exam.', ['study', 'studies', 'is studying', 'studied'], 2, '"Right now" = đang làm gì ngay bây giờ → Present Continuous.'));
-        questions.push(createQuestion(questionId + 14, 'Present Continuous', 'We ___ a meeting this week.', ['have', 'having', 'are having', 'had'], 2, 'Tạm thời trong tuần này → Present Continuous.'));
-        questions.push(createQuestion(questionId + 15, 'Present Continuous', 'The weather ___ getting colder.', ['is', 'are', 'is being', 'be'], 0, 'Tiến trình (getting) + be → is getting.'));
-        
-        // ==================== 5. PAST SIMPLE ====================
-        questions.push(createQuestion(questionId + 16, 'Past Simple', 'Yesterday, I ___ to the market.', ['go', 'went', 'going', 'gone'], 1, 'Thời gian trong quá khứ "Yesterday" → Past Simple: "went".'));
-        questions.push(createQuestion(questionId + 17, 'Past Simple', 'She ___ the movie last night.', ['watch', 'watched', 'watching', 'watchs'], 1, 'Quá khứ đơn: thêm -ed cho động từ thường.'));
-        questions.push(createQuestion(questionId + 18, 'Past Simple', 'They ___ to school yesterday.', ['go', 'went', 'going', 'gone'], 1, 'Thời gian quá khứ → Past Simple "went".'));
-        questions.push(createQuestion(questionId + 19, 'Past Simple', 'He ___ English when he was young.', ['learn', 'learned', 'learning', 'learnt'], 1, 'Quá khứ đơn với "when": "learned".'));
-        
-        // ==================== 6. PAST CONTINUOUS ====================
-        questions.push(createQuestion(questionId + 20, 'Past Continuous', 'I ___ TV when the phone rang.', ['watch', 'watched', 'was watching', 'watching'], 2, 'Hành động đang xảy ra khi có hành động khác xen vào → Past Continuous.'));
-        questions.push(createQuestion(questionId + 21, 'Past Continuous', 'At 7 o\'clock yesterday, I ___ breakfast.', ['have', 'had', 'was having', 'having'], 2, 'Thời điểm cụ thể trong quá khứ → Past Continuous.'));
-        questions.push(createQuestion(questionId + 22, 'Past Continuous', 'She ___ when the accident happened.', ['drive', 'drove', 'was driving', 'driving'], 2, 'Đang lái xe khi xảy ra tai nạn → Past Continuous.'));
-        
-        // ==================== 7. PRESENT PERFECT ====================
-        questions.push(createQuestion(questionId + 23, 'Present Perfect', 'I ___ this book three times.', ['read', 'reading', 'have read', 'readed'], 2, 'Trải nghiệm từ trước đến nay (ba lần) → Present Perfect: "have read".'));
-        questions.push(createQuestion(questionId + 24, 'Present Perfect', 'She ___ here since 2020.', ['work', 'works', 'working', 'has worked'], 3, '"since" + thời điểm → Present Perfect: "has worked".'));
-        questions.push(createQuestion(questionId + 25, 'Present Perfect', '___ you ever been to Japan?', ['Have', 'Has', 'Did', 'Do'], 0, 'Câu hỏi Present Perfect: Have + you + V3?'));
-        questions.push(createQuestion(questionId + 26, 'Present Perfect', 'I ___ my homework yet.', ['finish', 'finished', 'have finished', 'finishing'], 2, '"yet" = chưa hoàn thành → Present Perfect.'));
-        questions.push(createQuestion(questionId + 27, 'Present Perfect', 'How many times ___ you to Paris?', ['have', 'did', 'do', 'are'], 0, 'Hỏi số lần với Present Perfect: "How many times have you been".'));
-        
-        // ==================== 8. PAST PERFECT ====================
-        questions.push(createQuestion(questionId + 28, 'Past Perfect', 'By the time I ___ the station, the train ___ already ___.', ['reach / had left', 'reached / has left', 'reach / left', 'reached / had left'], 0, 'Hành động hoàn thành trước một mốc quá khứ → Past Perfect: "had left".'));
-        questions.push(createQuestion(questionId + 29, 'Past Perfect', 'She ___ the work before I ___.', ['finish / arrive', 'finished / arrived', 'had finished / arrived', 'finished / had arrived'], 2, 'Hành động hoàn thành trước → Past Perfect: "had finished".'));
-        
-        // ==================== 9. FUTURE SIMPLE (will) ====================
-        questions.push(createQuestion(questionId + 30, 'Future Simple', 'I think it ___ tomorrow.', ['rain', 'rains', 'will rain', 'raining'], 2, 'Dự đoán với "think": will + V nguyên mẫu.'));
-        questions.push(createQuestion(questionId + 31, 'Future Simple', 'I ___ you tomorrow.', ['call', 'calls', 'will call', 'calling'], 2, 'Quyết định tại thời điểm nói → will + V.'));
-        questions.push(createQuestion(questionId + 32, 'Future Simple', 'There ___ a meeting next week.', ['is', 'are', 'will be', 'be'], 2, 'Tương lai với "next week" → will be.'));
-        
-        // ==================== 10. FUTURE CONTINUOUS ====================
-        questions.push(createQuestion(questionId + 33, 'Future Continuous', 'At this time tomorrow, I ___ in the airport.', ['am', 'will be', 'will be waiting', 'am waiting'], 2, 'Hành động đang diễn ra tại một thời điểm tương lai → Future Continuous.'));
-        
-        // ==================== 11. ARTICLES (a/an/the) ====================
-        questions.push(createQuestion(questionId + 34, 'Articles', 'I need ___ apple.', ['a', 'an', 'the', 'some'], 1, '"apple" bắt đầu bằng nguyên âm (a) → dùng "an".'));
-        questions.push(createQuestion(questionId + 35, 'Articles', '___ sun is very bright today.', ['A', 'An', 'The', 'Some'], 2, 'Danh từ duy nhất (chỉ có một mặt trời) → dùng "the".'));
-        questions.push(createQuestion(questionId + 36, 'Articles', 'I want to buy ___ new computer.', ['a', 'an', 'the', 'some'], 0, '"new" bắt đầu bằng phụ âm → dùng "a".'));
-        questions.push(createQuestion(questionId + 37, 'Articles', '___ Alps are in Europe.', ['A', 'An', 'The', 'Some'], 2, 'Danh từ số nhiều đặc biệt (dãy núi) → dùng "the".'));
-        questions.push(createQuestion(questionId + 38, 'Articles', 'She is ___ honest student.', ['a', 'an', 'the', 'some'], 1, '"honest" bắt đầu bằng nguyên âm /h/ → dùng "an".'));
-        
-        // ==================== 12. PREPOSITIONS ====================
-        questions.push(createQuestion(questionId + 39, 'Prepositions', 'She arrived ___ Monday morning.', ['in', 'on', 'at', 'by'], 1, 'Với ngày cụ thể (Monday) → dùng "on".'));
-        questions.push(createQuestion(questionId + 40, 'Prepositions', 'I live ___ Hanoi.', ['in', 'on', 'at', 'to'], 0, 'Thành phố (Hanoi) → dùng "in" (trong thành phố).'));
-        questions.push(createQuestion(questionId + 41, 'Prepositions', 'The meeting is ___ 3 PM.', ['in', 'on', 'at', 'by'], 2, 'Giờ cụ thể → dùng "at".'));
-        questions.push(createQuestion(questionId + 42, 'Prepositions', 'She is interested ___ learning English.', ['in', 'on', 'at', 'to'], 0, 'Collocation: "interested in".'));
-        questions.push(createQuestion(questionId + 43, 'Prepositions', 'I go to school ___ bus.', ['in', 'on', 'at', 'by'], 3, 'Phương tiện giao thông không có mạo từ → "by bus".'));
-        questions.push(createQuestion(questionId + 44, 'Prepositions', 'The book is ___ the table.', ['in', 'on', 'at', 'to'], 1, 'Bề mặt (table) → dùng "on".'));
-        questions.push(createQuestion(questionId + 45, 'Prepositions', 'She came ___ a smile.', ['in', 'on', 'at', 'with'], 3, 'Với vẻ mặt → "with a smile".'));
-        
-        // ==================== 13. MODAL VERBS ====================
-        questions.push(createQuestion(questionId + 46, 'Modal Verbs', 'You ___ wear a helmet when riding a motorbike.', ['can', 'must', 'may', 'should'], 1, 'Quy định bắt buộc → dùng "must".'));
-        questions.push(createQuestion(questionId + 47, 'Modal Verbs', 'You ___ to study harder. Your grades are low.', ['should', 'can', 'must', 'may'], 0, 'Lời khuyên → dùng "should".'));
-        questions.push(createQuestion(questionId + 48, 'Modal Verbs', 'It ___ rain later.', ['can', 'must', 'may', 'will'], 2, 'Khả năng có thể → "may".'));
-        questions.push(createQuestion(questionId + 49, 'Modal Verbs', 'You ___ drive after drinking alcohol.', ['can', 'must not', 'may', 'should'], 1, 'Cấm → "must not".'));
-        questions.push(createQuestion(questionId + 50, 'Modal Verbs', '___ I help you?', ['Can', 'Must', 'Should', 'Will'], 0, 'Lịch sự hỏi giúp đỡ → "Can I help you?"'));
-        
-        // ==================== 14. CONDITIONALS ====================
-        questions.push(createQuestion(questionId + 51, 'Conditionals', 'If it ___ tomorrow, I will stay home.', ['rain', 'rains', 'will rain', 'raining'], 1, 'Câu điều kiện loại 1: If + hiện tại đơn, will + V nguyên mẫu.'));
-        questions.push(createQuestion(questionId + 52, 'Conditionals', 'If I ___ rich, I would buy a big house.', ['am', 'was', 'were', 'be'], 2, 'Câu điều kiện loại 2 (giả định): If + quá khứ đơn, would + V nguyên mẫu. Dùng "were" cho tất cả ngôi.'));
-        questions.push(createQuestion(questionId + 53, 'Conditionals', 'If you ___ hard, you would pass the exam.', ['study', 'studied', 'had studied', 'study'], 1, 'Điều kiện loại 2: If + quá khứ đơn → "studied".'));
-        questions.push(createQuestion(questionId + 54, 'Conditionals', 'If I ___ the news, I would have told you.', ['know', 'knew', 'had known', 'know'], 2, 'Điều kiện loại 3: If + Past Perfect → "had known".'));
-        questions.push(createQuestion(questionId + 55, 'Conditionals', '___ it rains, we will cancel the trip.', ['If', 'When', 'Unless', 'Because'], 2, 'Trừ khi → "Unless".'));
-        
-        // ==================== 15. PASSIVE VOICE ====================
-        questions.push(createQuestion(questionId + 56, 'Passive Voice', 'The cake ___ by my mother.', ['make', 'makes', 'made', 'making'], 2, 'Bị động: S + be + V3. "made" là V3 của "make".'));
-        questions.push(createQuestion(questionId + 57, 'Passive Voice', 'English ___ in many countries.', ['speak', 'speaks', 'spoken', 'speaking'], 2, 'Bị động: S + be + V3. "spoken" là V3 của "speak".'));
-        questions.push(createQuestion(questionId + 58, 'Passive Voice', 'The work ___ tomorrow.', ['complete', 'completes', 'will be completed', 'completed'], 2, 'Bị động tương lai: will + be + V3.'));
-        questions.push(createQuestion(questionId + 59, 'Passive Voice', 'She was ___ by the manager.', ['promote', 'promotes', 'promoted', 'promoting'], 2, 'Bị động quá khứ: was + V3.'));
-        
-        // ==================== 16. RELATIVE CLAUSES ====================
-        questions.push(createQuestion(questionId + 60, 'Relative Clauses', 'The man ___ helped us is my uncle.', ['who', 'which', 'that', 'whom'], 0, 'Tham chiếu đến người (man) → dùng "who".'));
-        questions.push(createQuestion(questionId + 61, 'Relative Clauses', 'The book ___ I bought is interesting.', ['who', 'which', 'that', 'whom'], 2, 'Tham chiếu đến vật (book) làm tân ngữ → dùng "that" hoặc "which".'));
-        questions.push(createQuestion(questionId + 62, 'Relative Clauses', 'The city ___ I live is beautiful.', ['who', 'which', 'that', 'where'], 3, 'Chỉ địa điểm → dùng "where" hoặc "which".'));
-        questions.push(createQuestion(questionId + 63, 'Relative Clauses', 'I met a person ___ speaks three languages.', ['who', 'which', 'that', 'whom'], 0, 'Mệnh đề quan hệ bổ nghĩa cho người → "who".'));
-        
-        // ==================== 17. SUBJECT-VERB AGREEMENT ====================
-        questions.push(createQuestion(questionId + 64, 'Subject-Verb Agreement', 'Neither the teacher nor the students ___ present.', ['is', 'are', 'was', 'were'], 1, 'Với "neither...nor", động từ theo danh từ gần nhất (students) → số nhiều "are".'));
-        questions.push(createQuestion(questionId + 65, 'Subject-Verb Agreement', 'Each of the students ___ a different book.', ['have', 'has', 'having', 'had'], 1, '"Each of" luôn theo sau động từ số ít: "has".'));
-        questions.push(createQuestion(questionId + 66, 'Subject-Verb Agreement', 'The news ___ very interesting.', ['is', 'are', 'were', 'be'], 0, '"News" là danh từ số ít → động từ số ít "is".'));
-        questions.push(createQuestion(questionId + 67, 'Subject-Verb Agreement', 'Ten dollars ___ too much for this.', ['is', 'are', 'were', 'be'], 0, 'Tiền tệ/danh từ đo lường là số ít → "is".'));
-        questions.push(createQuestion(questionId + 68, 'Subject-Verb Agreement', 'Mathematics ___ difficult for me.', ['is', 'are', 'were', 'be'], 0, 'Môn học kết thúc bằng -s nhưng là số ít → "is".'));
-        
-        // ==================== 18. GERUND vs INFINITIVE ====================
-        questions.push(createQuestion(questionId + 69, 'Gerund/Infinitive', 'I enjoy ___ English.', ['to learn', 'learn', 'learning', 'learned'], 2, 'Động từ "enjoy" + V-ing: "learning".'));
-        questions.push(createQuestion(questionId + 70, 'Gerund/Infinitive', 'She decided ___ the exam.', ['pass', 'passing', 'to pass', 'passed'], 2, 'Động từ "decide" + to V: "to pass".'));
-        questions.push(createQuestion(questionId + 71, 'Gerund/Infinitive', 'I suggest ___ a break.', ['take', 'taking', 'to take', 'taken'], 1, 'Động từ "suggest" + V-ing: "taking".'));
-        questions.push(createQuestion(questionId + 72, 'Gerund/Infinitive', 'He stopped ___ because the room was full.', ['smoke', 'smoking', 'to smoke', 'smoked'], 1, 'Stop + V-ing = dừng hành động đang làm.'));
-        questions.push(createQuestion(questionId + 73, 'Gerund/Infinitive', 'I look forward to ___ you soon.', ['see', 'seeing', 'to see', 'seen'], 1, '"look forward to" + V-ing: "seeing".'));
-        
-        // ==================== 19. COUNTABLE/UNCOUNTABLE ====================
-        questions.push(createQuestion(questionId + 74, 'Countable/Uncountable', 'Can I have ___ water, please?', ['a', 'an', 'some', 'many'], 2, '"water" là danh từ không đếm được → dùng "some".'));
-        questions.push(createQuestion(questionId + 75, 'Countable/Uncountable', 'There are ___ books on the table.', ['a', 'an', 'some', 'much'], 2, '"books" là danh từ đếm được số nhiều → dùng "some".'));
-        questions.push(createQuestion(questionId + 76, 'Countable/Uncountable', 'I need ___ information about this.', ['a', 'an', 'some', 'many'], 2, '"information" không đếm được → dùng "some".'));
-        questions.push(createQuestion(questionId + 77, 'Countable/Uncountable', 'How ___ advice can you give me?', ['many', 'much', 'few', 'little'], 1, '"advice" không đếm được → dùng "much".'));
-        
-        // ==================== 20. QUESTION FORMS ====================
-        questions.push(createQuestion(questionId + 78, 'Question Forms', '___ is her name? - Her name is Lan.', ['What', 'Who', 'Where', 'How'], 0, 'Hỏi tên → dùng "What".'));
-        questions.push(createQuestion(questionId + 79, 'Question Forms', '___ does she go to school? - At 7 o\'clock.', ['What time', 'When', 'How long', 'How often'], 0, 'Hỏi giờ cụ thể → "What time".'));
-        questions.push(createQuestion(questionId + 80, 'Question Forms', '___ is she from? - She is from Vietnam.', ['What', 'Who', 'Where', 'How'], 2, 'Hỏi quốc gia/xuất xứ → "Where".'));
-        questions.push(createQuestion(questionId + 81, 'Question Forms', '___ does the book cost? - 20 dollars.', ['How much', 'How many', 'How long', 'How often'], 0, 'Hỏi giá tiền → "How much".'));
-        questions.push(createQuestion(questionId + 82, 'Question Forms', '___ did you study? - For 3 years.', ['How long', 'How often', 'How much', 'How many'], 0, 'Hỏi khoảng thời gian → "How long".'));
-        
-        // ==================== 21. CONJUNCTIONS ====================
-        questions.push(createQuestion(questionId + 83, 'Conjunctions', 'I study English ___ I want to work abroad.', ['because', 'although', 'but', 'so'], 0, 'Nêu lý do → dùng "because".'));
-        questions.push(createQuestion(questionId + 84, 'Conjunctions', '___ she was tired, she still finished her work.', ['Although', 'Because', 'So', 'And'], 0, 'Mặc dù mệt nhưng vẫn làm → dùng "Although".'));
-        questions.push(createQuestion(questionId + 85, 'Conjunctions', 'It was raining, ___ we stayed inside.', ['so', 'but', 'because', 'although'], 0, 'Kết quả → dùng "so".'));
-        questions.push(createQuestion(questionId + 86, 'Conjunctions', 'I like coffee ___ tea.', ['and', 'but', 'or', 'so'], 2, 'Lựa chọn → dùng "or".'));
-        
-        // ==================== 22. COMPARATIVES/SUPERLATIVES ====================
-        questions.push(createQuestion(questionId + 87, 'Comparatives', 'This book is ___ than that one.', ['interesting', 'more interesting', 'most interesting', 'interestinger'], 1, 'So sánh hơn với tính từ dài: more + adj.'));
-        questions.push(createQuestion(questionId + 88, 'Superlatives', 'This is the ___ movie I have ever seen.', ['good', 'better', 'best', 'goodest'], 2, 'So sánh nhất: "best" (giàu nhất).'));
-        questions.push(createQuestion(questionId + 89, 'Comparatives', 'She is ___ than her sister.', ['tall', 'taller', 'tallest', 'more tall'], 1, 'Tính từ ngắn + er: "taller".'));
-        questions.push(createQuestion(questionId + 90, 'Comparatives', 'This is ___ expensive than that.', ['much', 'more', 'most', 'many'], 1, 'So sánh hơn: more + adj.'));
-        
-        // ==================== 23. TENSE REVIEW ====================
-        questions.push(createQuestion(questionId + 91, 'Tense Review', 'By next year, she ___ here for 5 years.', ['will work', 'will have worked', 'working', 'worked'], 1, 'Future Perfect: will + have + V3 (hoàn thành trước mốc tương lai).'));
-        questions.push(createQuestion(questionId + 92, 'Tense Review', 'I ___ English for 3 years.', ['learn', 'learning', 'learned', 'have been learning'], 3, 'Present Perfect Continuous: have/has been + V-ing (hành động bắt đầu trong quá khứ và còn tiếp diễn).'));
-        questions.push(createQuestion(questionId + 93, 'Tense Review', 'She ___ since she was 10.', ['live', 'lives', 'has lived', 'lived'], 2, 'Present Perfect với "since": "has lived".'));
-        
-        // ==================== 24. INDIRECT SPEECH ====================
-        questions.push(createQuestion(questionId + 94, 'Indirect Speech', '"I am happy," she said → She said ___ she was happy.', ['that', 'if', 'what', 'when'], 0, 'Tường thuật: direct → indirect cần "that".'));
-        questions.push(createQuestion(questionId + 95, 'Indirect Speech', '"Where are you going?" he asked → He asked ___ I was going.', ['that', 'if', 'what', 'when'], 2, 'Câu hỏi WH trong tường thuật giữ nguyên.'));
-        
-        // ==================== 26. QUANTIFIERS ====================
-        questions.push(createQuestion(questionId + 96, 'Quantifiers', 'There is ___ milk in the fridge.', ['a', 'an', 'some', 'many'], 2, '"milk" không đếm được → dùng "some".'));
-        questions.push(createQuestion(questionId + 97, 'Quantifiers', 'How ___ people are there in your family?', ['much', 'many', 'few', 'little'], 1, 'Hỏi số lượng đếm được (people) → dùng "many".'));
-        questions.push(createQuestion(questionId + 98, 'Quantifiers', 'There are ___ students in the class.', ['a few', 'a little', 'few', 'little'], 0, 'Danh từ đếm được số nhiều → "a few" (một vài).'));
-        questions.push(createQuestion(questionId + 99, 'Quantifiers', 'I have ___ time left.', ['a few', 'a little', 'few', 'little'], 1, 'Danh từ không đếm được → "a little" (một chút).'));
-        
-        // ==================== 27. PRONOUNS ====================
-        questions.push(createQuestion(questionId + 100, 'Pronouns', 'It was ___ who called you.', ['I', 'me', 'myself', 'my'], 0, 'Nhấn mạnh chủ ngữ → dùng "I".'));
-        questions.push(createQuestion(questionId + 101, 'Pronouns', 'She told ___ that she would come.', ['I', 'me', 'myself', 'my'], 1, 'Tân ngữ → dùng "me".'));
-        
-        // ==================== 28. ADJECTIVES ====================
-        questions.push(createQuestion(questionId + 102, 'Adjectives', 'The ___ girl won the competition.', ['beautiful', 'more beautiful', 'most beautiful', 'beautifullest'], 0, 'Tính từ đứng trước danh từ: "beautiful".'));
-        questions.push(createQuestion(questionId + 103, 'Adjectives', 'It is ___ to understand this rule.', ['easy', 'easier', 'easiest', 'more easy'], 0, 'Cấu trúc: It + be + adj + to V.'));
-        
-        // ==================== 29. ADVERBS ====================
-        questions.push(createQuestion(questionId + 104, 'Adverbs', 'She speaks English ___.', ['good', 'well', 'better', 'best'], 1, 'Cách nói ngôn ngữ → dùng trạng từ "well".'));
-        questions.push(createQuestion(questionId + 105, 'Adverbs', 'He runs ___ than me.', ['fast', 'faster', 'fastest', 'more fast'], 1, 'Trạng từ so sánh: faster.'));
-        
-        // ==================== 30. NEGATIVES ====================
-        questions.push(createQuestion(questionId + 106, 'Negatives', 'She ___ like coffee.', ['does not', 'do not', 'not', 'is not'], 0, 'Ngôi thứ 3 số ít: does not + V.'));
-        questions.push(createQuestion(questionId + 107, 'Negatives', 'I ___ go to the party tonight.', ['do not', 'does not', 'not', 'am not'], 3, 'Với be: am not + V-ing.'));
-        
-        // ==================== 31. TAG QUESTIONS ====================
-        questions.push(createQuestion(questionId + 108, 'Tag Questions', 'She is a teacher, ___ she?', ['isn\'t', 'is', 'doesn\'t', 'does'], 0, 'Tag question phủ định: "isn\'t she?".'));
-        questions.push(createQuestion(questionId + 109, 'Tag Questions', 'You don\'t smoke, ___ you?', ['do', 'does', 'don\'t', 'are'], 0, 'Tag question khẳng định: "do you?".'));
-        
-        // ==================== 32. NUMBERS ====================
-        questions.push(createQuestion(questionId + 110, 'Numbers', 'There are ___ students in the class.', ['twenty', 'twentyth', 'twentyeth', 'twentys'], 0, 'Số đếm 20: twenty.'));
-        questions.push(createQuestion(questionId + 111, 'Numbers', 'The ___ lesson is the most difficult.', ['five', 'fifth', 'fiveth', 'fifths'], 1, 'Số thứ tự: fifth (thứ 5).'));
-        
-        // ==================== 33. TIME EXPRESSIONS ====================
-        questions.push(createQuestion(questionId + 112, 'Time Expressions', 'I will call you ___ tomorrow.', ['in', 'on', 'at', 'by'], 3, '"by tomorrow" = trước ngày mai.'));
-        questions.push(createQuestion(questionId + 113, 'Time Expressions', 'She was born ___ 2000.', ['in', 'on', 'at', 'by'], 0, 'Năm → dùng "in".'));
-        
-        // ==================== 34. VERB PATTERNS ====================
-        questions.push(createQuestion(questionId + 114, 'Verb Patterns', 'I made her ___ the job.', ['do', 'doing', 'to do', 'does'], 0, 'Cấu trúc: make + O + V (nguyên mẫu).'));
-        questions.push(createQuestion(questionId + 115, 'Verb Patterns', 'Let me ___ you something.', ['tell', 'telling', 'to tell', 'tells'], 0, 'Let + O + V (nguyên mẫu): "tell".'));
-        
-        // ==================== 35. NOUN CLAUSES ====================
-        questions.push(createQuestion(questionId + 116, 'Noun Clauses', '___ she is absent is not clear.', ['That', 'What', 'Whether', 'If'], 0, 'Mệnh đề danh từ làm chủ ngữ: "That".'));
-        questions.push(createQuestion(questionId + 117, 'Noun Clauses', 'I don\'t know ___ she will come.', ['that', 'what', 'whether', 'if'], 2, 'Mệnh đề danh từ sau "know": "whether" hoặc "if".'));
-        
-        // ==================== 36. ADVERBIAL CLAUSES ====================
-        questions.push(createQuestion(questionId + 118, 'Adverbial Clauses', 'I will call you ___ I arrive.', ['when', 'while', 'as', 'since'], 0, 'Mệnh đề trạng thái: "when".'));
-        questions.push(createQuestion(questionId + 119, 'Adverbial Clauses', '___ she was sleeping, the phone rang.', ['While', 'When', 'Because', 'Although'], 0, 'Trong khi đang ngủ → "While".'));
-        
-        // ==================== 37. CAUSATIVE ====================
-        questions.push(createQuestion(questionId + 120, 'Causative', 'I had my car ___.', ['repair', 'repairing', 'repaired', 'repairs'], 2, 'Causative: have + O + V3 (để người khác làm).'));
-        questions.push(createQuestion(questionId + 121, 'Causative', 'She got her husband ___ the groceries.', ['buy', 'buying', 'to buy', 'bought'], 2, 'Get + O + to V: "to buy" – get yêu cầu to trước động từ nguyên mẫu.'));
-        questions.push(createQuestion(questionId + 144, 'Causative', 'The teacher made the students ___ the essay again.', ['to write', 'writing', 'write', 'written'], 2, 'Make + O + bare V (không to): "write".'));
-        questions.push(createQuestion(questionId + 145, 'Causative', 'My parents let me ___ out with friends last night.', ['going', 'to go', 'go', 'gone'], 2, 'Let + O + bare V (không to): "go".'));
-        questions.push(createQuestion(questionId + 146, 'Causative', 'I need to ___ my laptop ___ before the presentation.', ['have / fixed', 'get / to fix', 'have / fix', 'let / fixed'], 0, 'Have + O + V3 là mẫu causative passive khi thuê/nhờ sửa chữa.'));
-        questions.push(createQuestion(questionId + 147, 'Causative', 'She ___ her nails done at the salon every weekend.', ['makes', 'lets', 'gets', 'does'], 2, 'Get + O + V3 diễn tả đi làm dịch vụ (làm móng).'));
-        questions.push(createQuestion(questionId + 148, 'Causative', 'He was ___ to apologize to the whole class.', ['let', 'made', 'got', 'had'], 1, 'Bị động của make là be made to + V: "was made to apologize".'));
-        questions.push(createQuestion(questionId + 149, 'Causative', 'We had the broken window ___ by a professional.', ['replace', 'replacing', 'replaced', 'to replace'], 2, 'Have + O + V3: "replaced" – thuê người thay cửa sổ.'));
-        questions.push(createQuestion(questionId + 150, 'Causative', 'The manager ___ the team to work overtime last Friday.', ['let', 'got', 'had', 'made'], 3, 'Make + O + bare V diễn tả ép buộc; "made" phù hợp nhất ở đây.'));
-        questions.push(createQuestion(questionId + 151, 'Causative', 'I finally ___ the landlord to fix the leaking pipe.', ['made', 'let', 'got', 'had'], 2, 'Get + O + to V nhấn việc thuyết phục được ai đó làm điều gì.'));
-        questions.push(createQuestion(questionId + 152, 'Causative', 'Which is correct? "He had his teeth ___."', ['check', 'checking', 'to check', 'checked'], 3, 'Have + O + V3 là mẫu đúng: "had his teeth checked" (đi khám răng).'));
-        questions.push(createQuestion(questionId + 153, 'Causative', '"The news made her ___." Choose the correct form.', ['to cry', 'cried', 'cry', 'crying'], 2, 'Make có thể diễn tả cảm xúc: make + O + bare V → "cry".'));
-        questions.push(createQuestion(questionId + 154, 'Causative', "I'll have Tom ___ the report before the meeting.", ['check', 'to check', 'checked', 'checking'], 0, 'Have + O + bare V (không phải V3) khi giao việc trực tiếp cho người khác: "have Tom check".'));
-        questions.push(createQuestion(questionId + 155, 'Causative', 'Students are usually ___ to use dictionaries during the exam.', ['let', 'made', 'allowed', 'got'], 2, 'Let không có dạng bị động; dùng "be allowed to": "are allowed to use".'));
-        questions.push(createQuestion(questionId + 156, 'Causative', 'I had my wallet ___ while I was on the train.', ['steal', 'stole', 'stolen', 'stealing'], 2, 'Have + O + V3 còn diễn tả việc xui rủi xảy đến (bị mất cắp): "had my wallet stolen".'));
-        questions.push(createQuestion(questionId + 157, 'Causative', 'She helped him ___ the boxes upstairs.', ['carry', 'carried', 'carrying', 'to carrying'], 0, 'Help + O + V (bare hoặc to V đều đúng, nhưng "carry" không "to" vẫn chuẩn nhất trong văn nói).'));
-        questions.push(createQuestion(questionId + 158, 'Causative', "I'm going to ___ my hair ___ this weekend.", ['get / cut', 'have / cutting', 'let / cut', 'make / to cut'], 0, 'Get + O + V3 cho việc đi làm dịch vụ trong tương lai: "get my hair cut".'));
-        questions.push(createQuestion(questionId + 159, 'Causative', 'They didn\'t let us ___ photos inside the museum.', ['take', 'to take', 'taking', 'took'], 0, 'Dạng phủ định vẫn giữ let + O + bare V: "didn\'t let us take".'));
-        questions.push(createQuestion(questionId + 160, 'Causative', 'You should ___ your car ___ before the long trip.', ['have / serviced', 'get / service', 'make / serviced', 'let / servicing'], 0, 'Have + O + V3 sau modal "should": "should have your car serviced".'));
-        questions.push(createQuestion(questionId + 161, 'Causative', 'Choose the sentence with the same meaning as "A mechanic repaired my bike for me.".', ['I repaired my bike.', 'I had my bike repaired.', 'I was repaired my bike.', 'I made my bike repaired.'], 1, 'Nhờ người khác làm cho mình = have + O + V3: "I had my bike repaired."'));
-
-        // ==================== 38. WISH CLAUSES ====================
-        questions.push(createQuestion(questionId + 122, 'Wish Clauses', 'I wish I ___ richer.', ['am', 'was', 'were', 'be'], 2, 'Wish + quá khứ: "were" (cho tất cả ngôi).'));
-        questions.push(createQuestion(questionId + 123, 'Wish Clauses', 'I wish she ___ here now.', ['is', 'was', 'were', 'be'], 2, 'Wish về hiện tại: "were".'));
-        
-        // ==================== 39. INVERSION ====================
-        questions.push(createQuestion(questionId + 124, 'Inversion', '___ have I seen such a beautiful view!', ['Never', 'Ever', 'Often', 'Rarely'], 0, 'Đảo ngữ với Never: "Never have I seen".'));
-        questions.push(createQuestion(questionId + 125, 'Inversion', '___ did he understand the problem.', ['Only then', 'Then', 'When', 'After'], 0, 'Đảo ngữ với Only: "Only then did he understand".'));
-        
-        // ==================== 40. EMPHATIC DO/DID ====================
-        questions.push(createQuestion(questionId + 126, 'Emphatic DO/DID', 'I ___ do understand what you mean.', ['do', 'does', 'did', 'doing'], 0, 'Nhấn mạnh động từ: "do understand".'));
-        questions.push(createQuestion(questionId + 127, 'Emphatic DO/DID', 'She ___ try her best.', ['did', 'does', 'do', 'doing'], 0, 'Nhấn mạnh với ngôi thứ 3: "did try".'));
-        
-        // ==================== 41. CONJUNCTION + PREPOSITION ====================
-        questions.push(createQuestion(questionId + 128, 'Conj/Prep', 'I am interested ___ learning new things.', ['in', 'on', 'at', 'to'], 0, 'Collocation: "interested in".'));
-        questions.push(createQuestion(questionId + 129, 'Conj/Prep', 'She is good ___ mathematics.', ['in', 'on', 'at', 'with'], 0, 'Collocation: "good at".'));
-        questions.push(createQuestion(questionId + 130, 'Conj/Prep', 'I am tired ___ working late.', ['of', 'from', 'with', 'at'], 0, 'Collocation: "tired of".'));
-        
-        // ==================== 42. PHRASAL VERBS ====================
-        questions.push(createQuestion(questionId + 131, 'Phrasal Verbs', 'Please ___ the lights before leaving.', ['turn off', 'turn on', 'turn up', 'turn down'], 0, 'Tắt đèn: "turn off".'));
-        questions.push(createQuestion(questionId + 132, 'Phrasal Verbs', 'I need to ___ this problem.', ['figure out', 'figure in', 'figure on', 'figure at'], 0, 'Hiểu ra/tìm ra: "figure out".'));
-        
-        // ==================== 43. IDIOMS ====================
-        questions.push(createQuestion(questionId + 133, 'Idioms', 'It is raining ___.', ['cats and dogs', 'heavily', 'hard', 'a lot'], 0, 'Idiom: "raining cats and dogs" = mưa to.'));
-        questions.push(createQuestion(questionId + 134, 'Idioms', 'Don\'t count your ___ before they hatch.', ['chickens', 'birds', 'eggs', 'hens'], 0, 'Idiom: "count your chickens before they hatch" = đừng vội mừng.'));
-        
-        // ==================== 44. REPORTED SPEECH (Tense shift) ====================
-        questions.push(createQuestion(questionId + 134, 'Reported Speech', '"I am tired," she said → She said ___ tired.', ['I was', 'she was', 'she is', 'I am'], 0, 'Tường thuật: chuyển sang quá khứ "was".'));
-        questions.push(createQuestion(questionId + 135, 'Reported Speech', '"I will come," he said → He said he ___ come.', ['will', 'would', 'can', 'could'], 1, 'Tường thuật: will → would.'));
-        
-        // ==================== 45. FUTURE PERFECT ====================
-        questions.push(createQuestion(questionId + 136, 'Future Perfect', 'By next month, I ___ here for one year.', ['will work', 'will have worked', 'working', 'worked'], 1, 'Future Perfect: will + have + V3.'));
-        
-        // ==================== 46. FUTURE IN THE PAST ====================
-        questions.push(createQuestion(questionId + 137, 'Future in the Past', 'She said she ___ the next day.', ['will come', 'would come', 'can come', 'could come'], 1, 'Tương lai trong quá khứ: will → would.'));
-        
-        // ==================== 47. PAST CONTINUOUS (progressive) ====================
-        questions.push(createQuestion(questionId + 138, 'Past Continuous', 'While I ___ TV, the phone rang.', ['watch', 'watched', 'was watching', 'am watching'], 2, 'Past Continuous với "while": "was watching".'));
-        
-        // ==================== 48. PRESENT PERFECT CONTINUOUS ====================
-        questions.push(createQuestion(questionId + 139, 'Present Perfect Continuous', 'How long ___ you ___ here?', ['have / been', 'did / be', 'are / being', 'do / be'], 0, 'Present Perfect Continuous: How long have you been...?'));
-        
-        // ==================== 49. ZERO ARTICLE ====================
-        questions.push(createQuestion(questionId + 140, 'Zero Article', '___ students must study hard.', ['The', 'A', 'Ø (không)', 'Some'], 2, 'Danh từ số nhiều chung → không mạo từ.'));
-        questions.push(createQuestion(questionId + 141, 'Zero Article', 'I like ___ music.', ['the', 'a', 'an', 'Ø (không)'], 3, 'Danh từ không đếm được chung → không mạo từ.'));
-        
-        // ==================== 50. SUBJUNCTIVE ====================
-        questions.push(createQuestion(questionId + 142, 'Subjunctive', 'It is important that she ___ on time.', ['is', 'be', 'was', 'are'], 1, 'Subjunctive: It is important that + V (nguyên mẫu) → "be".'));
-        questions.push(createQuestion(questionId + 143, 'Subjunctive', 'I suggest that he ___ more.', ['work', 'works', 'working', 'worked'], 0, 'Subjunctive sau suggest: V nguyên mẫu "work".'));
-        
-        // Shuffle and return
-        return shuffleArray(questions);
-    }
-    
+    // ==================== HỆ THỐNG LUYỆN TẬP ====================
     function shuffleArray(array) {
-        const shuffled = [...array];
+        const shuffled = array.slice();
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         return shuffled;
     }
-    
-    function initExerciseSystem() {
-        if (!elements.exerciseBtn) return;
-        
-        elements.exerciseBtn.addEventListener('click', () => {
-            startExercise();
+
+    // Xáo trộn cả thứ tự phương án để người học không đoán được vị trí đáp án đúng.
+    function prepareQuestion(question) {
+        const correctText = question.options[question.correct];
+        const options = shuffleArray(question.options);
+        return Object.assign({}, question, {
+            options,
+            correct: options.indexOf(correctText)
         });
-        
-        if (elements.closeExercise) {
-            elements.closeExercise.addEventListener('click', () => {
-                elements.exerciseModal.style.display = 'none';
-            });
-        }
-        
-        elements.exerciseModal.addEventListener('click', event => {
-            if (event.target === elements.exerciseModal) {
-                elements.exerciseModal.style.display = 'none';
-            }
-        });
-        
-        if (elements.nextQuestion) {
-            elements.nextQuestion.addEventListener('click', () => {
-                showNextQuestion();
-            });
-        }
-        
-        if (elements.restartExercise) {
-            elements.restartExercise.addEventListener('click', () => {
-                startExercise();
-            });
-        }
     }
-    
-    function startExercise() {
-        state.exerciseQuestions = generateExerciseQuestions();
+
+    function questionsForScope(scope) {
+        if (scope === 'topic') {
+            return exerciseBank.filter(question => question.component === state.selectedComponent);
+        }
+
+        if (scope === 'review') {
+            if (!progress) return [];
+            const due = progress.dueQuestions(exerciseBank);
+            const weak = progress.weakQuestions(exerciseBank);
+            const merged = new Map();
+            weak.concat(due).forEach(question => merged.set(question.id, question));
+            return Array.from(merged.values());
+        }
+
+        if (scope === 'level' && state.currentLevel) {
+            const rank = cefr.getRank(state.currentLevel);
+            return exerciseBank.filter(question => cefr.getRank(question.level) <= rank);
+        }
+
+        return exerciseBank.slice();
+    }
+
+    function buildSession(scope, size) {
+        let pool = questionsForScope(scope);
+
+        // Ưu tiên câu đã đến hạn ôn hoặc từng làm sai, sau đó mới tới câu mới.
+        if (progress && scope !== 'review') {
+            const priority = new Set(progress.weakQuestions(pool).concat(progress.dueQuestions(pool)).map(item => item.id));
+            const first = shuffleArray(pool.filter(item => priority.has(item.id)));
+            const rest = shuffleArray(pool.filter(item => !priority.has(item.id)));
+            pool = first.concat(rest);
+        } else {
+            pool = shuffleArray(pool);
+        }
+
+        const limited = size > 0 ? pool.slice(0, size) : pool;
+        return limited.map(prepareQuestion);
+    }
+
+    function updateSetupAvailability() {
+        const pool = questionsForScope(state.exerciseScope);
+        const label = {
+            level: `đúng trình độ ${state.currentLevel || 'A1'} trở xuống`,
+            all: 'trong toàn bộ ngân hàng',
+            review: 'đang chờ ôn lại',
+            topic: 'thuộc chủ điểm đang mở'
+        }[state.exerciseScope];
+
+        elements.setupAvailable.textContent = pool.length
+            ? `Có ${pool.length} câu ${label}.`
+            : state.exerciseScope === 'review'
+                ? 'Chưa có câu nào cần ôn. Hãy làm một lượt luyện tập trước đã.'
+                : 'Chưa có câu hỏi nào cho phạm vi này.';
+        elements.startExerciseBtn.disabled = pool.length === 0;
+    }
+
+    function setScope(scope) {
+        state.exerciseScope = scope;
+        elements.setupScope.querySelectorAll('.setup-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.scope === scope);
+        });
+        updateSetupAvailability();
+    }
+
+    function openExerciseModal(scope) {
+        const topicPool = state.selectedComponent
+            ? exerciseBank.filter(question => question.component === state.selectedComponent).length
+            : 0;
+
+        elements.scopeTopicBtn.hidden = topicPool === 0;
+        if (topicPool > 0) {
+            elements.scopeTopicBtn.textContent = `Chủ điểm: ${allComponents[state.selectedComponent].title}`;
+        }
+
+        setScope(scope === 'topic' && topicPool > 0 ? 'topic' : (scope || 'level'));
+
+        elements.exerciseModal.style.display = 'flex';
+        elements.exerciseSetup.hidden = false;
+        elements.exerciseRunner.hidden = true;
+        elements.exerciseSummary.hidden = true;
+    }
+
+    function closeExerciseModal() {
+        elements.exerciseModal.style.display = 'none';
+    }
+
+    function startExercise(questions) {
+        state.exerciseQuestions = questions || buildSession(state.exerciseScope, state.exerciseSize);
+        if (!state.exerciseQuestions.length) return;
+
         state.exerciseIndex = 0;
         state.exerciseScore = 0;
         state.exerciseAnswers = [];
-        
-        elements.exerciseModal.style.display = 'flex';
-        elements.exerciseSummary.style.display = 'none';
-        elements.exerciseResult.style.display = 'none';
-        elements.exerciseContent.style.display = 'block';
-        
+
+        elements.exerciseSetup.hidden = true;
+        elements.exerciseSummary.hidden = true;
+        elements.exerciseRunner.hidden = false;
         showQuestion();
     }
-    
+
     function showQuestion() {
         const question = state.exerciseQuestions[state.exerciseIndex];
         if (!question) {
             showExerciseSummary();
             return;
         }
-        
-        // Update progress
+
+        state.exerciseAnswered = false;
+        elements.exerciseResult.hidden = true;
+        if (elements.exerciseHint) elements.exerciseHint.hidden = false;
+
         const total = state.exerciseQuestions.length;
         const current = state.exerciseIndex + 1;
         elements.exerciseProgress.textContent = `Câu ${current}/${total}`;
         elements.exerciseProgressFill.style.width = `${(current / total) * 100}%`;
-        
-        // Show question
+        elements.exerciseScoreLive.textContent = `✅ ${state.exerciseScore} · ❌ ${state.exerciseAnswers.length - state.exerciseScore}`;
+
+        const mastery = progress ? progress.masteryOf(question) : 0;
         elements.exerciseQuestion.innerHTML = `
-            <div class="exercise-topic">${question.topic}</div>
-            <div class="exercise-text">${question.question}</div>
+            <div class="exercise-meta">
+                <span class="exercise-topic">${escapeHtml(question.topic)}</span>
+                <span class="exercise-level">${escapeHtml(question.level)}</span>
+                ${mastery > 0 ? `<span class="exercise-mastery" title="Mức nhớ theo hộp Leitner">${'●'.repeat(mastery)}${'○'.repeat(5 - mastery)}</span>` : ''}
+            </div>
+            <div class="exercise-text">${escapeHtml(question.question)}</div>
         `;
-        
-        // Show options
+
         elements.exerciseOptions.innerHTML = question.options.map((option, index) => `
-            <button class="exercise-option" data-index="${index}">${option}</button>
+            <button class="exercise-option" data-index="${index}">
+                <span class="option-key">${index + 1}</span>
+                <span class="option-text">${escapeHtml(option)}</span>
+            </button>
         `).join('');
-        
-        // Add click handlers
+
         elements.exerciseOptions.querySelectorAll('.exercise-option').forEach(btn => {
-            btn.addEventListener('click', () => selectAnswer(parseInt(btn.dataset.index)));
+            btn.addEventListener('click', () => selectAnswer(Number(btn.dataset.index)));
         });
     }
-    
+
     function selectAnswer(selectedIndex) {
+        if (state.exerciseAnswered) return;
+
         const question = state.exerciseQuestions[state.exerciseIndex];
         const isCorrect = selectedIndex === question.correct;
-        
-        if (isCorrect) {
-            state.exerciseScore++;
-        }
-        
+        state.exerciseAnswered = true;
+
+        if (isCorrect) state.exerciseScore += 1;
+
         state.exerciseAnswers.push({
-            question: question.question,
+            question,
             selected: question.options[selectedIndex],
-            correct: question.options[question.correct],
-            isCorrect: isCorrect
+            isCorrect
         });
-        
-        // Show result
-        elements.exerciseContent.style.display = 'none';
-        elements.exerciseResult.style.display = 'block';
-        
-        if (isCorrect) {
-            elements.resultIcon.innerHTML = '✅';
-            elements.resultMessage.innerHTML = '<strong>Đúng!</strong>';
-        } else {
-            elements.resultIcon.innerHTML = '❌';
-            elements.resultMessage.innerHTML = '<strong>Sai rồi!</strong>';
-        }
-        
+
+        if (progress) progress.recordAnswer(question, isCorrect);
+
+        elements.exerciseOptions.querySelectorAll('.exercise-option').forEach((btn, index) => {
+            btn.disabled = true;
+            if (index === question.correct) btn.classList.add('correct');
+            if (index === selectedIndex && !isCorrect) btn.classList.add('wrong');
+        });
+
+        // Giữ nguyên câu hỏi và các phương án (đã tô đúng/sai) để người học đối chiếu khi đọc giải thích.
+        elements.exerciseResult.hidden = false;
+        if (elements.exerciseHint) elements.exerciseHint.hidden = true;
+        elements.resultIcon.textContent = isCorrect ? '✅' : '❌';
+        elements.resultMessage.innerHTML = isCorrect
+            ? '<strong>Chính xác!</strong>'
+            : `<strong>Chưa đúng.</strong> Bạn chọn: <em>${escapeHtml(question.options[selectedIndex])}</em>`;
         elements.resultExplanation.innerHTML = `
-            <p><strong>Đáp án đúng:</strong> ${question.options[question.correct]}</p>
-            <p><strong>Giải thích:</strong> ${question.explanation}</p>
+            <p><strong>Đáp án đúng:</strong> ${escapeHtml(question.options[question.correct])}</p>
+            <p><strong>Vì sao:</strong> ${escapeHtml(question.explanation)}</p>
+            ${allComponents[question.component] ? `<button class="result-link" data-component="${escapeHtml(question.component)}">📘 Mở bài học: ${escapeHtml(allComponents[question.component].title)}</button>` : ''}
         `;
+
+        const link = elements.resultExplanation.querySelector('.result-link');
+        if (link) {
+            link.addEventListener('click', () => {
+                closeExerciseModal();
+                activateComponent(link.dataset.component, { scrollIntoView: true });
+            });
+        }
+
+        elements.nextQuestion.textContent = state.exerciseIndex >= state.exerciseQuestions.length - 1
+            ? 'Xem kết quả →'
+            : 'Câu tiếp theo →';
+        elements.nextQuestion.focus();
     }
-    
+
     function showNextQuestion() {
-        state.exerciseIndex++;
-        
+        state.exerciseIndex += 1;
+
         if (state.exerciseIndex >= state.exerciseQuestions.length) {
             showExerciseSummary();
         } else {
-            elements.exerciseResult.style.display = 'none';
-            elements.exerciseContent.style.display = 'block';
             showQuestion();
         }
     }
-    
+
     function showExerciseSummary() {
-        elements.exerciseContent.style.display = 'none';
-        elements.exerciseResult.style.display = 'none';
-        elements.exerciseSummary.style.display = 'block';
-        
-        const total = state.exerciseQuestions.length;
+        elements.exerciseRunner.hidden = true;
+        elements.exerciseSummary.hidden = false;
+
+        const total = state.exerciseAnswers.length;
         const score = state.exerciseScore;
-        const percentage = Math.round((score / total) * 100);
-        
-        let emoji = '📚';
+        const percentage = total ? Math.round((score / total) * 100) : 0;
+        const wrong = state.exerciseAnswers.filter(answer => !answer.isCorrect);
+
+        let emoji = '📖';
         if (percentage >= 90) emoji = '🏆';
         else if (percentage >= 70) emoji = '🎉';
         else if (percentage >= 50) emoji = '💪';
-        else emoji = '📖';
-        
+
+        const streak = progress ? progress.finishSession({ total, score, scope: state.exerciseScope }) : 0;
+
+        elements.summaryTitle.textContent = wrong.length ? '📊 Kết quả' : '🎉 Toàn bộ chính xác!';
         elements.summaryScore.innerHTML = `
             <div class="score-emoji">${emoji}</div>
             <div class="score-number">${score}/${total}</div>
             <div class="score-percent">${percentage}%</div>
+            ${streak ? `<div class="score-streak">🔥 Chuỗi ${streak} ngày học liên tiếp</div>` : ''}
         `;
-        
-        elements.summaryDetails.innerHTML = state.exerciseAnswers.map((answer, index) => `
-            <div class="summary-item ${answer.isCorrect ? 'correct' : 'incorrect'}">
-                <span class="summary-icon">${answer.isCorrect ? '✅' : '❌'}</span>
-                <span class="summary-text">Câu ${index + 1}: ${answer.question}</span>
-            </div>
-        `).join('');
+
+        // Thống kê theo chủ điểm để người học biết nên quay lại đọc bài nào.
+        const byTopic = {};
+        state.exerciseAnswers.forEach(answer => {
+            const key = answer.question.topic;
+            byTopic[key] = byTopic[key] || { right: 0, total: 0, component: answer.question.component };
+            byTopic[key].total += 1;
+            if (answer.isCorrect) byTopic[key].right += 1;
+        });
+
+        const weakTopics = Object.entries(byTopic)
+            .filter(([, stat]) => stat.right < stat.total)
+            .sort((a, b) => (a[1].right / a[1].total) - (b[1].right / b[1].total));
+
+        elements.summaryTopics.innerHTML = weakTopics.length
+            ? `<h4>Nên ôn lại</h4><div class="topic-chips">${weakTopics.map(([topic, stat]) => `
+                    <button class="topic-chip" data-component="${escapeHtml(stat.component)}">${escapeHtml(topic)} · ${stat.right}/${stat.total}</button>
+                `).join('')}</div>`
+            : '<p class="summary-clean">Không có chủ điểm nào cần ôn lại trong lượt này.</p>';
+
+        elements.summaryTopics.querySelectorAll('.topic-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                closeExerciseModal();
+                activateComponent(chip.dataset.component, { scrollIntoView: true });
+            });
+        });
+
+        elements.summaryDetails.innerHTML = wrong.length
+            ? `<h4>Các câu làm sai</h4>${wrong.map(answer => `
+                    <div class="summary-item incorrect">
+                        <div class="summary-question">${escapeHtml(answer.question.question)}</div>
+                        <div class="summary-answer"><span class="tag wrong">Bạn chọn</span> ${escapeHtml(answer.selected)}</div>
+                        <div class="summary-answer"><span class="tag right">Đáp án</span> ${escapeHtml(answer.question.options[answer.question.correct])}</div>
+                        <div class="summary-explain">${escapeHtml(answer.question.explanation)}</div>
+                    </div>
+                `).join('')}`
+            : '';
+
+        elements.retryWrongBtn.hidden = wrong.length === 0;
+        updateDashboard();
     }
 
+    function initExerciseSystem() {
+        elements.exerciseBtn.addEventListener('click', () => openExerciseModal('level'));
+        elements.closeExercise.addEventListener('click', closeExerciseModal);
+        elements.closeSummaryBtn.addEventListener('click', closeExerciseModal);
+
+        elements.exerciseModal.addEventListener('click', event => {
+            if (event.target === elements.exerciseModal) closeExerciseModal();
+        });
+
+        elements.setupScope.querySelectorAll('.setup-btn').forEach(btn => {
+            btn.addEventListener('click', () => setScope(btn.dataset.scope));
+        });
+
+        elements.setupSize.querySelectorAll('.setup-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                elements.setupSize.querySelectorAll('.setup-btn').forEach(item => item.classList.remove('active'));
+                btn.classList.add('active');
+                state.exerciseSize = Number(btn.dataset.size);
+            });
+        });
+
+        elements.startExerciseBtn.addEventListener('click', () => startExercise());
+        elements.nextQuestion.addEventListener('click', showNextQuestion);
+
+        elements.restartExercise.addEventListener('click', () => {
+            elements.exerciseSummary.hidden = true;
+            elements.exerciseSetup.hidden = false;
+            updateSetupAvailability();
+        });
+
+        elements.retryWrongBtn.addEventListener('click', () => {
+            const wrong = state.exerciseAnswers
+                .filter(answer => !answer.isCorrect)
+                .map(answer => prepareQuestion(answer.question));
+            startExercise(wrong);
+        });
+
+        elements.dashPracticeBtn.addEventListener('click', () => {
+            state.exerciseSize = 10;
+            openExerciseModal('level');
+        });
+
+        elements.dashReviewBtn.addEventListener('click', () => openExerciseModal('review'));
+
+        elements.dashResetBtn.addEventListener('click', () => {
+            if (!progress) return;
+            if (!window.confirm('Xóa toàn bộ tiến độ học (chủ điểm đã thuộc, mục đã lưu, lịch ôn)?')) return;
+            progress.reset();
+            renderConceptNodes();
+            updateDashboard();
+            if (state.selectedComponent) updatePanelActions(state.selectedComponent);
+        });
+    }
+
+    // ==================== DASHBOARD ====================
+    function updateDashboard() {
+        if (!progress) return;
+
+        const ids = Object.keys(allComponents);
+        const available = ids.filter(isWithinLevel);
+        const learnedInScope = available.filter(id => progress.isLearned(id)).length;
+
+        // Hiển thị cùng phạm vi với thanh tiến độ bên dưới để hai con số không mâu thuẫn nhau.
+        elements.statLearned.textContent = learnedInScope;
+        elements.statAvailable.textContent = available.length;
+        elements.statDue.textContent = progress.dueQuestions(exerciseBank).length;
+        elements.statStreak.textContent = progress.getStreak();
+        elements.dashProgressFill.style.width = available.length
+            ? `${Math.round((learnedInScope / available.length) * 100)}%`
+            : '0%';
+    }
+
+    // ==================== NGÂN HÀNG DỮ LIỆU PHỤ ====================
     function initIrregularVerbBank() {
         if (!elements.irregularVerbsTableBody || !Array.isArray(irregularVerbs)) return;
 
         const render = () => {
             const query = normalizeText(elements.irregularVerbSearch ? elements.irregularVerbSearch.value : '');
             const filtered = irregularVerbs.filter(verb => {
-                const searchText = normalizeText([
-                    verb.base,
-                    verb.past,
-                    verb.participle,
-                    verb.meaning
-                ].join(' '));
+                const searchText = normalizeText([verb.base, verb.past, verb.participle, verb.meaning].join(' '));
                 return !query || searchText.includes(query);
             });
 
             elements.irregularVerbsTableBody.innerHTML = filtered.map(verb => `
                 <tr>
-                    <td><strong>${verb.base}</strong></td>
-                    <td>${verb.past}</td>
-                    <td>${verb.participle}</td>
-                    <td>${verb.meaning}</td>
+                    <td><strong>${escapeHtml(verb.base)}</strong></td>
+                    <td>${escapeHtml(verb.past)}</td>
+                    <td>${escapeHtml(verb.participle)}</td>
+                    <td>${escapeHtml(verb.meaning)}</td>
                 </tr>
             `).join('');
 
@@ -905,7 +973,15 @@
     }
 
     function renderPracticeContent(id, component) {
-        const practice = grammarPracticeData && grammarPracticeData[id];
+        const practice = typeof grammarPracticeData !== 'undefined' && grammarPracticeData[id];
+        const quizCount = exerciseBank.filter(question => question.component === id).length;
+
+        const quizCta = quizCount
+            ? `<div class="practice-cta">
+                    <p>Có <strong>${quizCount} câu trắc nghiệm</strong> chấm điểm tự động cho chủ điểm này.</p>
+                    <button class="exercise-btn primary" data-practice-topic="${escapeHtml(id)}">📝 Luyện ngay</button>
+               </div>`
+            : '';
 
         if (!practice) {
             const relatedTitles = (component.connections || [])
@@ -914,13 +990,14 @@
                 .slice(0, 4);
 
             return `
+                ${quizCta}
                 <div class="practice-empty">
-                    <h3>🧪 Chưa có bài tập riêng</h3>
-                    <p>Mục này chưa có block luyện tập tách riêng. Bạn có thể ôn qua các mục liên quan trước rồi quay lại.</p>
+                    <h3>🧪 Chưa có bài tập tự luận riêng</h3>
+                    <p>Mục này chưa có block luyện tập viết tay. Bạn có thể ôn qua các mục liên quan rồi quay lại.</p>
                     ${relatedTitles.length ? `
                         <div class="practice-related">
                             <strong>Gợi ý ôn tiếp:</strong>
-                            <p>${relatedTitles.join(' • ')}</p>
+                            <p>${relatedTitles.map(escapeHtml).join(' • ')}</p>
                         </div>
                     ` : ''}
                 </div>
@@ -928,6 +1005,7 @@
         }
 
         return `
+            ${quizCta}
             <div class="practice-intro">
                 <h3>🧪 Bài tập nhanh</h3>
                 <p>${practice.source || 'Bài luyện ngắn để khóa lại điểm ngữ pháp vừa học.'}</p>
@@ -960,20 +1038,14 @@
                         </ol>
                         <details class="practice-answer">
                             <summary>Xem đáp án</summary>
-                            ${Array.isArray(section.explanations) && section.explanations.length ? `
                             <ol class="practice-answer-list">
                                 ${section.answers.map((answer, index) => `
                                     <li>
                                         <div><strong>Đáp án:</strong> ${answer}</div>
-                                        ${section.explanations[index] ? `<div class="practice-item-explanation"><strong>Giải thích:</strong> ${section.explanations[index]}</div>` : ''}
+                                        ${Array.isArray(section.explanations) && section.explanations[index] ? `<div class="practice-item-explanation"><strong>Giải thích:</strong> ${section.explanations[index]}</div>` : ''}
                                     </li>
                                 `).join('')}
                             </ol>
-                            ` : `
-                            <ol class="practice-answer-list">
-                                ${section.answers.map(answer => `<li>${answer}</li>`).join('')}
-                            </ol>
-                            `}
                         </details>
                     </section>
                 `;
@@ -1011,32 +1083,77 @@
         });
     }
 
-    document.addEventListener('keydown', event => {
-        if (event.key !== 'Escape') return;
+    // Nút "Luyện ngay" nằm trong nội dung tab Bài tập được render động.
+    function initDelegatedActions() {
+        elements.panelContent.addEventListener('click', event => {
+            const trigger = event.target.closest('[data-practice-topic]');
+            if (!trigger) return;
+            state.selectedComponent = trigger.dataset.practiceTopic;
+            openExerciseModal('topic');
+        });
+    }
 
-        if (elements.checklistModal.style.display === 'flex') {
-            elements.checklistModal.style.display = 'none';
-        } else if (elements.infoPanel.classList.contains('open')) {
-            closeInfoPanel();
-        } else if (state.isTourActive) {
-            endTour();
-        }
-    });
+    // ==================== PHÍM TẮT ====================
+    function initKeyboard() {
+        document.addEventListener('keydown', event => {
+            const modalOpen = elements.exerciseModal.style.display === 'flex';
+            const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName);
+
+            if (event.key === 'Escape') {
+                if (modalOpen) closeExerciseModal();
+                else if (elements.infoPanel.classList.contains('open')) closeInfoPanel();
+                else if (state.isTourActive) endTour();
+                return;
+            }
+
+            if (event.key === '/' && !typing) {
+                event.preventDefault();
+                elements.grammarSearch.focus();
+                return;
+            }
+
+            if (!modalOpen || typing) return;
+
+            if (!state.exerciseAnswered && ['1', '2', '3', '4'].includes(event.key)) {
+                const option = elements.exerciseOptions.querySelector(`.exercise-option[data-index="${Number(event.key) - 1}"]`);
+                if (option) {
+                    event.preventDefault();
+                    option.click();
+                }
+                return;
+            }
+
+            if (event.key === 'Enter' && !elements.exerciseResult.hidden) {
+                event.preventDefault();
+                showNextQuestion();
+            }
+        });
+    }
+
+    // Thanh công cụ dính phải nằm ngay dưới version-bar + header, vốn có chiều cao thay đổi khi xuống dòng.
+    function syncStickyOffset() {
+        const versionBar = document.getElementById('version-bar');
+        const header = document.querySelector('.v-ai header');
+        const offset = (versionBar ? versionBar.offsetHeight : 0) + (header ? header.offsetHeight : 0);
+        document.documentElement.style.setProperty('--sticky-offset', `${offset}px`);
+    }
 
     function init() {
-        renderConceptNodes();
         initLevelSelection();
-        initCategoryFilter();
+        renderConceptNodes();
+        initFilters();
         initGrammarSearch();
-        initNodeInteraction();
         initPanelControls();
         initTourSystem();
         initReferenceShortcuts();
         initExerciseSystem();
+        initDelegatedActions();
+        initKeyboard();
         renderMemoryBank();
         initIrregularVerbBank();
-        if (state.currentLevel) filterNodesByLevel();
-        updateConceptVisibility();
+        updateDashboard();
+        syncStickyOffset();
+        window.addEventListener('resize', syncStickyOffset);
     }
 
     if (document.readyState === 'loading') {

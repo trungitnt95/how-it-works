@@ -57,9 +57,8 @@
     <div class="level-overlay" id="levelOverlay">
         <div class="level-container">
             <h1>📘 Ngữ Pháp Tiếng Anh</h1>
-            <p>Chọn chuẩn CEFR để học từ nền tảng giao tiếp đến mức C2.</p>
+            <p>Chọn chuẩn CEFR để học từ nền tảng giao tiếp đến mức C2. Bạn đổi cấp bất cứ lúc nào ở nút ⚙️.</p>
             <div class="level-cards" id="levelCards"></div>
-            </div>
         </div>
     </div>
 
@@ -97,32 +96,120 @@
 
         <div class="modal" id="exerciseModal">
             <div class="modal-content exercise-modal">
-                <button class="modal-close" id="closeExercise">×</button>
-                <div class="exercise-header">
-                    <h2>📝 Bài Tập Ngữ Pháp</h2>
-                    <div class="exercise-progress">
-                        <span id="exerciseProgress">Câu 1/10</span>
-                        <div class="progress-bar"><div class="progress-fill" id="exerciseProgressFill"></div></div>
+                <button class="modal-close" id="closeExercise" aria-label="Đóng bài tập">×</button>
+
+                <div class="exercise-setup" id="exerciseSetup">
+                    <h2>📝 Luyện Tập Ngữ Pháp</h2>
+                    <p class="setup-note">Chọn phạm vi và độ dài. Hệ thống sẽ ưu tiên những câu bạn từng làm sai và đã đến hạn ôn lại.</p>
+
+                    <div class="setup-group">
+                        <span class="setup-label">Phạm vi</span>
+                        <div class="setup-options" id="setupScope">
+                            <button class="setup-btn active" data-scope="level">Đúng trình độ của tôi</button>
+                            <button class="setup-btn" data-scope="all">Toàn bộ ngân hàng câu</button>
+                            <button class="setup-btn" data-scope="review">🔁 Chỉ câu hay sai / đến hạn</button>
+                            <button class="setup-btn" data-scope="topic" id="scopeTopicBtn" hidden>Chủ điểm đang mở</button>
+                        </div>
+                    </div>
+
+                    <div class="setup-group">
+                        <span class="setup-label">Số câu</span>
+                        <div class="setup-options" id="setupSize">
+                            <button class="setup-btn active" data-size="10">10 câu</button>
+                            <button class="setup-btn" data-size="20">20 câu</button>
+                            <button class="setup-btn" data-size="40">40 câu</button>
+                            <button class="setup-btn" data-size="0">Tất cả</button>
+                        </div>
+                    </div>
+
+                    <p class="setup-available" id="setupAvailable"></p>
+                    <button class="exercise-btn primary large" id="startExerciseBtn">Bắt đầu →</button>
+                </div>
+
+                <div class="exercise-runner" id="exerciseRunner" hidden>
+                    <div class="exercise-header">
+                        <div class="exercise-progress">
+                            <span id="exerciseProgress">Câu 1/10</span>
+                            <div class="progress-bar"><div class="progress-fill" id="exerciseProgressFill"></div></div>
+                        </div>
+                        <span class="exercise-score-live" id="exerciseScoreLive">✅ 0 · ❌ 0</span>
+                    </div>
+
+                    <div class="exercise-content" id="exerciseContent">
+                        <div class="exercise-question" id="exerciseQuestion"></div>
+                        <div class="exercise-options" id="exerciseOptions"></div>
+                        <p class="exercise-hint">Mẹo: bấm phím <kbd>1</kbd>–<kbd>4</kbd> để chọn, <kbd>Enter</kbd> để sang câu tiếp.</p>
+                    </div>
+
+                    <div class="exercise-result" id="exerciseResult" hidden>
+                        <div class="result-icon" id="resultIcon"></div>
+                        <div class="result-message" id="resultMessage"></div>
+                        <div class="result-explanation" id="resultExplanation"></div>
+                        <button class="exercise-btn primary" id="nextQuestion">Câu tiếp theo →</button>
                     </div>
                 </div>
-                <div class="exercise-content" id="exerciseContent">
-                    <div class="exercise-question" id="exerciseQuestion"></div>
-                    <div class="exercise-options" id="exerciseOptions"></div>
-                </div>
-                <div class="exercise-result" id="exerciseResult" style="display:none">
-                    <div class="result-icon" id="resultIcon"></div>
-                    <div class="result-message" id="resultMessage"></div>
-                    <div class="result-explanation" id="resultExplanation"></div>
-                    <button class="exercise-btn primary" id="nextQuestion">Câu tiếp theo →</button>
-                </div>
-                <div class="exercise-summary" id="exerciseSummary" style="display:none">
-                    <h3>🎉 Hoàn thành!</h3>
+
+                <div class="exercise-summary" id="exerciseSummary" hidden>
+                    <h3 id="summaryTitle">🎉 Hoàn thành!</h3>
                     <div class="summary-score" id="summaryScore"></div>
+                    <div class="summary-topics" id="summaryTopics"></div>
                     <div class="summary-details" id="summaryDetails"></div>
-                    <button class="exercise-btn primary" id="restartExercise">🔄 Làm lại</button>
+                    <div class="summary-actions">
+                        <button class="exercise-btn primary" id="retryWrongBtn">🔁 Làm lại câu sai</button>
+                        <button class="exercise-btn" id="restartExercise">🎲 Bộ câu mới</button>
+                        <button class="exercise-btn ghost" id="closeSummaryBtn">Đóng</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <section class="study-dashboard" id="studyDashboard">
+            <div class="dash-head">
+                <h2>📈 Tiến Độ Của Bạn</h2>
+                <p>Đánh dấu "Đã thuộc" khi bạn tự giải thích lại được chủ điểm mà không cần nhìn bài.</p>
+            </div>
+            <div class="dash-stats">
+                <div class="dash-stat"><span class="dash-value" id="statLearned">0</span><span class="dash-label">Đã thuộc ở trình độ này</span></div>
+                <div class="dash-stat"><span class="dash-value" id="statAvailable">0</span><span class="dash-label">Chủ điểm cần học</span></div>
+                <div class="dash-stat"><span class="dash-value" id="statDue">0</span><span class="dash-label">Câu cần ôn hôm nay</span></div>
+                <div class="dash-stat"><span class="dash-value" id="statStreak">0</span><span class="dash-label">Ngày học liên tiếp</span></div>
+            </div>
+            <div class="dash-progress"><div class="dash-progress-fill" id="dashProgressFill"></div></div>
+            <div class="dash-actions">
+                <button class="dash-btn primary" id="dashReviewBtn">🔁 Ôn câu hay sai</button>
+                <button class="dash-btn" id="dashPracticeBtn">📝 Luyện 10 câu nhanh</button>
+                <button class="dash-btn ghost" id="dashResetBtn">Xóa tiến độ</button>
+            </div>
+        </section>
+
+        <div class="study-toolbar" id="studyToolbar">
+            <div class="grammar-search-bar">
+                <label class="grammar-search-label" for="grammarSearch">🔍 Tìm chủ điểm</label>
+                <input type="search" id="grammarSearch" placeholder="Gõ tiếng Việt hoặc tiếng Anh: thì hiện tại, passive, mạo từ...">
+                <button class="grammar-search-clear" id="clearGrammarSearch" type="button">Xóa</button>
+            </div>
+            <div class="filter-bar" id="filterBar">
+                <span class="filter-label">Nhóm:</span>
+                <button class="filter-btn active" data-category="all">Tất cả</button>
+                <button class="filter-btn" data-category="foundations">🧱 Nền tảng</button>
+                <button class="filter-btn" data-category="tenses">⏰ 12 thì</button>
+                <button class="filter-btn" data-category="patterns">🧩 Mẫu câu</button>
+                <button class="filter-btn" data-category="structures">🏗️ Nâng cao</button>
+                <button class="filter-btn" data-category="mistakes">⚠️ Lỗi hay gặp</button>
+                <button class="filter-btn" data-category="pronunciation">🗣️ Phát âm</button>
+            </div>
+            <div class="filter-bar secondary">
+                <span class="filter-label">Lọc nhanh:</span>
+                <button class="chip-btn active" data-view="all">Tất cả</button>
+                <button class="chip-btn" data-view="level">Đúng trình độ</button>
+                <button class="chip-btn" data-view="todo">Chưa thuộc</button>
+                <button class="chip-btn" data-view="bookmark">⭐ Đã lưu</button>
+                <span class="result-count" id="resultCount"></span>
+            </div>
+        </div>
+
+        <div class="concepts-grid" id="conceptsGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>Không tìm thấy chủ điểm nào khớp bộ lọc. Thử xóa từ khóa hoặc chọn "Tất cả".</p>
 
         <div class="quick-tips" id="quickTips">
             <h3>💡 Mẹo Nhanh</h3>
@@ -295,656 +382,6 @@
             </div>
         </section>
 
-        <div class="concepts-grid" id="conceptsGrid">
-            <section class="concept-section" data-category="foundations">
-                <h2 class="section-title">🧱 Nền Tảng Câu Tiếng Anh</h2>
-                <div class="nodes-container">
-                    <div class="node" data-component="sentence-order">
-                        <span class="node-icon">🧱</span>
-                        <span class="node-title">Trật Tự Câu</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="parts-of-speech">
-                        <span class="node-icon">🔤</span>
-                        <span class="node-title">Từ Loại</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="verbs-overview">
-                        <span class="node-icon">⚙️</span>
-                        <span class="node-title">Động Từ</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="nouns-plurals">
-                        <span class="node-icon">🧺</span>
-                        <span class="node-title">Danh Từ & Số Nhiều</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="articles-determiners">
-                        <span class="node-icon">📰</span>
-                        <span class="node-title">Mạo Từ & Từ Hạn Định</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="pronouns-possessives">
-                        <span class="node-icon">🫱</span>
-                        <span class="node-title">Đại Từ & Sở Hữu</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="adjectives-adverbs">
-                        <span class="node-icon">🎨</span>
-                        <span class="node-title">Tính Từ & Trạng Từ</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="numerals">
-                        <span class="node-icon">🔢</span>
-                        <span class="node-title">Numerals</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="word-formation">
-                        <span class="node-icon">🧱</span>
-                        <span class="node-title">Word Form</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="phrases-vs-clauses">
-                        <span class="node-icon">🧬</span>
-                        <span class="node-title">Phrase vs Clause</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="sentence-types">
-                        <span class="node-icon">🏷️</span>
-                        <span class="node-title">Các Loại Câu</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="subject-verb-agreement">
-                        <span class="node-icon">⚖️</span>
-                        <span class="node-title">Chủ Ngữ - Động Từ</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="existential-there">
-                        <span class="node-icon">📍</span>
-                        <span class="node-title">There is / There are</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="dummy-it">
-                        <span class="node-icon">💭</span>
-                        <span class="node-title">Dummy "It"</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="reflexive-reciprocal">
-                        <span class="node-icon">🫂</span>
-                        <span class="node-title">Reflexive & Reciprocal</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="compound-nouns-possessives">
-                        <span class="node-icon">🏷️</span>
-                        <span class="node-title">Compound Nouns & Possessives</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="distributives">
-                        <span class="node-icon">🔢</span>
-                        <span class="node-title">Both / Either / Neither / All</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="indefinite-pronouns">
-                        <span class="node-icon">🎭</span>
-                        <span class="node-title">Indefinite Pronouns</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="phrasal-prepositions">
-                        <span class="node-icon">📍</span>
-                        <span class="node-title">Phrasal Prepositions</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="adjective-order">
-                        <span class="node-icon">🎨</span>
-                        <span class="node-title">Trật Tự Tính Từ</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="spelling-rules">
-                        <span class="node-icon">✏️</span>
-                        <span class="node-title">Quy Tắc Chính Tả</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="countable-uncountable">
-                        <span class="node-icon">🔢</span>
-                        <span class="node-title">Countable vs Uncountable</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="quantifiers-deep">
-                        <span class="node-icon">📊</span>
-                        <span class="node-title">Quantifiers (Định Lượng)</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="demonstratives-deep">
-                        <span class="node-icon">👉</span>
-                        <span class="node-title">Demonstratives (This/That)</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="anaphoric-reference">
-                        <span class="node-icon">🔗</span>
-                        <span class="node-title">Tham Chiếu Đại Từ</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="gender-neutral-grammar">
-                        <span class="node-icon">🧑</span>
-                        <span class="node-title">Gender-neutral Grammar</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="apposition">
-                        <span class="node-icon">🪢</span>
-                        <span class="node-title">Apposition (Đồng Vị Ngữ)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="word-formation">
-                        <span class="node-icon">🧬</span>
-                        <span class="node-title">Cấu Tạo Từ (Prefix/Suffix)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="collocations-pairs">
-                        <span class="node-icon">🤝</span>
-                        <span class="node-title">Collocations & Confusing Pairs</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="semantic-prosody">
-                        <span class="node-icon">🌫️</span>
-                        <span class="node-title">Semantic Prosody</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="prepositional-phrases">
-                        <span class="node-icon">🧭</span>
-                        <span class="node-title">Prepositional Phrases</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="concept-section" data-category="tenses">
-                <h2 class="section-title">⏰ Tất Cả 12 Thì</h2>
-                <div class="nodes-container">
-                    <div class="node" data-component="present-simple">
-                        <span class="node-icon">📅</span>
-                        <span class="node-title">Present Simple</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="present-continuous">
-                        <span class="node-icon">🎬</span>
-                        <span class="node-title">Present Continuous</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="past-simple">
-                        <span class="node-icon">🕰️</span>
-                        <span class="node-title">Past Simple</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="past-continuous">
-                        <span class="node-icon">⏳</span>
-                        <span class="node-title">Past Continuous</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="present-perfect">
-                        <span class="node-icon">🔗</span>
-                        <span class="node-title">Present Perfect</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="present-perfect-continuous">
-                        <span class="node-icon">♾️</span>
-                        <span class="node-title">Present Perfect Continuous</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="past-perfect">
-                        <span class="node-icon">🧭</span>
-                        <span class="node-title">Past Perfect</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="past-perfect-continuous">
-                        <span class="node-icon">🔄</span>
-                        <span class="node-title">Past Perfect Continuous</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="future-simple">
-                        <span class="node-icon">🚀</span>
-                        <span class="node-title">Future Simple</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="near-future">
-                        <span class="node-icon">🛫</span>
-                        <span class="node-title">Near Future</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="future-continuous">
-                        <span class="node-icon">🛰️</span>
-                        <span class="node-title">Future Continuous</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="future-perfect">
-                        <span class="node-icon">🏁</span>
-                        <span class="node-title">Future Perfect</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="future-perfect-continuous">
-                        <span class="node-icon">♻️</span>
-                        <span class="node-title">Future Perfect Continuous</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="sequence-of-tenses">
-                        <span class="node-icon">🧭</span>
-                        <span class="node-title">Sequence of Tenses</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="have-got">
-                        <span class="node-icon">🤝</span>
-                        <span class="node-title">Have / Have got</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="used-to">
-                        <span class="node-icon">⏪</span>
-                        <span class="node-title">Used to / Be used to</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="time-prepositions-deep">
-                        <span class="node-icon">⏳</span>
-                        <span class="node-title">For / Since / By / Until</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="stative-verbs">
-                        <span class="node-icon">⛰️</span>
-                        <span class="node-title">Stative vs Dynamic Verbs</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="will-vs-going-to">
-                        <span class="node-icon">🎯</span>
-                        <span class="node-title">Will vs Be Going To</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="semi-modals">
-                        <span class="node-icon">🎚️</span>
-                        <span class="node-title">Semi-modals (had better, would rather)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="narrative-present">
-                        <span class="node-icon">📖</span>
-                        <span class="node-title">Narrative Present (Hiện Tại Kể Chuyện)</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="concept-section" data-category="patterns">
-                <h2 class="section-title">🧩 Mẫu Câu & Liên Kết Ý</h2>
-                <div class="nodes-container">
-                    <div class="node" data-component="question-forms">
-                        <span class="node-icon">❓</span>
-                        <span class="node-title">Câu Hỏi</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="negatives">
-                        <span class="node-icon">🚫</span>
-                        <span class="node-title">Câu Phủ Định</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="conjunctions">
-                        <span class="node-icon">🔗</span>
-                        <span class="node-title">Liên Từ</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="adverbial-time-clauses">
-                        <span class="node-icon">⏱️</span>
-                        <span class="node-title">Time Clauses</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="comparisons">
-                        <span class="node-icon">📏</span>
-                        <span class="node-title">So Sánh</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="result-structures">
-                        <span class="node-icon">🎯</span>
-                        <span class="node-title">Result Structures</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="imperatives-requests">
-                        <span class="node-icon">👉</span>
-                        <span class="node-title">Imperatives & Requests</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="relative-clauses">
-                        <span class="node-icon">🪢</span>
-                        <span class="node-title">Mệnh Đề Quan Hệ</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="reported-speech">
-                        <span class="node-icon">🗣️</span>
-                        <span class="node-title">Reported Speech</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="relative-pronouns-adverbs">
-                        <span class="node-icon">🧷</span>
-                        <span class="node-title">Relative Pronouns & Adverbs</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="parallel-structure">
-                        <span class="node-icon">🪞</span>
-                        <span class="node-title">Parallel Structure</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="tag-questions">
-                        <span class="node-icon">❔</span>
-                        <span class="node-title">Tag Questions</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="discourse-markers">
-                        <span class="node-icon">🔀</span>
-                        <span class="node-title">Linking Words & Markers</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="hedges-boosters">
-                        <span class="node-icon">🎚️</span>
-                        <span class="node-title">Hedges & Boosters</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="politeness-indirectness">
-                        <span class="node-icon">🙏</span>
-                        <span class="node-title">Politeness & Indirectness</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="exclamatory-sentences">
-                        <span class="node-icon">😮</span>
-                        <span class="node-title">Câu Cảm Thán</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="substitution-ellipsis">
-                        <span class="node-icon">🔄</span>
-                        <span class="node-title">Substitution & Ellipsis</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="comparative-correlatives">
-                        <span class="node-icon">📊</span>
-                        <span class="node-title">The more... the more...</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="yes-no-questions">
-                        <span class="node-icon">❔</span>
-                        <span class="node-title">Yes/No Questions</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="wh-questions">
-                        <span class="node-icon">❓</span>
-                        <span class="node-title">Wh-Questions</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="embedded-questions">
-                        <span class="node-icon">📦</span>
-                        <span class="node-title">Embedded / Indirect Questions</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="negation-patterns">
-                        <span class="node-icon">🚫</span>
-                        <span class="node-title">Negation Patterns</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="information-flow">
-                        <span class="node-icon">➡️</span>
-                        <span class="node-title">Information Flow & End-weight</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="concept-section" data-category="structures">
-                <h2 class="section-title">🏗️ Cấu Trúc Nâng Cao</h2>
-                <div class="nodes-container">
-                    <div class="node" data-component="modal-verbs">
-                        <span class="node-icon">🛠️</span>
-                        <span class="node-title">Modal Verbs</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="conditionals">
-                        <span class="node-icon">🌦️</span>
-                        <span class="node-title">Conditionals</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="passive-voice">
-                        <span class="node-icon">🏭</span>
-                        <span class="node-title">Passive Voice</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="noun-clauses">
-                        <span class="node-icon">🧠</span>
-                        <span class="node-title">Noun Clauses</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="causatives">
-                        <span class="node-icon">⚙️</span>
-                        <span class="node-title">Causatives</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="wish-if-only">
-                        <span class="node-icon">✨</span>
-                        <span class="node-title">Wish / If Only</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="inversion">
-                        <span class="node-icon">🔁</span>
-                        <span class="node-title">Inversion</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="participle-clauses">
-                        <span class="node-icon">🪶</span>
-                        <span class="node-title">Participle Clauses</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="phrasal-verbs">
-                        <span class="node-icon">🧩</span>
-                        <span class="node-title">Phrasal Verbs</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="verb-patterns">
-                        <span class="node-icon">⚙️</span>
-                        <span class="node-title">Verb Patterns</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="mixed-conditionals">
-                        <span class="node-icon">🌡️</span>
-                        <span class="node-title">Mixed & Inverted Conditionals</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="cleft-sentences">
-                        <span class="node-icon">🪞</span>
-                        <span class="node-title">Cleft Sentences</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="reduced-relatives">
-                        <span class="node-icon">↙️</span>
-                        <span class="node-title">Reduced Relative Clauses</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="reducing-adverbial-clauses">
-                        <span class="node-icon">🪶</span>
-                        <span class="node-title">Reducing Adverbial Clauses</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="subjunctive">
-                        <span class="node-icon">🎼</span>
-                        <span class="node-title">Subjunctive Mood</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="academic-style-grammar">
-                        <span class="node-icon">🎓</span>
-                        <span class="node-title">Academic Grammar</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="grammar-registers">
-                        <span class="node-icon">🎙️</span>
-                        <span class="node-title">BrE/AmE & Formal/Informal</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="modal-perfect">
-                        <span class="node-icon">🔮</span>
-                        <span class="node-title">Modal Perfect</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="direct-indirect-objects">
-                        <span class="node-icon">🎯</span>
-                        <span class="node-title">Direct & Indirect Objects</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="inversion-negative">
-                        <span class="node-icon">🔄</span>
-                        <span class="node-title">Inversion sau Negative Adverbials</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="fronting">
-                        <span class="node-icon">⬆️</span>
-                        <span class="node-title">Fronting (Đưa Lên Đầu Câu)</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="complex-inversion">
-                        <span class="node-icon">🌀</span>
-                        <span class="node-title">Complex Inversion</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="archaisms-modern-grammar">
-                        <span class="node-icon">🏛️</span>
-                        <span class="node-title">Archaisms & Literary Grammar</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="do-emphasis">
-                        <span class="node-icon">💪</span>
-                        <span class="node-title">Do/Does/Did Nhấn Mạnh</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="causative-have-get">
-                        <span class="node-icon">🔧</span>
-                        <span class="node-title">Causative (Have/Get Something Done)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="concept-section" data-category="mistakes">
-                <h2 class="section-title">⚠️ Lỗi Phổ Biến</h2>
-                <div class="nodes-container">
-                    <div class="node" data-component="prepositions">
-                        <span class="node-icon">📍</span>
-                        <span class="node-title">Giới Từ</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="gerunds-infinitives">
-                        <span class="node-icon">🔄</span>
-                        <span class="node-title">Gerund & Infinitive</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="countable-uncountable">
-                        <span class="node-icon">📦</span>
-                        <span class="node-title">Countable / Uncountable</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="quantifiers">
-                        <span class="node-icon">🧮</span>
-                        <span class="node-title">Quantifiers</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="fragments-run-ons">
-                        <span class="node-icon">🧵</span>
-                        <span class="node-title">Fragments & Run-ons</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="punctuation-capitalization">
-                        <span class="node-icon">✍️</span>
-                        <span class="node-title">Dấu Câu & Viết Hoa</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="modifier-errors">
-                        <span class="node-icon">🎯</span>
-                        <span class="node-title">Misplaced Modifiers</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="pronoun-reference">
-                        <span class="node-icon">🧷</span>
-                        <span class="node-title">Pronoun Reference</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="punctuation-deep">
-                        <span class="node-icon">✏️</span>
-                        <span class="node-title">Quy Tắc Dấu Câu</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="apostrophe-rules">
-                        <span class="node-icon">✒️</span>
-                        <span class="node-title">Apostrophe (Dấu Phẩy Trên)</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="capitalization-rules">
-                        <span class="node-icon">🔠</span>
-                        <span class="node-title">Quy Tắc Viết Hoa</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="numbers-dates">
-                        <span class="node-icon">🔢</span>
-                        <span class="node-title">Số Đếm, Số Thứ Tự & Ngày Tháng</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="fragments-runons">
-                        <span class="node-icon">⚠️</span>
-                        <span class="node-title">Fragments, Run-ons & Comma Splice</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="concept-section" data-category="pronunciation">
-                <h2 class="section-title">🗣️ IPA & Phát Âm</h2>
-                <div class="reference-shortcuts">
-                    <span class="reference-label">Liên hệ với bài học:</span>
-                    <button class="reference-link" data-component="word-formation">Word Form</button>
-                    <button class="reference-link" data-component="present-simple">Present Simple</button>
-                    <button class="reference-link" data-component="stress-schwa">Stress & Schwa</button>
-                    <button class="reference-link" data-component="question-forms">Question Forms</button>
-                </div>
-                <div class="nodes-container">
-                    <div class="node" data-component="ipa-overview">
-                        <span class="node-icon">🔠</span>
-                        <span class="node-title">IPA Overview</span>
-                        <span class="node-badge beginner">Cơ bản</span>
-                    </div>
-                    <div class="node" data-component="ipa-vowels">
-                        <span class="node-icon">🎵</span>
-                        <span class="node-title">Nguyên Âm IPA</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="ipa-consonants">
-                        <span class="node-icon">🔊</span>
-                        <span class="node-title">Phụ Âm IPA</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="stress-schwa">
-                        <span class="node-icon">⚡</span>
-                        <span class="node-title">Trọng Âm & Schwa</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="connected-speech">
-                        <span class="node-icon">🌊</span>
-                        <span class="node-title">Connected Speech & Weak Forms</span>
-                        <span class="node-badge advanced">Nâng cao</span>
-                    </div>
-                    <div class="node" data-component="word-stress">
-                        <span class="node-icon">🎯</span>
-                        <span class="node-title">Word Stress (Trọng Âm Từ)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="sentence-stress">
-                        <span class="node-icon">📢</span>
-                        <span class="node-title">Sentence Stress</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                    <div class="node" data-component="intonation-patterns">
-                        <span class="node-icon">🎵</span>
-                        <span class="node-title">Intonation (Ngữ Điệu)</span>
-                        <span class="node-badge intermediate">Trung cấp</span>
-                    </div>
-                </div>
-            </section>
-        </div>
-
         <section class="memory-bank">
             <div class="memory-bank-header">
                 <h2>🧠 Những Nhóm Cần Học Thuộc</h2>
@@ -993,6 +430,12 @@
             <span class="panel-icon" id="panelIcon">📘</span>
             <h2 id="panelTitle">Tiêu đề</h2>
         </div>
+        <div class="panel-actions">
+            <button class="panel-action" id="markLearnedBtn">✅ Đánh dấu đã thuộc</button>
+            <button class="panel-action" id="bookmarkBtn">⭐ Lưu lại</button>
+            <button class="panel-action primary" id="practiceTopicBtn">📝 Luyện chủ điểm này</button>
+            <span class="panel-stat" id="panelStat"></span>
+        </div>
         <div class="panel-tabs">
             <button class="tab-btn active" data-tab="simple">Đơn giản</button>
             <button class="tab-btn" data-tab="detail">Chi tiết</button>
@@ -1025,6 +468,8 @@
     <script src="modules/cefr.js"></script>
     <script src="modules/irregular-verbs.js"></script>
     <script src="modules/tour.js"></script>
+    <script src="modules/exercises.js"></script>
+    <script src="modules/progress.js"></script>
     <script src="app.js"></script>
     <script src="app-mlh.js"></script>
     <script src="../worker-runtime.js"></script>

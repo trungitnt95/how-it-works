@@ -142,7 +142,7 @@ const grammarComprehensiveData = {
 
     'word-formation': {
         icon: '🧬', title: 'Cấu Tạo Từ', category: 'foundations', level: 'intermediate',
-        connections: ['word-form', 'spelling-rules', 'collocations'],
+        connections: ['parts-of-speech', 'spelling-rules', 'collocations-pairs'],
         simple: `<h3>🧬 Prefix + Root + Suffix</h3>
             <p>Tiếng Anh tạo từ mới qua 4 cách: <strong>tiền tố, hậu tố, ghép từ, chuyển loại</strong>.</p>
             <div class="example-box">
@@ -541,7 +541,7 @@ const grammarComprehensiveData = {
 
     'wh-questions': {
         icon: '❓', title: 'Wh-Questions', category: 'patterns', level: 'beginner',
-        connections: ['yes-no-questions', 'embedded-questions', 'question-words'],
+        connections: ['yes-no-questions', 'embedded-questions', 'question-forms'],
         simple: `<h3>❓ Wh-Questions</h3>
             <ul><li><strong>Hỏi về tân ngữ/ngữ cảnh</strong>: Wh + Aux + S + V? — <em>What did you eat?</em></li>
             <li><strong>Wh là chủ ngữ</strong>: Wh + V? — <em>Who broke it?</em> (KHÔNG do/did)</li></ul>`,
@@ -634,7 +634,7 @@ const grammarComprehensiveData = {
 
     'negation-patterns': {
         icon: '🚫', title: 'Negation Patterns', category: 'patterns', level: 'intermediate',
-        connections: ['no-vs-not', 'inversion-negative', 'indefinite-pronouns'],
+        connections: ['negatives', 'inversion-negative', 'indefinite-pronouns'],
         simple: `<h3>🚫 Các cách phủ định</h3>
             <ul><li><strong>not</strong> sau aux/be: don't, isn't, can't, haven't</li>
             <li><strong>no + N</strong> mạnh hơn: <em>I have no idea.</em></li>
@@ -708,7 +708,7 @@ const grammarComprehensiveData = {
 
     'fronting': {
         icon: '⬆️', title: 'Fronting (Đưa Lên Đầu Câu)', category: 'structures', level: 'advanced',
-        connections: ['inversion-negative', 'cleft-sentences', 'emphasis'],
+        connections: ['inversion-negative', 'cleft-sentences', 'do-emphasis'],
         simple: `<h3>⬆️ Đưa lên đầu câu để nhấn mạnh</h3>
             <p>Đưa <strong>tân ngữ / bổ ngữ / trạng ngữ</strong> ra đầu câu để nhấn mạnh hoặc tạo mạch.</p>
             <div class="example-box">
@@ -779,7 +779,7 @@ const grammarComprehensiveData = {
 
     'do-emphasis': {
         icon: '💪', title: 'Do/Does/Did Nhấn Mạnh', category: 'structures', level: 'intermediate',
-        connections: ['emphasis', 'auxiliary-verbs', 'questions'],
+        connections: ['cleft-sentences', 'auxiliary-system', 'question-forms'],
         simple: `<h3>💪 Emphatic do</h3>
             <div class="formula-box">S + do/does/did + V (bare)</div>
             <p>Dùng để khẳng định mạnh, đáp lại nghi ngờ, hoặc làm mệnh lệnh lịch sự hơn.</p>`,
@@ -985,7 +985,7 @@ const grammarComprehensiveData = {
 
     'intonation-patterns': {
         icon: '🎵', title: 'Intonation (Ngữ Điệu)', category: 'pronunciation', level: 'intermediate',
-        connections: ['sentence-stress', 'tag-questions', 'questions'],
+        connections: ['sentence-stress', 'tag-questions', 'question-forms'],
         simple: `<h3>🎵 3 mẫu ngữ điệu chính</h3>
             <ul><li><strong>Falling ↘</strong>: trần thuật, mệnh lệnh, wh-question, kết thúc dứt khoát.</li>
             <li><strong>Rising ↗</strong>: yes/no question, liệt kê chưa hết, lịch sự nhẹ.</li>
