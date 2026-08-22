@@ -1181,14 +1181,6 @@
         });
     }
 
-    // Thanh công cụ dính phải nằm ngay dưới version-bar + header, vốn có chiều cao thay đổi khi xuống dòng.
-    function syncStickyOffset() {
-        const versionBar = document.getElementById('version-bar');
-        const header = document.querySelector('.v-ai header');
-        const offset = (versionBar ? versionBar.offsetHeight : 0) + (header ? header.offsetHeight : 0);
-        document.documentElement.style.setProperty('--sticky-offset', `${offset}px`);
-    }
-
     function init() {
         initLevelSelection();
         renderConceptNodes();
@@ -1203,8 +1195,6 @@
         renderMemoryBank();
         initIrregularVerbBank();
         updateDashboard();
-        syncStickyOffset();
-        window.addEventListener('resize', syncStickyOffset);
     }
 
     if (document.readyState === 'loading') {
