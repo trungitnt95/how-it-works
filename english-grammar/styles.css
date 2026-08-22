@@ -418,6 +418,7 @@ header h1 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 14px;
     overflow: auto;
+    max-height: 620px;
     backdrop-filter: blur(10px);
 }
 
@@ -1457,4 +1458,103 @@ header h1 {
     .panel-backdrop.open { opacity: 0; pointer-events: none; }
     .info-panel.open ~ main,
     body:has(.info-panel.open) main { padding-right: 0; }
+}
+
+/* ==================== BẢNG ĐỘNG TỪ: PHÂN NHÓM THEO MÀU ==================== */
+/* 4 màu tương ứng 4 cách biến đổi V1-V2-V3, dùng nhất quán giữa chú giải, hàng bảng và badge. */
+:root {
+    --verb-same: #22c55e;      /* xanh lá  — không đổi gì, dễ nhớ nhất */
+    --verb-pastpart: #38bdf8;  /* xanh dương — nhóm phổ biến nhất (V2=V3) */
+    --verb-basepart: #a78bfa;  /* tím — nhóm hiếm, chỉ vài từ (V1=V3) */
+    --verb-other: #f59e0b;     /* cam — biến đổi nhiều nhất, cần học kỹ */
+}
+
+.verb-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.verb-legend-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.verb-legend-chip em { font-style: normal; opacity: 0.75; }
+
+.verb-legend-chip:hover { background: rgba(255, 255, 255, 0.09); }
+
+.verb-legend-chip.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.verb-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+}
+
+.swatch-all { background: linear-gradient(135deg, var(--verb-same), var(--verb-pastpart), var(--verb-basepart), var(--verb-other)); }
+.swatch-same { background: var(--verb-same); }
+.swatch-pastpart { background: var(--verb-pastpart); }
+.swatch-basepart { background: var(--verb-basepart); }
+.swatch-other { background: var(--verb-other); }
+
+.verb-tier-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+/* Viền trái theo màu nhóm + chữ V1 tô cùng màu để nhận diện ngay cả khi không nhìn chú giải. */
+.verb-row { border-left: 3px solid transparent; }
+.verb-row.group-same { border-left-color: var(--verb-same); }
+.verb-row.group-pastpart { border-left-color: var(--verb-pastpart); }
+.verb-row.group-basepart { border-left-color: var(--verb-basepart); }
+.verb-row.group-other { border-left-color: var(--verb-other); }
+
+.verb-row.group-same td:first-child strong { color: var(--verb-same); }
+.verb-row.group-pastpart td:first-child strong { color: var(--verb-pastpart); }
+.verb-row.group-basepart td:first-child strong { color: var(--verb-basepart); }
+.verb-row.group-other td:first-child strong { color: var(--verb-other); }
+
+.verb-tier-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.verb-tier-tag.tier-derived { background: rgba(56, 189, 248, 0.16); color: #93c5fd; }
+.verb-tier-tag.tier-extra { background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.55); }
+
+.verb-note {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .verb-legend, .verb-tier-filter { gap: 0.4rem; }
+    .verb-legend-chip em { display: none; }
 }

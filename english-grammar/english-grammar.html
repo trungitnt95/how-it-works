@@ -406,6 +406,31 @@
                 <input type="text" id="irregularVerbSearch" placeholder="Tìm động từ... (go, went, gone, đi)">
                 <span class="verb-count" id="irregularVerbCount"></span>
             </div>
+            <div class="verb-legend" id="verbLegend">
+                <span class="filter-label">Nhóm biến đổi (bấm để lọc):</span>
+                <button class="verb-legend-chip active" data-group="all">
+                    <span class="verb-swatch swatch-all"></span>Tất cả
+                </button>
+                <button class="verb-legend-chip active" data-group="same">
+                    <span class="verb-swatch swatch-same"></span>V1=V2=V3 <em>(cut–cut–cut)</em>
+                </button>
+                <button class="verb-legend-chip active" data-group="pastpart">
+                    <span class="verb-swatch swatch-pastpart"></span>V2=V3 <em>(keep–kept–kept)</em>
+                </button>
+                <button class="verb-legend-chip active" data-group="basepart">
+                    <span class="verb-swatch swatch-basepart"></span>V1=V3 <em>(come–came–come)</em>
+                </button>
+                <button class="verb-legend-chip active" data-group="other">
+                    <span class="verb-swatch swatch-other"></span>Biến đổi khác <em>(write–wrote–written)</em>
+                </button>
+            </div>
+            <div class="verb-tier-filter" id="verbTierFilter">
+                <span class="filter-label">Độ ưu tiên:</span>
+                <button class="chip-btn active" data-tier="all">Tất cả (<span id="tierCountAll"></span>)</button>
+                <button class="chip-btn" data-tier="core">🎯 Cơ bản, cần thuộc</button>
+                <button class="chip-btn" data-tier="derived">🧩 Từ ghép tiền tố</button>
+                <button class="chip-btn" data-tier="extra">📖 Hiếm / văn học</button>
+            </div>
             <div class="verbs-table-wrap">
                 <table class="verbs-table">
                     <thead>

@@ -941,22 +941,38 @@
     }
 
     // ==================== NGÂN HÀNG DỮ LIỆU PHỤ ====================
+    const tierLabel = { core: '🎯 Cơ bản', derived: '🧩 Từ ghép', extra: '📖 Hiếm/văn học' };
+
     function initIrregularVerbBank() {
         if (!elements.irregularVerbsTableBody || !Array.isArray(irregularVerbs)) return;
+
+        const verbGroups = typeof irregularVerbGroups !== 'undefined' ? irregularVerbGroups : {};
+        const verbState = { activeGroups: new Set(['all', 'same', 'pastpart', 'basepart', 'other']), activeTier: 'all' };
+        const legendChips = document.querySelectorAll('#verbLegend .verb-legend-chip');
+        const tierChips = document.querySelectorAll('#verbTierFilter .chip-btn');
+        const tierCountAll = el('tierCountAll');
+        if (tierCountAll) tierCountAll.textContent = irregularVerbs.length;
 
         const render = () => {
             const query = normalizeText(elements.irregularVerbSearch ? elements.irregularVerbSearch.value : '');
             const filtered = irregularVerbs.filter(verb => {
+                const matchesGroup = verbState.activeGroups.has('all') || verbState.activeGroups.has(verb.group);
+                const matchesTier = verbState.activeTier === 'all' || verb.tier === verbState.activeTier;
                 const searchText = normalizeText([verb.base, verb.past, verb.participle, verb.meaning].join(' '));
-                return !query || searchText.includes(query);
+                const matchesSearch = !query || searchText.includes(query);
+                return matchesGroup && matchesTier && matchesSearch;
             });
 
             elements.irregularVerbsTableBody.innerHTML = filtered.map(verb => `
-                <tr>
+                <tr class="verb-row group-${verb.group}">
                     <td><strong>${escapeHtml(verb.base)}</strong></td>
                     <td>${escapeHtml(verb.past)}</td>
                     <td>${escapeHtml(verb.participle)}</td>
-                    <td>${escapeHtml(verb.meaning)}</td>
+                    <td>
+                        ${escapeHtml(verb.meaning)}
+                        ${verb.tier !== 'core' ? `<span class="verb-tier-tag tier-${verb.tier}">${tierLabel[verb.tier] || verb.tier}</span>` : ''}
+                        ${verb.note ? `<span class="verb-note">${escapeHtml(verb.note)}</span>` : ''}
+                    </td>
                 </tr>
             `).join('');
 
@@ -968,6 +984,41 @@
         if (elements.irregularVerbSearch) {
             elements.irregularVerbSearch.addEventListener('input', render);
         }
+
+        // Bấm "Tất cả" thì bật lại toàn bộ nhóm; bấm một nhóm cụ thể thì bỏ chọn "Tất cả"
+        // và cho phép chọn nhiều nhóm cùng lúc (ví dụ so sánh "V2=V3" với "Biến đổi khác").
+        legendChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const group = chip.dataset.group;
+
+                if (group === 'all') {
+                    verbState.activeGroups = new Set(['all', 'same', 'pastpart', 'basepart', 'other']);
+                } else {
+                    verbState.activeGroups.delete('all');
+                    if (verbState.activeGroups.has(group)) {
+                        verbState.activeGroups.delete(group);
+                    } else {
+                        verbState.activeGroups.add(group);
+                    }
+                    if (verbState.activeGroups.size === 0) {
+                        verbState.activeGroups = new Set(['all', 'same', 'pastpart', 'basepart', 'other']);
+                    }
+                }
+
+                legendChips.forEach(item => {
+                    item.classList.toggle('active', verbState.activeGroups.has(item.dataset.group));
+                });
+                render();
+            });
+        });
+
+        tierChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                verbState.activeTier = chip.dataset.tier;
+                tierChips.forEach(item => item.classList.toggle('active', item === chip));
+                render();
+            });
+        });
 
         render();
     }
