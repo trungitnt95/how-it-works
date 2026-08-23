@@ -4,7 +4,7 @@
 
     const state = {
         currentLevel: null,
-        currentTab: 'simple',
+        currentTab: 'theory',
         isTourActive: false,
         tourStepIndex: 0,
         selectedComponent: null,
@@ -427,7 +427,7 @@
         const meta = getComponentLevel(id, component);
         elements.panelIcon.textContent = component.icon;
         elements.panelTitle.textContent = `${component.title} · ${meta.code}`;
-        showTabContent('simple');
+        showTabContent('theory');
         renderRelated(component.connections || []);
         updatePanelActions(id);
         openInfoPanel();
@@ -475,7 +475,9 @@
             return;
         }
 
-        elements.panelContent.innerHTML = component[tab] || component.simple || '';
+        elements.panelContent.innerHTML = [component.simple, component.detail, component.advanced]
+            .filter(Boolean)
+            .join('');
     }
 
     function renderRelated(connections) {
