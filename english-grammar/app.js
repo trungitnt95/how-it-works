@@ -1025,25 +1025,46 @@
         render();
     }
 
+    function renderQuizBlock(id) {
+        const questions = exerciseBank.filter(question => question.component === id);
+        if (!questions.length) return '';
+
+        return `
+            <section class="practice-block">
+                <h4>📝 Câu hỏi trắc nghiệm (${questions.length} câu)</h4>
+                <p class="practice-instruction">Thử trả lời trước, sau đó bấm "Xem đáp án" để kiểm tra và đọc giải thích.</p>
+                <div class="practice-items">
+                    ${questions.map((question, index) => `
+                        <article class="practice-item">
+                            <div class="practice-item-question"><strong>${index + 1}.</strong> ${question.question}</div>
+                            <ul>
+                                ${question.options.map((option, optionIndex) => `<li>${String.fromCharCode(65 + optionIndex)}. ${option}</li>`).join('')}
+                            </ul>
+                            <details class="practice-answer">
+                                <summary>Xem đáp án</summary>
+                                <div class="practice-item-answer"><strong>Đáp án:</strong> ${String.fromCharCode(65 + question.correct)}. ${question.options[question.correct]}</div>
+                                ${question.explanation ? `<div class="practice-item-explanation"><strong>Giải thích:</strong> ${question.explanation}</div>` : ''}
+                            </details>
+                        </article>
+                    `).join('')}
+                </div>
+            </section>
+        `;
+    }
+
     function renderPracticeContent(id, component) {
         const practice = typeof grammarPracticeData !== 'undefined' && grammarPracticeData[id];
-        const quizCount = exerciseBank.filter(question => question.component === id).length;
-
-        const quizCta = quizCount
-            ? `<div class="practice-cta">
-                    <p>Có <strong>${quizCount} câu trắc nghiệm</strong> chấm điểm tự động cho chủ điểm này.</p>
-                    <button class="exercise-btn primary" data-practice-topic="${escapeHtml(id)}">📝 Luyện ngay</button>
-               </div>`
-            : '';
+        const quizBlock = renderQuizBlock(id);
 
         if (!practice) {
+            if (quizBlock) return quizBlock;
+
             const relatedTitles = (component.connections || [])
                 .map(connectionId => allComponents[connectionId] && allComponents[connectionId].title)
                 .filter(Boolean)
                 .slice(0, 4);
 
             return `
-                ${quizCta}
                 <div class="practice-empty">
                     <h3>🧪 Chưa có bài tập tự luận riêng</h3>
                     <p>Mục này chưa có block luyện tập viết tay. Bạn có thể ôn qua các mục liên quan rồi quay lại.</p>
@@ -1058,7 +1079,7 @@
         }
 
         return `
-            ${quizCta}
+            ${quizBlock}
             <div class="practice-intro">
                 <h3>🧪 Bài tập nhanh</h3>
                 <p>${practice.source || 'Bài luyện ngắn để khóa lại điểm ngữ pháp vừa học.'}</p>
@@ -1136,16 +1157,6 @@
         });
     }
 
-    // Nút "Luyện ngay" nằm trong nội dung tab Bài tập được render động.
-    function initDelegatedActions() {
-        elements.panelContent.addEventListener('click', event => {
-            const trigger = event.target.closest('[data-practice-topic]');
-            if (!trigger) return;
-            state.selectedComponent = trigger.dataset.practiceTopic;
-            openExerciseModal('topic');
-        });
-    }
-
     // ==================== PHÍM TẮT ====================
     function initKeyboard() {
         document.addEventListener('keydown', event => {
@@ -1192,7 +1203,6 @@
         initTourSystem();
         initReferenceShortcuts();
         initExerciseSystem();
-        initDelegatedActions();
         initKeyboard();
         renderMemoryBank();
         initIrregularVerbBank();
