@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất Động Sản - How It Works</title>
+    <meta name="description" content="Hiểu cách thị trường bất động sản vận hành: nguyên lý, định giá, pháp lý Việt Nam, thực chiến mua bán, hồ sơ 7 thị trường thế giới và công cụ tính toán.">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <h1>🏘️ Bất Động Sản</h1>
+        </div>
+        <div class="header-right">
+            <label class="re-filter-wrap">
+                <span>🔍</span>
+                <input type="text" id="reFilter" placeholder="Lọc chủ điểm..." autocomplete="off">
+            </label>
+            <button class="re-side-toggle" id="reSideToggle" title="Danh sách chủ điểm" aria-label="Danh sách chủ điểm">☰<span class="re-side-toggle-text"> Mục lục</span></button>
+        </div>
+    </header>
+
+    <nav class="re-tab-bar" id="reTabBar" aria-label="Các phần nội dung"></nav>
+
+    <main>
+        <aside class="re-sidebar" id="reSidebar" aria-label="Danh sách chủ điểm"></aside>
+        <div class="re-content" id="reContent"></div>
+    </main>
+
+    <div class="re-backdrop" id="reBackdrop"></div>
+
+    <script src="modules/diagrams.js"></script>
+    <script src="modules/principles.js"></script>
+    <script src="modules/valuation.js"></script>
+    <script src="modules/legal.js"></script>
+    <script src="modules/practice.js"></script>
+    <script src="modules/markets.js"></script>
+    <script src="modules/cases.js"></script>
+    <script src="modules/tools.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script src="../worker-runtime.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>
