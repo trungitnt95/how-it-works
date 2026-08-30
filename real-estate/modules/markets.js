@@ -732,5 +732,435 @@ Một <strong>thông tin</strong> (quy hoạch, hạ tầng, đơn vị hành ch
 </ul>
 <div class="warning-box"><strong>Bài học thực dụng nhất từ Hàn Quốc:</strong> đừng đặt cược vào việc chính sách sẽ hạ giá nhà ở khu vực trung tâm của một đô thị lớn. Hàn Quốc đã thử hàng chục biện pháp mạnh trong nhiều năm với một bộ máy có năng lực thực thi cao, và giá vẫn tăng. Nếu bạn cần một chỗ ở, hãy ra quyết định dựa trên hoàn cảnh tài chính của mình, đừng chờ một sự can thiệp chính sách mà lịch sử cho thấy hiếm khi hiệu quả theo hướng bạn mong đợi.</div>`,
         diagram: null
+    },
+
+    'vn-nha-o-xa-hoi': {
+        icon: '🏢', title: 'Việt Nam — Nhà Ở Xã Hội', category: 'markets',
+        connections: ['vn-phan-khuc', 'sg-hdb', 'at-vienna', 'price-to-income'],
+        simple: `<h3>🏢 Việt Nam — Nhà Ở Xã Hội</h3>
+<p>Nhà ở xã hội là công cụ chính sách nhằm lấp khoảng trống lớn nhất của thị trường: <strong>nguồn cung mới tập trung ở phân khúc cao cấp, trong khi nhu cầu thực nằm ở phân khúc vừa túi tiền.</strong></p>
+<div class="example-box"><strong>Cơ chế cơ bản:</strong> Nhà nước hỗ trợ chủ đầu tư bằng ưu đãi về tiền sử dụng đất, thuế và tín dụng. Đổi lại, chủ đầu tư bị giới hạn mức lợi nhuận định mức, và căn hộ chỉ được bán cho những người thuộc diện đủ điều kiện theo quy định.</div>`,
+        detail: `<h3>Các trụ cột của chính sách</h3>
+<table>
+<tr><th>Công cụ</th><th>Nội dung</th></tr>
+<tr><td><strong>Quỹ đất</strong></td><td>Dự án nhà ở thương mại tại đô thị phải dành một tỷ lệ quỹ đất nhất định cho nhà ở xã hội, hoặc thực hiện nghĩa vụ tương đương theo quy định</td></tr>
+<tr><td><strong>Ưu đãi cho chủ đầu tư</strong></td><td>Miễn, giảm tiền sử dụng đất; ưu đãi thuế; được vay vốn ưu đãi; được dành một phần diện tích để kinh doanh thương mại</td></tr>
+<tr><td><strong>Lợi nhuận định mức</strong></td><td>Lợi nhuận của chủ đầu tư trên phần nhà ở xã hội bị khống chế theo tỷ lệ quy định</td></tr>
+<tr><td><strong>Điều kiện với người mua</strong></td><td>Điều kiện về nhà ở (chưa có nhà hoặc nhà chật), về thu nhập, và về nơi cư trú/làm việc</td></tr>
+<tr><td><strong>Hạn chế chuyển nhượng</strong></td><td>Có thời gian tối thiểu phải ở trước khi được bán lại, nhằm ngăn đầu cơ</td></tr>
+<tr><td><strong>Gói tín dụng ưu đãi</strong></td><td>Các chương trình cho vay lãi suất thấp dành cho người mua và chủ đầu tư nhà ở xã hội</td></tr>
+</table>
+<div class="warning-box"><strong>Các quy định cụ thể — tỷ lệ quỹ đất, mức lợi nhuận định mức, ngưỡng thu nhập, thời gian hạn chế chuyển nhượng — được quy định trong Luật Nhà ở và các văn bản hướng dẫn, và đã thay đổi qua các lần sửa luật.</strong> Hãy tra cứu quy định hiện hành khi cần con số chính xác cho trường hợp cụ thể.</div>`,
+        advanced: `<h3>Vì sao triển khai thực tế luôn chậm hơn mục tiêu</h3>
+<p>Đây là điểm đáng phân tích, vì các vướng mắc mang tính cấu trúc chứ không phải do thiếu quyết tâm:</p>
+<table>
+<tr><th>Vướng mắc</th><th>Cơ chế</th></tr>
+<tr><td><strong>Động cơ kinh tế của chủ đầu tư yếu</strong></td><td>Với lợi nhuận bị khống chế, làm nhà ở xã hội kém hấp dẫn hơn nhiều so với dùng cùng quỹ đất làm nhà thương mại. Doanh nghiệp làm vì nghĩa vụ, không vì lợi ích.</td></tr>
+<tr><td><strong>Thủ tục phức tạp hơn</strong></td><td>Thêm các bước xác định đối tượng, phê duyệt giá bán, kiểm tra điều kiện người mua — làm vòng đời dự án dài hơn.</td></tr>
+<tr><td><strong>Vị trí quỹ đất</strong></td><td>Đất dành cho nhà ở xã hội thường ở xa trung tâm, nơi giá đất thấp — nhưng đó cũng là nơi thiếu việc làm và hạ tầng, làm giảm nhu cầu thực.</td></tr>
+<tr><td><strong>Xác định đúng đối tượng khó</strong></td><td>Thu nhập thực của nhiều hộ gia đình cao hơn thu nhập khai báo, làm tiêu chí thu nhập khó áp dụng công bằng.</td></tr>
+<tr><td><strong>Vốn ưu đãi không liên tục</strong></td><td>Các gói tín dụng có thời hạn tạo ra đợt sóng rồi tắt, thay vì một dòng vốn ổn định.</td></tr>
+</table>
+<div class="tip-box"><strong>So sánh với hai mô hình thành công đã nêu trong trang này:</strong>
+<ul>
+<li><strong>Singapore</strong> giải quyết bài toán vốn cho người mua bằng cơ chế tiết kiệm bắt buộc, và giải quyết bài toán quỹ đất bằng việc nhà nước nắm giữ đất từ rất sớm.</li>
+<li><strong>Vienna</strong> giải quyết bài toán bền vững chính trị bằng cách mở rộng đối tượng thụ hưởng tới cả tầng lớp trung lưu, và duy trì một nguồn tài chính ổn định dài hạn.</li>
+</ul>
+Điểm chung của cả hai: họ không coi nhà ở giá phải chăng là một chương trình từ thiện dành cho nhóm hẹp, mà là <strong>một phần hạ tầng của thành phố</strong>, được cấp vốn liên tục qua nhiều thập kỷ.</div>
+<h3>Nếu bạn đang cân nhắc mua nhà ở xã hội</h3>
+<ul>
+<li><strong>Kiểm tra kỹ điều kiện đủ tiêu chuẩn</strong> trước khi đặt cọc bất cứ khoản nào — hồ sơ bị loại sau khi đã nộp tiền là tình huống khó xử lý.</li>
+<li><strong>Nắm rõ thời hạn hạn chế chuyển nhượng.</strong> Đây là ràng buộc thật, ảnh hưởng tới khả năng đổi nhà nếu hoàn cảnh thay đổi.</li>
+<li><strong>Đánh giá vị trí như với mọi bất động sản khác</strong> — giá rẻ không bù được cho việc mỗi ngày mất ba giờ đi lại.</li>
+<li><strong>Cảnh giác với môi giới nhận "chạy suất"</strong> — đây là dạng rủi ro pháp lý và rủi ro mất tiền rất phổ biến.</li>
+</ul>`,
+        diagram: null
+    },
+
+    'vn-cho-thue': {
+        icon: '🔑', title: 'Việt Nam — Thị Trường Cho Thuê', category: 'markets',
+        connections: ['de-thue-nha', 'cho-thue-van-hanh', 'rental-yield', 'thue-vs-mua'],
+        simple: `<h3>🔑 Việt Nam — Thị Trường Cho Thuê</h3>
+<p>Thị trường cho thuê ít được nói tới hơn thị trường mua bán, nhưng nó ảnh hưởng trực tiếp tới một câu hỏi rất lớn: <strong>vì sao áp lực "phải mua nhà bằng mọi giá" ở Việt Nam lại mạnh đến vậy?</strong></p>
+<div class="example-box"><strong>Câu trả lời phần lớn nằm ở chất lượng của lựa chọn thay thế.</strong> Khi đi thuê nghĩa là hợp đồng ngắn hạn, giá có thể tăng tùy chủ nhà, và có thể bị đòi nhà bất cứ lúc nào, thì mua nhà không chỉ là quyết định tài chính — nó là cách duy nhất để có sự ổn định.</div>`,
+        detail: `<h3>Đặc điểm của thị trường cho thuê Việt Nam</h3>
+<table>
+<tr><th>Đặc điểm</th><th>Biểu hiện</th><th>So với Đức</th></tr>
+<tr><td><strong>Thời hạn hợp đồng</strong></td><td>Thường 6 tháng đến 1 năm</td><td>Hợp đồng thường không thời hạn, người thuê ở hàng thập kỷ</td></tr>
+<tr><td><strong>Tăng giá thuê</strong></td><td>Theo thỏa thuận từng kỳ, ít ràng buộc</td><td>Bị giới hạn mức tăng theo quy định</td></tr>
+<tr><td><strong>Bảo vệ người thuê</strong></td><td>Ở mức cơ bản theo Bộ luật Dân sự và Luật Nhà ở</td><td>Rất mạnh, chấm dứt hợp đồng chỉ trong trường hợp luật định</td></tr>
+<tr><td><strong>Tham chiếu giá</strong></td><td>Không có chỉ số giá thuê chính thức</td><td>Có bảng giá thuê tham chiếu theo khu vực</td></tr>
+<tr><td><strong>Mức độ chính thức</strong></td><td>Nhiều giao dịch không hợp đồng đầy đủ, không kê khai</td><td>Chính thức hóa cao</td></tr>
+<tr><td><strong>Chủ nhà</strong></td><td>Chủ yếu là cá nhân sở hữu vài căn</td><td>Có cả tổ chức, hợp tác xã nhà ở, công ty quản lý chuyên nghiệp</td></tr>
+</table>
+<div class="warning-box"><strong>Hệ quả của một thị trường cho thuê kém phát triển:</strong>
+<ul>
+<li>Người trẻ chịu áp lực mua nhà sớm, thường bằng đòn bẩy cao vượt khả năng.</li>
+<li>Nhu cầu mua bị đẩy lên cao hơn nhu cầu ở thực, góp phần đẩy giá.</li>
+<li>Sự linh hoạt của lực lượng lao động giảm — người ta ngại chuyển nơi làm việc vì đã "cắm rễ" vào một khoản vay.</li>
+<li>Người không đủ điều kiện mua bị kẹt trong tình trạng bấp bênh dài hạn.</li>
+</ul>
+</div>`,
+        advanced: `<h3>Vì sao đầu tư cho thuê ở Việt Nam khó sinh lời</h3>
+<p>Ghép các con số từ những chủ điểm khác trong trang này lại:</p>
+<ul>
+<li>Tỷ suất cho thuê gộp ở nhiều đô thị lớn nằm ở vùng thấp so với lãi suất tiền gửi.</li>
+<li>Tỷ suất ròng sau khi trừ kỳ trống, phí quản lý, bảo trì và thuế thường chỉ còn khoảng 60–75% của con số gộp.</li>
+<li>Nếu dùng đòn bẩy với lãi vay cao hơn tỷ suất, dòng tiền âm.</li>
+</ul>
+<div class="tip-box"><strong>Nghĩa là phần lớn nhà đầu tư cho thuê ở Việt Nam thực chất đang cược vào tăng giá, và chấp nhận dòng tiền mỏng hoặc âm trong lúc chờ.</strong> Điều này hoàn toàn có thể hợp lý — nhưng nó là một chiến lược khác hẳn với "đầu tư lấy dòng tiền", và đòi hỏi khả năng chịu đựng khác hẳn. Hãy dùng máy tính ROI ở tab Công cụ để xem con số thật của tài sản bạn đang cân nhắc.</div>
+<h3>Nghĩa vụ thuế khi cho thuê</h3>
+<p>Cá nhân có doanh thu từ cho thuê tài sản vượt ngưỡng quy định trong năm phải kê khai và nộp thuế theo tỷ lệ trên doanh thu (gồm thuế giá trị gia tăng và thuế thu nhập cá nhân). Dưới ngưỡng đó thì không thuộc diện phải nộp.</p>
+<p><em>Ngưỡng doanh thu và tỷ lệ thuế được quy định trong văn bản pháp luật và có thể thay đổi — hãy kiểm tra quy định hiện hành. Khi tính hiệu quả đầu tư, hãy đưa khoản này vào chi phí thay vì bỏ qua.</em></p>
+<h3>Hướng chính sách ít được bàn tới</h3>
+<div class="warning-box">Phần lớn tranh luận về nhà ở tại Việt Nam tập trung vào việc <em>giúp người dân mua nhà</em> — gói tín dụng ưu đãi, nhà ở xã hội để bán. Kinh nghiệm của Đức và Vienna gợi ý một hướng bổ sung: <strong>làm cho việc đi thuê trở nên an toàn và ổn định</strong>.<br><br>
+Nếu người thuê có hợp đồng dài hạn, được bảo vệ khỏi bị đòi nhà tùy tiện, và mức tăng giá thuê có ràng buộc, thì áp lực phải mua nhà bằng mọi giá sẽ giảm một cách tự nhiên — kéo theo cả áp lực lên giá mua. Đây là một đòn bẩy chính sách nhắm vào <em>cầu</em> mà không cần bơm thêm tín dụng.</div>`,
+        diagram: null
+    },
+
+    'vn-cong-nghiep': {
+        icon: '🏭', title: 'Việt Nam — Bất Động Sản Công Nghiệp', category: 'markets',
+        connections: ['vn-phan-khuc', 'reit-gian-tiep', 'do-thi-hoa', 'vn-tong-quan'],
+        simple: `<h3>🏭 Việt Nam — Bất Động Sản Công Nghiệp</h3>
+<p>Đây là phân khúc vận hành theo logic hoàn toàn khác với nhà ở, và nó đáng hiểu ngay cả khi bạn không có ý định đầu tư vào nó — vì nó là chỉ báo tốt cho triển vọng của cả một khu vực.</p>
+<div class="example-box"><strong>Khác biệt cốt lõi:</strong> cầu nhà ở đến từ dân số và tín dụng trong nước. Cầu bất động sản công nghiệp đến từ <strong>dòng vốn đầu tư nước ngoài và dịch chuyển chuỗi cung ứng toàn cầu</strong>. Hai động lực này ít liên quan tới nhau, nên hai phân khúc thường lệch pha.</div>`,
+        detail: `<h3>Các loại hình chính</h3>
+<table>
+<tr><th>Loại</th><th>Đặc điểm</th></tr>
+<tr><td><strong>Khu công nghiệp</strong></td><td>Chủ đầu tư hạ tầng thuê đất từ nhà nước, đầu tư hạ tầng, cho doanh nghiệp sản xuất thuê lại đất có hạ tầng</td></tr>
+<tr><td><strong>Nhà xưởng xây sẵn</strong></td><td>Xây trước rồi cho thuê — phục vụ doanh nghiệp vừa và nhỏ muốn vào hoạt động nhanh</td></tr>
+<tr><td><strong>Kho vận, logistics</strong></td><td>Gắn với thương mại điện tử và chuỗi phân phối; nhu cầu tăng theo tiêu dùng nội địa</td></tr>
+<tr><td><strong>Nhà ở cho công nhân</strong></td><td>Phân khúc gắn liền, nhu cầu lớn nhưng nguồn cung chính thức còn hạn chế</td></tr>
+</table>
+<h3>Điều gì điều khiển phân khúc này</h3>
+<ul>
+<li><strong>Dòng vốn đầu tư trực tiếp nước ngoài</strong> — chỉ báo quan trọng nhất.</li>
+<li><strong>Xu hướng đa dạng hóa chuỗi cung ứng</strong> của các tập đoàn đa quốc gia, đặc biệt là xu hướng dịch chuyển một phần sản xuất khỏi Trung Quốc.</li>
+<li><strong>Hạ tầng kết nối</strong> — cảng biển, sân bay, đường cao tốc. Một khu công nghiệp cách cảng ba giờ khác hẳn một khu cách cảng một giờ.</li>
+<li><strong>Chính sách ưu đãi đầu tư</strong> và thủ tục hành chính của địa phương.</li>
+<li><strong>Nguồn lao động</strong> tại chỗ và chi phí nhân công.</li>
+<li><strong>Nguồn điện ổn định</strong> — yếu tố ngày càng quan trọng với sản xuất công nghệ cao.</li>
+</ul>
+<div class="tip-box"><strong>Vì sao người mua nhà ở nên quan tâm:</strong> khu công nghiệp mang việc làm tới. Việc làm mang người tới. Người tới tạo nhu cầu nhà ở thật — loại nhu cầu bền nhất, không phụ thuộc vào kỳ vọng đầu cơ. Một khu vực có khu công nghiệp đang hoạt động tốt và tuyển dụng ổn định là chỉ báo mạnh hơn nhiều so với một quy hoạch hạ tầng chưa triển khai.</div>`,
+        advanced: `<h3>Cách tiếp cận phân khúc này</h3>
+<p>Rào cản vốn rất cao — đây chủ yếu là sân chơi của doanh nghiệp và quỹ đầu tư. Nhà đầu tư cá nhân tiếp cận chủ yếu qua:</p>
+<ul>
+<li><strong>Cổ phiếu doanh nghiệp phát triển khu công nghiệp</strong> — nhưng nhớ rằng bạn đang mua doanh nghiệp, với đầy đủ rủi ro quản trị và đòn bẩy, không phải mua bất động sản. Xem chủ điểm về đầu tư gián tiếp.</li>
+<li><strong>Nhà ở và dịch vụ ăn theo</strong> — nhà trọ công nhân, nhà ở cho chuyên gia, mặt bằng kinh doanh gần khu công nghiệp. Đây là cách người có vốn vừa phải tham gia gián tiếp vào cùng động lực tăng trưởng.</li>
+</ul>
+<div class="warning-box"><strong>Rủi ro đặc thù cần cân nhắc:</strong>
+<ul>
+<li><strong>Phụ thuộc vào một hoặc vài doanh nghiệp lớn.</strong> Nếu nhà máy chính rút đi, cả hệ sinh thái nhà trọ và dịch vụ quanh đó mất khách cùng lúc. Đây là rủi ro tập trung rất thực.</li>
+<li><strong>Nhạy với thương mại quốc tế</strong> — thuế quan, căng thẳng địa chính trị, thay đổi chính sách của nước nhập khẩu.</li>
+<li><strong>Cạnh tranh khu vực</strong> — các nước ASEAN khác cũng đang cạnh tranh cho cùng dòng vốn.</li>
+<li><strong>Tự động hóa</strong> có thể làm giảm số lao động trên mỗi đơn vị sản xuất theo thời gian, làm suy yếu liên kết giữa "có nhà máy" và "có nhiều người ở".</li>
+</ul>
+</div>
+<div class="tip-box"><strong>Câu hỏi kiểm tra khi đánh giá một khu vực có khu công nghiệp:</strong> nhà máy ở đây đã hoạt động ổn định bao lâu, sử dụng bao nhiêu lao động, và nếu doanh nghiệp lớn nhất rời đi thì còn lại gì? Nếu câu trả lời là "còn lại rất ít", bạn đang đầu tư vào một quyết định của một hội đồng quản trị ở nước ngoài, chứ không phải vào một nền kinh tế địa phương.</div>`,
+        diagram: null
+    },
+
+    'vn-nghi-duong': {
+        icon: '🏖️', title: 'Việt Nam — Bất Động Sản Nghỉ Dưỡng & Condotel', category: 'markets',
+        connections: ['thoi-han-su-dung', 'phan-khuc-dau-tu', 'bay-lua-dao', 'thanh-khoan'],
+        simple: `<h3>🏖️ Việt Nam — Bất Động Sản Nghỉ Dưỡng & Condotel</h3>
+<p>Đây là phân khúc đã gây thiệt hại lớn nhất cho nhà đầu tư cá nhân trong thập kỷ qua, và bài học từ nó rất cụ thể.</p>
+<div class="warning-box"><strong>Mô hình bán hàng điển hình:</strong> bạn mua một căn hộ khách sạn (condotel) hoặc biệt thự nghỉ dưỡng, giao lại cho chủ đầu tư vận hành cho thuê, và nhận <strong>cam kết lợi nhuận cố định</strong> — thường 8–12%/năm trong 5–10 năm. Nghe rất hấp dẫn so với lãi tiền gửi.</div>
+<p>Thực tế đã cho thấy nhiều cam kết loại này không được thực hiện đầy đủ. Vụ việc được biết tới rộng rãi nhất là dự án Cocobay Đà Nẵng, nơi chủ đầu tư công bố dừng chi trả cam kết lợi nhuận vào cuối năm 2019.</p>`,
+        detail: `<h3>Ba vấn đề cấu trúc</h3>
+<h4>1. Pháp lý</h4>
+<p>Nhiều sản phẩm nghỉ dưỡng được xây trên <strong>đất thương mại dịch vụ có thời hạn</strong>, không phải đất ở lâu dài. Hệ quả:</p>
+<ul>
+<li>Thời hạn sử dụng hữu hạn, ảnh hưởng trực tiếp tới giá trị dài hạn.</li>
+<li>Khó hoặc không thể dùng làm tài sản thế chấp với điều kiện tốt.</li>
+<li>Quyền của người mua trong việc sử dụng và định đoạt hạn chế hơn so với nhà ở.</li>
+<li>Việc cấp giấy chứng nhận cho loại hình này từng là vấn đề kéo dài, và khung pháp lý đã được bổ sung dần qua các văn bản sau này.</li>
+</ul>
+<h4>2. Kinh tế của cam kết lợi nhuận</h4>
+<div class="warning-box"><strong>Hãy đặt ba câu hỏi trước bất kỳ cam kết lợi nhuận nào:</strong>
+<ol>
+<li><strong>Ai bảo đảm?</strong> Nếu chỉ là cam kết của chính chủ đầu tư mà không có bảo lãnh ngân hàng hay tài sản bảo đảm độc lập, giá trị của nó phụ thuộc hoàn toàn vào việc họ còn tồn tại và còn khả năng chi trả sau 5–10 năm.</li>
+<li><strong>Nếu tài sản thực sự sinh lời 10%/năm, tại sao họ bán cho bạn?</strong> Với mức sinh lời đó, tự giữ và vay ngân hàng với lãi suất thấp hơn sẽ có lợi hơn nhiều. Việc họ muốn bán là một thông tin.</li>
+<li><strong>Tiền trả cam kết đến từ đâu?</strong> Từ doanh thu vận hành thật, hay từ tiền của những người mua đợt sau? Nếu là vế thứ hai, cấu trúc chỉ tồn tại chừng nào còn bán được hàng.</li>
+</ol>
+</div>
+<h4>3. Thanh khoản</h4>
+<p>Đây là phân khúc có thanh khoản kém nhất trong tất cả các loại hình bất động sản. Khi bạn muốn bán, người mua tiềm năng rất ít — vì họ cũng đối mặt với đúng ba vấn đề trên.</p>`,
+        advanced: `<h3>Nhu cầu thật vẫn tồn tại — vấn đề là ở cấu trúc sản phẩm</h3>
+<p>Cần phân biệt rõ: du lịch Việt Nam có tiềm năng thật, và bất động sản nghỉ dưỡng vận hành tốt là một ngành kinh doanh có thật. Vấn đề không nằm ở ngành, mà ở <strong>cách sản phẩm được cấu trúc và bán cho nhà đầu tư cá nhân</strong>:</p>
+<table>
+<tr><th>Cấu trúc có vấn đề</th><th>Cấu trúc lành mạnh hơn</th></tr>
+<tr><td>Chia nhỏ một khách sạn thành hàng trăm chủ sở hữu cá nhân</td><td>Một chủ sở hữu vận hành, huy động vốn bằng cổ phần hoặc chứng chỉ quỹ</td></tr>
+<tr><td>Cam kết lợi nhuận cố định bất kể kết quả kinh doanh</td><td>Chia sẻ doanh thu thực tế, minh bạch báo cáo</td></tr>
+<tr><td>Người mua không có quyền kiểm soát vận hành</td><td>Nhà đầu tư có cơ chế giám sát qua quản trị doanh nghiệp</td></tr>
+<tr><td>Thanh khoản gần bằng không</td><td>Chứng chỉ quỹ hoặc cổ phiếu giao dịch được</td></tr>
+</table>
+<div class="tip-box"><strong>Nói cách khác: nếu bạn muốn đầu tư vào du lịch và nghỉ dưỡng, hình thức phù hợp thường là <em>đầu tư vào doanh nghiệp vận hành</em>, chứ không phải mua một phòng khách sạn.</strong> Bạn được thanh khoản, được đa dạng hóa, và được cơ chế giám sát — ba thứ mà mô hình condotel không cho bạn.</div>
+<h3>Nếu bạn vẫn cân nhắc mua</h3>
+<ul>
+<li>☐ Đọc kỹ <strong>loại đất và thời hạn sử dụng</strong> trên giấy tờ pháp lý dự án — đây là mục quan trọng nhất.</li>
+<li>☐ Yêu cầu văn bản chứng minh <strong>ai bảo đảm cam kết lợi nhuận</strong> và bằng tài sản gì.</li>
+<li>☐ Kiểm tra <strong>lịch sử vận hành</strong> của chủ đầu tư ở các dự án tương tự đã bàn giao — họ đã trả đúng cam kết được bao nhiêu năm?</li>
+<li>☐ Tính bài toán tài chính <strong>giả định cam kết lợi nhuận bằng không</strong>. Nếu kịch bản đó không chấp nhận được, đừng mua.</li>
+<li>☐ Hỏi rõ <strong>điều gì xảy ra sau khi hết thời hạn cam kết</strong> — đây là câu hỏi mà rất ít người mua đặt ra, và là nơi phần lớn giá trị nằm.</li>
+<li>☐ Ước lượng <strong>bạn sẽ bán lại cho ai</strong> nếu cần thoát.</li>
+</ul>`,
+        diagram: null
+    },
+
+    'us-thue-zoning': {
+        icon: '🏛️', title: 'Mỹ — Thuế Tài Sản & Quy Hoạch Phân Khu', category: 'markets',
+        connections: ['us-tong-quan', 'dat-khan-hiem', 'cung-cau-bds', 'thue-phi-vn'],
+        simple: `<h3>🏛️ Mỹ — Thuế Tài Sản & Quy Hoạch Phân Khu</h3>
+<p>Hai thể chế này giải thích gần như toàn bộ sự khác biệt giá nhà giữa các thành phố Mỹ, và cả hai đều là bài học chính sách đáng giá.</p>
+<div class="example-box"><strong>Nghịch lý cần giải thích:</strong> Houston và San Francisco đều là các đô thị lớn có kinh tế mạnh và dân số tăng. Nhưng giá nhà ở San Francisco cao hơn nhiều lần. Khác biệt không nằm ở nhu cầu — nó nằm ở <strong>khả năng tăng nguồn cung</strong>.</div>`,
+        detail: `<h3>Quy hoạch phân khu — công cụ khóa nguồn cung mạnh nhất</h3>
+<p>Phần lớn diện tích đất ở tại nhiều thành phố Mỹ bị giới hạn chỉ được xây <strong>nhà đơn lập cho một hộ gia đình</strong>. Trên những lô đất đó, việc xây chung cư, nhà liền kề, hay thậm chí chia một căn nhà thành hai căn hộ đều bị cấm.</p>
+<table>
+<tr><th>Công cụ hạn chế</th><th>Tác động lên nguồn cung</th></tr>
+<tr><td>Chỉ cho phép nhà đơn lập một hộ</td><td>Chặn hoàn toàn việc tăng mật độ trên phần lớn quỹ đất</td></tr>
+<tr><td>Diện tích lô tối thiểu lớn</td><td>Giới hạn số nhà trên mỗi hecta</td></tr>
+<tr><td>Giới hạn chiều cao</td><td>Chặn việc xây cao lên ở nơi có nhu cầu</td></tr>
+<tr><td>Yêu cầu chỗ đỗ xe tối thiểu</td><td>Làm tăng chi phí và giảm số căn xây được</td></tr>
+<tr><td>Quy trình phê duyệt tùy nghi</td><td>Cho phép cư dân hiện hữu phản đối và trì hoãn dự án nhiều năm</td></tr>
+</table>
+<div class="warning-box"><strong>Ai được lợi từ việc khóa nguồn cung?</strong> Chính những người đã sở hữu nhà trong khu vực đó. Nhà của họ tăng giá, và họ là những người đi bỏ phiếu trong các cuộc họp quy hoạch địa phương. Người chịu thiệt — những người muốn chuyển đến sống ở đó — chưa ở đó, nên không có tiếng nói.<br><br>
+Đây là một trong những ví dụ rõ nhất về cách <strong>cấu trúc ra quyết định tạo ra kết quả</strong>: khi lợi ích tập trung và có tiếng nói, còn thiệt hại phân tán và không có tiếng nói, chính sách sẽ luôn nghiêng về nhóm thứ nhất.</div>`,
+        advanced: `<h3>Thuế tài sản — mặt còn lại của đồng xu</h3>
+<p>Thuế tài sản hàng năm ở Mỹ có ba tác dụng đáng chú ý:</p>
+<ol>
+<li><strong>Tạo chi phí thật cho việc nắm giữ.</strong> Giữ một căn nhà bỏ trống tốn tiền mỗi năm, tạo áp lực đưa nó vào sử dụng.</li>
+<li><strong>Tài trợ dịch vụ địa phương</strong>, đặc biệt là trường công. Điều này tạo ra liên kết trực tiếp giữa giá nhà và chất lượng trường học trong khu vực.</li>
+<li><strong>Ổn định ngân sách địa phương</strong> — nguồn thu đều đặn hàng năm, không phụ thuộc vào việc có bán được đất hay không.</li>
+</ol>
+<div class="tip-box"><strong>So sánh với Việt Nam và Trung Quốc:</strong> khi ngân sách địa phương phụ thuộc vào <em>tiền sử dụng đất một lần</em> thay vì thuế tài sản hàng năm, chính quyền có động cơ giữ giá đất cao và liên tục chuyển đổi đất mới — vì đó là nguồn thu. Cơ chế thuế tài sản đảo ngược động cơ đó: giá đất cao đồng nghĩa với thu thuế nhiều hơn <em>mà không cần bán thêm đất</em>.</div>
+<h3>Hiệu ứng phụ: khi thuế tài sản bị đóng băng</h3>
+<p>California là một ví dụ về hệ quả ngoài ý muốn. Một quy định từ năm 1978 giới hạn mức tăng giá trị tính thuế của bất động sản chừng nào chủ sở hữu không thay đổi. Kết quả:</p>
+<ul>
+<li>Người mua nhà từ lâu trả thuế trên một giá trị thấp hơn nhiều so với giá thị trường hiện tại.</li>
+<li>Người mới mua trả thuế cao hơn nhiều cho một căn nhà tương đương — hai người hàng xóm có thể chênh nhau nhiều lần tiền thuế.</li>
+<li><strong>Tạo động cơ mạnh để không bao giờ bán</strong>, làm nguồn cung nhà cũ trên thị trường co lại thêm.</li>
+</ul>
+<div class="warning-box"><strong>Bài học tổng quát rất đáng nhớ:</strong> mọi chính sách bất động sản đều tạo động cơ, và động cơ đó thường lộ ra theo cách không ai dự tính. Ưu đãi thuế cho đất có công trình ở Nhật khuyến khích giữ lại nhà bỏ hoang. Giới hạn tăng thuế ở California khuyến khích không bán nhà. Thuế chuyển nhượng cao ở Hàn Quốc cũng khuyến khích giữ lại. Khi đánh giá một đề xuất chính sách, câu hỏi hữu ích nhất không phải "nó nhắm tới điều gì" mà là <em>"nó khiến người ta muốn làm gì"</em>.</div>`,
+        diagram: null
+    },
+
+    'cn-ho-khau': {
+        icon: '📋', title: 'Trung Quốc — Hộ Khẩu & Nhu Cầu Nhà Ở', category: 'markets',
+        connections: ['cn-tong-quan', 'do-thi-hoa', 'cn-nha-xay-do', 'vi-tri'],
+        simple: `<h3>📋 Trung Quốc — Hộ Khẩu & Nhu Cầu Nhà Ở</h3>
+<p>Trung Quốc có một thể chế ảnh hưởng sâu tới thị trường nhà ở mà nhiều phân tích bỏ qua: hệ thống <strong>hộ khẩu</strong> (hukou).</p>
+<div class="example-box"><strong>Cơ chế:</strong> mỗi người được đăng ký hộ khẩu tại một địa phương, và nhiều quyền lợi công — trường học cho con, y tế, an sinh — gắn với nơi đăng ký đó chứ không phải nơi đang sống. Người lao động nhập cư có thể sống và làm việc ở một thành phố hàng chục năm mà con cái vẫn không được học trường công tại đó.</div>`,
+        detail: `<h3>Tác động lên thị trường nhà ở</h3>
+<table>
+<tr><th>Tác động</th><th>Cơ chế</th></tr>
+<tr><td><strong>Tách rời "sống ở đâu" và "thuộc về đâu"</strong></td><td>Hàng trăm triệu người sống ở thành phố nhưng không có hộ khẩu tại đó, tạo một tầng dân cư không được tính đầy đủ vào nhu cầu nhà ở chính thức</td></tr>
+<tr><td><strong>Nhà ở gắn với quyền lợi</strong></td><td>Ở một số nơi, sở hữu nhà là điều kiện hoặc lợi thế để có hộ khẩu, biến việc mua nhà thành nhu cầu vượt xa nhu cầu chỗ ở</td></tr>
+<tr><td><strong>Nhu cầu bị dồn vào các thành phố lớn</strong></td><td>Hộ khẩu ở thành phố hạng nhất có giá trị rất cao vì chất lượng trường học và dịch vụ, đẩy giá nhà ở đó lên</td></tr>
+<tr><td><strong>Cầu ở các thành phố nhỏ yếu hơn con số dân</strong></td><td>Người có hộ khẩu nông thôn vẫn giữ đất ở quê, làm nhu cầu định cư vĩnh viễn ở thành phố nhỏ thấp hơn kỳ vọng</td></tr>
+</table>
+<div class="warning-box"><strong>Đây là một phần lời giải cho nghịch lý nhà xây dở của Trung Quốc:</strong> nhiều dự án được xây ở các thành phố hạng ba, hạng tư dựa trên dự báo đô thị hóa. Nhưng dòng người thực tế lại dồn về các thành phố lớn, nơi có việc làm và dịch vụ tốt. Kết quả là dư thừa ở nơi này và thiếu hụt ở nơi khác — cùng lúc.</div>`,
+        advanced: `<h3>Cải cách và giới hạn của nó</h3>
+<p>Trung Quốc đã nới lỏng hệ thống hộ khẩu dần qua nhiều năm, đặc biệt ở các thành phố vừa và nhỏ, nhằm thúc đẩy đô thị hóa và kích cầu nhà ở. Nhưng các thành phố lớn nhất vẫn duy trì hạn chế chặt chẽ, vì việc mở hoàn toàn sẽ tạo áp lực khổng lồ lên hạ tầng và dịch vụ công.</p>
+<div class="tip-box"><strong>Đây là một thế lưỡng nan mà nhiều nước đang đô thị hóa đều gặp:</strong> tập trung dân cư vào đô thị lớn tạo hiệu quả kinh tế cao hơn, nhưng cũng tạo áp lực về nhà ở, giao thông và dịch vụ. Hạn chế dòng người thì giảm áp lực nhưng cũng giảm hiệu quả kinh tế và tạo bất công. Không có lời giải đơn giản.</div>
+<h3>Liên hệ với Việt Nam</h3>
+<p>Việt Nam từng có hệ thống quản lý cư trú với vai trò tương tự trong việc gắn quyền lợi với nơi đăng ký, và đã được cải cách theo hướng đơn giản hóa và chuyển sang quản lý bằng dữ liệu điện tử. Tuy nhiên, cơ chế phân tuyến trường học theo nơi cư trú vẫn tồn tại và có ảnh hưởng thật tới giá nhà ở một số khu vực.</p>
+<div class="warning-box"><strong>Điều đáng rút ra:</strong> khi các quyền lợi công thiết yếu — đặc biệt là <em>chỗ học cho con</em> — gắn với địa chỉ nhà, thì nhà ở không còn chỉ là chỗ ở. Nó trở thành tấm vé vào một hệ thống dịch vụ, và giá của nó phản ánh giá trị của tấm vé đó, không chỉ giá trị của bốn bức tường.<br><br>
+Đây là lý do các khu vực có trường học tốt luôn đắt hơn ở mọi quốc gia, và là lý do những phân tích chỉ nhìn vào chi phí xây dựng luôn hiểu sai giá nhà.</div>`,
+        diagram: null
+    },
+
+    'uk-tong-quan': {
+        icon: '🇬🇧', title: 'Anh — Leasehold, Thuế Giao Dịch & Vành Đai Xanh', category: 'markets',
+        connections: ['freehold-leasehold', 'cung-cau-bds', 'ie-2008', 'sg-hdb'],
+        simple: `<h3>🇬🇧 Anh — Leasehold, Thuế Giao Dịch & Vành Đai Xanh</h3>
+<p>Anh là ví dụ điển hình của một thị trường nơi <strong>nguồn cung bị hạn chế trong nhiều thập kỷ</strong>, và giá nhà đã tách rời thu nhập tới mức trở thành vấn đề chính trị trung tâm.</p>
+<div class="example-box"><strong>Ba đặc điểm định hình:</strong><br>
+• <strong>Leasehold</strong> — nhiều căn hộ được bán dưới dạng sở hữu có thời hạn trên đất của người khác, kèm nghĩa vụ tài chính với chủ đất.<br>
+• <strong>Vành đai xanh</strong> quanh các đô thị lớn hạn chế mở rộng ra ngoài.<br>
+• <strong>Thuế giao dịch lũy tiến</strong> (stamp duty) làm việc mua bán tốn kém và giảm luân chuyển.</div>`,
+        detail: `<h3>Vấn đề leasehold</h3>
+<p>Ở Anh, mua một căn hộ thường có nghĩa là mua quyền sở hữu <em>có thời hạn</em> (thường vài chục tới hơn trăm năm), trong khi đất thuộc về một chủ sở hữu khác (freeholder). Người mua phải trả:</p>
+<ul>
+<li><strong>Ground rent</strong> — khoản tiền thuê đất hàng năm.</li>
+<li><strong>Service charge</strong> — phí quản lý, do freeholder hoặc đơn vị quản lý ấn định.</li>
+<li><strong>Chi phí gia hạn</strong> khi thời hạn còn lại ngắn — có thể rất lớn.</li>
+</ul>
+<div class="warning-box"><strong>Bê bối ground rent:</strong> một số hợp đồng có điều khoản làm ground rent tăng gấp đôi định kỳ. Qua vài chu kỳ, khoản này trở nên rất lớn, và những căn hộ đó gần như không bán được — ngân hàng từ chối cho vay. Hàng chục nghìn hộ gia đình bị kẹt trong tài sản mà họ không thể bán cũng không thể trả nổi. Đã có các đợt cải cách pháp luật nhằm xử lý vấn đề này.</div>
+<div class="tip-box"><strong>Bài học rất cụ thể cho người mua Việt Nam:</strong> luôn đọc kỹ <em>các nghĩa vụ tài chính định kỳ</em> gắn với tài sản, không chỉ giá mua. Một điều khoản làm phí tăng theo cấp số nhân trông vô hại ở năm đầu và trở thành thảm họa ở năm thứ hai mươi. Điều này áp dụng trực tiếp cho phí quản lý chung cư và các cam kết dài hạn khác trong hợp đồng mua bán.</div>
+<h3>Vành đai xanh và khủng hoảng nguồn cung</h3>
+<p>Các vành đai xanh được lập từ giữa thế kỷ 20 nhằm ngăn đô thị lan rộng vô tổ chức. Chúng đạt được mục tiêu đó — nhưng cũng khóa chặt nguồn cung đất quanh các thành phố lớn trong nhiều thập kỷ, trong khi dân số và số hộ gia đình tiếp tục tăng.</p>
+<p>Kết hợp với quy trình cấp phép chậm và tùy nghi, kết quả là số nhà xây mới mỗi năm liên tục thấp hơn nhu cầu hình thành hộ mới trong thời gian dài.</p>`,
+        advanced: `<h3>Help to Buy — bài học về chính sách phía cầu</h3>
+<p>Để giúp người mua nhà lần đầu, chính phủ Anh triển khai chương trình hỗ trợ cho vay và bảo lãnh khoản vay. Ý định tốt, nhưng nhiều đánh giá cho rằng tác động thực tế là:</p>
+<ul>
+<li>Người mua vay được nhiều hơn → sẵn sàng trả cao hơn.</li>
+<li>Nguồn cung không tăng tương ứng.</li>
+<li>Phần lớn khoản hỗ trợ bị <strong>hấp thụ vào giá nhà</strong>, có lợi cho chủ đầu tư nhiều hơn cho người mua.</li>
+</ul>
+<div class="warning-box"><strong>Đây là nguyên tắc quan trọng nhất trong toàn bộ kinh tế học nhà ở:</strong> trong một thị trường có nguồn cung bị hạn chế, mọi biện pháp làm tăng khả năng chi trả của người mua đều có xu hướng biến thành giá cao hơn, chứ không phải nhiều người sở hữu nhà hơn. Trợ cấp phía cầu mà không mở phía cung là chuyển tiền từ người đóng thuế sang người bán.<br><br>
+Cùng logic này áp dụng cho mọi gói tín dụng ưu đãi mua nhà ở bất kỳ nước nào — bao gồm Việt Nam. Hiệu quả của chúng phụ thuộc hoàn toàn vào việc nguồn cung có phản ứng được hay không.</div>
+<h3>Thuế giao dịch lũy tiến</h3>
+<p>Anh áp thuế giao dịch bất động sản theo bậc lũy tiến, với mức phụ thu cho người mua căn thứ hai trở lên và cho người mua nước ngoài — cơ chế tương tự Singapore.</p>
+<table>
+<tr><th>Ưu điểm</th><th>Nhược điểm</th></tr>
+<tr><td>Nhắm trúng người sở hữu nhiều bất động sản</td><td>Làm giảm luân chuyển: người già ở nhà quá lớn ngại chuyển sang nhà nhỏ vì chi phí giao dịch</td></tr>
+<tr><td>Nguồn thu đáng kể</td><td>Nhà bị "khóa" không đến được tay người cần</td></tr>
+<tr><td>Hạn chế lướt sóng</td><td>Giảm tính linh hoạt của thị trường lao động</td></tr>
+</table>
+<div class="tip-box"><strong>Đánh đổi kinh điển:</strong> thuế đánh vào <em>giao dịch</em> làm thị trường kém linh hoạt. Thuế đánh vào <em>việc nắm giữ</em> (thuế tài sản hàng năm) không có nhược điểm đó, nhưng lại khó được chấp nhận về mặt chính trị vì người dân phải trả tiền hàng năm cho tài sản họ đã sở hữu. Đây chính là cuộc tranh luận đang diễn ra ở Việt Nam về thuế bất động sản.</div>`,
+        diagram: null
+    },
+
+    'au-tong-quan': {
+        icon: '🇦🇺', title: 'Úc — Negative Gearing & Thuế Người Nước Ngoài', category: 'markets',
+        connections: ['don-bay', 'reit-gian-tiep', 'sg-absd', 'price-to-income'],
+        simple: `<h3>🇦🇺 Úc — Negative Gearing & Thuế Người Nước Ngoài</h3>
+<p>Úc là ví dụ rõ nhất về việc <strong>chính sách thuế có thể định hình toàn bộ hành vi đầu tư bất động sản của cả một quốc gia</strong>.</p>
+<div class="example-box"><strong>Negative gearing</strong> là cơ chế cho phép nhà đầu tư <strong>trừ khoản lỗ từ bất động sản cho thuê vào thu nhập chịu thuế khác</strong> — bao gồm cả tiền lương. Nếu tiền thuê không đủ trả lãi vay và chi phí, phần lỗ đó làm giảm số thuế thu nhập bạn phải nộp.</div>`,
+        detail: `<h3>Cơ chế hoạt động thế nào</h3>
+<p>Giả sử một nhà đầu tư có thu nhập từ lương và mua một căn hộ cho thuê bằng vốn vay:</p>
+<ul>
+<li>Tiền thuê thu được: thấp hơn tổng lãi vay cộng chi phí vận hành.</li>
+<li>Khoản chênh lệch âm đó được <strong>trừ vào thu nhập chịu thuế từ lương</strong>.</li>
+<li>Nhà đầu tư ở khung thuế cao được lợi nhiều nhất, vì mỗi đồng lỗ tiết kiệm được nhiều thuế hơn.</li>
+<li>Khi bán, phần lãi vốn được hưởng ưu đãi thuế nếu nắm giữ đủ thời gian quy định.</li>
+</ul>
+<div class="warning-box"><strong>Hệ quả tổng hợp:</strong> chính sách này khiến việc <em>mua bất động sản có dòng tiền âm và chờ tăng giá</em> trở thành một chiến lược hợp lý về thuế. Nó khuyến khích đúng loại hành vi mà mọi chủ điểm khác trong trang này cảnh báo: dùng đòn bẩy cao, chấp nhận dòng tiền âm, và đặt cược hoàn toàn vào tăng giá.</div>
+<h3>Tranh luận chính sách</h3>
+<table>
+<tr><th>Ủng hộ giữ nguyên</th><th>Ủng hộ cải cách</th></tr>
+<tr><td>Khuyến khích tư nhân đầu tư vào nhà cho thuê, tăng nguồn cung cho thuê</td><td>Phần lớn khoản đầu tư đổ vào nhà <em>cũ</em>, không tạo thêm nguồn cung mới</td></tr>
+<tr><td>Nhiều nhà đầu tư là người thu nhập trung bình</td><td>Lợi ích thuế tập trung ở nhóm thu nhập cao</td></tr>
+<tr><td>Thay đổi đột ngột sẽ gây sốc thị trường</td><td>Nó đẩy giá lên, khiến người mua nhà lần đầu phải cạnh tranh với nhà đầu tư được ưu đãi thuế</td></tr>
+</table>
+<p>Cải cách chính sách này đã là chủ đề tranh cử lớn ở Úc, và mức độ khó khăn về chính trị cho thấy một điều: <strong>khi một ưu đãi thuế tồn tại đủ lâu, nó được phản ánh vào giá tài sản — và việc bỏ nó đi đồng nghĩa với làm giảm tài sản của hàng triệu cử tri.</strong></p>`,
+        advanced: `<h3>Thuế người mua nước ngoài</h3>
+<p>Các bang của Úc áp phụ thu thuế giao dịch và thuế đất đối với người mua nước ngoài, cùng với quy định người nước ngoài thường chỉ được mua nhà mới hoặc đất để phát triển, không được mua nhà cũ.</p>
+<p>Đây là mô hình tương tự Singapore và Canada. Logic chung: <strong>tách cầu đầu tư quốc tế ra khỏi cầu ở thực trong nước, và bảo vệ nguồn cung nhà hiện hữu cho người dân.</strong></p>
+<div class="tip-box"><strong>Điểm thiết kế thông minh của quy định "chỉ được mua nhà mới":</strong> nó chuyển dòng vốn nước ngoài vào việc <em>tạo thêm nguồn cung</em> thay vì cạnh tranh với người dân trên nguồn cung sẵn có. Vốn ngoại vẫn được chào đón, nhưng phải đi kèm với việc xây thêm nhà. Đây là một cách xử lý tinh tế hơn nhiều so với cấm hoàn toàn.</div>
+<h3>Ba vấn đề khác đáng biết</h3>
+<ul>
+<li><strong>Nợ hộ gia đình rất cao.</strong> Úc thuộc nhóm có tỷ lệ nợ hộ gia đình trên thu nhập cao nhất thế giới, phần lớn là nợ vay mua nhà. Điều này làm nền kinh tế rất nhạy với lãi suất.</li>
+<li><strong>Lãi suất chủ yếu thả nổi</strong> — giống Việt Nam hơn là giống Mỹ. Nghĩa là mỗi đợt tăng lãi suất truyền ngay vào ngân sách hộ gia đình.</li>
+<li><strong>Vấn đề chất lượng chung cư.</strong> Một số tòa nhà cao tầng xây trong giai đoạn bùng nổ bộc lộ lỗi kết cấu nghiêm trọng sau khi bàn giao, gây thiệt hại lớn cho cư dân và làm giảm niềm tin vào phân khúc căn hộ mới.</li>
+</ul>
+<div class="warning-box"><strong>Điểm cuối này đáng chú ý với người mua căn hộ ở Việt Nam:</strong> khi thị trường bùng nổ, tốc độ xây dựng tăng, và áp lực chi phí lớn, chất lượng thi công là thứ dễ bị hy sinh nhất — vì lỗi chỉ lộ ra sau nhiều năm, khi chủ đầu tư đã bán xong và rút. Lịch sử bàn giao và uy tín của chủ đầu tư không phải là chuyện hình thức; nó là thứ bảo vệ bạn khỏi một khoản chi phí mà bạn không thể dự trù được.</div>`,
+        diagram: null
+    },
+
+    'th-tong-quan': {
+        icon: '🇹🇭', title: 'Thái Lan — Người Nước Ngoài Mua Nhà Ở ASEAN', category: 'markets',
+        connections: ['th-1997', 'freehold-leasehold', 'ae-tong-quan', 'vn-nghi-duong'],
+        simple: `<h3>🇹🇭 Thái Lan — Người Nước Ngoài Mua Nhà Ở ASEAN</h3>
+<p>Thái Lan là thị trường trong khu vực được người Việt quan tâm nhiều nhất khi nghĩ tới đầu tư bất động sản nước ngoài, nên đáng hiểu rõ luật chơi ở đó.</p>
+<div class="warning-box"><strong>Quy tắc nền tảng:</strong> người nước ngoài <strong>không được sở hữu đất</strong> tại Thái Lan. Họ chỉ được sở hữu <strong>căn hộ chung cư</strong>, và tổng phần sở hữu của người nước ngoài trong một tòa nhà bị giới hạn ở mức <strong>49% diện tích sàn</strong>.</div>
+<p>Nghĩa là biệt thự, nhà phố, đất nền — những thứ hay xuất hiện trong quảng cáo đầu tư — đều không thể sở hữu trực tiếp dưới tên người nước ngoài.</p>`,
+        detail: `<h3>Các hình thức người nước ngoài thường được chào</h3>
+<table>
+<tr><th>Hình thức</th><th>Bản chất</th><th>Rủi ro</th></tr>
+<tr><td><strong>Mua căn hộ trong hạn mức 49%</strong></td><td>Sở hữu hợp pháp, có giấy tờ đứng tên</td><td>Thấp nhất — đây là con đường chính danh</td></tr>
+<tr><td><strong>Thuê đất dài hạn</strong></td><td>Hợp đồng thuê có thời hạn theo quy định, có thể thỏa thuận gia hạn</td><td>Trung bình — việc gia hạn phụ thuộc vào các yếu tố ngoài tầm kiểm soát của bạn</td></tr>
+<tr><td><strong>Lập công ty Thái để đứng tên</strong></td><td>Công ty có cổ đông Thái nắm đa số đứng tên mua đất</td><td><strong>Cao.</strong> Nếu công ty được lập chỉ nhằm lách quy định sở hữu đất, cấu trúc này có rủi ro pháp lý nghiêm trọng</td></tr>
+<tr><td><strong>Nhờ người bản địa đứng tên</strong></td><td>Không có cơ sở pháp lý bảo vệ bạn</td><td><strong>Rất cao.</strong> Bạn không có quyền gì nếu tranh chấp</td></tr>
+</table>
+<div class="warning-box"><strong>Nguyên tắc chung khi mua bất động sản ở nước ngoài:</strong> nếu cách duy nhất để sở hữu là một cấu trúc vòng vèo nhằm lách quy định, thì đó không phải là sở hữu — đó là một thỏa thuận phụ thuộc vào việc không ai xem xét kỹ. Bạn đang gánh rủi ro pháp lý ở một quốc gia mà bạn không hiểu hệ thống tư pháp, bằng một ngôn ngữ bạn không đọc được hợp đồng.</div>`,
+        advanced: `<h3>So sánh quy định với người nước ngoài trong khu vực</h3>
+<table>
+<tr><th>Nước</th><th>Người nước ngoài được gì</th></tr>
+<tr><td><strong>Việt Nam</strong></td><td>Mua nhà ở trong dự án nhà ở thương mại; giới hạn 30% số căn trong một tòa chung cư; thời hạn sở hữu 50 năm, được xem xét gia hạn</td></tr>
+<tr><td><strong>Thái Lan</strong></td><td>Chỉ căn hộ, giới hạn 49% diện tích sàn của tòa nhà; không được sở hữu đất</td></tr>
+<tr><td><strong>Singapore</strong></td><td>Được mua nhưng chịu thuế trước bạ bổ sung rất cao; nhà đất thấp tầng bị hạn chế mạnh</td></tr>
+<tr><td><strong>Malaysia</strong></td><td>Được mua với ngưỡng giá tối thiểu, khác nhau theo bang</td></tr>
+<tr><td><strong>Indonesia, Philippines</strong></td><td>Hạn chế đáng kể với sở hữu đất; căn hộ có điều kiện</td></tr>
+</table>
+<div class="tip-box"><strong>Điểm chung của cả khu vực:</strong> gần như mọi nước ASEAN đều bảo vệ quyền sở hữu đất cho công dân, và chỉ mở cửa ở mức độ nhất định cho căn hộ. Việt Nam nằm ở mức tương đối chặt trong nhóm này — cùng với Thái Lan và Singapore.</div>
+<h3>Ba câu hỏi trước khi mua bất động sản ở nước ngoài</h3>
+<ol>
+<li><strong>Tôi thực sự sở hữu cái gì, và luật nước đó bảo vệ tôi tới đâu?</strong> Đọc quy định gốc, không đọc tờ rơi bán hàng.</li>
+<li><strong>Tôi bán lại cho ai?</strong> Nếu thị trường thứ cấp chủ yếu là người nước ngoài khác, thanh khoản của bạn phụ thuộc vào dòng vốn quốc tế — thứ có thể biến mất rất nhanh.</li>
+<li><strong>Rủi ro tỷ giá là bao nhiêu?</strong> Bạn kiếm tiền bằng đồng Việt Nam và nắm tài sản bằng đồng tiền khác. Nếu bạn vay để mua, hãy đọc lại chủ điểm về Thái Lan 1997 — đó chính xác là cơ chế đã gây ra khủng hoảng.</li>
+</ol>
+<div class="warning-box"><strong>Còn một câu hỏi ít ai đặt ra:</strong> nếu có tranh chấp, bạn kiện ở đâu, bằng ngôn ngữ nào, với luật sư nào, và mất bao lâu? Chi phí và độ khó của việc bảo vệ quyền lợi ở nước ngoài thường lớn hơn nhiều so với hình dung — và nó không xuất hiện trong bất kỳ bảng tính lợi nhuận nào.</div>`,
+        diagram: null
+    },
+
+    'ae-tong-quan': {
+        icon: '🇦🇪', title: 'UAE / Dubai — Không Thuế Và Chu Kỳ Cực Đoan', category: 'markets',
+        connections: ['th-tong-quan', 'chu-ky-bds', 'thue-phi-vn', 'vn-nghi-duong'],
+        simple: `<h3>🇦🇪 UAE / Dubai — Không Thuế Và Chu Kỳ Cực Đoan</h3>
+<p>Dubai là một thí nghiệm thú vị: điều gì xảy ra với thị trường bất động sản khi <strong>gần như không có thuế</strong> và cửa mở rộng cho vốn quốc tế?</p>
+<div class="example-box"><strong>Đặc điểm:</strong> không thuế thu nhập cá nhân, không thuế tài sản hàng năm theo cách thông thường, người nước ngoài được sở hữu vĩnh viễn (freehold) trong các khu vực được chỉ định từ đầu những năm 2000, và có chương trình thị thực dài hạn gắn với mức đầu tư bất động sản nhất định.</div>
+<p>Kết quả là một thị trường có <strong>biên độ chu kỳ lớn hơn hầu hết mọi nơi khác</strong>.</p>`,
+        detail: `<h3>Lịch sử các chu kỳ</h3>
+<table>
+<tr><th>Giai đoạn</th><th>Điều gì xảy ra</th></tr>
+<tr><td><strong>2002–2008</strong></td><td>Mở cửa sở hữu cho người nước ngoài, bùng nổ xây dựng quy mô khổng lồ, dòng vốn quốc tế đổ vào, giá tăng rất mạnh</td></tr>
+<tr><td><strong>2009</strong></td><td>Khủng hoảng tài chính toàn cầu chạm tới. Giá sụt rất sâu. Nakheel — tập đoàn phát triển lớn — gặp khủng hoảng nợ; Abu Dhabi phải hỗ trợ tài chính. Nhiều dự án dừng lại.</td></tr>
+<tr><td><strong>2010s</strong></td><td>Phục hồi rồi lại điều chỉnh nhiều lần; nguồn cung mới liên tục lớn</td></tr>
+<tr><td><strong>Sau 2020</strong></td><td>Đợt tăng mạnh mới, thúc đẩy bởi chính sách thị thực dài hạn, dòng người di cư và dòng vốn quốc tế</td></tr>
+</table>
+<div class="warning-box"><strong>Vì sao biên độ chu kỳ lớn đến vậy:</strong>
+<ul>
+<li><strong>Cầu chủ yếu là quốc tế và mang tính đầu tư</strong>, không phải nhu cầu ở thực của dân số bản địa — nên nó có thể biến mất rất nhanh khi tâm lý toàn cầu đổi chiều.</li>
+<li><strong>Nguồn cung phản ứng rất nhanh</strong> so với các nước khác — đất sẵn, thủ tục nhanh, năng lực xây dựng lớn. Điều này tốt cho khả năng chi trả nhưng làm dư cung dễ xảy ra.</li>
+<li><strong>Không có thuế nắm giữ</strong> nghĩa là không có lực kìm hãm việc đầu cơ.</li>
+<li><strong>Dân số phần lớn là người nước ngoài với thị thực gắn công việc</strong> — khi kinh tế yếu, người ta rời đi, và cầu nhà ở giảm theo cách mà một nước có dân bản địa đông không gặp phải.</li>
+</ul>
+</div>`,
+        advanced: `<h3>Bài học đối chiếu: thuế và sự ổn định</h3>
+<p>Đặt Dubai cạnh Singapore cho một so sánh rất rõ:</p>
+<table>
+<tr><th></th><th>Dubai</th><th>Singapore</th></tr>
+<tr><td>Thuế với người mua nước ngoài</td><td>Rất thấp</td><td>Rất cao (ABSD)</td></tr>
+<tr><td>Thuế nắm giữ hàng năm</td><td>Gần như không có</td><td>Có thuế bất động sản</td></tr>
+<tr><td>Nguồn cung</td><td>Phản ứng nhanh, đôi khi dư thừa</td><td>Được điều tiết chủ động</td></tr>
+<tr><td>Nhà ở công</td><td>Không đáng kể</td><td>Chiếm đa số</td></tr>
+<tr><td>Biên độ biến động giá</td><td>Rất lớn</td><td>Được kiểm soát</td></tr>
+</table>
+<div class="tip-box"><strong>Không có mô hình nào "đúng" — chúng phục vụ mục tiêu khác nhau.</strong> Dubai tối ưu cho việc thu hút vốn và người tài quốc tế, chấp nhận biến động. Singapore tối ưu cho việc bảo đảm nhà ở cho công dân, chấp nhận can thiệp sâu vào thị trường. Điều đáng học là <em>mối liên hệ nhất quán</em>: càng ít thuế nắm giữ và càng mở cửa cho vốn đầu cơ, biên độ chu kỳ càng lớn.</div>
+<h3>Nếu bạn cân nhắc đầu tư ở đó</h3>
+<ul>
+<li><strong>Hiểu rằng bạn đang mua vào một thị trường có chu kỳ mạnh</strong> — thời điểm vào quan trọng hơn nhiều so với thị trường ổn định.</li>
+<li><strong>Kiểm tra nguồn cung sắp bàn giao</strong> trong khu vực. Đây là thị trường mà nguồn cung mới có thể rất lớn.</li>
+<li><strong>Mua bán trên giấy (off-plan) rất phổ biến</strong> — có cơ chế tài khoản ký quỹ để bảo vệ người mua, nhưng hãy xác minh dự án cụ thể có tuân thủ hay không.</li>
+<li><strong>Tính rủi ro tỷ giá và chi phí chuyển tiền quốc tế</strong>, cùng nghĩa vụ tuân thủ quy định về đầu tư ra nước ngoài của Việt Nam.</li>
+<li><strong>Đừng để yếu tố thị thực chi phối quyết định đầu tư.</strong> Nếu bạn cần thị thực, hãy tính giá trị của nó riêng — đừng để nó biện minh cho một khoản đầu tư mà bản thân nó không hợp lý.</li>
+</ul>`,
+        diagram: null
+    },
+
+    'de-berlin': {
+        icon: '🏙️', title: 'Đức — Berlin Và Giới Hạn Của Kiểm Soát Giá Thuê', category: 'markets',
+        connections: ['de-thue-nha', 'vn-cho-thue', 'kr-chinh-sach', 'at-vienna'],
+        simple: `<h3>🏙️ Đức — Berlin Và Giới Hạn Của Kiểm Soát Giá Thuê</h3>
+<p>Berlin trong thập kỷ qua là phòng thí nghiệm sống về câu hỏi khó nhất trong chính sách nhà ở: <strong>kiểm soát giá thuê có hiệu quả không?</strong></p>
+<div class="example-box"><strong>Bối cảnh:</strong> Berlin từng là thành phố lớn có giá thuê rẻ bất thường ở châu Âu. Từ khoảng thập niên 2010, dòng người đổ về mạnh, kinh tế khởi sắc, lãi suất thấp và nguồn cung không theo kịp. Giá thuê tăng rất nhanh, gây áp lực xã hội lớn ở một thành phố mà đa số dân đi thuê nhà.</div>`,
+        detail: `<h3>Hai biện pháp và kết cục của chúng</h3>
+<h4>1. Mietendeckel — trần giá thuê của bang Berlin</h4>
+<p>Năm 2020, bang Berlin ban hành quy định đóng băng và áp trần giá thuê cho phần lớn nhà ở trong thành phố. Đây là biện pháp rất mạnh.</p>
+<p>Năm 2021, <strong>Tòa án Hiến pháp Liên bang tuyên quy định này vô hiệu</strong> — không phải vì nội dung sai, mà vì <em>bang Berlin không có thẩm quyền</em> ban hành: lĩnh vực này thuộc thẩm quyền lập pháp liên bang. Những người thuê đã hưởng giá giảm phải trả bù phần chênh lệch.</p>
+<h4>2. Trưng cầu dân ý về quốc hữu hóa</h4>
+<p>Tháng 9/2021, một cuộc trưng cầu dân ý ở Berlin đề xuất thu hồi và chuyển về sở hữu công các danh mục nhà cho thuê lớn của những công ty sở hữu trên một quy mô nhất định. <strong>Đề xuất được đa số cử tri ủng hộ</strong> (khoảng 59%), nhưng kết quả mang tính khuyến nghị, không tự động có hiệu lực pháp lý, và việc triển khai vấp phải các vấn đề pháp lý và tài chính rất lớn.</p>
+<div class="warning-box"><strong>Điều đáng chú ý về mặt chính trị:</strong> ở một trong những nền kinh tế thị trường phát triển nhất thế giới, đa số cử tri của thủ đô đã bỏ phiếu ủng hộ quốc hữu hóa nhà cho thuê. Đó là chỉ dấu về mức độ nghiêm trọng mà vấn đề nhà ở có thể đạt tới về mặt xã hội, và về việc nó có thể đẩy tranh luận chính trị đi xa tới đâu.</div>`,
+        advanced: `<h3>Bằng chứng về kiểm soát giá thuê</h3>
+<p>Đây là một trong số ít chủ đề mà giới kinh tế học tương đối đồng thuận về <em>tác dụng phụ</em>, dù vẫn tranh luận về đánh đổi tổng thể:</p>
+<table>
+<tr><th>Tác dụng ngắn hạn</th><th>Tác dụng dài hạn</th></tr>
+<tr><td>Người đang thuê được bảo vệ khỏi tăng giá — lợi ích thật và tức thời</td><td>Nguồn cung cho thuê co lại: chủ nhà chuyển sang bán, sang cho thuê ngắn ngày, hoặc rút khỏi thị trường</td></tr>
+<tr><td>Giảm xáo trộn cộng đồng</td><td>Đầu tư bảo trì giảm khi lợi nhuận bị giới hạn</td></tr>
+<tr><td>Giảm áp lực chính trị</td><td>Thị trường hai tầng: người đang thuê được bảo vệ, người mới tìm nhà rất khó và phải trả giá cao hơn</td></tr>
+<tr><td></td><td>Giảm động cơ xây nhà cho thuê mới</td></tr>
+</table>
+<div class="tip-box"><strong>Cách đọc bằng chứng này cho công bằng:</strong> kiểm soát giá thuê chuyển lợi ích từ chủ nhà sang người thuê <em>hiện tại</em>, với cái giá là nguồn cung <em>tương lai</em>. Đó là một đánh đổi thật giữa các nhóm người và giữa các thời điểm, không phải một sai lầm ngu ngốc. Câu hỏi chính sách đúng không phải "tốt hay xấu" mà là "chúng ta ưu tiên ai, và ta bù đắp cho phía còn lại bằng cách nào".<br><br>
+Vienna cho thấy cách bù đắp hiệu quả nhất: <strong>song song với việc điều tiết giá, nhà nước trực tiếp tạo ra nguồn cung</strong>. Kiểm soát giá mà không tăng cung thì chỉ chia lại một chiếc bánh đang nhỏ đi.</div>
+<h3>Liên hệ với Việt Nam</h3>
+<div class="warning-box">Việt Nam hiện gần như không có kiểm soát giá thuê, và thị trường cho thuê chủ yếu là hợp đồng ngắn hạn giữa cá nhân với cá nhân. Kinh nghiệm Berlin gợi ý hai điều nếu vấn đề này được đặt ra trong tương lai:
+<ol>
+<li><strong>Bảo vệ tính ổn định của hợp đồng thuê</strong> (thời hạn dài hơn, điều kiện chấm dứt rõ ràng, mức tăng có ràng buộc và dự đoán được) thường ít gây méo mó hơn so với áp trần giá cứng — nó cho người thuê sự an tâm mà không xóa bỏ động cơ đầu tư.</li>
+<li><strong>Mọi biện pháp phía cầu đều cần đi kèm nỗ lực phía cung.</strong> Đây là kết luận lặp lại ở Anh, Hàn Quốc, Berlin, và ở mọi thị trường trong trang này.</li>
+</ol>
+</div>`,
+        diagram: null
     }
 };

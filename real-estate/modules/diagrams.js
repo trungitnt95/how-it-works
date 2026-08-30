@@ -68,5 +68,48 @@ const reDiagrams = {
     NN -.->|"thu hồi vì mục đích<br/>quốc phòng, công cộng,<br/>phát triển KT-XH"| QSD
     style ND fill:#2b2f33,stroke:#8f9ba3,color:#e6ebee
     style NN fill:#274a63,stroke:#5dade2,color:#e8f2f8
-    style GCN fill:#1f4b3f,stroke:#48c774,color:#eaf6f0`
+    style GCN fill:#1f4b3f,stroke:#48c774,color:#eaf6f0`,
+
+    're-currency': `flowchart TD
+    NEO["Tỷ giá được neo vào đô la<br/>nhiều năm liền"] --> TIN["Doanh nghiệp coi rủi ro<br/>tỷ giá gần như bằng 0"]
+    TIN --> VAY["Vay đô la lãi thấp<br/>thay vì vay nội tệ lãi cao"]
+    VAY --> XAY["Đổ vào bất động sản<br/>Doanh thu nội tệ · Nợ đô la"]
+    XAY --> DU["Nguồn cung vượt xa nhu cầu<br/>Giá giảm, dự án ế"]
+    DU --> RUT["Nhà đầu tư mất niềm tin<br/>rút vốn"]
+    RUT --> CAN["Dự trữ ngoại hối cạn dần"]
+    CAN --> THA["Buộc phải thả nổi tỷ giá"]
+    THA --> NO["Nợ đô la tính bằng nội tệ<br/>tăng lên nhiều lần"]
+    NO --> VO["Vỡ nợ hàng loạt<br/>Ngân hàng ôm nợ xấu"]
+    style NEO fill:#274a63,stroke:#5dade2,color:#e8f2f8
+    style THA fill:#5c4415,stroke:#f6b73c,color:#fdf3e0
+    style NO fill:#5a2530,stroke:#f05d5e,color:#fbe9ec
+    style VO fill:#5a2530,stroke:#f05d5e,color:#fbe9ec`,
+
+    're-afford': `flowchart TD
+    TN["Thu nhập ròng hàng tháng"] --> DTI{"Trừ các khoản<br/>nợ đang trả"}
+    DTI --> TRAN["Trần trả góp<br/>ngân hàng cho phép"]
+    TRAN --> V1["Vay được tối đa<br/>(theo thu nhập)"]
+    V1 --> G1["Giá nhà tối đa<br/>theo thu nhập"]
+    TM["Tiền mặt hiện có"] --> TRU{"Trừ quỹ<br/>dự phòng"}
+    TRU --> VON["Vốn dùng được"]
+    VON --> G2["Giá nhà tối đa<br/>theo vốn tự có"]
+    G1 --> MIN{"Lấy con số<br/>NHỎ HƠN"}
+    G2 --> MIN
+    MIN --> KQ["Giá nhà bạn mua được"]
+    style TRAN fill:#274a63,stroke:#5dade2,color:#e8f2f8
+    style VON fill:#274a63,stroke:#5dade2,color:#e8f2f8
+    style MIN fill:#5c4415,stroke:#f6b73c,color:#fdf3e0
+    style KQ fill:#1f4b3f,stroke:#48c774,color:#eaf6f0`,
+
+    're-minsky': `flowchart LR
+    P1["1. Cú hích<br/>Một thay đổi thật<br/>tạo cơ hội mới"] --> P2["2. Bùng nổ<br/>Giá tăng dựa trên<br/>nền tảng thật"]
+    P2 --> P3["3. Hưng phấn<br/>Giá rời nền tảng<br/>'lần này khác'"]
+    P3 --> P4["4. Chốt lời<br/>Người trong cuộc bán ra<br/>Thanh khoản giảm"]
+    P4 --> P5["5. Hoảng loạn<br/>Ai cũng muốn bán<br/>Không có người mua"]
+    P5 -.->|"đáy · tích lũy"| P1
+    style P1 fill:#1f4b3f,stroke:#48c774,color:#eaf6f0
+    style P2 fill:#274a63,stroke:#5dade2,color:#e8f2f8
+    style P3 fill:#5c4415,stroke:#f6b73c,color:#fdf3e0
+    style P4 fill:#4a3520,stroke:#c98a3a,color:#f7ead9
+    style P5 fill:#5a2530,stroke:#f05d5e,color:#fbe9ec`
 };

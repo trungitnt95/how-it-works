@@ -42,24 +42,37 @@
         {
             id: 'markets', icon: '🌏', label: 'Thị trường',
             groups: [
-                { title: '🇻🇳 Việt Nam', ids: ['vn-tong-quan', 'vn-phan-khuc', 'vn-sot-dat', 'vn-chinh-sach-tin-dung', 'vn-hn-hcm'] },
-                { title: '🇺🇸 Mỹ', ids: ['us-tong-quan'] },
+                { title: '🇻🇳 Việt Nam', ids: ['vn-tong-quan', 'vn-phan-khuc', 'vn-sot-dat', 'vn-chinh-sach-tin-dung', 'vn-hn-hcm', 'vn-nha-o-xa-hoi', 'vn-cho-thue', 'vn-cong-nghiep', 'vn-nghi-duong'] },
+                { title: '🇺🇸 Mỹ', ids: ['us-tong-quan', 'us-thue-zoning'] },
                 { title: '🇯🇵 Nhật Bản', ids: ['jp-tong-quan', 'jp-akiya'] },
-                { title: '🇨🇳 Trung Quốc', ids: ['cn-tong-quan'] },
+                { title: '🇨🇳 Trung Quốc', ids: ['cn-tong-quan', 'cn-ho-khau'] },
                 { title: '🇸🇬 Singapore', ids: ['sg-hdb', 'sg-absd'] },
-                { title: '🇩🇪 Đức', ids: ['de-thue-nha'] },
-                { title: '🇰🇷 Hàn Quốc', ids: ['kr-jeonse', 'kr-chinh-sach'] }
+                { title: '🇰🇷 Hàn Quốc', ids: ['kr-jeonse', 'kr-chinh-sach'] },
+                { title: '🇩🇪 Đức', ids: ['de-thue-nha', 'de-berlin'] },
+                { title: '🇬🇧 Anh', ids: ['uk-tong-quan'] },
+                { title: '🇦🇺 Úc', ids: ['au-tong-quan'] },
+                { title: '🇹🇭 Thái Lan', ids: ['th-tong-quan'] },
+                { title: '🇦🇪 UAE', ids: ['ae-tong-quan'] }
             ]
         },
         {
             id: 'cases', icon: '📉', label: 'Case study',
             groups: [
-                { title: 'Khủng hoảng kinh điển', ids: ['jp-bubble-1991', 'us-2008', 'cn-nha-xay-do'] },
-                { title: 'Việt Nam', ids: ['vn-2007-2013', 'vn-2021-2023'] },
-                { title: 'Bài học rút ra', ids: ['hk-nha-o', 'mau-hinh-chung', 'tu-danh-gia'] }
+                { title: 'Khủng hoảng kinh điển', ids: ['jp-bubble-1991', 'us-2008', 'us-sl-1980', 'se-1992'] },
+                { title: 'Bong bóng xây dựng', ids: ['es-2008', 'ie-2008', 'cn-nha-xay-do'] },
+                { title: 'Châu Á & Việt Nam', ids: ['th-1997', 'vn-2007-2013', 'vn-2021-2023'] },
+                { title: 'Trường hợp đặc biệt', ids: ['hk-nha-o', 'at-vienna', 'ar-lam-phat'] },
+                { title: 'Bài học rút ra', ids: ['mau-hinh-chung', 'tu-danh-gia'] }
             ]
         },
-        { id: 'tools', icon: '🧮', label: 'Công cụ', groups: [] }
+        {
+            id: 'tools', icon: '🧮', label: 'Công cụ',
+            groups: [
+                { title: 'Trước khi mua', ids: ['kha-nang-mua', 'tiet-kiem-mua-nha', 'thue-phi-gd'] },
+                { title: 'Khoản vay', ids: ['may-tinh-vay', 'so-sanh-vay', 'tra-truoc-han'] },
+                { title: 'Quyết định & đầu tư', ids: ['thue-vs-mua', 'roi-cho-thue', 'dinh-gia-thu-nhap'] }
+            ]
+        }
     ];
 
     const DEPTHS = [
@@ -99,10 +112,18 @@
         return TABS.find(t => t.id === id) || TABS[0];
     }
 
+    // Một mục trong sidebar hoặc trong "Liên quan" có thể là chủ điểm hoặc công cụ tính toán.
+    function lookup(id) {
+        if (allTopics[id]) return { icon: allTopics[id].icon, title: allTopics[id].title };
+        const tool = tools.find(t => t.id === id);
+        if (tool) return { icon: tool.icon, title: tool.title, isTool: true };
+        return null;
+    }
+
     function idsOfTab(tabId) {
         const tab = tabById(tabId);
         const ids = [];
-        tab.groups.forEach(g => g.ids.forEach(id => { if (allTopics[id]) ids.push(id); }));
+        tab.groups.forEach(g => g.ids.forEach(id => { if (lookup(id)) ids.push(id); }));
         return ids;
     }
 
@@ -112,22 +133,13 @@
                 if (g.ids.indexOf(topicId) !== -1) return tab.id;
             }
         }
-        if (tools.some(t => t.id === topicId)) return 'tools';
-        return null;
-    }
-
-    // Mục "Liên quan" có thể trỏ tới một chủ điểm hoặc một công cụ tính toán.
-    function lookup(id) {
-        if (allTopics[id]) return { icon: allTopics[id].icon, title: allTopics[id].title };
-        const tool = tools.find(t => t.id === id);
-        if (tool) return { icon: tool.icon, title: tool.title + ' (công cụ)' };
         return null;
     }
 
     // ----- Thanh tab -----
     function renderTabs() {
         el.tabBar.innerHTML = TABS.map(t => {
-            const count = t.id === 'tools' ? tools.length : idsOfTab(t.id).length;
+            const count = idsOfTab(t.id).length;
             return `<button class="re-tab${t.id === state.tab ? ' active' : ''}" data-tab="${t.id}">
                 <span class="re-tab-icon">${t.icon}</span>
                 <span class="re-tab-label">${t.label}</span>
@@ -144,30 +156,21 @@
         const tab = tabById(state.tab);
         const q = normalize(state.filter);
 
-        if (state.tab === 'tools') {
-            el.sidebar.innerHTML = `<div class="re-side-group"><h4>Công cụ tính toán</h4><ul>` +
-                tools.map(t => `<li><button class="re-side-item${t.id === state.topic ? ' active' : ''}" data-topic="${t.id}">
-                    <span class="re-side-icon">${t.icon}</span><span class="re-side-text">${t.title}</span></button></li>`).join('') +
+        let html = '';
+        let visible = 0;
+        tab.groups.forEach(group => {
+            const items = group.ids
+                .map(id => ({ id: id, ref: lookup(id) }))
+                .filter(x => x.ref)
+                .filter(x => !q || normalize(x.ref.title).indexOf(q) !== -1 || normalize(x.id).indexOf(q) !== -1);
+            if (!items.length) return;
+            visible += items.length;
+            html += `<div class="re-side-group"><h4>${group.title}</h4><ul>` +
+                items.map(x => `<li><button class="re-side-item${x.id === state.topic ? ' active' : ''}" data-topic="${x.id}">
+                    <span class="re-side-icon">${x.ref.icon}</span><span class="re-side-text">${x.ref.title}</span></button></li>`).join('') +
                 `</ul></div>`;
-        } else {
-            let html = '';
-            let visible = 0;
-            tab.groups.forEach(group => {
-                const items = group.ids
-                    .filter(id => allTopics[id])
-                    .filter(id => !q || normalize(allTopics[id].title).indexOf(q) !== -1 || normalize(id).indexOf(q) !== -1);
-                if (!items.length) return;
-                visible += items.length;
-                html += `<div class="re-side-group"><h4>${group.title}</h4><ul>` +
-                    items.map(id => {
-                        const c = allTopics[id];
-                        return `<li><button class="re-side-item${id === state.topic ? ' active' : ''}" data-topic="${id}">
-                            <span class="re-side-icon">${c.icon}</span><span class="re-side-text">${c.title}</span></button></li>`;
-                    }).join('') +
-                    `</ul></div>`;
-            });
-            el.sidebar.innerHTML = visible ? html : `<div class="re-side-empty">Không có chủ điểm nào khớp "${state.filter}"</div>`;
-        }
+        });
+        el.sidebar.innerHTML = visible ? html : `<div class="re-side-empty">Không có mục nào khớp "${state.filter}"</div>`;
 
         el.sidebar.querySelectorAll('.re-side-item').forEach(btn => {
             btn.addEventListener('click', () => selectTopic(btn.dataset.topic));
@@ -180,7 +183,7 @@
     }
 
     function renderContent() {
-        if (state.tab === 'tools') return renderTool();
+        if (tools.some(t => t.id === state.topic)) return renderTool();
 
         const topic = allTopics[state.topic];
         if (!topic) {
@@ -213,7 +216,7 @@
         const related = (topic.connections || []).map(id => ({ id: id, ref: lookup(id) })).filter(x => x.ref);
         const relatedHtml = related.length
             ? `<div class="re-related"><h4>📚 Liên quan</h4><div class="re-related-list">` +
-              related.map(x => `<button class="re-related-btn" data-topic="${x.id}">${x.ref.icon} ${x.ref.title}</button>`).join('') +
+              related.map(x => `<button class="re-related-btn" data-topic="${x.id}">${x.ref.icon} ${x.ref.title}${x.ref.isTool ? ' (công cụ)' : ''}</button>`).join('') +
               `</div></div>`
             : '';
 
@@ -256,12 +259,11 @@
     }
 
     function renderTool() {
-        const tool = tools.find(t => t.id === state.topic) || tools[0];
+        const tool = tools.find(t => t.id === state.topic);
         if (!tool) {
             el.content.innerHTML = `<div class="re-placeholder"><p>Không tải được công cụ.</p></div>`;
             return;
         }
-        state.topic = tool.id;
         el.content.innerHTML = `
             <article class="re-article">
                 <header class="re-article-head">
@@ -358,7 +360,7 @@
         if (!tabById(tabId)) return;
         state.tab = tabId;
         store(LS_TAB, tabId);
-        const ids = tabId === 'tools' ? tools.map(t => t.id) : idsOfTab(tabId);
+        const ids = idsOfTab(tabId);
         state.topic = ids.length ? ids[0] : null;
         state.filter = '';
         if (el.filter) el.filter.value = '';
@@ -392,8 +394,8 @@
         const topicId = m[2];
         if (!TABS.some(t => t.id === tabId)) return false;
         state.tab = tabId;
-        const valid = tabId === 'tools' ? tools.some(t => t.id === topicId) : !!allTopics[topicId];
-        const ids = tabId === 'tools' ? tools.map(t => t.id) : idsOfTab(tabId);
+        const valid = !!lookup(topicId) && tabOfTopic(topicId) === tabId;
+        const ids = idsOfTab(tabId);
         state.topic = valid ? topicId : (ids[0] || null);
         return true;
     }
@@ -420,7 +422,7 @@
             const savedTab = read(LS_TAB);
             if (savedTab && TABS.some(t => t.id === savedTab)) state.tab = savedTab;
             const savedTopic = read(LS_TOPIC);
-            const ids = state.tab === 'tools' ? tools.map(t => t.id) : idsOfTab(state.tab);
+            const ids = idsOfTab(state.tab);
             const savedBelongsHere = savedTopic && ids.indexOf(savedTopic) !== -1;
             state.topic = savedBelongsHere ? savedTopic : (ids[0] || null);
         }

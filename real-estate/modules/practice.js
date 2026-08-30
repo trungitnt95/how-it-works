@@ -286,7 +286,7 @@ Với lãi suất 11%/năm, kỳ hạn 20 năm, khoản trả góp 20,5 triệu/
 </ol>
 <p>Nếu kịch bản 3 làm bạn không thở được, bạn đang vay quá nhiều. Đây không phải bi quan — đây là điều các cơ quan quản lý ở nhiều nước <em>bắt buộc</em> ngân hàng phải làm khi thẩm định, chính vì nó dự báo tốt khả năng vỡ nợ.</p>
 <div class="tip-box"><strong>Vì sao ba kịch bản này quan trọng hơn ở Việt Nam:</strong> phần lớn khoản vay mua nhà tại Việt Nam là lãi suất thả nổi sau một giai đoạn ưu đãi ngắn. Nghĩa là kịch bản 2 và 3 không phải giả thuyết xa vời — chúng là điều gần như chắc chắn sẽ xảy ra trong vòng 1–2 năm sau khi bạn ký.</div>`,
-        diagram: null
+        diagram: 're-afford'
     },
 
     'lai-suat-tha-noi': {
