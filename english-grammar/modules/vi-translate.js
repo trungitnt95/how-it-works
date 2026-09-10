@@ -5537,5 +5537,1275 @@ const grammarViTranslateData = {
         "point": "quá khứ ý định 'wanted to ask' làm yêu cầu lịch sự, gián tiếp"
       }
     ]
+  },
+  "negation-patterns": {
+    "instruction": "Hãy chú ý chọn đúng cách phủ định: not...any hay no, các đại từ phủ định (never/nobody/nothing), hardly/scarcely, và tránh phủ định kép khi dịch.",
+    "items": [
+      {
+        "vi": "Tôi không có tiền.",
+        "en": "I don't have any money.",
+        "point": "phủ định trung tính 'not any' sau trợ động từ"
+      },
+      {
+        "vi": "Tôi chẳng có lấy một xu.",
+        "en": "I have no money.",
+        "point": "'no + N' phủ định mạnh hơn 'not any'"
+      },
+      {
+        "vi": "Không ai gọi cho tôi cả.",
+        "en": "Nobody called me.",
+        "point": "đại từ phủ định 'nobody' đi với động từ khẳng định"
+      },
+      {
+        "vi": "Tôi chưa từng thấy điều này trước đây.",
+        "en": "I have never seen this before.",
+        "point": "đại từ phủ định 'never' đi với động từ khẳng định"
+      },
+      {
+        "vi": "Cô ấy hầu như không bao giờ đi trễ.",
+        "en": "She hardly ever arrives late.",
+        "point": "'hardly ever' nghĩa là 'almost never'"
+      },
+      {
+        "vi": "Anh hầu như không biết gì về cô ấy, phải không?",
+        "en": "You hardly know her, do you?",
+        "point": "tag question dạng khẳng định 'do you' sau 'hardly'"
+      },
+      {
+        "vi": "Tôi không nghĩ cô ấy sẽ đến.",
+        "en": "I don't think she will come.",
+        "point": "transferred negation - chuyển phủ định lên động từ chính"
+      },
+      {
+        "vi": "Tôi tin rằng anh ấy sẽ không đồng ý.",
+        "en": "I believe he won't agree.",
+        "point": "phủ định ở mệnh đề phụ - đúng ngữ pháp nhưng ít tự nhiên hơn"
+      },
+      {
+        "vi": "Tôi không biết gì cả.",
+        "en": "I don't know anything.",
+        "point": "tránh phủ định kép - dùng 'anything' sau 'don't', không dùng 'nothing'"
+      }
+    ]
+  },
+  "information-flow": {
+    "instruction": "Khi dịch, hãy đặt phần thông tin dài/mới ở cuối câu bằng 'it', 'there' hoặc câu bị động thay vì để chủ ngữ quá dài đứng đầu câu (end-weight).",
+    "items": [
+      {
+        "vi": "Hiểu rõ những rủi ro của kế hoạch này là điều quan trọng.",
+        "en": "It is important to understand the risks of this plan.",
+        "point": "extraposition với 'it' đẩy cụm to-infinitive dài ra cuối"
+      },
+      {
+        "vi": "Thật bất ngờ là không ai phàn nàn cả.",
+        "en": "It was surprising that nobody complained.",
+        "point": "extraposition với 'it' đẩy mệnh đề 'that' ra cuối"
+      },
+      {
+        "vi": "Có nhiều lý do khiến kế hoạch này thất bại.",
+        "en": "There are several reasons why this plan fails.",
+        "point": "existential 'there' giới thiệu thông tin mới mượt hơn"
+      },
+      {
+        "vi": "Đề xuất đã bị ủy ban mà chúng tôi liên hệ trước đó bác bỏ.",
+        "en": "The proposal was rejected by the committee we had contacted earlier.",
+        "point": "dùng câu bị động để giữ đầu câu gọn, đẩy phần nặng ra sau"
+      },
+      {
+        "vi": "Có một vấn đề lớn mà chúng ta cần giải quyết ngay.",
+        "en": "There is a big problem that we need to solve right away.",
+        "point": "existential 'there' cho thông tin mới, chủ ngữ dài để sau"
+      },
+      {
+        "vi": "Đáng chú ý là có ba lý do chính đằng sau quyết định này.",
+        "en": "Notably, there are three main reasons behind this decision.",
+        "point": "mở đầu ngắn (cataphoric) rồi mới đưa phần nặng ra sau bằng 'there'"
+      },
+      {
+        "vi": "Việc thuyết phục toàn bộ hội đồng thay đổi quyết định gần như là không thể.",
+        "en": "It is almost impossible to persuade the whole board to change its decision.",
+        "point": "giữ chủ ngữ dài ở cuối câu bằng 'it' thay vì đưa lên đầu"
+      }
+    ]
+  },
+  "inversion-negative": {
+    "instruction": "Dịch các câu này sang tiếng Anh có đảo ngữ đúng khi trạng từ phủ định (Never, Hardly, No sooner, Not only, Only after, Little, Under no circumstances...) đứng đầu câu.",
+    "items": [
+      {
+        "vi": "Tôi chưa bao giờ thấy điều gì đẹp đến thế.",
+        "en": "Never have I seen anything so beautiful.",
+        "point": "đảo ngữ với 'Never' đứng đầu câu"
+      },
+      {
+        "vi": "Tôi hiếm khi ăn tối muộn như vậy.",
+        "en": "Rarely do I have dinner so late.",
+        "point": "đảo ngữ với 'Rarely' đứng đầu câu"
+      },
+      {
+        "vi": "Cô ấy hiếm khi phàn nàn về công việc.",
+        "en": "Seldom does she complain about her job.",
+        "point": "đảo ngữ với 'Seldom' đứng đầu câu"
+      },
+      {
+        "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo.",
+        "en": "Hardly had I sat down when the phone rang.",
+        "point": "đảo ngữ 'Hardly...when' + mệnh đề"
+      },
+      {
+        "vi": "Anh ấy vừa đến nơi thì cô ấy đã rời đi.",
+        "en": "No sooner had he arrived than she left.",
+        "point": "đảo ngữ 'No sooner...than' + mệnh đề"
+      },
+      {
+        "vi": "Anh ấy không những tốt bụng mà còn giàu có.",
+        "en": "Not only is he kind, but he is also rich.",
+        "point": "đảo ngữ với 'Not only', vế thứ hai không đảo"
+      },
+      {
+        "vi": "Mãi đến khi cô ấy rời đi, tôi mới nhận ra sự thật.",
+        "en": "Only after she left did I realize the truth.",
+        "point": "'Only after' + đảo ngữ ở mệnh đề chính"
+      },
+      {
+        "vi": "Tôi không hề biết rằng mình đã sai.",
+        "en": "Little did I know that I was wrong.",
+        "point": "đảo ngữ với 'Little did I know'"
+      },
+      {
+        "vi": "Trong bất kỳ trường hợp nào bạn cũng không được tiết lộ thông tin này.",
+        "en": "Under no circumstances should you reveal this information.",
+        "point": "đảo ngữ với 'Under no circumstances'"
+      },
+      {
+        "vi": "Chúng tôi không thể chấp nhận đề nghị này bằng bất cứ cách nào.",
+        "en": "In no way can we accept this proposal.",
+        "point": "đảo ngữ với 'In no way'"
+      },
+      {
+        "vi": "Chỉ khi đến muộn tôi mới hiểu tại sao mọi người lo lắng.",
+        "en": "Only when I arrived late did I understand why everyone was worried.",
+        "point": "'Only when' + đảo ngữ ở mệnh đề chính"
+      }
+    ]
+  },
+  "fronting": {
+    "instruction": "Đưa đúng thành phần (tân ngữ, bổ ngữ, trạng ngữ chỉ nơi chốn) lên đầu câu tiếng Anh, chú ý câu nào cần đảo ngữ và câu nào không.",
+    "items": [
+      {
+        "vi": "Cuốn sách đó, tôi đã đọc rồi.",
+        "en": "That book, I have already read.",
+        "point": "object fronting - không đảo ngữ"
+      },
+      {
+        "vi": "Ở góc phòng đứng một ông già.",
+        "en": "In the corner stood an old man.",
+        "point": "locative inversion - đảo ngữ với trạng ngữ chỉ nơi chốn"
+      },
+      {
+        "vi": "Cảnh đẹp đến nỗi chúng tôi đã ở lại.",
+        "en": "So beautiful was the view that we stayed.",
+        "point": "complement fronting 'So + adj + be' - có đảo ngữ"
+      },
+      {
+        "vi": "Phần này thì tôi không hiểu.",
+        "en": "This part, I don't understand.",
+        "point": "object fronting - không đảo ngữ"
+      },
+      {
+        "vi": "Trên tường treo một bức tranh.",
+        "en": "On the wall hung a painting.",
+        "point": "locative inversion với động từ 'hang'"
+      },
+      {
+        "vi": "Cô ấy mệt đến nỗi ngủ thiếp đi.",
+        "en": "So tired was she that she fell asleep.",
+        "point": "complement fronting nhấn mạnh mức độ"
+      },
+      {
+        "vi": "Danh tiếng của ông ấy lớn đến mức ai cũng biết.",
+        "en": "Such was his fame that everyone knew him.",
+        "point": "complement fronting với 'Such...that'"
+      },
+      {
+        "vi": "Điều này, tôi hoàn toàn đồng ý.",
+        "en": "This, I completely agree with.",
+        "point": "object fronting tạo mạch văn (textual cohesion)"
+      }
+    ]
+  },
+  "complex-inversion": {
+    "instruction": "Khi cụm từ chỉ nơi chốn/phương hướng đứng đầu câu, hãy đảo động từ lên trước chủ ngữ (nếu chủ ngữ là cụm danh từ đầy đủ) để tạo văn phong miêu tả tự nhiên.",
+    "items": [
+      {
+        "vi": "Người đàn ông mà chúng tôi đang đợi bước vào phòng.",
+        "en": "Into the room walked the man we had been waiting for.",
+        "point": "đảo ngữ với cụm hướng 'into' + động từ chuyển động"
+      },
+      {
+        "vi": "Chiếc xe đẩy lăn xuống đồi.",
+        "en": "Down the hill rolled the cart.",
+        "point": "đảo ngữ với cụm hướng 'down'"
+      },
+      {
+        "vi": "Một bức chân dung của ông nội cô ấy treo trên tường.",
+        "en": "On the wall hung a portrait of her grandfather.",
+        "point": "đảo ngữ với cụm nơi chốn 'on' + động từ tĩnh 'hang'"
+      },
+      {
+        "vi": "Một con mèo già nằm bên cạnh lò sưởi.",
+        "en": "By the fireplace lay an old cat.",
+        "point": "đảo ngữ với cụm nơi chốn + động từ tĩnh 'lie'"
+      },
+      {
+        "vi": "Một đám đông lớn đứng trước cổng.",
+        "en": "In front of the gate stood a large crowd.",
+        "point": "đảo ngữ khi chủ ngữ là cụm danh từ đầy đủ, không phải đại từ"
+      },
+      {
+        "vi": "Anh ấy bước vào phòng.",
+        "en": "He walked into the room.",
+        "point": "giữ trật tự thường (không đảo) khi chủ ngữ là đại từ ngắn"
+      },
+      {
+        "vi": "Từ trong rừng bước ra một con hươu.",
+        "en": "Out of the forest walked a deer.",
+        "point": "đảo ngữ với cụm hướng 'out of' + động từ chuyển động"
+      },
+      {
+        "vi": "Danh dự của gia tộc lớn đến nỗi không ai dám thách thức.",
+        "en": "Such was the family's honor that no one dared challenge it.",
+        "point": "complex inversion trang trọng với 'such...that'"
+      }
+    ]
+  },
+  "archaisms-modern-grammar": {
+    "instruction": "Dịch các câu này bằng đúng cụm cổ/trang trọng cố định (lest, be that as it may, come what may, so be it) đang được nhắc đến.",
+    "items": [
+      {
+        "vi": "Hãy cẩn thận kẻo bạn quên mất.",
+        "en": "Be careful lest you forget.",
+        "point": "'lest' + mệnh đề mang nghĩa 'để khỏi, kẻo'"
+      },
+      {
+        "vi": "Dù thế nào đi nữa, chúng ta vẫn phải tiếp tục.",
+        "en": "Be that as it may, we must continue.",
+        "point": "cụm nhượng bộ trang trọng 'be that as it may'"
+      },
+      {
+        "vi": "Dù chuyện gì xảy ra, tôi cũng sẽ hoàn thành nhiệm vụ.",
+        "en": "Come what may, I will finish the task.",
+        "point": "cụm cố định 'come what may'"
+      },
+      {
+        "vi": "Nếu đó là quyết định của anh, thì đành vậy.",
+        "en": "If that is your decision, so be it.",
+        "point": "cụm chấp nhận 'so be it'"
+      },
+      {
+        "vi": "Trong văn nói hàng ngày, người ta thường nói 'để khỏi bị trễ' thay vì dùng 'lest'.",
+        "en": "In everyday speech, people usually say 'so that they won't be late' instead of using 'lest'.",
+        "point": "thay 'lest' bằng 'so that...not' trong văn nói hiện đại"
+      },
+      {
+        "vi": "Anh ấy khóa cửa kẻo có kẻ trộm vào.",
+        "en": "He locked the door lest a thief should come in.",
+        "point": "'lest' đi cùng 'should' mang sắc thái trang trọng"
+      },
+      {
+        "vi": "Điều khoản pháp lý này được viết ra để tránh mọi tranh chấp trong tương lai.",
+        "en": "This legal clause was written lest any dispute arise in the future.",
+        "point": "'lest' dùng trong văn phong pháp lý trang trọng"
+      }
+    ]
+  },
+  "do-emphasis": {
+    "instruction": "Dùng do/does/did để nhấn mạnh khẳng định, đáp lại nghi ngờ, ra mệnh lệnh lịch sự hoặc tạo đối lập khi dịch sang tiếng Anh.",
+    "items": [
+      {
+        "vi": "\"Con không yêu mẹ đâu.\" \"Con CÓ yêu mẹ mà!\"",
+        "en": "\"You don't love me.\" \"I DO love you!\"",
+        "point": "emphatic 'do' đáp lại nghi ngờ"
+      },
+      {
+        "vi": "Xin mời vào!",
+        "en": "Do come in!",
+        "point": "'do' nhấn mạnh trong câu mệnh lệnh lịch sự"
+      },
+      {
+        "vi": "Làm ơn ngồi xuống đi!",
+        "en": "Do sit down!",
+        "point": "emphatic imperative với 'do'"
+      },
+      {
+        "vi": "Cô ấy hát không hay, nhưng nhảy thì thực sự đẹp.",
+        "en": "She doesn't sing well, but she does dance beautifully.",
+        "point": "'does' nhấn mạnh sự đối lập"
+      },
+      {
+        "vi": "Tôi thực sự tin rằng bạn đã nhầm.",
+        "en": "I do believe you are mistaken.",
+        "point": "'do' trong văn viết trang trọng, lịch sự hơn"
+      },
+      {
+        "vi": "Báo cáo thực sự nêu bật một số vấn đề.",
+        "en": "The report does highlight several issues.",
+        "point": "'does' nhấn mạnh trong văn phong học thuật"
+      },
+      {
+        "vi": "Hãy kể cho tôi nghe thêm đi.",
+        "en": "Do tell me more.",
+        "point": "emphatic 'do' trong câu mệnh lệnh"
+      }
+    ]
+  },
+  "causative-have-get": {
+    "instruction": "Chọn đúng cấu trúc nhờ vả/sai khiến (have/get + O + V, make, let, help) và thể bị động tương ứng khi dịch.",
+    "items": [
+      {
+        "vi": "Tôi đã nhờ John sửa xe cho tôi.",
+        "en": "I had John fix my car.",
+        "point": "'have + O + V nguyên mẫu' - nhờ ai đó làm"
+      },
+      {
+        "vi": "Tôi đã thuyết phục được anh ấy sửa nó.",
+        "en": "I got him to fix it.",
+        "point": "'get + O + to-V' - thuyết phục ai làm"
+      },
+      {
+        "vi": "Tôi vừa cắt tóc xong (nhờ thợ).",
+        "en": "I had my hair cut.",
+        "point": "'have + O + V3' - nhờ làm cho mình"
+      },
+      {
+        "vi": "Cô ấy đã bắt tôi khóc.",
+        "en": "She made me cry.",
+        "point": "'make + O + V nguyên mẫu' - bắt buộc"
+      },
+      {
+        "vi": "Hãy để tôi đi.",
+        "en": "Let me go.",
+        "point": "'let + O + V nguyên mẫu' - cho phép"
+      },
+      {
+        "vi": "Anh ấy đã giúp tôi hoàn thành bài tập.",
+        "en": "He helped me (to) finish the homework.",
+        "point": "'help + O + (to)-V'"
+      },
+      {
+        "vi": "Cô ấy đã bị bắt phải xin lỗi.",
+        "en": "She was made to apologize.",
+        "point": "thể bị động của 'make' cần thêm 'to'"
+      },
+      {
+        "vi": "Tôi đã nhờ thợ sửa xe của mình.",
+        "en": "I had my car repaired.",
+        "point": "'have + O + V3' nghĩa nhờ làm (chủ động nhờ vả)"
+      },
+      {
+        "vi": "Xe của tôi đã bị trộm mất.",
+        "en": "I had my car stolen.",
+        "point": "'have + O + V3' nghĩa bị tai nạn/mất mát"
+      },
+      {
+        "vi": "Ngày mai tôi sẽ đi cắt tóc.",
+        "en": "I'll get my hair cut tomorrow.",
+        "point": "'get + O + V3' ở thì tương lai, ít trang trọng hơn 'have'"
+      },
+      {
+        "vi": "Anh ấy không được phép rời khỏi phòng.",
+        "en": "He wasn't allowed to leave the room.",
+        "point": "'let' không có dạng bị động, dùng 'be allowed to'"
+      }
+    ]
+  },
+  "punctuation-deep": {
+    "instruction": "Dịch đúng nội dung và tái hiện đúng dấu câu tiếng Anh (dấu phẩy, chấm phẩy, hai chấm, gạch ngang) theo đúng quy tắc đang được kiểm tra.",
+    "items": [
+      {
+        "vi": "Tôi thích màu đỏ, trắng và xanh dương.",
+        "en": "I like red, white, and blue.",
+        "point": "dấu phẩy liệt kê 3 mục trở lên (Oxford comma)"
+      },
+      {
+        "vi": "Khi tôi đến nơi, mọi người đã ở đó rồi.",
+        "en": "When I arrived, everyone was already there.",
+        "point": "dấu phẩy sau mệnh đề trạng ngữ đứng đầu câu"
+      },
+      {
+        "vi": "Tôi đến, và tôi đã thấy điều đó.",
+        "en": "I came, and I saw it.",
+        "point": "dấu phẩy trước FANBOYS nối hai mệnh đề độc lập"
+      },
+      {
+        "vi": "Anh trai tôi, người sống ở New York, sắp về thăm nhà.",
+        "en": "My brother, who lives in New York, is coming home soon.",
+        "point": "dấu phẩy bao quanh mệnh đề quan hệ không xác định"
+      },
+      {
+        "vi": "Cuốn sách đó, tuy nhiên, lại rất hay.",
+        "en": "The book, however, was great.",
+        "point": "dấu phẩy chêm xen từ nối 'however'"
+      },
+      {
+        "vi": "Bill Gates, người sáng lập Microsoft, đã nói như vậy.",
+        "en": "Bill Gates, founder of Microsoft, said so.",
+        "point": "dấu phẩy quanh apposition không xác định"
+      },
+      {
+        "vi": "Tôi đến; tôi thấy; tôi chinh phục.",
+        "en": "I came; I saw; I conquered.",
+        "point": "dấu chấm phẩy nối các mệnh đề độc lập có liên quan"
+      },
+      {
+        "vi": "Tôi cần ba thứ: bút, giấy và mực.",
+        "en": "I need three things: a pen, paper, and ink.",
+        "point": "dấu hai chấm giới thiệu danh sách liệt kê"
+      },
+      {
+        "vi": "Cô ấy nói với tôi—và tôi đã tin cô ấy—rằng anh ta có tội.",
+        "en": "She told me—and I believed her—that he was guilty.",
+        "point": "dấu gạch ngang chêm xen mạnh"
+      },
+      {
+        "vi": "Tôi đến. Tôi thấy.",
+        "en": "I came. I saw.",
+        "point": "sửa lỗi run-on bằng cách tách thành hai câu riêng"
+      },
+      {
+        "vi": "Tuy nhiên, kế hoạch đã thay đổi.",
+        "en": "However, the plan has changed.",
+        "point": "dấu phẩy bắt buộc sau 'however' đứng đầu câu"
+      }
+    ]
+  },
+  "apostrophe-rules": {
+    "instruction": "Chú ý dùng dấu nháy đơn (') đúng chỗ cho sở hữu cách và viết tắt, không dùng cho số nhiều thường hoặc đại từ sở hữu.",
+    "items": [
+      {
+        "vi": "Cái đuôi của con chó.",
+        "en": "The dog's tail.",
+        "point": "sở hữu cách số ít + 's"
+      },
+      {
+        "vi": "Phòng của các cậu bé.",
+        "en": "The boys' room.",
+        "point": "sở hữu cách số nhiều đã có 's' chỉ thêm dấu nháy"
+      },
+      {
+        "vi": "Đồ chơi của bọn trẻ.",
+        "en": "The children's toys.",
+        "point": "sở hữu cách số nhiều bất quy tắc + 's"
+      },
+      {
+        "vi": "Cuốn sách của James.",
+        "en": "James's book.",
+        "point": "sở hữu cách với tên riêng kết thúc bằng 's'"
+      },
+      {
+        "vi": "Ngôi nhà chung của John và Mary.",
+        "en": "John and Mary's house.",
+        "point": "sở hữu chung - chỉ thêm 's' ở tên cuối"
+      },
+      {
+        "vi": "Hai ngôi nhà riêng, một của John và một của Mary.",
+        "en": "John's and Mary's houses.",
+        "point": "sở hữu riêng - mỗi tên đều thêm 's'"
+      },
+      {
+        "vi": "Xe của nó bị hỏng rồi.",
+        "en": "Its car is broken.",
+        "point": "'its' sở hữu không dùng dấu nháy, tránh nhầm với 'it's'"
+      },
+      {
+        "vi": "Đây là cuốn sách của ai?",
+        "en": "Whose book is this?",
+        "point": "phân biệt 'whose' (sở hữu) với 'who's' (who is)"
+      },
+      {
+        "vi": "Cuốn sách này là của cô ấy.",
+        "en": "This book is hers.",
+        "point": "đại từ sở hữu 'hers' không có dấu nháy"
+      },
+      {
+        "vi": "Táo giá 1 đô la một quả.",
+        "en": "Apples are $1 each.",
+        "point": "không dùng dấu nháy cho danh từ số nhiều thường"
+      },
+      {
+        "vi": "Anh ấy đã đến rồi.",
+        "en": "He's already arrived.",
+        "point": "''s' viết tắt của 'has' theo ngữ cảnh, không phải 'is'"
+      }
+    ]
+  },
+  "capitalization-rules": {
+    "instruction": "Viết hoa đúng những từ cần viết hoa (đầu câu, tên riêng, ngày tháng, quốc tịch...) và không viết hoa những từ chung chung (mùa, hướng, môn học...).",
+    "items": [
+      {
+        "vi": "Tôi thích đọc sách vào mùa đông.",
+        "en": "I like reading books in winter.",
+        "point": "không viết hoa tên mùa ('winter')"
+      },
+      {
+        "vi": "Cô ấy nói: \"Tôi sẽ đến vào ngày mai.\"",
+        "en": "She said, \"I will come tomorrow.\"",
+        "point": "viết hoa chữ đầu câu trích dẫn trực tiếp"
+      },
+      {
+        "vi": "Tôi là người Việt Nam và tôi nói tiếng Anh khá tốt.",
+        "en": "I am Vietnamese, and I speak English quite well.",
+        "point": "viết hoa quốc tịch và tên ngôn ngữ"
+      },
+      {
+        "vi": "Chúng tôi sẽ gặp nhau vào thứ Hai, ngày đầu tháng Giêng.",
+        "en": "We will meet on Monday, the first day of January.",
+        "point": "viết hoa tên ngày trong tuần và tên tháng"
+      },
+      {
+        "vi": "Tổng thống Biden sẽ phát biểu vào chiều nay.",
+        "en": "President Biden will speak this afternoon.",
+        "point": "viết hoa chức danh khi đứng trước tên riêng"
+      },
+      {
+        "vi": "Vị tổng thống sẽ phát biểu vào chiều nay.",
+        "en": "The president will speak this afternoon.",
+        "point": "không viết hoa chức danh khi dùng chung chung"
+      },
+      {
+        "vi": "Tôi giỏi môn toán nhưng yếu môn tiếng Pháp.",
+        "en": "I am good at math but weak in French.",
+        "point": "không viết hoa môn học chung, viết hoa tên ngôn ngữ"
+      },
+      {
+        "vi": "Chúng tôi đang lái xe về phía nam.",
+        "en": "We are driving south.",
+        "point": "không viết hoa hướng khi chỉ phương hướng chung"
+      },
+      {
+        "vi": "Cuốn tiểu thuyết 'Chúa tể những chiếc nhẫn' rất nổi tiếng.",
+        "en": "The novel 'The Lord of the Rings' is very famous.",
+        "point": "viết hoa từ chính theo Title Case, không viết hoa 'of the'"
+      },
+      {
+        "vi": "Cô Lan làm việc ở công ty Apple.",
+        "en": "Ms. Lan works at Apple.",
+        "point": "viết hoa tên riêng của công ty/thương hiệu"
+      },
+      {
+        "vi": "Miền Nam nước Mỹ nổi tiếng với ẩm thực đặc trưng.",
+        "en": "The South is known for its distinctive cuisine.",
+        "point": "viết hoa hướng khi chỉ một vùng miền cụ thể"
+      }
+    ]
+  },
+  "numbers-dates": {
+    "instruction": "Viết đúng định dạng số đếm, số thứ tự, phân số, thập phân, phần trăm, ngày tháng và tuổi bằng tiếng Anh chuẩn.",
+    "items": [
+      {
+        "vi": "Tôi có hai mươi mốt quyển sách.",
+        "en": "I have twenty-one books.",
+        "point": "viết số đếm (cardinal) dạng chữ"
+      },
+      {
+        "vi": "Đây là lần thứ ba tôi đến đây.",
+        "en": "This is the third time I have come here.",
+        "point": "số thứ tự (ordinal) 'third'"
+      },
+      {
+        "vi": "Tôi đã ăn hết một nửa chiếc bánh.",
+        "en": "I ate half of the cake.",
+        "point": "cách diễn đạt phân số 'a half'"
+      },
+      {
+        "vi": "Ba phần tư số học sinh đã đồng ý.",
+        "en": "Three-quarters of the students agreed.",
+        "point": "cách viết phân số 'three-quarters'"
+      },
+      {
+        "vi": "Nhiệt độ hôm nay là ba phẩy mười bốn độ.",
+        "en": "Today's temperature is three point one four degrees.",
+        "point": "đọc số thập phân bằng 'point', không phải 'comma'"
+      },
+      {
+        "vi": "Chỉ có hai mươi lăm phần trăm là đúng.",
+        "en": "Only twenty-five percent is correct.",
+        "point": "cách nói phần trăm 'percent'"
+      },
+      {
+        "vi": "Cuộc họp diễn ra vào ngày 5 tháng 5 năm 2024.",
+        "en": "The meeting took place on May 5th, 2024.",
+        "point": "định dạng ngày tháng kiểu Anh-Mỹ (tháng trước ngày)"
+      },
+      {
+        "vi": "Anh ấy sinh năm 1999.",
+        "en": "He was born in 1999.",
+        "point": "cách viết/đọc năm dạng 'nineteen ninety-nine'"
+      },
+      {
+        "vi": "Nhạc thập niên 90 vẫn còn rất phổ biến.",
+        "en": "Music from the '90s is still very popular.",
+        "point": "cách viết thập kỷ rút gọn ''90s'"
+      },
+      {
+        "vi": "Cuộc họp bắt đầu lúc bảy giờ rưỡi.",
+        "en": "The meeting starts at half past seven.",
+        "point": "cách nói giờ 'half past'"
+      },
+      {
+        "vi": "Cô ấy đang ở độ tuổi hai mươi mấy.",
+        "en": "She is in her twenties.",
+        "point": "cách diễn đạt độ tuổi bằng số nhiều thập kỷ"
+      },
+      {
+        "vi": "Đó là một đứa bé năm tuổi.",
+        "en": "That is a five-year-old child.",
+        "point": "tính từ ghép chỉ tuổi không thêm 's'"
+      }
+    ]
+  },
+  "fragments-runons": {
+    "instruction": "Dịch thành câu tiếng Anh hoàn chỉnh, nối hai mệnh đề độc lập đúng cách (dấu chấm, dấu chấm phẩy, FANBOYS, hoặc mệnh đề phụ thuộc) để tránh run-on/comma splice.",
+    "items": [
+      {
+        "vi": "Tôi đã đến. Tôi đã thấy.",
+        "en": "I came. I saw.",
+        "point": "tách hai mệnh đề độc lập bằng dấu chấm (tránh run-on)"
+      },
+      {
+        "vi": "Tôi đến và tôi đã thấy điều đó.",
+        "en": "I came, and I saw it.",
+        "point": "nối hai mệnh đề độc lập bằng FANBOYS + dấu phẩy"
+      },
+      {
+        "vi": "Tôi đến; tôi đã thấy điều đó.",
+        "en": "I came; I saw it.",
+        "point": "nối hai mệnh đề độc lập bằng dấu chấm phẩy"
+      },
+      {
+        "vi": "Khi tôi đến, tôi đã thấy điều đó.",
+        "en": "When I came, I saw it.",
+        "point": "đổi một mệnh đề thành mệnh đề phụ thuộc để tránh comma splice"
+      },
+      {
+        "vi": "Dịch vụ tốt nhất. Giá thấp nhất. Ở khắp mọi nơi.",
+        "en": "Best service. Lowest price. Anywhere.",
+        "point": "fragment có chủ ý trong văn quảng cáo để tạo nhịp"
+      },
+      {
+        "vi": "Trời mưa to, nhưng chúng tôi vẫn tiếp tục ra ngoài.",
+        "en": "It was raining heavily, but we still went outside.",
+        "point": "nối bằng FANBOYS 'but' để tránh comma splice"
+      },
+      {
+        "vi": "Tôi không đến kịp giờ vì tắc đường.",
+        "en": "I didn't arrive on time because there was a traffic jam.",
+        "point": "dùng mệnh đề phụ thuộc 'because' để tránh run-on"
+      },
+      {
+        "vi": "Cô ấy đang đi bộ trên phố thì trời bắt đầu mưa.",
+        "en": "She was walking down the street when it started to rain.",
+        "point": "câu hoàn chỉnh có đủ chủ ngữ và động từ, tránh fragment"
+      }
+    ]
+  },
+  "determiner-system": {
+    "instruction": "Sắp xếp đúng thứ tự pre-determiner, central determiner và post-determiner trước danh từ khi dịch.",
+    "items": [
+      {
+        "vi": "Tất cả những người bạn cũ của tôi đều đã đến.",
+        "en": "All my old friends came.",
+        "point": "pre-determiner 'all' + central determiner 'my'"
+      },
+      {
+        "vi": "Cả hai lựa chọn đó đều không ổn.",
+        "en": "Both those options are not good.",
+        "point": "pre-determiner 'both' + central determiner 'those'"
+      },
+      {
+        "vi": "Đó là một câu hỏi khó đến vậy.",
+        "en": "It was such a difficult question.",
+        "point": "pre-determiner 'such' + mạo từ 'a'"
+      },
+      {
+        "vi": "Câu hỏi khó đến mức tôi không trả lời được.",
+        "en": "It was so difficult a question that I couldn't answer it.",
+        "point": "cấu trúc trang trọng 'so + adj + a + N'"
+      },
+      {
+        "vi": "Sách có thể thay đổi cuộc đời.",
+        "en": "Books can change lives.",
+        "point": "zero determiner mang nghĩa khái quát (generic)"
+      },
+      {
+        "vi": "Những quyển sách trên bàn là của tôi.",
+        "en": "The books on the table are mine.",
+        "point": "'the' chỉ vật cụ thể, đã xác định"
+      },
+      {
+        "vi": "Chúng tôi mất cả nửa ổ bánh mì rồi.",
+        "en": "We lost half a loaf of bread.",
+        "point": "pre-determiner 'half' + central determiner 'a'"
+      },
+      {
+        "vi": "Cả hai câu trả lời đều đúng.",
+        "en": "Both the answers are correct.",
+        "point": "pre-determiner 'both' + central determiner 'the'"
+      },
+      {
+        "vi": "Mỗi học sinh phải tự nộp bài của mình.",
+        "en": "Each student must submit their own paper.",
+        "point": "'each' nhìn từng cá thể riêng lẻ"
+      },
+      {
+        "vi": "Mọi học sinh đều phải tuân theo quy định.",
+        "en": "Every student must follow the rules.",
+        "point": "'every' nhìn cả tập hợp như một chuỗi"
+      },
+      {
+        "vi": "Chúng tôi đã dành hết cả thời gian vào việc đó.",
+        "en": "We spent all the time on that.",
+        "point": "pre-determiner + central determiner 'all the time'"
+      }
+    ]
+  },
+  "advanced-article-system": {
+    "instruction": "Chọn đúng mạo từ (a/an, the, hoặc zero article) theo đúng sắc thái nghĩa (đại diện, khái quát, đã xác định, thể chế...) khi dịch.",
+    "items": [
+      {
+        "vi": "Hổ là loài động vật nguy hiểm (nói theo kiểu một con hổ bất kỳ, đại diện cho loài).",
+        "en": "A tiger is a dangerous animal.",
+        "point": "'a' chỉ một ví dụ đại diện cho cả loài"
+      },
+      {
+        "vi": "Loài hổ, xét về mặt khoa học, là loài động vật nguy hiểm.",
+        "en": "The tiger is a dangerous animal.",
+        "point": "'the' + danh từ số ít chỉ cả loài theo cách khái quát khoa học"
+      },
+      {
+        "vi": "Hổ nói chung là loài nguy hiểm.",
+        "en": "Tigers are dangerous animals.",
+        "point": "khái quát bằng danh từ số nhiều, không mạo từ"
+      },
+      {
+        "vi": "Tôi nhìn thấy một con chó.",
+        "en": "I saw a dog.",
+        "point": "'a' dùng cho lần đề cập đầu tiên"
+      },
+      {
+        "vi": "Con chó đó bị ướt.",
+        "en": "The dog was wet.",
+        "point": "'the' dùng cho lần đề cập thứ hai (đã xác định)"
+      },
+      {
+        "vi": "Mặt trời rất sáng hôm nay.",
+        "en": "The sun is very bright today.",
+        "point": "'the' cho vật duy nhất trong ngữ cảnh"
+      },
+      {
+        "vi": "Con tôi đang đi học.",
+        "en": "My child goes to school.",
+        "point": "mạo từ zero cho địa điểm mang tính thể chế (institutional)"
+      },
+      {
+        "vi": "Cuộc sống thật ngắn ngủi.",
+        "en": "Life is short.",
+        "point": "danh từ trừu tượng không mạo từ mang nghĩa khái quát"
+      },
+      {
+        "vi": "Cuộc đời mà ông ấy đã sống thật khó khăn.",
+        "en": "The life he led was difficult.",
+        "point": "'the' cho trường hợp cụ thể của danh từ trừu tượng"
+      },
+      {
+        "vi": "Hà Lan là một đất nước xinh đẹp.",
+        "en": "The Netherlands is a beautiful country.",
+        "point": "mạo từ 'the' bắt buộc với một số tên địa lý"
+      },
+      {
+        "vi": "Pháp là một đất nước xinh đẹp.",
+        "en": "France is a beautiful country.",
+        "point": "không dùng mạo từ với hầu hết tên quốc gia"
+      },
+      {
+        "vi": "Công lý là điều quan trọng.",
+        "en": "Justice matters.",
+        "point": "zero article cho danh từ trừu tượng mang nghĩa khái quát"
+      }
+    ]
+  },
+  "noun-phrase-architecture": {
+    "instruction": "Xây dựng cụm danh từ tiếng Anh đầy đủ các tầng determiner, premodifier, head noun và postmodifier phù hợp.",
+    "items": [
+      {
+        "vi": "Hiệp định thương mại quốc tế gần đây giữa hai quốc gia.",
+        "en": "The recent international trade agreement between the two states.",
+        "point": "cụm danh từ đầy đủ determiner + premodifier + head + postmodifier"
+      },
+      {
+        "vi": "Đây là một vấn đề đạo đức phức tạp.",
+        "en": "This is a complex ethical issue.",
+        "point": "premodifier (tính từ) đứng trước head noun"
+      },
+      {
+        "vi": "Cuộc tranh luận về chính sách ngôn ngữ.",
+        "en": "The language policy debate.",
+        "point": "noun classifier - danh từ bổ nghĩa cho danh từ (noun+noun)"
+      },
+      {
+        "vi": "Người đàn ông mặc áo khoác xanh.",
+        "en": "The man in the blue coat.",
+        "point": "postmodifier là cụm giới từ"
+      },
+      {
+        "vi": "Cuốn sách đã thay đổi suy nghĩ của tôi.",
+        "en": "The book that changed my mind.",
+        "point": "postmodifier là mệnh đề quan hệ"
+      },
+      {
+        "vi": "Những sinh viên muốn nộp đơn.",
+        "en": "Students wishing to apply.",
+        "point": "postmodifier là mệnh đề không hữu hạn (non-finite clause)"
+      },
+      {
+        "vi": "Quyết định rời đi của cô ấy khiến mọi người bất ngờ.",
+        "en": "Her decision to leave surprised everyone.",
+        "point": "complement hoàn chỉnh nghĩa cho noun ('decision to leave')"
+      },
+      {
+        "vi": "Bản báo cáo bị rò rỉ hôm qua đã gây tranh cãi.",
+        "en": "The report that was leaked yesterday caused controversy.",
+        "point": "postmodifier là mệnh đề quan hệ bị động"
+      },
+      {
+        "vi": "Thay vì dồn quá nhiều tính từ lên trước danh từ, ta nên đưa phần giải thích ra sau.",
+        "en": "Instead of piling too many adjectives before the noun, we should move the explanation after it.",
+        "point": "cân bằng premodification và postmodification"
+      }
+    ]
+  },
+  "adverb-placement-focus": {
+    "instruction": "Đặt trạng từ đúng vị trí (đầu, giữa, cuối câu) để tạo đúng trọng tâm (focus) mà câu tiếng Việt muốn nhấn mạnh.",
+    "items": [
+      {
+        "vi": "Thành thật mà nói, tôi không đồng ý.",
+        "en": "Frankly, I disagree.",
+        "point": "trạng từ mở đầu câu (front position) thể hiện quan điểm"
+      },
+      {
+        "vi": "Cô ấy thường xuyên quên việc.",
+        "en": "She often forgets.",
+        "point": "trạng từ tần suất ở vị trí giữa câu, trước động từ thường"
+      },
+      {
+        "vi": "Anh ấy đã rời đi rồi.",
+        "en": "He has already left.",
+        "point": "trạng từ đứng sau trợ động từ đầu tiên (mid position)"
+      },
+      {
+        "vi": "Cô ấy có lẽ đã sẵn sàng.",
+        "en": "She is probably ready.",
+        "point": "trạng từ đứng sau động từ 'be'"
+      },
+      {
+        "vi": "Cô ấy nói chuyện nhẹ nhàng trong hành lang hôm qua.",
+        "en": "She spoke quietly in the hallway yesterday.",
+        "point": "trạng từ cách thức, nơi chốn, thời gian ở cuối câu (end position)"
+      },
+      {
+        "vi": "Chỉ có John là đã xin lỗi.",
+        "en": "Only John apologized.",
+        "point": "'only' đứng trước danh từ được giới hạn, thay đổi trọng tâm câu"
+      },
+      {
+        "vi": "John chỉ xin lỗi thôi, chứ không làm gì khác.",
+        "en": "John only apologized.",
+        "point": "'only' đứng trước động từ, giới hạn hành động"
+      },
+      {
+        "vi": "John chỉ xin lỗi sau cuộc họp mà thôi.",
+        "en": "John apologized only after the meeting.",
+        "point": "'only' giới hạn cụm trạng ngữ thời gian"
+      },
+      {
+        "vi": "Ngay cả John cũng đã đỗ.",
+        "en": "Even John passed.",
+        "point": "'even' đưa yếu tố bất ngờ vào trọng tâm câu"
+      },
+      {
+        "vi": "Tôi suýt nữa đã kể cho tất cả mọi người.",
+        "en": "I almost told everyone.",
+        "point": "'almost' đứng trước động từ, khác nghĩa với đứng trước tân ngữ"
+      }
+    ]
+  },
+  "advanced-adverbial-clauses": {
+    "instruction": "Dùng đúng liên từ trạng ngữ nâng cao (much as, provided that, insofar as, as if, the moment, now that...) phù hợp với sắc thái câu tiếng Việt.",
+    "items": [
+      {
+        "vi": "Dù rất ngưỡng mộ cô ấy, tôi vẫn không thể đồng ý.",
+        "en": "Much as I admire her, I cannot agree.",
+        "point": "mệnh đề nhượng bộ trang trọng 'much as'"
+      },
+      {
+        "vi": "Chúng tôi sẽ ủng hộ kế hoạch với điều kiện ngân sách được sửa lại.",
+        "en": "We will support the plan provided that the budget is revised.",
+        "point": "mệnh đề điều kiện 'provided that'"
+      },
+      {
+        "vi": "Bạn có thể ở lại miễn là bạn giữ yên lặng.",
+        "en": "You may stay as long as you keep quiet.",
+        "point": "mệnh đề điều kiện 'as long as'"
+      },
+      {
+        "vi": "Trong chừng mực dữ liệu đáng tin cậy, lập luận này vẫn đứng vững.",
+        "en": "Insofar as the data are reliable, the claim stands.",
+        "point": "mệnh đề chỉ mức độ 'insofar as'"
+      },
+      {
+        "vi": "Dù trời mưa, chúng tôi vẫn đi picnic.",
+        "en": "Although it was raining, we still went on the picnic.",
+        "point": "mệnh đề nhượng bộ cơ bản 'although'"
+      },
+      {
+        "vi": "Cô ấy cư xử như thể chẳng có chuyện gì xảy ra.",
+        "en": "She behaved as if nothing had happened.",
+        "point": "mệnh đề cách thức/so sánh giả định 'as if'"
+      },
+      {
+        "vi": "Ngay khi cô ấy đến, chúng ta sẽ bắt đầu.",
+        "en": "The moment she arrives, we will begin.",
+        "point": "mệnh đề thời gian nâng cao 'the moment'"
+      },
+      {
+        "vi": "Giờ đây mọi người đã biết sự thật, mọi chuyện sẽ khác.",
+        "en": "Now that everyone knows the truth, things will be different.",
+        "point": "mệnh đề thời gian/nguyên nhân 'now that'"
+      },
+      {
+        "vi": "Khi còn nghi ngờ, cứ hỏi.",
+        "en": "When in doubt, ask.",
+        "point": "rút gọn mệnh đề trạng ngữ thành cụm khi chủ ngữ trùng"
+      },
+      {
+        "vi": "Trong khi anh trai tôi thích thể thao, tôi lại thích đọc sách.",
+        "en": "Whereas my brother likes sports, I like reading.",
+        "point": "mệnh đề đối chiếu 'whereas'"
+      }
+    ]
+  },
+  "noun-complement-clauses": {
+    "instruction": "Dùng đúng loại mệnh đề bổ nghĩa cho danh từ trừu tượng (that-clause, whether-clause, to-infinitive, of + V-ing) và phân biệt với mệnh đề quan hệ.",
+    "items": [
+      {
+        "vi": "Ý tưởng rằng ngữ pháp định hình tư duy thật thú vị.",
+        "en": "The idea that grammar shapes thought is fascinating.",
+        "point": "noun complement clause 'that' bổ sung cho danh từ trừu tượng 'idea'"
+      },
+      {
+        "vi": "Quyết định hoãn buổi ra mắt đã gây bất ngờ.",
+        "en": "The decision to postpone the launch was surprising.",
+        "point": "noun complement dạng to-infinitive sau 'decision'"
+      },
+      {
+        "vi": "Câu hỏi liệu điều này có hợp pháp hay không vẫn còn bỏ ngỏ.",
+        "en": "The question whether this is legal remains open.",
+        "point": "noun complement dạng 'whether-clause' sau 'question'"
+      },
+      {
+        "vi": "Khả năng bị phớt lờ khiến cô ấy lo lắng.",
+        "en": "The possibility of being ignored worried her.",
+        "point": "noun complement dạng 'of + V-ing' sau 'possibility'"
+      },
+      {
+        "vi": "Lời buộc tội rằng dữ liệu đã bị thao túng đã gây chấn động.",
+        "en": "The claim that the data were manipulated caused a stir.",
+        "point": "noun complement 'that' bổ sung nội dung cho 'claim'"
+      },
+      {
+        "vi": "Lời tuyên bố khiến mọi người sốc đã bị rút lại.",
+        "en": "The claim that shocked everyone was withdrawn.",
+        "point": "mệnh đề quan hệ 'that' mô tả 'claim' - khác với noun complement"
+      },
+      {
+        "vi": "Xu hướng trì hoãn công việc là vấn đề phổ biến.",
+        "en": "The tendency to procrastinate is a common problem.",
+        "point": "noun complement dạng to-infinitive sau 'tendency'"
+      },
+      {
+        "vi": "Giả định rằng thị trường sẽ phục hồi là quá lạc quan.",
+        "en": "The assumption that the market will recover is too optimistic.",
+        "point": "noun complement 'that' sau 'assumption'"
+      }
+    ]
+  },
+  "advanced-relative-clauses": {
+    "instruction": "Dùng đúng dạng mệnh đề quan hệ nâng cao (giới từ + which/whom, quantifier + of whom/which, sentential relative, rút gọn, whose cho vật) khi dịch.",
+    "items": [
+      {
+        "vi": "Công ty mà cô ấy làm việc cho rất nổi tiếng.",
+        "en": "The company for which she works is very well-known.",
+        "point": "giới từ + đại từ quan hệ (trang trọng) 'for which'"
+      },
+      {
+        "vi": "Các sinh viên, nhiều người trong số đó đã kiệt sức, đã về sớm.",
+        "en": "The students, many of whom were exhausted, left early.",
+        "point": "lượng từ + 'of whom'"
+      },
+      {
+        "vi": "Anh ấy đưa ra năm đề xuất, không cái nào trong số đó được chấp nhận.",
+        "en": "He submitted five proposals, none of which was accepted.",
+        "point": "lượng từ + 'of which'"
+      },
+      {
+        "vi": "Anh ấy đã từ chức, điều đó khiến mọi người bất ngờ.",
+        "en": "He resigned, which surprised everyone.",
+        "point": "sentential relative 'which' chỉ cả mệnh đề trước"
+      },
+      {
+        "vi": "Những sinh viên nộp đơn muộn sẽ không được xét.",
+        "en": "Students applying late will not be considered.",
+        "point": "rút gọn mệnh đề quan hệ chủ động (reduced relative)"
+      },
+      {
+        "vi": "Các tài liệu được nộp hôm qua đã bị thất lạc.",
+        "en": "The documents submitted yesterday were lost.",
+        "point": "rút gọn mệnh đề quan hệ bị động (reduced relative)"
+      },
+      {
+        "vi": "Một công ty mà danh tiếng của nó bị tổn hại sẽ khó lấy lại niềm tin.",
+        "en": "A company whose reputation was damaged will find it hard to regain trust.",
+        "point": "'whose' dùng cho vật, không chỉ cho người"
+      },
+      {
+        "vi": "Anh trai tôi, người hiện đang sống ở New York, sẽ về thăm.",
+        "en": "My brother, who currently lives in New York, will come to visit.",
+        "point": "mệnh đề quan hệ không xác định (non-restrictive), không dùng 'that'"
+      },
+      {
+        "vi": "Cuốn sách mà tôi đang đọc rất thú vị.",
+        "en": "The book that I am reading is very interesting.",
+        "point": "mệnh đề quan hệ xác định (restrictive) dùng 'that'"
+      }
+    ]
+  },
+  "verb-complementation": {
+    "instruction": "Chọn đúng dạng bổ ngữ sau động từ (to-V, V-ing, bare V, that-clause, O + V...) — nhất là với các cặp động từ đổi nghĩa theo dạng bổ ngữ.",
+    "items": [
+      {
+        "vi": "Cô ấy đã hứa sẽ giúp đỡ.",
+        "en": "She promised to help.",
+        "point": "control verb + to-infinitive"
+      },
+      {
+        "vi": "Dường như anh ấy biết câu trả lời.",
+        "en": "He seems to know the answer.",
+        "point": "raising verb 'seem' + to-infinitive"
+      },
+      {
+        "vi": "Chúng tôi đã thuyết phục anh ấy ở lại.",
+        "en": "We persuaded him to stay.",
+        "point": "object control verb + object + to-infinitive"
+      },
+      {
+        "vi": "Chúng tôi thấy anh ta băng qua đường.",
+        "en": "We saw him cross the street.",
+        "point": "động từ tri giác + tân ngữ + động từ nguyên mẫu không 'to'"
+      },
+      {
+        "vi": "Tôi đã nhờ sửa lại nó cho mình.",
+        "en": "I had it repaired.",
+        "point": "causative + V3"
+      },
+      {
+        "vi": "Cô ấy thừa nhận rằng mình đã sai.",
+        "en": "She admitted that she was wrong.",
+        "point": "động từ chỉ nhận mệnh đề 'that', không nhận to-infinitive"
+      },
+      {
+        "vi": "Hãy nhớ khóa cửa trước khi đi.",
+        "en": "Remember to lock the door before you leave.",
+        "point": "'remember to do' - nhớ để làm (việc chưa xảy ra)"
+      },
+      {
+        "vi": "Tôi nhớ đã khóa cửa rồi.",
+        "en": "I remember locking the door.",
+        "point": "'remember doing' - nhớ đã làm (việc đã xảy ra)"
+      },
+      {
+        "vi": "Anh ấy dừng lại để hút thuốc.",
+        "en": "He stopped to smoke.",
+        "point": "'stop to do' - dừng việc đang làm để làm việc khác"
+      },
+      {
+        "vi": "Anh ấy đã bỏ hút thuốc.",
+        "en": "He stopped smoking.",
+        "point": "'stop doing' - ngừng hẳn việc đang làm"
+      },
+      {
+        "vi": "Cô ấy đề nghị chúng ta nên đi ngay.",
+        "en": "She suggested that we go right away.",
+        "point": "'suggest' + mệnh đề 'that', không dùng to-infinitive"
+      },
+      {
+        "vi": "Cô ấy đề nghị đi ngay.",
+        "en": "She suggested going right away.",
+        "point": "'suggest' + V-ing"
+      }
+    ]
+  },
+  "clause-system": {
+    "instruction": "Dịch câu bằng đúng loại mệnh đề (hữu hạn, không hữu hạn, không động từ, danh từ, quan hệ, trạng ngữ) phù hợp với vai trò của nó trong câu.",
+    "items": [
+      {
+        "vi": "Vì anh ấy mệt nên anh ấy đã về sớm.",
+        "en": "Because he was tired, he went home early.",
+        "point": "mệnh đề hữu hạn (finite clause) chỉ nguyên nhân"
+      },
+      {
+        "vi": "Để hoàn thành đúng giờ, cô ấy đã làm việc suốt đêm.",
+        "en": "To finish on time, she worked all night.",
+        "point": "mệnh đề không hữu hạn (non-finite clause) với 'to'"
+      },
+      {
+        "vi": "Đã hoàn thành sớm, anh ấy quyết định nghỉ ngơi.",
+        "en": "Having finished early, he decided to rest.",
+        "point": "mệnh đề không hữu hạn dạng 'having + V3'"
+      },
+      {
+        "vi": "Khi đã sẵn sàng, hãy nhấn nút bắt đầu.",
+        "en": "When ready, press start.",
+        "point": "mệnh đề không có động từ (verbless clause)"
+      },
+      {
+        "vi": "Điều cô ấy nói đã khiến tôi sốc.",
+        "en": "What she said shocked me.",
+        "point": "mệnh đề danh từ (nominal clause) làm chủ ngữ"
+      },
+      {
+        "vi": "Cuốn sách đã thay đổi cuộc đời tôi vẫn nằm trên kệ.",
+        "en": "The book that changed my life is still on the shelf.",
+        "point": "mệnh đề quan hệ mở rộng cụm danh từ"
+      },
+      {
+        "vi": "Mặc dù anh ấy đồng ý, tôi vẫn còn nghi ngờ.",
+        "en": "Although he agreed, I still had doubts.",
+        "point": "mệnh đề trạng ngữ điều chỉnh cả mệnh đề chính"
+      },
+      {
+        "vi": "Bản báo cáo mà ủy ban đã xem xét kỹ lưỡng, thứ mà ai cũng công nhận là toàn diện, đã được thông qua.",
+        "en": "The report, which the committee had reviewed carefully and which everyone agreed was thorough, was approved.",
+        "point": "kết hợp nhiều mệnh đề phụ thuộc mà vẫn giữ mỗi mệnh đề rõ chức năng"
+      }
+    ]
+  },
+  "advanced-agreement": {
+    "instruction": "Chọn đúng động từ số ít/số nhiều theo notional agreement, collective noun, either/or, hoặc các cấu trúc số lượng đặc biệt.",
+    "items": [
+      {
+        "vi": "Đội đang thắng.",
+        "en": "The team is winning.",
+        "point": "notional agreement - động từ số ít khi coi đội là một khối thống nhất"
+      },
+      {
+        "vi": "Đội đang cãi nhau với nhau.",
+        "en": "The team are arguing among themselves.",
+        "point": "động từ số nhiều (kiểu Anh-Anh) khi coi các thành viên là cá thể riêng"
+      },
+      {
+        "vi": "Hoặc là các giáo viên hoặc là hiệu trưởng phải chịu trách nhiệm.",
+        "en": "Either the teachers or the principal is responsible.",
+        "point": "either/or - động từ hòa theo danh từ gần nhất"
+      },
+      {
+        "vi": "Có người đã để quên điện thoại của họ.",
+        "en": "Someone left their phone.",
+        "point": "singular they cho đại từ không xác định giới tính"
+      },
+      {
+        "vi": "Mười năm là một khoảng thời gian dài.",
+        "en": "Ten years is a long time.",
+        "point": "khoảng thời gian được coi là một đơn vị, đi với động từ số ít"
+      },
+      {
+        "vi": "'Chùm nho phẫn nộ' là một tác phẩm kinh điển.",
+        "en": "\"The Grapes of Wrath\" is a classic.",
+        "point": "tên tác phẩm/tựa đề luôn đi với động từ số ít"
+      },
+      {
+        "vi": "Một trong những cuốn sách đã bị mất.",
+        "en": "One of the books has been lost.",
+        "point": "'one of + danh từ số nhiều' đi với động từ số ít"
+      },
+      {
+        "vi": "Có khá nhiều lỗi trong bài luận này.",
+        "en": "A number of mistakes are in this essay.",
+        "point": "'a number of + danh từ số nhiều' đi với động từ số nhiều"
+      },
+      {
+        "vi": "Số lượng lỗi trong bài luận này đang tăng lên.",
+        "en": "The number of mistakes in this essay is increasing.",
+        "point": "'the number of + danh từ số nhiều' đi với động từ số ít"
+      },
+      {
+        "vi": "Không có đề xuất nào trong số đó được chấp nhận.",
+        "en": "None of the proposals were accepted.",
+        "point": "'none of + danh từ số nhiều' đi với động từ số nhiều theo văn phong hiện đại"
+      },
+      {
+        "vi": "Ủy ban đã ra thông báo mới.",
+        "en": "The committee has issued a new notice.",
+        "point": "collective noun đi với động từ số ít (thiên hướng Anh-Mỹ)"
+      }
+    ]
+  },
+  "spoken-grammar": {
+    "instruction": "Dịch sang tiếng Anh nói tự nhiên với ellipsis, header, tail, discourse marker hoặc tag question phù hợp với văn phong hội thoại.",
+    "items": [
+      {
+        "vi": "Gặp John chưa?",
+        "en": "Seen John?",
+        "point": "tỉnh lược (ellipsis) chủ ngữ và trợ động từ trong văn nói"
+      },
+      {
+        "vi": "Uống chút gì không?",
+        "en": "Want some?",
+        "point": "tỉnh lược chủ ngữ 'you' và trợ động từ 'do' trong câu hỏi"
+      },
+      {
+        "vi": "Cuốn sách đó thì tôi chưa đọc xong.",
+        "en": "That book, I haven't finished it yet.",
+        "point": "header - nêu chủ đề trước rồi mới đến mệnh đề chính"
+      },
+      {
+        "vi": "Em gái cậu dễ thương thật đấy.",
+        "en": "She's lovely, your sister.",
+        "point": "tail - thêm phần xác định lại chủ ngữ ở cuối câu"
+      },
+      {
+        "vi": "Trời đẹp nhỉ?",
+        "en": "Nice day, isn't it?",
+        "point": "tag question trong văn nói tự nhiên"
+      },
+      {
+        "vi": "À thì, tôi cũng không chắc lắm.",
+        "en": "Well, I'm not really sure.",
+        "point": "discourse marker 'well' mở đầu câu nói"
+      },
+      {
+        "vi": "Đại loại là chúng tôi xong việc rồi, kiểu vậy.",
+        "en": "We're kind of finished, sort of.",
+        "point": "vague language 'kind of / sort of' trong văn nói"
+      },
+      {
+        "vi": "Tôi định... thôi, có lẽ không.",
+        "en": "I was going to... well, maybe not.",
+        "point": "repair/restart - tự sửa lại lời nói giữa chừng"
+      },
+      {
+        "vi": "Trông cũng ổn đấy đối với tôi.",
+        "en": "Looks good to me.",
+        "point": "tỉnh lược chủ ngữ 'It' trong câu nói thân mật"
+      }
+    ]
   }
 };
