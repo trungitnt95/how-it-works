@@ -1025,6 +1025,29 @@
         render();
     }
 
+    function renderTranslationBlock(id) {
+        const data = typeof grammarViTranslateData !== 'undefined' && grammarViTranslateData[id];
+        if (!data || !Array.isArray(data.items) || !data.items.length) return '';
+
+        return `
+            <section class="practice-block translate-block">
+                <h4>🇻🇳→🇬🇧 Dịch câu (${data.items.length} câu)</h4>
+                <p class="practice-instruction">${data.instruction || 'Dịch các câu tiếng Việt sau sang tiếng Anh, áp dụng đúng điểm ngữ pháp vừa học ở tab Lý thuyết. Bấm "Xem đáp án" để đối chiếu.'}</p>
+                <div class="practice-items">
+                    ${data.items.map((item, index) => `
+                        <article class="practice-item">
+                            <div class="practice-item-question"><strong>${index + 1}.</strong> ${item.vi}${item.point ? ` <span class="practice-point-tag">${item.point}</span>` : ''}</div>
+                            <details class="practice-answer">
+                                <summary>Xem đáp án</summary>
+                                <div class="practice-item-answer"><strong>Đáp án:</strong> ${item.en}</div>
+                            </details>
+                        </article>
+                    `).join('')}
+                </div>
+            </section>
+        `;
+    }
+
     function renderQuizBlock(id) {
         const questions = exerciseBank.filter(question => question.component === id);
         if (!questions.length) return '';
@@ -1054,10 +1077,11 @@
 
     function renderPracticeContent(id, component) {
         const practice = typeof grammarPracticeData !== 'undefined' && grammarPracticeData[id];
+        const translationBlock = renderTranslationBlock(id);
         const quizBlock = renderQuizBlock(id);
 
         if (!practice) {
-            if (quizBlock) return quizBlock;
+            if (translationBlock || quizBlock) return translationBlock + quizBlock;
 
             const relatedTitles = (component.connections || [])
                 .map(connectionId => allComponents[connectionId] && allComponents[connectionId].title)
@@ -1079,6 +1103,7 @@
         }
 
         return `
+            ${translationBlock}
             ${quizBlock}
             <div class="practice-intro">
                 <h3>🧪 Bài tập nhanh</h3>
