@@ -2113,6 +2113,1281 @@ const grammarViTranslateData = {
       }
     ]
   },
+  "verbs-overview": {
+    "instruction": "Khi dịch, hãy xác định động từ là nội động từ, ngoại động từ hay động từ nối để chọn đúng tân ngữ/bổ ngữ và tránh dùng nhầm trạng từ sau linking verb.",
+    "items": [
+      {
+        "vi": "Cô ấy đã viết một lá thư cho mẹ.",
+        "en": "She wrote a letter to her mother.",
+        "point": "transitive verb cần tân ngữ"
+      },
+      {
+        "vi": "Em bé đã khóc suốt cả đêm.",
+        "en": "The baby cried all night.",
+        "point": "intransitive verb không cần tân ngữ"
+      },
+      {
+        "vi": "Món súp này có vị rất ngon.",
+        "en": "This soup tastes very good.",
+        "point": "linking verb + adjective, không dùng adverb"
+      },
+      {
+        "vi": "Anh ấy trông có vẻ mệt mỏi.",
+        "en": "He looks tired.",
+        "point": "linking verb look + adjective"
+      },
+      {
+        "vi": "Cánh cửa đột nhiên tự mở ra.",
+        "en": "The door suddenly opened.",
+        "point": "động từ open dùng như nội động từ"
+      },
+      {
+        "vi": "Anh ấy đã gửi cho tôi một email.",
+        "en": "He sent me an email.",
+        "point": "động từ hai tân ngữ S+V+IO+DO"
+      },
+      {
+        "vi": "Bạn có thể đưa cho tôi cuốn sách đó không?",
+        "en": "Can you give me that book?",
+        "point": "cấu trúc give + tân ngữ gián tiếp + trực tiếp"
+      },
+      {
+        "vi": "Cô ấy đã cải thiện kỹ năng viết của mình.",
+        "en": "She has improved her writing skills.",
+        "point": "trợ động từ have + động từ chính"
+      },
+      {
+        "vi": "Ý tưởng đó nghe không hay lắm.",
+        "en": "That idea doesn't sound very good.",
+        "point": "phủ định với linking verb sound + adjective"
+      }
+    ]
+  },
+  "nouns-plurals": {
+    "instruction": "Chú ý dịch đúng dạng số nhiều của danh từ (đều, bất quy tắc, giữ nguyên) và chia động từ phù hợp với số ít/số nhiều.",
+    "items": [
+      {
+        "vi": "Tôi có hai cuốn sách trên bàn.",
+        "en": "I have two books on the table.",
+        "point": "số nhiều thêm -s"
+      },
+      {
+        "vi": "Có nhiều thành phố đẹp ở Việt Nam.",
+        "en": "There are many beautiful cities in Vietnam.",
+        "point": "danh từ tận cùng y đổi thành ies"
+      },
+      {
+        "vi": "Những chiếc lá đang rơi ngoài vườn.",
+        "en": "The leaves are falling in the garden.",
+        "point": "leaf đổi thành leaves"
+      },
+      {
+        "vi": "Hai đứa trẻ đang chơi trong công viên.",
+        "en": "Two children are playing in the park.",
+        "point": "số nhiều bất quy tắc child → children"
+      },
+      {
+        "vi": "Nha sĩ vừa nhổ một chiếc răng của tôi.",
+        "en": "The dentist pulled out one of my teeth.",
+        "point": "số nhiều bất quy tắc tooth → teeth"
+      },
+      {
+        "vi": "Có bao nhiêu con cừu trong trang trại?",
+        "en": "How many sheep are there on the farm?",
+        "point": "danh từ giữ nguyên dạng số nhiều"
+      },
+      {
+        "vi": "Chiếc quần jean của tôi bị rách rồi.",
+        "en": "My jeans are torn.",
+        "point": "danh từ luôn ở dạng số nhiều"
+      },
+      {
+        "vi": "Một số sinh viên đã đến muộn.",
+        "en": "A number of students were late.",
+        "point": "a number of + động từ số nhiều"
+      },
+      {
+        "vi": "Số lượng nhân viên đang tăng lên.",
+        "en": "The number of employees is increasing.",
+        "point": "the number of + động từ số ít"
+      },
+      {
+        "vi": "Tin tức hôm nay thật đáng buồn.",
+        "en": "The news today is very sad.",
+        "point": "news trông giống số nhiều nhưng đi với động từ số ít"
+      },
+      {
+        "vi": "Rất nhiều người đã tham dự buổi lễ.",
+        "en": "Many people attended the ceremony.",
+        "point": "people là số nhiều của person"
+      }
+    ]
+  },
+  "numerals": {
+    "instruction": "Hãy dùng đúng số đếm, số thứ tự, phân số, tỷ lệ phần trăm và các cụm số ghép theo đúng quy tắc tiếng Anh.",
+    "items": [
+      {
+        "vi": "Có hai trăm sinh viên trong hội trường.",
+        "en": "There are two hundred students in the hall.",
+        "point": "hundred không thêm s khi có số cụ thể"
+      },
+      {
+        "vi": "Hàng trăm người đã xem buổi biểu diễn.",
+        "en": "Hundreds of people watched the performance.",
+        "point": "hundreds of + danh từ số nhiều"
+      },
+      {
+        "vi": "Đây là lần thứ ba tôi đến Hà Nội.",
+        "en": "This is the third time I have come to Hanoi.",
+        "point": "số thứ tự ordinal number"
+      },
+      {
+        "vi": "Cuộc họp sẽ diễn ra vào ngày 21 tháng 5.",
+        "en": "The meeting will take place on May 21st.",
+        "point": "dùng ordinal number khi đọc ngày tháng"
+      },
+      {
+        "vi": "Hai phần ba lớp học đã hoàn thành bài tập.",
+        "en": "Two thirds of the class have finished the assignment.",
+        "point": "cách đọc phân số two thirds"
+      },
+      {
+        "vi": "25 phần trăm sinh viên đạt điểm giỏi.",
+        "en": "25 percent of the students are excellent.",
+        "point": "động từ chia theo danh từ sau of trong cụm percent"
+      },
+      {
+        "vi": "Giá đã giảm mười phần trăm.",
+        "en": "The price has dropped by ten percent.",
+        "point": "percent không thêm s sau số"
+      },
+      {
+        "vi": "Đó là một cậu bé mười tuổi.",
+        "en": "He is a ten-year-old boy.",
+        "point": "tính từ ghép chỉ tuổi giữ dạng số ít"
+      },
+      {
+        "vi": "Chúng tôi đã có một chuyến đi một ngày đến biển.",
+        "en": "We had a one-day trip to the beach.",
+        "point": "cụm số ghép danh từ giữ dạng số ít"
+      }
+    ]
+  },
+  "near-future": {
+    "instruction": "Chọn đúng cấu trúc diễn tả tương lai gần (be going to, hiện tại tiếp diễn, hiện tại đơn hoặc will) tùy vào ý định, kế hoạch, lịch trình hay quyết định tức thì.",
+    "items": [
+      {
+        "vi": "Nhìn kìa, trời sắp mưa rồi.",
+        "en": "Look, it's going to rain.",
+        "point": "be going to cho dự đoán có bằng chứng"
+      },
+      {
+        "vi": "Cô ấy dự định đi du học vào năm sau.",
+        "en": "She is going to study abroad next year.",
+        "point": "be going to cho ý định đã có từ trước"
+      },
+      {
+        "vi": "Chúng tôi sẽ gặp khách hàng vào ngày mai.",
+        "en": "We are meeting the client tomorrow.",
+        "point": "hiện tại tiếp diễn cho kế hoạch đã sắp xếp"
+      },
+      {
+        "vi": "Bộ phim bắt đầu lúc 8 giờ.",
+        "en": "The film starts at 8.",
+        "point": "hiện tại đơn cho lịch trình cố định"
+      },
+      {
+        "vi": "Tàu rời ga lúc 6 giờ 30.",
+        "en": "The train leaves at 6:30.",
+        "point": "hiện tại đơn cho thời gian biểu"
+      },
+      {
+        "vi": "Điện thoại đang reo kìa, tôi sẽ trả lời.",
+        "en": "The phone's ringing, I'll answer it.",
+        "point": "will cho quyết định tức thì"
+      },
+      {
+        "vi": "Tôi sẽ giúp bạn mang cái đó.",
+        "en": "I'll carry that for you.",
+        "point": "will cho lời đề nghị"
+      },
+      {
+        "vi": "Bạn có định đi du học tiếng Anh không?",
+        "en": "Are you going to study English abroad?",
+        "point": "câu hỏi với be going to"
+      }
+    ]
+  },
+  "sequence-of-tenses": {
+    "instruction": "Chú ý phối hợp thì giữa mệnh đề chính và mệnh đề phụ, đặc biệt là quy tắc lùi thì (backshift) và trường hợp giữ nguyên hiện tại khi nói về chân lý.",
+    "items": [
+      {
+        "vi": "Tôi biết rằng anh ấy sống ở đây.",
+        "en": "I know that he lives here.",
+        "point": "mệnh đề chính hiện tại giữ thì linh hoạt"
+      },
+      {
+        "vi": "Cô ấy nói rằng cô ấy mệt.",
+        "en": "She said that she was tired.",
+        "point": "mệnh đề chính quá khứ kéo mệnh đề phụ lùi về quá khứ"
+      },
+      {
+        "vi": "Anh ấy nói rằng anh ấy sẽ gọi cho tôi.",
+        "en": "He said that he would call me.",
+        "point": "backshift will thành would"
+      },
+      {
+        "vi": "Cô ấy nói rằng cô ấy đã hoàn thành công việc.",
+        "en": "She said that she had finished the work.",
+        "point": "backshift have done thành had done"
+      },
+      {
+        "vi": "Giáo viên của tôi nói rằng mặt trời mọc ở hướng đông.",
+        "en": "My teacher said that the sun rises in the East.",
+        "point": "chân lý hiển nhiên giữ nguyên thì hiện tại"
+      },
+      {
+        "vi": "Giáo sư giải thích rằng nước sôi ở 100 độ C.",
+        "en": "The professor explained that water boils at 100°C.",
+        "point": "sự thật khoa học không lùi thì dù reporting verb ở quá khứ"
+      },
+      {
+        "vi": "Tôi biết rằng anh ấy sẽ gọi khi anh ấy đến.",
+        "en": "I knew that he would call when he arrived.",
+        "point": "would cho tương lai nhìn từ quá khứ, time clause vẫn dùng quá khứ đơn"
+      },
+      {
+        "vi": "Cô ấy nói rằng cô ấy đã nhận ra dữ liệu chưa đầy đủ.",
+        "en": "She said that she had realized that the data were incomplete.",
+        "point": "lùi thì nhiều tầng trong câu phức"
+      },
+      {
+        "vi": "Anh ấy nói rằng anh ấy không thích cà phê.",
+        "en": "He said that he didn't like coffee.",
+        "point": "backshift phủ định don't thành didn't"
+      }
+    ]
+  },
+  "adverbial-time-clauses": {
+    "instruction": "Trong mệnh đề trạng ngữ chỉ thời gian (when, before, until, as soon as...), không dùng will dù câu mang nghĩa tương lai.",
+    "items": [
+      {
+        "vi": "Tôi sẽ gọi cho bạn khi tôi đến.",
+        "en": "I'll call you when I arrive.",
+        "point": "time clause với when dùng hiện tại đơn thay vì will"
+      },
+      {
+        "vi": "Hãy hoàn thành việc này trước khi bạn ra ngoài.",
+        "en": "Finish this before you go out.",
+        "point": "mệnh đề thời gian với before dùng hiện tại đơn"
+      },
+      {
+        "vi": "Hãy ở đây cho đến khi tôi quay lại.",
+        "en": "Stay here until I return.",
+        "point": "until + hiện tại đơn dù ý nghĩa tương lai"
+      },
+      {
+        "vi": "Tôi sẽ gửi email cho bạn ngay khi tôi xong việc.",
+        "en": "I'll email you as soon as I finish.",
+        "point": "as soon as + hiện tại đơn cho tương lai"
+      },
+      {
+        "vi": "Cô ấy đã sống ở đây kể từ khi cô ấy tốt nghiệp.",
+        "en": "She has lived here since she graduated.",
+        "point": "since + mệnh đề chính ở present perfect"
+      },
+      {
+        "vi": "Tôi ngủ quên trong khi đang xem phim.",
+        "en": "I fell asleep while I was watching a film.",
+        "point": "while nhấn mạnh hành động kéo dài, đi với mệnh đề"
+      },
+      {
+        "vi": "Điện thoại của anh ấy đổ chuông trong suốt cuộc họp.",
+        "en": "His phone rang during the meeting.",
+        "point": "during là giới từ, đi với danh từ không phải mệnh đề"
+      },
+      {
+        "vi": "Đến lúc chúng tôi tới nơi thì bộ phim đã bắt đầu.",
+        "en": "By the time we arrived, the film had already started.",
+        "point": "by the time + perfect tense nhấn hành động hoàn tất trước mốc khác"
+      },
+      {
+        "vi": "Tôi vừa mới ra khỏi nhà thì trời đổ mưa.",
+        "en": "No sooner had I left the house than it started to rain.",
+        "point": "đảo ngữ với no sooner...than"
+      },
+      {
+        "vi": "Ngay khi bạn ký hợp đồng, chúng ta có thể bắt đầu.",
+        "en": "Once you sign the contract, we can start.",
+        "point": "once + hiện tại đơn nghĩa ngay khi"
+      }
+    ]
+  },
+  "relative-pronouns-adverbs": {
+    "instruction": "Chọn đúng đại từ/trạng từ quan hệ (who, whom, whose, which, that, where, when, why) dựa vào danh từ đứng trước.",
+    "items": [
+      {
+        "vi": "Người đàn ông đã gọi cho tôi là chú của tôi.",
+        "en": "The man who called me is my uncle.",
+        "point": "who cho người làm chủ ngữ"
+      },
+      {
+        "vi": "Cô gái mà tôi đã gặp hôm qua rất thân thiện.",
+        "en": "The girl whom I met yesterday was very friendly.",
+        "point": "whom cho người làm tân ngữ, trang trọng"
+      },
+      {
+        "vi": "Người viết cuốn sách đó có tác phẩm đoạt giải.",
+        "en": "The writer whose book won the prize is famous.",
+        "point": "whose chỉ sở hữu"
+      },
+      {
+        "vi": "Chiếc xe mà anh ấy mua rất đắt.",
+        "en": "The car which he bought is very expensive.",
+        "point": "which cho vật"
+      },
+      {
+        "vi": "Bài hát mà tôi thích đang phát trên radio.",
+        "en": "The song that I like is playing on the radio.",
+        "point": "that cho người hoặc vật trong mệnh đề xác định"
+      },
+      {
+        "vi": "Ngôi nhà nơi tôi sinh ra vẫn còn đó.",
+        "en": "The house where I was born is still there.",
+        "point": "where cho nơi chốn"
+      },
+      {
+        "vi": "Tôi vẫn nhớ ngày mà chúng tôi gặp nhau lần đầu.",
+        "en": "I still remember the day when we first met.",
+        "point": "when cho thời gian"
+      },
+      {
+        "vi": "Lý do tại sao tôi gọi rất quan trọng.",
+        "en": "The reason why I called is important.",
+        "point": "why cho lý do"
+      },
+      {
+        "vi": "Đó là một công ty có lợi nhuận đã giảm.",
+        "en": "That is a company whose profits fell.",
+        "point": "whose dùng cho cả vật trong văn viết"
+      }
+    ]
+  },
+  "result-structures": {
+    "instruction": "Dùng đúng cấu trúc chỉ kết quả (so...that, such...that, too...to, enough) tùy vào từ loại đi kèm.",
+    "items": [
+      {
+        "vi": "Trời lạnh đến mức chúng tôi phải ở trong nhà.",
+        "en": "It was so cold that we stayed inside.",
+        "point": "so + adj + that + mệnh đề"
+      },
+      {
+        "vi": "Đó là một căn phòng ồn đến mức không ai ngủ được.",
+        "en": "It was such a noisy room that nobody could sleep.",
+        "point": "such + a/an + adj + noun + that"
+      },
+      {
+        "vi": "Cô ấy quá mệt để lái xe.",
+        "en": "She was too tired to drive.",
+        "point": "too + adj + to V"
+      },
+      {
+        "vi": "Căn phòng đủ rộng để chứa năm mươi người.",
+        "en": "The room was large enough to hold fifty people.",
+        "point": "adj + enough + to V"
+      },
+      {
+        "vi": "Chúng tôi không có đủ thời gian để hoàn thành dự án.",
+        "en": "We didn't have enough time to finish the project.",
+        "point": "enough + danh từ"
+      },
+      {
+        "vi": "Bài luận của anh ấy có quá nhiều lỗi đến mức giáo viên phải đọc lại.",
+        "en": "There were so many mistakes in his essay that the teacher had to read it again.",
+        "point": "so many + danh từ đếm được số nhiều"
+      },
+      {
+        "vi": "Có quá nhiều tiếng ồn đến mức tôi không thể tập trung.",
+        "en": "There was so much noise that I couldn't concentrate.",
+        "point": "so much + danh từ không đếm được"
+      },
+      {
+        "vi": "Anh ấy không đủ khỏe để nâng cái hộp đó.",
+        "en": "He wasn't strong enough to lift that box.",
+        "point": "not...enough to tương đương too weak to"
+      },
+      {
+        "vi": "Cô ấy chạy nhanh đến mức không ai đuổi kịp.",
+        "en": "She ran so fast that nobody could catch up with her.",
+        "point": "so + adverb + that"
+      },
+      {
+        "vi": "Đó là những vấn đề nghiêm trọng đến mức chính phủ phải hành động.",
+        "en": "They were such serious problems that the government had to act.",
+        "point": "such + adj + danh từ số nhiều + that"
+      }
+    ]
+  },
+  "existential-there": {
+    "instruction": "Dùng cấu trúc There is/are để diễn tả sự tồn tại, chia đúng theo thì và theo danh từ số ít/số nhiều.",
+    "items": [
+      {
+        "vi": "Có một cuốn sách trên bàn.",
+        "en": "There is a book on the table.",
+        "point": "There is + danh từ số ít"
+      },
+      {
+        "vi": "Có nhiều sinh viên trong lớp học.",
+        "en": "There are many students in the classroom.",
+        "point": "There are + danh từ số nhiều"
+      },
+      {
+        "vi": "Đã có một tai nạn trên đường hôm qua.",
+        "en": "There was an accident on the road yesterday.",
+        "point": "There was cho quá khứ số ít"
+      },
+      {
+        "vi": "Đã có nhiều thay đổi trong công ty năm nay.",
+        "en": "There have been many changes in the company this year.",
+        "point": "There have been ở hiện tại hoàn thành số nhiều"
+      },
+      {
+        "vi": "Có chỗ ngồi nào còn trống không?",
+        "en": "Are there any seats left?",
+        "point": "câu hỏi Are there...?"
+      },
+      {
+        "vi": "Không có đủ ghế cho mọi người.",
+        "en": "There aren't enough chairs for everyone.",
+        "point": "phủ định There aren't"
+      },
+      {
+        "vi": "Không còn vé nào cả.",
+        "en": "There are no tickets left.",
+        "point": "There are no + danh từ số nhiều dù mang nghĩa phủ định"
+      },
+      {
+        "vi": "Trên bàn có một cây bút và hai cuốn sách.",
+        "en": "There is a pen and two books on the desk.",
+        "point": "chia theo danh từ đầu tiên khi liệt kê hỗn hợp"
+      },
+      {
+        "vi": "Có một con mèo ở trong vườn.",
+        "en": "There is a cat in the garden.",
+        "point": "phân biệt There is (tồn tại) với It is"
+      },
+      {
+        "vi": "Chắc chắn phải có một lý do cho việc này.",
+        "en": "There must be a reason for this.",
+        "point": "There + modal + be"
+      }
+    ]
+  },
+  "dummy-it": {
+    "instruction": "Dùng It làm chủ ngữ giả khi nói về thời tiết, thời gian, khoảng cách hoặc đưa ra đánh giá, phân biệt với There is.",
+    "items": [
+      {
+        "vi": "Trời đang mưa.",
+        "en": "It is raining.",
+        "point": "it giả cho thời tiết"
+      },
+      {
+        "vi": "Bây giờ là 7 giờ.",
+        "en": "It is 7 o'clock.",
+        "point": "it giả cho thời gian"
+      },
+      {
+        "vi": "Từ đây đến đó khoảng 5 km.",
+        "en": "It is 5 km from here.",
+        "point": "it giả cho khoảng cách"
+      },
+      {
+        "vi": "Học tiếng Anh là điều quan trọng.",
+        "en": "It is important to study English.",
+        "point": "it giả + adjective + to-V"
+      },
+      {
+        "vi": "Điều cần thiết là tất cả thành viên phải tham dự.",
+        "en": "It is essential that all members attend.",
+        "point": "it giả + that-clause đưa cụm dài ra sau"
+      },
+      {
+        "vi": "Có vẻ như anh ấy bị trễ.",
+        "en": "It seems that he's late.",
+        "point": "it + seem/appear + that"
+      },
+      {
+        "vi": "Học tiếng Nhật rất khó.",
+        "en": "It is difficult to learn Japanese.",
+        "point": "chủ ngữ giả thay cho to-V làm chủ ngữ thật"
+      },
+      {
+        "vi": "Tôi thấy khó để dậy sớm.",
+        "en": "I find it hard to wake up early.",
+        "point": "it làm tân ngữ giả"
+      },
+      {
+        "vi": "Hôm nay là thứ Hai.",
+        "en": "It is Monday.",
+        "point": "it giả cho ngày trong tuần"
+      },
+      {
+        "vi": "Có một cuốn sách trên bàn.",
+        "en": "There is a book on the table.",
+        "point": "dùng There is chứ không phải It is khi diễn tả sự tồn tại"
+      }
+    ]
+  },
+  "reflexive-reciprocal": {
+    "instruction": "Phân biệt đại từ phản thân (myself, himself...) dùng khi chủ ngữ và tân ngữ trùng nhau với đại từ tương hỗ (each other, one another) dùng khi hai bên tác động qua lại.",
+    "items": [
+      {
+        "vi": "Cô ấy đã tự giới thiệu bản thân mình.",
+        "en": "She introduced herself.",
+        "point": "tân ngữ phản thân"
+      },
+      {
+        "vi": "Tôi đã tự cắt vào tay mình khi đang nấu ăn.",
+        "en": "I cut myself while cooking.",
+        "point": "reflexive pronoun làm tân ngữ"
+      },
+      {
+        "vi": "Chính tôi tự làm chiếc bánh này.",
+        "en": "I made the cake myself.",
+        "point": "reflexive nhấn mạnh chính mình làm"
+      },
+      {
+        "vi": "Anh ấy sống một mình.",
+        "en": "He lives by himself.",
+        "point": "by + reflexive nghĩa \"một mình\""
+      },
+      {
+        "vi": "Họ yêu nhau.",
+        "en": "They love each other.",
+        "point": "reciprocal pronoun each other"
+      },
+      {
+        "vi": "Các học sinh đã giúp đỡ lẫn nhau.",
+        "en": "The students helped one another.",
+        "point": "one another cho nhóm nhiều người"
+      },
+      {
+        "vi": "Họ đọc bài luận của nhau.",
+        "en": "They read each other's essays.",
+        "point": "sở hữu cách each other's"
+      },
+      {
+        "vi": "Tôi cạo râu mỗi sáng.",
+        "en": "I shave every morning.",
+        "point": "không dùng reflexive sau động từ sinh hoạt hằng ngày"
+      },
+      {
+        "vi": "Cô ấy để chiếc túi bên cạnh mình.",
+        "en": "She put the bag next to her.",
+        "point": "dùng object pronoun sau giới từ vị trí, không dùng reflexive"
+      },
+      {
+        "vi": "Họ tự trách bản thân mình vì sai lầm đó.",
+        "en": "They blamed themselves for that mistake.",
+        "point": "phân biệt reflexive (tự trách mình) với reciprocal"
+      }
+    ]
+  },
+  "compound-nouns-possessives": {
+    "instruction": "Chọn đúng cách diễn tả sở hữu bằng 's, of hay danh từ ghép (N+N) tùy đối tượng là người hay vật.",
+    "items": [
+      {
+        "vi": "Đây là chiếc túi của Mary.",
+        "en": "This is Mary's bag.",
+        "point": "sở hữu cách 's cho người"
+      },
+      {
+        "vi": "Đây là sách của các học sinh.",
+        "en": "These are the students' books.",
+        "point": "sở hữu cách s' cho danh từ số nhiều tận cùng s"
+      },
+      {
+        "vi": "Mái nhà của ngôi nhà đã bị hỏng.",
+        "en": "The roof of the house was damaged.",
+        "point": "dùng of cho vật"
+      },
+      {
+        "vi": "Đó là một cửa hàng giày.",
+        "en": "That is a shoe shop.",
+        "point": "danh từ đầu trong compound noun giữ số ít"
+      },
+      {
+        "vi": "Có nhiều bàn chải đánh răng trong ngăn kéo.",
+        "en": "There are many toothbrushes in the drawer.",
+        "point": "số nhiều thêm vào danh từ cuối trong compound noun"
+      },
+      {
+        "vi": "Anh ấy là một người bạn của tôi.",
+        "en": "He is a friend of mine.",
+        "point": "double genitive a friend of mine"
+      },
+      {
+        "vi": "Đây là chương trình của Tom và Jerry.",
+        "en": "This is Tom and Jerry's show.",
+        "point": "sở hữu chung cho hai người"
+      },
+      {
+        "vi": "Đây là xe của Tom và xe của Jerry.",
+        "en": "These are Tom's and Jerry's cars.",
+        "point": "sở hữu riêng, mỗi người một vật"
+      },
+      {
+        "vi": "Đó là một chuyến đi bộ mười phút.",
+        "en": "It's a ten-minute walk.",
+        "point": "cụm đo lường ghép gạch nối không thêm s"
+      },
+      {
+        "vi": "Con mèo đang liếm bộ lông của nó.",
+        "en": "The cat is licking its fur.",
+        "point": "its là sở hữu cách của it, không có dấu nháy đơn"
+      },
+      {
+        "vi": "Tin tức hôm nay thật đáng lo ngại.",
+        "en": "Today's news is worrying.",
+        "point": "'s cho danh từ chỉ thời gian"
+      }
+    ]
+  },
+  "distributives": {
+    "instruction": "Dùng đúng both/either/neither/all theo số lượng đối tượng (2 hay từ 3 trở lên) và chia động từ tương ứng.",
+    "items": [
+      {
+        "vi": "Cả hai cuốn sách đều hữu ích.",
+        "en": "Both books are useful.",
+        "point": "both + danh từ số nhiều"
+      },
+      {
+        "vi": "Ngày nào trong hai ngày đó cũng được với tôi.",
+        "en": "Either day works for me.",
+        "point": "either + danh từ số ít"
+      },
+      {
+        "vi": "Không câu trả lời nào trong hai câu đó đúng cả.",
+        "en": "Neither answer is correct.",
+        "point": "neither + danh từ số ít, động từ số ít"
+      },
+      {
+        "vi": "Tất cả học sinh đều đã đậu.",
+        "en": "All students passed.",
+        "point": "all + danh từ số nhiều"
+      },
+      {
+        "vi": "Cả cô ấy và anh trai cô ấy đều thích âm nhạc.",
+        "en": "Both she and her brother like music.",
+        "point": "cặp tương hỗ both...and"
+      },
+      {
+        "vi": "Không cái nào trong hai cái này là của tôi cả.",
+        "en": "Neither of these is mine.",
+        "point": "neither of + the/pronoun"
+      },
+      {
+        "vi": "Tôi thích cà phê. Tôi cũng vậy.",
+        "en": "I love coffee. — So do I.",
+        "point": "so + trợ động từ + S cho câu trả lời đồng tình"
+      },
+      {
+        "vi": "Tôi không uống rượu. Tôi cũng không.",
+        "en": "I don't drink. — Neither do I.",
+        "point": "neither + trợ động từ + S cho câu trả lời phủ định"
+      },
+      {
+        "vi": "Hoặc bạn hoặc bạn của bạn đang giữ chìa khóa.",
+        "en": "Either you or your friend has the key.",
+        "point": "either...or chia động từ theo chủ ngữ gần nhất"
+      },
+      {
+        "vi": "Tôi không thích cái nào trong hai cái cả.",
+        "en": "I don't like either.",
+        "point": "tránh phủ định kép với neither"
+      },
+      {
+        "vi": "Chúng tôi đều đồng ý.",
+        "en": "We both agree.",
+        "point": "both đứng giữa câu, sau chủ ngữ trước động từ thường"
+      }
+    ]
+  },
+  "indefinite-pronouns": {
+    "instruction": "Dùng đúng các đại từ bất định (someone, anything, nobody...) và ghi nhớ chúng luôn đi với động từ số ít.",
+    "items": [
+      {
+        "vi": "Có ai đó đang ở cửa.",
+        "en": "Someone is at the door.",
+        "point": "someone + động từ số ít"
+      },
+      {
+        "vi": "Có gì để ăn không?",
+        "en": "Is there anything to eat?",
+        "point": "anything trong câu hỏi"
+      },
+      {
+        "vi": "Không ai biết câu trả lời.",
+        "en": "Nobody knows the answer.",
+        "point": "nobody + động từ số ít"
+      },
+      {
+        "vi": "Ai đó đã để quên túi của họ.",
+        "en": "Someone left their bag.",
+        "point": "dùng they/their để thay cho đại từ bất định"
+      },
+      {
+        "vi": "Tôi thích cái màu đỏ hơn.",
+        "en": "I prefer the red one.",
+        "point": "one thay cho danh từ đếm được đã nhắc"
+      },
+      {
+        "vi": "Hãy ăn thêm một cái bánh quy nữa đi.",
+        "en": "Have another cookie.",
+        "point": "another thêm một cái chưa xác định"
+      },
+      {
+        "vi": "Mỗi học sinh nhận được một phần quà riêng.",
+        "en": "Each student receives their own gift.",
+        "point": "each nhấn mạnh từng cá nhân"
+      },
+      {
+        "vi": "Bạn có muốn uống chút trà không?",
+        "en": "Would you like some tea?",
+        "point": "dùng some trong câu hỏi mời/đề nghị"
+      },
+      {
+        "vi": "Bất kỳ học sinh nào cũng có thể đăng ký.",
+        "en": "Any student can apply.",
+        "point": "any trong câu khẳng định nghĩa bất kỳ"
+      },
+      {
+        "vi": "Tôi không có ý tưởng gì cả.",
+        "en": "I have no idea.",
+        "point": "no = not any"
+      },
+      {
+        "vi": "Có điều gì đó kỳ lạ đang xảy ra.",
+        "en": "Something strange is happening.",
+        "point": "tính từ đứng sau đại từ bất định"
+      },
+      {
+        "vi": "Tôi không biết gì cả.",
+        "en": "I don't know anything.",
+        "point": "tránh phủ định kép với đại từ bất định"
+      }
+    ]
+  },
+  "phrasal-prepositions": {
+    "instruction": "Dùng đúng cụm giới từ chỉ vị trí, lý do, tương phản hay mục đích, phân biệt với liên từ tương đương đi kèm mệnh đề.",
+    "items": [
+      {
+        "vi": "Có một cái cây phía trước ngôi nhà.",
+        "en": "There is a tree in front of the house.",
+        "point": "cụm giới từ vị trí in front of"
+      },
+      {
+        "vi": "Con mèo đang nằm trên nóc tủ.",
+        "en": "The cat is on top of the wardrobe.",
+        "point": "cụm giới từ on top of"
+      },
+      {
+        "vi": "Chúng tôi ở nhà vì trời mưa.",
+        "en": "We stayed home because of the rain.",
+        "point": "because of + danh từ"
+      },
+      {
+        "vi": "Chúng tôi ở nhà vì trời đã mưa.",
+        "en": "We stayed home because it rained.",
+        "point": "because + mệnh đề"
+      },
+      {
+        "vi": "Theo báo cáo, doanh số đã tăng.",
+        "en": "According to the report, sales went up.",
+        "point": "cụm tham chiếu according to"
+      },
+      {
+        "vi": "Mặc dù giá cao, chúng tôi vẫn mua nó.",
+        "en": "Despite the cost, we bought it.",
+        "point": "despite + danh từ"
+      },
+      {
+        "vi": "Mặc dù nó đắt, chúng tôi vẫn mua nó.",
+        "en": "Although it was expensive, we bought it.",
+        "point": "although + mệnh đề"
+      },
+      {
+        "vi": "Cô ấy rời sớm để kịp chuyến xe buýt.",
+        "en": "She left early in order to catch the bus.",
+        "point": "in order to + động từ nguyên mẫu chỉ mục đích"
+      },
+      {
+        "vi": "Việc chậm trễ là do tắc đường.",
+        "en": "The delay was due to traffic.",
+        "point": "due to đứng sau động từ be"
+      },
+      {
+        "vi": "Nhờ có sự giúp đỡ của bạn, tôi đã hoàn thành đúng hạn.",
+        "en": "Thanks to your help, I finished on time.",
+        "point": "thanks to + danh từ chỉ nguyên nhân tích cực"
+      }
+    ]
+  },
+  "adjective-order": {
+    "instruction": "Sắp xếp đúng trật tự các tính từ đứng trước danh từ theo quy tắc Opinion - Size - Age - Shape - Colour - Origin - Material - Purpose.",
+    "items": [
+      {
+        "vi": "Đó là một đôi bốt cưỡi ngựa da Ý màu đen tròn cũ nhỏ xinh.",
+        "en": "It's a lovely little old round black Italian leather riding boot.",
+        "point": "trật tự tính từ đầy đủ OSASCOMP"
+      },
+      {
+        "vi": "Đó là một cái bàn gỗ trắng mới to đẹp.",
+        "en": "It's a beautiful big new white wooden table.",
+        "point": "trật tự opinion-size-age-colour-material"
+      },
+      {
+        "vi": "Cô ấy có một con chó nhỏ dễ thương.",
+        "en": "She has a lovely little dog.",
+        "point": "opinion đứng trước size"
+      },
+      {
+        "vi": "Anh ấy mua một cái bàn tròn cũ to.",
+        "en": "He bought a big old round table.",
+        "point": "size-age-shape đúng thứ tự"
+      },
+      {
+        "vi": "Anh ấy có một chiếc áo khoác da Pháp màu nâu.",
+        "en": "He has a brown French leather jacket.",
+        "point": "colour-origin-material đúng thứ tự"
+      },
+      {
+        "vi": "Anh ấy là một người du khách mệt mỏi và đói bụng.",
+        "en": "He was a tired, hungry traveller.",
+        "point": "dấu phẩy ngăn cách hai tính từ cùng nhóm"
+      },
+      {
+        "vi": "Cô ấy mua một cái túi ngủ mới.",
+        "en": "She bought a new sleeping bag.",
+        "point": "tính từ chỉ mục đích đứng sát danh từ nhất"
+      },
+      {
+        "vi": "Anh ấy có một đôi giày da đi bộ đường dài.",
+        "en": "He has leather hiking boots.",
+        "point": "material đứng trước purpose"
+      }
+    ]
+  },
+  "spelling-rules": {
+    "instruction": "Chú ý quy tắc chính tả khi thêm -s/-ed/-ing/-er/-est: bỏ e câm, đổi y thành i, gấp đôi phụ âm cuối đúng trường hợp.",
+    "items": [
+      {
+        "vi": "Cô ấy đang làm bánh trong bếp.",
+        "en": "She is making a cake in the kitchen.",
+        "point": "bỏ e câm trước -ing"
+      },
+      {
+        "vi": "Bông hoa đó đang héo dần.",
+        "en": "The flower is dying.",
+        "point": "ie đổi thành y trước -ing"
+      },
+      {
+        "vi": "Cô ấy đã học bài rất chăm chỉ tối qua.",
+        "en": "She studied very hard last night.",
+        "point": "phụ âm + y đổi thành i trước -ed"
+      },
+      {
+        "vi": "Bọn trẻ đang chơi ngoài sân.",
+        "en": "The children are playing in the yard.",
+        "point": "nguyên âm + y giữ nguyên trước -ing"
+      },
+      {
+        "vi": "Anh ấy đã dừng xe đột ngột.",
+        "en": "He stopped the car suddenly.",
+        "point": "gấp đôi phụ âm cuối trong từ một âm tiết"
+      },
+      {
+        "vi": "Có ba chiếc xe buýt đang đợi ở bến.",
+        "en": "There are three buses waiting at the stop.",
+        "point": "thêm -es cho danh từ tận cùng s"
+      },
+      {
+        "vi": "Anh ấy đã mua hai con dao mới.",
+        "en": "He bought two new knives.",
+        "point": "knife đổi thành knives"
+      },
+      {
+        "vi": "Anh ấy đã thích công việc mới ngay lập tức.",
+        "en": "He preferred the new job immediately.",
+        "point": "gấp đôi phụ âm khi trọng âm rơi vào âm cuối"
+      },
+      {
+        "vi": "Cô ấy đã đến thăm bà của mình vào cuối tuần.",
+        "en": "She visited her grandmother at the weekend.",
+        "point": "không gấp đôi phụ âm khi trọng âm không ở âm cuối"
+      },
+      {
+        "vi": "Cô ấy hạnh phúc hơn bây giờ.",
+        "en": "She is happier now.",
+        "point": "y đổi thành i trước -er"
+      },
+      {
+        "vi": "Mọi người đã hoảng loạn khi nghe tin đó.",
+        "en": "Everyone panicked when they heard the news.",
+        "point": "từ tận cùng c thêm k trước -ed"
+      },
+      {
+        "vi": "Có nhiều con chuột trong nhà kho.",
+        "en": "There are many mice in the barn.",
+        "point": "số nhiều bất quy tắc mouse → mice"
+      }
+    ]
+  },
+  "have-got": {
+    "instruction": "Diễn tả sở hữu bằng have hoặc have got, chú ý cách phủ định, nghi vấn và phân biệt have to với have got to.",
+    "items": [
+      {
+        "vi": "Cô ấy có mái tóc dài.",
+        "en": "She has long hair.",
+        "point": "have diễn tả sở hữu, đặc điểm"
+      },
+      {
+        "vi": "Tôi bị đau đầu.",
+        "en": "I've got a headache.",
+        "point": "have got mang nghĩa sở hữu/bệnh tật, văn nói Anh-Anh"
+      },
+      {
+        "vi": "Tôi không có con chó nào.",
+        "en": "I don't have a dog.",
+        "point": "phủ định don't have"
+      },
+      {
+        "vi": "Tôi không có con chó nào cả.",
+        "en": "I haven't got a dog.",
+        "point": "phủ định haven't got"
+      },
+      {
+        "vi": "Bạn có xe hơi không?",
+        "en": "Do you have a car?",
+        "point": "câu hỏi do you have"
+      },
+      {
+        "vi": "Bạn có con chó không?",
+        "en": "Have you got a dog?",
+        "point": "câu hỏi have you got"
+      },
+      {
+        "vi": "Ngày trước tôi có một con mèo.",
+        "en": "I had a cat before.",
+        "point": "quá khứ chỉ dùng had, không dùng had got"
+      },
+      {
+        "vi": "Tôi ăn sáng lúc 7 giờ.",
+        "en": "I have breakfast at 7.",
+        "point": "have got không dùng cho hành động như ăn/uống"
+      },
+      {
+        "vi": "Tôi phải làm việc vào các ngày thứ Bảy.",
+        "en": "I have to work on Saturdays.",
+        "point": "have to cho nghĩa vụ lặp lại, chung"
+      },
+      {
+        "vi": "Tôi phải đi ngay bây giờ!",
+        "en": "I've got to go now!",
+        "point": "have got to cho nghĩa vụ ngay lúc nói"
+      },
+      {
+        "vi": "Bạn không cần phải trả lời câu hỏi đó.",
+        "en": "You don't have to answer that question.",
+        "point": "don't have to nghĩa là không cần, khác mustn't"
+      }
+    ]
+  },
+  "used-to": {
+    "instruction": "Phân biệt used to (thói quen quá khứ đã chấm dứt) với be used to và get used to (đã quen/đang dần quen với điều gì).",
+    "items": [
+      {
+        "vi": "Trước đây tôi hút thuốc.",
+        "en": "I used to smoke.",
+        "point": "used to + V cho thói quen quá khứ không còn"
+      },
+      {
+        "vi": "Tôi đã quen dậy sớm rồi.",
+        "en": "I am used to getting up early.",
+        "point": "be used to + V-ing đã quen"
+      },
+      {
+        "vi": "Tôi đang dần quen với cái lạnh.",
+        "en": "I'm getting used to the cold.",
+        "point": "get used to + V-ing đang dần quen"
+      },
+      {
+        "vi": "Trước đây tôi không thích cà phê.",
+        "en": "I didn't use to like coffee.",
+        "point": "phủ định didn't use to"
+      },
+      {
+        "vi": "Tôi chưa quen với thức ăn cay.",
+        "en": "I am not used to spicy food.",
+        "point": "phủ định am/is not used to + N"
+      },
+      {
+        "vi": "Trước đây bạn có sống ở đó không?",
+        "en": "Did you use to live there?",
+        "point": "câu hỏi did you use to"
+      },
+      {
+        "vi": "Bạn đã quen với việc lái xe bên trái chưa?",
+        "en": "Are you used to driving on the left?",
+        "point": "câu hỏi are you used to + V-ing"
+      },
+      {
+        "vi": "Trước đây tôi sống ở Huế.",
+        "en": "I used to live in Hue.",
+        "point": "used to cho trạng thái ở quá khứ"
+      },
+      {
+        "vi": "Mỗi mùa hè chúng tôi thường đến thăm bà.",
+        "en": "Every summer we would visit Grandma.",
+        "point": "would cho hành động lặp lại trong quá khứ, không dùng cho trạng thái"
+      },
+      {
+        "vi": "Cô ấy đang dần quen với công việc mới.",
+        "en": "She is getting used to her new job.",
+        "point": "get used to + danh từ"
+      }
+    ]
+  },
+  "time-prepositions-deep": {
+    "instruction": "Dùng đúng for, since, during, while, by, until theo đúng bản chất thời gian mà mỗi từ diễn tả.",
+    "items": [
+      {
+        "vi": "Tôi đã sống ở đây được năm năm.",
+        "en": "I've lived here for five years.",
+        "point": "for + khoảng thời gian với present perfect"
+      },
+      {
+        "vi": "Tôi đã sống ở đây từ năm 2019.",
+        "en": "I've lived here since 2019.",
+        "point": "since + mốc thời gian bắt đầu"
+      },
+      {
+        "vi": "Điện thoại của anh ấy đổ chuông trong suốt bộ phim.",
+        "en": "His phone rang during the film.",
+        "point": "during + danh từ"
+      },
+      {
+        "vi": "Điện thoại của anh ấy đổ chuông trong khi tôi đang xem.",
+        "en": "His phone rang while I was watching.",
+        "point": "while + mệnh đề"
+      },
+      {
+        "vi": "Hãy nộp báo cáo trước thứ Sáu.",
+        "en": "Submit the report by Friday.",
+        "point": "by + hạn chót"
+      },
+      {
+        "vi": "Tôi sẽ đợi cho đến thứ Sáu.",
+        "en": "I'll wait until Friday.",
+        "point": "until diễn tả kéo dài đến một thời điểm"
+      },
+      {
+        "vi": "Chúng tôi sẽ hoàn thành trong vòng 2 giờ.",
+        "en": "We will finish within 2 hours.",
+        "point": "within nghĩa không quá một khoảng thời gian"
+      },
+      {
+        "vi": "Anh ấy đã rời đi hai ngày trước.",
+        "en": "He left two days ago.",
+        "point": "ago tính từ hiện tại"
+      },
+      {
+        "vi": "Anh ấy đã rời đi hai ngày trước khi cô ấy đến.",
+        "en": "He left two days before she arrived.",
+        "point": "before tính từ một mốc khác, không phải hiện tại"
+      },
+      {
+        "vi": "Tôi sẽ hoàn thành công việc trước 5 giờ chiều.",
+        "en": "I'll have finished by 5pm.",
+        "point": "by + thì tương lai hoàn thành"
+      },
+      {
+        "vi": "Anh ấy đã không đến cho đến 8 giờ.",
+        "en": "He didn't come until 8.",
+        "point": "until với hành động một lần phải ở dạng phủ định"
+      }
+    ]
+  },
+  "tag-questions": {
+    "instruction": "Lập đúng câu hỏi đuôi: đảo cực (khẳng định - phủ định) và chọn đúng trợ động từ tương ứng với mệnh đề chính.",
+    "items": [
+      {
+        "vi": "Trời nóng, phải không?",
+        "en": "It's hot, isn't it?",
+        "point": "câu với be, tag phủ định"
+      },
+      {
+        "vi": "Bạn có thể bơi, phải không?",
+        "en": "You can swim, can't you?",
+        "point": "tag lặp lại modal verb"
+      },
+      {
+        "vi": "Anh ấy chơi piano, phải không?",
+        "en": "He plays piano, doesn't he?",
+        "point": "thêm does khi câu chính không có trợ động từ"
+      },
+      {
+        "vi": "Cô ấy không hút thuốc, phải không?",
+        "en": "She doesn't smoke, does she?",
+        "point": "câu phủ định đi với tag khẳng định"
+      },
+      {
+        "vi": "Họ đã về nhà rồi, phải không?",
+        "en": "They went home, didn't they?",
+        "point": "tag với did cho quá khứ đơn"
+      },
+      {
+        "vi": "Tôi đúng, phải không?",
+        "en": "I'm right, aren't I?",
+        "point": "I am dùng tag aren't I"
+      },
+      {
+        "vi": "Chúng ta đi thôi, được không?",
+        "en": "Let's go, shall we?",
+        "point": "Let's dùng tag shall we"
+      },
+      {
+        "vi": "Mở cửa ra giúp tôi nhé?",
+        "en": "Open the door, will you?",
+        "point": "câu mệnh lệnh dùng tag will you"
+      },
+      {
+        "vi": "Anh ấy chẳng bao giờ nói dối, phải không?",
+        "en": "He never lies, does he?",
+        "point": "từ phủ định nghĩa (never) đi với tag khẳng định"
+      },
+      {
+        "vi": "Tôi nghĩ anh ấy đúng, phải không?",
+        "en": "I think he is right, isn't he?",
+        "point": "tag chia theo mệnh đề chính khi có \"I think\""
+      }
+    ]
+  },
+  "discourse-markers": {
+    "instruction": "Dùng đúng từ nối/discourse marker (however, therefore, for example...) để liên kết ý giữa các câu, chú ý dấu câu đi kèm.",
+    "items": [
+      {
+        "vi": "Giá thì cao. Hơn nữa, chất lượng cũng không tốt.",
+        "en": "The price is high. Moreover, the quality is not good.",
+        "point": "discourse marker bổ sung ý - moreover"
+      },
+      {
+        "vi": "Giá thì cao. Tuy nhiên, chất lượng rất tuyệt vời.",
+        "en": "The price is high. However, the quality is excellent.",
+        "point": "discourse marker tương phản - however"
+      },
+      {
+        "vi": "Anh ấy học chăm chỉ. Kết quả là, anh ấy đã đậu.",
+        "en": "He studied hard. As a result, he passed.",
+        "point": "discourse marker nêu kết quả - as a result"
+      },
+      {
+        "vi": "Có nhiều loại trái cây, ví dụ như táo và chuối.",
+        "en": "There are many kinds of fruit, for example apples and bananas.",
+        "point": "discourse marker đưa ví dụ - for example"
+      },
+      {
+        "vi": "Tóm lại, kế hoạch này rất khả thi.",
+        "en": "In short, this plan is feasible.",
+        "point": "discourse marker tóm tắt - in short"
+      },
+      {
+        "vi": "Đầu tiên, hãy bật máy tính lên. Sau đó, mở ứng dụng.",
+        "en": "First, turn on the computer. Then, open the app.",
+        "point": "discourse marker trình tự - first, then"
+      },
+      {
+        "vi": "Anh ấy đã bị sa thải, nói cách khác, anh ấy mất việc.",
+        "en": "He was fired; in other words, he lost his job.",
+        "point": "discourse marker diễn đạt lại - in other words"
+      },
+      {
+        "vi": "Thực ra, cô ấy chưa từng đến đó.",
+        "en": "In fact, she has never been there.",
+        "point": "discourse marker nhấn mạnh - in fact"
+      },
+      {
+        "vi": "Tôi mệt. Tuy nhiên, tôi vẫn làm việc.",
+        "en": "I was tired. However, I worked.",
+        "point": "however đứng đầu câu mới với dấu chấm, không nối trực tiếp như but"
+      },
+      {
+        "vi": "Kết quả, tuy nhiên, đã rất rõ ràng.",
+        "en": "The result, however, was clear.",
+        "point": "discourse marker ở giữa câu ngăn bằng dấu phẩy"
+      },
+      {
+        "vi": "Cô ấy thông minh. Thêm vào đó, cô ấy rất chăm chỉ.",
+        "en": "She is intelligent. In addition, she is very hardworking.",
+        "point": "discourse marker bổ sung - in addition"
+      }
+    ]
+  },
+  "exclamatory-sentences": {
+    "instruction": "Dùng đúng cấu trúc câu cảm thán với What (a/an) + N hoặc How + adj/adv để diễn tả cảm xúc.",
+    "items": [
+      {
+        "vi": "Đúng là một ý tưởng tuyệt vời!",
+        "en": "What a great idea!",
+        "point": "What a/an + adj + danh từ số ít đếm được"
+      },
+      {
+        "vi": "Thời tiết đẹp quá!",
+        "en": "What nice weather!",
+        "point": "What + adj + danh từ không đếm được, không có a/an"
+      },
+      {
+        "vi": "Đúng là những bông hoa đẹp!",
+        "en": "What lovely flowers these are!",
+        "point": "What + adj + danh từ số nhiều"
+      },
+      {
+        "vi": "Thú vị quá!",
+        "en": "How interesting!",
+        "point": "How + adjective"
+      },
+      {
+        "vi": "Anh ấy chạy nhanh thật!",
+        "en": "How fast he runs!",
+        "point": "How + adverb + S + V"
+      },
+      {
+        "vi": "Đó là một ngày thật đẹp!",
+        "en": "It's such a nice day!",
+        "point": "such nhấn mạnh cảm thán"
+      },
+      {
+        "vi": "Anh ấy tốt bụng quá!",
+        "en": "He's so kind!",
+        "point": "so nhấn mạnh cảm thán"
+      },
+      {
+        "vi": "Tôi chưa bao giờ thấy vẻ đẹp như vậy!",
+        "en": "Never have I seen such beauty!",
+        "point": "đảo ngữ never + trợ động từ trong câu cảm thán"
+      },
+      {
+        "vi": "Giá mà tôi đã biết điều đó!",
+        "en": "If only I had known!",
+        "point": "If only diễn tả cảm thán tiếc nuối"
+      },
+      {
+        "vi": "Trời ơi, thật là vất vả!",
+        "en": "Boy, that was tough!",
+        "point": "thán từ kèm câu trần thuật"
+      }
+    ]
+  },
   "substitution-ellipsis": {
     "instruction": "Dịch các câu sau, chú ý dùng so/not, do, one(s), that/those hoặc lược bỏ phần đã nhắc để tránh lặp từ như tiếng Anh tự nhiên hay làm.",
     "items": [
