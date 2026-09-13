@@ -946,3 +946,6 @@ main {
     background: rgba(231, 76, 60, 0.2);
     border: 1px solid rgba(231, 76, 60, 0.4);
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }

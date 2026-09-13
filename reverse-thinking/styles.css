@@ -1055,3 +1055,6 @@ main {
         padding: 0.75rem 1rem;
     }
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }

@@ -1708,3 +1708,6 @@ header h1 {
     .pronounce-launcher { right: 16px; bottom: 156px; width: 46px; height: 46px; }
     .pronounce-launcher-icon { font-size: 19px; }
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }
