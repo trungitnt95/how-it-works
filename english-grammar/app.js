@@ -273,14 +273,14 @@
         const above = !isWithinLevel(id);
 
         return `
-            <button type="button" class="node${learned ? ' learned' : ''}${above ? ' above-level' : ''}"
+            <button type="button" class="concept-node${learned ? ' learned' : ''}${above ? ' above-level' : ''}"
                     data-component="${escapeHtml(id)}" data-cefr="${meta.code}" data-category="${escapeHtml(component.category || '')}">
-                <span class="node-icon">${escapeHtml(component.icon || '📘')}</span>
-                <span class="node-title">${escapeHtml(component.title)}</span>
-                <span class="node-badge ${meta.className}">${meta.code}</span>
-                <span class="node-flags">
-                    ${learned ? '<span class="node-flag done" title="Đã thuộc">✅</span>' : ''}
-                    ${saved ? '<span class="node-flag save" title="Đã lưu">⭐</span>' : ''}
+                <span class="concept-node-icon">${escapeHtml(component.icon || '📘')}</span>
+                <span class="concept-node-title">${escapeHtml(component.title)}</span>
+                <span class="concept-node-badge ${meta.className}">${meta.code}</span>
+                <span class="concept-node-flags">
+                    ${learned ? '<span class="concept-node-flag done" title="Đã thuộc">✅</span>' : ''}
+                    ${saved ? '<span class="concept-node-flag save" title="Đã lưu">⭐</span>' : ''}
                 </span>
             </button>
         `;
@@ -310,7 +310,7 @@
             `;
         }).join('');
 
-        elements.nodes = Array.from(elements.conceptsGrid.querySelectorAll('.node'));
+        elements.nodes = Array.from(elements.conceptsGrid.querySelectorAll('.concept-node'));
         elements.nodes.forEach(node => {
             node.addEventListener('click', () => activateComponent(node.dataset.component));
         });
@@ -319,14 +319,14 @@
     }
 
     function refreshNode(id) {
-        const node = elements.conceptsGrid.querySelector(`.node[data-component="${CSS.escape(id)}"]`);
+        const node = elements.conceptsGrid.querySelector(`.concept-node[data-component="${CSS.escape(id)}"]`);
         if (!node) return;
 
         const learned = progress && progress.isLearned(id);
         const saved = progress && progress.isBookmarked(id);
         node.classList.toggle('learned', Boolean(learned));
-        node.querySelector('.node-flags').innerHTML =
-            `${learned ? '<span class="node-flag done" title="Đã thuộc">✅</span>' : ''}${saved ? '<span class="node-flag save" title="Đã lưu">⭐</span>' : ''}`;
+        node.querySelector('.concept-node-flags').innerHTML =
+            `${learned ? '<span class="concept-node-flag done" title="Đã thuộc">✅</span>' : ''}${saved ? '<span class="concept-node-flag save" title="Đã lưu">⭐</span>' : ''}`;
     }
 
     function matchesView(id) {
@@ -346,7 +346,7 @@
 
             let visibleNodes = 0;
 
-            section.querySelectorAll('.node').forEach(node => {
+            section.querySelectorAll('.concept-node').forEach(node => {
                 const id = node.dataset.component;
                 const matchesSearch = !state.searchQuery || (componentSearchIndex[id] || '').includes(state.searchQuery);
                 const visible = matchesCategory && matchesSearch && matchesView(id);
@@ -410,7 +410,7 @@
         showComponentInfo(id);
         elements.nodes.forEach(item => item.classList.remove('active'));
 
-        const targetNode = elements.conceptsGrid.querySelector(`.node[data-component="${CSS.escape(id)}"]`);
+        const targetNode = elements.conceptsGrid.querySelector(`.concept-node[data-component="${CSS.escape(id)}"]`);
         if (targetNode) {
             targetNode.classList.add('active');
             if (options.scrollIntoView) {
