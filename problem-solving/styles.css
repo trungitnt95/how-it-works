@@ -119,3 +119,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     .info-panel.active { transform: translateY(0); }
     .level-buttons { flex-direction: column; }
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }

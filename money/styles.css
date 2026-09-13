@@ -2526,3 +2526,6 @@ footer {
     color: #2ecc71;
     text-decoration: line-through;
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }

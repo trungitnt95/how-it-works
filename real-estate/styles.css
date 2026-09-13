@@ -490,3 +490,6 @@ main {
     .re-body { font-size: 0.94rem; }
     .tool-grid { grid-template-columns: 1fr; }
 }
+
+/* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
+header h1 { display: none !important; }
