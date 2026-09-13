@@ -286,32 +286,32 @@ header h1 {
 .reference-header h2 { font-size: 1.3rem; margin-bottom: 0.35rem; color: #dbeafe; }
 .reference-header p { color: rgba(255, 255, 255, 0.72); max-width: 760px; line-height: 1.6; }
 
-.reference-mindmap {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 14px;
-    padding: 1rem;
-    margin-bottom: 1.25rem;
-    overflow-x: auto;
-}
-
-.reference-mindmap-svg { display: flex; justify-content: center; }
-.reference-mindmap-svg svg { max-width: 100%; height: auto; }
-
-.reference-jumplist {
+.atlas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
 }
 
-.reference-jump-group {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 0.9rem 1rem;
+.atlas-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1.15rem;
+    backdrop-filter: blur(10px);
 }
 
-.reference-jump-group h4 { font-size: 0.92rem; margin-bottom: 0.6rem; color: #fcd34d; }
+.atlas-card h3 { font-size: 1rem; margin-bottom: 0.8rem; color: #fcd34d; }
+
+.atlas-mindmap {
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.atlas-mindmap-svg { overflow-x: auto; text-align: center; }
+.atlas-mindmap-svg svg { max-width: 100%; height: auto; }
 
 .reference-note { margin-top: 0.7rem; color: rgba(157, 220, 255, 0.9) !important; }
 

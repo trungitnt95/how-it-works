@@ -1185,45 +1185,56 @@
     // ==================== GRAMMAR ATLAS MINDMAP ====================
     let mermaidReady = false;
 
-    function renderGrammarAtlasMindmap() {
-        const pre = el('grammarAtlasMindmap');
-        if (!pre || typeof grammarAtlasMindmapSrc === 'undefined') return;
+    function ensureMermaidReady() {
+        if (mermaidReady) return true;
+        try {
+            window.mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'strict',
+                theme: 'dark',
+                themeVariables: {
+                    background: '#0d1117',
+                    primaryColor: '#1d262d',
+                    primaryTextColor: '#eef3f6',
+                    primaryBorderColor: '#3d4a55',
+                    lineColor: '#7f8f9c',
+                    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                    fontSize: '13px'
+                },
+                flowchart: { curve: 'basis', htmlLabels: true, padding: 12 }
+            });
+            mermaidReady = true;
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
 
-        if (!window.mermaid || !window.mermaid.render) {
-            pre.remove();
+    async function renderGrammarAtlasMindmap() {
+        const nodes = document.querySelectorAll('.atlas-mindmap pre.mermaid[data-atlas-key]');
+        if (!nodes.length || typeof grammarAtlasMindmaps === 'undefined') return;
+
+        if (!window.mermaid || !window.mermaid.render || !ensureMermaidReady()) {
+            nodes.forEach(pre => pre.remove());
             return;
         }
-        if (!mermaidReady) {
+
+        // Mermaid dùng 1 vùng đo text tạm dùng chung; render song song nhiều
+        // sơ đồ cùng lúc làm phép đo kích thước node bị lẫn/lệch (node bị cắt).
+        // Nên render tuần tự từng cái một.
+        for (let index = 0; index < nodes.length; index++) {
+            const pre = nodes[index];
+            const src = grammarAtlasMindmaps[pre.dataset.atlasKey];
+            if (!src) { pre.remove(); continue; }
             try {
-                window.mermaid.initialize({
-                    startOnLoad: false,
-                    securityLevel: 'strict',
-                    theme: 'dark',
-                    themeVariables: {
-                        background: '#0d1117',
-                        primaryColor: '#1d262d',
-                        primaryTextColor: '#eef3f6',
-                        primaryBorderColor: '#3d4a55',
-                        lineColor: '#7f8f9c',
-                        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-                        fontSize: '14px'
-                    },
-                    mindmap: { padding: 12 }
-                });
-                mermaidReady = true;
+                const res = await window.mermaid.render(`grammar-atlas-mindmap-${index}`, src);
+                if (pre.isConnected) {
+                    pre.outerHTML = `<div class="atlas-mindmap-svg">${res.svg}</div>`;
+                }
             } catch (e) {
-                pre.remove();
-                return;
+                if (pre.isConnected) pre.remove();
             }
         }
-
-        Promise.resolve()
-            .then(() => window.mermaid.render('grammar-atlas-mindmap-svg', grammarAtlasMindmapSrc))
-            .then(res => {
-                if (!pre.isConnected) return;
-                pre.outerHTML = `<div class="reference-mindmap-svg">${res.svg}</div>`;
-            })
-            .catch(() => { if (pre.isConnected) pre.remove(); });
     }
 
     // ==================== PHÍM TẮT ====================
