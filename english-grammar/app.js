@@ -1182,6 +1182,50 @@
         });
     }
 
+    // ==================== GRAMMAR ATLAS MINDMAP ====================
+    let mermaidReady = false;
+
+    function renderGrammarAtlasMindmap() {
+        const pre = el('grammarAtlasMindmap');
+        if (!pre || typeof grammarAtlasMindmapSrc === 'undefined') return;
+
+        if (!window.mermaid || !window.mermaid.render) {
+            pre.remove();
+            return;
+        }
+        if (!mermaidReady) {
+            try {
+                window.mermaid.initialize({
+                    startOnLoad: false,
+                    securityLevel: 'strict',
+                    theme: 'dark',
+                    themeVariables: {
+                        background: '#0d1117',
+                        primaryColor: '#1d262d',
+                        primaryTextColor: '#eef3f6',
+                        primaryBorderColor: '#3d4a55',
+                        lineColor: '#7f8f9c',
+                        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                        fontSize: '14px'
+                    },
+                    mindmap: { padding: 12 }
+                });
+                mermaidReady = true;
+            } catch (e) {
+                pre.remove();
+                return;
+            }
+        }
+
+        Promise.resolve()
+            .then(() => window.mermaid.render('grammar-atlas-mindmap-svg', grammarAtlasMindmapSrc))
+            .then(res => {
+                if (!pre.isConnected) return;
+                pre.outerHTML = `<div class="reference-mindmap-svg">${res.svg}</div>`;
+            })
+            .catch(() => { if (pre.isConnected) pre.remove(); });
+    }
+
     // ==================== PHÍM TẮT ====================
     function initKeyboard() {
         document.addEventListener('keydown', event => {
@@ -1227,6 +1271,7 @@
         initPanelControls();
         initTourSystem();
         initReferenceShortcuts();
+        renderGrammarAtlasMindmap();
         initExerciseSystem();
         initKeyboard();
         renderMemoryBank();

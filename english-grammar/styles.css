@@ -286,28 +286,33 @@ header h1 {
 .reference-header h2 { font-size: 1.3rem; margin-bottom: 0.35rem; color: #dbeafe; }
 .reference-header p { color: rgba(255, 255, 255, 0.72); max-width: 760px; line-height: 1.6; }
 
-.reference-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-}
-
-.reference-card {
+.reference-mindmap {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 14px;
-    padding: 1.15rem;
-    backdrop-filter: blur(10px);
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
 }
 
-.reference-card h3 { font-size: 1rem; margin-bottom: 0.8rem; color: #fcd34d; }
-.reference-card p,
-.reference-card li { color: rgba(255, 255, 255, 0.82); line-height: 1.65; font-size: 0.9rem; }
-.reference-card ul { padding-left: 1.25rem; }
-.reference-card li { margin-bottom: 0.35rem; }
-.reference-card table { width: 100%; border-collapse: collapse; margin-bottom: 0.8rem; font-size: 0.82rem; }
-.reference-card th, .reference-card td { border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.45rem; text-align: left; }
-.reference-card th { background: rgba(56, 189, 248, 0.12); }
+.reference-mindmap-svg { display: flex; justify-content: center; }
+.reference-mindmap-svg svg { max-width: 100%; height: auto; }
+
+.reference-jumplist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.reference-jump-group {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+}
+
+.reference-jump-group h4 { font-size: 0.92rem; margin-bottom: 0.6rem; color: #fcd34d; }
+
 .reference-note { margin-top: 0.7rem; color: rgba(157, 220, 255, 0.9) !important; }
 
 .concepts-grid { padding: 1rem 2rem 2rem; }
