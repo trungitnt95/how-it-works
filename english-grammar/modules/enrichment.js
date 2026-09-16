@@ -2,7 +2,7 @@
 const grammarSupplementsData = {
     'verbs-overview': {
         icon: '⚙️',
-        title: 'Động Từ',
+        title: 'Verbs (Động Từ) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'sentence-order', 'subject-verb-agreement', 'gerunds-infinitives'],
@@ -51,7 +51,7 @@ const grammarSupplementsData = {
     },
     'nouns-plurals': {
         icon: '🧺',
-        title: 'Danh Từ & Số Nhiều',
+        title: 'Nouns & Plurals (Danh Từ & Số Nhiều) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'articles-determiners', 'countable-uncountable', 'subject-verb-agreement'],
@@ -101,7 +101,7 @@ const grammarSupplementsData = {
     },
     numerals: {
         icon: '🔢',
-        title: 'Numerals',
+        title: 'Numerals (Số Từ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['articles-determiners', 'quantifiers', 'nouns-plurals', 'sentence-order'],
@@ -151,7 +151,7 @@ const grammarSupplementsData = {
     },
     'word-formation': {
         icon: '🧱',
-        title: 'Word Form',
+        title: 'Word Form (Dạng Từ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['parts-of-speech', 'adjectives-adverbs', 'comparisons', 'countable-uncountable'],
@@ -196,7 +196,7 @@ const grammarSupplementsData = {
     },
     'near-future': {
         icon: '🛫',
-        title: 'Near Future',
+        title: 'Near Future (Tương Lai Gần) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['future-simple', 'present-continuous', 'present-simple', 'conditionals'],
@@ -241,7 +241,7 @@ const grammarSupplementsData = {
     },
     'sequence-of-tenses': {
         icon: '🧭',
-        title: 'Sequence of Tenses',
+        title: 'Sequence of Tenses (Sự Phối Hợp Thì) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['reported-speech', 'past-perfect', 'adverbial-time-clauses', 'present-perfect'],
@@ -297,7 +297,7 @@ const grammarSupplementsData = {
     },
     'adverbial-time-clauses': {
         icon: '⏱️',
-        title: 'Adverbial Clauses of Time',
+        title: 'Adverbial Clauses of Time (Mệnh Đề Trạng Ngữ Chỉ Thời Gian) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['conjunctions', 'future-simple', 'sequence-of-tenses', 'present-perfect'],
@@ -342,7 +342,7 @@ const grammarSupplementsData = {
     },
     'relative-pronouns-adverbs': {
         icon: '🧷',
-        title: 'Relative Pronouns & Adverbs',
+        title: 'Relative Pronouns & Adverbs (Đại Từ & Trạng Từ Quan Hệ) - Beginner',
         category: 'patterns',
         level: 'beginner',
         connections: ['relative-clauses', 'pronouns-possessives', 'conjunctions', 'sentence-order'],
@@ -389,7 +389,7 @@ const grammarSupplementsData = {
     },
     'result-structures': {
         icon: '🎯',
-        title: 'Phrases & Clauses of Result',
+        title: 'Phrases & Clauses of Result (Cụm Từ & Mệnh Đề Chỉ Kết Quả) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['conjunctions', 'comparisons', 'adjectives-adverbs', 'sentence-order'],

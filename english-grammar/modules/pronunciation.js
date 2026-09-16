@@ -2,7 +2,7 @@
 const grammarPronunciationData = {
     'ipa-overview': {
         icon: '🔠',
-        title: 'IPA Overview',
+        title: 'IPA Overview (Tổng Quan Bảng Phiên Âm IPA) - Beginner',
         category: 'pronunciation',
         level: 'beginner',
         connections: ['ipa-vowels', 'ipa-consonants', 'stress-schwa', 'parts-of-speech'],
@@ -50,7 +50,7 @@ const grammarPronunciationData = {
     },
     'ipa-vowels': {
         icon: '🎵',
-        title: 'Nguyên Âm IPA',
+        title: 'IPA Vowels (Nguyên Âm IPA) - Intermediate',
         category: 'pronunciation',
         level: 'intermediate',
         connections: ['ipa-overview', 'stress-schwa', 'comparisons', 'modifier-errors'],
@@ -104,7 +104,7 @@ const grammarPronunciationData = {
     },
     'ipa-consonants': {
         icon: '🔊',
-        title: 'Phụ Âm IPA',
+        title: 'IPA Consonants (Phụ Âm IPA) - Intermediate',
         category: 'pronunciation',
         level: 'intermediate',
         connections: ['ipa-overview', 'stress-schwa', 'pronoun-reference', 'sentence-order'],
@@ -152,7 +152,7 @@ const grammarPronunciationData = {
     },
     'stress-schwa': {
         icon: '⚡',
-        title: 'Trọng Âm & Schwa',
+        title: 'Stress & Schwa (Trọng Âm & Schwa) - Advanced',
         category: 'pronunciation',
         level: 'advanced',
         connections: ['ipa-overview', 'ipa-vowels', 'ipa-consonants', 'reported-speech'],

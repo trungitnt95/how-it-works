@@ -6,7 +6,7 @@ const grammarExtrasData = {
 
     'existential-there': {
         icon: '📍',
-        title: 'There is / There are',
+        title: 'There is / There are (Câu Có Chủ Ngữ Giả There) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['subject-verb-agreement', 'sentence-order', 'quantifiers', 'dummy-it'],
@@ -54,7 +54,7 @@ const grammarExtrasData = {
 
     'dummy-it': {
         icon: '💭',
-        title: 'Dummy "It"',
+        title: 'Dummy "It" (Chủ Ngữ Giả It) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['existential-there', 'sentence-order', 'noun-clauses', 'cleft-sentences'],
@@ -103,7 +103,7 @@ const grammarExtrasData = {
 
     'reflexive-reciprocal': {
         icon: '🫂',
-        title: 'Reflexive & Reciprocal Pronouns',
+        title: 'Reflexive & Reciprocal Pronouns (Đại Từ Phản Thân & Đại Từ Tương Hỗ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['pronouns-possessives', 'verbs-overview', 'parts-of-speech'],
@@ -154,7 +154,7 @@ const grammarExtrasData = {
 
     'compound-nouns-possessives': {
         icon: '🏷️',
-        title: 'Compound Nouns & Possessives',
+        title: 'Compound Nouns & Possessives (Danh Từ Ghép & Sở Hữu Cách) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['nouns-plurals', 'articles-determiners', 'pronouns-possessives'],
@@ -201,7 +201,7 @@ const grammarExtrasData = {
 
     'distributives': {
         icon: '🔢',
-        title: 'Both / Either / Neither / All',
+        title: 'Both / Either / Neither / All (Từ Chỉ Số Lượng Phân Phối) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['quantifiers', 'pronouns-possessives', 'subject-verb-agreement', 'negatives'],
@@ -248,7 +248,7 @@ const grammarExtrasData = {
 
     'indefinite-pronouns': {
         icon: '🎭',
-        title: 'Indefinite Pronouns',
+        title: 'Indefinite Pronouns (Đại Từ Bất Định) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['quantifiers', 'pronouns-possessives', 'subject-verb-agreement', 'distributives'],
@@ -300,7 +300,7 @@ const grammarExtrasData = {
 
     'phrasal-prepositions': {
         icon: '📍',
-        title: 'Phrasal Prepositions',
+        title: 'Phrasal Prepositions (Cụm Giới Từ Kép) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['prepositions', 'conjunctions', 'discourse-markers'],
@@ -340,7 +340,7 @@ const grammarExtrasData = {
 
     'adjective-order': {
         icon: '🎨',
-        title: 'Trật Tự Tính Từ',
+        title: 'Adjective Order (Trật Tự Tính Từ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['adjectives-adverbs', 'comparisons', 'sentence-order'],
@@ -383,7 +383,7 @@ const grammarExtrasData = {
 
     'spelling-rules': {
         icon: '✏️',
-        title: 'Quy Tắc Chính Tả',
+        title: 'Spelling Rules (Quy Tắc Chính Tả) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['present-simple', 'past-simple', 'present-continuous', 'nouns-plurals'],
@@ -426,7 +426,7 @@ const grammarExtrasData = {
 
     'have-got': {
         icon: '🤝',
-        title: 'Have / Have got',
+        title: 'Have / Have got (Have và Have Got) - Beginner',
         category: 'tenses',
         level: 'beginner',
         connections: ['present-simple', 'present-perfect', 'modal-verbs'],
@@ -468,7 +468,7 @@ const grammarExtrasData = {
 
     'used-to': {
         icon: '⏪',
-        title: 'Used to / Be used to / Get used to',
+        title: 'Used to / Be used to / Get used to (Thói Quen Trong Quá Khứ & Sự Quen Thuộc) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['past-simple', 'gerunds-infinitives', 'modal-verbs'],
@@ -512,7 +512,7 @@ const grammarExtrasData = {
 
     'time-prepositions-deep': {
         icon: '⏳',
-        title: 'For / Since / During / While / By / Until',
+        title: 'For / Since / During / While / By / Until (Giới Từ Chỉ Thời Gian) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['present-perfect', 'past-simple', 'past-continuous', 'prepositions'],
@@ -554,7 +554,7 @@ const grammarExtrasData = {
 
     'tag-questions': {
         icon: '❔',
-        title: 'Tag Questions',
+        title: 'Tag Questions (Câu Hỏi Đuôi) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['question-forms', 'negatives', 'modal-verbs', 'subject-verb-agreement'],
@@ -603,7 +603,7 @@ const grammarExtrasData = {
 
     'discourse-markers': {
         icon: '🔀',
-        title: 'Linking Words & Discourse Markers',
+        title: 'Linking Words & Discourse Markers (Từ Nối & Từ Liên Kết Diễn Ngôn) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['conjunctions', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
@@ -648,7 +648,7 @@ const grammarExtrasData = {
 
     'exclamatory-sentences': {
         icon: '😮',
-        title: 'Câu Cảm Thán',
+        title: 'Exclamatory Sentences (Câu Cảm Thán) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['question-forms', 'comparisons', 'sentence-types'],
@@ -686,7 +686,7 @@ const grammarExtrasData = {
 
     'substitution-ellipsis': {
         icon: '🔄',
-        title: 'Substitution & Ellipsis',
+        title: 'Substitution & Ellipsis (Phép Thế & Phép Tỉnh Lược) - Advanced',
         category: 'patterns',
         level: 'advanced',
         connections: ['negatives', 'parallel-structure', 'distributives', 'reported-speech'],
@@ -730,7 +730,7 @@ const grammarExtrasData = {
 
     'comparative-correlatives': {
         icon: '📊',
-        title: 'The + Comparative... The + Comparative',
+        title: 'The + Comparative... The + Comparative (Cấu Trúc So Sánh Kép) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['comparisons', 'parallel-structure', 'conditionals'],
@@ -769,7 +769,7 @@ const grammarExtrasData = {
 
     'phrasal-verbs': {
         icon: '🧩',
-        title: 'Phrasal Verbs',
+        title: 'Phrasal Verbs (Cụm Động Từ) - Intermediate',
         category: 'structures',
         level: 'intermediate',
         connections: ['verbs-overview', 'prepositions', 'gerunds-infinitives', 'word-formation'],
@@ -840,7 +840,7 @@ const grammarExtrasData = {
 
     'verb-patterns': {
         icon: '⚙️',
-        title: 'Verb Patterns',
+        title: 'Verb Patterns (Cấu Trúc Động Từ) - Intermediate',
         category: 'structures',
         level: 'intermediate',
         connections: ['gerunds-infinitives', 'reported-speech', 'noun-clauses', 'causatives'],
@@ -885,7 +885,7 @@ const grammarExtrasData = {
 
     'mixed-conditionals': {
         icon: '🌡️',
-        title: 'Mixed & Inverted Conditionals',
+        title: 'Mixed & Inverted Conditionals (Câu Điều Kiện Hỗn Hợp & Đảo Ngữ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['conditionals', 'inversion', 'wish-if-only', 'sequence-of-tenses'],
@@ -932,7 +932,7 @@ const grammarExtrasData = {
 
     'cleft-sentences': {
         icon: '🪞',
-        title: 'Cleft & Pseudo-cleft Sentences',
+        title: 'Cleft & Pseudo-cleft Sentences (Câu Chẻ & Câu Chẻ Giả) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['dummy-it', 'noun-clauses', 'inversion', 'parallel-structure'],
@@ -974,7 +974,7 @@ const grammarExtrasData = {
 
     'reduced-relatives': {
         icon: '↙️',
-        title: 'Reduced Relative Clauses',
+        title: 'Reduced Relative Clauses (Mệnh Đề Quan Hệ Rút Gọn) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['relative-clauses', 'participle-clauses', 'passive-voice', 'parallel-structure'],
@@ -1014,7 +1014,7 @@ const grammarExtrasData = {
 
     'reducing-adverbial-clauses': {
         icon: '🪶',
-        title: 'Reducing Adverbial Clauses',
+        title: 'Reducing Adverbial Clauses (Rút Gọn Mệnh Đề Trạng Ngữ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['adverbial-time-clauses', 'participle-clauses', 'reduced-relatives', 'sequence-of-tenses'],
@@ -1057,7 +1057,7 @@ const grammarExtrasData = {
 
     'subjunctive': {
         icon: '🎼',
-        title: 'Subjunctive Mood',
+        title: 'Subjunctive Mood (Thức Giả Định) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['noun-clauses', 'wish-if-only', 'conditionals', 'modal-verbs'],
@@ -1102,7 +1102,7 @@ const grammarExtrasData = {
 
     'academic-style-grammar': {
         icon: '🎓',
-        title: 'Academic Grammar: Nominalization & Gerund Subjects',
+        title: 'Academic Grammar: Nominalization & Gerund Subjects (Danh Từ Hóa & Chủ Ngữ Danh Động Từ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['subjunctive', 'verb-patterns', 'parallel-structure', 'grammar-registers'],
@@ -1144,7 +1144,7 @@ const grammarExtrasData = {
 
     'grammar-registers': {
         icon: '🎙️',
-        title: 'Grammar Registers: BrE vs AmE, Formal vs Informal',
+        title: 'Grammar Registers: BrE vs AmE, Formal vs Informal (Văn Phong & Biến Thể Ngữ Pháp) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['have-got', 'subjunctive', 'phrasal-verbs', 'academic-style-grammar'],
@@ -1194,7 +1194,7 @@ const grammarExtrasData = {
 
     'prepositional-phrases': {
         icon: '🧭',
-        title: 'Prepositional Phrases & Fixed Expressions',
+        title: 'Prepositional Phrases & Fixed Expressions (Cụm Giới Từ & Thành Ngữ Cố Định) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['prepositions', 'collocations-pairs', 'discourse-markers'],
@@ -1238,7 +1238,7 @@ const grammarExtrasData = {
 
     'modal-perfect': {
         icon: '🔮',
-        title: 'Modal Perfect (must have, could have...)',
+        title: 'Modal Perfect (Động Từ Khuyết Thiếu Hoàn Thành) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['modal-verbs', 'past-simple', 'wish-if-only', 'conditionals'],
@@ -1282,7 +1282,7 @@ const grammarExtrasData = {
 
     'direct-indirect-objects': {
         icon: '🎯',
-        title: 'Direct & Indirect Objects',
+        title: 'Direct & Indirect Objects (Tân Ngữ Trực Tiếp & Gián Tiếp) - Intermediate',
         category: 'structures',
         level: 'intermediate',
         connections: ['verbs-overview', 'sentence-order', 'passive-voice', 'pronouns-possessives'],
@@ -1326,7 +1326,7 @@ const grammarExtrasData = {
 
     'connected-speech': {
         icon: '🌊',
-        title: 'Connected Speech & Weak Forms',
+        title: 'Connected Speech & Weak Forms (Nối Âm & Dạng Yếu) - Advanced',
         category: 'pronunciation',
         level: 'advanced',
         connections: ['stress-schwa', 'ipa-vowels', 'ipa-consonants', 'ipa-overview'],

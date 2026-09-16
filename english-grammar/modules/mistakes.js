@@ -2,7 +2,7 @@
 const grammarMistakesData = {
     'prepositions': {
         icon: '📍',
-        title: 'Giới Từ',
+        title: 'Prepositions (Giới Từ) - Beginner',
         category: 'mistakes',
         level: 'beginner',
         connections: ['articles-determiners', 'question-forms', 'countable-uncountable', 'sentence-order'],
@@ -53,7 +53,7 @@ const grammarMistakesData = {
     },
     'gerunds-infinitives': {
         icon: '🔄',
-        title: 'Gerund & Infinitive',
+        title: 'Gerund & Infinitive (Danh Động Từ & Động Từ Nguyên Mẫu) - Intermediate',
         category: 'mistakes',
         level: 'intermediate',
         connections: ['parts-of-speech', 'modal-verbs', 'conjunctions', 'causatives'],
@@ -96,7 +96,7 @@ const grammarMistakesData = {
     },
     'countable-uncountable': {
         icon: '📦',
-        title: 'Countable / Uncountable',
+        title: 'Countable / Uncountable (Danh Từ Đếm Được / Không Đếm Được) - Intermediate',
         category: 'mistakes',
         level: 'intermediate',
         connections: ['articles-determiners', 'subject-verb-agreement', 'quantifiers', 'prepositions'],
@@ -136,7 +136,7 @@ const grammarMistakesData = {
     },
     'quantifiers': {
         icon: '🧮',
-        title: 'Quantifiers',
+        title: 'Quantifiers (Lượng Từ) - Intermediate',
         category: 'mistakes',
         level: 'intermediate',
         connections: ['countable-uncountable', 'articles-determiners', 'subject-verb-agreement', 'comparisons'],
@@ -181,7 +181,7 @@ const grammarMistakesData = {
     },
     'fragments-run-ons': {
         icon: '🧵',
-        title: 'Fragments & Run-ons',
+        title: 'Fragments & Run-ons (Câu Thiếu & Câu Dính) - Advanced',
         category: 'mistakes',
         level: 'advanced',
         connections: ['sentence-order', 'conjunctions', 'punctuation-capitalization', 'noun-clauses'],
@@ -222,7 +222,7 @@ const grammarMistakesData = {
     },
     'punctuation-capitalization': {
         icon: '✍️',
-        title: 'Dấu Câu & Viết Hoa',
+        title: 'Punctuation & Capitalization (Dấu Câu & Viết Hoa) - Beginner',
         category: 'mistakes',
         level: 'beginner',
         connections: ['conjunctions', 'fragments-run-ons', 'reported-speech', 'relative-clauses'],
@@ -265,7 +265,7 @@ const grammarMistakesData = {
     },
     'modifier-errors': {
         icon: '🎯',
-        title: 'Misplaced Modifiers',
+        title: 'Misplaced Modifiers (Bổ Ngữ Đặt Sai Vị Trí) - Advanced',
         category: 'mistakes',
         level: 'advanced',
         connections: ['adjectives-adverbs', 'participle-clauses', 'sentence-order', 'pronoun-reference'],
@@ -306,7 +306,7 @@ const grammarMistakesData = {
     },
     'pronoun-reference': {
         icon: '🧷',
-        title: 'Pronoun Reference',
+        title: 'Pronoun Reference (Sự Tham Chiếu Đại Từ) - Advanced',
         category: 'mistakes',
         level: 'advanced',
         connections: ['pronouns-possessives', 'relative-clauses', 'reported-speech', 'modifier-errors'],

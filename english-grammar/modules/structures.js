@@ -2,7 +2,7 @@
 const grammarStructuresData = {
     'modal-verbs': {
         icon: '🛠️',
-        title: 'Modal Verbs',
+        title: 'Modal Verbs (Động Từ Khuyết Thiếu) - Intermediate',
         category: 'structures',
         level: 'intermediate',
         connections: ['question-forms', 'conditionals', 'present-perfect', 'future-simple'],
@@ -46,7 +46,7 @@ const grammarStructuresData = {
     },
     'conditionals': {
         icon: '🌦️',
-        title: 'Conditionals',
+        title: 'Conditionals (Câu Điều Kiện) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['conjunctions', 'modal-verbs', 'future-simple', 'wish-if-only'],
@@ -88,7 +88,7 @@ const grammarStructuresData = {
     },
     'passive-voice': {
         icon: '🏭',
-        title: 'Passive Voice',
+        title: 'Passive Voice (Câu Bị Động) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['subject-verb-agreement', 'relative-clauses', 'past-simple', 'causatives'],
@@ -153,7 +153,7 @@ const grammarStructuresData = {
     },
     'noun-clauses': {
         icon: '🧠',
-        title: 'Noun Clauses',
+        title: 'Noun Clauses (Mệnh Đề Danh Từ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['question-forms', 'reported-speech', 'relative-clauses', 'sentence-order'],
@@ -203,7 +203,7 @@ const grammarStructuresData = {
     },
     'causatives': {
         icon: '⚙️',
-        title: 'Causatives',
+        title: 'Causatives (Câu Sai Khiến) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['passive-voice', 'modal-verbs', 'gerunds-infinitives', 'sentence-order'],
@@ -244,7 +244,7 @@ const grammarStructuresData = {
     },
     'wish-if-only': {
         icon: '✨',
-        title: 'Wish / If Only',
+        title: 'Wish / If Only (Câu Ước) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['conditionals', 'past-simple', 'past-perfect', 'modal-verbs'],
@@ -284,7 +284,7 @@ const grammarStructuresData = {
     },
     'inversion': {
         icon: '🔁',
-        title: 'Inversion',
+        title: 'Inversion (Đảo Ngữ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['question-forms', 'conditionals', 'parallel-structure', 'wish-if-only'],
@@ -325,7 +325,7 @@ const grammarStructuresData = {
     },
     'participle-clauses': {
         icon: '🪶',
-        title: 'Participle Clauses',
+        title: 'Participle Clauses (Mệnh Đề Rút Gọn Bằng Phân Từ) - Advanced',
         category: 'structures',
         level: 'advanced',
         connections: ['phrases-vs-clauses', 'relative-clauses', 'passive-voice', 'modifier-errors'],

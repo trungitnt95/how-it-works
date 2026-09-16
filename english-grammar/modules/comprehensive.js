@@ -5,7 +5,7 @@ const grammarComprehensiveData = {
     /* ========== FOUNDATIONS ========== */
 
     'countable-uncountable': {
-        icon: '🔢', title: 'Countable vs Uncountable', category: 'foundations', level: 'beginner',
+        icon: '🔢', title: 'Countable vs Uncountable (Danh Từ Đếm Được và Không Đếm Được) - Beginner', category: 'foundations', level: 'beginner',
         connections: ['nouns-plurals', 'quantifiers', 'articles-determiners'],
         simple: `<h3>🔢 Đếm được vs Không đếm được</h3>
             <p><strong>Countable</strong>: có số ít/số nhiều (a book, two books).<br>
@@ -27,7 +27,7 @@ const grammarComprehensiveData = {
     },
 
     'quantifiers-deep': {
-        icon: '📊', title: 'Quantifiers (Định Lượng)', category: 'foundations', level: 'beginner',
+        icon: '📊', title: 'Quantifiers (Định Lượng) - Beginner', category: 'foundations', level: 'beginner',
         connections: ['countable-uncountable', 'articles-determiners', 'distributives'],
         simple: `<h3>📊 Bộ định lượng</h3>
             <p>Định lượng cho biết "bao nhiêu" của một danh từ.</p>
@@ -56,7 +56,7 @@ const grammarComprehensiveData = {
     },
 
     'demonstratives-deep': {
-        icon: '👉', title: 'Demonstratives (This/That)', category: 'foundations', level: 'beginner',
+        icon: '👉', title: 'Demonstratives (Từ Chỉ Định) - Beginner', category: 'foundations', level: 'beginner',
         connections: ['pronouns-possessives', 'articles-determiners', 'anaphoric-reference'],
         simple: `<h3>👉 This / That / These / Those</h3>
             <p>Chỉ sự vật theo khoảng cách (gần/xa) và số lượng (ít/nhiều).</p>
@@ -78,7 +78,7 @@ const grammarComprehensiveData = {
     },
 
     'anaphoric-reference': {
-        icon: '🔗', title: 'Tham Chiếu Đại Từ', category: 'foundations', level: 'intermediate',
+        icon: '🔗', title: 'Anaphoric Reference (Tham Chiếu Đại Từ) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['pronouns-possessives', 'pronoun-reference', 'demonstratives-deep'],
         simple: `<h3>🔗 Đại từ và tiền tố (Antecedent)</h3>
             <p>Mỗi đại từ phải có <strong>antecedent</strong> (danh từ nó thay thế) rõ ràng và đồng nhất về số/giống.</p>
@@ -100,7 +100,7 @@ const grammarComprehensiveData = {
     },
 
     'apposition': {
-        icon: '🪢', title: 'Apposition (Đồng Vị Ngữ)', category: 'foundations', level: 'intermediate',
+        icon: '🪢', title: 'Apposition (Đồng Vị Ngữ) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['relative-clauses', 'punctuation-deep'],
         simple: `<h3>🪢 Đồng vị ngữ</h3>
             <p>Hai cụm danh từ đứng cạnh nhau cùng chỉ một đối tượng.</p>
@@ -119,7 +119,7 @@ const grammarComprehensiveData = {
     },
 
     'gender-neutral-grammar': {
-        icon: '🧑', title: 'Gender-neutral Grammar', category: 'foundations', level: 'advanced',
+        icon: '🧑', title: 'Gender-neutral Grammar (Ngữ Pháp Trung Tính Giới) - Advanced', category: 'foundations', level: 'advanced',
         connections: ['anaphoric-reference', 'pronouns-possessives', 'grammar-registers'],
         simple: `<h3>🧑 Ngữ pháp trung tính về giới</h3>
             <p>Tiếng Anh hiện đại ưu tiên cách diễn đạt <strong>không mặc định giới tính</strong>, nhất là trong email công việc, tài liệu công ty và văn học thuật.</p>
@@ -141,7 +141,7 @@ const grammarComprehensiveData = {
     },
 
     'word-formation': {
-        icon: '🧬', title: 'Cấu Tạo Từ', category: 'foundations', level: 'intermediate',
+        icon: '🧬', title: 'Word Formation (Cấu Tạo Từ) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['parts-of-speech', 'spelling-rules', 'collocations-pairs'],
         simple: `<h3>🧬 Prefix + Root + Suffix</h3>
             <p>Tiếng Anh tạo từ mới qua 4 cách: <strong>tiền tố, hậu tố, ghép từ, chuyển loại</strong>.</p>
@@ -170,7 +170,7 @@ const grammarComprehensiveData = {
     },
 
     'collocations-pairs': {
-        icon: '🤝', title: 'Collocations & Confusing Pairs', category: 'foundations', level: 'intermediate',
+        icon: '🤝', title: 'Collocations & Confusing Pairs (Kết Hợp Từ & Cặp Từ Dễ Nhầm) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['word-formation', 'phrasal-verbs', 'verb-patterns'],
         simple: `<h3>🤝 Từ thường đi đôi</h3>
             <p>Collocations là sự kết hợp tự nhiên giữa các từ. Học theo cụm sẽ tự nhiên hơn học từng từ.</p>
@@ -206,7 +206,7 @@ const grammarComprehensiveData = {
     },
 
     'semantic-prosody': {
-        icon: '🌫️', title: 'Semantic Prosody', category: 'foundations', level: 'advanced',
+        icon: '🌫️', title: 'Semantic Prosody (Sắc Thái Ngữ Nghĩa) - Advanced', category: 'foundations', level: 'advanced',
         connections: ['collocations-pairs', 'phrasal-verbs', 'grammar-registers'],
         simple: `<h3>🌫️ Nghĩa hàm ẩn do từ hay đi kèm</h3>
             <p><strong>Semantic prosody</strong> là "màu cảm xúc" mà một từ có được vì nó thường đi với ngữ cảnh tích cực, tiêu cực hoặc trung tính.</p>
@@ -230,7 +230,7 @@ const grammarComprehensiveData = {
     },
 
     'auxiliary-system': {
-        icon: '🛠️', title: 'Auxiliary System (Be / Do / Have)', category: 'foundations', level: 'beginner',
+        icon: '🛠️', title: 'Auxiliary System (Hệ Thống Trợ Động Từ) - Beginner', category: 'foundations', level: 'beginner',
         connections: ['question-forms', 'negatives', 'present-perfect', 'passive-voice'],
         simple: `<h3>🛠️ Trợ động từ là khung kỹ thuật của câu</h3>
             <p><strong>Be, do, have</strong> giúp tiếng Anh tạo câu hỏi, phủ định, thì hoàn thành, tiếp diễn, bị động và nhấn mạnh.</p>
@@ -255,7 +255,7 @@ const grammarComprehensiveData = {
     },
 
     'verb-types-transitivity': {
-        icon: '⚙️', title: 'Verb Types & Transitivity', category: 'foundations', level: 'intermediate',
+        icon: '⚙️', title: 'Verb Types & Transitivity (Loại Động Từ & Ngoại Động/Nội Động) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['verbs-overview', 'direct-indirect-objects', 'sentence-patterns-complements', 'verb-complementation'],
         simple: `<h3>⚙️ Động từ quyết định câu cần gì phía sau</h3>
             <p>Mỗi động từ có <strong>valency</strong>: nó cần không, một, hai hay nhiều thành phần để câu đủ nghĩa.</p>
@@ -278,7 +278,7 @@ const grammarComprehensiveData = {
     },
 
     'sentence-patterns-complements': {
-        icon: '🧱', title: 'Basic Sentence Patterns & Complements', category: 'foundations', level: 'beginner',
+        icon: '🧱', title: 'Basic Sentence Patterns & Complements (Mẫu Câu Cơ Bản & Bổ Ngữ) - Beginner', category: 'foundations', level: 'beginner',
         connections: ['sentence-order', 'verb-types-transitivity', 'subject-complement-object-complement'],
         simple: `<h3>🧱 5 mẫu câu nền</h3>
             <p>Nếu nắm chắc 5 mẫu này, bạn có thể kiểm tra gần như mọi câu tiếng Anh cơ bản.</p>
@@ -299,7 +299,7 @@ const grammarComprehensiveData = {
     },
 
     'subject-complement-object-complement': {
-        icon: '🎯', title: 'Subject & Object Complements', category: 'structures', level: 'intermediate',
+        icon: '🎯', title: 'Subject & Object Complements (Bổ Ngữ Chủ Ngữ & Bổ Ngữ Tân Ngữ) - Intermediate', category: 'structures', level: 'intermediate',
         connections: ['sentence-patterns-complements', 'verbs-overview', 'adjectives-adverbs'],
         simple: `<h3>🎯 Complement hoàn tất nghĩa cho subject hoặc object</h3>
             <p><strong>Subject complement</strong> nói thêm chủ ngữ sau linking verb. <strong>Object complement</strong> nói thêm object sau động từ.</p>
@@ -319,7 +319,7 @@ const grammarComprehensiveData = {
     },
 
     'adjective-complements': {
-        icon: '🎨', title: 'Adjective Complements', category: 'structures', level: 'intermediate',
+        icon: '🎨', title: 'Adjective Complements (Bổ Ngữ Của Tính Từ) - Intermediate', category: 'structures', level: 'intermediate',
         connections: ['adjectives-adverbs', 'prepositional-phrases', 'noun-clauses', 'gerunds-infinitives'],
         simple: `<h3>🎨 Nhiều tính từ cần phần bổ sung phía sau</h3>
             <p>Không chỉ nói <em>afraid</em>, <em>interested</em>, <em>ready</em>; nhiều adjective cần preposition, infinitive hoặc clause để đủ nghĩa.</p>
@@ -339,7 +339,7 @@ const grammarComprehensiveData = {
     },
 
     'adverb-types-position': {
-        icon: '🧭', title: 'Adverb Types & Position', category: 'patterns', level: 'intermediate',
+        icon: '🧭', title: 'Adverb Types & Position (Loại Trạng Từ & Vị Trí) - Intermediate', category: 'patterns', level: 'intermediate',
         connections: ['adjectives-adverbs', 'adverb-placement-focus', 'sentence-stress'],
         simple: `<h3>🧭 Trạng từ có nhiều loại, không chỉ "một cách..."</h3>
             <p>Adverbs có thể chỉ cách thức, nơi chốn, thời gian, tần suất, mức độ, thái độ và liên kết ý.</p>
@@ -360,7 +360,7 @@ const grammarComprehensiveData = {
     },
 
     'preposition-system': {
-        icon: '📍', title: 'Preposition System', category: 'foundations', level: 'intermediate',
+        icon: '📍', title: 'Preposition System (Hệ Thống Giới Từ) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['prepositions', 'prepositional-phrases', 'phrasal-prepositions', 'time-prepositions-deep'],
         simple: `<h3>📍 Giới từ tạo quan hệ giữa các ý</h3>
             <p>Prepositions không chỉ là <em>in/on/at</em>; chúng tạo quan hệ về thời gian, nơi chốn, hướng, nguyên nhân, phương tiện, chủ đề và ngoại lệ.</p>
@@ -381,7 +381,7 @@ const grammarComprehensiveData = {
     },
 
     'infinitive-purposes': {
-        icon: '🎯', title: 'Infinitive of Purpose & Result', category: 'patterns', level: 'beginner',
+        icon: '🎯', title: 'Infinitive of Purpose & Result (Động Từ Nguyên Mẫu Chỉ Mục Đích & Kết Quả) - Beginner', category: 'patterns', level: 'beginner',
         connections: ['gerunds-infinitives', 'result-structures', 'verb-patterns'],
         simple: `<h3>🎯 To-V thường nói mục đích</h3>
             <p>Dùng <strong>to + V</strong> để trả lời "để làm gì".</p>
@@ -401,7 +401,7 @@ const grammarComprehensiveData = {
     },
 
     'participle-adjectives': {
-        icon: '🪶', title: '-ing / -ed Participial Adjectives', category: 'foundations', level: 'intermediate',
+        icon: '🪶', title: '-ing / -ed Participial Adjectives (Tính Từ Đuôi -ing / -ed) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['adjectives-adverbs', 'participle-clauses', 'passive-voice'],
         simple: `<h3>🪶 Boring hay bored?</h3>
             <p><strong>-ing</strong> mô tả thứ gây cảm xúc. <strong>-ed</strong> mô tả người/vật nhận cảm xúc.</p>
@@ -425,7 +425,7 @@ const grammarComprehensiveData = {
     /* ========== TENSES ========== */
 
     'stative-verbs': {
-        icon: '⛰️', title: 'Stative vs Dynamic Verbs', category: 'tenses', level: 'intermediate',
+        icon: '⛰️', title: 'Stative vs Dynamic Verbs (Động Từ Trạng Thái và Động Từ Hành Động) - Intermediate', category: 'tenses', level: 'intermediate',
         connections: ['present-continuous', 'present-perfect-continuous'],
         simple: `<h3>⛰️ Động từ trạng thái — KHÔNG dùng V-ing</h3>
             <p>Một số động từ mô tả trạng thái tĩnh, không thể "đang xảy ra".</p>
@@ -451,7 +451,7 @@ const grammarComprehensiveData = {
     },
 
     'will-vs-going-to': {
-        icon: '🎯', title: 'Will vs Be Going To', category: 'tenses', level: 'beginner',
+        icon: '🎯', title: 'Will vs Be Going To (Will và Be Going To) - Beginner', category: 'tenses', level: 'beginner',
         connections: ['future-simple', 'near-future', 'future-continuous'],
         simple: `<h3>🎯 Hai cách nói tương lai</h3>
             <ul><li><strong>will</strong> → quyết định ngay lúc nói, dự đoán dựa trên ý kiến, hứa hẹn.</li>
@@ -473,7 +473,7 @@ const grammarComprehensiveData = {
     },
 
     'narrative-present': {
-        icon: '📖', title: 'Narrative / Historical Present', category: 'tenses', level: 'advanced',
+        icon: '📖', title: 'Narrative / Historical Present (Hiện Tại Lịch Sử / Kể Chuyện) - Advanced', category: 'tenses', level: 'advanced',
         connections: ['present-simple', 'sequence-of-tenses'],
         simple: `<h3>📖 Hiện tại kể chuyện quá khứ</h3>
             <p>Dùng Present Simple để kể chuyện quá khứ giúp tăng độ sống động — phổ biến trong báo chí, tóm tắt phim, kể chuyện hài.</p>`,
@@ -490,7 +490,7 @@ const grammarComprehensiveData = {
     },
 
     'semi-modals': {
-        icon: '🎚️', title: 'Semi-modals (had better, would rather)', category: 'tenses', level: 'intermediate',
+        icon: '🎚️', title: 'Semi-modals (Bán Khuyết Thiếu) - Intermediate', category: 'tenses', level: 'intermediate',
         connections: ['modal-verbs', 'modal-perfect', 'used-to'],
         simple: `<h3>🎚️ 4 semi-modal cốt lõi</h3>
             <ul><li><strong>had better + V</strong> → tốt hơn nên (cảnh báo)</li>
@@ -516,7 +516,7 @@ const grammarComprehensiveData = {
     /* ========== PATTERNS ========== */
 
     'yes-no-questions': {
-        icon: '❔', title: 'Yes/No Questions', category: 'patterns', level: 'beginner',
+        icon: '❔', title: 'Yes/No Questions (Câu Hỏi Yes/No) - Beginner', category: 'patterns', level: 'beginner',
         connections: ['wh-questions', 'embedded-questions', 'tag-questions'],
         simple: `<h3>❔ Câu hỏi có/không</h3>
             <div class="formula-box">Aux/Be + Subject + Verb ?</div>
@@ -540,7 +540,7 @@ const grammarComprehensiveData = {
     },
 
     'wh-questions': {
-        icon: '❓', title: 'Wh-Questions', category: 'patterns', level: 'beginner',
+        icon: '❓', title: 'Wh-Questions (Câu Hỏi Wh) - Beginner', category: 'patterns', level: 'beginner',
         connections: ['yes-no-questions', 'embedded-questions', 'question-forms'],
         simple: `<h3>❓ Wh-Questions</h3>
             <ul><li><strong>Hỏi về tân ngữ/ngữ cảnh</strong>: Wh + Aux + S + V? — <em>What did you eat?</em></li>
@@ -565,7 +565,7 @@ const grammarComprehensiveData = {
     },
 
     'embedded-questions': {
-        icon: '📦', title: 'Embedded / Indirect Questions', category: 'patterns', level: 'intermediate',
+        icon: '📦', title: 'Embedded / Indirect Questions (Câu Hỏi Gián Tiếp) - Intermediate', category: 'patterns', level: 'intermediate',
         connections: ['wh-questions', 'reported-speech', 'noun-clauses'],
         simple: `<h3>📦 Câu hỏi gián tiếp</h3>
             <p>Câu hỏi nằm bên trong một câu khác — <strong>KHÔNG đảo ngữ</strong>, không do/does/did.</p>
@@ -588,7 +588,7 @@ const grammarComprehensiveData = {
     },
 
     'hedges-boosters': {
-        icon: '🎚️', title: 'Hedges & Boosters', category: 'patterns', level: 'advanced',
+        icon: '🎚️', title: 'Hedges & Boosters (Từ Giảm Nhẹ & Từ Nhấn Mạnh) - Advanced', category: 'patterns', level: 'advanced',
         connections: ['discourse-markers', 'academic-style-grammar', 'politeness-indirectness'],
         simple: `<h3>🎚️ Làm mềm hoặc làm mạnh phát ngôn</h3>
             <p><strong>Hedges</strong> giúp nói thận trọng, mở đường cho ngoại lệ. <strong>Boosters</strong> giúp khẳng định mạnh hơn khi cần nhấn chắc chắn.</p>
@@ -610,7 +610,7 @@ const grammarComprehensiveData = {
     },
 
     'politeness-indirectness': {
-        icon: '🙏', title: 'Politeness & Indirectness', category: 'patterns', level: 'advanced',
+        icon: '🙏', title: 'Politeness & Indirectness (Sự Lịch Sự & Gián Tiếp) - Advanced', category: 'patterns', level: 'advanced',
         connections: ['embedded-questions', 'hedges-boosters', 'modal-verbs'],
         simple: `<h3>🙏 Lịch sự thường đi qua gián tiếp</h3>
             <p>Tiếng Anh không chỉ đúng ngữ pháp mà còn cần đúng <strong>mức độ trực tiếp</strong>. Cùng một yêu cầu, đổi cấu trúc sẽ đổi sắc thái.</p>
@@ -633,7 +633,7 @@ const grammarComprehensiveData = {
     },
 
     'negation-patterns': {
-        icon: '🚫', title: 'Negation Patterns', category: 'patterns', level: 'intermediate',
+        icon: '🚫', title: 'Negation Patterns (Các Mẫu Phủ Định) - Intermediate', category: 'patterns', level: 'intermediate',
         connections: ['negatives', 'inversion-negative', 'indefinite-pronouns'],
         simple: `<h3>🚫 Các cách phủ định</h3>
             <ul><li><strong>not</strong> sau aux/be: don't, isn't, can't, haven't</li>
@@ -657,7 +657,7 @@ const grammarComprehensiveData = {
     },
 
     'information-flow': {
-        icon: '➡️', title: 'Information Flow & End-weight', category: 'patterns', level: 'advanced',
+        icon: '➡️', title: 'Information Flow & End-weight (Dòng Thông Tin & Nguyên Tắc Trọng Lượng Cuối Câu) - Advanced', category: 'patterns', level: 'advanced',
         connections: ['anaphoric-reference', 'fronting', 'dummy-it'],
         simple: `<h3>➡️ Đặt thông tin nhẹ trước, nặng sau</h3>
             <p>Tiếng Anh thường thích đưa phần <strong>ngắn, quen, dễ xử lý</strong> lên trước và để phần <strong>dài, mới, nặng</strong> ở cuối câu. Đây là quy tắc <strong>end-weight</strong>.</p>
@@ -680,7 +680,7 @@ const grammarComprehensiveData = {
     /* ========== STRUCTURES ========== */
 
     'inversion-negative': {
-        icon: '🔄', title: 'Inversion sau Negative Adverbials', category: 'structures', level: 'advanced',
+        icon: '🔄', title: 'Inversion after Negative Adverbials (Đảo Ngữ Sau Trạng Từ Phủ Định) - Advanced', category: 'structures', level: 'advanced',
         connections: ['inversion', 'mixed-conditionals', 'fronting'],
         simple: `<h3>🔄 Đảo ngữ sau trạng từ phủ định</h3>
             <div class="formula-box">NEG ADV + AUX + Subject + Verb</div>
@@ -707,7 +707,7 @@ const grammarComprehensiveData = {
     },
 
     'fronting': {
-        icon: '⬆️', title: 'Fronting (Đưa Lên Đầu Câu)', category: 'structures', level: 'advanced',
+        icon: '⬆️', title: 'Fronting (Đưa Lên Đầu Câu) - Advanced', category: 'structures', level: 'advanced',
         connections: ['inversion-negative', 'cleft-sentences', 'do-emphasis'],
         simple: `<h3>⬆️ Đưa lên đầu câu để nhấn mạnh</h3>
             <p>Đưa <strong>tân ngữ / bổ ngữ / trạng ngữ</strong> ra đầu câu để nhấn mạnh hoặc tạo mạch.</p>
@@ -732,7 +732,7 @@ const grammarComprehensiveData = {
     },
 
     'complex-inversion': {
-        icon: '🌀', title: 'Complex Inversion', category: 'structures', level: 'advanced',
+        icon: '🌀', title: 'Complex Inversion (Đảo Ngữ Phức Tạp) - Advanced', category: 'structures', level: 'advanced',
         connections: ['fronting', 'inversion-negative', 'information-flow'],
         simple: `<h3>🌀 Đảo ngữ với cụm chỉ hướng / địa điểm</h3>
             <p>Khi cụm <strong>địa điểm, phương hướng, chuyển động</strong> đứng đầu câu, động từ có thể đứng trước chủ ngữ để tạo nhịp văn tự nhiên hoặc giàu hình ảnh.</p>
@@ -755,7 +755,7 @@ const grammarComprehensiveData = {
     },
 
     'archaisms-modern-grammar': {
-        icon: '🏛️', title: 'Archaisms & Literary Grammar', category: 'structures', level: 'advanced',
+        icon: '🏛️', title: 'Archaisms & Literary Grammar (Ngữ Pháp Cổ & Ngữ Pháp Văn Chương) - Advanced', category: 'structures', level: 'advanced',
         connections: ['subjunctive', 'grammar-registers', 'complex-inversion'],
         simple: `<h3>🏛️ Các cấu trúc cổ / văn chương còn gặp ngày nay</h3>
             <p>Một số dạng ngữ pháp nghe cổ, trang trọng hoặc mang màu văn chương vẫn xuất hiện trong luật, văn học, diễn văn và thành ngữ cố định.</p>
@@ -778,7 +778,7 @@ const grammarComprehensiveData = {
     },
 
     'do-emphasis': {
-        icon: '💪', title: 'Do/Does/Did Nhấn Mạnh', category: 'structures', level: 'intermediate',
+        icon: '💪', title: 'Emphatic Do (Do/Does/Did Nhấn Mạnh) - Intermediate', category: 'structures', level: 'intermediate',
         connections: ['cleft-sentences', 'auxiliary-system', 'question-forms'],
         simple: `<h3>💪 Emphatic do</h3>
             <div class="formula-box">S + do/does/did + V (bare)</div>
@@ -795,7 +795,7 @@ const grammarComprehensiveData = {
     },
 
     'causative-have-get': {
-        icon: '🔧', title: 'Causative (Have/Get Something Done)', category: 'structures', level: 'intermediate',
+        icon: '🔧', title: 'Causative (Câu Sai Khiến Với Have/Get) - Intermediate', category: 'structures', level: 'intermediate',
         connections: ['passive-voice', 'verb-patterns', 'modal-verbs'],
         simple: `<h3>🔧 Câu nhờ vả / sai khiến</h3>
             <ul><li><strong>have + O + V (bare)</strong>: nhờ ai đó làm — <em>I had John fix my car.</em></li>
@@ -818,7 +818,7 @@ const grammarComprehensiveData = {
     /* ========== MISTAKES & MECHANICS ========== */
 
     'punctuation-deep': {
-        icon: '✏️', title: 'Quy Tắc Dấu Câu', category: 'mistakes', level: 'beginner',
+        icon: '✏️', title: 'Punctuation Rules (Quy Tắc Dấu Câu) - Beginner', category: 'mistakes', level: 'beginner',
         connections: ['punctuation-capitalization', 'fragments-runons', 'apostrophe-rules'],
         simple: `<h3>✏️ Comma, semicolon, colon, dash</h3>
             <p>Dấu câu giúp người đọc hiểu đúng cấu trúc và nhịp.</p>
@@ -846,7 +846,7 @@ const grammarComprehensiveData = {
     },
 
     'apostrophe-rules': {
-        icon: '✒️', title: 'Apostrophe (Dấu Phẩy Trên)', category: 'mistakes', level: 'beginner',
+        icon: '✒️', title: 'Apostrophe (Dấu Phẩy Trên) - Beginner', category: 'mistakes', level: 'beginner',
         connections: ['punctuation-deep', 'compound-nouns-possessives'],
         simple: `<h3>✒️ 3 chức năng</h3>
             <ol><li><strong>Sở hữu</strong>: John's car / the children's toys</li>
@@ -868,7 +868,7 @@ const grammarComprehensiveData = {
     },
 
     'capitalization-rules': {
-        icon: '🔠', title: 'Quy Tắc Viết Hoa', category: 'mistakes', level: 'beginner',
+        icon: '🔠', title: 'Capitalization Rules (Quy Tắc Viết Hoa) - Beginner', category: 'mistakes', level: 'beginner',
         connections: ['punctuation-deep'],
         simple: `<h3>🔠 Khi nào viết hoa</h3>
             <ul><li>Đầu câu, đầu trích dẫn trực tiếp.</li>
@@ -890,7 +890,7 @@ const grammarComprehensiveData = {
     },
 
     'numbers-dates': {
-        icon: '🔢', title: 'Số Đếm, Số Thứ Tự & Ngày Tháng', category: 'mistakes', level: 'beginner',
+        icon: '🔢', title: 'Numbers & Dates (Số Đếm, Số Thứ Tự & Ngày Tháng) - Beginner', category: 'mistakes', level: 'beginner',
         connections: ['numerals'],
         simple: `<h3>🔢 Cardinal vs Ordinal</h3>
             <ul><li><strong>Cardinal</strong>: one, two, three, twenty-one, one hundred</li>
@@ -916,7 +916,7 @@ const grammarComprehensiveData = {
     },
 
     'fragments-runons': {
-        icon: '⚠️', title: 'Fragments, Run-ons & Comma Splice', category: 'mistakes', level: 'intermediate',
+        icon: '⚠️', title: 'Fragments, Run-ons & Comma Splice (Câu Thiếu, Câu Dính & Lỗi Dấu Phẩy) - Intermediate', category: 'mistakes', level: 'intermediate',
         connections: ['punctuation-deep', 'sentence-types', 'parallel-structure'],
         simple: `<h3>⚠️ 3 lỗi cấu trúc câu cốt lõi</h3>
             <ul><li><strong>Fragment</strong> (mảnh câu): thiếu chủ ngữ hoặc động từ. ❌ <em>Walking down the street.</em></li>
@@ -937,7 +937,7 @@ const grammarComprehensiveData = {
     /* ========== PRONUNCIATION ========== */
 
     'word-stress': {
-        icon: '🎯', title: 'Word Stress (Trọng Âm Từ)', category: 'pronunciation', level: 'intermediate',
+        icon: '🎯', title: 'Word Stress (Trọng Âm Từ) - Intermediate', category: 'pronunciation', level: 'intermediate',
         connections: ['ipa-overview', 'sentence-stress', 'stress-schwa'],
         simple: `<h3>🎯 Quy tắc đánh dấu trọng âm</h3>
             <ul><li>N/Adj 2 âm tiết → trọng âm thường ở âm <strong>đầu</strong>: TAble, HAPpy.</li>
@@ -956,7 +956,7 @@ const grammarComprehensiveData = {
     },
 
     'sentence-stress': {
-        icon: '📢', title: 'Sentence Stress', category: 'pronunciation', level: 'intermediate',
+        icon: '📢', title: 'Sentence Stress (Trọng Âm Câu) - Intermediate', category: 'pronunciation', level: 'intermediate',
         connections: ['word-stress', 'connected-speech', 'intonation-patterns'],
         simple: `<h3>📢 Trọng âm câu</h3>
             <ul><li><strong>Content words</strong> (N, V chính, Adj, Adv) → nhấn mạnh.</li>
@@ -984,7 +984,7 @@ const grammarComprehensiveData = {
     },
 
     'intonation-patterns': {
-        icon: '🎵', title: 'Intonation (Ngữ Điệu)', category: 'pronunciation', level: 'intermediate',
+        icon: '🎵', title: 'Intonation (Ngữ Điệu) - Intermediate', category: 'pronunciation', level: 'intermediate',
         connections: ['sentence-stress', 'tag-questions', 'question-forms'],
         simple: `<h3>🎵 3 mẫu ngữ điệu chính</h3>
             <ul><li><strong>Falling ↘</strong>: trần thuật, mệnh lệnh, wh-question, kết thúc dứt khoát.</li>
@@ -1009,7 +1009,7 @@ const grammarComprehensiveData = {
     /* ========== C2 MASTERY SYSTEMS ========== */
 
     'determiner-system': {
-        icon: '🧩', title: 'Determiner System', category: 'foundations', level: 'advanced', cefr: 'C2',
+        icon: '🧩', title: 'Determiner System (Hệ Thống Từ Hạn Định) - Advanced', category: 'foundations', level: 'advanced', cefr: 'C2',
         connections: ['articles-determiners', 'quantifiers-deep', 'demonstratives-deep', 'advanced-article-system'],
         simple: `<h3>🧩 Hệ determiner là "cửa vào" của noun phrase</h3>
             <p>Determiner đứng trước danh từ để cho biết người nghe phải hiểu danh từ đó theo cách nào: <strong>xác định hay không, số lượng bao nhiêu, thuộc về ai, gần hay xa, khái quát hay cụ thể</strong>.</p>
@@ -1040,7 +1040,7 @@ const grammarComprehensiveData = {
     },
 
     'advanced-article-system': {
-        icon: '🅰️', title: 'Advanced Article System', category: 'foundations', level: 'advanced', cefr: 'C2',
+        icon: '🅰️', title: 'Advanced Article System (Hệ Thống Mạo Từ Nâng Cao) - Advanced', category: 'foundations', level: 'advanced', cefr: 'C2',
         connections: ['articles-determiners', 'determiner-system', 'noun-phrase-architecture', 'grammar-registers'],
         simple: `<h3>🅰️ Article không chỉ là a/an/the</h3>
             <p>Ở mức cao, article phản ánh cách người nói đóng khung thực thể: <strong>mới hay đã biết, đại diện cho cả loại hay chỉ một trường hợp, duy nhất hay chỉ tình huống</strong>.</p>
@@ -1067,7 +1067,7 @@ const grammarComprehensiveData = {
     },
 
     'noun-phrase-architecture': {
-        icon: '🏗️', title: 'Noun Phrase Architecture', category: 'foundations', level: 'advanced', cefr: 'C2',
+        icon: '🏗️', title: 'Noun Phrase Architecture (Cấu Trúc Cụm Danh Từ) - Advanced', category: 'foundations', level: 'advanced', cefr: 'C2',
         connections: ['determiner-system', 'advanced-article-system', 'advanced-relative-clauses', 'apposition'],
         simple: `<h3>🏗️ Noun phrase là một hệ nhiều tầng</h3>
             <p>Một noun phrase mạnh có thể nén cả một mảng thông tin vào quanh <strong>head noun</strong>: determiner, premodifier, classifier, complement và postmodifier.</p>
@@ -1095,7 +1095,7 @@ const grammarComprehensiveData = {
     },
 
     'adverb-placement-focus': {
-        icon: '🎯', title: 'Adverb Placement & Focus', category: 'patterns', level: 'advanced', cefr: 'C2',
+        icon: '🎯', title: 'Adverb Placement & Focus (Vị Trí Trạng Từ & Trọng Tâm) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['adjectives-adverbs', 'information-flow', 'fronting', 'hedges-boosters'],
         simple: `<h3>🎯 Đổi chỗ trạng từ là đổi điểm nhấn</h3>
             <p>Ở mức cao, trạng từ không chỉ trả lời "khi nào / thế nào" mà còn điều khiển <strong>focus</strong> của câu, đặc biệt với <em>only, even, just, almost, already, still, too</em>.</p>
@@ -1121,7 +1121,7 @@ const grammarComprehensiveData = {
     },
 
     'advanced-adverbial-clauses': {
-        icon: '🪜', title: 'Advanced Adverbial Clauses', category: 'patterns', level: 'advanced', cefr: 'C2',
+        icon: '🪜', title: 'Advanced Adverbial Clauses (Mệnh Đề Trạng Ngữ Nâng Cao) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses'],
         simple: `<h3>🪜 Adverbial clause ở mức cao vượt khỏi because/when/if</h3>
             <p>Người học C2 cần xử lý tốt mệnh đề trạng ngữ chỉ <strong>nhượng bộ, điều kiện, mức độ, đối chiếu, cách thức, giả định và lập luận</strong>.</p>
@@ -1145,7 +1145,7 @@ const grammarComprehensiveData = {
     },
 
     'noun-complement-clauses': {
-        icon: '📦', title: 'Noun Complement Clauses', category: 'structures', level: 'advanced', cefr: 'C2',
+        icon: '📦', title: 'Noun Complement Clauses (Mệnh Đề Bổ Ngữ Danh Từ) - Advanced', category: 'structures', level: 'advanced', cefr: 'C2',
         connections: ['noun-clauses', 'apposition', 'academic-style-grammar', 'advanced-relative-clauses'],
         simple: `<h3>📦 Có những noun cần một clause để hoàn tất nghĩa</h3>
             <p>Khác với noun clause làm chức năng danh từ, <strong>noun complement clause</strong> bổ sung cho một danh từ trừu tượng như <em>fact, idea, claim, possibility, decision</em>.</p>
@@ -1169,7 +1169,7 @@ const grammarComprehensiveData = {
     },
 
     'advanced-relative-clauses': {
-        icon: '🧬', title: 'Advanced Relative Clauses', category: 'structures', level: 'advanced', cefr: 'C2',
+        icon: '🧬', title: 'Advanced Relative Clauses (Mệnh Đề Quan Hệ Nâng Cao) - Advanced', category: 'structures', level: 'advanced', cefr: 'C2',
         connections: ['relative-clauses', 'reduced-relatives', 'noun-phrase-architecture', 'punctuation-deep'],
         simple: `<h3>🧬 Relative clauses ở C2 không dừng ở who/which/that</h3>
             <p>Bạn cần đọc và viết được các biến thể như <strong>preposition fronting, sentential relatives, reduced relatives, quantifier + of whom/which</strong>.</p>
@@ -1192,7 +1192,7 @@ const grammarComprehensiveData = {
     },
 
     'verb-complementation': {
-        icon: '🎛️', title: 'Verb Complementation', category: 'patterns', level: 'advanced', cefr: 'C2',
+        icon: '🎛️', title: 'Verb Complementation (Bổ Ngữ Của Động Từ) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['gerunds-infinitives', 'causative-have-get', 'subjunctive', 'noun-clauses'],
         simple: `<h3>🎛️ Mỗi verb mở ra một kiểu bổ ngữ khác nhau</h3>
             <p>Verb complementation là hệ xem sau động từ nên đi <strong>to-infinitive, V-ing, bare infinitive, that-clause, wh-clause, object + infinitive, object + participle</strong> hay kiểu nào khác.</p>
@@ -1222,7 +1222,7 @@ const grammarComprehensiveData = {
     },
 
     'clause-system': {
-        icon: '🗺️', title: 'Clause System', category: 'structures', level: 'advanced', cefr: 'C2',
+        icon: '🗺️', title: 'Clause System (Hệ Thống Mệnh Đề) - Advanced', category: 'structures', level: 'advanced', cefr: 'C2',
         connections: ['sentence-types', 'noun-clauses', 'advanced-adverbial-clauses', 'information-flow'],
         simple: `<h3>🗺️ Câu là mạng của nhiều loại clause</h3>
             <p>Ở mức rất cao, cần nhìn câu như một hệ gồm <strong>matrix clause</strong> và các clause phụ thuộc: nominal, relative, adverbial, non-finite, verbless.</p>
@@ -1246,7 +1246,7 @@ const grammarComprehensiveData = {
     },
 
     'advanced-agreement': {
-        icon: '⚖️', title: 'Advanced Agreement & Concord', category: 'foundations', level: 'advanced', cefr: 'C2',
+        icon: '⚖️', title: 'Advanced Agreement & Concord (Sự Hòa Hợp Nâng Cao) - Advanced', category: 'foundations', level: 'advanced', cefr: 'C2',
         connections: ['subject-verb-agreement', 'gender-neutral-grammar', 'grammar-registers', 'determiner-system'],
         simple: `<h3>⚖️ Agreement không chỉ là singular vs plural</h3>
             <p>Ở mức cao, concord còn liên quan đến <strong>notional agreement, proximity, coordinated subjects, collective nouns, singular they</strong> và khác biệt BrE/AmE.</p>
@@ -1274,7 +1274,7 @@ const grammarComprehensiveData = {
     },
 
     'spoken-grammar': {
-        icon: '🗣️', title: 'Spoken Grammar', category: 'patterns', level: 'advanced', cefr: 'C2',
+        icon: '🗣️', title: 'Spoken Grammar (Ngữ Pháp Khẩu Ngữ) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['connected-speech', 'tag-questions', 'politeness-indirectness', 'information-flow'],
         simple: `<h3>🗣️ Spoken grammar có quy tắc riêng</h3>
             <p>Ngữ pháp nói tự nhiên không phải bản viết bị rút ngắn. Nó có các hiện tượng riêng như <strong>ellipsis, headers, tails, vague language, discourse markers, repairs</strong>.</p>
