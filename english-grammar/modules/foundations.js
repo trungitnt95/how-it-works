@@ -2,7 +2,7 @@
 const grammarFoundationsData = {
     'sentence-order': {
         icon: '🧱',
-        title: 'Trật Tự Câu',
+        title: 'Sentence Order (Trật Tự Câu) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'question-forms', 'subject-verb-agreement', 'negatives'],
@@ -51,7 +51,7 @@ const grammarFoundationsData = {
     },
     'parts-of-speech': {
         icon: '🔤',
-        title: 'Từ Loại',
+        title: 'Parts of Speech (Từ Loại) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['sentence-order', 'articles-determiners', 'adjectives-adverbs', 'gerunds-infinitives'],
@@ -104,7 +104,7 @@ const grammarFoundationsData = {
     },
     'articles-determiners': {
         icon: '📰',
-        title: 'Mạo Từ & Từ Hạn Định',
+        title: 'Articles & Determiners (Mạo Từ & Từ Hạn Định) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['countable-uncountable', 'pronouns-possessives', 'quantifiers', 'subject-verb-agreement'],
@@ -154,7 +154,7 @@ const grammarFoundationsData = {
     },
     'pronouns-possessives': {
         icon: '🫱',
-        title: 'Đại Từ & Sở Hữu',
+        title: 'Pronouns & Possessives (Đại Từ & Sở Hữu) - Beginner',
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'articles-determiners', 'relative-clauses', 'question-forms'],
@@ -205,7 +205,7 @@ const grammarFoundationsData = {
     },
     'adjectives-adverbs': {
         icon: '🎨',
-        title: 'Tính Từ & Trạng Từ',
+        title: 'Adjectives & Adverbs (Tính Từ & Trạng Từ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['parts-of-speech', 'comparisons', 'sentence-order', 'quantifiers'],
@@ -251,7 +251,7 @@ const grammarFoundationsData = {
     },
     'phrases-vs-clauses': {
         icon: '🧬',
-        title: 'Phrase vs Clause',
+        title: 'Phrase vs Clause (Cụm Từ và Mệnh Đề) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['sentence-order', 'noun-clauses', 'relative-clauses', 'fragments-run-ons'],
@@ -297,7 +297,7 @@ const grammarFoundationsData = {
     },
     'sentence-types': {
         icon: '🏷️',
-        title: 'Các Loại Câu',
+        title: 'Sentence Types (Các Loại Câu) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['sentence-order', 'question-forms', 'imperatives-requests', 'fragments-run-ons'],
@@ -355,7 +355,7 @@ const grammarFoundationsData = {
     },
     'subject-verb-agreement': {
         icon: '⚖️',
-        title: 'Chủ Ngữ - Động Từ',
+        title: 'Subject-Verb Agreement (Sự Hòa Hợp Chủ Ngữ - Động Từ) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
         connections: ['sentence-order', 'present-simple', 'countable-uncountable', 'quantifiers'],

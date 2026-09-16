@@ -2,7 +2,7 @@
 const grammarTensesData = {
     'present-simple': {
         icon: '📅',
-        title: 'Present Simple',
+        title: 'Present Simple (Thì Hiện Tại Đơn) - Beginner',
         category: 'tenses',
         level: 'beginner',
         connections: ['subject-verb-agreement', 'question-forms', 'present-perfect', 'future-simple'],
@@ -44,7 +44,7 @@ const grammarTensesData = {
     },
     'present-continuous': {
         icon: '🎬',
-        title: 'Present Continuous',
+        title: 'Present Continuous (Thì Hiện Tại Tiếp Diễn) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['present-simple', 'future-simple', 'future-continuous', 'question-forms', 'negatives'],
@@ -86,7 +86,7 @@ const grammarTensesData = {
     },
     'past-simple': {
         icon: '🕰️',
-        title: 'Past Simple',
+        title: 'Past Simple (Thì Quá Khứ Đơn) - Beginner',
         category: 'tenses',
         level: 'beginner',
         connections: ['present-simple', 'past-continuous', 'present-perfect', 'question-forms'],
@@ -128,7 +128,7 @@ const grammarTensesData = {
     },
     'past-continuous': {
         icon: '⏳',
-        title: 'Past Continuous',
+        title: 'Past Continuous (Thì Quá Khứ Tiếp Diễn) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['past-simple', 'past-perfect', 'question-forms', 'reported-speech'],
@@ -169,7 +169,7 @@ const grammarTensesData = {
     },
     'present-perfect': {
         icon: '🔗',
-        title: 'Present Perfect',
+        title: 'Present Perfect (Thì Hiện Tại Hoàn Thành) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['present-simple', 'past-simple', 'past-perfect', 'modal-verbs'],
@@ -216,7 +216,7 @@ const grammarTensesData = {
     },
     'present-perfect-continuous': {
         icon: '♾️',
-        title: 'Present Perfect Continuous',
+        title: 'Present Perfect Continuous (Thì Hiện Tại Hoàn Thành Tiếp Diễn) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['present-continuous', 'present-perfect', 'future-perfect', 'quantifiers'],
@@ -257,7 +257,7 @@ const grammarTensesData = {
     },
     'past-perfect': {
         icon: '🧭',
-        title: 'Past Perfect',
+        title: 'Past Perfect (Thì Quá Khứ Hoàn Thành) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['past-simple', 'past-continuous', 'reported-speech', 'conditionals'],
@@ -299,7 +299,7 @@ const grammarTensesData = {
     },
     'past-perfect-continuous': {
         icon: '🔄',
-        title: 'Past Perfect Continuous',
+        title: 'Past Perfect Continuous (Thì Quá Khứ Hoàn Thành Tiếp Diễn) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['past-continuous', 'past-perfect', 'present-perfect-continuous', 'conditionals'],
@@ -340,7 +340,7 @@ const grammarTensesData = {
     },
     'future-simple': {
         icon: '🚀',
-        title: 'Future Simple',
+        title: 'Future Simple (Thì Tương Lai Đơn) - Intermediate',
         category: 'tenses',
         level: 'intermediate',
         connections: ['present-simple', 'present-continuous', 'future-continuous', 'modal-verbs', 'conditionals'],
@@ -385,7 +385,7 @@ const grammarTensesData = {
     },
     'future-continuous': {
         icon: '🛰️',
-        title: 'Future Continuous',
+        title: 'Future Continuous (Thì Tương Lai Tiếp Diễn) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['future-simple', 'future-perfect', 'present-continuous', 'future-perfect-continuous'],
@@ -426,7 +426,7 @@ const grammarTensesData = {
     },
     'future-perfect': {
         icon: '🏁',
-        title: 'Future Perfect',
+        title: 'Future Perfect (Thì Tương Lai Hoàn Thành) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['future-simple', 'future-continuous', 'present-perfect', 'present-perfect-continuous', 'conditionals'],
@@ -467,7 +467,7 @@ const grammarTensesData = {
     },
     'future-perfect-continuous': {
         icon: '♻️',
-        title: 'Future Perfect Continuous',
+        title: 'Future Perfect Continuous (Thì Tương Lai Hoàn Thành Tiếp Diễn) - Advanced',
         category: 'tenses',
         level: 'advanced',
         connections: ['future-continuous', 'future-perfect', 'present-perfect-continuous', 'quantifiers'],

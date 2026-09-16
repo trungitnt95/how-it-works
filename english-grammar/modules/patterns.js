@@ -2,7 +2,7 @@
 const grammarPatternsData = {
     'question-forms': {
         icon: '❓',
-        title: 'Câu Hỏi',
+        title: 'Question Forms (Câu Hỏi) - Beginner',
         category: 'patterns',
         level: 'beginner',
         connections: ['sentence-order', 'present-simple', 'past-simple', 'negatives'],
@@ -44,7 +44,7 @@ const grammarPatternsData = {
     },
     'negatives': {
         icon: '🚫',
-        title: 'Câu Phủ Định',
+        title: 'Negatives (Câu Phủ Định) - Beginner',
         category: 'patterns',
         level: 'beginner',
         connections: ['question-forms', 'present-simple', 'present-continuous', 'fragments-run-ons'],
@@ -87,7 +87,7 @@ const grammarPatternsData = {
     },
     'conjunctions': {
         icon: '🔗',
-        title: 'Liên Từ',
+        title: 'Conjunctions (Liên Từ) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['sentence-order', 'relative-clauses', 'conditionals', 'reported-speech'],
@@ -136,7 +136,7 @@ const grammarPatternsData = {
     },
     'comparisons': {
         icon: '📏',
-        title: 'So Sánh',
+        title: 'Comparisons (So Sánh) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
         connections: ['adjectives-adverbs', 'quantifiers', 'sentence-order', 'subject-verb-agreement'],
@@ -196,7 +196,7 @@ const grammarPatternsData = {
     },
     'imperatives-requests': {
         icon: '👉',
-        title: 'Imperatives & Requests',
+        title: 'Imperatives & Requests (Câu Mệnh Lệnh & Yêu Cầu) - Beginner',
         category: 'patterns',
         level: 'beginner',
         connections: ['question-forms', 'modal-verbs', 'negatives', 'sentence-types'],
@@ -242,7 +242,7 @@ const grammarPatternsData = {
     },
     'relative-clauses': {
         icon: '🪢',
-        title: 'Mệnh Đề Quan Hệ',
+        title: 'Relative Clauses (Mệnh Đề Quan Hệ) - Advanced',
         category: 'patterns',
         level: 'advanced',
         connections: ['conjunctions', 'parts-of-speech', 'passive-voice', 'pronouns-possessives'],
@@ -288,7 +288,7 @@ const grammarPatternsData = {
     },
     'reported-speech': {
         icon: '🗣️',
-        title: 'Reported Speech',
+        title: 'Reported Speech (Câu Tường Thuật) - Advanced',
         category: 'patterns',
         level: 'advanced',
         connections: ['question-forms', 'past-perfect', 'noun-clauses', 'pronouns-possessives'],
@@ -355,7 +355,7 @@ const grammarPatternsData = {
     },
     'parallel-structure': {
         icon: '🪞',
-        title: 'Parallel Structure',
+        title: 'Parallel Structure (Cấu Trúc Song Song) - Advanced',
         category: 'patterns',
         level: 'advanced',
         connections: ['comparisons', 'conjunctions', 'gerunds-infinitives', 'fragments-run-ons'],
