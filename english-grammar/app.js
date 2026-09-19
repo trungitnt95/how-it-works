@@ -1049,7 +1049,7 @@
     }
 
     function renderQuizBlock(id) {
-        const questions = exerciseBank.filter(question => question.component === id);
+        const questions = exerciseBank.filter(question => question.component === id).map(prepareQuestion);
         if (!questions.length) return '';
 
         return `
