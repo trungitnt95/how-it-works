@@ -468,7 +468,7 @@
         if (!component) return;
 
         elements.tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
-        elements.panelContent.scrollTop = 0;
+        elements.infoPanel.scrollTop = 0;
 
         if (tab === 'practice') {
             elements.panelContent.innerHTML = renderPracticeContent(state.selectedComponent, component);
