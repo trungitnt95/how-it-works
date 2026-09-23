@@ -275,11 +275,15 @@
         return `
             <button type="button" class="concept-node${learned ? ' learned' : ''}${above ? ' above-level' : ''}"
                     data-component="${escapeHtml(id)}" data-cefr="${meta.code}" data-category="${escapeHtml(component.category || '')}">
+                <span class="concept-node-top">
+                    <span class="concept-node-check${learned ? ' checked' : ''}" data-role="mark-viewed"
+                          role="checkbox" aria-checked="${learned ? 'true' : 'false'}" tabindex="0"
+                          title="Đánh dấu đã xem"></span>
+                    <span class="concept-node-badge ${meta.className}">${meta.code}</span>
+                </span>
                 <span class="concept-node-icon">${escapeHtml(component.icon || '📘')}</span>
                 <span class="concept-node-title">${escapeHtml(component.title)}</span>
-                <span class="concept-node-badge ${meta.className}">${meta.code}</span>
                 <span class="concept-node-flags">
-                    ${learned ? '<span class="concept-node-flag done" title="Đã thuộc">✅</span>' : ''}
                     ${saved ? '<span class="concept-node-flag save" title="Đã lưu">⭐</span>' : ''}
                 </span>
             </button>
@@ -313,9 +317,32 @@
         elements.nodes = Array.from(elements.conceptsGrid.querySelectorAll('.concept-node'));
         elements.nodes.forEach(node => {
             node.addEventListener('click', () => activateComponent(node.dataset.component));
+
+            const check = node.querySelector('.concept-node-check');
+            if (check) {
+                check.addEventListener('click', event => {
+                    event.stopPropagation();
+                    toggleViewedMark(node.dataset.component);
+                });
+                check.addEventListener('keydown', event => {
+                    if (event.key !== 'Enter' && event.key !== ' ') return;
+                    event.preventDefault();
+                    event.stopPropagation();
+                    toggleViewedMark(node.dataset.component);
+                });
+            }
         });
 
         updateConceptVisibility();
+    }
+
+    function toggleViewedMark(id) {
+        if (!progress || !id) return;
+        progress.toggleLearned(id);
+        refreshNode(id);
+        updateConceptVisibility();
+        if (state.selectedComponent === id) updatePanelActions(id);
+        updateDashboard();
     }
 
     function refreshNode(id) {
@@ -325,8 +352,15 @@
         const learned = progress && progress.isLearned(id);
         const saved = progress && progress.isBookmarked(id);
         node.classList.toggle('learned', Boolean(learned));
+
+        const check = node.querySelector('.concept-node-check');
+        if (check) {
+            check.classList.toggle('checked', Boolean(learned));
+            check.setAttribute('aria-checked', learned ? 'true' : 'false');
+        }
+
         node.querySelector('.concept-node-flags').innerHTML =
-            `${learned ? '<span class="concept-node-flag done" title="Đã thuộc">✅</span>' : ''}${saved ? '<span class="concept-node-flag save" title="Đã lưu">⭐</span>' : ''}`;
+            `${saved ? '<span class="concept-node-flag save" title="Đã lưu">⭐</span>' : ''}`;
     }
 
     function matchesView(id) {
