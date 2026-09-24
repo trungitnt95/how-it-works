@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Câu Ví Dụ - Ngữ Pháp Tiếng Anh</title>
+    <meta name="description" content="Tổng hợp mọi câu ví dụ trong tab Bài tập của từng chủ điểm ngữ pháp tiếng Anh, kèm dịch nghĩa tiếng Việt.">
+    <link rel="stylesheet" href="examples.css">
+</head>
+<body>
+    <header class="ex-header">
+        <a href="english-grammar.html" class="back-btn" id="backBtn">← Ngữ pháp tiếng Anh</a>
+        <div class="ex-heading">
+            <h1>📖 Kho Câu Ví Dụ</h1>
+            <span class="ex-total" id="totalBadge"></span>
+        </div>
+    </header>
+
+    <main class="ex-main">
+        <p class="ex-intro">
+            Toàn bộ câu ví dụ trong tab <strong>Bài tập</strong> của từng chủ điểm, gom vào một bảng để ôn nhanh.
+            Với câu trắc nghiệm và điền chỗ trống, đáp án đúng đã được điền sẵn và <mark>tô sáng</mark>.
+            Dấu <span class="vi-missing">—</span> nghĩa là đề bài gốc không kèm bản dịch.
+        </p>
+
+        <section class="ex-toolbar" aria-label="Bộ lọc">
+            <div class="search-row">
+                <label class="visually-hidden" for="exampleSearch">Tìm câu ví dụ</label>
+                <input type="search" id="exampleSearch" placeholder="🔍 Tìm câu tiếng Anh, nghĩa tiếng Việt hoặc chủ điểm..." autocomplete="off">
+                <button type="button" class="clear-btn" id="clearSearch">Xóa</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Nhóm:</span>
+                <div class="chips" id="categoryChips"></div>
+            </div>
+            <div class="filter-row">
+                <label class="filter-label" for="topicSelect">Chủ điểm:</label>
+                <select id="topicSelect"></select>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Nguồn:</span>
+                <div class="chips" id="sourceChips"></div>
+            </div>
+            <p class="result-count" id="resultCount" aria-live="polite"></p>
+        </section>
+
+        <div class="table-wrap">
+            <table class="ex-table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="col-topic">Chủ điểm ngữ pháp</th>
+                        <th scope="col" class="col-en">Câu ví dụ</th>
+                        <th scope="col" class="col-vi">Dịch nghĩa</th>
+                    </tr>
+                </thead>
+                <tbody id="examplesBody"></tbody>
+            </table>
+        </div>
+        <p class="empty-state" id="emptyState" hidden>Không có câu nào khớp bộ lọc. Thử xóa từ khóa hoặc chọn "Tất cả".</p>
+    </main>
+
+    <!-- Dùng chung dữ liệu với trang ngữ pháp (cùng thứ tự nạp như english-grammar.html). -->
+    <script src="modules/foundations.js"></script>
+    <script src="modules/tenses.js"></script>
+    <script src="modules/pronunciation.js"></script>
+    <script src="modules/patterns.js"></script>
+    <script src="modules/structures.js"></script>
+    <script src="modules/mistakes.js"></script>
+    <script src="modules/enrichment.js"></script>
+    <script src="modules/extras.js"></script>
+    <script src="modules/comprehensive.js"></script>
+    <script src="modules/vi-translate.js"></script>
+    <script src="modules/exercises.js"></script>
+    <script src="examples.js"></script>
+</body>
+</html>

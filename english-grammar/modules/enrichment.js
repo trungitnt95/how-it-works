@@ -1595,9 +1595,9 @@ const grammarPracticeData = {
                 title: 'Phân biệt wish, if only và hope',
                 instruction: 'Chọn từ phù hợp nhất: wish, if only hoặc hope.',
                 questions: [
-                    'I ___ I could speak English fluently one day.',
+                    'I ___ I can speak English fluently one day.',
                     '___ I had brought my umbrella!',
-                    'I ___ she stops calling me at midnight.',
+                    'I ___ she would stop calling me at midnight.',
                     'We ___ you have a great trip tomorrow.',
                     'I ___ I had not said that yesterday.',
                     '___ this traffic would move faster!'
@@ -1711,7 +1711,7 @@ const grammarPracticeData = {
                     'had',
                     'let',
                     'has',
-                    'got',
+                    'had',
                     'let'
                 ],
                 explanations: [
@@ -1723,7 +1723,7 @@ const grammarPracticeData = {
                     'Had the house painted là causative passive: thuê người sơn nhà.',
                     'Let me open the window = cho phép tôi làm việc đó.',
                     'Has his hair cut là thói quen/đi dịch vụ cắt tóc.',
-                    'Got the mechanic to inspect... nhấn việc nhờ thành công.',
+                    'Have + object + bare V: nhờ thợ làm dịch vụ (had the mechanic inspect the brakes).',
                     'Let us enter = cho phép vào.'
                 ]
             },
@@ -1803,7 +1803,7 @@ const grammarPracticeData = {
                     'My sister ___ me borrow her notes.',
                     'I ___ the electrician fix the lights.',
                     'The news ___ her cry.',
-                    'We ___ the doctor call us back.',
+                    'We ___ the doctor to call us back.',
                     'My parents ___ me stay out after 10 p.m.',
                     'He ___ his son clean the room every Sunday.',
                     'She ___ me to explain everything twice.'
@@ -1847,7 +1847,7 @@ const grammarPracticeData = {
                     'let',
                     'made',
                     'let',
-                    'let',
+                    'didn’t let',
                     'made',
                     'let',
                     'let'
@@ -1857,7 +1857,7 @@ const grammarPracticeData = {
                     'Let + object + bare V = cho phép.',
                     'Make + object + adjective / bare V có thể diễn tả khiến ai rơi vào trạng thái nào.',
                     'Never let = không bao giờ cho phép.',
-                    'Until we showed our ID cards cho thấy điều kiện được phép vào.',
+                    'Not ... until: bảo vệ không cho vào cho đến khi chúng tôi xuất trình thẻ, nên cần dạng phủ định didn’t let.',
                     'Make + object + bare V cũng dùng cho phản ứng cảm xúc.',
                     'Please let me explain = cho phép tôi giải thích.',
                     'Let him stay up late = cho phép thức khuya.'
@@ -1998,7 +1998,7 @@ const grammarPracticeData = {
                     'We had to ___ the meeting because the manager was sick. / Chúng tôi phải hoãn cuộc họp vì quản lý bị ốm.',
                     'I always ___ new words in the dictionary. / Tôi luôn tra từ mới trong từ điển.',
                     'He managed to ___ with his new classmates quickly. / Cậu ấy đã hòa đồng với bạn cùng lớp mới rất nhanh.',
-                    'I do not know the answer yet, but I will ___ it later. / Tôi chưa biết đáp án, nhưng lát nữa tôi sẽ tìm ra.',
+                    'I do not know the answer yet, but I will ___ later. / Tôi chưa biết đáp án, nhưng lát nữa tôi sẽ tìm ra.',
                     'Let us ___ with the presentation. / Hãy tiếp tục với bài thuyết trình.'
                 ],
                 answers: [
@@ -2306,7 +2306,7 @@ const grammarPracticeData = {
                 questions: [
                     'Anna has a laptop. ___ uses it every day.',
                     'I invited Minh and Lan. I called ___ last night.',
-                    'This is not my notebook. It is ___.',
+                    'This notebook belongs to me. It is ___.',
                     'We did the project by ___.',
                     'The manager asked Hoa and ___ to stay after the meeting.',
                     'All students should bring ___ ID cards to the exam room.',
@@ -2671,7 +2671,7 @@ const grammarPracticeData = {
                         explanation: `Help + -ful tạo tính từ helpful.`
                     },
                     {
-                        prompt: `That is a very ___. (beauty)<br><em>Nghĩa: Đó là một nơi rất đẹp.</em>`,
+                        prompt: `That is a very ___ place. (beauty)<br><em>Nghĩa: Đó là một nơi rất đẹp.</em>`,
                         answer: `beautiful`,
                         explanation: `Beauty là danh từ, beautiful là tính từ.`
                     },
@@ -2989,7 +2989,7 @@ const grammarPracticeData = {
                         explanation: `-ify cũng tạo động từ nghĩa làm cho trở nên.`
                     },
                     {
-                        prompt: `Please ___ the sentence for beginners. (deep)<br><em>Nghĩa: Hãy làm sâu hơn câu này cho người mới học.</em>`,
+                        prompt: `Regular reading will ___ your understanding of grammar. (deep)<br><em>Nghĩa: Đọc thường xuyên sẽ làm sâu sắc thêm hiểu biết của bạn về ngữ pháp.</em>`,
                         answer: `deepen`,
                         explanation: `-en thường tạo động từ từ tính từ.`
                     },
@@ -2999,7 +2999,7 @@ const grammarPracticeData = {
                         explanation: `Broaden là động từ từ broad.`
                     },
                     {
-                        prompt: `The teacher will ___ the students. (weak)<br><em>Nghĩa: Giáo viên sẽ làm cho học sinh mạnh hơn.</em>`,
+                        prompt: `Lack of sleep can ___ your immune system. (weak)<br><em>Nghĩa: Thiếu ngủ có thể làm suy yếu hệ miễn dịch của bạn.</em>`,
                         answer: `weaken`,
                         explanation: `Weaken là động từ trái nghĩa với strengthen.`
                     },
@@ -3014,7 +3014,7 @@ const grammarPracticeData = {
                         explanation: `En- kết hợp với rich tạo động từ enrich.`
                     },
                     {
-                        prompt: `The winter air will ___ the water. (hard)<br><em>Nghĩa: Không khí mùa đông sẽ làm nước cứng lại.</em>`,
+                        prompt: `The cement will ___ overnight. (hard)<br><em>Nghĩa: Xi măng sẽ cứng lại qua đêm.</em>`,
                         answer: `harden`,
                         explanation: `-en là hậu tố tạo động từ.`
                     },
@@ -4056,7 +4056,7 @@ const grammarPracticeData = {
                     },
                     {
                         prompt: 'The rain was very heavy. We stayed at home.<br><em>Nghĩa: Trời mưa rất to. Chúng tôi ở nhà.</em>',
-                        answer: 'It was so heavy that we stayed at home.',
+                        answer: 'The rain was so heavy that we stayed at home.',
                         explanation: 'So + adj + that + clause cho biết mức độ dẫn tới kết quả.'
                     },
                     {
@@ -4489,7 +4489,7 @@ const grammarPracticeData = {
                     { prompt: `You ___ speak so fast if you want me to understand.<br><em>Nghĩa: Bạn tốt hơn nên nói chậm hơn nếu muốn tôi hiểu.</em>`, answer: `had better not`, explanation: `Had better not can warn against a style of action that causes problems.` },
                     { prompt: `I ___ go home now; I am exhausted.<br><em>Nghĩa: Tôi thà về nhà ngay bây giờ; tôi kiệt sức rồi.</em>`, answer: `would rather`, explanation: `Would rather + V bare is natural for self-preference.` },
                     { prompt: `You ___ have cleaned the room already; it is still dirty.<br><em>Nghĩa: Bạn lẽ ra không cần dọn phòng trước; nó vẫn còn bẩn.</em>`, answer: `needn’t have`, explanation: `Needn’t have + V3 means the past action was unnecessary.` },
-                    { prompt: `I ___ you do that without asking first.<br><em>Nghĩa: Tôi không dám để bạn làm vậy mà không hỏi trước.</em>`, answer: `dare not`, explanation: `Dare can behave like a semi-modal in negative forms.` },
+                    { prompt: `I ___ ask him for another favour; he is already angry.<br><em>Nghĩa: Tôi không dám nhờ anh ấy thêm việc nữa; anh ấy đang giận rồi.</em>`, answer: `dare not`, explanation: `Dare can behave like a semi-modal in negative forms.` },
                     { prompt: `She ___ miss the train; it is the last one tonight.<br><em>Nghĩa: Cô ấy tốt hơn không nên lỡ chuyến tàu; đó là chuyến cuối hôm nay.</em>`, answer: `had better not`, explanation: `Had better not is used when there may be a negative result.` },
                     { prompt: `We ___ attend the meeting if the manager is there.<br><em>Nghĩa: Chúng tôi không cần tham dự cuộc họp nếu quản lý có mặt.</em>`, answer: `needn’t`, explanation: `Needn’t means there is no obligation.` }
                 ]
@@ -4516,7 +4516,7 @@ const grammarPracticeData = {
                     { prompt: `I saw a man with a telescope in the park.<br><em>Nghĩa: Tôi dùng kính thiên văn để nhìn thấy một người đàn ông trong công viên.</em>`, answer: `Using a telescope, I saw a man in the park.`, explanation: `Rewrite to make the instrument clearly belong to the speaker.` },
                     { prompt: `She found a wallet in the street with a red cover.<br><em>Nghĩa: Cô ấy tìm thấy một chiếc ví có bìa đỏ trên đường.</em>`, answer: `She found a wallet with a red cover in the street.`, explanation: `With a red cover should attach to wallet.` },
                     { prompt: `The teacher handed out the papers to the students wearing gloves.<br><em>Nghĩa: Cô giáo đeo găng tay khi phát bài cho học sinh.</em>`, answer: `Wearing gloves, the teacher handed out the papers to the students.`, explanation: `The modifier should describe the teacher, not the students.` },
-                    { prompt: `We saw the boy riding our bikes.<br><em>Nghĩa: Chúng tôi thấy cậu bé đang đi xe đạp của chúng tôi.</em>`, answer: `We saw the boy riding a bike.`, explanation: `Our bikes wrongly suggests the boy owns them; the sentence should be clarified.` },
+                    { prompt: `I saw the boy riding my bike from the window.<br><em>Nghĩa: Từ cửa sổ, tôi thấy cậu bé đang đi xe đạp của tôi.</em>`, answer: `From the window, I saw the boy riding my bike.`, explanation: `From the window tells where I was watching from, so move it away from the boy’s action.` },
                     { prompt: `The man was arrested in the morning driving home.<br><em>Nghĩa: Người đàn ông bị bắt vào buổi sáng khi đang lái xe về nhà.</em>`, answer: `Driving home in the morning, the man was arrested.`, explanation: `Driving home must be placed near the actor who was driving.` },
                     { prompt: `They served pizza to the children in boxes.<br><em>Nghĩa: Họ phục vụ pizza trong hộp cho bọn trẻ.</em>`, answer: `They served pizza in boxes to the children.`, explanation: `In boxes should modify pizza.` },
                     { prompt: `The company will only hire engineers from Hanoi.<br><em>Nghĩa: Công ty sẽ chỉ tuyển kỹ sư từ Hà Nội.</em>`, answer: `The company will hire only engineers from Hanoi.`, explanation: `Only should modify engineers if that is the intended meaning.` },

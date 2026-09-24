@@ -132,7 +132,15 @@ header h1 {
     color: #9ddcff;
 }
 
-.header-right { display: flex; gap: 0.5rem; }
+.header-right { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+a.header-btn { display: inline-flex; align-items: center; text-decoration: none; }
+
+/* Điện thoại hẹp: nút "Câu ví dụ" chỉ còn icon để header không xuống dòng */
+@media (max-width: 480px) {
+    .header-btn-label { display: none; }
+    .header-right .header-btn { padding: 0.5rem 0.7rem; }
+}
 
 .header-btn {
     background: rgba(255, 255, 255, 0.08);
