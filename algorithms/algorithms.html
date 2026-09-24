@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuật Toán & Cấu Trúc Dữ Liệu - How It Works</title>
+    <meta name="description" content="Học thuật toán, cấu trúc dữ liệu và kỹ thuật lập trình từ cơ bản tới nâng cao với mô phỏng từng bước.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // apply saved theme before first paint
+        try {
+            var t = localStorage.getItem('algoTheme');
+            if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* storage unavailable */ }
+    </script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="../" class="back-home" title="Về trang chủ">← Trang chủ</a>
+            <a href="#/" class="brand" title="Danh mục chủ đề">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="12" width="4" height="10" rx="1"/><rect x="8" y="7" width="4" height="15" rx="1"/><rect x="14" y="3" width="4" height="19" rx="1"/><rect x="20" y="9" width="2" height="13" rx="1"/></svg>
+                </span>
+                <span class="brand-text">Algo Lab <small>Thuật toán &amp; CTDL</small></span>
+            </a>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" type="button" title="Đổi giao diện sáng / tối" aria-label="Đổi giao diện sáng / tối">◐</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- ================= CATALOG ================= -->
+        <section id="catalogView" class="view">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Học bằng cách xem thuật toán chạy</p>
+                    <h1>Thuật toán, cấu trúc dữ liệu &amp; kỹ thuật lập trình</h1>
+                    <p class="hero-sub">Từ Big-O, mảng, sắp xếp tới đồ thị, quy hoạch động và cây phân đoạn. Mỗi chủ đề có ý tưởng cốt lõi, mô phỏng chạy từng bước, độ phức tạp, lỗi hay gặp, code mẫu và bài luyện tập.</p>
+                    <div class="hero-cta" id="heroCta"></div>
+                </div>
+                <div class="hero-stats" id="heroStats"></div>
+            </div>
+
+            <div class="level-legend" aria-label="Chú thích mức độ">
+                <span class="legend-title">Dấu hiệu nhận biết:</span>
+                <span class="lvl lvl-1"><i></i><i></i><i></i><b>Cơ bản</b></span><span class="legend-desc">nền móng, học trước</span>
+                <span class="lvl lvl-2"><i></i><i></i><i></i><b>Trung cấp</b></span><span class="legend-desc">cốt lõi phỏng vấn</span>
+                <span class="lvl lvl-3"><i></i><i></i><i></i><b>Nâng cao</b></span><span class="legend-desc">thi đấu, tối ưu sâu</span>
+                <span class="flag flag-viz">▶ Mô phỏng</span>
+                <span class="flag flag-int">★ Hay phỏng vấn</span>
+            </div>
+
+            <div class="toolbar" id="toolbar">
+                <div class="search">
+                    <svg class="search-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    <input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Tìm: BFS, heap, quy hoạch động, đường đi ngắn nhất, sliding window…" aria-label="Tìm chủ đề">
+                    <kbd class="kbd" title="Nhấn / để tìm">/</kbd>
+                </div>
+                <div class="chip-row" id="catChips" role="group" aria-label="Lọc theo nhóm"></div>
+                <div class="chip-row chip-row-2">
+                    <div class="chip-group" id="levelChips" role="group" aria-label="Lọc theo mức độ"></div>
+                    <span class="sep" aria-hidden="true"></span>
+                    <div class="chip-group" id="flagChips" role="group" aria-label="Lọc khác"></div>
+                    <label class="sort">
+                        <span>Sắp xếp</span>
+                        <select id="sortSelect">
+                            <option value="roadmap">Lộ trình theo nhóm</option>
+                            <option value="level">Độ khó tăng dần</option>
+                            <option value="az">Tên A → Z</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="result-bar">
+                <span id="resultCount"></span>
+                <button type="button" class="link-btn" id="resetFilters">Xóa bộ lọc</button>
+            </div>
+            <div id="results"></div>
+            <div class="empty" id="emptyState" hidden>
+                <p class="empty-title">Không tìm thấy chủ đề phù hợp</p>
+                <p>Thử từ khóa khác (có dấu hay không dấu đều được) hoặc xóa bớt bộ lọc.</p>
+            </div>
+        </section>
+
+        <!-- ================= DETAIL ================= -->
+        <section id="detailView" class="view" hidden>
+            <div class="detail-layout">
+                <aside class="side-nav" id="sideNav" aria-label="Các chủ đề cùng nhóm"></aside>
+                <article class="topic" id="topic"></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Algo Lab — một phần của <a href="../">How It Works</a>. Code mẫu viết bằng Python; bài luyện tập dẫn tới LeetCode.</p>
+        <p class="footer-keys">Phím tắt: <kbd>/</kbd> tìm kiếm · <kbd>Space</kbd> chạy / dừng mô phỏng · <kbd>←</kbd> <kbd>→</kbd> lùi / tiến một bước · <kbd>Esc</kbd> về danh mục</p>
+    </footer>
+
+    <script src="modules/engine.js"></script>
+    <script src="modules/viz-sort-search.js"></script>
+    <script src="modules/viz-technique.js"></script>
+    <script src="modules/viz-structures.js"></script>
+    <script src="modules/viz-graph.js"></script>
+    <script src="modules/viz-dp-string-math.js"></script>
+    <script src="modules/topics-foundation.js"></script>
+    <script src="modules/topics-technique-tree.js"></script>
+    <script src="modules/topics-graph-dp.js"></script>
+    <script src="modules/topics-string-math.js"></script>
+    <script src="app.js"></script>
+    <script src="../worker-runtime.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>
