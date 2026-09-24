@@ -124,7 +124,7 @@ furnishRoom(new ModernFurnitureFactory());`,
             icon: '👷',
             difficulty: 'medium',
             shortDesc: 'Tách việc xây dựng đối tượng phức tạp ra khỏi representation, cho phép tạo các representation khác nhau.',
-            realWorldAnalogy: 'Như việc xây nhà: bạn có thể xây nhà gỗ, nhà gạch, hay nhà kính. Quy trình xây tương tự nhưng kết quả khác nhau.',
+            realWorldAnalogy: 'Như gọi burger ở quầy: bạn chọn từng lớp (bánh, thịt, phô mai, rau…), người làm bánh lắp lần lượt rồi mới đưa bạn chiếc burger hoàn chỉnh. Cùng quy trình lắp nhưng ra nhiều biến thể, bước nào không cần thì bỏ qua.',
             useCases: ['Khi object có nhiều tham số', 'Khi cần tạo các biến thể khác nhau', 'Khi cần xây dựng Composite tree'],
             pros: ['Xây dựng step-by-step', 'Tái sử dụng code', 'Single Responsibility'],
             cons: ['Tăng độ phức tạp tổng thể', 'Cần tạo nhiều class mới'],
@@ -630,7 +630,7 @@ const result = converter.convert("movie", "mp4");`,
             icon: '🪶',
             difficulty: 'hard',
             shortDesc: 'Tiết kiệm RAM bằng cách chia sẻ state chung giữa nhiều objects.',
-            realWorldAnalogy: 'Như game với hàng triệu viên đạn: thay vì mỗi viên lưu texture riêng, tất cả share cùng texture.',
+            realWorldAnalogy: 'Như vẽ một khu rừng 10.000 cây trong game: mỗi cây chỉ cần nhớ tọa độ riêng, còn hình ảnh, màu lá (phần nặng) thì cả rừng dùng chung vài bản.',
             useCases: ['Khi có rất nhiều objects tương tự', 'Khi bộ nhớ là vấn đề', 'Game objects, text editors'],
             pros: ['Tiết kiệm RAM đáng kể', 'Tối ưu performance', 'Centralized state management'],
             cons: ['Trading RAM cho CPU', 'Code phức tạp hơn', 'Khó debug'],
@@ -711,7 +711,7 @@ for (let i = 0; i < 1000; i++) {
             icon: '🔒',
             difficulty: 'medium',
             shortDesc: 'Cung cấp placeholder hoặc surrogate cho object khác để kiểm soát truy cập.',
-            realWorldAnalogy: 'Như thẻ tín dụng là proxy cho tiền mặt - cùng interface nhưng thêm các kiểm soát.',
+            realWorldAnalogy: 'Như ảnh bìa của một bộ phim trên Netflix: bạn thấy tên, ảnh, thời lượng ngay mà phim 2GB chưa hề được tải. Chỉ khi bấm Play thì phim thật mới được tải về – và nếu tài khoản không đủ quyền thì bị chặn ngay từ lớp bìa.',
             useCases: ['Lazy initialization', 'Access control', 'Logging', 'Caching', 'Remote proxy'],
             pros: ['Control service object mà client không biết', 'Manage lifecycle', 'Hoạt động khi service unavailable'],
             cons: ['Response có thể delay', 'Code phức tạp hơn'],
@@ -1294,7 +1294,7 @@ publisher.publishNews("Update: Pattern confirmed!");`,
             icon: '🚦',
             difficulty: 'medium',
             shortDesc: 'Cho phép object thay đổi behavior khi state thay đổi, như thể nó đổi class.',
-            realWorldAnalogy: 'Như điện thoại: các nút có chức năng khác nhau tùy thuộc màn hình đang lock hay unlock.',
+            realWorldAnalogy: 'Như máy bán nước tự động: cùng một nút "Chọn món" nhưng khi chưa nhét tiền thì máy báo "hãy nhét tiền", khi đã có tiền thì trả hàng. Hành vi đổi theo trạng thái hiện tại của máy.',
             useCases: ['Objects với nhiều states', 'State machines', 'Workflow engines'],
             pros: ['Single Responsibility', 'Open/Closed', 'Eliminate conditionals'],
             cons: ['Overkill cho ít states', 'States cần biết nhau'],
@@ -1659,6 +1659,59 @@ const exporter = new XMLExporter();
 compound.accept(exporter);
 console.log(exporter.getXML());`,
             diagram: 'visitor'
+        },
+        {
+            id: 'interpreter',
+            name: 'Interpreter',
+            icon: '🧮',
+            difficulty: 'hard',
+            shortDesc: 'Biểu diễn ngữ pháp của một ngôn ngữ nhỏ bằng các class, mỗi quy tắc là một class biết tự "diễn giải" chính nó.',
+            realWorldAnalogy: 'Như máy tính bỏ túi đọc biểu thức "(x + 3) × 2": nó tách thành cây phép tính, mỗi nút (số, cộng, nhân) tự tính phần của mình rồi trả kết quả lên nút cha.',
+            useCases: ['Công thức/biểu thức do người dùng nhập', 'Rule engine, bộ lọc tìm kiếm', 'Ngôn ngữ nhỏ (DSL) có ngữ pháp đơn giản'],
+            pros: ['Dễ thêm quy tắc ngữ pháp mới', 'Mỗi quy tắc là một class nhỏ, dễ test', 'Kết hợp tự nhiên với Composite'],
+            cons: ['Ngữ pháp lớn → bùng nổ số class', 'Chậm hơn parser/compiler chuyên dụng'],
+            codeExample: `// Abstract Expression
+interface Expression {
+    interpret(context: Map<string, number>): number;
+}
+
+// Terminal Expressions (lá của cây)
+class NumberExpr implements Expression {
+    constructor(private value: number) {}
+    interpret(): number { return this.value; }
+}
+
+class VariableExpr implements Expression {
+    constructor(private name: string) {}
+    interpret(context: Map<string, number>): number {
+        return context.get(this.name) ?? 0;
+    }
+}
+
+// Non-terminal Expressions (nút có con)
+class AddExpr implements Expression {
+    constructor(private left: Expression, private right: Expression) {}
+    interpret(context: Map<string, number>): number {
+        return this.left.interpret(context) + this.right.interpret(context);
+    }
+}
+
+class MultiplyExpr implements Expression {
+    constructor(private left: Expression, private right: Expression) {}
+    interpret(context: Map<string, number>): number {
+        return this.left.interpret(context) * this.right.interpret(context);
+    }
+}
+
+// Usage: (x + 3) * 2
+const expr = new MultiplyExpr(
+    new AddExpr(new VariableExpr("x"), new NumberExpr(3)),
+    new NumberExpr(2)
+);
+
+const context = new Map([["x", 5]]);
+console.log(expr.interpret(context)); // 16`,
+            diagram: 'interpreter'
         }
     ]
 };
