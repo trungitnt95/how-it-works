@@ -1,49 +1,76 @@
-// Tour for Problem Solving
-const tourSteps = {
-    beginner: [
-        { title: 'Chào mừng!', description: 'Problem solving là kỹ năng quan trọng nhất. Hãy bắt đầu!', target: null },
-        { title: 'Định nghĩa vấn đề', description: 'Bước đầu tiên: Hiểu rõ vấn đề là gì.', target: '[data-component="define-problem"]' },
-        { title: '5 Whys', description: 'Hỏi "Tại sao?" liên tục để tìm nguyên nhân gốc.', target: '[data-component="5-whys"]' },
-        { title: 'Brainstorming', description: 'Tạo nhiều ý tưởng trước, đánh giá sau.', target: '[data-component="brainstorming"]' },
-        { title: 'Pareto 80/20', description: '20% effort → 80% result. Focus vào những gì quan trọng.', target: '[data-component="pareto"]' },
-        { title: 'Jumping to Solutions', description: 'Bẫy phổ biến: Giải quyết trước khi hiểu!', target: '[data-component="jumping-solutions"]' },
-        { title: 'Hoàn thành!', description: 'Bạn đã có nền tảng. Hãy thực hành!', target: null }
-    ],
-    intermediate: [
-        { title: 'Lên cấp!', description: 'Học các frameworks và mental models mạnh mẽ hơn.', target: null },
-        { title: 'Root Cause Analysis', description: 'Đào sâu tìm nguyên nhân thực sự.', target: '[data-component="root-cause"]' },
-        { title: 'Fishbone Diagram', description: 'Phân tích nhiều nhóm nguyên nhân cùng lúc.', target: '[data-component="fishbone"]' },
-        { title: 'Design Thinking', description: 'Quy trình sáng tạo lấy người dùng làm trung tâm.', target: '[data-component="design-thinking"]' },
-        { title: 'Inversion', description: '"Làm sao để thất bại?" → Tránh những điều đó.', target: '[data-component="inversion"]' },
-        { title: 'Six Hats', description: '6 góc nhìn để phân tích toàn diện.', target: '[data-component="six-hats"]' },
-        { title: 'Tốt lắm!', description: 'Bạn có nhiều công cụ hơn rồi!', target: null }
-    ],
-    advanced: [
-        { title: 'Master level!', description: 'Tư duy hệ thống và mental models nâng cao.', target: null },
-        { title: 'First Principles', description: 'Phân tích từ nguyên lý cơ bản nhất.', target: '[data-component="first-principles"]' },
-        { title: 'Systems Thinking', description: 'Nhìn vấn đề như một hệ thống phức tạp.', target: '[data-component="systems-thinking"]' },
-        { title: 'Second-Order Thinking', description: 'Hậu quả của hậu quả là gì?', target: '[data-component="second-order"]' },
-        { title: 'Feedback Loops', description: 'Hiểu vòng phản hồi trong hệ thống.', target: '[data-component="feedback-loops"]' },
-        { title: 'Master!', description: 'Bạn đã có toolkit hoàn chỉnh!', target: null }
-    ]
-};
-
-const quickTips = [
-    { icon: '🎯', text: 'Định nghĩa vấn đề trước khi giải quyết' },
-    { icon: '❓', text: 'Hỏi "Tại sao?" ít nhất 5 lần' },
-    { icon: '📊', text: '80% kết quả từ 20% effort' },
-    { icon: '🔄', text: 'Nghĩ ngược: Làm sao để thất bại?' },
-    { icon: '✂️', text: 'Chia vấn đề lớn thành nhỏ' },
-    { icon: '🧠', text: 'Quantity before quality khi brainstorm' }
+// Problem Solving - Tour hướng dẫn, mẹo nhanh và checklist
+// Tour đi theo lộ trình học: nền tảng → công cụ → tư duy hệ thống → luyện tập.
+// target: id concept (mở concept đó) | 'practice' (trỏ tới tab Luyện tập) | null
+const psTourSteps = [
+    { title: 'Chào mừng!', description: 'Giải quyết vấn đề là một quy trình học được. Tour này đi qua các concept quan trọng nhất theo thứ tự nên học.', target: null },
+    { title: 'Bức tranh tổng thể', description: 'Khung 6 bước là "bản đồ": mọi công cụ khác phục vụ một bước trong đó.', target: 'ps-process' },
+    { title: 'Định nghĩa vấn đề', description: 'Bước quan trọng nhất và hay bị bỏ qua nhất: mô tả gap bằng số liệu, không chứa giải pháp.', target: 'define-problem' },
+    { title: '5 Whys', description: 'Hỏi "tại sao" liên tiếp để đi từ triệu chứng xuống nguyên nhân hệ thống.', target: '5-whys' },
+    { title: 'Pareto 80/20', description: 'Một số ít nguyên nhân tạo ra phần lớn kết quả — tìm chúng để tập trung nguồn lực.', target: 'pareto' },
+    { title: 'Bẫy: nhảy vào giải pháp', description: 'Bẫy phổ biến và đắt nhất. Nhận diện nó để không giải xuất sắc một vấn đề không tồn tại.', target: 'jumping-solutions' },
+    { title: 'Fishbone', description: 'Liệt kê nguyên nhân theo nhóm để nhìn đủ rộng trước khi đào sâu.', target: 'fishbone' },
+    { title: 'Ma trận quyết định', description: 'So sánh phương án theo tiêu chí có trọng số — minh bạch và ít cảm tính.', target: 'decision-matrix' },
+    { title: 'Inversion', description: '"Làm sao để chắc chắn thất bại?" — rồi tránh những điều đó.', target: 'inversion' },
+    { title: 'Tư duy hệ thống', description: 'Vấn đề lặp lại thường do cấu trúc hệ thống tạo ra. Đây là tầng tư duy cao nhất.', target: 'systems-thinking' },
+    { title: 'Luyện tập', description: 'Tab Luyện tập có trắc nghiệm, tình huống nhiều bước và bài tự luận có đáp án mẫu. Mỗi concept cũng có tab Luyện tập riêng.', target: 'practice' },
+    { title: 'Sẵn sàng!', description: 'Hãy bắt đầu với một concept bất kỳ, rồi kiểm tra lại bằng phần luyện tập. Chúc bạn học tốt!', target: null }
 ];
 
+const quickTips = [
+    { icon: '🎯', text: 'Định nghĩa vấn đề bằng số liệu trước khi bàn giải pháp' },
+    { icon: '❓', text: 'Hỏi "Tại sao?" tới khi chạm quy trình, không dừng ở lỗi cá nhân' },
+    { icon: '📊', text: 'Tìm số ít nguyên nhân tạo ra phần lớn kết quả' },
+    { icon: '🙃', text: 'Nghĩ ngược: làm sao để chắc chắn thất bại?' },
+    { icon: '🧪', text: 'Coi giải pháp là giả thuyết — thử nhỏ, đo, rồi mới mở rộng' },
+    { icon: '🔀', text: 'Luôn có ít nhất 3 phương án trước khi chọn' },
+    { icon: '♟️', text: 'Hỏi "và rồi sao?" để thấy hậu quả bậc hai' },
+    { icon: '🚧', text: 'Chỉ cải thiện nút thắt mới tăng được đầu ra' },
+    { icon: '🔍', text: 'Hỏi "điều gì sẽ chứng minh tôi sai?"' },
+    { icon: '🚪', text: 'Quyết định đảo ngược được thì quyết nhanh' }
+];
+
+// Checklist theo 5 giai đoạn của quy trình giải quyết vấn đề
 const problemSolvingChecklist = [
-    'Đã định nghĩa vấn đề rõ ràng chưa?',
-    'Đã tìm root cause chưa? (5 Whys)',
-    'Có bằng chứng/data không?',
-    'Đã xem xét nhiều góc nhìn chưa?',
-    'Giải pháp có giải quyết root cause?',
-    'Hậu quả bậc 2, bậc 3 là gì?',
-    'Có thể test/prototype không?',
-    'Criteria đánh giá thành công?'
+    {
+        phase: '1. Định nghĩa',
+        items: [
+            'Đã mô tả khoảng cách hiện trạng – mục tiêu bằng số liệu?',
+            'Câu mô tả vấn đề không chứa giải pháp, không đổ lỗi?',
+            'Đã xác nhận với người bị ảnh hưởng rằng đây đúng là vấn đề?',
+            'Đã rõ phạm vi và ràng buộc (thời gian, ngân sách)?'
+        ]
+    },
+    {
+        phase: '2. Chẩn đoán',
+        items: [
+            'Dựa trên dữ liệu, không chỉ cảm giác?',
+            'Đã xem xét nhiều nhóm nguyên nhân (Fishbone)?',
+            'Đã đào tới nguyên nhân hệ thống, không dừng ở lỗi cá nhân?',
+            'Nguyên nhân gốc đã được kiểm chứng?'
+        ]
+    },
+    {
+        phase: '3. Tạo phương án',
+        items: [
+            'Có ít nhất 3 phương án, kể cả "giữ nguyên"?',
+            'Đã tìm ý tưởng từ lĩnh vực khác (loại suy)?'
+        ]
+    },
+    {
+        phase: '4. Quyết định',
+        items: [
+            'Tiêu chí và trọng số được chốt trước khi chấm điểm?',
+            'Đã nghĩ tới hậu quả bậc hai, bậc ba?',
+            'Đã chạy pre-mortem cho quyết định quan trọng?',
+            'Mức cân nhắc phù hợp với độ khó đảo ngược của quyết định?'
+        ]
+    },
+    {
+        phase: '5. Triển khai & học',
+        items: [
+            'Có chỉ số thành công và người chịu trách nhiệm?',
+            'Có thể thử nhỏ (pilot) trước khi mở rộng?',
+            'Đã hẹn ngày đo lại và rút kinh nghiệm?'
+        ]
+    }
 ];

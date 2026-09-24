@@ -7,99 +7,117 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Level Selection Overlay -->
-    <div id="levelOverlay" class="level-overlay">
-        <div class="level-content">
-            <h1>🧩 Problem Solving</h1>
-            <p>Kỹ năng giải quyết vấn đề hiệu quả</p>
-            <div class="level-buttons">
-                <button class="level-btn beginner" data-level="beginner">
-                    <span class="level-icon">🌱</span>
-                    <span class="level-title">Beginner</span>
-                    <span class="level-desc">Frameworks cơ bản</span>
+    <!-- Header + Tour (sticky) -->
+    <div class="topbar" id="topbar">
+        <header class="header">
+            <div class="header-left">
+                <a href="../index.html" class="back-btn">← Trang chủ</a>
+                <h1>🧩 Problem Solving</h1>
+            </div>
+            <div class="header-right">
+                <button id="startTour" class="header-btn" type="button">📚 Tour</button>
+                <button id="showChecklist" class="header-btn" type="button">✅ Checklist</button>
+            </div>
+        </header>
+
+        <!-- Tour Progress -->
+        <div id="tourProgress" class="tour-progress hidden" aria-live="polite">
+            <div class="tour-info">
+                <span id="tourStep" class="tour-step">Bước 1/12</span>
+                <div class="tour-text">
+                    <strong id="tourTitle">Chào mừng!</strong>
+                    <span id="tourDesc"></span>
+                </div>
+            </div>
+            <div class="tour-actions">
+                <button id="tourPrev" class="tour-nav" type="button">← Trước</button>
+                <button id="tourNext" class="tour-nav" type="button">Tiếp →</button>
+                <button id="tourEnd" class="tour-end" type="button" aria-label="Kết thúc tour">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main view tabs -->
+    <nav class="view-tabs" role="tablist" aria-label="Chế độ học">
+        <button class="view-tab active" id="tab-theory" role="tab" aria-selected="true" aria-controls="theoryView" data-view="theory" type="button">
+            📖 Lý thuyết <span class="view-count" id="theoryCount"></span>
+        </button>
+        <button class="view-tab" id="tab-practice" role="tab" aria-selected="false" aria-controls="practiceView" data-view="practice" type="button">
+            🏋️ Luyện tập <span class="view-count" id="practiceCount"></span>
+        </button>
+        <div class="view-progress" id="viewProgress"></div>
+    </nav>
+
+    <!-- ===== THEORY VIEW ===== -->
+    <section id="theoryView" class="view" role="tabpanel" aria-labelledby="tab-theory">
+        <div class="quick-tips">
+            <div class="tips-scroll" id="tipsScroll"></div>
+        </div>
+
+        <div class="toolbar">
+            <div class="search-box">
+                <span aria-hidden="true">🔎</span>
+                <input type="search" id="conceptSearch" placeholder="Tìm concept… (vd: 5 whys, ưu tiên, bias)" autocomplete="off" aria-label="Tìm concept">
+            </div>
+            <div class="filter-group" id="categoryFilter" role="group" aria-label="Lọc theo nhóm"></div>
+            <div class="filter-group" id="levelFilter" role="group" aria-label="Lọc theo level"></div>
+        </div>
+
+        <main class="main-content">
+            <div class="nodes-area" id="nodesArea"></div>
+
+            <aside class="info-panel" id="infoPanel" aria-label="Chi tiết concept">
+                <div class="panel-sticky">
+                    <div class="panel-header">
+                        <h2 id="panelTitle">🧭 Bắt đầu từ đâu?</h2>
+                        <button id="closePanel" class="close-btn" type="button" aria-label="Đóng">✕</button>
+                    </div>
+                    <div class="panel-tabs hidden" id="panelTabs" role="tablist" aria-label="Nội dung concept">
+                        <button class="tab-btn active" data-tab="theory" role="tab" aria-selected="true" type="button">📖 Lý thuyết</button>
+                        <button class="tab-btn" data-tab="practice" role="tab" aria-selected="false" type="button">🏋️ Luyện tập <span id="panelPracticeCount" class="tab-count"></span></button>
+                    </div>
+                </div>
+                <div id="panelContent" class="panel-content"></div>
+            </aside>
+        </main>
+        <div class="panel-backdrop" id="panelBackdrop" hidden></div>
+    </section>
+
+    <!-- ===== PRACTICE VIEW ===== -->
+    <section id="practiceView" class="view hidden" role="tabpanel" aria-labelledby="tab-practice">
+        <div class="practice-wrap">
+            <div class="practice-stats" id="practiceStats"></div>
+            <div class="practice-modes" id="practiceModes" role="tablist" aria-label="Hình thức luyện tập">
+                <button class="mode-btn active" data-mode="quiz" role="tab" aria-selected="true" type="button">
+                    <span class="mode-icon">📝</span>
+                    <span class="mode-text"><strong>Trắc nghiệm</strong><small id="modeQuizMeta"></small></span>
                 </button>
-                <button class="level-btn intermediate" data-level="intermediate">
-                    <span class="level-icon">🌿</span>
-                    <span class="level-title">Intermediate</span>
-                    <span class="level-desc">Mental models & techniques</span>
+                <button class="mode-btn" data-mode="cases" role="tab" aria-selected="false" type="button">
+                    <span class="mode-icon">🎭</span>
+                    <span class="mode-text"><strong>Tình huống</strong><small id="modeCasesMeta"></small></span>
                 </button>
-                <button class="level-btn advanced" data-level="advanced">
-                    <span class="level-icon">🌳</span>
-                    <span class="level-title">Advanced</span>
-                    <span class="level-desc">Systems thinking</span>
+                <button class="mode-btn" data-mode="exercises" role="tab" aria-selected="false" type="button">
+                    <span class="mode-icon">✍️</span>
+                    <span class="mode-text"><strong>Tự luận</strong><small id="modeExercisesMeta"></small></span>
                 </button>
             </div>
+            <div id="practiceBody" class="practice-body"></div>
         </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <a href="../index.html" class="back-btn">← Trang chủ</a>
-            <h1>🧩 Problem Solving</h1>
-        </div>
-        <div class="header-right">
-            <span id="currentLevel" class="current-level"></span>
-            <button id="changeLevel" class="change-level-btn">Đổi level</button>
-            <button id="startTour" class="tour-btn">📚 Tour</button>
-            <button id="showChecklist" class="checklist-btn">✅ Checklist</button>
-        </div>
-    </header>
-
-    <!-- Tour Progress -->
-    <div id="tourProgress" class="tour-progress hidden">
-        <div class="tour-info">
-            <span id="tourStep">Bước 1/7</span>
-            <span id="tourTitle">Chào mừng!</span>
-        </div>
-        <div class="tour-actions">
-            <button id="tourPrev" class="tour-nav">← Trước</button>
-            <button id="tourNext" class="tour-nav">Tiếp →</button>
-            <button id="tourEnd" class="tour-end">✕</button>
-        </div>
-    </div>
-
-    <!-- Quick Tips -->
-    <div class="quick-tips">
-        <div class="tips-scroll" id="tipsScroll"></div>
-    </div>
-
-    <!-- Category Filter -->
-    <div class="category-filter">
-        <button class="cat-btn active" data-category="all">Tất cả</button>
-        <button class="cat-btn" data-category="frameworks">🎯 Frameworks</button>
-        <button class="cat-btn" data-category="techniques">🛠️ Techniques</button>
-        <button class="cat-btn" data-category="mental-models">🧠 Mental Models</button>
-        <button class="cat-btn" data-category="pitfalls">⚠️ Pitfalls</button>
-    </div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="nodes-grid" id="nodesGrid"></div>
-        <div class="info-panel" id="infoPanel">
-            <div class="panel-header">
-                <h2 id="panelTitle">Chọn một concept</h2>
-                <button id="closePanel" class="close-btn">✕</button>
-            </div>
-            <div class="panel-tabs">
-                <button class="tab-btn active" data-tab="simple">Đơn giản</button>
-                <button class="tab-btn" data-tab="detail">Chi tiết</button>
-                <button class="tab-btn" data-tab="advanced">Nâng cao</button>
-            </div>
-            <div id="panelContent" class="panel-content">
-                <p>Chọn một concept bên trái để xem chi tiết.</p>
-            </div>
-        </div>
-    </main>
+    </section>
 
     <!-- Checklist Modal -->
-    <div id="checklistModal" class="modal hidden">
+    <div id="checklistModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checklistTitle">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>✅ Problem Solving Checklist</h2>
-                <button id="closeChecklist" class="close-btn">✕</button>
+                <h2 id="checklistTitle">✅ Problem Solving Checklist</h2>
+                <button id="closeChecklist" class="close-btn" type="button" aria-label="Đóng">✕</button>
             </div>
+            <p class="modal-sub">Dùng khi bắt tay vào một vấn đề thật. Tick được lưu trên trình duyệt này.</p>
             <div class="checklist-items" id="checklistItems"></div>
+            <div class="modal-footer">
+                <span id="checklistProgress"></span>
+                <button id="resetChecklist" class="btn-ghost" type="button">Xoá tick</button>
+            </div>
         </div>
     </div>
 
@@ -108,8 +126,11 @@
     <script src="modules/techniques.js"></script>
     <script src="modules/mental-models.js"></script>
     <script src="modules/pitfalls.js"></script>
+    <script src="modules/practice-quiz.js"></script>
+    <script src="modules/practice-exercises.js"></script>
     <script src="modules/scenarios.js"></script>
     <script src="modules/tour.js"></script>
+    <script src="practice.js"></script>
     <script src="app.js"></script>
     <script src="../worker-runtime.js"></script>
     <script src="../chat-widget.js"></script>
