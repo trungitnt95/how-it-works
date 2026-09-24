@@ -8,19 +8,19 @@
 </head>
 <body>
     <!-- Level Selection Overlay -->
-    <div class="level-overlay" id="levelOverlay">
+    <div class="level-overlay hidden" id="levelOverlay">
         <div class="level-container">
-            <h1>🎨 Design Patterns</h1>
-            <p>Chọn cấp độ phù hợp với bạn</p>
+            <h1><span class="no-clip">🎨</span> Design Patterns</h1>
+            <p>Chọn cấp độ phù hợp — cấp độ quyết định độ khó mặc định của phần luyện tập (đổi lại được bất cứ lúc nào).</p>
             <div class="level-cards">
                 <div class="level-card" data-level="beginner">
                     <div class="level-icon">🌱</div>
                     <h3>Người Mới</h3>
                     <p>Mới bắt đầu học lập trình hoặc OOP.</p>
                     <ul>
-                        <li>✅ Ví dụ đời thực dễ hiểu</li>
-                        <li>✅ Giải thích từng bước</li>
-                        <li>✅ Code đơn giản</li>
+                        <li>✅ Hình minh họa đời thực</li>
+                        <li>✅ Nhận diện tình huống & hình ảnh</li>
+                        <li>✅ Sắp xếp luồng chạy</li>
                     </ul>
                     <button class="level-btn">Bắt đầu</button>
                 </div>
@@ -29,9 +29,9 @@
                     <h3>Trung Cấp</h3>
                     <p>Đã biết OOP, muốn hiểu sâu hơn.</p>
                     <ul>
-                        <li>✅ UML diagrams</li>
-                        <li>✅ Code examples đầy đủ</li>
-                        <li>✅ So sánh các patterns</li>
+                        <li>✅ Sơ đồ UML & luồng chạy</li>
+                        <li>✅ Đọc code đoán pattern</li>
+                        <li>✅ Gán vai trò trong pattern</li>
                     </ul>
                     <button class="level-btn">Bắt đầu</button>
                 </div>
@@ -40,9 +40,9 @@
                     <h3>Nâng Cao</h3>
                     <p>Muốn master design patterns.</p>
                     <ul>
-                        <li>✅ Real-world case studies</li>
-                        <li>✅ Anti-patterns</li>
-                        <li>✅ Patterns kết hợp</li>
+                        <li>✅ Code "có mùi" → refactor</li>
+                        <li>✅ Tự điền code còn thiếu</li>
+                        <li>✅ Phân biệt pattern dễ nhầm</li>
                     </ul>
                     <button class="level-btn">Bắt đầu</button>
                 </div>
@@ -60,121 +60,268 @@
         <div class="header-right">
             <button class="header-btn" id="changeLevelBtn" title="Đổi cấp độ">⚙️ Cấp độ</button>
             <button class="header-btn" id="searchBtn" title="Tìm kiếm">🔍 Tìm kiếm</button>
-            <button class="header-btn" id="bookmarkBtn" title="Đã lưu">⭐ Đã lưu</button>
+            <button class="header-btn" id="bookmarkBtn" title="Chỉ hiện pattern đã lưu" aria-pressed="false">⭐ Đã lưu <span id="bookmarkCount">0</span></button>
+            <button class="header-btn accent" id="practiceBtn" title="Luyện tập">🏋️ Luyện tập</button>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Section navigation -->
+    <nav class="section-nav" aria-label="Các phần của trang">
+        <a href="#overview" class="section-link">🗺️ Tổng quan</a>
+        <a href="#finder" class="section-link">🧭 Chọn pattern</a>
+        <a href="#patterns" class="section-link">📚 23 Patterns</a>
+        <a href="#compare" class="section-link">⚔️ Dễ nhầm</a>
+        <a href="#practice" class="section-link">🏋️ Luyện tập</a>
+    </nav>
+
     <main>
-        <!-- Introduction Section -->
-        <section class="intro-section">
-            <h2>🎯 Design Pattern là gì?</h2>
-            <p>
-                <strong>Design Patterns</strong> (Mẫu thiết kế) là các giải pháp điển hình cho những vấn đề 
-                thường gặp trong thiết kế phần mềm. Chúng giống như bản thiết kế sẵn có mà bạn có thể 
-                tùy chỉnh để giải quyết vấn đề cụ thể trong code của mình.
-            </p>
-            <p>
-                Được giới thiệu bởi "Gang of Four" (GoF) - nhóm 4 tác giả Erich Gamma, Richard Helm, 
-                Ralph Johnson và John Vlissides trong cuốn sách kinh điển năm 1994.
-            </p>
+        <!-- ==================== TỔNG QUAN ==================== -->
+        <section class="intro-section" id="overview">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2><span class="no-clip">🎯</span> Design Pattern là gì?</h2>
+                    <p>
+                        <strong>Design Pattern</strong> (mẫu thiết kế) là lời giải đã được kiểm chứng cho những vấn đề
+                        <em>lặp đi lặp lại</em> khi thiết kế phần mềm. Không phải thư viện để copy, mà là một
+                        <strong>bản thiết kế</strong> — bạn hiểu ý tưởng rồi áp vào code của mình.
+                    </p>
+                    <p>
+                        23 pattern kinh điển được nhóm "Gang of Four" (Gamma, Helm, Johnson, Vlissides) tổng kết năm 1994,
+                        chia làm 3 nhóm theo câu hỏi mà chúng trả lời.
+                    </p>
+                    <ol class="learn-steps">
+                        <li><span>🖼️</span><div><strong>Nhìn hình</strong> — ví dụ đời thực để "cảm" được ý tưởng</div></li>
+                        <li><span>😣</span><div><strong>Thấy vấn đề</strong> — code sẽ rối thế nào nếu không dùng</div></li>
+                        <li><span>🧩</span><div><strong>Đọc sơ đồ</strong> — UML + luồng chạy từng bước</div></li>
+                        <li><span>🏋️</span><div><strong>Luyện 2 chiều</strong> — nhận diện pattern &amp; tự vận dụng</div></li>
+                    </ol>
+                </div>
+                <figure class="intro-visual">
+                    <div class="mmd" data-mmd="intro"></div>
+                    <figcaption>Pattern nằm giữa: đặt tên cho vấn đề hay gặp và cho sẵn một cấu trúc để gỡ nó.</figcaption>
+                </figure>
+            </div>
+
+            <div class="pattern-map" id="patternMap">
+                <!-- Rendered by JavaScript -->
+            </div>
+
             <div class="intro-stats">
-                <div class="stat-card">
-                    <div class="stat-number">23</div>
-                    <div class="stat-label">Patterns gốc (GoF)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Nhóm chính</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">Năm kinh nghiệm</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Ứng dụng thực tế</div>
-                </div>
+                <div class="stat-card"><div class="stat-number">23</div><div class="stat-label">Patterns gốc (GoF)</div></div>
+                <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Nhóm chính</div></div>
+                <div class="stat-card"><div class="stat-number">100+</div><div class="stat-label">Sơ đồ & hình minh họa</div></div>
+                <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Chiều luyện tập</div></div>
             </div>
         </section>
 
-        <!-- Category Filter -->
-        <div class="category-filter">
-            <span class="filter-label">🏷️ Lọc theo nhóm:</span>
-            <button class="filter-btn active" data-category="all">Tất cả (22)</button>
-            <button class="filter-btn" data-category="creational">🏗️ Creational (5)</button>
-            <button class="filter-btn" data-category="structural">🧱 Structural (7)</button>
-            <button class="filter-btn" data-category="behavioral">🎭 Behavioral (10)</button>
-        </div>
-
-        <!-- Creational Patterns Section -->
-        <section class="category-section" data-category="creational">
-            <div class="category-header">
-                <span class="category-icon">🏗️</span>
-                <div>
-                    <h2 class="category-title">Creational Patterns</h2>
-                    <p class="category-desc">Các pattern liên quan đến việc tạo đối tượng, giúp code linh hoạt và tái sử dụng</p>
-                </div>
-                <span class="category-count">5 patterns</span>
+        <!-- ==================== CHỌN PATTERN ==================== -->
+        <section class="block-section" id="finder">
+            <div class="block-head">
+                <h2>🧭 Chọn pattern nào?</h2>
+                <p>Bắt đầu từ <strong>vấn đề</strong> bạn đang gặp, đi theo mũi tên, rồi <strong>bấm vào pattern</strong> để xem chi tiết.</p>
             </div>
-            <div class="patterns-grid" id="creationalGrid">
-                <!-- Patterns will be loaded by JavaScript -->
-            </div>
+            <div class="tab-buttons" id="finderTabs" role="tablist"></div>
+            <p class="finder-question" id="finderQuestion"></p>
+            <div class="diagram-box finder-diagram" id="finderDiagram"></div>
         </section>
 
-        <!-- Structural Patterns Section -->
-        <section class="category-section" data-category="structural">
-            <div class="category-header">
-                <span class="category-icon">🧱</span>
-                <div>
-                    <h2 class="category-title">Structural Patterns</h2>
-                    <p class="category-desc">Các pattern giải thích cách lắp ghép các đối tượng và lớp thành các cấu trúc lớn hơn</p>
+        <!-- ==================== DANH SÁCH PATTERN ==================== -->
+        <section class="block-section" id="patterns">
+            <div class="block-head">
+                <h2>📚 23 Patterns</h2>
+                <p>Mỗi thẻ có hình minh họa; bấm vào để xem vấn đề – giải pháp, sơ đồ UML, luồng chạy, code và bài luyện nhanh.</p>
+            </div>
+
+            <div class="category-filter">
+                <div class="search-box">
+                    <span aria-hidden="true">🔍</span>
+                    <input type="search" id="searchInput" placeholder="Tìm: undo, cây, thông báo, observer…" autocomplete="off">
                 </div>
-                <span class="category-count">7 patterns</span>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-category="all">Tất cả (23)</button>
+                    <button class="filter-btn" data-category="creational">🏗️ Creational (5)</button>
+                    <button class="filter-btn" data-category="structural">🧱 Structural (7)</button>
+                    <button class="filter-btn" data-category="behavioral">🎭 Behavioral (11)</button>
+                </div>
             </div>
-            <div class="patterns-grid" id="structuralGrid">
-                <!-- Patterns will be loaded by JavaScript -->
-            </div>
+
+            <section class="category-section" data-category="creational">
+                <div class="category-header">
+                    <span class="category-icon">🏗️</span>
+                    <div>
+                        <h3 class="category-title">Creational Patterns</h3>
+                        <p class="category-desc">Trả lời câu hỏi: <strong>tạo object thế nào</strong> cho linh hoạt, không trói chặt vào class cụ thể?</p>
+                    </div>
+                    <span class="category-count">5 patterns</span>
+                </div>
+                <div class="patterns-grid" id="creationalGrid"></div>
+            </section>
+
+            <section class="category-section" data-category="structural">
+                <div class="category-header">
+                    <span class="category-icon">🧱</span>
+                    <div>
+                        <h3 class="category-title">Structural Patterns</h3>
+                        <p class="category-desc">Trả lời câu hỏi: <strong>ghép các object/class</strong> thành cấu trúc lớn hơn thế nào cho gọn và dễ mở rộng?</p>
+                    </div>
+                    <span class="category-count">7 patterns</span>
+                </div>
+                <div class="patterns-grid" id="structuralGrid"></div>
+            </section>
+
+            <section class="category-section" data-category="behavioral">
+                <div class="category-header">
+                    <span class="category-icon">🎭</span>
+                    <div>
+                        <h3 class="category-title">Behavioral Patterns</h3>
+                        <p class="category-desc">Trả lời câu hỏi: các object <strong>chia việc và nói chuyện</strong> với nhau thế nào?</p>
+                    </div>
+                    <span class="category-count">11 patterns</span>
+                </div>
+                <div class="patterns-grid" id="behavioralGrid"></div>
+            </section>
+
+            <p class="empty-state" id="emptyState" hidden>Không có pattern nào khớp. Thử từ khóa khác hoặc tắt bộ lọc "⭐ Đã lưu".</p>
         </section>
 
-        <!-- Behavioral Patterns Section -->
-        <section class="category-section" data-category="behavioral">
-            <div class="category-header">
-                <span class="category-icon">🎭</span>
-                <div>
-                    <h2 class="category-title">Behavioral Patterns</h2>
-                    <p class="category-desc">Các pattern liên quan đến thuật toán và phân chia trách nhiệm giữa các đối tượng</p>
-                </div>
-                <span class="category-count">10 patterns</span>
+        <!-- ==================== DỄ NHẦM LẪN ==================== -->
+        <section class="block-section" id="compare">
+            <div class="block-head">
+                <h2>⚔️ Các pattern dễ nhầm lẫn</h2>
+                <p>Nhiều pattern có sơ đồ gần giống nhau — khác nhau ở <strong>mục đích</strong>. Mỗi bảng có một câu hỏi giúp bạn phân biệt nhanh.</p>
             </div>
-            <div class="patterns-grid" id="behavioralGrid">
-                <!-- Patterns will be loaded by JavaScript -->
+            <div class="compare-grid" id="compareGrid"></div>
+        </section>
+
+        <!-- ==================== LUYỆN TẬP ==================== -->
+        <section class="block-section" id="practice">
+            <div class="block-head">
+                <h2>🏋️ Luyện tập hai chiều</h2>
+                <p>Hiểu pattern là làm được cả hai chiều: <strong>nhìn vấn đề gọi đúng tên</strong>, và <strong>biết tên thì biết dùng ở đâu, viết thế nào</strong>.</p>
+            </div>
+
+            <div class="direction-cards">
+                <div class="direction-card reverse">
+                    <div class="direction-title">⬅️ Chiều ngược · Nhận diện</div>
+                    <p>Tình huống / code / hình → <strong>đây là pattern nào?</strong></p>
+                    <ul>
+                        <li>🧩 Đọc tình huống thực tế</li>
+                        <li>🖼️ Nhìn hình minh họa</li>
+                        <li>💻 Đọc đoạn code đã dùng pattern</li>
+                        <li>👃 Code "có mùi" → refactor bằng gì?</li>
+                    </ul>
+                </div>
+                <div class="direction-card forward">
+                    <div class="direction-title">➡️ Chiều xuôi · Vận dụng</div>
+                    <p>Biết pattern → <strong>dùng ở đâu, cấu trúc ra sao, viết thế nào?</strong></p>
+                    <ul>
+                        <li>🎯 Chọn tình huống nên dùng</li>
+                        <li>🔢 Sắp xếp luồng chạy</li>
+                        <li>🎭 Gán vai trò cho từng class</li>
+                        <li>✍️ Điền dòng code còn thiếu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="practice-setup" id="practiceSetup">
+                <div class="setup-row">
+                    <span class="setup-label">Chiều</span>
+                    <div class="seg" data-setting="dir">
+                        <button data-value="mixed" class="active">🔀 Trộn</button>
+                        <button data-value="reverse">⬅️ Ngược</button>
+                        <button data-value="forward">➡️ Xuôi</button>
+                    </div>
+                </div>
+                <div class="setup-row">
+                    <span class="setup-label">Nhóm</span>
+                    <div class="seg" data-setting="group">
+                        <button data-value="all" class="active">Tất cả</button>
+                        <button data-value="creational">🏗️ Creational</button>
+                        <button data-value="structural">🧱 Structural</button>
+                        <button data-value="behavioral">🎭 Behavioral</button>
+                    </div>
+                </div>
+                <div class="setup-row">
+                    <span class="setup-label">Độ khó</span>
+                    <div class="seg" data-setting="level">
+                        <button data-value="1" class="active">🌱 Dễ</button>
+                        <button data-value="2">🌿 Vừa</button>
+                        <button data-value="3">🌳 Khó</button>
+                    </div>
+                </div>
+                <div class="setup-row">
+                    <span class="setup-label">Số câu</span>
+                    <div class="seg" data-setting="count">
+                        <button data-value="5">5</button>
+                        <button data-value="10" class="active">10</button>
+                        <button data-value="20">20</button>
+                    </div>
+                </div>
+                <p class="setup-hint" id="setupHint"></p>
+                <button class="start-btn" id="startPracticeBtn">▶ Bắt đầu luyện</button>
+            </div>
+
+            <div class="practice-stage" id="practiceStage" hidden></div>
+
+            <div class="mastery-board">
+                <div class="mastery-head">
+                    <h3>📈 Mức thành thạo của bạn</h3>
+                    <div class="mastery-actions">
+                        <button class="ghost-btn" id="weakPracticeBtn">🎯 Luyện các pattern yếu nhất</button>
+                        <button class="ghost-btn danger" id="resetMasteryBtn">↺ Đặt lại</button>
+                    </div>
+                </div>
+                <div class="mastery-legend">
+                    <span><i class="lv lv-none"></i>Chưa luyện</span>
+                    <span><i class="lv lv-low"></i>&lt; 50%</span>
+                    <span><i class="lv lv-mid"></i>50–79%</span>
+                    <span><i class="lv lv-high"></i>≥ 80%</span>
+                </div>
+                <div class="mastery-grid" id="masteryGrid"></div>
             </div>
         </section>
     </main>
 
     <!-- Pattern Detail Modal -->
-    <div class="modal-overlay" id="patternModal">
-        <div class="modal-content">
+    <div class="modal-overlay" id="patternModal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <div class="modal-header">
                 <div class="modal-title-section">
                     <span class="modal-icon" id="modalIcon">🏭</span>
                     <div>
-                        <h2 class="modal-title" id="modalTitle">Pattern Name</h2>
-                        <span class="card-category" id="modalCategory">Category</span>
-                        <span class="difficulty-badge" id="modalDifficulty">Difficulty</span>
+                        <h2 class="modal-title" id="modalTitle">Pattern</h2>
+                        <div class="modal-nick" id="modalNick"></div>
+                        <div class="modal-chips">
+                            <span class="card-category" id="modalCategory">Category</span>
+                            <span class="difficulty-badge" id="modalDifficulty">Difficulty</span>
+                            <span class="glyph-chip" id="modalGlyph"></span>
+                        </div>
                     </div>
                 </div>
-                <button class="close-btn" id="closeModal">×</button>
+                <div class="modal-actions">
+                    <button class="icon-btn" id="modalBookmark" title="Lưu pattern" aria-pressed="false">☆</button>
+                    <button class="icon-btn" id="modalPrev" title="Pattern trước (←)">‹</button>
+                    <button class="icon-btn" id="modalNext" title="Pattern sau (→)">›</button>
+                    <button class="close-btn" id="closeModal" title="Đóng (Esc)">×</button>
+                </div>
             </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content will be loaded dynamically -->
-            </div>
+            <nav class="modal-nav" id="modalNav"></nav>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
+    <!-- Diagram zoom -->
+    <div class="zoom-overlay" id="zoomOverlay" aria-hidden="true">
+        <div class="zoom-bar"><span id="zoomTitle">Sơ đồ</span><button class="close-btn" id="zoomClose" title="Đóng">×</button></div>
+        <div class="zoom-body" id="zoomBody"></div>
+    </div>
+
     <!-- Module Scripts -->
+    <script id="mermaidScript" src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
     <script src="modules/patterns-data.js"></script>
+    <script src="modules/patterns-visuals.js"></script>
+    <script src="modules/scenes.js"></script>
+    <script src="modules/practice-data.js"></script>
     <!-- Main Application -->
     <script src="app.js"></script>
     <script src="../worker-runtime.js"></script>
