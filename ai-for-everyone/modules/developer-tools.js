@@ -558,12 +558,69 @@ const developerToolsData = {
             <p>Agent 2026 có thể tự điều khiển trình duyệt và máy tính (ChatGPT Agent, Claude in Chrome, Gemini agent): điền form, đặt lịch, thao tác web app. Luôn giám sát khi agent thao tác với tài khoản thật hoặc thanh toán.</p>
         `
     },
+    'agent-memory': {
+        icon: '🧵',
+        title: 'Agent Memory',
+        category: 'developer',
+        level: 'advanced',
+        connections: ['ai-agents', 'coding-agents', 'workspaces', 'context-window'],
+        simple: `
+            <h3>🧵 Tại sao Agent cần "trí nhớ"?</h3>
+            <p>Mặc định, AI <strong>quên hết</strong> khi bạn mở cuộc trò chuyện mới. <strong>Agent Memory</strong> là các kỹ thuật giúp AI "nhớ" thông tin qua nhiều phiên làm việc khác nhau.</p>
+            <div class="example-box">
+                Không có memory: Mỗi lần chat lại phải giải thích lại "tôi thích code style gì", "dự án này dùng framework gì"...<br>
+                Có memory: AI tự nhớ những điều đó từ lần trước, không cần lặp lại.
+            </div>
+            <h4>Các loại "nhớ" phổ biến hiện nay</h4>
+            <ul>
+                <li>💾 <strong>Memory tự động:</strong> ChatGPT/Claude tự ghi nhớ thông tin về bạn qua các cuộc chat</li>
+                <li>📝 <strong>Memory file:</strong> File như CLAUDE.md để bạn tự viết những gì AI cần nhớ về dự án</li>
+                <li>🗂️ <strong>Long-running agent:</strong> Agent làm việc nhiều giờ, tự ghi chú tiến độ để không bị lạc</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Các cơ chế Memory</h3>
+            <table>
+                <tr><th>Cơ chế</th><th>Cách hoạt động</th><th>Ví dụ</th></tr>
+                <tr><td>Conversation Memory</td><td>Tự nhớ chi tiết cá nhân qua các chat</td><td>ChatGPT Memory, Claude Memory</td></tr>
+                <tr><td>Memory File (tĩnh)</td><td>Bạn viết sẵn file hướng dẫn, agent đọc mỗi lần chạy</td><td>CLAUDE.md, AGENTS.md, .cursor/rules/</td></tr>
+                <tr><td>Compaction</td><td>Agent tự tóm tắt lịch sử dài để không tràn context</td><td>Claude Code, Codex khi chạy task dài</td></tr>
+                <tr><td>Vector Memory</td><td>Lưu embedding của các sự kiện/hội thoại cũ, tìm lại khi cần</td><td>Mem0, Zep</td></tr>
+            </table>
+            <h4>Tại sao không thể nhét hết vào context?</h4>
+            <p>Context window dù lớn (1M tokens) vẫn có giới hạn, và <strong>chất lượng giảm khi context quá dài</strong> ("lost in the middle"). Memory tốt là biết chọn lọc thông tin nào cần giữ lại, thông tin nào có thể quên.</p>
+        `,
+        advanced: `
+            <h3>🎓 Thiết kế Memory cho Agent dài hơi</h3>
+            <h4>Kiến trúc phổ biến: Working Memory + Long-term Memory</h4>
+            <div class="formula-box">
+                Working Memory (context hiện tại) ↔ Retrieval ↔ Long-term Memory (vector DB / file lưu ngoài)
+            </div>
+            <ul>
+                <li><strong>Working memory:</strong> Những gì đang có trong context ngay lúc này - nhanh nhưng có hạn</li>
+                <li><strong>Long-term memory:</strong> Lưu ngoài (file, database), agent tự truy xuất khi cần bằng tool</li>
+            </ul>
+            <h4>Compaction Strategy</h4>
+            <p>Khi agent code chạy hàng giờ, lịch sử hành động (đọc file, chạy lệnh, sửa code) sẽ vượt context. Kỹ thuật <strong>compaction</strong>: agent tự tóm tắt lại "đã làm gì, đang ở bước nào, còn gì cần làm" thành một đoạn ngắn, thay cho lịch sử chi tiết dài dòng.</p>
+            <h4>Sub-agent Pattern</h4>
+            <p>Thay vì 1 agent ôm hết context của cả task lớn, chia việc cho các <strong>sub-agent</strong> chạy độc lập (context riêng), chỉ trả về <em>kết quả tóm tắt</em> cho agent chính - giữ context chính luôn gọn.</p>
+            <h4>Rủi ro cần lưu ý</h4>
+            <ul>
+                <li>🔒 Memory tự động có thể vô tình lưu lại thông tin nhạy cảm bạn từng dán vào chat</li>
+                <li>🐛 Memory sai/cũ có thể khiến agent hành động dựa trên giả định lỗi thời</li>
+                <li>Nên định kỳ xem lại và dọn memory (Settings → Memory trên ChatGPT/Claude, hoặc sửa tay file CLAUDE.md)</li>
+            </ul>
+            <div class="tip-box">
+                💡 Với coding agent, đầu tư viết memory file (AGENTS.md/CLAUDE.md) rõ ràng ngay từ đầu dự án tiết kiệm rất nhiều thời gian giải thích lại về sau.
+            </div>
+        `
+    },
     'coding-agents': {
         icon: '🤖',
         title: 'Coding Agents',
         category: 'developer',
         level: 'advanced',
-        connections: ['ai-agents', 'copilot', 'cursor-ai', 'mcp-protocol'],
+        connections: ['ai-agents', 'copilot', 'cursor-ai', 'mcp-protocol', 'agent-memory'],
         simple: `
             <h3>🤖 Coding Agents</h3>
             <p><strong>Coding Agent</strong> là AI agent chuyên biệt cho lập trình - có thể đọc code, viết code, chạy tests, và sửa bugs tự động.</p>

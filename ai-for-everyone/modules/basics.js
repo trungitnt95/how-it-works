@@ -225,6 +225,63 @@ const aiBasicsData = {
             </div>
         `
     },
+    'multimodal-ai': {
+        icon: '🎬',
+        title: 'Multimodal AI',
+        category: 'basics',
+        level: 'beginner',
+        connections: ['what-is-ai', 'ai-tools-overview', 'ai-timeline'],
+        simple: `
+            <h3>🎬 Multimodal là gì?</h3>
+            <p><strong>Multimodal</strong> nghĩa là AI hiểu và tạo ra được <strong>nhiều loại dữ liệu</strong> - không chỉ chữ, mà cả ảnh, âm thanh, video - trong cùng một model.</p>
+            <div class="example-box">
+                Bạn chụp ảnh tủ lạnh → hỏi "Nấu được món gì từ đây?" → AI <strong>nhìn</strong> ảnh và trả lời bằng chữ.<br>
+                Bạn mô tả bằng lời → AI <strong>vẽ</strong> ra một bức ảnh, hoặc <strong>dựng</strong> một video ngắn.
+            </div>
+            <h4>4 chiều dữ liệu AI xử lý được</h4>
+            <ul>
+                <li>📝 <strong>Text:</strong> Đọc, viết, dịch</li>
+                <li>🖼️ <strong>Ảnh:</strong> Nhìn hiểu (vision) và tạo ảnh mới</li>
+                <li>🎙️ <strong>Âm thanh:</strong> Nghe hiểu giọng nói, tạo giọng nói tự nhiên</li>
+                <li>🎥 <strong>Video:</strong> Hiểu nội dung video và tạo video từ text/ảnh</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Các công cụ theo từng loại (09/2026)</h3>
+            <table>
+                <tr><th>Loại</th><th>Hiểu (input)</th><th>Tạo (output)</th></tr>
+                <tr><td>Ảnh</td><td>ChatGPT, Claude, Gemini (đọc ảnh, biểu đồ, screenshot)</td><td>GPT Image, Nano Banana (Gemini), Midjourney</td></tr>
+                <tr><td>Âm thanh</td><td>Voice mode của ChatGPT/Gemini (nói chuyện trực tiếp)</td><td>ElevenLabs, Voice mode (đọc trả lời bằng giọng tự nhiên)</td></tr>
+                <tr><td>Video</td><td>Gemini (hiểu nội dung video dài)</td><td>Sora (OpenAI), Veo (Google), Runway, Kling</td></tr>
+            </table>
+            <h4>Voice Mode / Realtime</h4>
+            <p>Khác với "gõ chữ → AI đọc": Voice mode hiện đại xử lý giọng nói <strong>trực tiếp</strong> (không qua bước chuyển giọng nói → chữ → chữ → giọng nói), nên phản hồi tự nhiên hơn, ngắt lời được, nghe được cảm xúc trong giọng nói.</p>
+            <h4>Ứng dụng thực tế</h4>
+            <ul>
+                <li>📸 Chụp bài tập toán → AI giải thích từng bước</li>
+                <li>🎙️ Luyện phản xạ tiếng Anh bằng voice mode</li>
+                <li>🎨 Vẽ concept sản phẩm chỉ bằng mô tả</li>
+                <li>🎞️ Tạo video quảng cáo ngắn không cần quay dựng</li>
+            </ul>
+        `,
+        advanced: `
+            <h3>🎓 Kiến trúc & giới hạn Multimodal</h3>
+            <h4>Native Multimodal vs Ghép nối (Pipeline)</h4>
+            <p>Model hiện đại (GPT-6, Gemini 3.x, Claude) xử lý ảnh/text <strong>trong cùng một mạng neural</strong> (native multimodal), thay vì cách cũ là ghép nhiều model chuyên biệt lại (OCR → text → LLM). Native multimodal hiểu ngữ cảnh giữa các loại dữ liệu tốt hơn nhiều.</p>
+            <h4>Cách ảnh được "token hóa"</h4>
+            <p>Ảnh bị chia thành các patch nhỏ, mỗi patch biến thành token giống văn bản. Ảnh độ phân giải cao = nhiều token hơn = tốn chi phí hơn. Đây là lý do nên resize ảnh trước khi upload nếu chi tiết nhỏ không quan trọng.</p>
+            <h4>Giới hạn cần biết</h4>
+            <ul>
+                <li>👁️ AI vision vẫn có thể đọc sai số liệu trong bảng/biểu đồ phức tạp - nên double-check</li>
+                <li>🔢 Đếm số lượng vật thể trong ảnh (ví dụ "đếm bao nhiêu người") vẫn hay sai</li>
+                <li>🎥 Video generation còn hạn chế về tính nhất quán vật thể giữa các khung hình dài</li>
+                <li>🖋️ Watermark / C2PA: nhiều nước bắt đầu yêu cầu gắn nhãn nội dung do AI tạo (ảnh, video) để chống deepfake</li>
+            </ul>
+            <div class="warning-box">
+                ⚠️ Deepfake ngày càng khó phân biệt bằng mắt thường. Với nội dung nhạy cảm (xác minh danh tính, tin tức), luôn kiểm tra nguồn gốc thay vì chỉ nhìn hình ảnh/video.
+            </div>
+        `
+    },
     'ai-limitations': {
         icon: '⚠️',
         title: 'Giới Hạn Của AI',
