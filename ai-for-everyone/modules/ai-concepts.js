@@ -50,24 +50,33 @@ const aiConceptsData = {
         `,
         advanced: `
             <h3>🎓 Token Economics & Optimization</h3>
-            <h4>Chi phí token theo model</h4>
+            <h4>Chi phí token theo model (giá API, 09/2026)</h4>
             <table>
                 <tr><th>Model</th><th>Input ($/1M tokens)</th><th>Output ($/1M tokens)</th></tr>
-                <tr><td>GPT-4o</td><td>$2.50</td><td>$10.00</td></tr>
-                <tr><td>GPT-4o mini</td><td>$0.15</td><td>$0.60</td></tr>
-                <tr><td>Claude 3.5 Sonnet</td><td>$3.00</td><td>$15.00</td></tr>
-                <tr><td>Claude 3.5 Haiku</td><td>$0.80</td><td>$4.00</td></tr>
-                <tr><td>Gemini 1.5 Pro</td><td>$1.25</td><td>$5.00</td></tr>
+                <tr><td>GPT-6 Astra</td><td>$10.00</td><td>$50.00</td></tr>
+                <tr><td>GPT-6 Sol</td><td>$2.00</td><td>$10.00</td></tr>
+                <tr><td>GPT-6 Luna</td><td>$0.10</td><td>$0.50</td></tr>
+                <tr><td>Claude Opus 5.5</td><td>$4.00</td><td>$20.00</td></tr>
+                <tr><td>Claude Sonnet 5</td><td>$2.00</td><td>$10.00</td></tr>
+                <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td></tr>
+                <tr><td>Gemini 3.1 Pro</td><td>$2.00</td><td>$12.00</td></tr>
+                <tr><td>Gemini 3.1 Flash-Lite</td><td>$0.25</td><td>$1.50</td></tr>
             </table>
+            <div class="tip-box">
+                💡 Giá thay đổi rất nhanh (thường giảm theo thời gian). Luôn kiểm tra trang pricing chính thức trước khi tính chi phí.
+            </div>
             <h4>Output tokens đắt hơn Input tokens</h4>
-            <p>Lý do: Tạo ra text (generation) tốn nhiều computation hơn đọc text (processing). Output thường đắt gấp 3-5x input.</p>
+            <p>Lý do: Tạo ra text (generation) tốn nhiều computation hơn đọc text (processing). Output hiện thường đắt gấp ~5x input.</p>
+            <h4>Lưu ý: tokenizer khác nhau</h4>
+            <p>Cùng một đoạn văn nhưng mỗi model đếm ra số token khác nhau (ví dụ tokenizer mới của Claude cho ra nhiều hơn ~30% token). So giá phải so trên <strong>chi phí thực tế cho cùng một task</strong>, không chỉ giá/token.</p>
             <h4>Chiến lược tối ưu token</h4>
             <ul>
                 <li><strong>Prompt ngắn gọn:</strong> Bỏ từ thừa, dùng abbreviations</li>
                 <li><strong>Yêu cầu output ngắn:</strong> "Trả lời trong 3 bullet points"</li>
                 <li><strong>Cache:</strong> Lưu kết quả hay dùng, không gọi lại API</li>
                 <li><strong>Model routing:</strong> Task đơn giản → model rẻ</li>
-                <li><strong>Prompt caching:</strong> OpenAI/Anthropic hỗ trợ cache system prompt</li>
+                <li><strong>Prompt caching:</strong> OpenAI/Anthropic/Google đều hỗ trợ, cache hit rẻ hơn ~90%</li>
+                <li><strong>Batch API:</strong> Task không gấp → giảm 50% chi phí</li>
             </ul>
             <div class="formula-box">
                 Chi phí = (Input tokens × Input price) + (Output tokens × Output price)
@@ -176,7 +185,7 @@ const aiConceptsData = {
             </div>
             <h4>Thành phần chính</h4>
             <ul>
-                <li><strong>MCP Host:</strong> Ứng dụng AI (Claude Desktop, Cursor, VS Code)</li>
+                <li><strong>MCP Host:</strong> Ứng dụng AI (Claude, ChatGPT, Gemini, Cursor, VS Code, Copilot)</li>
                 <li><strong>MCP Client:</strong> Giao tiếp với MCP Server</li>
                 <li><strong>MCP Server:</strong> Cung cấp tools và resources cho AI</li>
                 <li><strong>Tools:</strong> Functions mà AI có thể gọi</li>
@@ -189,7 +198,8 @@ const aiConceptsData = {
                 <tr><td>GitHub</td><td>Quản lý repos, PRs, issues</td><td>Development</td></tr>
                 <tr><td>PostgreSQL</td><td>Query database</td><td>Backend</td></tr>
                 <tr><td>Slack</td><td>Gửi/đọc messages</td><td>Team communication</td></tr>
-                <tr><td>Brave Search</td><td>Tìm kiếm web</td><td>Research</td></tr>
+                <tr><td>Playwright</td><td>Điều khiển trình duyệt</td><td>Test UI, scraping</td></tr>
+                <tr><td>Google Drive / Notion</td><td>Đọc/ghi tài liệu</td><td>Công việc văn phòng</td></tr>
             </table>
         `,
         advanced: `
@@ -218,8 +228,15 @@ const aiConceptsData = {
                 <li><strong>DevOps:</strong> AI monitor servers, deploy, manage infrastructure</li>
                 <li><strong>Custom Workflows:</strong> Kết nối AI với internal tools của team</li>
             </ul>
-            <div class="tip-box">
-                💡 MCP đang được Anthropic phát triển và ngày càng được nhiều IDE hỗ trợ. Đây là tương lai của AI integration.
+            <h4>Hệ sinh thái 2026</h4>
+            <ul>
+                <li><strong>Chuẩn mở trung lập:</strong> MCP do Anthropic khởi xướng (11/2024), nay được chuyển giao cho Linux Foundation (Agentic AI Foundation) và được OpenAI, Google, Microsoft cùng hỗ trợ</li>
+                <li><strong>Remote MCP + OAuth:</strong> Kết nối server qua URL, đăng nhập an toàn thay vì cài local</li>
+                <li><strong>Connectors:</strong> Claude, ChatGPT, Gemini đều có "Connectors" - thực chất là MCP servers dựng sẵn</li>
+                <li><strong>A2A (Agent-to-Agent):</strong> Giao thức bổ sung cho các agent nói chuyện với nhau; MCP là agent ↔ tool</li>
+            </ul>
+            <div class="warning-box">
+                ⚠️ Bảo mật: Chỉ cài MCP server từ nguồn tin cậy. Server độc hại có thể "prompt injection" hoặc đánh cắp dữ liệu. Cấp quyền tối thiểu cần thiết.
             </div>
         `
     },
@@ -248,11 +265,12 @@ const aiConceptsData = {
             <h4>So sánh Workspace features</h4>
             <table>
                 <tr><th>Platform</th><th>Tên feature</th><th>Upload files</th><th>Custom instructions</th></tr>
-                <tr><td>Claude</td><td>Projects</td><td>✅ PDF, code, docs</td><td>✅ Project instructions</td></tr>
-                <tr><td>ChatGPT</td><td>Custom GPTs / Projects</td><td>✅ Files</td><td>✅ System prompt</td></tr>
-                <tr><td>Cursor</td><td>Project / .cursorrules</td><td>✅ Codebase</td><td>✅ Rules file</td></tr>
-                <tr><td>VS Code</td><td>.github/copilot-instructions</td><td>✅ Codebase</td><td>✅ Instructions</td></tr>
-                <tr><td>Gemini</td><td>Gems</td><td>⚠️ Limited</td><td>✅</td></tr>
+                <tr><td>Claude</td><td>Projects + Memory</td><td>✅ PDF, code, docs</td><td>✅ Project instructions</td></tr>
+                <tr><td>ChatGPT</td><td>Projects / Custom GPTs + Memory</td><td>✅ Files</td><td>✅ Instructions</td></tr>
+                <tr><td>Gemini</td><td>Gems / NotebookLM</td><td>✅ Files, Drive</td><td>✅</td></tr>
+                <tr><td>Cursor</td><td>.cursor/rules/ + AGENTS.md</td><td>✅ Codebase</td><td>✅ Rules files</td></tr>
+                <tr><td>Copilot (VS Code)</td><td>.github/copilot-instructions.md + AGENTS.md</td><td>✅ Codebase</td><td>✅ Instructions</td></tr>
+                <tr><td>Claude Code</td><td>CLAUDE.md + Skills</td><td>✅ Codebase</td><td>✅ Memory file</td></tr>
             </table>
             <h4>Cách setup workspace hiệu quả</h4>
             <ol>
@@ -270,9 +288,10 @@ const aiConceptsData = {
                 <li><strong>Knowledge base:</strong> Upload docs, SOPs, coding standards</li>
                 <li><strong>Template workspaces:</strong> Clone workspace cho dự án mới</li>
             </ul>
-            <h4>Cursor Workspace Setup (Developer)</h4>
+            <h4>Coding Workspace Setup (Developer)</h4>
+            <p><strong>AGENTS.md</strong> ở root repo là chuẩn chung được Codex, Cursor, Copilot và nhiều agent khác đọc. Mỗi tool vẫn có file riêng (CLAUDE.md, .cursor/rules/, copilot-instructions.md).</p>
             <div class="example-box">
-                .cursorrules:<br>
+                AGENTS.md:<br>
                 - "Dùng TypeScript strict mode"<br>
                 - "Follow project coding conventions"<br>
                 - "Write tests cho mọi function"<br>
@@ -307,7 +326,7 @@ const aiConceptsData = {
                 <li>✅ AI kiểm tra kết quả</li>
             </ul>
             <div class="example-box">
-                <strong>Copilot Workspace:</strong> Mô tả task → AI tạo plan → Review plan → AI implement → Review code
+                <strong>Plan Mode (Claude Code, Cursor, Copilot):</strong> Mô tả task → AI đọc code & tạo plan → Bạn review plan → AI implement → Review code
             </div>
         `,
         detail: `
@@ -342,19 +361,20 @@ const aiConceptsData = {
                 Planner LLM → Task Queue → Executor LLM → Evaluator LLM → Loop
             </div>
             <h4>Reasoning Models</h4>
-            <p>Các model mới có khả năng "suy nghĩ" trước khi trả lời:</p>
+            <p>Từ 2025, "suy nghĩ trước khi trả lời" đã trở thành tính năng mặc định của hầu hết model lớn (không còn là dòng model riêng như o1/o3):</p>
             <table>
                 <tr><th>Model</th><th>Reasoning</th><th>Đặc điểm</th></tr>
-                <tr><td>o1 / o3 (OpenAI)</td><td>Chain-of-thought ẩn</td><td>Giỏi toán, logic, coding</td></tr>
-                <tr><td>Claude 3.5 (Extended Thinking)</td><td>Visible thinking</td><td>Phân tích sâu</td></tr>
-                <tr><td>DeepSeek R1</td><td>Open-source reasoning</td><td>Miễn phí, mạnh</td></tr>
+                <tr><td>GPT-6 (OpenAI)</td><td>Tự điều chỉnh độ sâu suy nghĩ</td><td>Mạnh về coding, dùng máy tính</td></tr>
+                <tr><td>Claude (Extended/Adaptive Thinking)</td><td>Model tự quyết nghĩ bao lâu</td><td>Phân tích sâu, agentic coding</td></tr>
+                <tr><td>Gemini Deep Think</td><td>Suy luận song song nhiều hướng</td><td>Toán, khoa học</td></tr>
+                <tr><td>DeepSeek V4, Qwen 3.x</td><td>Open-weight reasoning</td><td>Miễn phí, tự host được</td></tr>
             </table>
             <h4>Khi nào dùng Reasoning Models?</h4>
             <ul>
                 <li>✅ Bài toán phức tạp, nhiều bước</li>
                 <li>✅ Code review, bug finding</li>
                 <li>✅ Phân tích dữ liệu phức tạp</li>
-                <li>❌ Không cần cho chat đơn giản (tốn token)</li>
+                <li>❌ Không cần cho chat đơn giản (tốn token) - chọn mức "effort" thấp hoặc model nhanh</li>
             </ul>
             <div class="tip-box">
                 💡 Reasoning models thường chậm hơn và đắt hơn, nhưng chính xác hơn nhiều cho task phức tạp.

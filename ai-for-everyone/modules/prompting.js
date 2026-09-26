@@ -140,7 +140,7 @@ const promptingData = {
             <h4>ReAct (Reasoning + Acting)</h4>
             <p>Kết hợp suy luận với hành động: AI vừa suy nghĩ vừa thực hiện task.</p>
             <div class="tip-box">
-                💡 CoT đặc biệt hiệu quả với GPT-4 và Claude - cải thiện accuracy 20-40%.
+                💡 Các model 2026 (GPT-6, Claude, Gemini) đã tự "thinking" trước khi trả lời, nên câu "hãy suy nghĩ từng bước" ít tác dụng hơn trước. CoT thủ công vẫn hữu ích với model nhỏ/nhanh, hoặc khi bạn muốn xem và kiểm tra lập luận.
             </div>
         `
     },
@@ -223,12 +223,13 @@ const promptingData = {
         `,
         advanced: `
             <h3>🎓 System Prompt nâng cao</h3>
-            <h4>Custom GPTs</h4>
-            <p>Tạo ChatGPT tùy chỉnh với system prompt riêng:</p>
+            <h4>Trợ lý tùy chỉnh</h4>
+            <p>Tạo AI tùy chỉnh với system prompt riêng:</p>
             <ul>
-                <li>GPT Builder trong ChatGPT Plus</li>
-                <li>Claude Projects</li>
-                <li>Custom instructions</li>
+                <li>Custom GPTs / Projects trong ChatGPT</li>
+                <li>Claude Projects & Skills</li>
+                <li>Gemini Gems</li>
+                <li>Custom instructions + Memory (áp dụng cho mọi cuộc chat)</li>
             </ul>
             <h4>Prompt Injection Prevention</h4>
             <p>Bảo vệ system prompt khỏi bị user bypass:</p>

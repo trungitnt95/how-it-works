@@ -229,7 +229,8 @@ const skillsPracticesData = {
             <h4>Các vai trò mới xuất hiện</h4>
             <ul>
                 <li><strong>AI Trainer:</strong> Huấn luyện và fine-tune AI models</li>
-                <li><strong>Prompt Engineer:</strong> Chuyên gia viết prompts</li>
+                <li><strong>AI Engineer / Agent Engineer:</strong> Xây sản phẩm và workflow dựa trên LLM, agent</li>
+                <li><strong>Prompt / Context Engineer:</strong> Thiết kế context, prompt, evals cho AI</li>
                 <li><strong>AI Ethics Officer:</strong> Đảm bảo AI dùng đúng đạo đức</li>
                 <li><strong>AI Product Manager:</strong> Quản lý sản phẩm AI</li>
                 <li><strong>Human-AI Interaction Designer:</strong> Thiết kế giao tiếp người-AI</li>
@@ -309,11 +310,11 @@ const skillsPracticesData = {
             <h4>AI Tool Stack cho Developer</h4>
             <table>
                 <tr><th>Task</th><th>Tool</th><th>Tip</th></tr>
-                <tr><td>Coding</td><td>Cursor / Copilot</td><td>Dùng .cursorrules / instructions</td></tr>
-                <tr><td>Code Review</td><td>CodeRabbit / Copilot</td><td>Integrate vào CI/CD</td></tr>
-                <tr><td>Documentation</td><td>Claude / ChatGPT</td><td>Upload codebase cho context</td></tr>
-                <tr><td>Testing</td><td>Copilot / Cursor</td><td>"Viết edge case tests"</td></tr>
-                <tr><td>Debugging</td><td>Claude / ChatGPT</td><td>Paste error + context</td></tr>
+                <tr><td>Coding</td><td>Cursor / Copilot / Claude Code / Codex</td><td>Dùng AGENTS.md / rules / instructions</td></tr>
+                <tr><td>Code Review</td><td>Copilot / Claude Code / CodeRabbit</td><td>Integrate vào CI/CD</td></tr>
+                <tr><td>Documentation</td><td>Claude / ChatGPT</td><td>Cho agent đọc trực tiếp repo</td></tr>
+                <tr><td>Testing</td><td>Coding agent bất kỳ</td><td>"Viết edge case tests rồi chạy cho pass"</td></tr>
+                <tr><td>Debugging</td><td>Coding agent + MCP</td><td>Cho agent đọc log, chạy lệnh tái hiện lỗi</td></tr>
             </table>
         `
     },
@@ -371,12 +372,15 @@ const skillsPracticesData = {
                 <li>Cultural bias (thiên về Western culture)</li>
                 <li>Selection bias trong recommendations</li>
             </ul>
-            <h4>Tương lai AI Regulation</h4>
+            <h4>Khung pháp lý AI (09/2026)</h4>
             <ul>
-                <li><strong>EU AI Act:</strong> Phân loại AI theo rủi ro</li>
-                <li><strong>Executive Orders:</strong> Các nước ban hành quy định AI</li>
-                <li><strong>Industry Standards:</strong> ISO, IEEE standards cho AI</li>
+                <li><strong>🇻🇳 Luật Trí tuệ nhân tạo 2025 (Luật số 134/2025/QH15):</strong> Thông qua 10/12/2025, có hiệu lực từ 01/3/2026. Quản lý theo rủi ro (cao / trung bình / thấp), quy định quyền & nghĩa vụ khi phát triển, cung cấp và sử dụng AI tại Việt Nam</li>
+                <li><strong>🇪🇺 EU AI Act:</strong> Phân loại AI theo rủi ro. Quy định cho model đa dụng (GPAI) áp dụng từ 08/2025; nghĩa vụ minh bạch (Điều 50) từ 08/2026. Gói Digital Omnibus (hiệu lực 07/2026) lùi nghĩa vụ cho hệ thống rủi ro cao sang 12/2027 - 08/2028</li>
+                <li><strong>Industry Standards:</strong> ISO/IEC 42001 (hệ thống quản lý AI), NIST AI RMF</li>
             </ul>
+            <div class="tip-box">
+                💡 Nếu doanh nghiệp bạn cung cấp sản phẩm AI tại Việt Nam hoặc EU, cần rà soát phân loại rủi ro và nghĩa vụ minh bạch (ví dụ: gắn nhãn nội dung do AI tạo).
+            </div>
         `
     }
 };

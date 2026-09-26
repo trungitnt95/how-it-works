@@ -10,24 +10,27 @@ const techniquesData = {
             <h3>📏 Context Window là gì?</h3>
             <p><strong>Context window</strong> là lượng text tối đa AI có thể "nhớ" trong một cuộc hội thoại.</p>
             <div class="example-box">
-                <strong>Ví dụ:</strong> GPT-4 có context 128K tokens ≈ khoảng 300 trang sách.
+                <strong>Ví dụ:</strong> Các model hàng đầu 2026 (GPT-6, Claude, Gemini) có context ~1 triệu tokens ≈ khoảng 2.000+ trang sách.
             </div>
             <h4>Tại sao quan trọng?</h4>
             <ul>
-                <li>Chat quá dài → AI quên đầu cuộc hội thoại</li>
+                <li>Chat quá dài → AI quên đầu cuộc hội thoại (hoặc app tự "nén"/tóm tắt lại)</li>
                 <li>Paste file lớn → Có thể vượt giới hạn</li>
                 <li>Mỗi model có context khác nhau</li>
             </ul>
         `,
         detail: `
-            <h3>📊 So sánh Context Window</h3>
+            <h3>📊 So sánh Context Window (09/2026)</h3>
             <table>
                 <tr><th>Model</th><th>Context</th><th>Tương đương</th></tr>
-                <tr><td>GPT-3.5</td><td>16K tokens</td><td>~40 trang</td></tr>
-                <tr><td>GPT-4</td><td>128K tokens</td><td>~300 trang</td></tr>
-                <tr><td>Claude 3</td><td>200K tokens</td><td>~500 trang</td></tr>
-                <tr><td>Gemini 1.5</td><td>1M tokens</td><td>~2500 trang</td></tr>
+                <tr><td>GPT-6 (Astra/Sol/Luna)</td><td>~1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Claude (Opus/Sonnet 4.6+)</td><td>1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Gemini 3.x Pro</td><td>1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Open-weight (Qwen, Gemma 3...)</td><td>128K - 256K tokens</td><td>~300-600 trang</td></tr>
             </table>
+            <div class="tip-box">
+                💡 Context lớn ≠ nhớ tốt. Bản chat trên app thường giới hạn thấp hơn API, và chất lượng vẫn giảm khi context quá dài. Nhét ít nhưng đúng thông tin vẫn tốt hơn.
+            </div>
             <h4>Mẹo quản lý context</h4>
             <ul>
                 <li>Tóm tắt cuộc hội thoại dài</li>
@@ -39,6 +42,8 @@ const techniquesData = {
             <h3>🎓 Tối ưu Context Window</h3>
             <h4>Lost in the Middle</h4>
             <p>AI chú ý tốt nhất ở đầu và cuối context - thông tin ở giữa dễ bị bỏ qua.</p>
+            <h4>Context Engineering</h4>
+            <p>Khái niệm phổ biến từ 2025: thay vì chỉ "viết prompt hay", hãy <strong>thiết kế toàn bộ những gì đưa vào context</strong> - instructions, tài liệu, lịch sử, kết quả tool. Agent dài hơi dùng thêm <em>compaction</em> (tự tóm tắt lịch sử) và <em>memory file</em> để không bị tràn context.</p>
             <h4>RAG (Retrieval-Augmented Generation)</h4>
             <p>Thay vì nhét mọi thứ vào context, dùng search để lấy phần liên quan nhất:</p>
             <ul>
@@ -79,7 +84,7 @@ const techniquesData = {
                 <tr><td>Presence Penalty</td><td>Tăng đa dạng topic</td><td>0 - 2</td></tr>
             </table>
             <div class="tip-box">
-                💡 Hầu hết trường hợp, chỉ cần điều chỉnh temperature là đủ.
+                💡 Hầu hết trường hợp, chỉ cần điều chỉnh temperature là đủ. Lưu ý: với nhiều reasoning model mới, temperature bị cố định - thay vào đó bạn chỉnh <strong>reasoning effort</strong> (low/medium/high) hoặc ngân sách "thinking".
             </div>
         `,
         advanced: `
@@ -133,19 +138,19 @@ const techniquesData = {
         `,
         advanced: `
             <h3>🎓 Token Economics</h3>
-            <h4>Bảng giá token (USD/1M tokens)</h4>
+            <h4>Bảng giá token theo tầng (USD/1M tokens, 09/2026)</h4>
             <table>
-                <tr><th>Model</th><th>Input</th><th>Output</th></tr>
-                <tr><td>GPT-3.5 Turbo</td><td>$0.50</td><td>$1.50</td></tr>
-                <tr><td>GPT-4</td><td>$30</td><td>$60</td></tr>
-                <tr><td>GPT-4 Turbo</td><td>$10</td><td>$30</td></tr>
-                <tr><td>Claude 3 Haiku</td><td>$0.25</td><td>$1.25</td></tr>
+                <tr><th>Tầng</th><th>Ví dụ</th><th>Input</th><th>Output</th></tr>
+                <tr><td>Nhỏ / nhanh</td><td>GPT-6 Luna, Gemini Flash-Lite, Claude Haiku 4.5</td><td>$0.10 - $1</td><td>$0.50 - $5</td></tr>
+                <tr><td>Cân bằng</td><td>GPT-6 Sol, Claude Sonnet 5, Gemini 3.1 Pro</td><td>~$2</td><td>$10 - $12</td></tr>
+                <tr><td>Flagship</td><td>GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5</td><td>$4 - $10</td><td>$20 - $50</td></tr>
             </table>
             <h4>Chiến lược tiết kiệm</h4>
             <ul>
-                <li>Dùng GPT-3.5 cho task đơn giản</li>
-                <li>Cache kết quả thường dùng</li>
-                <li>Batch requests khi có thể</li>
+                <li>Dùng model tầng nhỏ cho task đơn giản (phân loại, trích xuất, tóm tắt)</li>
+                <li>Prompt caching cho phần lặp lại (system prompt, tài liệu) - rẻ hơn ~90%</li>
+                <li>Batch API cho task không gấp - giảm 50%</li>
+                <li>Giảm reasoning effort khi không cần suy nghĩ sâu</li>
             </ul>
         `
     },
@@ -180,8 +185,8 @@ const techniquesData = {
             <h4>Cách giảm Hallucination</h4>
             <ol>
                 <li>Yêu cầu AI: "Nếu không chắc, hãy nói không biết"</li>
-                <li>Set temperature = 0</li>
-                <li>Yêu cầu trích dẫn nguồn</li>
+                <li>Set temperature = 0 (nếu model cho phép)</li>
+                <li>Bật web search và yêu cầu trích dẫn nguồn</li>
                 <li>Cross-check với AI khác</li>
             </ol>
         `,
@@ -227,7 +232,7 @@ const techniquesData = {
             <h4>Công cụ hỗ trợ</h4>
             <table>
                 <tr><th>Công cụ</th><th>Dùng cho</th></tr>
-                <tr><td>Perplexity</td><td>AI search có trích dẫn</td></tr>
+                <tr><td>Perplexity / Deep Research</td><td>AI search có trích dẫn</td></tr>
                 <tr><td>Google Scholar</td><td>Nghiên cứu khoa học</td></tr>
                 <tr><td>Snopes</td><td>Kiểm tra tin giả</td></tr>
             </table>

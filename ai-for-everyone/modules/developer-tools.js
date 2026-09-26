@@ -20,15 +20,18 @@ const developerToolsData = {
                 <li>🔧 <strong>Fix & Debug:</strong> Tự động sửa bugs và errors</li>
                 <li>📝 <strong>Generate Tests:</strong> Viết unit tests tự động</li>
                 <li>📖 <strong>Explain Code:</strong> Giải thích code phức tạp</li>
-                <li>🤖 <strong>Copilot Agent:</strong> Tự động hoàn thành tasks phức tạp</li>
+                <li>🤖 <strong>Agent Mode:</strong> Tự hoàn thành tasks phức tạp trong IDE</li>
+                <li>☁️ <strong>Copilot Coding Agent:</strong> Giao issue → Copilot tự code trên cloud và mở PR</li>
             </ul>
-            <h4>Pricing</h4>
+            <h4>Pricing (09/2026)</h4>
+            <p>Từ 06/2026 Copilot chuyển sang tính theo <strong>AI Credits</strong>: code completion không giới hạn ở gói trả phí; chat, agent, code review trừ vào credits.</p>
             <table>
                 <tr><th>Plan</th><th>Giá</th><th>Đặc điểm</th></tr>
-                <tr><td>Free</td><td>$0</td><td>2000 completions + 50 chat/tháng</td></tr>
-                <tr><td>Pro</td><td>$10/th</td><td>Unlimited completions + chat</td></tr>
-                <tr><td>Business</td><td>$19/th</td><td>Team management, policies</td></tr>
-                <tr><td>Enterprise</td><td>$39/th</td><td>Custom models, audit logs</td></tr>
+                <tr><td>Free</td><td>$0</td><td>2.000 completions + 50 chat/tháng</td></tr>
+                <tr><td>Pro</td><td>$10/th</td><td>Unlimited completions + ~$15 AI Credits</td></tr>
+                <tr><td>Pro+</td><td>$39/th</td><td>~$70 AI Credits, agent bên thứ ba (Claude, Codex)</td></tr>
+                <tr><td>Max</td><td>$100/th</td><td>~$200 AI Credits, dùng agent cường độ cao</td></tr>
+                <tr><td>Business / Enterprise</td><td>Theo seat</td><td>Quản lý team, policies, audit logs</td></tr>
             </table>
         `,
         detail: `
@@ -66,15 +69,15 @@ const developerToolsData = {
             <h4>3. Context Variables (@)</h4>
             <p>Dùng @ để thêm context cho Copilot:</p>
             <ul>
-                <li><strong>@workspace:</strong> Toàn bộ codebase</li>
-                <li><strong>@file:</strong> File cụ thể</li>
-                <li><strong>@terminal:</strong> Output terminal</li>
-                <li><strong>@selection:</strong> Code đang chọn</li>
-                <li><strong>@vscode:</strong> VS Code settings & APIs</li>
+                <li><strong>#codebase:</strong> Tìm trong toàn bộ codebase</li>
+                <li><strong>#file / #selection:</strong> File hoặc code đang chọn</li>
+                <li><strong>#terminalLastCommand:</strong> Output terminal</li>
+                <li><strong>@vscode / @terminal:</strong> Chat participants chuyên biệt</li>
+                <li><strong>MCP tools:</strong> Tools từ MCP servers đã cài</li>
             </ul>
 
-            <h4>4. Copilot Edits (Multi-file Editing)</h4>
-            <p>Mô tả thay đổi bạn muốn → Copilot edit nhiều files cùng lúc. Review diff trước khi accept.</p>
+            <h4>4. Chat Modes: Ask / Edit / Agent / Plan</h4>
+            <p>Trong Copilot Chat, chọn mode: <strong>Ask</strong> (hỏi đáp), <strong>Edit</strong> (sửa nhiều file theo yêu cầu), <strong>Agent</strong> (tự chạy lệnh, sửa lỗi đến khi xong), <strong>Plan</strong> (lập kế hoạch trước khi code). Luôn review diff trước khi accept.</p>
             <div class="tip-box">
                 💡 Mẹo: Thêm files liên quan vào working set để Copilot hiểu context tốt hơn.
             </div>
@@ -92,10 +95,10 @@ const developerToolsData = {
             </ul>
 
             <h4>Copilot CLI</h4>
-            <p>Dùng Copilot trong terminal:</p>
+            <p>Copilot CLI mới là một coding agent đầy đủ trong terminal (thay cho extension <code>gh copilot suggest/explain</code> cũ):</p>
             <div class="formula-box">
-                gh copilot suggest "undo last git commit"<br>
-                gh copilot explain "git log --oneline -10"
+                npm install -g @github/copilot<br>
+                copilot   # mở agent tương tác trong thư mục project
             </div>
 
             <h4>Copilot cho Pull Requests</h4>
@@ -114,13 +117,13 @@ const developerToolsData = {
                 - Use async/await instead of callbacks
             </div>
 
-            <h4>Copilot Extensions</h4>
-            <p>Mở rộng Copilot với các extensions bên ngoài:</p>
+            <h4>Mở rộng Copilot bằng MCP</h4>
+            <p>Copilot Extensions (GitHub App) đã được thay thế bằng <strong>MCP servers</strong> - cùng chuẩn với Claude, Cursor:</p>
             <ul>
-                <li><strong>@docker:</strong> Hỏi về Docker, containers</li>
-                <li><strong>@azure:</strong> Deploy, cloud resources</li>
-                <li><strong>@sentry:</strong> Debug production errors</li>
-                <li>Và nhiều extensions community khác</li>
+                <li><strong>GitHub MCP:</strong> Issues, PRs, Actions</li>
+                <li><strong>Playwright MCP:</strong> Điều khiển browser để test UI</li>
+                <li><strong>Azure / Sentry / DB MCP:</strong> Cloud, debug production, query data</li>
+                <li>Cài qua MCP registry ngay trong VS Code</li>
             </ul>
 
             <h4>Best Practices</h4>
@@ -128,8 +131,8 @@ const developerToolsData = {
                 <li>Luôn review code Copilot tạo ra</li>
                 <li>Viết tests cho code AI generated</li>
                 <li>Dùng comments descriptive để guide suggestions</li>
-                <li>Tận dụng @workspace cho câu hỏi về toàn bộ project</li>
-                <li>Setup copilot-instructions.md cho mỗi dự án</li>
+                <li>Tận dụng #codebase cho câu hỏi về toàn bộ project</li>
+                <li>Setup copilot-instructions.md hoặc AGENTS.md cho mỗi dự án</li>
             </ul>
         `
     },
@@ -146,12 +149,13 @@ const developerToolsData = {
             <ul>
                 <li>✍️ <strong>Code Completion:</strong> Gợi ý code real-time</li>
                 <li>💬 <strong>Copilot Chat:</strong> AI assistant trong IDE</li>
-                <li>✏️ <strong>Copilot Edits:</strong> Edit multi-file</li>
-                <li>🤖 <strong>Agent Mode:</strong> Tự thực hiện tasks</li>
+                <li>✏️ <strong>Edit Mode:</strong> Edit multi-file</li>
+                <li>🤖 <strong>Agent Mode:</strong> Tự thực hiện tasks trong IDE</li>
+                <li>☁️ <strong>Coding Agent:</strong> Giao issue, Copilot tự mở PR</li>
                 <li>🔍 <strong>Code Review:</strong> Review PR tự động</li>
                 <li>📋 <strong>PR Summary:</strong> Tóm tắt PR tự động</li>
-                <li>💻 <strong>Copilot CLI:</strong> AI trong terminal</li>
-                <li>🔌 <strong>Extensions:</strong> Mở rộng khả năng</li>
+                <li>💻 <strong>Copilot CLI:</strong> Agent trong terminal</li>
+                <li>🔌 <strong>MCP:</strong> Mở rộng khả năng</li>
                 <li>📐 <strong>Custom Instructions:</strong> Tùy chỉnh theo dự án</li>
                 <li>🛡️ <strong>Security:</strong> Phát hiện lỗ hổng bảo mật</li>
             </ul>
@@ -159,11 +163,11 @@ const developerToolsData = {
         detail: `
             <h3>📊 Chi Tiết Từng Tính Năng</h3>
 
-            <h4>🔥 Copilot Edits — Tính năng mạnh nhất</h4>
+            <h4>🔥 Edit Mode — Sửa nhiều file có kiểm soát</h4>
             <p>Edit nhiều files cùng lúc bằng ngôn ngữ tự nhiên:</p>
             <ol>
-                <li>Mở Copilot Edits panel (Ctrl+Shift+I)</li>
-                <li>Thêm files vào working set</li>
+                <li>Mở Copilot Chat (Ctrl+Alt+I), chọn mode <strong>Edit</strong></li>
+                <li>Thêm files liên quan vào context</li>
                 <li>Mô tả thay đổi: "Add error handling to all API calls"</li>
                 <li>Review diff cho từng file</li>
                 <li>Accept hoặc reject từng thay đổi</li>
@@ -182,23 +186,18 @@ const developerToolsData = {
             </div>
 
             <h4>💻 Copilot CLI</h4>
-            <table>
-                <tr><th>Command</th><th>Chức năng</th></tr>
-                <tr><td>gh copilot suggest</td><td>Gợi ý command cho task</td></tr>
-                <tr><td>gh copilot explain</td><td>Giải thích command phức tạp</td></tr>
-            </table>
+            <p>Agent chạy trong terminal: đọc project, sửa file, chạy lệnh (hỏi quyền trước), kết nối MCP.</p>
             <div class="example-box">
-                $ gh copilot suggest "find all files larger than 100MB"<br>
-                → find / -type f -size +100M<br><br>
-                $ gh copilot explain "tar -xzf archive.tar.gz"<br>
-                → Giải thích từng flag: -x extract, -z gzip, -f file
+                $ copilot<br>
+                > Tìm tất cả file lớn hơn 100MB trong repo và thêm vào .gitignore<br>
+                → Agent đề xuất lệnh find, xin phép chạy, rồi sửa .gitignore
             </div>
 
             <h4>📋 Copilot cho Pull Requests</h4>
             <ul>
-                <li><strong>Auto Summary:</strong> Thêm "copilot:summary" label → Copilot tự viết PR description</li>
+                <li><strong>Auto Summary:</strong> Bấm nút Copilot trong ô mô tả PR → tự viết PR description</li>
                 <li><strong>Code Review:</strong> Request review từ "Copilot" → AI review code, comment suggestions</li>
-                <li><strong>Auto Fix:</strong> Copilot đề xuất fix cho review comments</li>
+                <li><strong>Coding Agent:</strong> Assign issue cho Copilot hoặc nhắc @copilot trong PR → tự sửa và push commit</li>
             </ul>
 
             <h4>🛡️ Security Features</h4>
@@ -217,7 +216,7 @@ const developerToolsData = {
             <div class="example-box">
                 # Project Guidelines<br>
                 - Language: TypeScript strict mode<br>
-                - Framework: Next.js 14 with App Router<br>
+                - Framework: Next.js with App Router<br>
                 - Styling: Tailwind CSS only<br>
                 - Testing: Jest + React Testing Library<br>
                 - API: RESTful with Zod validation<br>
@@ -241,10 +240,10 @@ const developerToolsData = {
             <p>Copilot cho phép chọn AI model:</p>
             <table>
                 <tr><th>Model</th><th>Ưu điểm</th><th>Dùng khi</th></tr>
-                <tr><td>GPT-4o</td><td>Đa năng, nhanh</td><td>General coding</td></tr>
-                <tr><td>Claude 3.5 Sonnet</td><td>Code quality cao</td><td>Complex logic</td></tr>
-                <tr><td>o1/o3</td><td>Reasoning mạnh</td><td>Algorithm, math</td></tr>
-                <tr><td>Gemini</td><td>Context window lớn</td><td>Large codebase</td></tr>
+                <tr><td>Auto</td><td>Copilot tự chọn model phù hợp</td><td>Mặc định, tiết kiệm credits</td></tr>
+                <tr><td>GPT-6 Sol / Astra</td><td>Đa năng, mạnh về agent</td><td>General & complex coding</td></tr>
+                <tr><td>Claude Sonnet 5 / Opus 5.5</td><td>Code quality cao, agentic</td><td>Refactor, multi-file</td></tr>
+                <tr><td>Gemini 3.x Pro</td><td>Context window lớn</td><td>Large codebase</td></tr>
             </table>
 
             <h4>MCP Integration</h4>
@@ -255,18 +254,18 @@ const developerToolsData = {
                 <li>Kết nối monitoring → Debug production issues</li>
             </ul>
 
-            <h4>Copilot Workspace (GitHub.com)</h4>
-            <p>Mô tả task bằng tiếng Việt/Anh trên GitHub → Copilot tạo plan → Implement → Tạo PR:</p>
+            <h4>Copilot Coding Agent (GitHub.com)</h4>
+            <p>Thay thế Copilot Workspace (đã ngừng từ 2025). Giao việc trên GitHub → Copilot tự làm trên cloud → mở PR:</p>
             <ol>
-                <li>Mở issue trên GitHub</li>
-                <li>Click "Open in Copilot Workspace"</li>
-                <li>Copilot phân tích codebase và tạo plan</li>
-                <li>Review và chỉnh sửa plan</li>
-                <li>Copilot implement changes</li>
-                <li>Review code và tạo PR</li>
+                <li>Mở issue trên GitHub (mô tả rõ yêu cầu, acceptance criteria)</li>
+                <li>Assign issue cho <strong>Copilot</strong> (hoặc giao task từ VS Code / Agents panel)</li>
+                <li>Copilot chạy trong môi trường GitHub Actions, đọc code, chạy test</li>
+                <li>Copilot mở draft PR và cập nhật tiến độ</li>
+                <li>Bạn review, comment @copilot để yêu cầu sửa</li>
+                <li>Approve & merge khi đạt</li>
             </ol>
             <div class="tip-box">
-                💡 Copilot Workspace đặc biệt hữu ích cho bug fixes và feature requests đã có spec rõ ràng.
+                💡 Coding agent đặc biệt hữu ích cho bug fixes, thêm test, và feature requests đã có spec rõ ràng. Gói Pro+ trở lên còn giao được task cho agent Claude / Codex ngay trong GitHub.
             </div>
         `
     },
@@ -278,42 +277,45 @@ const developerToolsData = {
         connections: ['copilot', 'ai-code-review', 'ai-tools-overview'],
         simple: `
             <h3>💻 Cursor - AI-First IDE</h3>
-            <p><strong>Cursor</strong> là VS Code fork tích hợp AI sâu - IDE thông minh nhất hiện tại.</p>
+            <p><strong>Cursor</strong> là VS Code fork tích hợp AI sâu, một trong những AI IDE phổ biến nhất. Các lựa chọn khác: <strong>Windsurf</strong>, <strong>Google Antigravity</strong>, <strong>Zed</strong>, hoặc VS Code + Copilot.</p>
             <h4>Điểm nổi bật</h4>
             <ul>
                 <li>💬 Chat với codebase</li>
                 <li>✏️ Edit code bằng ngôn ngữ tự nhiên</li>
                 <li>📁 Hiểu toàn bộ project</li>
                 <li>🔄 Multi-file editing</li>
+                <li>🤖 Agent + Background Agents chạy song song trên cloud</li>
             </ul>
         `,
         detail: `
             <h3>📊 Cursor Features</h3>
             <h4>Cmd+K: Inline Editing</h4>
             <p>Chọn code → Cmd+K → Mô tả thay đổi → AI edit trực tiếp.</p>
-            <h4>Cmd+L: Chat</h4>
-            <p>Chat với AI về code, có context toàn bộ project.</p>
+            <h4>Cmd+L / Cmd+I: Agent</h4>
+            <p>Chat với Agent - đọc toàn bộ project, sửa nhiều file, chạy lệnh terminal.</p>
             <h4>So sánh với Copilot</h4>
             <table>
                 <tr><th>Feature</th><th>Cursor</th><th>Copilot</th></tr>
                 <tr><td>Code completion</td><td>✅</td><td>✅</td></tr>
-                <tr><td>Chat</td><td>✅ Mạnh hơn</td><td>✅</td></tr>
-                <tr><td>Multi-file edit</td><td>✅</td><td>⚠️ Limited</td></tr>
-                <tr><td>Codebase context</td><td>✅ Full</td><td>⚠️ Partial</td></tr>
-                <tr><td>Giá</td><td>$20/th</td><td>$10/th</td></tr>
+                <tr><td>Chat</td><td>✅</td><td>✅</td></tr>
+                <tr><td>Agent multi-file</td><td>✅</td><td>✅</td></tr>
+                <tr><td>Cloud agent</td><td>✅ Background Agents</td><td>✅ Coding Agent (từ issue)</td></tr>
+                <tr><td>Model riêng</td><td>✅ Composer (nhanh)</td><td>❌ Dùng model đối tác</td></tr>
+                <tr><td>Giá cá nhân</td><td>Free / $20 / $60 / $200 th</td><td>Free / $10 / $39 / $100 th</td></tr>
             </table>
+            <p>Cả hai đều tính theo usage: gói càng cao càng nhiều credit gọi model. Dùng model đắt (Opus, Astra) sẽ hết credit nhanh hơn.</p>
         `,
         advanced: `
             <h3>🎓 Cursor Power User</h3>
-            <h4>.cursorrules File</h4>
-            <p>Tạo file .cursorrules ở root project để customize AI behavior:</p>
+            <h4>Project Rules (.cursor/rules/)</h4>
+            <p>File <code>.cursorrules</code> cũ đã được thay bằng thư mục <code>.cursor/rules/</code> (mỗi rule 1 file, áp dụng theo glob) và Cursor cũng đọc <code>AGENTS.md</code>:</p>
             <div class="example-box">
                 "Always use TypeScript strict mode"<br>
                 "Follow React best practices"<br>
                 "Write tests for every function"
             </div>
-            <h4>Composer Mode</h4>
-            <p>Mô tả feature → Cursor tạo/edit nhiều files cùng lúc để implement.</p>
+            <h4>Agent & Background Agents</h4>
+            <p>Mô tả feature → Agent tạo/edit nhiều files, chạy test. Background Agents chạy song song trên cloud và mở PR khi xong.</p>
             <h4>Tips</h4>
             <ul>
                 <li>Tag files với @file để AI focus vào đó</li>
@@ -333,10 +335,10 @@ const developerToolsData = {
             <p>Dùng AI để <strong>review code tự động</strong> - phát hiện bugs, security issues, code smell.</p>
             <h4>Công cụ</h4>
             <ul>
-                <li>🤖 <strong>GitHub Copilot:</strong> /review command</li>
-                <li>🔍 <strong>CodeRabbit:</strong> Auto-review PRs</li>
+                <li>🤖 <strong>GitHub Copilot Code Review:</strong> Request review từ Copilot trên PR</li>
+                <li>🧠 <strong>Claude Code / Codex:</strong> /review, /security-review, GitHub Action review PR</li>
+                <li>🔍 <strong>CodeRabbit, Cursor Bugbot:</strong> Auto-review PRs</li>
                 <li>🛡️ <strong>Snyk:</strong> Security scanning</li>
-                <li>💬 <strong>ChatGPT:</strong> Paste code để review</li>
             </ul>
         `,
         detail: `
@@ -398,19 +400,20 @@ const developerToolsData = {
             <h3>📊 Setup Local LLM</h3>
             <h4>Ollama (Khuyên dùng)</h4>
             <div class="formula-box">
-                curl -fsSL https://ollama.ai/install.sh | sh<br>
-                ollama run llama3
+                curl -fsSL https://ollama.com/install.sh | sh<br>
+                ollama run qwen3
             </div>
             <h4>Models phổ biến</h4>
             <table>
                 <tr><th>Model</th><th>RAM</th><th>Dùng cho</th></tr>
-                <tr><td>llama3:8b</td><td>8GB</td><td>General, đa năng</td></tr>
-                <tr><td>codellama</td><td>8GB</td><td>Code generation</td></tr>
-                <tr><td>mistral</td><td>8GB</td><td>Nhanh, hiệu quả</td></tr>
-                <tr><td>phi3</td><td>4GB</td><td>Siêu nhẹ</td></tr>
+                <tr><td>qwen3:8b</td><td>8GB</td><td>General, đa năng, tiếng Việt</td></tr>
+                <tr><td>qwen3-coder</td><td>16GB+</td><td>Code generation, agent</td></tr>
+                <tr><td>gemma3:12b</td><td>12GB</td><td>Đọc ảnh + text</td></tr>
+                <tr><td>gpt-oss:20b</td><td>16GB</td><td>Reasoning</td></tr>
+                <tr><td>gemma3:4b</td><td>4GB</td><td>Siêu nhẹ</td></tr>
             </table>
             <h4>Ollama + IDE</h4>
-            <p>Kết nối Ollama với VS Code hoặc Cursor thay thế Copilot miễn phí.</p>
+            <p>Kết nối Ollama với VS Code (Copilot "Bring your own model", Continue, Cline) để có AI coding miễn phí, riêng tư.</p>
         `,
         advanced: `
             <h3>🎓 Local LLM nâng cao</h3>
@@ -456,7 +459,7 @@ const developerToolsData = {
             <h4>Quy trình</h4>
             <ol>
                 <li><strong>Chuẩn bị data:</strong> Ít nhất 100-1000 examples</li>
-                <li><strong>Format data:</strong> {"prompt": "...", "completion": "..."}</li>
+                <li><strong>Format data:</strong> Dạng chat messages (system/user/assistant) dạng JSONL</li>
                 <li><strong>Upload & Train:</strong> Qua API hoặc platform</li>
                 <li><strong>Evaluate:</strong> Test trên data mới</li>
                 <li><strong>Iterate:</strong> Cải thiện data và re-train</li>
@@ -464,9 +467,10 @@ const developerToolsData = {
             <h4>Platforms</h4>
             <table>
                 <tr><th>Platform</th><th>Models</th><th>Giá</th></tr>
-                <tr><td>OpenAI</td><td>GPT-3.5, GPT-4</td><td>Từ $8/1M tokens</td></tr>
-                <tr><td>HuggingFace</td><td>Open source</td><td>Free (tự host)</td></tr>
-                <tr><td>Google Vertex</td><td>Gemini, PaLM</td><td>Pay-per-use</td></tr>
+                <tr><td>OpenAI</td><td>Model GPT nhỏ (SFT, RFT)</td><td>Pay-per-use</td></tr>
+                <tr><td>Google Vertex AI</td><td>Gemini Flash</td><td>Pay-per-use</td></tr>
+                <tr><td>Amazon Bedrock</td><td>Claude Haiku, Llama...</td><td>Pay-per-use</td></tr>
+                <tr><td>HuggingFace / Unsloth</td><td>Open-weight (Qwen, Gemma, Llama)</td><td>Free (tự host) / GPU thuê</td></tr>
             </table>
         `,
         advanced: `
@@ -482,8 +486,10 @@ const developerToolsData = {
             <p>LoRA + Quantization = Fine-tune model 70B trên 1 GPU 24GB.</p>
             <h4>RLHF (Reinforcement Learning from Human Feedback)</h4>
             <p>Train model dựa trên feedback con người - cách ChatGPT được train.</p>
+            <h4>RFT (Reinforcement Fine-Tuning)</h4>
+            <p>Xu hướng 2025-2026: thay vì dạy "đáp án mẫu", bạn cung cấp <strong>grader</strong> chấm điểm và model tự học cách suy luận đạt điểm cao - hiệu quả cho reasoning model trong domain chuyên sâu.</p>
             <div class="tip-box">
-                💡 Bắt đầu với LoRA trên model nhỏ (7B), scale up khi đã hiểu quy trình.
+                💡 Năm 2026, hãy thử theo thứ tự: prompt tốt → RAG / context tốt → fine-tune. Nếu cần fine-tune, bắt đầu với LoRA trên model nhỏ (4B-8B), scale up khi đã hiểu quy trình.
             </div>
         `
     },
@@ -517,10 +523,12 @@ const developerToolsData = {
             <h4>Agent Frameworks</h4>
             <table>
                 <tr><th>Framework</th><th>Ngôn ngữ</th><th>Ưu điểm</th></tr>
-                <tr><td>LangChain</td><td>Python, JS</td><td>Phổ biến nhất</td></tr>
-                <tr><td>CrewAI</td><td>Python</td><td>Multi-agent</td></tr>
-                <tr><td>AutoGen</td><td>Python</td><td>Microsoft, mạnh</td></tr>
-                <tr><td>Semantic Kernel</td><td>C#, Python</td><td>Enterprise</td></tr>
+                <tr><td>Claude Agent SDK</td><td>Python, TS</td><td>Cùng "harness" với Claude Code</td></tr>
+                <tr><td>OpenAI Agents SDK</td><td>Python, TS</td><td>Handoffs, guardrails, tracing</td></tr>
+                <tr><td>Google ADK</td><td>Python, Java</td><td>Tích hợp Gemini, A2A</td></tr>
+                <tr><td>LangGraph</td><td>Python, JS</td><td>Workflow dạng graph, linh hoạt</td></tr>
+                <tr><td>CrewAI</td><td>Python</td><td>Multi-agent theo vai trò</td></tr>
+                <tr><td>Microsoft Agent Framework</td><td>C#, Python</td><td>Kế thừa AutoGen + Semantic Kernel</td></tr>
             </table>
         `,
         advanced: `
@@ -544,7 +552,10 @@ const developerToolsData = {
                 <li>Cost tăng nhanh với nhiều API calls</li>
                 <li>Debugging phức tạp</li>
                 <li>Safety: Agent có quyền thực hiện actions</li>
+                <li>Prompt injection: nội dung web/email độc hại có thể "ra lệnh" cho agent</li>
             </ul>
+            <h4>Computer Use & Browser Agents</h4>
+            <p>Agent 2026 có thể tự điều khiển trình duyệt và máy tính (ChatGPT Agent, Claude in Chrome, Gemini agent): điền form, đặt lịch, thao tác web app. Luôn giám sát khi agent thao tác với tài khoản thật hoặc thanh toán.</p>
         `
     },
     'coding-agents': {
@@ -558,22 +569,25 @@ const developerToolsData = {
             <p><strong>Coding Agent</strong> là AI agent chuyên biệt cho lập trình - có thể đọc code, viết code, chạy tests, và sửa bugs tự động.</p>
             <h4>Coding Agents phổ biến</h4>
             <ul>
-                <li>🧑‍💻 <strong>GitHub Copilot Agent:</strong> Tích hợp trong VS Code</li>
-                <li>💻 <strong>Cursor Agent:</strong> Multi-file editing</li>
-                <li>🔧 <strong>Cline / Aider:</strong> Terminal-based agents</li>
-                <li>🤖 <strong>Devin:</strong> Full autonomous dev agent</li>
-                <li>⚡ <strong>Bolt / v0:</strong> Web app generators</li>
+                <li>🧠 <strong>Claude Code:</strong> Agent của Anthropic - terminal, IDE, web, desktop</li>
+                <li>🌀 <strong>OpenAI Codex:</strong> Agent của OpenAI - CLI, IDE, cloud</li>
+                <li>🧑‍💻 <strong>GitHub Copilot Agent / Coding Agent:</strong> VS Code + tự mở PR từ issue</li>
+                <li>💻 <strong>Cursor Agent:</strong> Agent trong IDE + Background Agents</li>
+                <li>🔧 <strong>Cline / Aider / OpenCode:</strong> Open source, tự chọn model</li>
+                <li>🤖 <strong>Devin:</strong> Autonomous dev agent chạy trên cloud</li>
+                <li>⚡ <strong>Lovable / Bolt / v0:</strong> Tạo web app từ mô tả (vibe coding)</li>
             </ul>
         `,
         detail: `
             <h3>📊 So sánh Coding Agents</h3>
             <table>
-                <tr><th>Agent</th><th>Tự động</th><th>Multi-file</th><th>Run tests</th><th>Giá</th></tr>
-                <tr><td>Copilot Agent</td><td>⚠️ Semi</td><td>✅</td><td>✅</td><td>$10-19/th</td></tr>
-                <tr><td>Cursor Composer</td><td>⚠️ Semi</td><td>✅</td><td>⚠️</td><td>$20/th</td></tr>
-                <tr><td>Cline</td><td>✅ Full</td><td>✅</td><td>✅</td><td>API cost</td></tr>
-                <tr><td>Aider</td><td>✅ Full</td><td>✅</td><td>✅</td><td>API cost</td></tr>
-                <tr><td>Devin</td><td>✅ Full</td><td>✅</td><td>✅</td><td>$500/th</td></tr>
+                <tr><th>Agent</th><th>Chạy ở đâu</th><th>Cloud / chạy nền</th><th>Run tests</th><th>Giá khởi điểm</th></tr>
+                <tr><td>Claude Code</td><td>Terminal, IDE, web, desktop</td><td>✅</td><td>✅</td><td>Claude Pro $20/th hoặc API</td></tr>
+                <tr><td>OpenAI Codex</td><td>CLI, IDE, ChatGPT</td><td>✅</td><td>✅</td><td>ChatGPT Plus $20/th hoặc API</td></tr>
+                <tr><td>Copilot Agent</td><td>VS Code, CLI, GitHub</td><td>✅ Coding Agent</td><td>✅</td><td>Free / $10/th</td></tr>
+                <tr><td>Cursor Agent</td><td>Cursor IDE</td><td>✅ Background</td><td>✅</td><td>Free / $20/th</td></tr>
+                <tr><td>Cline / Aider</td><td>VS Code / Terminal</td><td>❌</td><td>✅</td><td>Free + API cost</td></tr>
+                <tr><td>Devin</td><td>Cloud</td><td>✅</td><td>✅</td><td>Pay-as-you-go</td></tr>
             </table>
             <h4>Workflow với Coding Agent</h4>
             <ol>
@@ -590,7 +604,9 @@ const developerToolsData = {
             <h4>Tối ưu Coding Agent</h4>
             <ul>
                 <li><strong>Context files:</strong> Cung cấp đúng files liên quan</li>
-                <li><strong>Rules/Instructions:</strong> .cursorrules, copilot-instructions.md</li>
+                <li><strong>Rules/Instructions:</strong> AGENTS.md, CLAUDE.md, .cursor/rules/, copilot-instructions.md</li>
+                <li><strong>Skills:</strong> Đóng gói quy trình lặp lại (deploy, review, viết test) thành skill để agent tự dùng khi cần</li>
+                <li><strong>Plan trước, code sau:</strong> Dùng plan mode để duyệt kế hoạch trước khi agent sửa code</li>
                 <li><strong>Examples:</strong> Chỉ cho agent code patterns hiện tại</li>
                 <li><strong>Constraints:</strong> "Không thay đổi file X", "Giữ backward compatible"</li>
             </ul>
@@ -606,7 +622,7 @@ const developerToolsData = {
             <table>
                 <tr><th>✅ Phù hợp</th><th>❌ Không phù hợp</th></tr>
                 <tr><td>Bug fixes rõ ràng</td><td>Architecture decisions</td></tr>
-                <tr><td>Feature đã có spec</td><td>Exploratory coding</td></tr>
+                <tr><td>Feature đã có spec</td><td>Yêu cầu mơ hồ, chưa rõ mục tiêu</td></tr>
                 <tr><td>Refactoring</td><td>Performance optimization phức tạp</td></tr>
                 <tr><td>Test writing</td><td>Security-critical code</td></tr>
             </table>

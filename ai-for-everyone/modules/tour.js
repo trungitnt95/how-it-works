@@ -3,6 +3,7 @@ const tourSteps = {
     beginner: [
         { title: 'Chào mừng!', description: 'Khám phá thế giới AI - từ cơ bản đến thực hành!', target: null },
         { title: 'AI Là Gì?', description: 'Bắt đầu với khái niệm cơ bản: AI là trí tuệ nhân tạo.', target: '[data-component="what-is-ai"]' },
+        { title: 'Dòng Thời Gian AI', description: 'AI đã thay đổi thế nào từ 2022 đến 2026.', target: '[data-component="ai-timeline"]' },
         { title: 'Tokens', description: 'Hiểu đơn vị cơ bản nhất mà AI xử lý.', target: '[data-component="tokens-deep"]' },
         { title: 'Messages', description: 'Cách AI giao tiếp qua các loại messages.', target: '[data-component="messages-deep"]' },
         { title: 'Prompting Cơ Bản', description: 'Học cách "nói chuyện" với AI hiệu quả.', target: '[data-component="basic-prompting"]' },
@@ -40,7 +41,8 @@ const quickTips = [
     { icon: '🆓', text: 'Hầu hết AI đều có bản miễn phí' },
     { icon: '🔄', text: 'Thử nhiều AI khác nhau cho cùng 1 việc' },
     { icon: '📝', text: 'Lưu lại những prompt hay để dùng lại' },
-    { icon: '🤖', text: 'AI là trợ lý, không phải chuyên gia tuyệt đối' }
+    { icon: '🤖', text: 'AI là trợ lý, không phải chuyên gia tuyệt đối' },
+    { icon: '🗓️', text: 'Tên model đổi liên tục - hãy học nguyên lý' }
 ];
 
 const aiChecklist = [
@@ -56,7 +58,7 @@ const aiChecklist = [
     'Setup workspace/project cho AI',
     'Tạo 1 AI workflow tự động',
     'Thử ít nhất 1 AI coding tool',
-    'Tìm hiểu về coding agents',
+    'Thử 1 coding agent (Claude Code, Codex hoặc Copilot Agent)',
     'Rèn luyện tư duy phản biện khi dùng AI',
     'Hiểu AI Ethics và dùng AI có trách nhiệm'
 ];
