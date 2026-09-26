@@ -16,6 +16,8 @@ const tourSteps = {
         { title: 'Chain of Thought', description: 'Yêu cầu AI suy nghĩ từng bước.', target: '[data-component="chain-of-thought"]' },
         { title: 'Context Window', description: 'Hiểu giới hạn bộ nhớ của AI.', target: '[data-component="context-window"]' },
         { title: 'MCP Protocol', description: 'Giao thức kết nối AI với tools bên ngoài.', target: '[data-component="mcp-protocol"]' },
+        { title: 'Function Calling', description: 'Cách AI thật sự "gọi hàm" và dùng công cụ.', target: '[data-component="function-calling"]' },
+        { title: 'RAG', description: 'Cho AI tra cứu tài liệu thật trước khi trả lời.', target: '[data-component="rag-deep"]' },
         { title: 'Workspaces', description: 'Tổ chức AI workspace cho dự án.', target: '[data-component="workspaces"]' },
         { title: 'AI Plans', description: 'Cách AI lập kế hoạch và reasoning.', target: '[data-component="ai-plans"]' },
         { title: 'AI Workflow', description: 'Tự động hóa công việc với AI.', target: '[data-component="ai-workflow"]' },
@@ -31,6 +33,7 @@ const tourSteps = {
         { title: 'Coding Agents', description: 'AI agents chuyên biệt cho lập trình.', target: '[data-component="coding-agents"]' },
         { title: 'Fine-tuning', description: 'Huấn luyện AI theo nhu cầu riêng.', target: '[data-component="fine-tuning"]' },
         { title: 'Kỹ Năng Tương Lai', description: 'Kỹ năng con người cần trong thời AI.', target: '[data-component="future-skills"]' },
+        { title: 'AI Safety', description: 'Jailbreak, prompt injection, và cách phòng vệ.', target: '[data-component="ai-safety-guardrails"]' },
         { title: 'Master!', description: 'Bạn đã sẵn sàng tận dụng AI tối đa!', target: null }
     ]
 };
@@ -55,6 +58,8 @@ const aiChecklist = [
     'Tận dụng free tier của ít nhất 3 dịch vụ',
     'Thử Chain of Thought prompting',
     'Hiểu MCP và cách AI kết nối với tools',
+    'Hiểu Embeddings, RAG và Function Calling',
+    'Biết cách phòng tránh jailbreak & prompt injection',
     'Setup workspace/project cho AI',
     'Tạo 1 AI workflow tự động',
     'Thử ít nhất 1 AI coding tool',

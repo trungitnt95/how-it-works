@@ -154,12 +154,73 @@ const techniquesData = {
             </ul>
         `
     },
+    'evals-benchmarks': {
+        icon: '📐',
+        title: 'Evals & Benchmarks',
+        category: 'techniques',
+        level: 'intermediate',
+        connections: ['ai-hallucination', 'fact-checking', 'token-optimization'],
+        simple: `
+            <h3>📐 Làm sao biết AI/prompt nào tốt hơn?</h3>
+            <p><strong>Eval</strong> là cách đo chất lượng AI một cách có hệ thống, thay vì chỉ "thử vài câu thấy ổn".</p>
+            <div class="example-box">
+                Sai lầm phổ biến: Đổi prompt, thử 1 câu, thấy hay hơn → kết luận "prompt mới tốt hơn".<br>
+                Đúng cách: Chạy cả 2 prompt trên 20-50 câu hỏi mẫu, so sánh tỷ lệ đúng.
+            </div>
+            <h4>Khi nào cần eval?</h4>
+            <ul>
+                <li>🔀 So sánh 2 model xem cái nào hợp với việc của bạn</li>
+                <li>✏️ So sánh 2 phiên bản prompt</li>
+                <li>🚀 Trước khi đưa AI feature vào sản phẩm thật</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Các loại Benchmark công khai</h3>
+            <table>
+                <tr><th>Benchmark</th><th>Đo gì</th></tr>
+                <tr><td>MMLU / GPQA</td><td>Kiến thức tổng quát, chuyên môn</td></tr>
+                <tr><td>SWE-bench</td><td>Khả năng sửa lỗi code thật trên GitHub</td></tr>
+                <tr><td>LMArena (Chatbot Arena)</td><td>Người dùng thật bình chọn model nào trả lời hay hơn</td></tr>
+                <tr><td>ARC-AGI</td><td>Suy luận trừu tượng, khó "học vẹt"</td></tr>
+                <tr><td>HumanEval</td><td>Viết code đúng theo đề bài</td></tr>
+            </table>
+            <div class="warning-box">
+                ⚠️ Benchmark công khai dễ bị "học tủ" (model được train biết trước đề). Điểm benchmark cao không đảm bảo model tốt cho <strong>việc cụ thể của bạn</strong>.
+            </div>
+            <h4>Tự làm eval đơn giản</h4>
+            <ol>
+                <li>Chuẩn bị 20-50 câu hỏi/tình huống thật trong công việc bạn</li>
+                <li>Ghi lại câu trả lời "đúng" mong muốn</li>
+                <li>Chạy qua model/prompt cần test, so sánh</li>
+                <li>Tính tỷ lệ đúng (%) hoặc điểm chất lượng</li>
+            </ol>
+        `,
+        advanced: `
+            <h3>🎓 Eval trong sản phẩm thật</h3>
+            <h4>LLM-as-Judge</h4>
+            <p>Dùng một AI mạnh (thường là model khác) để <strong>chấm điểm</strong> câu trả lời của AI đang test theo tiêu chí bạn đặt ra - tự động hóa việc chấm hàng trăm câu.</p>
+            <div class="example-box">
+                Prompt cho judge: "So sánh 2 câu trả lời sau cho câu hỏi X. Câu nào chính xác và hữu ích hơn? Trả lời A hoặc B và giải thích ngắn."
+            </div>
+            <h4>Bộ 3 chỉ số cần theo dõi khi lên production</h4>
+            <ul>
+                <li><strong>Quality:</strong> Độ chính xác/hữu ích (qua eval set hoặc feedback người dùng)</li>
+                <li><strong>Cost:</strong> Chi phí token trung bình mỗi request</li>
+                <li><strong>Latency:</strong> Thời gian phản hồi (đặc biệt quan trọng với reasoning model)</li>
+            </ul>
+            <h4>Công cụ eval framework</h4>
+            <p>Braintrust, LangSmith, Promptfoo, Ragas (chuyên cho RAG) - giúp lưu lại test case, so sánh phiên bản, và chạy tự động trong CI/CD mỗi khi đổi prompt hay model.</p>
+            <div class="tip-box">
+                💡 Nguyên tắc: đừng đổi prompt/model trong production mà không có eval set để kiểm tra hồi quy (regression) - "cải thiện" một câu có thể làm hỏng 10 câu khác.
+            </div>
+        `
+    },
     'ai-hallucination': {
         icon: '👁️',
         title: 'Xử Lý Hallucination',
         category: 'techniques',
         level: 'intermediate',
-        connections: ['ai-limitations', 'fact-checking', 'temperature'],
+        connections: ['ai-limitations', 'fact-checking', 'temperature', 'evals-benchmarks'],
         simple: `
             <h3>👁️ Hallucination là gì?</h3>
             <p><strong>Hallucination</strong> là khi AI <em>bịa ra thông tin</em> nghe rất thật nhưng hoàn toàn sai.</p>

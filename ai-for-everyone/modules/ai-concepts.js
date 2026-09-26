@@ -5,7 +5,7 @@ const aiConceptsData = {
         title: 'Tokens Là Gì',
         category: 'ai-concepts',
         level: 'beginner',
-        connections: ['context-window', 'token-optimization', 'messages-deep'],
+        connections: ['context-window', 'token-optimization', 'messages-deep', 'embeddings-vectors'],
         simple: `
             <h3>🪙 Token là gì?</h3>
             <p><strong>Token</strong> là đơn vị nhỏ nhất mà AI xử lý. Mọi thứ bạn gửi và nhận từ AI đều được chia thành tokens.</p>
@@ -88,7 +88,7 @@ const aiConceptsData = {
         title: 'Messages & Conversations',
         category: 'ai-concepts',
         level: 'beginner',
-        connections: ['tokens-deep', 'context-window', 'system-prompts'],
+        connections: ['tokens-deep', 'context-window', 'system-prompts', 'function-calling'],
         simple: `
             <h3>💬 Messages trong AI</h3>
             <p>Khi chat với AI, mỗi tin nhắn có một <strong>vai trò (role)</strong> khác nhau. Hiểu cách messages hoạt động giúp bạn dùng AI hiệu quả hơn.</p>
@@ -157,12 +157,193 @@ const aiConceptsData = {
             </div>
         `
     },
+    'embeddings-vectors': {
+        icon: '🧭',
+        title: 'Embeddings & Vector Search',
+        category: 'ai-concepts',
+        level: 'intermediate',
+        connections: ['tokens-deep', 'rag-deep', 'context-window'],
+        simple: `
+            <h3>🧭 Embedding là gì?</h3>
+            <p><strong>Embedding</strong> là cách AI biến chữ (hoặc ảnh) thành một dãy số (vector). Câu có nghĩa <em>giống nhau</em> sẽ có vector <em>gần nhau</em> trong không gian toán học.</p>
+            <div class="example-box">
+                "con mèo" và "con chó" → vector gần nhau (đều là thú cưng)<br>
+                "con mèo" và "chiếc xe" → vector xa nhau (khác chủ đề)
+            </div>
+            <h4>Dùng để làm gì?</h4>
+            <ul>
+                <li>🔍 Tìm kiếm theo <strong>ý nghĩa</strong>, không chỉ theo từ khóa trùng khớp</li>
+                <li>📚 Tìm đoạn tài liệu liên quan nhất cho RAG</li>
+                <li>🧩 Gom nhóm nội dung tương tự (clustering)</li>
+                <li>💡 Gợi ý sản phẩm/bài viết "giống" thứ bạn đang xem</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Vector Search hoạt động thế nào?</h3>
+            <h4>Quy trình</h4>
+            <ol>
+                <li><strong>Embed:</strong> Chuyển mỗi đoạn text thành 1 vector (vài trăm - vài nghìn chiều)</li>
+                <li><strong>Lưu trữ:</strong> Lưu vector vào vector database</li>
+                <li><strong>Truy vấn:</strong> Embed câu hỏi của bạn thành vector</li>
+                <li><strong>So khớp:</strong> Tìm các vector "gần" nhất (cosine similarity)</li>
+            </ol>
+            <h4>Vector Database phổ biến</h4>
+            <table>
+                <tr><th>Tên</th><th>Loại</th><th>Ghi chú</th></tr>
+                <tr><td>Pinecone</td><td>Managed cloud</td><td>Dễ setup, có free tier</td></tr>
+                <tr><td>Chroma</td><td>Open source, local</td><td>Phù hợp prototype</td></tr>
+                <tr><td>Qdrant / Weaviate</td><td>Open source, self-host được</td><td>Mạnh cho production</td></tr>
+                <tr><td>pgvector</td><td>Extension cho PostgreSQL</td><td>Tận dụng DB đã có sẵn</td></tr>
+            </table>
+            <h4>Embedding models phổ biến</h4>
+            <p>OpenAI <code>text-embedding-3</code>, Google <code>gemini-embedding</code>, các model open-weight như <code>BGE</code>, <code>Qwen3-Embedding</code>. Model embedding tách biệt hoàn toàn với model chat (GPT, Claude, Gemini) - bạn có thể dùng embedding của hãng này với chatbot của hãng khác.</p>
+        `,
+        advanced: `
+            <h3>🎓 Kỹ thuật nâng cao</h3>
+            <h4>Cosine Similarity</h4>
+            <div class="formula-box">
+                similarity = (A · B) / (|A| × |B|) → giá trị từ -1 đến 1, càng gần 1 càng giống nhau
+            </div>
+            <h4>Hybrid Search</h4>
+            <p>Kết hợp <strong>vector search</strong> (hiểu ý nghĩa) với <strong>keyword search / BM25</strong> (khớp từ chính xác) - thường cho kết quả tốt hơn dùng riêng lẻ.</p>
+            <h4>Re-ranking</h4>
+            <p>Vector search trả về top-K kết quả gần đúng → dùng một model re-ranker (nhỏ, chuyên biệt) chấm điểm lại để chọn ra top thật sự liên quan trước khi đưa vào context.</p>
+            <h4>Chunking Strategy</h4>
+            <ul>
+                <li>Chia tài liệu quá nhỏ → mất ngữ cảnh</li>
+                <li>Chia quá lớn → embedding kém chính xác, tốn token</li>
+                <li>Kích thước hợp lý: 200-500 tokens/chunk, có overlap 10-20%</li>
+            </ul>
+            <div class="tip-box">
+                💡 Chất lượng RAG phụ thuộc vào chunking và retrieval nhiều hơn là chọn LLM nào - đây là phần hay bị bỏ qua nhất.
+            </div>
+        `
+    },
+    'function-calling': {
+        icon: '🛠️',
+        title: 'Function Calling & Tool Use',
+        category: 'ai-concepts',
+        level: 'intermediate',
+        connections: ['messages-deep', 'mcp-protocol', 'ai-agents'],
+        simple: `
+            <h3>🛠️ AI "gọi hàm" là gì?</h3>
+            <p><strong>Function Calling (Tool Use)</strong> là cách bạn cho AI biết những "công cụ" nó có thể dùng - và AI tự quyết định khi nào cần gọi công cụ nào.</p>
+            <div class="example-box">
+                Bạn: "Giá Bitcoin hôm nay bao nhiêu?"<br>
+                AI: <em>không tự bịa số</em> → gọi tool <code>get_crypto_price("BTC")</code><br>
+                Tool trả về: 65,000 USD<br>
+                AI: "Bitcoin hiện khoảng 65,000 USD."
+            </div>
+            <h4>Đây chính là nền tảng của mọi Agent</h4>
+            <p>MCP, coding agent, Deep Research... tất cả đều dựng trên cơ chế function calling này.</p>
+        `,
+        detail: `
+            <h3>📊 Cách hoạt động (API)</h3>
+            <h4>4 bước</h4>
+            <ol>
+                <li><strong>Định nghĩa tool:</strong> Bạn mô tả function bằng JSON Schema (tên, tham số, kiểu dữ liệu)</li>
+                <li><strong>Model quyết định:</strong> AI đọc câu hỏi, chọn có cần gọi tool không và gọi tool nào</li>
+                <li><strong>Bạn thực thi:</strong> Code của bạn thực sự chạy function đó (gọi API, query DB...)</li>
+                <li><strong>Trả kết quả lại:</strong> Gửi kết quả về cho AI để nó viết câu trả lời cuối cùng</li>
+            </ol>
+            <div class="formula-box">
+                tools: [{ name: "get_weather", parameters: { city: "string" } }]
+            </div>
+            <h4>Client-side vs Server-side tools</h4>
+            <table>
+                <tr><th>Loại</th><th>Ai chạy?</th><th>Ví dụ</th></tr>
+                <tr><td>Client-side</td><td>Code của bạn</td><td>Query database riêng, gọi API nội bộ</td></tr>
+                <tr><td>Server-side</td><td>Nhà cung cấp AI chạy sẵn</td><td>Web search, code execution, computer use</td></tr>
+            </table>
+            <h4>Structured Output</h4>
+            <p>Một ứng dụng khác của cơ chế này: ép AI trả lời đúng theo <strong>JSON Schema</strong> bạn định nghĩa, thay vì văn xuôi tự do - rất hữu ích khi bạn cần AI trả dữ liệu để code xử lý tiếp.</p>
+        `,
+        advanced: `
+            <h3>🎓 Thiết kế Tool tốt</h3>
+            <h4>Nguyên tắc viết tool description</h4>
+            <ul>
+                <li>Mô tả rõ <strong>khi nào dùng</strong>, không chỉ "làm gì"</li>
+                <li>Đặt tên tham số dễ hiểu, có ví dụ trong description</li>
+                <li>Càng ít tool trong 1 request càng chính xác (đừng nhét 50 tools cùng lúc)</li>
+                <li>Trả kết quả tool ở dạng ngắn gọn, có cấu trúc (JSON), tránh text dài dòng</li>
+            </ul>
+            <h4>Parallel vs Sequential Tool Calls</h4>
+            <p>Model hiện đại có thể gọi <strong>nhiều tools cùng lúc</strong> trong 1 lượt (ví dụ: vừa tra thời tiết Hà Nội vừa tra thời tiết Đà Lạt), thay vì phải hỏi từng cái một.</p>
+            <h4>Rủi ro cần biết</h4>
+            <div class="warning-box">
+                ⚠️ <strong>Tool cần xác nhận trước khi chạy</strong> nếu có tác dụng phụ thật (gửi email, xóa file, thanh toán). Đừng để agent tự động thực thi hành động không thể hoàn tác mà không có bước duyệt.
+            </div>
+            <h4>Chi phí ẩn</h4>
+            <p>Chỉ cần khai báo tools (kể cả không gọi) đã tốn thêm token cho system prompt mô tả tool. Nhiều tools + tool result dài → context đầy nhanh hơn bạn nghĩ.</p>
+        `
+    },
+    'rag-deep': {
+        icon: '📚',
+        title: 'RAG (Retrieval-Augmented Generation)',
+        category: 'ai-concepts',
+        level: 'intermediate',
+        connections: ['embeddings-vectors', 'ai-hallucination', 'context-window'],
+        simple: `
+            <h3>📚 RAG là gì?</h3>
+            <p><strong>RAG</strong> = cho AI "mở sách tra cứu" trước khi trả lời, thay vì chỉ dựa vào những gì nó học thuộc lúc training.</p>
+            <div class="example-box">
+                Không RAG: "Chính sách nghỉ phép công ty là gì?" → AI đoán mò, có thể sai<br>
+                Có RAG: AI tìm trong tài liệu HR thật của công ty → trả lời chính xác, trích được nguồn
+            </div>
+            <h4>Tại sao cần RAG?</h4>
+            <ul>
+                <li>📄 AI trả lời dựa trên tài liệu <strong>riêng của bạn</strong> (công ty, dự án)</li>
+                <li>🕒 Không bị giới hạn bởi knowledge cutoff của model</li>
+                <li>✅ Giảm hallucination - có thể trích dẫn nguồn cụ thể</li>
+                <li>💰 Rẻ hơn fine-tuning rất nhiều</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Kiến trúc RAG cơ bản</h3>
+            <div class="formula-box">
+                Câu hỏi → Embed → Tìm chunks liên quan (vector search) → Ghép vào prompt → LLM trả lời
+            </div>
+            <h4>Quy trình xây dựng</h4>
+            <ol>
+                <li><strong>Ingest:</strong> Thu thập tài liệu (PDF, docs, web, database)</li>
+                <li><strong>Chunk:</strong> Chia nhỏ thành đoạn vài trăm token</li>
+                <li><strong>Embed & Index:</strong> Chuyển thành vector, lưu vào vector DB</li>
+                <li><strong>Retrieve:</strong> Khi có câu hỏi, tìm top-K chunk liên quan nhất</li>
+                <li><strong>Generate:</strong> Đưa chunks + câu hỏi vào prompt, LLM trả lời</li>
+            </ol>
+            <h4>RAG có sẵn (không cần tự xây)</h4>
+            <table>
+                <tr><th>Công cụ</th><th>Dùng cho</th></tr>
+                <tr><td>Claude Projects / ChatGPT Projects</td><td>Upload file, RAG tự động phía sau</td></tr>
+                <tr><td>NotebookLM</td><td>RAG trên tài liệu cá nhân, có trích dẫn</td></tr>
+                <tr><td>Gemini File Search / OpenAI File Search</td><td>RAG qua API, không cần tự dựng vector DB</td></tr>
+            </table>
+        `,
+        advanced: `
+            <h3>🎓 RAG nâng cao</h3>
+            <h4>Agentic RAG</h4>
+            <p>Thay vì retrieve 1 lần rồi trả lời, AI <strong>tự lặp lại nhiều vòng</strong>: đọc kết quả đầu, nhận ra thiếu thông tin, tự viết truy vấn mới, tìm tiếp - giống cách Deep Research hoạt động.</p>
+            <h4>Query Rewriting & HyDE</h4>
+            <p>Câu hỏi gốc của người dùng thường ngắn/mơ hồ. Kỹ thuật <strong>HyDE</strong>: cho AI viết trước một "câu trả lời giả định", embed câu đó để tìm kiếm - thường khớp ngữ nghĩa tốt hơn embed câu hỏi gốc.</p>
+            <h4>GraphRAG</h4>
+            <p>Thay vì chỉ tìm theo vector, xây dựng <strong>knowledge graph</strong> (thực thể - quan hệ) từ tài liệu, giúp trả lời tốt hơn các câu hỏi cần tổng hợp thông tin từ nhiều nguồn khác nhau.</p>
+            <h4>Đánh giá chất lượng RAG</h4>
+            <ul>
+                <li><strong>Faithfulness:</strong> Câu trả lời có bám sát chunk lấy được không?</li>
+                <li><strong>Context Precision/Recall:</strong> Chunks lấy về có đúng và đủ không?</li>
+                <li>Dùng framework như RAGAS để đo tự động</li>
+            </ul>
+            <div class="tip-box">
+                💡 RAG không "chữa" được hallucination 100% - nếu retrieval tìm sai chunk, AI vẫn có thể trả lời sai một cách rất tự tin.
+            </div>
+        `
+    },
     'mcp-protocol': {
         icon: '🔗',
         title: 'MCP (Model Context Protocol)',
         category: 'ai-concepts',
         level: 'intermediate',
-        connections: ['ai-agents', 'copilot', 'cursor-ai', 'workspaces'],
+        connections: ['ai-agents', 'copilot', 'cursor-ai', 'workspaces', 'function-calling'],
         simple: `
             <h3>🔗 MCP là gì?</h3>
             <p><strong>MCP (Model Context Protocol)</strong> là giao thức chuẩn cho phép AI kết nối với các công cụ và nguồn dữ liệu bên ngoài.</p>
