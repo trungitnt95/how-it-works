@@ -10,24 +10,27 @@ const techniquesData = {
             <h3>📏 Context Window là gì?</h3>
             <p><strong>Context window</strong> là lượng text tối đa AI có thể "nhớ" trong một cuộc hội thoại.</p>
             <div class="example-box">
-                <strong>Ví dụ:</strong> GPT-4 có context 128K tokens ≈ khoảng 300 trang sách.
+                <strong>Ví dụ:</strong> Các model hàng đầu 2026 (GPT-6, Claude, Gemini) có context ~1 triệu tokens ≈ khoảng 2.000+ trang sách.
             </div>
             <h4>Tại sao quan trọng?</h4>
             <ul>
-                <li>Chat quá dài → AI quên đầu cuộc hội thoại</li>
+                <li>Chat quá dài → AI quên đầu cuộc hội thoại (hoặc app tự "nén"/tóm tắt lại)</li>
                 <li>Paste file lớn → Có thể vượt giới hạn</li>
                 <li>Mỗi model có context khác nhau</li>
             </ul>
         `,
         detail: `
-            <h3>📊 So sánh Context Window</h3>
+            <h3>📊 So sánh Context Window (09/2026)</h3>
             <table>
                 <tr><th>Model</th><th>Context</th><th>Tương đương</th></tr>
-                <tr><td>GPT-3.5</td><td>16K tokens</td><td>~40 trang</td></tr>
-                <tr><td>GPT-4</td><td>128K tokens</td><td>~300 trang</td></tr>
-                <tr><td>Claude 3</td><td>200K tokens</td><td>~500 trang</td></tr>
-                <tr><td>Gemini 1.5</td><td>1M tokens</td><td>~2500 trang</td></tr>
+                <tr><td>GPT-6 (Astra/Sol/Luna)</td><td>~1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Claude (Opus/Sonnet 4.6+)</td><td>1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Gemini 3.x Pro</td><td>1M tokens</td><td>~2.500 trang</td></tr>
+                <tr><td>Open-weight (Qwen, Gemma 3...)</td><td>128K - 256K tokens</td><td>~300-600 trang</td></tr>
             </table>
+            <div class="tip-box">
+                💡 Context lớn ≠ nhớ tốt. Bản chat trên app thường giới hạn thấp hơn API, và chất lượng vẫn giảm khi context quá dài. Nhét ít nhưng đúng thông tin vẫn tốt hơn.
+            </div>
             <h4>Mẹo quản lý context</h4>
             <ul>
                 <li>Tóm tắt cuộc hội thoại dài</li>
@@ -39,6 +42,8 @@ const techniquesData = {
             <h3>🎓 Tối ưu Context Window</h3>
             <h4>Lost in the Middle</h4>
             <p>AI chú ý tốt nhất ở đầu và cuối context - thông tin ở giữa dễ bị bỏ qua.</p>
+            <h4>Context Engineering</h4>
+            <p>Khái niệm phổ biến từ 2025: thay vì chỉ "viết prompt hay", hãy <strong>thiết kế toàn bộ những gì đưa vào context</strong> - instructions, tài liệu, lịch sử, kết quả tool. Agent dài hơi dùng thêm <em>compaction</em> (tự tóm tắt lịch sử) và <em>memory file</em> để không bị tràn context.</p>
             <h4>RAG (Retrieval-Augmented Generation)</h4>
             <p>Thay vì nhét mọi thứ vào context, dùng search để lấy phần liên quan nhất:</p>
             <ul>
@@ -79,7 +84,7 @@ const techniquesData = {
                 <tr><td>Presence Penalty</td><td>Tăng đa dạng topic</td><td>0 - 2</td></tr>
             </table>
             <div class="tip-box">
-                💡 Hầu hết trường hợp, chỉ cần điều chỉnh temperature là đủ.
+                💡 Hầu hết trường hợp, chỉ cần điều chỉnh temperature là đủ. Lưu ý: với nhiều reasoning model mới, temperature bị cố định - thay vào đó bạn chỉnh <strong>reasoning effort</strong> (low/medium/high) hoặc ngân sách "thinking".
             </div>
         `,
         advanced: `
@@ -133,20 +138,81 @@ const techniquesData = {
         `,
         advanced: `
             <h3>🎓 Token Economics</h3>
-            <h4>Bảng giá token (USD/1M tokens)</h4>
+            <h4>Bảng giá token theo tầng (USD/1M tokens, 09/2026)</h4>
             <table>
-                <tr><th>Model</th><th>Input</th><th>Output</th></tr>
-                <tr><td>GPT-3.5 Turbo</td><td>$0.50</td><td>$1.50</td></tr>
-                <tr><td>GPT-4</td><td>$30</td><td>$60</td></tr>
-                <tr><td>GPT-4 Turbo</td><td>$10</td><td>$30</td></tr>
-                <tr><td>Claude 3 Haiku</td><td>$0.25</td><td>$1.25</td></tr>
+                <tr><th>Tầng</th><th>Ví dụ</th><th>Input</th><th>Output</th></tr>
+                <tr><td>Nhỏ / nhanh</td><td>GPT-6 Luna, Gemini Flash-Lite, Claude Haiku 4.5</td><td>$0.10 - $1</td><td>$0.50 - $5</td></tr>
+                <tr><td>Cân bằng</td><td>GPT-6 Sol, Claude Sonnet 5, Gemini 3.1 Pro</td><td>~$2</td><td>$10 - $12</td></tr>
+                <tr><td>Flagship</td><td>GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5</td><td>$4 - $10</td><td>$20 - $50</td></tr>
             </table>
             <h4>Chiến lược tiết kiệm</h4>
             <ul>
-                <li>Dùng GPT-3.5 cho task đơn giản</li>
-                <li>Cache kết quả thường dùng</li>
-                <li>Batch requests khi có thể</li>
+                <li>Dùng model tầng nhỏ cho task đơn giản (phân loại, trích xuất, tóm tắt)</li>
+                <li>Prompt caching cho phần lặp lại (system prompt, tài liệu) - rẻ hơn ~90%</li>
+                <li>Batch API cho task không gấp - giảm 50%</li>
+                <li>Giảm reasoning effort khi không cần suy nghĩ sâu</li>
             </ul>
+        `
+    },
+    'evals-benchmarks': {
+        icon: '📐',
+        title: 'Evals & Benchmarks',
+        category: 'techniques',
+        level: 'intermediate',
+        connections: ['ai-hallucination', 'fact-checking', 'token-optimization'],
+        simple: `
+            <h3>📐 Làm sao biết AI/prompt nào tốt hơn?</h3>
+            <p><strong>Eval</strong> là cách đo chất lượng AI một cách có hệ thống, thay vì chỉ "thử vài câu thấy ổn".</p>
+            <div class="example-box">
+                Sai lầm phổ biến: Đổi prompt, thử 1 câu, thấy hay hơn → kết luận "prompt mới tốt hơn".<br>
+                Đúng cách: Chạy cả 2 prompt trên 20-50 câu hỏi mẫu, so sánh tỷ lệ đúng.
+            </div>
+            <h4>Khi nào cần eval?</h4>
+            <ul>
+                <li>🔀 So sánh 2 model xem cái nào hợp với việc của bạn</li>
+                <li>✏️ So sánh 2 phiên bản prompt</li>
+                <li>🚀 Trước khi đưa AI feature vào sản phẩm thật</li>
+            </ul>
+        `,
+        detail: `
+            <h3>📊 Các loại Benchmark công khai</h3>
+            <table>
+                <tr><th>Benchmark</th><th>Đo gì</th></tr>
+                <tr><td>MMLU / GPQA</td><td>Kiến thức tổng quát, chuyên môn</td></tr>
+                <tr><td>SWE-bench</td><td>Khả năng sửa lỗi code thật trên GitHub</td></tr>
+                <tr><td>LMArena (Chatbot Arena)</td><td>Người dùng thật bình chọn model nào trả lời hay hơn</td></tr>
+                <tr><td>ARC-AGI</td><td>Suy luận trừu tượng, khó "học vẹt"</td></tr>
+                <tr><td>HumanEval</td><td>Viết code đúng theo đề bài</td></tr>
+            </table>
+            <div class="warning-box">
+                ⚠️ Benchmark công khai dễ bị "học tủ" (model được train biết trước đề). Điểm benchmark cao không đảm bảo model tốt cho <strong>việc cụ thể của bạn</strong>.
+            </div>
+            <h4>Tự làm eval đơn giản</h4>
+            <ol>
+                <li>Chuẩn bị 20-50 câu hỏi/tình huống thật trong công việc bạn</li>
+                <li>Ghi lại câu trả lời "đúng" mong muốn</li>
+                <li>Chạy qua model/prompt cần test, so sánh</li>
+                <li>Tính tỷ lệ đúng (%) hoặc điểm chất lượng</li>
+            </ol>
+        `,
+        advanced: `
+            <h3>🎓 Eval trong sản phẩm thật</h3>
+            <h4>LLM-as-Judge</h4>
+            <p>Dùng một AI mạnh (thường là model khác) để <strong>chấm điểm</strong> câu trả lời của AI đang test theo tiêu chí bạn đặt ra - tự động hóa việc chấm hàng trăm câu.</p>
+            <div class="example-box">
+                Prompt cho judge: "So sánh 2 câu trả lời sau cho câu hỏi X. Câu nào chính xác và hữu ích hơn? Trả lời A hoặc B và giải thích ngắn."
+            </div>
+            <h4>Bộ 3 chỉ số cần theo dõi khi lên production</h4>
+            <ul>
+                <li><strong>Quality:</strong> Độ chính xác/hữu ích (qua eval set hoặc feedback người dùng)</li>
+                <li><strong>Cost:</strong> Chi phí token trung bình mỗi request</li>
+                <li><strong>Latency:</strong> Thời gian phản hồi (đặc biệt quan trọng với reasoning model)</li>
+            </ul>
+            <h4>Công cụ eval framework</h4>
+            <p>Braintrust, LangSmith, Promptfoo, Ragas (chuyên cho RAG) - giúp lưu lại test case, so sánh phiên bản, và chạy tự động trong CI/CD mỗi khi đổi prompt hay model.</p>
+            <div class="tip-box">
+                💡 Nguyên tắc: đừng đổi prompt/model trong production mà không có eval set để kiểm tra hồi quy (regression) - "cải thiện" một câu có thể làm hỏng 10 câu khác.
+            </div>
         `
     },
     'ai-hallucination': {
@@ -154,7 +220,7 @@ const techniquesData = {
         title: 'Xử Lý Hallucination',
         category: 'techniques',
         level: 'intermediate',
-        connections: ['ai-limitations', 'fact-checking', 'temperature'],
+        connections: ['ai-limitations', 'fact-checking', 'temperature', 'evals-benchmarks'],
         simple: `
             <h3>👁️ Hallucination là gì?</h3>
             <p><strong>Hallucination</strong> là khi AI <em>bịa ra thông tin</em> nghe rất thật nhưng hoàn toàn sai.</p>
@@ -180,8 +246,8 @@ const techniquesData = {
             <h4>Cách giảm Hallucination</h4>
             <ol>
                 <li>Yêu cầu AI: "Nếu không chắc, hãy nói không biết"</li>
-                <li>Set temperature = 0</li>
-                <li>Yêu cầu trích dẫn nguồn</li>
+                <li>Set temperature = 0 (nếu model cho phép)</li>
+                <li>Bật web search và yêu cầu trích dẫn nguồn</li>
                 <li>Cross-check với AI khác</li>
             </ol>
         `,
@@ -227,7 +293,7 @@ const techniquesData = {
             <h4>Công cụ hỗ trợ</h4>
             <table>
                 <tr><th>Công cụ</th><th>Dùng cho</th></tr>
-                <tr><td>Perplexity</td><td>AI search có trích dẫn</td></tr>
+                <tr><td>Perplexity / Deep Research</td><td>AI search có trích dẫn</td></tr>
                 <tr><td>Google Scholar</td><td>Nghiên cứu khoa học</td></tr>
                 <tr><td>Snopes</td><td>Kiểm tra tin giả</td></tr>
             </table>

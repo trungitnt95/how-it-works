@@ -3,6 +3,8 @@ const tourSteps = {
     beginner: [
         { title: 'Chào mừng!', description: 'Khám phá thế giới AI - từ cơ bản đến thực hành!', target: null },
         { title: 'AI Là Gì?', description: 'Bắt đầu với khái niệm cơ bản: AI là trí tuệ nhân tạo.', target: '[data-component="what-is-ai"]' },
+        { title: 'Dòng Thời Gian AI', description: 'AI đã thay đổi thế nào từ 2022 đến 2026.', target: '[data-component="ai-timeline"]' },
+        { title: 'Multimodal AI', description: 'AI hiểu và tạo ảnh, âm thanh, video - không chỉ chữ.', target: '[data-component="multimodal-ai"]' },
         { title: 'Tokens', description: 'Hiểu đơn vị cơ bản nhất mà AI xử lý.', target: '[data-component="tokens-deep"]' },
         { title: 'Messages', description: 'Cách AI giao tiếp qua các loại messages.', target: '[data-component="messages-deep"]' },
         { title: 'Prompting Cơ Bản', description: 'Học cách "nói chuyện" với AI hiệu quả.', target: '[data-component="basic-prompting"]' },
@@ -15,6 +17,8 @@ const tourSteps = {
         { title: 'Chain of Thought', description: 'Yêu cầu AI suy nghĩ từng bước.', target: '[data-component="chain-of-thought"]' },
         { title: 'Context Window', description: 'Hiểu giới hạn bộ nhớ của AI.', target: '[data-component="context-window"]' },
         { title: 'MCP Protocol', description: 'Giao thức kết nối AI với tools bên ngoài.', target: '[data-component="mcp-protocol"]' },
+        { title: 'Function Calling', description: 'Cách AI thật sự "gọi hàm" và dùng công cụ.', target: '[data-component="function-calling"]' },
+        { title: 'RAG', description: 'Cho AI tra cứu tài liệu thật trước khi trả lời.', target: '[data-component="rag-deep"]' },
         { title: 'Workspaces', description: 'Tổ chức AI workspace cho dự án.', target: '[data-component="workspaces"]' },
         { title: 'AI Plans', description: 'Cách AI lập kế hoạch và reasoning.', target: '[data-component="ai-plans"]' },
         { title: 'AI Workflow', description: 'Tự động hóa công việc với AI.', target: '[data-component="ai-workflow"]' },
@@ -28,8 +32,10 @@ const tourSteps = {
         { title: 'Local LLM', description: 'Chạy AI trên máy cá nhân.', target: '[data-component="local-llm"]' },
         { title: 'AI Agents', description: 'AI tự lập kế hoạch và hành động.', target: '[data-component="ai-agents"]' },
         { title: 'Coding Agents', description: 'AI agents chuyên biệt cho lập trình.', target: '[data-component="coding-agents"]' },
+        { title: 'Agent Memory', description: 'Làm sao để agent "nhớ" qua nhiều phiên làm việc.', target: '[data-component="agent-memory"]' },
         { title: 'Fine-tuning', description: 'Huấn luyện AI theo nhu cầu riêng.', target: '[data-component="fine-tuning"]' },
         { title: 'Kỹ Năng Tương Lai', description: 'Kỹ năng con người cần trong thời AI.', target: '[data-component="future-skills"]' },
+        { title: 'AI Safety', description: 'Jailbreak, prompt injection, và cách phòng vệ.', target: '[data-component="ai-safety-guardrails"]' },
         { title: 'Master!', description: 'Bạn đã sẵn sàng tận dụng AI tối đa!', target: null }
     ]
 };
@@ -40,7 +46,8 @@ const quickTips = [
     { icon: '🆓', text: 'Hầu hết AI đều có bản miễn phí' },
     { icon: '🔄', text: 'Thử nhiều AI khác nhau cho cùng 1 việc' },
     { icon: '📝', text: 'Lưu lại những prompt hay để dùng lại' },
-    { icon: '🤖', text: 'AI là trợ lý, không phải chuyên gia tuyệt đối' }
+    { icon: '🤖', text: 'AI là trợ lý, không phải chuyên gia tuyệt đối' },
+    { icon: '🗓️', text: 'Tên model đổi liên tục - hãy học nguyên lý' }
 ];
 
 const aiChecklist = [
@@ -53,10 +60,14 @@ const aiChecklist = [
     'Tận dụng free tier của ít nhất 3 dịch vụ',
     'Thử Chain of Thought prompting',
     'Hiểu MCP và cách AI kết nối với tools',
+    'Hiểu Embeddings, RAG và Function Calling',
+    'Biết cách phân biệt AI hiểu text, ảnh, âm thanh, video (multimodal)',
+    'Hiểu cách agent "nhớ" qua nhiều phiên làm việc',
+    'Biết cách phòng tránh jailbreak & prompt injection',
     'Setup workspace/project cho AI',
     'Tạo 1 AI workflow tự động',
     'Thử ít nhất 1 AI coding tool',
-    'Tìm hiểu về coding agents',
+    'Thử 1 coding agent (Claude Code, Codex hoặc Copilot Agent)',
     'Rèn luyện tư duy phản biện khi dùng AI',
     'Hiểu AI Ethics và dùng AI có trách nhiệm'
 ];

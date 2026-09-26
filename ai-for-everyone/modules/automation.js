@@ -17,7 +17,8 @@ const automationData = {
             <ul>
                 <li>⚡ <strong>Zapier:</strong> Kết nối 5000+ apps</li>
                 <li>🔧 <strong>Make.com:</strong> Visual workflow builder</li>
-                <li>🤖 <strong>n8n:</strong> Open source, self-hosted</li>
+                <li>🤖 <strong>n8n:</strong> Open source, self-hosted, có AI Agent node</li>
+                <li>🧠 <strong>AI Agent + MCP:</strong> Claude, ChatGPT tự làm việc qua Connectors</li>
             </ul>
         `,
         detail: `
@@ -74,17 +75,17 @@ const automationData = {
         `,
         detail: `
             <h3>📊 Setup Background Tasks</h3>
-            <h4>Sử dụng ChatGPT trong background</h4>
+            <h4>Tính năng chạy nền có sẵn</h4>
             <ul>
-                <li>Mở tab riêng cho long-running tasks</li>
-                <li>Gửi prompt lớn, để AI xử lý</li>
-                <li>Quay lại check kết quả sau</li>
+                <li><strong>Deep Research</strong> (ChatGPT, Claude, Gemini, Perplexity): giao câu hỏi, AI tự nghiên cứu 5-30 phút rồi trả báo cáo</li>
+                <li><strong>Agent mode</strong> (ChatGPT Agent, Claude): AI tự thao tác trình duyệt/tài liệu trong khi bạn làm việc khác</li>
+                <li><strong>Cloud coding agents</strong> (Codex, Claude Code on the web, Copilot Coding Agent): giao task code, nhận PR</li>
             </ul>
             <h4>Automation Tools</h4>
             <table>
                 <tr><th>Tool</th><th>Dùng cho</th><th>Miễn phí?</th></tr>
-                <tr><td>Zapier</td><td>Automation đơn giản</td><td>5 zaps free</td></tr>
-                <tr><td>Make.com</td><td>Visual workflows</td><td>1000 ops/th</td></tr>
+                <tr><td>Zapier</td><td>Automation đơn giản, 8000+ apps</td><td>Free tier giới hạn</td></tr>
+                <tr><td>Make.com</td><td>Visual workflows</td><td>Free tier giới hạn</td></tr>
                 <tr><td>n8n</td><td>Self-hosted</td><td>Hoàn toàn free</td></tr>
                 <tr><td>Python scripts</td><td>Custom tasks</td><td>Free</td></tr>
             </table>
@@ -135,9 +136,10 @@ const automationData = {
             <h4>No-Code Solutions</h4>
             <table>
                 <tr><th>Tool</th><th>Scheduling</th><th>AI Integration</th></tr>
-                <tr><td>Zapier</td><td>Schedule trigger</td><td>OpenAI, Claude</td></tr>
+                <tr><td>ChatGPT Tasks / Gemini Scheduled Actions</td><td>Lịch có sẵn trong app</td><td>Native</td></tr>
+                <tr><td>Zapier</td><td>Schedule trigger</td><td>OpenAI, Claude, Gemini</td></tr>
                 <tr><td>Make.com</td><td>Cron-like scheduling</td><td>Nhiều AI modules</td></tr>
-                <tr><td>IFTTT</td><td>Time triggers</td><td>Cơ bản</td></tr>
+                <tr><td>n8n</td><td>Cron node</td><td>AI Agent node, mọi API</td></tr>
             </table>
             <h4>Mẹo scheduling</h4>
             <ul>
@@ -201,10 +203,10 @@ const automationData = {
             <h4>API Providers</h4>
             <table>
                 <tr><th>Provider</th><th>Models</th><th>SDK</th></tr>
-                <tr><td>OpenAI</td><td>GPT-3.5, GPT-4</td><td>Python, JS, etc.</td></tr>
-                <tr><td>Anthropic</td><td>Claude 3</td><td>Python, TS</td></tr>
-                <tr><td>Google</td><td>Gemini</td><td>Python, JS</td></tr>
-                <tr><td>OpenRouter</td><td>100+ models</td><td>OpenAI-compatible</td></tr>
+                <tr><td>OpenAI</td><td>GPT-6 Astra / Sol / Luna</td><td>Python, JS, etc.</td></tr>
+                <tr><td>Anthropic</td><td>Claude Fable 5.1, Opus 5.5, Sonnet 5, Haiku 4.5</td><td>Python, TS, Java, Go...</td></tr>
+                <tr><td>Google</td><td>Gemini 3.x Pro / Flash</td><td>Python, JS, Go, Java</td></tr>
+                <tr><td>OpenRouter</td><td>300+ models</td><td>OpenAI-compatible</td></tr>
             </table>
         `,
         advanced: `
