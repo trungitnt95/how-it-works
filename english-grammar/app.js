@@ -1086,10 +1086,21 @@
         const questions = exerciseBank.filter(question => question.component === id).map(prepareQuestion);
         if (!questions.length) return '';
 
+        // Câu kind 'theory' (modules/theory-quiz.js) ôn lại lý thuyết nên hiện trước, tách khỏi câu vận dụng.
+        const theory = questions.filter(question => question.kind === 'theory');
+        if (!theory.length) return renderQuizSection('📝 Câu hỏi trắc nghiệm', questions);
+
+        return renderQuizSection('🧠 Trắc nghiệm lý thuyết', theory, 'Mỗi câu kiểm tra một quy tắc trong tab Lý thuyết. Thử trả lời trước, sau đó bấm "Xem đáp án" để đối chiếu.')
+            + renderQuizSection('📝 Trắc nghiệm vận dụng', questions.filter(question => question.kind !== 'theory'));
+    }
+
+    function renderQuizSection(title, questions, instruction) {
+        if (!questions.length) return '';
+
         return `
             <section class="practice-block">
-                <h4>📝 Câu hỏi trắc nghiệm (${questions.length} câu)</h4>
-                <p class="practice-instruction">Thử trả lời trước, sau đó bấm "Xem đáp án" để kiểm tra và đọc giải thích.</p>
+                <h4>${title} (${questions.length} câu)</h4>
+                <p class="practice-instruction">${instruction || 'Thử trả lời trước, sau đó bấm "Xem đáp án" để kiểm tra và đọc giải thích.'}</p>
                 <div class="practice-items">
                     ${questions.map((question, index) => `
                         <article class="practice-item">
