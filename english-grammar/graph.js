@@ -11,9 +11,20 @@
     nodes.forEach(n => { n.degree = adj.get(n.id).size; });
     const radius = n => 5 + Math.sqrt(n.degree) * 2.6;
 
+    // Labels that describe a symmetric relation get no arrowhead.
+    const UNDIRECTED = new Set(['khác', 'đối chiếu', 'kết hợp', 'đi với']);
+    links.forEach(l => { l.directed = !UNDIRECTED.has(l.label); });
+
     const svg = d3.select('#graph');
+    const defs = svg.append('defs');
+    [['arrow', '#8b949e', 0.75], ['arrow-hl', '#58a6ff', 1]].forEach(([id, color, opacity]) => {
+        defs.append('marker').attr('id', id).attr('viewBox', '0 -5 10 10').attr('refX', 10).attr('refY', 0)
+            .attr('markerWidth', 7).attr('markerHeight', 7).attr('orient', 'auto')
+            .append('path').attr('d', 'M0,-4.5L10,0L0,4.5Z').attr('fill', color).attr('fill-opacity', opacity);
+    });
     const layer = svg.append('g');
-    const linkSel = layer.append('g').selectAll('line').data(links).join('line').attr('class', 'link');
+    const linkSel = layer.append('g').selectAll('line').data(links).join('line').attr('class', 'link')
+        .attr('marker-end', d => d.directed ? 'url(#arrow)' : null);
     const elabelSel = layer.append('g').selectAll('text').data(links).join('text')
         .attr('class', 'elabel hidden').attr('text-anchor', 'middle').text(d => d.label);
     const nodeSel = layer.append('g').selectAll('g').data(nodes).join('g').attr('class', 'node');
@@ -28,7 +39,14 @@
         .force('x', d3.forceX().strength(0.04))
         .force('y', d3.forceY().strength(0.04))
         .on('tick', () => {
-            linkSel.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+            linkSel.each(function (d) {
+                const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
+                const len = Math.hypot(dx, dy) || 1;
+                const gap = radius(d.target) + 2;   // stop at the node rim so the arrowhead stays visible
+                d3.select(this)
+                    .attr('x1', d.source.x).attr('y1', d.source.y)
+                    .attr('x2', d.target.x - (dx / len) * gap).attr('y2', d.target.y - (dy / len) * gap);
+            });
             elabelSel.attr('x', d => (d.source.x + d.target.x) / 2).attr('y', d => (d.source.y + d.target.y) / 2);
             nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
         });
@@ -89,7 +107,8 @@
         linkSel
             .classed('hidden', d => !vis.has(d.source.id) || !vis.has(d.target.id))
             .classed('dim', d => (near && !isEnd(d, focus)) || !!matches)
-            .classed('hl', d => focus && isEnd(d, focus));
+            .classed('hl', d => focus && isEnd(d, focus))
+            .attr('marker-end', d => !d.directed ? null : (focus && isEnd(d, focus) ? 'url(#arrow-hl)' : 'url(#arrow)'));
         elabelSel.classed('hidden', d => !(focus && isEnd(d, focus) && vis.has(d.source.id) && vis.has(d.target.id)));
         document.getElementById('graphCount').textContent = `${vis.size} khái niệm · ${links.length} liên kết`;
     }
@@ -100,7 +119,7 @@
         const panel = document.getElementById('graphPanel');
         const n = selected && byId.get(selected);
         if (!n) {
-            panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
+            panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”. Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
             return;
         }
         const nbs = links.filter(l => isEnd(l, n.id)).map(l => {
