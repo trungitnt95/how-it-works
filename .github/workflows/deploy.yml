@@ -3,9 +3,9 @@ name: Deploy to GitHub Pages
 on:
   # Manual: Actions tab -> "Deploy to GitHub Pages" -> Run workflow -> pick main or develop
   workflow_dispatch:
-  # Keep production in sync with main
+  # Keep the live site in sync with main and develop
   push:
-    branches: [main]
+    branches: [main, develop]
 
 permissions:
   contents: read
