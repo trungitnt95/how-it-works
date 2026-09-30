@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ Thị Ngữ Pháp - Ngữ Pháp Tiếng Anh</title>
+    <meta name="description" content="Đồ thị tương tác kiểu Obsidian: khám phá mối liên hệ giữa Chủ ngữ, Động từ, Đại từ và các khái niệm ngữ pháp tiếng Anh.">
+    <link rel="stylesheet" href="graph.css">
+</head>
+<body>
+    <header class="g-header">
+        <a href="english-grammar.html" class="back-btn">← Ngữ pháp tiếng Anh</a>
+        <h1>🕸️ Đồ Thị Ngữ Pháp</h1>
+        <span class="g-count" id="graphCount"></span>
+    </header>
+
+    <div class="g-toolbar">
+        <label class="visually-hidden" for="graphSearch">Tìm khái niệm</label>
+        <input type="search" id="graphSearch" placeholder="🔍 Tìm khái niệm (Subject, Chủ ngữ...)" autocomplete="off">
+        <div class="g-legend" id="graphLegend" role="group" aria-label="Lọc theo nhóm"></div>
+        <label class="g-depth" for="graphDepth">Độ sâu
+            <input type="range" id="graphDepth" min="1" max="5" value="5" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
+            <span id="graphDepthVal">tất cả</span>
+        </label>
+        <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+    </div>
+
+    <main class="g-main">
+        <svg id="graph" role="img" aria-label="Đồ thị các khái niệm ngữ pháp"></svg>
+        <aside class="g-panel" id="graphPanel" aria-live="polite">
+            <p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”. Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>
+        </aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="modules/graph-data.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
