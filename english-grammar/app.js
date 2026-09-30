@@ -150,14 +150,6 @@
     const storedLevel = localStorage.getItem('englishGrammarLevel');
     state.currentLevel = storedLevel ? cefr.normalizeLevel(storedLevel) : null;
 
-    function stripHtml(html) {
-        return String(html || '')
-            .replace(/<[^>]*>/g, ' ')
-            .replace(/&nbsp;/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-    }
-
     function normalizeText(text) {
         return String(text || '')
             .toLowerCase()
@@ -175,8 +167,7 @@
             normalizeText([
                 id,
                 component.title,
-                stripHtml(component.simple).slice(0, 400),
-                stripHtml(component.detail).slice(0, 300)
+                grammarTheoryText(component.theory).slice(0, 700)
             ].join(' '))
         ])
     );
@@ -509,9 +500,7 @@
             return;
         }
 
-        elements.panelContent.innerHTML = [component.simple, component.detail, component.advanced]
-            .filter(Boolean)
-            .join('');
+        elements.panelContent.innerHTML = renderGrammarTheory(component.theory);
     }
 
     function renderRelated(connections) {
@@ -1333,6 +1322,13 @@
         renderMemoryBank();
         initIrregularVerbBank();
         updateDashboard();
+        openTopicFromUrl();
+    }
+
+    // english-grammar.html?topic=<id> (used by graph.html) opens that topic's panel.
+    function openTopicFromUrl() {
+        const id = new URLSearchParams(window.location.search).get('topic');
+        if (id && allComponents[id]) activateComponent(id, { scrollIntoView: true });
     }
 
     if (document.readyState === 'loading') {
