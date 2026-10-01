@@ -63,9 +63,21 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Định lượng cho biết "bao nhiêu" của một danh từ và phải khớp loại danh từ. Chủ điểm này đi sâu vào sắc thái (few / a few), phạm vi (most / most of) và cách chia động từ sau lượng từ.',
             formula: [
-                'Chỉ đếm được: many, few, a few, several, a number of – <em>many books, several reasons</em>',
-                'Chỉ không đếm được: much, little, a little, a great deal of – <em>much time, a great deal of money</em>',
-                'Cả hai: some, any, all, most, no, plenty of, a lot of, enough – <em>a lot of books / a lot of money</em>'
+                {
+                    label: 'Chỉ đếm được',
+                    pattern: 'many · few · a few · several · a number of',
+                    example: 'many books, several reasons'
+                },
+                {
+                    label: 'Chỉ không đếm được',
+                    pattern: 'much · little · a little · a great deal of',
+                    example: 'much time, a great deal of money'
+                },
+                {
+                    label: 'Cả hai loại',
+                    pattern: 'some · any · all · most · no · plenty of · a lot of · enough',
+                    example: 'a lot of books / a lot of money'
+                }
             ],
             uses: [
                 [
@@ -274,7 +286,28 @@ const grammarComprehensiveData = {
         connections: ['parts-of-speech', 'spelling-rules', 'collocations-pairs'],
         theory: {
             overview: 'Tiếng Anh tạo từ mới bằng 4 cách: <strong>tiền tố, hậu tố, ghép từ, chuyển loại</strong>. Nắm cấu tạo từ giúp chọn đúng dạng từ (word form) – phần hay mất điểm dù đã hiểu nghĩa: <em>success (n) – succeed (v) – successful (adj) – successfully (adv)</em>.',
-            formula: ['un + happy + ness → unhappiness · modern + ize → modernize · black + board → blackboard · email (n) → to email (v)'],
+            formula: [
+                {
+                    label: 'Tiền tố + gốc + hậu tố',
+                    pattern: 'un + happy + ness',
+                    example: '→ unhappiness'
+                },
+                {
+                    label: 'Hậu tố đổi từ loại',
+                    pattern: 'modern + ize',
+                    example: '→ modernize'
+                },
+                {
+                    label: 'Ghép từ',
+                    pattern: 'black + board',
+                    example: '→ blackboard'
+                },
+                {
+                    label: 'Chuyển loại',
+                    pattern: 'email (n)',
+                    example: '→ to email (v)'
+                }
+            ],
             tables: [
                 {
                     title: 'Tiền tố (prefix)',
@@ -447,7 +480,24 @@ const grammarComprehensiveData = {
         connections: ['question-forms', 'negatives', 'present-perfect', 'passive-voice'],
         theory: {
             overview: 'Trợ động từ <strong>be, have, do</strong> (và modal) là khung kỹ thuật của câu: tạo thì, bị động, câu hỏi, phủ định, nhấn mạnh, câu trả lời ngắn. Hiểu hệ thống này nối các mảng tưởng rời rạc (câu hỏi, phủ định, thì, bị động, tỉnh lược) thành một.',
-            formula: ['be + V-ing / V3 · have + V3 · do + V nguyên mẫu · modal + V nguyên mẫu'],
+            formula: [
+                {
+                    label: 'be',
+                    pattern: 'be + V-ing / V3'
+                },
+                {
+                    label: 'have',
+                    pattern: 'have + V3'
+                },
+                {
+                    label: 'do',
+                    pattern: 'do + V'
+                },
+                {
+                    label: 'modal',
+                    pattern: 'modal + V'
+                }
+            ],
             tables: [
                 {
                     head: ['Trợ động từ', 'Chức năng', 'Ví dụ'],
@@ -879,8 +929,17 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Câu hỏi Yes/No đảo <strong>trợ động từ / be / modal</strong> lên trước chủ ngữ; nếu câu không có chúng thì dùng <strong>do / does / did</strong> (do-support). Trong văn nói thường <strong>lên giọng</strong> ở cuối câu.',
             formula: [
-                'Aux / Be / Modal + S + V? – <em>Are you tired? Can you swim?</em>',
-                'Do / Does / Did + S + V nguyên mẫu? – <em>Do you like coffee?</em>'
+                {
+                    label: 'Có trợ động từ',
+                    pattern: 'Aux / Be / Modal + S + V?',
+                    example: 'Are you tired? · Can you swim?'
+                },
+                {
+                    label: 'Không có trợ động từ',
+                    pattern: 'Do / Does / Did + S + V?',
+                    example: 'Do you like coffee?',
+                    note: 'V nguyên mẫu'
+                }
             ],
             uses: [
                 [
@@ -913,8 +972,17 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Câu hỏi Wh- mở đầu bằng từ để hỏi. Nếu từ để hỏi hỏi <strong>tân ngữ / ngữ cảnh</strong> thì đảo trợ động từ; nếu nó là <strong>chủ ngữ</strong> thì không dùng do/did.',
             formula: [
-                'Wh + Aux + S + V? – <em>What did you eat? Where do you live?</em>',
-                'Wh (= chủ ngữ) + V? – <em>Who broke it?</em> (không phải Who did break it?)'
+                {
+                    label: 'Hỏi tân ngữ / ngữ cảnh',
+                    pattern: 'Wh + Aux + S + V?',
+                    example: 'What did you eat? · Where do you live?'
+                },
+                {
+                    label: 'Wh là chủ ngữ',
+                    pattern: 'Wh + V?',
+                    example: 'Who broke it?',
+                    note: 'không phải <em>Who did break it?</em>'
+                }
             ],
             tables: [
                 {
@@ -951,8 +1019,16 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Câu hỏi gián tiếp là câu hỏi nằm bên trong một câu khác. Nó <strong>giữ trật tự S + V</strong> – không đảo, không do/does/did. Mục đích chính: làm câu hỏi <strong>lịch sự, mềm hơn</strong>.',
             formula: [
-                'Yes/No → if / whether + S + V – <em>I wonder if she will come.</em>',
-                'Wh- → wh-word + S + V – <em>Do you know where he lives?</em>'
+                {
+                    label: 'Yes/No',
+                    pattern: 'if / whether + S + V',
+                    example: 'I wonder if she will come.'
+                },
+                {
+                    label: 'Wh-',
+                    pattern: 'wh-word + S + V',
+                    example: 'Do you know where he lives?'
+                }
             ],
             uses: [
                 ['Cụm dẫn thường gặp', 'ask, wonder, want to know, Can you tell me, Do you know, I’m not sure', ''],
@@ -1139,7 +1215,12 @@ const grammarComprehensiveData = {
         connections: ['inversion', 'mixed-conditionals', 'fronting'],
         theory: {
             overview: 'Khi đưa trạng từ / cụm phủ định lên đầu câu, trợ động từ đảo lên trước chủ ngữ giống câu hỏi. Mang tính <strong>trang trọng, văn học, diễn văn</strong> – không dùng trong văn nói thường.',
-            formula: ['Trạng từ phủ định + AUX + S + V – <em>Never have I seen such beauty.</em>'],
+            formula: [
+                {
+                    pattern: 'Trạng từ phủ định + AUX + S + V',
+                    example: 'Never have I seen such beauty.'
+                }
+            ],
             tables: [
                 {
                     head: ['Mở đầu', 'Ví dụ'],
@@ -1272,7 +1353,13 @@ const grammarComprehensiveData = {
         connections: ['cleft-sentences', 'auxiliary-system', 'question-forms'],
         theory: {
             overview: '<strong>Emphatic do</strong>: thêm do / does / did trước động từ nguyên mẫu để khẳng định mạnh, đáp lại nghi ngờ, tạo đối lập hoặc mời mọc thân thiện. Trong văn nói, do / does / did được <strong>nhấn trọng âm</strong>.',
-            formula: ['S + do / does / did + V nguyên mẫu – <em>I do agree. She does know. He did try.</em>'],
+            formula: [
+                {
+                    pattern: 'S + do / does / did + V',
+                    example: 'I do agree. · She does know. · He did try.',
+                    note: 'V nguyên mẫu'
+                }
+            ],
             uses: [
                 ['Đáp lại nghi ngờ, phản bác', '', '"You don’t love me." — "I DO love you!"'],
                 ['Mời mọc, mệnh lệnh thân thiện', '', 'Do come in! Do sit down! Do tell me more.'],
@@ -1648,8 +1735,14 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Determiner là "cửa vào" của cụm danh từ: cho biết danh từ được hiểu thế nào – xác định hay không, bao nhiêu, của ai, gần hay xa. Chúng xếp theo <strong>3 lớp</strong> với trật tự cố định.',
             formula: [
-                'Pre-determiner + Central determiner + Post-determiner + Adjective(s) + Noun',
-                '<em>all + the + three + important + meetings; all my old friends; such a difficult question</em>'
+                {
+                    label: 'Thứ tự',
+                    pattern: 'Pre-determiner + Central determiner + Post-determiner + Adjective(s) + Noun'
+                },
+                {
+                    label: 'Ví dụ',
+                    example: 'all + the + three + important + meetings · all my old friends · such a difficult question'
+                }
             ],
             tables: [
                 {
@@ -1746,8 +1839,14 @@ const grammarComprehensiveData = {
         theory: {
             overview: 'Cụm danh từ là một hệ nhiều tầng quanh <strong>head noun</strong>: determiner, premodifier, classifier, complement và postmodifier. Văn học thuật và báo chí nén rất nhiều ý vào cụm danh từ thay vì nhiều câu ngắn.',
             formula: [
-                'Determiner + Premodifier(s) + Head noun + Complement / Postmodifier',
-                '<em>the + recent international + trade agreement + between the two states</em>'
+                {
+                    label: 'Cấu trúc',
+                    pattern: 'Determiner + Premodifier(s) + Head noun + Complement / Postmodifier'
+                },
+                {
+                    label: 'Ví dụ',
+                    example: 'the + recent international + trade agreement + between the two states'
+                }
             ],
             tables: [
                 {
@@ -1995,7 +2094,11 @@ const grammarComprehensiveData = {
         connections: ['sentence-types', 'noun-clauses', 'advanced-adverbial-clauses', 'information-flow'],
         theory: {
             overview: 'Ở trình độ rất cao, hãy nhìn câu như một hệ: <strong>matrix clause</strong> (mệnh đề chính, khung của câu) cùng các mệnh đề phụ – finite, non-finite, verbless, nominal, relative, adverbial. Hiểu hệ này giúp phân tích câu dài trong luật, học thuật, báo chí, văn chương.',
-            formula: ['Matrix clause + subordinate clause(s) + (non-finite / verbless clause)'],
+            formula: [
+                {
+                    pattern: 'Matrix clause + subordinate clause(s) + (non-finite / verbless clause)'
+                }
+            ],
             tables: [
                 {
                     head: ['Loại', 'Ví dụ', 'Chức năng'],

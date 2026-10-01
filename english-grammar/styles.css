@@ -840,7 +840,45 @@ a.header-btn { display: inline-flex; align-items: center; text-decoration: none;
 }
 
 /* Single "Lý thuyết" tab rendered by modules/theory.js */
-.grammar-theory .formula-box { text-align: left; line-height: 1.8; }
+.grammar-theory .formula-list { margin: 0.75rem 0 1rem; }
+.grammar-theory .formula-row {
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+    background: rgba(245, 158, 11, 0.07);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-left: 3px solid #f59e0b;
+    border-radius: 8px;
+}
+.grammar-theory .formula-label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.16);
+    border-radius: 999px;
+}
+.grammar-theory .formula-pattern {
+    display: block;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #fde68a;
+    overflow-wrap: anywhere;
+}
+.grammar-theory .formula-pattern.inline { display: inline; font-size: 0.88rem; }
+.grammar-theory .formula-pattern .slot {
+    padding: 0.05em 0.35em;
+    font-weight: 700;
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.16);
+    border-radius: 4px;
+}
+.grammar-theory .formula-example { margin-top: 0.3rem; color: #9ae6b4; font-style: italic; }
+.grammar-theory .formula-remark { margin-top: 0.25rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.65); }
+.grammar-theory .formula-remark::before { content: '↳ '; }
+.grammar-theory .formula-row > .formula-remark:only-child { margin-top: 0; }
 .grammar-theory .theory-uses li { margin-bottom: 0.55rem; }
 .grammar-theory .theory-uses em { color: #9ae6b4; }
 .grammar-theory .theory-mistakes li { margin-bottom: 0.55rem; }
@@ -1773,3 +1811,4 @@ a.header-btn { display: inline-flex; align-items: center; text-decoration: none;
 
 /* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
 header h1 { display: none !important; }
+.grammar-theory .formula-pattern .nb { white-space: nowrap; }

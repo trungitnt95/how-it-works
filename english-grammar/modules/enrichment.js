@@ -9,10 +9,26 @@ const grammarSupplementsData = {
         theory: {
             overview: 'Động từ là lõi của câu. Theo cách kết hợp, có ba nhóm chính: <strong>transitive</strong> (cần tân ngữ), <strong>intransitive</strong> (tự đủ nghĩa) và <strong>linking</strong> (nối chủ ngữ với bổ ngữ).',
             formula: [
-                'S + V (intransitive): <em>The baby cried.</em>',
-                'S + V + O (transitive): <em>She opened the window.</em>',
-                'S + linking verb + complement: <em>The soup tastes good.</em>',
-                'S + V + IO + DO (ditransitive): <em>They gave me a gift.</em>'
+                {
+                    label: 'Nội động từ',
+                    pattern: 'S + V',
+                    example: 'The baby cried.'
+                },
+                {
+                    label: 'Ngoại động từ',
+                    pattern: 'S + V + O',
+                    example: 'She opened the window.'
+                },
+                {
+                    label: 'Động từ nối',
+                    pattern: 'S + linking verb + complement',
+                    example: 'The soup tastes good.'
+                },
+                {
+                    label: 'Hai tân ngữ',
+                    pattern: 'S + V + IO + DO',
+                    example: 'They gave me a gift.'
+                }
             ],
             tables: [
                 {
@@ -245,8 +261,16 @@ const grammarSupplementsData = {
         theory: {
             overview: 'Mệnh đề trạng ngữ chỉ thời gian mở đầu bằng <strong>when, before, after, until, as soon as, once, since, while, by the time</strong>. Quy tắc riêng quan trọng nhất: <strong>không dùng will</strong> trong mệnh đề thời gian dù nói về tương lai.',
             formula: [
-                'Mệnh đề chính (tương lai) + mệnh đề thời gian (hiện tại): <em>I’ll call you when I arrive.</em>',
-                'Present perfect + since + quá khứ đơn: <em>She has lived here since she graduated.</em>'
+                {
+                    label: 'Nói về tương lai',
+                    pattern: 'Mệnh đề chính (tương lai) + mệnh đề thời gian (hiện tại)',
+                    example: 'I’ll call you when I arrive.'
+                },
+                {
+                    label: 'Với since',
+                    pattern: 'Present perfect + since + quá khứ đơn',
+                    example: 'She has lived here since she graduated.'
+                }
             ],
             tables: [
                 {
@@ -286,7 +310,28 @@ const grammarSupplementsData = {
         connections: ['relative-clauses', 'pronouns-possessives', 'conjunctions', 'sentence-order'],
         theory: {
             overview: 'Phần nhập môn giúp <strong>chọn đúng từ quan hệ</strong> (who, whom, whose, which, that, where, when, why) trong câu ngắn. Cách ghép hai câu thành mệnh đề quan hệ hoàn chỉnh học ở chủ điểm Relative Clauses.',
-            formula: ['người → who / whom / whose', 'vật, ý → which / that', 'nơi chốn → where · thời gian → when · lý do → why'],
+            formula: [
+                {
+                    label: 'Người',
+                    pattern: 'who / whom / whose'
+                },
+                {
+                    label: 'Vật, ý',
+                    pattern: 'which / that'
+                },
+                {
+                    label: 'Nơi chốn',
+                    pattern: 'where'
+                },
+                {
+                    label: 'Thời gian',
+                    pattern: 'when'
+                },
+                {
+                    label: 'Lý do',
+                    pattern: 'why'
+                }
+            ],
             tables: [
                 {
                     head: ['Từ', 'Dùng cho', 'Ví dụ'],

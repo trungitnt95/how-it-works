@@ -9,10 +9,26 @@ const grammarTensesData = {
         theory: {
             overview: 'Hiện tại đơn nói về điều <strong>ổn định, lặp lại hoặc luôn đúng</strong>: thói quen, sự thật, trạng thái và lịch trình cố định.',
             formula: [
-                '(+) S + V(s/es) + O – thêm -s/-es khi chủ ngữ là he/she/it: <em>I work. She works.</em>',
-                '(−) S + do not / does not + V nguyên mẫu',
-                '(?) Do / Does + S + V nguyên mẫu?',
-                'Sau do/does động từ chính về nguyên mẫu vì do/does đã mang -s/-es.'
+                {
+                    label: '(+) Khẳng định',
+                    pattern: 'S + V(s/es) + O',
+                    example: 'I work. · She works.',
+                    note: 'thêm -s/-es khi chủ ngữ là he/she/it'
+                },
+                {
+                    label: '(−) Phủ định',
+                    pattern: 'S + do not / does not + V',
+                    example: 'She does not work.',
+                    note: 'V nguyên mẫu'
+                },
+                {
+                    label: '(?) Nghi vấn',
+                    pattern: 'Do / Does + S + V?',
+                    example: 'Does she work?'
+                },
+                {
+                    note: 'Sau do/does, động từ chính về nguyên mẫu vì do/does đã mang -s/-es.'
+                }
             ],
             uses: [
                 ['Thói quen, hành động lặp lại', '', 'I walk to school every day. I go to work at 8.'],
@@ -52,7 +68,12 @@ const grammarTensesData = {
         connections: ['present-simple', 'future-simple', 'future-continuous', 'question-forms', 'negatives'],
         theory: {
             overview: 'Hiện tại tiếp diễn nói về việc <strong>đang diễn ra</strong> quanh thời điểm nói, hoặc điều <strong>tạm thời, đang thay đổi</strong>, hay <strong>kế hoạch đã sắp xếp</strong>.',
-            formula: ['S + am / is / are + V-ing', 'Không được bỏ trợ động từ am/is/are.'],
+            formula: [
+                {
+                    pattern: 'S + am / is / are + V-ing',
+                    note: 'không được bỏ trợ động từ am/is/are'
+                }
+            ],
             uses: [
                 ['Đang diễn ra lúc nói', '', 'Listen! The baby is crying. I am studying right now.'],
                 ['Đang diễn ra quanh giai đoạn hiện tại', '', 'I am taking a night class this month.'],
@@ -104,9 +125,20 @@ const grammarTensesData = {
         theory: {
             overview: 'Quá khứ đơn nói về việc <strong>đã xảy ra và kết thúc</strong> trong quá khứ, thường gắn với một mốc thời gian đã đóng. Đây là "xương sống" khi kể chuyện.',
             formula: [
-                '(+) S + V2 / V-ed + O – V-ed với động từ có quy tắc, cột 2 với động từ bất quy tắc',
-                '(−) S + did not + V nguyên mẫu',
-                '(?) Did + S + V nguyên mẫu?'
+                {
+                    label: '(+) Khẳng định',
+                    pattern: 'S + V2 / V-ed + O',
+                    note: 'V-ed với động từ có quy tắc, cột 2 với động từ bất quy tắc'
+                },
+                {
+                    label: '(−) Phủ định',
+                    pattern: 'S + did not + V',
+                    note: 'V nguyên mẫu'
+                },
+                {
+                    label: '(?) Nghi vấn',
+                    pattern: 'Did + S + V?'
+                }
             ],
             uses: [
                 ['Hành động đã kết thúc ở mốc đã đóng', '', 'I visited Da Nang last summer. I met her yesterday.'],
@@ -141,7 +173,12 @@ const grammarTensesData = {
         connections: ['past-simple', 'past-perfect', 'question-forms', 'reported-speech'],
         theory: {
             overview: 'Quá khứ tiếp diễn tạo <strong>phông nền</strong> trong quá khứ: việc đang dở dang tại một mốc quá khứ, hoặc một hành động dài bị hành động khác chen vào.',
-            formula: ['S + was / were + V-ing – was với I/he/she/it, were với you/we/they'],
+            formula: [
+                {
+                    pattern: 'S + was / were + V-ing',
+                    note: 'was với I/he/she/it, were với you/we/they'
+                }
+            ],
             uses: [
                 ['Đang diễn ra tại một mốc quá khứ', '', 'At 9 p.m. yesterday, they were driving home. She was sleeping at midnight.'],
                 [
@@ -186,7 +223,12 @@ const grammarTensesData = {
         connections: ['present-simple', 'past-simple', 'past-perfect', 'modal-verbs'],
         theory: {
             overview: 'Hiện tại hoàn thành <strong>nối quá khứ với hiện tại</strong>: kết quả còn ảnh hưởng bây giờ, kinh nghiệm tính đến nay (không nêu thời điểm), hoặc việc kéo dài từ quá khứ tới hiện tại.',
-            formula: ['S + have / has + V3 (quá khứ phân từ)', 'Không dùng V2 sau have/has.'],
+            formula: [
+                {
+                    pattern: 'S + have / has + V3',
+                    note: 'V3 là quá khứ phân từ; không dùng V2 sau have/has'
+                }
+            ],
             uses: [
                 ['Kinh nghiệm, không nêu mốc', 'thường với ever / never', 'Have you ever tried sushi? She has visited Japan twice.'],
                 [
@@ -239,7 +281,12 @@ const grammarTensesData = {
         connections: ['present-continuous', 'present-perfect', 'future-perfect', 'quantifiers'],
         theory: {
             overview: 'Hiện tại hoàn thành tiếp diễn nhấn <strong>quá trình và thời lượng</strong> của hành động bắt đầu trong quá khứ và kéo dài tới hiện tại (hoặc vừa mới dừng, để lại dấu hiệu).',
-            formula: ['S + have / has + been + V-ing', 'Không được bỏ "been".'],
+            formula: [
+                {
+                    pattern: 'S + have / has + been + V-ing',
+                    note: 'không được bỏ "been"'
+                }
+            ],
             uses: [
                 ['Nhấn đã kéo dài bao lâu', '', 'I have been studying for three hours. We have been waiting for a long time.'],
                 [
@@ -285,7 +332,12 @@ const grammarTensesData = {
         connections: ['past-simple', 'past-continuous', 'reported-speech', 'conditionals'],
         theory: {
             overview: 'Quá khứ hoàn thành là <strong>"quá khứ của quá khứ"</strong>: diễn tả việc xảy ra <strong>trước</strong> một mốc hoặc một hành động khác trong quá khứ.',
-            formula: ['S + had + V3 (dùng cho mọi chủ ngữ)'],
+            formula: [
+                {
+                    pattern: 'S + had + V3',
+                    note: 'dùng cho mọi chủ ngữ'
+                }
+            ],
             uses: [
                 ['Xảy ra trước một mốc/hành động quá khứ', '', 'When I arrived, the movie had started.'],
                 ['Hoàn tất trước deadline quá khứ', '', 'She had finished the report before the meeting began. She had finished by noon.'],
@@ -317,7 +369,12 @@ const grammarTensesData = {
         connections: ['past-continuous', 'past-perfect', 'present-perfect-continuous', 'conditionals'],
         theory: {
             overview: 'Quá khứ hoàn thành tiếp diễn nhấn một <strong>quá trình kéo dài trước một mốc quá khứ</strong>: đến lúc đó, việc này đã diễn ra được bao lâu.',
-            formula: ['S + had been + V-ing', 'Không quên "been".'],
+            formula: [
+                {
+                    pattern: 'S + had been + V-ing',
+                    note: 'không quên "been"'
+                }
+            ],
             uses: [
                 [
                     'Nhấn thời lượng trước mốc quá khứ',
@@ -353,7 +410,17 @@ const grammarTensesData = {
         connections: ['present-simple', 'present-continuous', 'future-continuous', 'modal-verbs', 'conditionals'],
         theory: {
             overview: 'Tương lai đơn với <strong>will</strong> là dạng tương lai trung tính cho quyết định tức thời, lời hứa, dự đoán, đề nghị và cam kết.',
-            formula: ['S + will + V nguyên mẫu (mọi chủ ngữ)', 'Phủ định: will not = won’t'],
+            formula: [
+                {
+                    label: 'Khẳng định',
+                    pattern: 'S + will + V',
+                    note: 'V nguyên mẫu, dùng cho mọi chủ ngữ'
+                },
+                {
+                    label: 'Phủ định',
+                    pattern: 'S + will not (won’t) + V'
+                }
+            ],
             uses: [
                 ['Quyết định ngay lúc nói', '', 'I’ll answer the phone. I will open the door.'],
                 ['Lời hứa, cam kết', '', 'I will call you tonight. I will never forget this.'],
@@ -397,7 +464,12 @@ const grammarTensesData = {
         connections: ['future-simple', 'future-perfect', 'present-continuous', 'future-perfect-continuous'],
         theory: {
             overview: 'Tương lai tiếp diễn diễn tả việc <strong>sẽ đang diễn ra</strong> tại một mốc tương lai – đặt người nghe vào giữa một quá trình, không chỉ nói việc đó sẽ xảy ra.',
-            formula: ['S + will be + V-ing', 'Không quên "be".'],
+            formula: [
+                {
+                    pattern: 'S + will be + V-ing',
+                    note: 'không quên "be"'
+                }
+            ],
             uses: [
                 [
                     'Đang diễn ra tại một mốc tương lai',
@@ -437,7 +509,11 @@ const grammarTensesData = {
         connections: ['future-simple', 'future-continuous', 'present-perfect', 'present-perfect-continuous', 'conditionals'],
         theory: {
             overview: 'Tương lai hoàn thành nói một việc <strong>sẽ hoàn tất trước một mốc tương lai</strong> – nhìn từ tương lai và xác nhận đến lúc đó việc đã xong. Luôn cần một mốc tương lai làm chuẩn.',
-            formula: ['S + will have + V3'],
+            formula: [
+                {
+                    pattern: 'S + will have + V3'
+                }
+            ],
             uses: [
                 ['Hoàn tất trước mốc tương lai', '', 'By next June, I will have graduated. She will have finished the report by 5 p.m.'],
                 ['Deadline, milestone, timeline dự án', '', 'By June, we’ll have launched.'],
@@ -473,7 +549,12 @@ const grammarTensesData = {
         connections: ['future-continuous', 'future-perfect', 'present-perfect-continuous', 'quantifiers'],
         theory: {
             overview: 'Tương lai hoàn thành tiếp diễn nhấn <strong>thời lượng một quá trình sẽ kéo dài được tính đến một mốc tương lai</strong>. Thì hiếm nhưng hữu ích khi mô tả timeline dài, thâm niên, nỗ lực tích lũy.',
-            formula: ['S + will have been + V-ing', 'Không bỏ "been".'],
+            formula: [
+                {
+                    pattern: 'S + will have been + V-ing',
+                    note: 'không bỏ "been"'
+                }
+            ],
             uses: [
                 ['Thời lượng tính đến mốc tương lai', '', 'At 10 p.m., she will have been studying for six hours.'],
                 [
