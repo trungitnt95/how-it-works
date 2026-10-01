@@ -1,4 +1,6 @@
 // Usage deep dives: when to use each grammar point, what to avoid, and what to compare it with.
+// Used by the Mai Lan Hương version (app-mlh.js) to enrich its own accordions. The AI version
+// already folds this content into each topic's `theory` (see modules/theory.js).
 const grammarUsageDeepDiveData = {
     'present-simple': {
         category: 'tenses', cefr: 'A1', title: 'Present Simple',
@@ -2062,24 +2064,3 @@ function renderGrammarUsageDeepDive(entry) {
         </section>
     `;
 }
-
-(function patchGrammarUsageDeepDives() {
-    const targets = [];
-    if (typeof grammarFoundationsData !== 'undefined') targets.push(grammarFoundationsData);
-    if (typeof grammarTensesData !== 'undefined') targets.push(grammarTensesData);
-    if (typeof grammarPronunciationData !== 'undefined') targets.push(grammarPronunciationData);
-    if (typeof grammarPatternsData !== 'undefined') targets.push(grammarPatternsData);
-    if (typeof grammarStructuresData !== 'undefined') targets.push(grammarStructuresData);
-    if (typeof grammarMistakesData !== 'undefined') targets.push(grammarMistakesData);
-    if (typeof grammarSupplementsData !== 'undefined') targets.push(grammarSupplementsData);
-    if (typeof grammarExtrasData !== 'undefined') targets.push(grammarExtrasData);
-    if (typeof grammarComprehensiveData !== 'undefined') targets.push(grammarComprehensiveData);
-
-    targets.forEach(group => {
-        Object.entries(grammarUsageDeepDiveData).forEach(([id, usage]) => {
-            const component = group[id];
-            if (!component || String(component.detail || '').includes('usage-deep-dive')) return;
-            component.detail = `${component.detail || component.simple || ''}${renderGrammarUsageDeepDive(usage)}`;
-        });
-    });
-})();

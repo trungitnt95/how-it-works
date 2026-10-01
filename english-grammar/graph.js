@@ -134,7 +134,7 @@
             <p>${n.desc}</p>
             <h3>Liên quan (${n.degree})</h3>
             <div class="g-nb">${nbs}</div>
-            ${n.topic ? `<a class="g-lesson" href="english-grammar.html#${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
+            ${n.topic ? `<a class="g-lesson" href="english-grammar.html?topic=${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
         panel.querySelectorAll('.g-nb button').forEach(b => b.addEventListener('click', () => select(b.dataset.id)));
     }
 

@@ -904,3 +904,16 @@ hr.divider {
         scroll-margin-top: 92px;
     }
 }
+
+/* AI topics shown in "Complete Coverage" (rendered by english-grammar/modules/theory.js) */
+.grammar-theory table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+.grammar-theory th,
+.grammar-theory td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+.grammar-theory th { background: rgba(88,166,255,0.1); }
+.grammar-theory li { line-height: 1.65; margin-bottom: 0.4rem; }
+.grammar-theory ul,
+.grammar-theory ol { padding-left: 1.4rem; }
+.grammar-theory .theory-wrong { color: #ff7b72; text-decoration: line-through; }
+.grammar-theory .theory-right { color: var(--accent-green); }
+.grammar-theory .theory-mistakes small,
+.grammar-theory .theory-note { color: var(--text-muted); font-size: 0.85rem; }
