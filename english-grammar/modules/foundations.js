@@ -8,7 +8,13 @@ const grammarFoundationsData = {
         connections: ['parts-of-speech', 'question-forms', 'subject-verb-agreement', 'negatives'],
         theory: {
             overview: 'Câu trần thuật tiếng Anh có trật tự khá cố định: <strong>Subject + Verb + Object</strong>, rồi mới đến thông tin phụ (cách thức, nơi chốn, thời gian). So với tiếng Việt, trật tự từ tiếng Anh cố định hơn và nghĩa phụ thuộc nhiều vào vị trí, nên dịch từng chữ rất dễ đặt sai chỗ.',
-            formula: ['Subject + Verb + Object + (manner) + (place) + (time)', '<em>Lan + reads + English books + every night.</em>'],
+            formula: [
+                {
+                    label: 'Khung câu',
+                    pattern: 'Subject + Verb + Object + (manner) + (place) + (time)',
+                    example: 'Lan reads English books every night.'
+                }
+            ],
             tables: [
                 {
                     title: 'Các khung câu cơ bản',
@@ -122,9 +128,21 @@ const grammarFoundationsData = {
         theory: {
             overview: 'Mạo từ cho người nghe biết bạn nói về <strong>một thứ bất kỳ</strong> (a/an), <strong>một thứ đã xác định</strong> (the) hay <strong>nói chung</strong> (không dùng mạo từ – zero article). Mạo từ là một nhóm trong họ <strong>determiners</strong> (từ hạn định) đứng trước danh từ.',
             formula: [
-                'a / an + danh từ đếm được số ít, chưa xác định',
-                'the + danh từ đã xác định hoặc duy nhất',
-                'Ø + danh từ số nhiều / không đếm được khi nói chung'
+                {
+                    label: 'a / an',
+                    pattern: 'a / an + danh từ đếm được số ít',
+                    note: 'chưa xác định'
+                },
+                {
+                    label: 'the',
+                    pattern: 'the + danh từ',
+                    note: 'đã xác định hoặc duy nhất'
+                },
+                {
+                    label: 'Zero article',
+                    pattern: 'Ø + danh từ số nhiều / không đếm được',
+                    note: 'khi nói chung'
+                }
             ],
             tables: [
                 {
@@ -231,9 +249,21 @@ const grammarFoundationsData = {
         theory: {
             overview: '<strong>Tính từ</strong> miêu tả danh từ; <strong>trạng từ</strong> miêu tả động từ, tính từ, trạng từ khác hoặc cả câu. Nói chiếc xe đẹp thì dùng tính từ; nói lái khéo thì dùng trạng từ.',
             formula: [
-                'adjective + noun: <em>a careful driver</em>',
-                'be / seem / look / feel / become + adjective: <em>She looks careful.</em>',
-                'verb (+ object) + adverb: <em>She drives carefully.</em>'
+                {
+                    label: 'Tính từ trước danh từ',
+                    pattern: 'adjective + noun',
+                    example: 'a careful driver'
+                },
+                {
+                    label: 'Sau động từ nối',
+                    pattern: 'be / seem / look / feel / become + adjective',
+                    example: 'She looks careful.'
+                },
+                {
+                    label: 'Trạng từ',
+                    pattern: 'verb (+ object) + adverb',
+                    example: 'She drives carefully.'
+                }
             ],
             tables: [
                 {
@@ -385,7 +415,18 @@ const grammarFoundationsData = {
         connections: ['sentence-order', 'present-simple', 'countable-uncountable', 'quantifiers'],
         theory: {
             overview: 'Động từ phải khớp với <strong>danh từ trung tâm của chủ ngữ</strong>: chủ ngữ số ít → động từ số ít, số nhiều → số nhiều. Chủ ngữ thật không phải lúc nào cũng là danh từ đứng gần động từ nhất.',
-            formula: ['She works. / They work.', '<em>The list of items <strong>is</strong> long.</em> (chủ ngữ thật là <em>list</em>)'],
+            formula: [
+                {
+                    label: 'Hòa hợp',
+                    pattern: 'S số ít + V(s/es) · S số nhiều + V',
+                    example: 'She works. / They work.'
+                },
+                {
+                    label: 'Chủ ngữ thật',
+                    example: 'The list of items <strong>is</strong> long.',
+                    note: 'chủ ngữ thật là <em>list</em>, không phải <em>items</em>'
+                }
+            ],
             tables: [
                 {
                     title: 'Các mẫu hay gặp',

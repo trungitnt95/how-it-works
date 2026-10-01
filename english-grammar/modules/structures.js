@@ -9,8 +9,15 @@ const grammarStructuresData = {
         theory: {
             overview: 'Động từ khuyết thiếu (<strong>can, could, may, might, must, should, would…</strong>) thêm sắc thái cho động từ chính: khả năng, xin phép, lời khuyên, nghĩa vụ, suy đoán, lịch sự.',
             formula: [
-                'S + modal + V nguyên mẫu không to – <em>You should rest more. She can speak three languages.</em>',
-                'Modal không chia theo ngôi: <em>He can</em>, không phải <em>He cans</em>.'
+                {
+                    pattern: 'S + modal + V',
+                    example: 'You should rest more. · She can speak three languages.',
+                    note: 'V nguyên mẫu không to'
+                },
+                {
+                    label: 'Lưu ý',
+                    note: 'Modal không chia theo ngôi: <em>He can</em>, không phải <em>He cans</em>.'
+                }
             ],
             tables: [
                 {
@@ -117,8 +124,14 @@ const grammarStructuresData = {
         theory: {
             overview: 'Câu bị động nhấn <strong>đối tượng, kết quả hoặc quy trình</strong> thay vì người thực hiện. Dùng khi người làm không rõ, không quan trọng, hoặc cần giọng văn khách quan.',
             formula: [
-                'S + be (chia theo thì) + V3 (+ by agent)',
-                'Chuyển đổi: tân ngữ lên làm chủ ngữ → chia <em>be</em> theo thì câu gốc → động từ chính đổi thành V3'
+                {
+                    label: 'Công thức',
+                    pattern: 'S + be (chia theo thì) + V3 (+ by agent)'
+                },
+                {
+                    label: 'Cách chuyển',
+                    note: 'tân ngữ lên làm chủ ngữ → chia <em>be</em> theo thì của câu gốc → động từ chính đổi thành V3'
+                }
             ],
             tables: [
                 {

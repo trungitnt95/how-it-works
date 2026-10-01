@@ -9,9 +9,22 @@ const grammarPatternsData = {
         theory: {
             overview: 'Tiếng Anh không chỉ thêm dấu hỏi: thường phải <strong>đảo trợ động từ</strong> (do/does/did, be, modal) lên trước chủ ngữ.',
             formula: [
-                'Yes/No: Auxiliary / be / modal + S + V? – <em>Do you like coffee? Is she ready? Can you swim?</em>',
-                'Wh-: Wh-word + auxiliary + S + V? – <em>Where did she go?</em>',
-                'Subject question: Wh-word (= chủ ngữ) + V? – <em>Who called you?</em> (không dùng do)'
+                {
+                    label: 'Yes/No',
+                    pattern: 'Auxiliary / be / modal + S + V?',
+                    example: 'Do you like coffee? · Is she ready? · Can you swim?'
+                },
+                {
+                    label: 'Wh-',
+                    pattern: 'Wh-word + auxiliary + S + V?',
+                    example: 'Where did she go?'
+                },
+                {
+                    label: 'Wh- là chủ ngữ',
+                    pattern: 'Wh-word (= chủ ngữ) + V?',
+                    example: 'Who called you?',
+                    note: 'không dùng do'
+                }
             ],
             uses: [
                 ['Trình tự an toàn', 'chọn thì → chọn trợ động từ → động từ chính về nguyên mẫu', 'Where did she go?'],
@@ -99,8 +112,15 @@ const grammarPatternsData = {
         theory: {
             overview: 'Liên từ nối ý và cho biết <strong>quan hệ logic</strong> giữa chúng: thêm ý, đối lập, nguyên nhân, kết quả, điều kiện, mục đích…',
             formula: [
-                'Clause, + coordinating conjunction + clause',
-                'Subordinating conjunction + clause, + main clause (hoặc main clause + subordinating clause)'
+                {
+                    label: 'Đẳng lập',
+                    pattern: 'Clause, + coordinating conjunction + clause'
+                },
+                {
+                    label: 'Phụ thuộc',
+                    pattern: 'Subordinating conjunction + clause, + main clause',
+                    note: 'hoặc main clause + subordinating clause'
+                }
             ],
             tables: [
                 {

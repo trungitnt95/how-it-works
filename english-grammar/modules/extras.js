@@ -13,8 +13,16 @@ const grammarExtrasData = {
         theory: {
             overview: 'Muốn nói <strong>"có cái gì / ai đó"</strong> (sự tồn tại), tiếng Anh dùng <strong>There + be + N</strong>. <em>There</em> ở đây không có nghĩa "ở đó" mà là <strong>chủ ngữ giả</strong>; động từ chia theo danh từ thật đứng sau be.',
             formula: [
-                'There is + danh từ số ít / không đếm được: <em>There is a book on the table. There is some milk in the fridge.</em>',
-                'There are + danh từ số nhiều: <em>There are many students in the class.</em>'
+                {
+                    label: 'Số ít / không đếm được',
+                    pattern: 'There is + N',
+                    example: 'There is a book on the table. · There is some milk in the fridge.'
+                },
+                {
+                    label: 'Số nhiều',
+                    pattern: 'There are + N số nhiều',
+                    example: 'There are many students in the class.'
+                }
             ],
             tables: [
                 {
@@ -67,7 +75,12 @@ const grammarExtrasData = {
         connections: ['existential-there', 'sentence-order', 'noun-clauses', 'cleft-sentences'],
         theory: {
             overview: 'Tiếng Anh không để câu thiếu chủ ngữ. Khi không có chủ thể thật (thời tiết, thời gian, khoảng cách, đánh giá), ta dùng <strong>It giả</strong> – một chủ ngữ ngữ pháp "rỗng", không thay cho danh từ nào.',
-            formula: ['It + be + (adj) + (to V / that-clause)'],
+            formula: [
+                {
+                    pattern: 'It + be + (adj) + (to V / that-clause)',
+                    example: 'It is important to study.'
+                }
+            ],
             tables: [
                 {
                     head: ['Mục đích', 'Mẫu', 'Ví dụ'],
@@ -118,8 +131,16 @@ const grammarExtrasData = {
         theory: {
             overview: '<strong>Đại từ phản thân</strong> (myself, yourself…) dùng khi hành động quay lại chính chủ ngữ. <strong>Đại từ tương hỗ</strong> (each other, one another) dùng khi các bên tác động qua lại.',
             formula: [
-                'S + V + reflexive: <em>I cut myself while cooking.</em>',
-                'S + V + each other / one another: <em>They love each other. The students helped one another.</em>'
+                {
+                    label: 'Phản thân',
+                    pattern: 'S + V + reflexive',
+                    example: 'I cut myself while cooking.'
+                },
+                {
+                    label: 'Tương hỗ',
+                    pattern: 'S + V + each other / one another',
+                    example: 'They love each other. · The students helped one another.'
+                }
             ],
             tables: [
                 {
@@ -359,8 +380,14 @@ const grammarExtrasData = {
         theory: {
             overview: 'Khi nhiều tính từ đứng trước một danh từ, tiếng Anh có trật tự gần như cố định – <strong>OSASCOMP</strong>. Sai trật tự nghe rất "lạ" với người bản xứ.',
             formula: [
-                'Opinion → Size → Age → Shape → Colour → Origin → Material → Purpose → NOUN',
-                '<em>a beautiful big new white wooden table; a lovely little old round black Italian leather riding boot</em>'
+                {
+                    label: 'Thứ tự',
+                    pattern: 'Opinion → Size → Age → Shape → Colour → Origin → Material → Purpose → NOUN'
+                },
+                {
+                    label: 'Ví dụ',
+                    example: 'a beautiful big new white wooden table · a lovely little old round black Italian leather riding boot'
+                }
             ],
             tables: [
                 {
@@ -583,8 +610,16 @@ const grammarExtrasData = {
         theory: {
             overview: 'Câu hỏi đuôi là câu hỏi ngắn gắn cuối câu trần thuật để <strong>xác nhận thông tin</strong>, giữ tương tác hoặc thể hiện kỳ vọng. Quy tắc cốt lõi: <strong>đảo polarity</strong> – câu khẳng định đi với tag phủ định và ngược lại.',
             formula: [
-                'Câu khẳng định, + trợ động từ phủ định + đại từ? – <em>You’re a doctor, aren’t you?</em>',
-                'Câu phủ định, + trợ động từ khẳng định + đại từ? – <em>She doesn’t smoke, does she?</em>'
+                {
+                    label: 'Câu khẳng định',
+                    pattern: 'Câu khẳng định, + trợ động từ phủ định + đại từ?',
+                    example: 'You’re a doctor, aren’t you?'
+                },
+                {
+                    label: 'Câu phủ định',
+                    pattern: 'Câu phủ định, + trợ động từ khẳng định + đại từ?',
+                    example: 'She doesn’t smoke, does she?'
+                }
             ],
             tables: [
                 {
@@ -686,8 +721,16 @@ const grammarExtrasData = {
         theory: {
             overview: 'Câu cảm thán bộc lộ ngạc nhiên, vui mừng, ngưỡng mộ, tức giận. Hai khung phổ biến: <strong>What + cụm danh từ</strong> và <strong>How + tính từ / trạng từ</strong>.',
             formula: [
-                'What (a/an) + (adj) + N (+ S + V)! – <em>What a beautiful day! What lovely flowers (these are)!</em>',
-                'How + adj/adv (+ S + V)! – <em>How interesting! How fast he runs!</em>'
+                {
+                    label: 'What',
+                    pattern: 'What (a/an) + (adj) + N (+ S + V)!',
+                    example: 'What a beautiful day! · What lovely flowers (these are)!'
+                },
+                {
+                    label: 'How',
+                    pattern: 'How + adj/adv (+ S + V)!',
+                    example: 'How interesting! · How fast he runs!'
+                }
             ],
             tables: [
                 {
@@ -768,8 +811,10 @@ const grammarExtrasData = {
         theory: {
             overview: 'Cấu trúc so sánh kép <strong>"càng… càng…"</strong> cho biết hai đại lượng thay đổi tỉ lệ với nhau.',
             formula: [
-                'The + comparative + S + V, the + comparative + S + V',
-                '<em>The harder you study, the better you score. The older I get, the wiser I become.</em>'
+                {
+                    pattern: 'The + comparative + S + V, the + comparative + S + V',
+                    example: 'The harder you study, the better you score. · The older I get, the wiser I become.'
+                }
             ],
             tables: [
                 {
@@ -1133,9 +1178,22 @@ const grammarExtrasData = {
         theory: {
             overview: 'Thức giả định (mandative subjunctive) dùng <strong>V nguyên mẫu cho mọi ngôi</strong> trong that-clause sau các động từ / tính từ chỉ yêu cầu, đề nghị, tầm quan trọng. Phổ biến ở Anh-Mỹ và văn trang trọng, pháp lý.',
             formula: [
-                'S + suggest / insist / … + that + S + V nguyên mẫu – <em>I suggest that he be on time. The doctor recommended that he stop smoking.</em>',
-                'It is essential / vital / important + that + S + V nguyên mẫu – <em>It is essential that she attend the meeting.</em>',
-                'Phủ định: not + V nguyên mẫu – <em>I suggest he not leave yet.</em>'
+                {
+                    label: 'Sau động từ',
+                    pattern: 'S + suggest / insist / … + that + S + V',
+                    example: 'I suggest that he be on time. · The doctor recommended that he stop smoking.',
+                    note: 'V nguyên mẫu cho mọi ngôi'
+                },
+                {
+                    label: 'Sau tính từ',
+                    pattern: 'It is essential / vital / important + that + S + V',
+                    example: 'It is essential that she attend the meeting.'
+                },
+                {
+                    label: 'Phủ định',
+                    pattern: 'not + V',
+                    example: 'I suggest he not leave yet.'
+                }
             ],
             tables: [
                 {
@@ -1337,8 +1395,15 @@ const grammarExtrasData = {
         theory: {
             overview: '<strong>Modal + have + V3</strong> nói về <strong>quá khứ</strong>: suy đoán điều đã xảy ra, tiếc nuối, chỉ trích.',
             formula: [
-                'modal + have + V3 – <em>You must have been tired. I should have called her. He might have forgotten.</em>',
-                'Tiếp diễn: modal + have been + V-ing – <em>You must have been waiting for hours!</em>'
+                {
+                    pattern: 'modal + have + V3',
+                    example: 'You must have been tired. · I should have called her. · He might have forgotten.'
+                },
+                {
+                    label: 'Dạng tiếp diễn',
+                    pattern: 'modal + have been + V-ing',
+                    example: 'You must have been waiting for hours!'
+                }
             ],
             tables: [
                 {
@@ -1374,7 +1439,18 @@ const grammarExtrasData = {
         connections: ['verbs-overview', 'sentence-order', 'passive-voice', 'pronouns-possessives'],
         theory: {
             overview: 'Một số động từ (give, send, tell, show, buy, make…) có hai tân ngữ: <strong>tân ngữ gián tiếp</strong> (IO – người nhận / hưởng lợi) và <strong>tân ngữ trực tiếp</strong> (DO – vật nhận hành động): <em>She gave me (IO) a letter (DO).</em>',
-            formula: ['S + V + IO + DO – <em>She gave me a book.</em>', 'S + V + DO + to / for + IO – <em>She gave a book to me.</em>'],
+            formula: [
+                {
+                    label: 'IO trước DO',
+                    pattern: 'S + V + IO + DO',
+                    example: 'She gave me a book.'
+                },
+                {
+                    label: 'DO trước IO',
+                    pattern: 'S + V + DO + to / for + IO',
+                    example: 'She gave a book to me.'
+                }
+            ],
             tables: [
                 {
                     head: ['Giới từ', 'Nghĩa', 'Động từ điển hình'],

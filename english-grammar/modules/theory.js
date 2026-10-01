@@ -3,8 +3,9 @@
 //   overview → formula → tables → uses → sections → signals → compare → mistakes → advanced → tip
 // Shape of component.theory (every key optional except overview):
 //   overview: 'html'                              – 1–2 câu: là gì, dùng khi nào
-//   formulaTitle: 'Cấu trúc'                      – đổi tiêu đề mục công thức (mặc định "Công thức")
-//   formula: ['line', ...]                        – mỗi dòng một công thức
+//   formula: [{ label?, pattern?, example?, note? }, ...] – mỗi hàng một công thức; pattern là công thức thuần
+//                                                   (S + V + O…), example/note nằm riêng bên dưới. Chuỗi thường
+//                                                   vẫn được chấp nhận và hiển thị như ghi chú.
 //   tables: [{ title?, head: [...], rows: [[...]], note? }]
 //   uses: [['Nhãn', 'giải thích', 'Example.'], ...] – giải thích/ví dụ có thể để ''
 //   sections: [{ title: '🔤 ...', items: ['...'] }] – mục riêng của chủ điểm (quy tắc chính tả, bảng phụ...)
@@ -17,10 +18,29 @@ function renderGrammarTheory(t) {
     if (!t) return '';
     const list = (items, tag = 'ul', cls = '') => `<${tag}${cls ? ` class="${cls}"` : ''}>${items.map(item => `<li>${item}</li>`).join('')}</${tag}>`;
     const h3 = title => `<h3>${title}</h3>`;
+    const esc = text => String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    // Highlight grammar slots (S, V, O, V-ing, adj…) so the sentence frame stands out in a pattern.
+    const SLOT = /(?<![\w-])(V\(s\/es\)|V-ing|V-ed|V2|V3|IO|DO|AUX|Aux|adj|adv|S|O|C|N|V)(?![\w(])/g;
+    // Words never break mid-token (e.g. "adj-est"); lines wrap only at spaces.
+    const pattern = text => esc(text).split(' ')
+        .map(word => `<span class="nb">${word.replace(SLOT, '<span class="slot">$1</span>')}</span>`).join(' ');
+    const formulaRow = row => {
+        if (typeof row === 'string') return `<div class="formula-row"><div class="formula-remark">${row}</div></div>`;
+        return `<div class="formula-row">
+            ${row.label ? `<div class="formula-label">${row.label}</div>` : ''}
+            ${row.pattern ? `<code class="formula-pattern">${pattern(row.pattern)}</code>` : ''}
+            ${row.example ? `<div class="formula-example">${row.example}</div>` : ''}
+            ${row.note ? `<div class="formula-remark">${row.note}</div>` : ''}
+        </div>`;
+    };
+    const PATTERN_COLUMN = /^(Công thức|Mẫu|Cấu trúc)$/i;
     const table = tb => `
         ${tb.title ? `<h4>${tb.title}</h4>` : ''}
         <table><thead><tr>${tb.head.map(cell => `<th>${cell}</th>`).join('')}</tr></thead>
-        <tbody>${tb.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table>
+        <tbody>${tb.rows.map(row => `<tr>${row.map((cell, i) =>
+            PATTERN_COLUMN.test(tb.head[i]) && !/[<&]/.test(cell)
+                ? `<td><code class="formula-pattern inline">${pattern(cell)}</code></td>`
+                : `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table>
         ${tb.note ? `<p class="theory-note">${tb.note}</p>` : ''}`;
     const use = ([label, desc, example]) =>
         `<strong>${label}</strong>${desc ? ` – ${desc}` : ''}${example ? `<br><em>${example}</em>` : ''}`;
@@ -30,7 +50,7 @@ function renderGrammarTheory(t) {
         : item;
 
     const out = [h3('🎯 Tổng quan'), `<p>${t.overview}</p>`];
-    if (t.formula && t.formula.length) out.push(h3(`🧮 ${t.formulaTitle || 'Công thức'}`), `<div class="formula-box">${t.formula.join('<br>')}</div>`);
+    if (t.formula && t.formula.length) out.push(h3('🧮 Công thức'), `<div class="formula-list">${t.formula.map(formulaRow).join('')}</div>`);
     (t.tables || []).forEach(tb => out.push(table(tb)));
     if (t.uses && t.uses.length) out.push(h3('🧭 Cách dùng'), list(t.uses.map(use), 'ol', 'theory-uses'));
     (t.sections || []).forEach(sec => {
