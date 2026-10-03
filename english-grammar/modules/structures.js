@@ -19,20 +19,13 @@ const grammarStructuresData = {
                     note: 'Modal không chia theo ngôi: <em>He can</em>, không phải <em>He cans</em>.'
                 }
             ],
-            tables: [
-                {
-                    head: ['Chức năng', 'Modal', 'Ví dụ'],
-                    rows: [
-                        ['Khả năng (ability)', 'can / could / be able to', '<em>She can speak three languages.</em>'],
-                        ['Xin phép (permission)', 'can / could / may', '<em>Can I sit here? May I come in?</em>'],
-                        ['Khả năng xảy ra (possibility)', 'may / might / could', '<em>It might rain.</em>'],
-                        ['Bắt buộc (obligation)', 'must / have to / need to', '<em>You must wear a helmet.</em>'],
-                        ['Lời khuyên', 'should / ought to / had better', '<em>You should sleep earlier.</em>'],
-                        ['Đề nghị / yêu cầu lịch sự', 'can / could / would / will', '<em>Would you like some tea? Could you help me?</em>']
-                    ]
-                }
-            ],
             uses: [
+                ['Khả năng (ability)', '<strong>can / could / be able to</strong>', 'She can speak three languages.'],
+                ['Xin phép (permission)', '<strong>can / could / may</strong>', 'Can I sit here? May I come in?'],
+                ['Khả năng xảy ra (possibility)', '<strong>may / might / could</strong>', 'It might rain.'],
+                ['Bắt buộc (obligation)', '<strong>must / have to / need to</strong>', 'You must wear a helmet.'],
+                ['Lời khuyên', '<strong>should / ought to / had better</strong>', 'You should sleep earlier.'],
+                ['Đề nghị / yêu cầu lịch sự', '<strong>can / could / would / will</strong>', 'Would you like some tea? Could you help me?'],
                 [
                     'Suy đoán hiện tại theo mức độ chắc chắn',
                     '<strong>must</strong> (gần như chắc chắn) > <strong>may</strong> > <strong>might</strong>; <strong>can’t</strong> = gần như chắc chắn không',
