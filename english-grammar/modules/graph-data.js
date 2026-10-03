@@ -9,6 +9,14 @@ const grammarGraphCategories = {
     agreement: { label: 'Hòa hợp & quy tắc', color: '#f05d5e' }
 };
 
+// Loại liên kết: kiểu nét + màu. 'sym' là quan hệ hai chiều (mũi tên ở cả hai đầu).
+const grammarGraphLinkTypes = {
+    req: { label: 'Bắt buộc', hint: 'A luôn phải có B', color: '#f0883e', dash: '', width: 1.5, both: false },
+    opt: { label: 'Tùy chọn', hint: 'A có thể có B', color: '#e3b341', dash: '6 4', width: 1.5, both: false },
+    is: { label: 'Phân loại / vai trò', hint: 'A là một dạng hoặc làm vai trò B', color: '#56d4dd', dash: '1.5 4', width: 1.9, both: false },
+    sym: { label: 'Đối xứng / so sánh', hint: 'A và B đi cùng hoặc đối chiếu nhau', color: '#bc8cff', dash: '', width: 1, both: true }
+};
+
 const grammarGraphData = {
     nodes: [
         // Sentence parts
@@ -82,45 +90,45 @@ const grammarGraphData = {
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
     links: [
-        ['sentence', 'subject', 'gồm'], ['sentence', 'predicate', 'gồm'], ['sentence', 'word-order', 'theo'],
-        ['sentence', 'sentence-type', 'phân loại'], ['sentence-type', 'question', 'gồm'], ['sentence-type', 'imperative', 'gồm'],
-        ['question', 'auxiliary', 'đảo'], ['negation', 'auxiliary', 'dùng'], ['imperative', 'subject', 'lược bỏ'],
-        ['expletive', 'subject', 'đóng vai'], ['word-order', 'subject', 'S'], ['word-order', 'verb', 'V'], ['word-order', 'object', 'O'],
+        ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'], ['sentence', 'word-order', 'theo', 'req'],
+        ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'],
+        ['question', 'auxiliary', 'đảo', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'lược bỏ', 'opt'],
+        ['expletive', 'subject', 'đóng vai', 'is'], ['word-order', 'subject', 'S', 'req'], ['word-order', 'verb', 'V', 'req'], ['word-order', 'object', 'O', 'req'],
 
-        ['subject', 'noun', 'là'], ['subject', 'pronoun', 'là'], ['subject', 'noun-phrase', 'là'], ['subject', 'noun-clause', 'là'],
-        ['subject', 'verb', 'hòa hợp với'], ['subject', 'sv-agreement', 'quy tắc'], ['subject', 'gerund', 'là'],
-        ['predicate', 'verb', 'chứa'], ['predicate', 'object', 'có thể có'], ['predicate', 'complement', 'có thể có'], ['predicate', 'adverbial', 'có thể có'],
-        ['object', 'direct-object', 'gồm'], ['object', 'indirect-object', 'gồm'], ['object', 'noun', 'là'], ['object', 'pronoun', 'là'], ['object', 'case', 'ở cách tân'],
-        ['object', 'noun-phrase', 'là'], ['object', 'noun-clause', 'là'], ['object', 'gerund', 'là'],
-        ['transitive', 'object', 'cần'], ['intransitive', 'object', 'không có'], ['linking', 'complement', 'cần'],
-        ['complement', 'adjective', 'là'], ['complement', 'noun', 'là'], ['complement', 'noun-phrase', 'là'], ['complement', 'noun-clause', 'là'],
-        ['adverbial', 'adverb', 'là'], ['adverbial', 'prep-phrase', 'là'], ['adverbial', 'adverbial-clause', 'là'],
+        ['subject', 'noun', 'là', 'is'], ['subject', 'pronoun', 'là', 'is'], ['subject', 'noun-phrase', 'là', 'is'], ['subject', 'noun-clause', 'là', 'is'],
+        ['subject', 'verb', 'hòa hợp với', 'req'], ['subject', 'sv-agreement', 'quy tắc', 'req'], ['subject', 'gerund', 'là', 'is'],
+        ['predicate', 'verb', 'chứa', 'req'], ['predicate', 'object', 'có thể có', 'opt'], ['predicate', 'complement', 'có thể có', 'opt'], ['predicate', 'adverbial', 'có thể có', 'opt'],
+        ['object', 'direct-object', 'gồm', 'is'], ['object', 'indirect-object', 'gồm', 'is'], ['object', 'noun', 'là', 'is'], ['object', 'pronoun', 'là', 'is'], ['object', 'case', 'ở cách tân', 'req'],
+        ['object', 'noun-phrase', 'là', 'is'], ['object', 'noun-clause', 'là', 'is'], ['object', 'gerund', 'là', 'is'],
+        ['transitive', 'object', 'cần', 'req'], ['intransitive', 'object', 'không có', 'opt'], ['linking', 'complement', 'cần', 'req'],
+        ['complement', 'adjective', 'là', 'is'], ['complement', 'noun', 'là', 'is'], ['complement', 'noun-phrase', 'là', 'is'], ['complement', 'noun-clause', 'là', 'is'],
+        ['adverbial', 'adverb', 'là', 'is'], ['adverbial', 'prep-phrase', 'là', 'is'], ['adverbial', 'adverbial-clause', 'là', 'is'],
 
-        ['noun', 'plural', 'có'], ['noun', 'countable', 'phân loại'], ['noun', 'determiner', 'đi với'], ['noun', 'adjective', 'được bổ nghĩa bởi'],
-        ['noun', 'noun-phrase', 'lõi của'], ['noun', 'number', 'có'], ['countable', 'quantifier', 'chọn'], ['determiner', 'article', 'gồm'],
-        ['determiner', 'quantifier', 'gồm'], ['determiner', 'possessive', 'gồm'],
-        ['pronoun', 'noun', 'thay thế'], ['pronoun', 'possessive', 'có dạng'], ['pronoun', 'person', 'có'], ['pronoun', 'case', 'có'],
-        ['pronoun', 'pronoun-reference', 'cần'], ['possessive', 'case', 'là'],
-        ['verb', 'tense', 'chia'], ['verb', 'transitive', 'gồm'], ['verb', 'intransitive', 'gồm'], ['verb', 'linking', 'gồm'], ['verb', 'stative', 'gồm'],
-        ['verb', 'auxiliary', 'đi với'], ['verb', 'modal', 'đi với'], ['verb', 'verb-phrase', 'lõi của'], ['verb', 'adverb', 'được bổ nghĩa bởi'],
-        ['verb', 'phrasal-verb', 'tạo'], ['verb', 'voice', 'có'], ['verb', 'mood', 'có'], ['verb', 'infinitive', 'dạng'], ['verb', 'gerund', 'dạng'], ['verb', 'participle', 'dạng'],
-        ['adjective', 'adverb', 'chuyển thành'], ['adjective', 'comparison', 'có'], ['adverb', 'comparison', 'có'],
-        ['preposition', 'prep-phrase', 'tạo'], ['preposition', 'noun', 'đi với'], ['preposition', 'phrasal-verb', 'trong'],
-        ['preposition', 'noun-phrase', 'theo sau là'], ['preposition', 'noun-clause', 'theo sau là'], ['preposition', 'gerund', 'theo sau là'],
-        ['conjunction', 'clause', 'nối'], ['conjunction', 'dependent', 'mở đầu'], ['conjunction', 'parallelism', 'đòi hỏi'],
+        ['noun', 'plural', 'có', 'opt'], ['noun', 'countable', 'phân loại', 'is'], ['noun', 'determiner', 'đi với', 'sym'], ['noun', 'adjective', 'được bổ nghĩa bởi', 'opt'],
+        ['noun', 'noun-phrase', 'lõi của', 'req'], ['noun', 'number', 'có', 'req'], ['countable', 'quantifier', 'chọn', 'opt'], ['determiner', 'article', 'gồm', 'is'],
+        ['determiner', 'quantifier', 'gồm', 'is'], ['determiner', 'possessive', 'gồm', 'is'],
+        ['pronoun', 'noun', 'thay thế', 'req'], ['pronoun', 'possessive', 'có dạng', 'is'], ['pronoun', 'person', 'có', 'req'], ['pronoun', 'case', 'có', 'req'],
+        ['pronoun', 'pronoun-reference', 'cần', 'req'], ['possessive', 'case', 'là', 'is'],
+        ['verb', 'tense', 'chia', 'req'], ['verb', 'transitive', 'gồm', 'is'], ['verb', 'intransitive', 'gồm', 'is'], ['verb', 'linking', 'gồm', 'is'], ['verb', 'stative', 'gồm', 'is'],
+        ['verb', 'auxiliary', 'đi với', 'sym'], ['verb', 'modal', 'đi với', 'sym'], ['verb', 'verb-phrase', 'lõi của', 'req'], ['verb', 'adverb', 'được bổ nghĩa bởi', 'opt'],
+        ['verb', 'phrasal-verb', 'tạo', 'opt'], ['verb', 'voice', 'có', 'req'], ['verb', 'mood', 'có', 'req'], ['verb', 'infinitive', 'dạng', 'is'], ['verb', 'gerund', 'dạng', 'is'], ['verb', 'participle', 'dạng', 'is'],
+        ['adjective', 'adverb', 'chuyển thành', 'opt'], ['adjective', 'comparison', 'có', 'opt'], ['adverb', 'comparison', 'có', 'opt'],
+        ['preposition', 'prep-phrase', 'tạo', 'opt'], ['preposition', 'noun', 'đi với', 'sym'], ['preposition', 'phrasal-verb', 'trong', 'opt'],
+        ['preposition', 'noun-phrase', 'theo sau là', 'is'], ['preposition', 'noun-clause', 'theo sau là', 'is'], ['preposition', 'gerund', 'theo sau là', 'is'],
+        ['conjunction', 'clause', 'nối', 'req'], ['conjunction', 'dependent', 'mở đầu', 'opt'], ['conjunction', 'parallelism', 'đòi hỏi', 'opt'],
 
-        ['tense', 'aspect', 'kết hợp'], ['tense', 'auxiliary', 'tạo bởi'], ['aspect', 'auxiliary', 'tạo bởi'], ['aspect', 'participle', 'dùng'], ['aspect', 'stative', 'hạn chế'],
-        ['modal', 'auxiliary', 'là'], ['modal', 'infinitive', 'theo sau'], ['voice', 'auxiliary', 'dùng be'], ['voice', 'participle', 'dùng V3'], ['voice', 'transitive', 'cần'],
-        ['mood', 'conditional', 'dùng trong'], ['conditional', 'tense', 'phối hợp'], ['conditional', 'modal', 'dùng'], ['conditional', 'adverbial-clause', 'là'],
-        ['infinitive', 'gerund', 'đối chiếu'], ['participle', 'adjective', 'làm'], ['gerund', 'noun', 'làm'],
+        ['tense', 'aspect', 'kết hợp', 'sym'], ['tense', 'auxiliary', 'tạo bởi', 'opt'], ['aspect', 'auxiliary', 'tạo bởi', 'req'], ['aspect', 'participle', 'dùng', 'req'], ['aspect', 'stative', 'hạn chế', 'opt'],
+        ['modal', 'auxiliary', 'là', 'is'], ['modal', 'infinitive', 'theo sau', 'req'], ['voice', 'auxiliary', 'dùng be', 'req'], ['voice', 'participle', 'dùng V3', 'req'], ['voice', 'transitive', 'cần', 'req'],
+        ['mood', 'conditional', 'dùng trong', 'opt'], ['conditional', 'tense', 'phối hợp', 'req'], ['conditional', 'modal', 'dùng', 'opt'], ['conditional', 'adverbial-clause', 'là', 'is'],
+        ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
 
-        ['phrase', 'noun-phrase', 'gồm'], ['phrase', 'verb-phrase', 'gồm'], ['phrase', 'prep-phrase', 'gồm'], ['phrase', 'clause', 'khác'],
-        ['clause', 'subject', 'cần'], ['clause', 'verb', 'cần'], ['clause', 'independent', 'gồm'], ['clause', 'dependent', 'gồm'], ['sentence', 'clause', 'gồm'],
-        ['dependent', 'relative-clause', 'gồm'], ['dependent', 'noun-clause', 'gồm'], ['dependent', 'adverbial-clause', 'gồm'],
-        ['relative-clause', 'noun', 'bổ nghĩa'], ['relative-clause', 'pronoun', 'dùng who/which'], ['noun-clause', 'reported-speech', 'dùng trong'],
-        ['reported-speech', 'tense', 'lùi thì'], ['reported-speech', 'pronoun', 'đổi'], ['noun-phrase', 'determiner', 'chứa'], ['noun-phrase', 'adjective', 'chứa'],
+        ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['phrase', 'clause', 'khác', 'sym'],
+        ['clause', 'subject', 'cần', 'req'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'gồm', 'req'],
+        ['dependent', 'relative-clause', 'gồm', 'is'], ['dependent', 'noun-clause', 'gồm', 'is'], ['dependent', 'adverbial-clause', 'gồm', 'is'],
+        ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'pronoun', 'dùng who/which', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
+        ['reported-speech', 'tense', 'lùi thì', 'opt'], ['reported-speech', 'pronoun', 'đổi', 'opt'], ['noun-phrase', 'determiner', 'chứa', 'opt'], ['noun-phrase', 'adjective', 'chứa', 'opt'],
 
-        ['sv-agreement', 'verb', 'ảnh hưởng'], ['sv-agreement', 'number', 'dựa vào'], ['sv-agreement', 'person', 'dựa vào'], ['sv-agreement', 'noun', 'với danh từ tập hợp'],
-        ['parallelism', 'gerund', 'ví dụ'], ['parallelism', 'infinitive', 'ví dụ']
+        ['sv-agreement', 'verb', 'ảnh hưởng', 'req'], ['sv-agreement', 'number', 'dựa vào', 'req'], ['sv-agreement', 'person', 'dựa vào', 'req'], ['sv-agreement', 'noun', 'với danh từ tập hợp', 'opt'],
+        ['parallelism', 'gerund', 'ví dụ', 'is'], ['parallelism', 'infinitive', 'ví dụ', 'is']
     ]
 };
