@@ -27,6 +27,7 @@ body {
 #graphSearch { flex: 1 1 220px; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); font: inherit; }
 .g-legend { display: flex; gap: 6px; flex-wrap: wrap; }
 .g-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; font-size: .8rem; cursor: pointer; }
+.g-chip svg { flex: none; }
 .g-chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .g-chip.off { opacity: .4; }
 .g-depth { display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--muted); }
@@ -51,11 +52,11 @@ body {
 .g-lesson { display: inline-block; margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: var(--accent); color: #0d1117; text-decoration: none; font-weight: 600; font-size: .9rem; }
 
 /* graph marks */
-.link { stroke: #8b949e; stroke-opacity: .35; stroke-width: 1.2; }
+.link { stroke-opacity: .55; }
 .node circle { stroke: #0d1117; stroke-width: 1.5; cursor: pointer; }
 .node text { fill: var(--text); font-size: 11px; pointer-events: none; paint-order: stroke; stroke: #0d1117; stroke-width: 3px; }
 .dim { opacity: .08; }
-.link.hl { stroke: var(--accent); stroke-opacity: .9; stroke-width: 1.8; }
+.link.hl { stroke-opacity: 1; stroke-width: 2.6; }  /* keeps its type colour; thicker line also scales the arrowhead */
 .node.sel circle { stroke: #fff; stroke-width: 3; }
 .node.match circle { stroke: #fff; stroke-width: 3; }
 .elabel { fill: var(--muted); font-size: 9px; pointer-events: none; paint-order: stroke; stroke: #0d1117; stroke-width: 3px; }
