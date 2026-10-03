@@ -2,29 +2,31 @@
     const cats = grammarGraphCategories;
     const nodes = grammarGraphData.nodes.map(n => ({ ...n }));
     const byId = new Map(nodes.map(n => [n.id, n]));
+    const types = grammarGraphLinkTypes;
     const links = grammarGraphData.links
         .filter(([s, t]) => byId.has(s) && byId.has(t))
-        .map(([source, target, label]) => ({ source, target, label }));
+        .map(([source, target, label, type]) => ({ source, target, label, type }));
 
     const adj = new Map(nodes.map(n => [n.id, new Set()]));
     links.forEach(l => { adj.get(l.source).add(l.target); adj.get(l.target).add(l.source); });
     nodes.forEach(n => { n.degree = adj.get(n.id).size; });
     const radius = n => 5 + Math.sqrt(n.degree) * 2.6;
 
-    // Labels that describe a symmetric relation get no arrowhead.
-    const UNDIRECTED = new Set(['khác', 'đối chiếu', 'kết hợp', 'đi với']);
-    links.forEach(l => { l.directed = !UNDIRECTED.has(l.label); });
-
     const svg = d3.select('#graph');
     const defs = svg.append('defs');
-    [['arrow', '#8b949e', 0.75], ['arrow-hl', '#58a6ff', 1]].forEach(([id, color, opacity]) => {
-        defs.append('marker').attr('id', id).attr('viewBox', '0 -5 10 10').attr('refX', 10).attr('refY', 0)
-            .attr('markerWidth', 7).attr('markerHeight', 7).attr('orient', 'auto')
-            .append('path').attr('d', 'M0,-4.5L10,0L0,4.5Z').attr('fill', color).attr('fill-opacity', opacity);
+    // one arrowhead per link type; orient auto-start-reverse lets the same marker serve both ends of a two-way link
+    Object.entries(types).forEach(([key, t]) => {
+        defs.append('marker').attr('id', 'arrow-' + key).attr('viewBox', '0 -5 10 10').attr('refX', 10).attr('refY', 0)
+            .attr('markerWidth', 7).attr('markerHeight', 7).attr('orient', 'auto-start-reverse')
+            .append('path').attr('d', 'M0,-4.5L10,0L0,4.5Z').attr('fill', t.color);
     });
     const layer = svg.append('g');
-    const linkSel = layer.append('g').selectAll('line').data(links).join('line').attr('class', 'link')
-        .attr('marker-end', d => d.directed ? 'url(#arrow)' : null);
+    const linkSel = layer.append('g').selectAll('line').data(links).join('line')
+        .attr('class', d => 'link t-' + d.type)
+        .attr('stroke', d => types[d.type].color).attr('stroke-width', d => types[d.type].width)
+        .attr('stroke-dasharray', d => types[d.type].dash || null)
+        .attr('marker-end', d => `url(#arrow-${d.type})`)
+        .attr('marker-start', d => types[d.type].both ? `url(#arrow-${d.type})` : null);
     const elabelSel = layer.append('g').selectAll('text').data(links).join('text')
         .attr('class', 'elabel hidden').attr('text-anchor', 'middle').text(d => d.label);
     const nodeSel = layer.append('g').selectAll('g').data(nodes).join('g').attr('class', 'node');
@@ -33,18 +35,19 @@
     nodeSel.append('title').text(d => `${d.label} – ${d.vi}`);
 
     const sim = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links).id(d => d.id).distance(70).strength(0.5))
-        .force('charge', d3.forceManyBody().strength(-260))
-        .force('collide', d3.forceCollide().radius(d => radius(d) + 8))
-        .force('x', d3.forceX().strength(0.04))
-        .force('y', d3.forceY().strength(0.04))
+        .force('link', d3.forceLink(links).id(d => d.id).distance(120).strength(0.4))
+        .force('charge', d3.forceManyBody().strength(-900).distanceMax(700))
+        .force('collide', d3.forceCollide().radius(d => radius(d) + 22))
+        .force('x', d3.forceX().strength(0.012))
+        .force('y', d3.forceY().strength(0.09))
         .on('tick', () => {
             linkSel.each(function (d) {
                 const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
                 const len = Math.hypot(dx, dy) || 1;
                 const gap = radius(d.target) + 2;   // stop at the node rim so the arrowhead stays visible
+                const gap0 = types[d.type].both ? radius(d.source) + 2 : 0;
                 d3.select(this)
-                    .attr('x1', d.source.x).attr('y1', d.source.y)
+                    .attr('x1', d.source.x + (dx / len) * gap0).attr('y1', d.source.y + (dy / len) * gap0)
                     .attr('x2', d.target.x - (dx / len) * gap).attr('y2', d.target.y - (dy / len) * gap);
             });
             elabelSel.attr('x', d => (d.source.x + d.target.x) / 2).attr('y', d => (d.source.y + d.target.y) / 2);
@@ -55,13 +58,20 @@
     if (reduceMotion) { sim.stop(); sim.tick(300); sim.dispatch('tick'); }
 
     // zoom / pan, centred on the origin
-    const zoom = d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => layer.attr('transform', e.transform));
+    let userMoved = false;
+    const zoom = d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => { layer.attr('transform', e.transform); if (e.sourceEvent) userMoved = true; });
     svg.call(zoom).on('dblclick.zoom', null);
+    // centre and scale the whole graph into the viewport (called again once the layout has settled)
     function resetView() {
         const { width, height } = svg.node().getBoundingClientRect();
-        svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2, height / 2).scale(width < 720 ? 0.6 : 0.85));
+        const xs = nodes.map(n => n.x || 0), ys = nodes.map(n => n.y || 0);
+        const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 100;
+        const k = Math.max(0.3, Math.min(1.1, Math.min(width / bw, height / bh)));
+        const cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
+        svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2 - cx * k, height / 2 - cy * k).scale(k));
     }
     resetView();
+    sim.on('end.fit', () => { if (!userMoved) resetView(); });
     window.addEventListener('resize', resetView);
 
     // drag
@@ -72,7 +82,7 @@
 
     // state
     let selected = null, hovered = null, query = '';
-    const hiddenCats = new Set();
+    const hiddenCats = new Set(), hiddenTypes = new Set();
     let depth = 5;
 
     const isEnd = (l, id) => l.source.id === id || l.target.id === id;
@@ -105,12 +115,12 @@
             .classed('sel', d => d.id === selected)
             .classed('match', d => !!matches && matches.has(d.id));
         linkSel
-            .classed('hidden', d => !vis.has(d.source.id) || !vis.has(d.target.id))
+            .classed('hidden', d => !vis.has(d.source.id) || !vis.has(d.target.id) || hiddenTypes.has(d.type))
             .classed('dim', d => (near && !isEnd(d, focus)) || !!matches)
-            .classed('hl', d => focus && isEnd(d, focus))
-            .attr('marker-end', d => !d.directed ? null : (focus && isEnd(d, focus) ? 'url(#arrow-hl)' : 'url(#arrow)'));
-        elabelSel.classed('hidden', d => !(focus && isEnd(d, focus) && vis.has(d.source.id) && vis.has(d.target.id)));
-        document.getElementById('graphCount').textContent = `${vis.size} khái niệm · ${links.length} liên kết`;
+            .classed('hl', d => focus && isEnd(d, focus));
+        elabelSel.classed('hidden', d => !(focus && isEnd(d, focus) && vis.has(d.source.id) && vis.has(d.target.id) && !hiddenTypes.has(d.type)));
+        const shown = links.filter(l => vis.has(l.source.id) && vis.has(l.target.id) && !hiddenTypes.has(l.type)).length;
+        document.getElementById('graphCount').textContent = `${vis.size} khái niệm · ${shown} liên kết`;
     }
 
     function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
@@ -119,13 +129,13 @@
         const panel = document.getElementById('graphPanel');
         const n = selected && byId.get(selected);
         if (!n) {
-            panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”. Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
+            panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”; kiểu nét và màu cho biết loại liên kết (xem chú giải bên trên). Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
             return;
         }
         const nbs = links.filter(l => isEnd(l, n.id)).map(l => {
             const other = l.source.id === n.id ? l.target : l.source;
-            const arrow = l.source.id === n.id ? '→' : '←';
-            return `<button type="button" data-id="${esc(other.id)}">${esc(other.label)}<small>${arrow} ${esc(l.label)}</small></button>`;
+            const arrow = types[l.type].both ? '↔' : (l.source.id === n.id ? '→' : '←');
+            return `<button type="button" data-id="${esc(other.id)}" style="border-color:${types[l.type].color}88" title="${esc(types[l.type].label)}">${esc(other.label)}<small>${arrow} ${esc(l.label)}</small></button>`;
         }).join('');
         panel.innerHTML = `
             <span class="g-cat" style="background:${cats[n.cat].color}">${esc(cats[n.cat].label)}</span>
@@ -134,7 +144,7 @@
             <p>${n.desc}</p>
             <h3>Liên quan (${n.degree})</h3>
             <div class="g-nb">${nbs}</div>
-            ${n.topic ? `<a class="g-lesson" href="english-grammar.html#${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
+            ${n.topic ? `<a class="g-lesson" href="english-grammar.html?topic=${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
         panel.querySelectorAll('.g-nb button').forEach(b => b.addEventListener('click', () => select(b.dataset.id)));
     }
 
@@ -167,6 +177,26 @@
         legend.appendChild(b);
     });
 
+    // legend (link-type filters): a sample of the stroke + its meaning
+    const typeLegend = document.getElementById('graphTypes');
+    Object.entries(types).forEach(([key, t]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'g-chip g-type';
+        b.setAttribute('aria-pressed', 'true');
+        b.title = t.hint;
+        b.innerHTML = `<svg width="34" height="10" aria-hidden="true"><line x1="${t.both ? 7 : 1}" y1="5" x2="${t.both ? 27 : 27}" y2="5" stroke="${t.color}" stroke-width="${t.width + .5}" ${t.dash ? `stroke-dasharray="${t.dash}"` : ''}/>`
+            + (t.both ? `<path d="M7,5l5,-3.5v7z" fill="${t.color}"/>` : '') + `<path d="M28,5l-5,-3.5v7z" fill="${t.color}"/></svg>${esc(t.label)}`;
+        b.addEventListener('click', () => {
+            const off = !hiddenTypes.has(key);
+            off ? hiddenTypes.add(key) : hiddenTypes.delete(key);
+            b.classList.toggle('off', off);
+            b.setAttribute('aria-pressed', String(!off));
+            render();
+        });
+        typeLegend.appendChild(b);
+    });
+
     document.getElementById('graphSearch').addEventListener('input', e => { query = e.target.value; render(); });
     const depthInput = document.getElementById('graphDepth');
     depthInput.addEventListener('input', () => {
@@ -175,12 +205,13 @@
         render();
     });
     document.getElementById('graphReset').addEventListener('click', () => {
-        selected = null; hovered = null; query = ''; depth = 5; hiddenCats.clear();
+        selected = null; hovered = null; query = ''; depth = 5; hiddenCats.clear(); hiddenTypes.clear();
         document.getElementById('graphSearch').value = '';
         depthInput.value = 5;
         document.getElementById('graphDepthVal').textContent = 'tất cả';
-        legend.querySelectorAll('.g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
+        document.querySelectorAll('.g-legend .g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
         nodes.forEach(n => { n.fx = null; n.fy = null; });
+        userMoved = false;
         sim.alpha(0.6).restart();
         resetView();
         renderPanel();

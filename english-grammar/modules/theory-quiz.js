@@ -1349,5 +1349,8 @@
         t('clause-system', 'Clause System', 'C1', 'Non-finite clause có lợi ích gì?', ['nén thông tin', 'làm câu dài hơn', 'thêm thì cho câu', 'tạo câu hỏi'], 0, 'Having finished early, she left.'),
         t('clause-system', 'Clause System', 'C1', 'Chất lượng câu dài nằm ở đâu?', ['mỗi mệnh đề có chức năng rõ', 'càng nhiều mệnh đề càng tốt', 'dùng thật nhiều dấu phẩy', 'tránh mọi mệnh đề phụ'], 0, 'C2 biết khi nào nên tách câu để tránh quá tải.'),
         t('clause-system', 'Clause System', 'C1', 'Lợi ích của việc hiểu clause system là gì?', ['phân tích câu dài, nối các hiện tượng', 'chỉ để phát âm chuẩn hơn', 'chỉ để chọn mạo từ đúng', 'chỉ để viết hoa đúng'], 0, 'Các hiện tượng rời rạc khớp lại thành một hệ thống.'),
+
+        // ==================== CONDITIONALS: UNLESS ====================
+        t('conditionals', 'Conditionals', 'B2', 'Câu nào đúng khi kết quả là phản ứng (cảm xúc) trước việc điều kiện không xảy ra?', ['I’ll be sad if you don’t come.', 'I’ll be sad unless you come.', 'I’ll be sad if you won’t come.', 'I’ll be sad unless you don’t come.'], 0, 'Nỗi buồn là phản ứng trước việc bạn không đến nên dùng if … not; unless chỉ nêu ngoại lệ duy nhất, như I’ll go unless it rains.')
     );
 })();
