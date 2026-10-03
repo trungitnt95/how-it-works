@@ -85,13 +85,31 @@ const grammarStructuresData = {
             ],
             uses: [
                 ['were cho mọi ngôi', 'trong văn trang trọng', 'If I were you, I would accept.'],
-                ['unless ≈ if…not', 'nhưng không thay thế máy móc', 'Unless you study, you will fail. ≈ If you don’t study…'],
                 ['provided (that), as long as', 'điều kiện biến thể', 'You can go out as long as you finish your homework.'],
                 [
                     'Đảo ngữ bỏ if (trang trọng)',
                     '<strong>Should</strong> = loại 1; <strong>Were … to</strong> = loại 2; <strong>Had</strong> = loại 3',
                     'Should you need help… / Were I to… / Had I known…'
                 ]
+            ],
+            sections: [
+                {
+                    title: '🔀 Unless (trừ khi)',
+                    items: [
+                        [
+                            'Nghĩa và cách kiểm tra',
+                            '<em>Unless X, Y</em> = <em>Y, trừ khi X</em> ≈ <em>If … not</em>. Động từ sau <em>unless</em> luôn <strong>khẳng định</strong>: <em>Unless you study, you will fail.</em> = <em>If you don’t study, you will fail.</em>'
+                        ],
+                        [
+                            'Nên dùng unless',
+                            'khi nêu <strong>ngoại lệ duy nhất</strong>, thường trong quy định, cảnh báo: <em>You can’t enter unless you are over 18. Don’t call me unless it’s an emergency.</em>'
+                        ],
+                        [
+                            'Nên dùng if … not',
+                            'khi (1) kết quả là phản ứng, cảm xúc: <em>I’ll be surprised if she doesn’t pass.</em> (2) câu hỏi: <em>What will you do if it doesn’t rain?</em> (3) điều kiện không có thật (loại 2, 3), nơi <em>unless</em> thường được tránh: <em>If I hadn’t missed the bus, I wouldn’t have been late.</em>'
+                        ]
+                    ]
+                }
             ],
             compare: [
                 ['If I had money, I would travel vs If I had had money, I would have travelled', 'giả định hiện tại – tiếc nuối quá khứ']
@@ -103,7 +121,16 @@ const grammarStructuresData = {
                     'Không dùng will trong mệnh đề if loại 1 (trừ khi will mang nghĩa sẵn lòng).'
                 ],
                 'Trộn loại 2 và loại 3 khi không có chủ ý mixed conditional.',
-                'Dùng unless khi nghĩa không thật sự là if not.'
+                [
+                    'Unless you don’t study, you will fail.',
+                    'Unless you study, you will fail.',
+                    'Sau unless dùng động từ khẳng định, vì unless đã mang nghĩa phủ định.'
+                ],
+                [
+                    'I’ll be sad unless you come.',
+                    'I’ll be sad if you don’t come.',
+                    'Kết quả (buồn) là phản ứng trước việc bạn không đến, nên dùng if … not; unless chỉ nêu ngoại lệ duy nhất.'
+                ]
             ],
             tip: 'Chi tiết mixed conditionals ở chủ điểm Mixed Conditionals.'
         }

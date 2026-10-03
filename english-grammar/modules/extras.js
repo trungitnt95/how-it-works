@@ -1009,7 +1009,7 @@ const grammarExtrasData = {
                 {
                     title: '🔁 Thay "if" bằng cấu trúc khác',
                     items: [
-                        ['unless', '= if not: <em>I won’t go unless you come.</em>'],
+                        ['unless', '= if not (xem chủ điểm Conditionals để biết khi nào nên dùng): <em>I won’t go unless you come.</em>'],
                         [
                             'provided / providing (that), as long as, on condition that',
                             'nhấn điều kiện bắt buộc: <em>You can borrow it provided that you return it tomorrow.</em>'
