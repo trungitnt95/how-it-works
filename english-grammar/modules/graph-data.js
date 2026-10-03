@@ -91,8 +91,9 @@ const grammarGraphData = {
         ['subject', 'verb', 'hòa hợp với'], ['subject', 'sv-agreement', 'quy tắc'], ['subject', 'gerund', 'là'],
         ['predicate', 'verb', 'chứa'], ['predicate', 'object', 'có thể có'], ['predicate', 'complement', 'có thể có'], ['predicate', 'adverbial', 'có thể có'],
         ['object', 'direct-object', 'gồm'], ['object', 'indirect-object', 'gồm'], ['object', 'noun', 'là'], ['object', 'pronoun', 'là'], ['object', 'case', 'ở cách tân'],
+        ['object', 'noun-phrase', 'là'], ['object', 'noun-clause', 'là'], ['object', 'gerund', 'là'],
         ['transitive', 'object', 'cần'], ['intransitive', 'object', 'không có'], ['linking', 'complement', 'cần'],
-        ['complement', 'adjective', 'là'], ['complement', 'noun', 'là'],
+        ['complement', 'adjective', 'là'], ['complement', 'noun', 'là'], ['complement', 'noun-phrase', 'là'], ['complement', 'noun-clause', 'là'],
         ['adverbial', 'adverb', 'là'], ['adverbial', 'prep-phrase', 'là'], ['adverbial', 'adverbial-clause', 'là'],
 
         ['noun', 'plural', 'có'], ['noun', 'countable', 'phân loại'], ['noun', 'determiner', 'đi với'], ['noun', 'adjective', 'được bổ nghĩa bởi'],
@@ -105,6 +106,7 @@ const grammarGraphData = {
         ['verb', 'phrasal-verb', 'tạo'], ['verb', 'voice', 'có'], ['verb', 'mood', 'có'], ['verb', 'infinitive', 'dạng'], ['verb', 'gerund', 'dạng'], ['verb', 'participle', 'dạng'],
         ['adjective', 'adverb', 'chuyển thành'], ['adjective', 'comparison', 'có'], ['adverb', 'comparison', 'có'],
         ['preposition', 'prep-phrase', 'tạo'], ['preposition', 'noun', 'đi với'], ['preposition', 'phrasal-verb', 'trong'],
+        ['preposition', 'noun-phrase', 'theo sau là'], ['preposition', 'noun-clause', 'theo sau là'], ['preposition', 'gerund', 'theo sau là'],
         ['conjunction', 'clause', 'nối'], ['conjunction', 'dependent', 'mở đầu'], ['conjunction', 'parallelism', 'đòi hỏi'],
 
         ['tense', 'aspect', 'kết hợp'], ['tense', 'auxiliary', 'tạo bởi'], ['aspect', 'auxiliary', 'tạo bởi'], ['aspect', 'participle', 'dùng'], ['aspect', 'stative', 'hạn chế'],
