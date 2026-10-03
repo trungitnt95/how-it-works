@@ -35,11 +35,11 @@
     nodeSel.append('title').text(d => `${d.label} – ${d.vi}`);
 
     const sim = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links).id(d => d.id).distance(70).strength(0.5))
-        .force('charge', d3.forceManyBody().strength(-260))
-        .force('collide', d3.forceCollide().radius(d => radius(d) + 8))
-        .force('x', d3.forceX().strength(0.04))
-        .force('y', d3.forceY().strength(0.04))
+        .force('link', d3.forceLink(links).id(d => d.id).distance(120).strength(0.4))
+        .force('charge', d3.forceManyBody().strength(-900).distanceMax(700))
+        .force('collide', d3.forceCollide().radius(d => radius(d) + 22))
+        .force('x', d3.forceX().strength(0.012))
+        .force('y', d3.forceY().strength(0.09))
         .on('tick', () => {
             linkSel.each(function (d) {
                 const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
@@ -58,13 +58,20 @@
     if (reduceMotion) { sim.stop(); sim.tick(300); sim.dispatch('tick'); }
 
     // zoom / pan, centred on the origin
-    const zoom = d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => layer.attr('transform', e.transform));
+    let userMoved = false;
+    const zoom = d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => { layer.attr('transform', e.transform); if (e.sourceEvent) userMoved = true; });
     svg.call(zoom).on('dblclick.zoom', null);
+    // centre and scale the whole graph into the viewport (called again once the layout has settled)
     function resetView() {
         const { width, height } = svg.node().getBoundingClientRect();
-        svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2, height / 2).scale(width < 720 ? 0.6 : 0.85));
+        const xs = nodes.map(n => n.x || 0), ys = nodes.map(n => n.y || 0);
+        const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 100;
+        const k = Math.max(0.3, Math.min(1.1, Math.min(width / bw, height / bh)));
+        const cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
+        svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2 - cx * k, height / 2 - cy * k).scale(k));
     }
     resetView();
+    sim.on('end.fit', () => { if (!userMoved) resetView(); });
     window.addEventListener('resize', resetView);
 
     // drag
@@ -204,6 +211,7 @@
         document.getElementById('graphDepthVal').textContent = 'tất cả';
         document.querySelectorAll('.g-legend .g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
         nodes.forEach(n => { n.fx = null; n.fy = null; });
+        userMoved = false;
         sim.alpha(0.6).restart();
         resetView();
         renderPanel();
