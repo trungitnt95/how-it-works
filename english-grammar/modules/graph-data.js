@@ -20,7 +20,7 @@ const grammarGraphLinkTypes = {
 const grammarGraphData = {
     nodes: [
         // Sentence parts
-        { id: 'sentence', label: 'Sentence', vi: 'Câu', cat: 'sentence', topic: 'sentence-order', desc: 'Đơn vị ngữ pháp hoàn chỉnh, thường gồm chủ ngữ và vị ngữ. Ví dụ: <em>Birds fly.</em>' },
+        { id: 'sentence', label: 'Sentence', vi: 'Câu', cat: 'sentence', topic: 'sentence-order', desc: 'Đơn vị ngữ pháp hoàn chỉnh, thường gồm chủ ngữ và vị ngữ, xếp theo thứ tự Chủ – Động – Tân. Ví dụ: <em>Tom (S) eats (V) rice (O).</em>' },
         { id: 'subject', label: 'Subject', vi: 'Chủ ngữ', cat: 'sentence', topic: 'sentence-order', desc: 'Người/vật thực hiện hành động hoặc được nói tới. Ví dụ: <em><b>She</b> reads.</em>' },
         { id: 'predicate', label: 'Predicate', vi: 'Vị ngữ', cat: 'sentence', desc: 'Phần còn lại của câu, nói về chủ ngữ; luôn chứa động từ. Ví dụ: <em>She <b>reads books</b>.</em>' },
         { id: 'object', label: 'Object', vi: 'Tân ngữ', cat: 'sentence', topic: 'direct-indirect-objects', desc: 'Người/vật chịu tác động của động từ. Ví dụ: <em>She reads <b>books</b>.</em>' },
@@ -28,7 +28,6 @@ const grammarGraphData = {
         { id: 'indirect-object', label: 'Indirect object', vi: 'Tân ngữ gián tiếp', cat: 'sentence', topic: 'direct-indirect-objects', desc: 'Người nhận. Ví dụ: <em>I gave <b>Tom</b> a gift.</em>' },
         { id: 'complement', label: 'Complement', vi: 'Bổ ngữ', cat: 'sentence', topic: 'subject-complement-object-complement', desc: 'Bổ sung nghĩa cho chủ ngữ/tân ngữ, đi sau linking verb. Ví dụ: <em>She is <b>a doctor</b>.</em>' },
         { id: 'adverbial', label: 'Adverbial', vi: 'Trạng ngữ', cat: 'sentence', topic: 'adverb-types-position', desc: 'Cho biết thời gian, nơi chốn, cách thức, lý do. Ví dụ: <em>She reads <b>at night</b>.</em>' },
-        { id: 'word-order', label: 'Word order (SVO)', vi: 'Trật tự từ', cat: 'sentence', topic: 'sentence-order', desc: 'Tiếng Anh thường theo thứ tự Chủ – Động – Tân. Ví dụ: <em>Tom (S) eats (V) rice (O).</em>' },
         { id: 'sentence-type', label: 'Sentence types', vi: 'Loại câu', cat: 'sentence', topic: 'sentence-types', desc: 'Câu trần thuật, nghi vấn, mệnh lệnh, cảm thán.' },
         { id: 'question', label: 'Question', vi: 'Câu hỏi', cat: 'sentence', topic: 'question-forms', desc: 'Đảo trợ động từ lên trước chủ ngữ. Ví dụ: <em><b>Do</b> you like tea?</em>' },
         { id: 'negation', label: 'Negation', vi: 'Phủ định', cat: 'sentence', topic: 'negatives', desc: 'Dùng <em>not</em> sau trợ động từ. Ví dụ: <em>She does <b>not</b> like tea.</em>' },
@@ -90,10 +89,10 @@ const grammarGraphData = {
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
     links: [
-        ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'], ['sentence', 'word-order', 'theo', 'req'],
+        ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'],
         ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'],
         ['question', 'auxiliary', 'đảo', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'lược bỏ', 'opt'],
-        ['expletive', 'subject', 'đóng vai', 'is'], ['word-order', 'subject', 'S', 'req'], ['word-order', 'verb', 'V', 'req'], ['word-order', 'object', 'O', 'req'],
+        ['expletive', 'subject', 'đóng vai', 'is'],
 
         ['subject', 'noun', 'là', 'is'], ['subject', 'pronoun', 'là', 'is'], ['subject', 'noun-phrase', 'là', 'is'], ['subject', 'noun-clause', 'là', 'is'],
         ['subject', 'verb', 'hòa hợp với', 'req'], ['subject', 'sv-agreement', 'quy tắc', 'req'], ['subject', 'gerund', 'là', 'is'],
