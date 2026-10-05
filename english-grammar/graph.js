@@ -125,9 +125,19 @@
 
     function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 
+    // Compact grid for a node (e.g. the tense × aspect table); a cell is [text, lessonId|null]
+    function tableHtml(t) {
+        const cell = ([text, topic]) => topic
+            ? `<td><a href="english-grammar.html?topic=${encodeURIComponent(topic)}">${esc(text)}</a></td>`
+            : `<td class="g-nolesson">${esc(text)}</td>`;
+        return `<table class="g-table"><thead><tr>${t.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
+            <tbody>${t.rows.map(([label, cells]) => `<tr><th scope="row">${esc(label)}</th>${cells.map(cell).join('')}</tr>`).join('')}</tbody></table>`;
+    }
+
     function renderPanel() {
         const panel = document.getElementById('graphPanel');
         const n = selected && byId.get(selected);
+        panel.classList.toggle('wide', !!(n && n.table));
         if (!n) {
             panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”; kiểu nét và màu cho biết loại liên kết (xem chú giải bên trên). Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
             return;
@@ -142,6 +152,7 @@
             <h2>${esc(n.label)}</h2>
             <p class="g-vi">${esc(n.vi)}</p>
             <p>${n.desc}</p>
+            ${n.table ? tableHtml(n.table) : ''}
             <h3>Liên quan (${n.degree})</h3>
             <div class="g-nb">${nbs}</div>
             ${n.topic ? `<a class="g-lesson" href="english-grammar.html?topic=${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
