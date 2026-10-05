@@ -99,7 +99,7 @@ const grammarGraphData = {
         ['predicate', 'verb', 'chứa', 'req'], ['predicate', 'object', 'có thể có', 'opt'], ['predicate', 'complement', 'có thể có', 'opt'], ['predicate', 'adverbial', 'có thể có', 'opt'],
         ['object', 'direct-object', 'gồm', 'is'], ['object', 'indirect-object', 'gồm', 'is'], ['object', 'noun', 'là', 'is'], ['object', 'pronoun', 'là', 'is'], ['object', 'case', 'ở cách tân', 'req'],
         ['object', 'noun-phrase', 'là', 'is'], ['object', 'noun-clause', 'là', 'is'], ['object', 'gerund', 'là', 'is'],
-        ['transitive', 'object', 'cần', 'req'], ['intransitive', 'object', 'không có', 'opt'], ['linking', 'complement', 'cần', 'req'],
+        ['transitive', 'object', 'cần', 'req'], ['linking', 'complement', 'cần', 'req'],
         ['complement', 'adjective', 'là', 'is'], ['complement', 'noun', 'là', 'is'], ['complement', 'noun-phrase', 'là', 'is'], ['complement', 'noun-clause', 'là', 'is'],
         ['adverbial', 'adverb', 'là', 'is'], ['adverbial', 'prep-phrase', 'là', 'is'], ['adverbial', 'adverbial-clause', 'là', 'is'],
 
