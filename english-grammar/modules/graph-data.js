@@ -47,7 +47,6 @@ const grammarGraphData = {
         { id: 'quantifier', label: 'Quantifier', vi: 'Từ chỉ số lượng', cat: 'wordclass', topic: 'quantifiers', desc: 'Chỉ lượng. Ví dụ: <em>much, many, few, a little.</em>' },
         { id: 'possessive', label: 'Possessive', vi: 'Sở hữu', cat: 'wordclass', topic: 'pronouns-possessives', desc: 'Chỉ sự sở hữu. Ví dụ: <em>my book, the book is mine.</em>' },
         { id: 'countable', label: 'Countable / Uncountable', vi: 'Đếm được / không đếm được', cat: 'wordclass', topic: 'countable-uncountable', desc: 'Quyết định dùng <em>many/much</em>, <em>a/an</em>. Ví dụ: <em>an apple; some water.</em>' },
-        { id: 'plural', label: 'Plural', vi: 'Số nhiều', cat: 'wordclass', topic: 'nouns-plurals', desc: 'Thường thêm -s/-es. Ví dụ: <em>cat → cats, box → boxes.</em>' },
         { id: 'comparison', label: 'Comparison', vi: 'So sánh', cat: 'wordclass', topic: 'comparisons', desc: 'Dạng so sánh của tính từ/trạng từ. Ví dụ: <em>taller, the tallest.</em>' },
 
         // Verb system
@@ -82,8 +81,7 @@ const grammarGraphData = {
 
         // Agreement & rules
         { id: 'sv-agreement', label: 'Subject–verb agreement', vi: 'Hòa hợp chủ–vị', cat: 'agreement', topic: 'subject-verb-agreement', desc: 'Động từ khớp số với chủ ngữ. Ví dụ: <em>He <b>runs</b>; they <b>run</b>.</em>' },
-        { id: 'person', label: 'Person', vi: 'Ngôi', cat: 'agreement', topic: 'pronouns-possessives', desc: 'Ngôi 1, 2, 3. Ví dụ: <em>I / you / he.</em>' },
-        { id: 'number', label: 'Number', vi: 'Số (ít/nhiều)', cat: 'agreement', topic: 'nouns-plurals', desc: 'Số ít hoặc số nhiều.' },
+        { id: 'number', label: 'Number', vi: 'Số (ít/nhiều)', cat: 'agreement', topic: 'nouns-plurals', desc: 'Số ít hoặc số nhiều. Danh từ số nhiều thường thêm -s/-es. Ví dụ: <em>cat → cats, box → boxes.</em>' },
         { id: 'pronoun-reference', label: 'Pronoun reference', vi: 'Quy chiếu đại từ', cat: 'agreement', topic: 'pronoun-reference', desc: 'Đại từ phải rõ thay cho danh từ nào.' },
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
@@ -102,10 +100,10 @@ const grammarGraphData = {
         ['complement', 'adjective', 'là', 'is'], ['complement', 'noun', 'là', 'is'], ['complement', 'noun-phrase', 'là', 'is'], ['complement', 'noun-clause', 'là', 'is'],
         ['adverbial', 'adverb', 'là', 'is'], ['adverbial', 'prep-phrase', 'là', 'is'], ['adverbial', 'adverbial-clause', 'là', 'is'],
 
-        ['noun', 'plural', 'có', 'opt'], ['noun', 'countable', 'phân loại', 'is'], ['noun', 'determiner', 'đi với', 'sym'], ['noun', 'adjective', 'được bổ nghĩa bởi', 'opt'],
+        ['noun', 'countable', 'phân loại', 'is'], ['noun', 'determiner', 'đi với', 'sym'], ['noun', 'adjective', 'được bổ nghĩa bởi', 'opt'],
         ['noun', 'noun-phrase', 'lõi của', 'req'], ['noun', 'number', 'có', 'req'], ['countable', 'quantifier', 'chọn', 'opt'], ['determiner', 'article', 'gồm', 'is'],
         ['determiner', 'quantifier', 'gồm', 'is'], ['determiner', 'possessive', 'gồm', 'is'],
-        ['pronoun', 'noun', 'thay thế', 'req'], ['pronoun', 'possessive', 'có dạng', 'is'], ['pronoun', 'person', 'có', 'req'],
+        ['pronoun', 'noun', 'thay thế', 'req'], ['pronoun', 'possessive', 'có dạng', 'is'],
         ['pronoun', 'pronoun-reference', 'cần', 'req'],
         ['verb', 'tense', 'chia', 'req'], ['verb', 'transitive', 'gồm', 'is'], ['verb', 'intransitive', 'gồm', 'is'], ['verb', 'linking', 'gồm', 'is'], ['verb', 'stative', 'gồm', 'is'],
         ['verb', 'auxiliary', 'đi với', 'sym'], ['verb', 'modal', 'đi với', 'sym'], ['verb', 'verb-phrase', 'lõi của', 'req'], ['verb', 'adverb', 'được bổ nghĩa bởi', 'opt'],
@@ -126,7 +124,7 @@ const grammarGraphData = {
         ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'pronoun', 'dùng who/which', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
         ['reported-speech', 'tense', 'lùi thì', 'opt'], ['reported-speech', 'pronoun', 'đổi', 'opt'], ['noun-phrase', 'determiner', 'chứa', 'opt'], ['noun-phrase', 'adjective', 'chứa', 'opt'],
 
-        ['sv-agreement', 'verb', 'ảnh hưởng', 'req'], ['sv-agreement', 'number', 'dựa vào', 'req'], ['sv-agreement', 'person', 'dựa vào', 'req'], ['sv-agreement', 'noun', 'với danh từ tập hợp', 'opt'],
+        ['sv-agreement', 'verb', 'ảnh hưởng', 'req'], ['sv-agreement', 'number', 'dựa vào', 'req'], ['sv-agreement', 'noun', 'với danh từ tập hợp', 'opt'],
         ['parallelism', 'gerund', 'ví dụ', 'is'], ['parallelism', 'infinitive', 'ví dụ', 'is']
     ]
 };
