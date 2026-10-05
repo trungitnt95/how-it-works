@@ -28,7 +28,9 @@ const grammarGraphData = {
         { id: 'indirect-object', label: 'Indirect object', vi: 'Tân ngữ gián tiếp', cat: 'sentence', topic: 'direct-indirect-objects', desc: 'Người nhận. Ví dụ: <em>I gave <b>Tom</b> a gift.</em>' },
         { id: 'complement', label: 'Complement', vi: 'Bổ ngữ', cat: 'sentence', topic: 'subject-complement-object-complement', desc: 'Bổ sung nghĩa cho chủ ngữ/tân ngữ, đi sau linking verb. Ví dụ: <em>She is <b>a doctor</b>.</em>' },
         { id: 'adverbial', label: 'Adverbial', vi: 'Trạng ngữ', cat: 'sentence', topic: 'adverb-types-position', desc: 'Cho biết thời gian, nơi chốn, cách thức, lý do. Ví dụ: <em>She reads <b>at night</b>.</em>' },
-        { id: 'sentence-type', label: 'Sentence types', vi: 'Loại câu', cat: 'sentence', topic: 'sentence-types', desc: 'Câu trần thuật, nghi vấn, mệnh lệnh, cảm thán.' },
+        { id: 'sentence-type', label: 'Sentence types', vi: 'Loại câu', cat: 'sentence', topic: 'sentence-types', desc: 'Phân loại theo <b>chức năng</b>: câu trần thuật, nghi vấn, mệnh lệnh, cảm thán. Phân loại theo <b>cấu trúc</b> (đếm mệnh đề): simple (1 mệnh đề độc lập), compound (≥ 2 mệnh đề độc lập), complex (1 chính + ≥ 1 phụ), compound-complex (≥ 2 độc lập + ≥ 1 phụ).' },
+        { id: 'statement', label: 'Statement', vi: 'Câu trần thuật', cat: 'sentence', topic: 'sentence-types', desc: 'Cung cấp thông tin. Ví dụ: <em>She reads every night.</em>' },
+        { id: 'exclamation', label: 'Exclamation', vi: 'Câu cảm thán', cat: 'sentence', topic: 'sentence-types', desc: 'Bộc lộ cảm xúc mạnh. Ví dụ: <em>What a great idea! How nice!</em>' },
         { id: 'question', label: 'Question', vi: 'Câu hỏi', cat: 'sentence', topic: 'question-forms', desc: 'Đảo trợ động từ lên trước chủ ngữ. Ví dụ: <em><b>Do</b> you like tea?</em>' },
         { id: 'negation', label: 'Negation', vi: 'Phủ định', cat: 'sentence', topic: 'negatives', desc: 'Dùng <em>not</em> sau trợ động từ. Ví dụ: <em>She does <b>not</b> like tea.</em>' },
         { id: 'imperative', label: 'Imperative', vi: 'Câu mệnh lệnh', cat: 'sentence', topic: 'imperatives-requests', desc: 'Không có chủ ngữ nói ra. Ví dụ: <em>Close the door.</em>' },
@@ -87,7 +89,7 @@ const grammarGraphData = {
     ],
     links: [
         ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'],
-        ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'],
+        ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'], ['sentence-type', 'statement', 'gồm', 'is'], ['sentence-type', 'exclamation', 'gồm', 'is'],
         ['question', 'auxiliary', 'đảo', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'lược bỏ', 'opt'],
         ['expletive', 'subject', 'đóng vai', 'is'],
 
