@@ -127,6 +127,6 @@ const grammarGraphData = {
         ['reported-speech', 'tense', 'lùi thì', 'opt'], ['reported-speech', 'pronoun', 'đổi', 'opt'], ['noun-phrase', 'determiner', 'chứa', 'opt'], ['noun-phrase', 'adjective', 'chứa', 'opt'],
 
         ['sv-agreement', 'verb', 'ảnh hưởng', 'req'], ['sv-agreement', 'number', 'dựa vào', 'req'], ['sv-agreement', 'noun', 'với danh từ tập hợp', 'opt'],
-        ['parallelism', 'gerund', 'ví dụ', 'is'], ['parallelism', 'infinitive', 'ví dụ', 'is']
+        ['parallelism', 'comparison', 'áp dụng với than/as', 'opt']
     ]
 };
