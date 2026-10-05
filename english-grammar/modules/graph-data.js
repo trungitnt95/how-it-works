@@ -42,6 +42,10 @@ const grammarGraphData = {
         { id: 'verb', label: 'Verb', vi: 'Động từ', cat: 'wordclass', topic: 'verbs-overview', desc: 'Chỉ hành động hoặc trạng thái. Ví dụ: <em>run, be, seem.</em>' },
         { id: 'adjective', label: 'Adjective', vi: 'Tính từ', cat: 'wordclass', topic: 'adjectives-adverbs', desc: 'Bổ nghĩa cho danh từ. Ví dụ: <em>a <b>red</b> car.</em>' },
         { id: 'adverb', label: 'Adverb', vi: 'Trạng từ', cat: 'wordclass', topic: 'adjectives-adverbs', desc: 'Bổ nghĩa cho động từ, tính từ, trạng từ khác. Ví dụ: <em>She sings <b>well</b>.</em>' },
+        { id: 'manner-adverb', label: 'Manner adverb', vi: 'Trạng từ cách thức', cat: 'wordclass', topic: 'adverb-types-position', desc: 'Cho biết hành động diễn ra thế nào; đứng cuối câu hoặc sau tân ngữ. Ví dụ: <em>She spoke <b>clearly</b>.</em>' },
+        { id: 'frequency-adverb', label: 'Frequency adverb', vi: 'Trạng từ tần suất', cat: 'wordclass', topic: 'adverb-types-position', desc: 'Đứng trước động từ thường, sau be. Ví dụ: <em>She <b>often</b> reads. She is <b>often</b> late.</em>' },
+        { id: 'degree-adverb', label: 'Degree adverb', vi: 'Trạng từ mức độ', cat: 'wordclass', topic: 'adverb-types-position', desc: 'Đứng trước tính từ hoặc trạng từ để chỉ mức độ. Ví dụ: <em><b>very</b> good, <b>quite</b> slowly.</em>' },
+        { id: 'linking-adverb', label: 'Linking adverb', vi: 'Trạng từ liên kết', cat: 'wordclass', topic: 'adverb-types-position', desc: 'Nối ý giữa các câu, đứng đầu hoặc giữa câu. Ví dụ: <em><b>However</b>, this failed.</em>' },
         { id: 'preposition', label: 'Preposition', vi: 'Giới từ', cat: 'wordclass', topic: 'prepositions', desc: 'Nối danh từ/đại từ với phần còn lại của câu. Ví dụ: <em>in, on, at, by.</em>' },
         { id: 'conjunction', label: 'Conjunction', vi: 'Liên từ', cat: 'wordclass', topic: 'conjunctions', desc: 'Nối từ, cụm, mệnh đề. Ví dụ: <em>and, but, because.</em>' },
         { id: 'coordinating', label: 'Coordinating conjunction', vi: 'Liên từ đẳng lập', cat: 'wordclass', topic: 'conjunctions', desc: 'for, and, nor, but, or, yet, so (FANBOYS): nối hai phần ngang hàng. Ví dụ: <em>I was tired, <b>but</b> I finished.</em>' },
@@ -96,6 +100,10 @@ const grammarGraphData = {
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
     links: [
+        ['adverb', 'manner-adverb', 'gồm', 'is'], ['adverb', 'frequency-adverb', 'gồm', 'is'], ['adverb', 'degree-adverb', 'gồm', 'is'], ['adverb', 'linking-adverb', 'gồm', 'is'],
+        ['manner-adverb', 'verb', 'đứng sau', 'opt'], ['frequency-adverb', 'verb', 'đứng trước động từ thường, sau be', 'opt'], ['degree-adverb', 'adjective', 'bổ nghĩa', 'opt'],
+        ['conjunction', 'linking-adverb', 'đối chiếu', 'sym'],
+
         ['statement', 'negation', 'có dạng phủ định', 'opt'], ['exclamation', 'noun-phrase', 'khung What +', 'opt'], ['exclamation', 'adjective', 'khung How +', 'opt'], ['exclamation', 'adverb', 'khung How +', 'opt'],
         ['imperative', 'verb', 'dùng V nguyên mẫu', 'req'], ['imperative', 'negation', 'phủ định bằng Don\'t', 'opt'], ['imperative', 'modal', 'đề nghị lịch sự', 'opt'],
         ['pronoun', 'reflexive', 'gồm', 'is'], ['pronoun', 'indefinite', 'gồm', 'is'], ['pronoun', 'demonstrative', 'gồm', 'is'], ['pronoun', 'relative-pronoun', 'gồm', 'is'], ['pronoun', 'interrogative-pronoun', 'gồm', 'is'],
