@@ -30,7 +30,7 @@ const grammarGraphData = {
         { id: 'adverbial', label: 'Adverbial', vi: 'Trạng ngữ', cat: 'sentence', topic: 'adverb-types-position', desc: 'Cho biết thời gian, nơi chốn, cách thức, lý do. Ví dụ: <em>She reads <b>at night</b>.</em>' },
         { id: 'sentence-type', label: 'Sentence types', vi: 'Loại câu', cat: 'sentence', topic: 'sentence-types', desc: 'Phân loại theo <b>chức năng</b>: câu trần thuật, nghi vấn, mệnh lệnh, cảm thán. Phân loại theo <b>cấu trúc</b> (đếm mệnh đề): simple (1 mệnh đề độc lập), compound (≥ 2 mệnh đề độc lập), complex (1 chính + ≥ 1 phụ), compound-complex (≥ 2 độc lập + ≥ 1 phụ).' },
         { id: 'statement', label: 'Statement', vi: 'Câu trần thuật', cat: 'sentence', topic: 'sentence-types', desc: 'Cung cấp thông tin. Ví dụ: <em>She reads every night.</em>' },
-        { id: 'exclamation', label: 'Exclamation', vi: 'Câu cảm thán', cat: 'sentence', topic: 'sentence-types', desc: 'Bộc lộ cảm xúc mạnh. Ví dụ: <em>What a great idea! How nice!</em>' },
+        { id: 'exclamation', label: 'Exclamation', vi: 'Câu cảm thán', cat: 'sentence', topic: 'exclamatory-sentences', desc: 'Bộc lộ cảm xúc mạnh bằng What + cụm danh từ hoặc How + tính từ/trạng từ. Ví dụ: <em>What a great idea! How nice!</em>' },
         { id: 'question', label: 'Question', vi: 'Câu hỏi', cat: 'sentence', topic: 'question-forms', desc: 'Đảo trợ động từ lên trước chủ ngữ. Ví dụ: <em><b>Do</b> you like tea?</em>' },
         { id: 'negation', label: 'Negation', vi: 'Phủ định', cat: 'sentence', topic: 'negatives', desc: 'Dùng <em>not</em> sau trợ động từ. Ví dụ: <em>She does <b>not</b> like tea.</em>' },
         { id: 'imperative', label: 'Imperative', vi: 'Câu mệnh lệnh', cat: 'sentence', topic: 'imperatives-requests', desc: 'Không có chủ ngữ nói ra. Ví dụ: <em>Close the door.</em>' },
@@ -48,6 +48,11 @@ const grammarGraphData = {
         { id: 'article', label: 'Article', vi: 'Mạo từ', cat: 'wordclass', topic: 'articles-determiners', desc: 'Loại từ hạn định: <em>a, an, the.</em>' },
         { id: 'quantifier', label: 'Quantifier', vi: 'Từ chỉ số lượng', cat: 'wordclass', topic: 'quantifiers', desc: 'Chỉ lượng. Ví dụ: <em>much, many, few, a little.</em>' },
         { id: 'possessive', label: 'Possessive', vi: 'Sở hữu', cat: 'wordclass', topic: 'pronouns-possessives', desc: 'Chỉ sự sở hữu. Ví dụ: <em>my book, the book is mine.</em>' },
+        { id: 'reflexive', label: 'Reflexive pronoun', vi: 'Đại từ phản thân / tương hỗ', cat: 'wordclass', topic: 'reflexive-reciprocal', desc: 'Hành động quay lại chính chủ ngữ, hoặc qua lại giữa các bên. Ví dụ: <em>She taught <b>herself</b>. They help <b>each other</b>.</em>' },
+        { id: 'indefinite', label: 'Indefinite pronoun', vi: 'Đại từ bất định', cat: 'wordclass', topic: 'indefinite-pronouns', desc: 'Ghép some/any/no/every với one/body/thing/where; chia động từ số ít. Ví dụ: <em><b>Everyone</b> is here. I saw <b>nothing</b>.</em>' },
+        { id: 'demonstrative', label: 'Demonstrative', vi: 'Từ chỉ định', cat: 'wordclass', topic: 'demonstratives-deep', desc: 'this/that/these/those, phân theo khoảng cách và số lượng. Ví dụ: <em><b>This</b> is mine. <b>Those</b> books are old.</em>' },
+        { id: 'relative-pronoun', label: 'Relative pronoun', vi: 'Đại từ quan hệ', cat: 'wordclass', topic: 'relative-pronouns-adverbs', desc: 'Mở đầu mệnh đề quan hệ: who, whom, whose, which, that. Ví dụ: <em>the man <b>who</b> called.</em>' },
+        { id: 'interrogative-pronoun', label: 'Interrogative pronoun', vi: 'Đại từ nghi vấn', cat: 'wordclass', topic: 'wh-questions', desc: 'Từ để hỏi who, what, which làm chủ ngữ hoặc tân ngữ. Ví dụ: <em><b>Who</b> called? <b>What</b> do you want?</em>' },
         { id: 'countable', label: 'Countable / Uncountable', vi: 'Đếm được / không đếm được', cat: 'wordclass', topic: 'countable-uncountable', desc: 'Quyết định dùng <em>many/much</em>, <em>a/an</em>. Ví dụ: <em>an apple; some water.</em>' },
         { id: 'comparison', label: 'Comparison', vi: 'So sánh', cat: 'wordclass', topic: 'comparisons', desc: 'Dạng so sánh của tính từ/trạng từ. Ví dụ: <em>taller, the tallest.</em>' },
 
@@ -88,6 +93,11 @@ const grammarGraphData = {
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
     links: [
+        ['statement', 'negation', 'có dạng phủ định', 'opt'], ['exclamation', 'noun-phrase', 'khung What +', 'opt'], ['exclamation', 'adjective', 'khung How +', 'opt'], ['exclamation', 'adverb', 'khung How +', 'opt'],
+        ['imperative', 'verb', 'dùng V nguyên mẫu', 'req'], ['imperative', 'negation', 'phủ định bằng Don\'t', 'opt'], ['imperative', 'modal', 'đề nghị lịch sự', 'opt'],
+        ['pronoun', 'reflexive', 'gồm', 'is'], ['pronoun', 'indefinite', 'gồm', 'is'], ['pronoun', 'demonstrative', 'gồm', 'is'], ['pronoun', 'relative-pronoun', 'gồm', 'is'], ['pronoun', 'interrogative-pronoun', 'gồm', 'is'],
+        ['indefinite', 'sv-agreement', 'chia số ít', 'req'], ['indefinite', 'quantifier', 'ghép từ', 'opt'], ['demonstrative', 'determiner', 'cũng là', 'is'], ['question', 'interrogative-pronoun', 'có thể mở đầu bằng', 'opt'],
+
         ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'],
         ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'], ['sentence-type', 'statement', 'gồm', 'is'], ['sentence-type', 'exclamation', 'gồm', 'is'],
         ['question', 'auxiliary', 'đảo', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'lược bỏ', 'opt'],
@@ -123,7 +133,7 @@ const grammarGraphData = {
         ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['phrase', 'clause', 'khác', 'sym'],
         ['clause', 'subject', 'cần', 'req'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'gồm', 'req'],
         ['dependent', 'relative-clause', 'gồm', 'is'], ['dependent', 'noun-clause', 'gồm', 'is'], ['dependent', 'adverbial-clause', 'gồm', 'is'],
-        ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'pronoun', 'dùng who/which', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
+        ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'relative-pronoun', 'mở đầu bằng', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
         ['reported-speech', 'tense', 'lùi thì', 'opt'], ['reported-speech', 'pronoun', 'đổi', 'opt'], ['noun-phrase', 'determiner', 'chứa', 'opt'], ['noun-phrase', 'adjective', 'chứa', 'opt'],
 
         ['sv-agreement', 'verb', 'ảnh hưởng', 'req'], ['sv-agreement', 'number', 'dựa vào', 'req'], ['sv-agreement', 'noun', 'với danh từ tập hợp', 'opt'],
