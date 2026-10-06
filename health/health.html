@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sức Khỏe - How It Works</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn" aria-label="Mở danh mục">☰</button>
+            <a href="../" class="back-home">← Trang chủ</a>
+            <a href="#/" class="brand" id="brandLink">🩺 Sức Khỏe</a>
+        </div>
+        <div class="header-right">
+            <input type="search" id="searchInput" class="search" placeholder="Tìm chủ đề, bệnh, triệu chứng…" autocomplete="off">
+        </div>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar" id="sidebar" aria-label="Danh mục chủ đề"></nav>
+        <div class="backdrop" id="backdrop"></div>
+        <main id="main" tabindex="-1"></main>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Đóng">✕</button>
+        <img id="lightboxImg" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script src="modules/images.js"></script>
+    <script src="modules/body.js"></script>
+    <script src="modules/lifestyle.js"></script>
+    <script src="modules/illness.js"></script>
+    <script src="modules/illness2.js"></script>
+    <script src="modules/chronic.js"></script>
+    <script src="modules/chronic2.js"></script>
+    <script src="modules/groups.js"></script>
+    <script src="modules/groups2.js"></script>
+    <script src="modules/advanced.js"></script>
+    <script src="modules/advanced2.js"></script>
+    <script src="app.js"></script>
+    <script src="../worker-runtime.js"></script>
+    <script src="../chat-widget.js"></script>
+</body>
+</html>
