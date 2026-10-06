@@ -81,7 +81,7 @@
         .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
 
     // state
-    let selected = null, hovered = null, query = '';
+    let selected = null, hovered = null, query = '', helpOpen = false;
     const hiddenCats = new Set(), hiddenTypes = new Set();
     let depth = 5;
 
@@ -134,12 +134,26 @@
             <tbody>${t.rows.map(([label, cells]) => `<tr><th scope="row">${esc(label)}</th>${cells.map(cell).join('')}</tr>`).join('')}</tbody></table>`;
     }
 
+    // help text lives in the same overlay as node details; closed by default
+    const helpHtml = `<div class="g-help"><h2>Hướng dẫn</h2><ul>
+        <li>Rê chuột (hoặc chạm) vào một nút để làm nổi các nút liên quan; nhấn để xem chi tiết và mở bài học.</li>
+        <li>Mũi tên <em>A → B</em> đọc là “A [nhãn] B”. Kiểu nét và màu cho biết loại liên kết (xem chú giải phía trên); bấm vào chú giải để ẩn/hiện loại đó.</li>
+        <li>Chọn một nút rồi giảm <em>Độ sâu</em> để chỉ xem các nút ở gần nó.</li>
+        <li>Kéo để di chuyển, cuộn hoặc chụm hai ngón để phóng to; <em>Đặt lại</em> để về bố cục ban đầu.</li>
+    </ul></div>`;
+    const closeBtn = '<button type="button" class="g-close" aria-label="Đóng">×</button>';
+
     function renderPanel() {
         const panel = document.getElementById('graphPanel');
         const n = selected && byId.get(selected);
+        const helpBtn = document.getElementById('graphHelpBtn');
+        helpBtn.setAttribute('aria-expanded', String(helpOpen && !n));
         panel.classList.toggle('wide', !!(n && n.table));
+        panel.hidden = !n && !helpOpen;
         if (!n) {
-            panel.innerHTML = '<p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”; kiểu nét và màu cho biết loại liên kết (xem chú giải bên trên). Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>';
+            panel.innerHTML = helpOpen ? closeBtn + helpHtml : '';
+            const x = panel.querySelector('.g-close');
+            if (x) x.addEventListener('click', () => { helpOpen = false; renderPanel(); });
             return;
         }
         const nbs = links.filter(l => isEnd(l, n.id)).map(l => {
@@ -147,7 +161,7 @@
             const arrow = types[l.type].both ? '↔' : (l.source.id === n.id ? '→' : '←');
             return `<button type="button" data-id="${esc(other.id)}" style="border-color:${types[l.type].color}88" title="${esc(types[l.type].label)}">${esc(other.label)}<small>${arrow} ${esc(l.label)}</small></button>`;
         }).join('');
-        panel.innerHTML = `
+        panel.innerHTML = `${closeBtn}
             <span class="g-cat" style="background:${cats[n.cat].color}">${esc(cats[n.cat].label)}</span>
             <h2>${esc(n.label)}</h2>
             <p class="g-vi">${esc(n.vi)}</p>
@@ -157,10 +171,12 @@
             <div class="g-nb">${nbs}</div>
             ${n.topic ? `<a class="g-lesson" href="english-grammar.html?topic=${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}`;
         panel.querySelectorAll('.g-nb button').forEach(b => b.addEventListener('click', () => select(b.dataset.id)));
+        panel.querySelector('.g-close').addEventListener('click', () => select(n.id));
     }
 
     function select(id) {
         selected = selected === id ? null : id;
+        if (selected) helpOpen = false;
         renderPanel();
         render();
     }
@@ -168,7 +184,7 @@
     nodeSel.on('mouseenter', (e, d) => { hovered = d.id; render(); })
         .on('mouseleave', () => { hovered = null; render(); })
         .on('click', (e, d) => { e.stopPropagation(); select(d.id); });
-    svg.on('click', () => { if (selected) { selected = null; renderPanel(); render(); } });
+    svg.on('click', () => { if (selected || helpOpen) { selected = null; helpOpen = false; renderPanel(); render(); } });
 
     // legend (category filters)
     const legend = document.getElementById('graphLegend');
@@ -208,7 +224,23 @@
         typeLegend.appendChild(b);
     });
 
-    document.getElementById('graphSearch').addEventListener('input', e => { query = e.target.value; render(); });
+    // search box and help are tucked behind header icons so the graph keeps the screen
+    const searchBar = document.getElementById('graphSearchBar'), searchInput = document.getElementById('graphSearch'), searchBtn = document.getElementById('graphSearchBtn');
+    function setSearch(open) {
+        searchBar.hidden = !open;
+        searchBtn.setAttribute('aria-expanded', String(open));
+        if (open) searchInput.focus();
+        else if (query) { query = ''; searchInput.value = ''; render(); }
+    }
+    searchBtn.addEventListener('click', () => setSearch(searchBar.hidden));
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Escape') setSearch(false); });
+    searchInput.addEventListener('input', e => { query = e.target.value; render(); });
+    document.getElementById('graphHelpBtn').addEventListener('click', () => {
+        helpOpen = !helpOpen;
+        if (helpOpen) selected = null;
+        renderPanel();
+        render();
+    });
     const depthInput = document.getElementById('graphDepth');
     depthInput.addEventListener('input', () => {
         depth = +depthInput.value;
@@ -217,7 +249,8 @@
     });
     document.getElementById('graphReset').addEventListener('click', () => {
         selected = null; hovered = null; query = ''; depth = 5; hiddenCats.clear(); hiddenTypes.clear();
-        document.getElementById('graphSearch').value = '';
+        setSearch(false);
+        helpOpen = false;
         depthInput.value = 5;
         document.getElementById('graphDepthVal').textContent = 'tất cả';
         document.querySelectorAll('.g-legend .g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
@@ -229,5 +262,6 @@
         render();
     });
 
+    renderPanel();
     render();
 })();
