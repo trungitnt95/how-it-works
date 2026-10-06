@@ -19,16 +19,14 @@
     <div class="g-searchbar" id="graphSearchBar" hidden>
         <label class="visually-hidden" for="graphSearch">Tìm khái niệm</label>
         <input type="search" id="graphSearch" placeholder="Tìm khái niệm (Subject, Chủ ngữ...)" autocomplete="off">
-    </div>
-
-    <div class="g-toolbar">
         <div class="g-legend" id="graphLegend" role="group" aria-label="Lọc theo nhóm"></div>
-        <div class="g-legend g-types" id="graphTypes" role="group" aria-label="Lọc theo loại liên kết"></div>
-        <label class="g-depth" for="graphDepth">Độ sâu
-            <input type="range" id="graphDepth" min="1" max="5" value="5" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
-            <span id="graphDepthVal">tất cả</span>
-        </label>
-        <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+        <div class="g-filterrow">
+            <label class="g-depth" for="graphDepth">Độ sâu
+                <input type="range" id="graphDepth" min="1" max="5" value="2" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
+                <span id="graphDepthVal">2 bước</span>
+            </label>
+            <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+        </div>
     </div>
 
     <main class="g-main">
