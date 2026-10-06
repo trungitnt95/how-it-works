@@ -556,7 +556,7 @@
         elements.startTourBtn.addEventListener('click', startTour);
         elements.tourPrev.addEventListener('click', () => showTourStep(state.tourStepIndex - 1));
         elements.tourNext.addEventListener('click', () => {
-            const steps = tourSteps[state.currentLevel] || tourSteps.A1;
+            const steps = siteTourSteps;
             if (state.tourStepIndex >= steps.length - 1) {
                 endTour();
             } else {
@@ -569,7 +569,7 @@
     function startTour() {
         state.isTourActive = true;
         state.tourStepIndex = 0;
-        const steps = tourSteps[state.currentLevel] || tourSteps.A1;
+        const steps = siteTourSteps;
         elements.totalSteps.textContent = steps.length;
         elements.tourProgress.style.display = 'block';
         elements.tourPanel.style.display = 'block';
@@ -577,7 +577,7 @@
     }
 
     function showTourStep(index) {
-        const steps = tourSteps[state.currentLevel] || tourSteps.A1;
+        const steps = siteTourSteps;
         if (index < 0 || index >= steps.length) return;
 
         state.tourStepIndex = index;
