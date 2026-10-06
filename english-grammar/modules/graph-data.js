@@ -64,8 +64,7 @@ const grammarGraphData = {
         { id: 'comparison', label: 'Comparison', vi: 'So sánh', cat: 'wordclass', topic: 'comparisons', desc: 'Dạng so sánh của tính từ/trạng từ. Ví dụ: <em>taller, the tallest.</em>' },
 
         // Verb system
-        { id: 'tense', label: 'Tense', vi: 'Thì', cat: 'verb', topic: 'present-simple', desc: 'Cho biết thời điểm của hành động. Ví dụ: <em>walks / walked / will walk.</em>' },
-        { id: 'aspect', label: 'Aspect', vi: 'Thể (tiếp diễn/hoàn thành)', cat: 'verb', topic: 'present-perfect', desc: 'Cách nhìn hành động: đang diễn ra hay đã hoàn tất. Ví dụ: <em>is walking; has walked.</em>' },
+        { id: 'tense', label: 'Tense & Aspect', vi: 'Thì & thể (tiếp diễn/hoàn thành)', cat: 'verb', topic: 'present-simple', desc: '<b>Thì</b> cho biết thời điểm của hành động (hiện tại, quá khứ, tương lai); <b>thể</b> cho biết cách nhìn hành động (đơn giản, đang diễn ra, đã hoàn tất, đã hoàn tất và kéo dài). Bảng dưới là 4 thời × 4 thể; bấm vào ô để mở bài tương ứng. Hàng <em>Future in the past</em> (dùng <em>would</em>, thường gặp trong câu gián tiếp) chưa có bài riêng.', table: {head: ["", "Simple", "Continuous", "Perfect", "Perfect continuous"], rows: [["Present", [["I work", "present-simple"], ["I am working", "present-continuous"], ["I have worked", "present-perfect"], ["I have been working", "present-perfect-continuous"]]], ["Past", [["I worked", "past-simple"], ["I was working", "past-continuous"], ["I had worked", "past-perfect"], ["I had been working", "past-perfect-continuous"]]], ["Future", [["I will work", "future-simple"], ["I will be working", "future-continuous"], ["I will have worked", "future-perfect"], ["I will have been working", "future-perfect-continuous"]]], ["Future in the past", [["I would work", null], ["I would be working", null], ["I would have worked", null], ["I would have been working", null]]]]} },
         { id: 'auxiliary', label: 'Auxiliary verb', vi: 'Trợ động từ', cat: 'verb', topic: 'auxiliary-system', desc: 'Giúp tạo thì, câu hỏi, phủ định. Ví dụ: <em>do, have, be.</em>' },
         { id: 'modal', label: 'Modal verb', vi: 'Động từ khuyết thiếu', cat: 'verb', topic: 'modal-verbs', desc: 'Diễn tả khả năng, sự cho phép, bắt buộc. Ví dụ: <em>can, must, should.</em>' },
         { id: 'transitive', label: 'Transitive verb', vi: 'Ngoại động từ', cat: 'verb', topic: 'verb-types-transitivity', desc: 'Cần tân ngữ. Ví dụ: <em>She <b>opened</b> the door.</em>' },
@@ -137,7 +136,7 @@ const grammarGraphData = {
         ['conjunction', 'coordinating', 'gồm', 'is'], ['conjunction', 'subordinating', 'gồm', 'is'], ['conjunction', 'correlative', 'gồm', 'is'],
         ['coordinating', 'independent', 'nối', 'req'], ['subordinating', 'dependent', 'mở đầu', 'req'], ['subordinating', 'adverbial-clause', 'mở đầu', 'opt'], ['correlative', 'parallelism', 'đòi hỏi', 'req'],
 
-        ['tense', 'aspect', 'kết hợp', 'sym'], ['tense', 'auxiliary', 'tạo bởi', 'opt'], ['aspect', 'auxiliary', 'tạo bởi', 'req'], ['aspect', 'participle', 'dùng', 'req'], ['aspect', 'stative', 'hạn chế', 'opt'],
+        ['tense', 'auxiliary', 'tạo bởi', 'opt'], ['tense', 'participle', 'dùng', 'opt'], ['tense', 'stative', 'hạn chế', 'opt'],
         ['modal', 'auxiliary', 'là', 'is'], ['modal', 'infinitive', 'theo sau', 'req'], ['voice', 'auxiliary', 'dùng be', 'req'], ['voice', 'participle', 'dùng V3', 'req'], ['voice', 'transitive', 'cần', 'req'],
         ['mood', 'conditional', 'dùng trong', 'opt'], ['conditional', 'tense', 'phối hợp', 'req'], ['conditional', 'modal', 'dùng', 'opt'], ['conditional', 'adverbial-clause', 'là', 'is'],
         ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
