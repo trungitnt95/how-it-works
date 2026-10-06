@@ -23,12 +23,19 @@ body {
 .back-btn:hover { text-decoration: underline; }
 .g-count { margin-left: auto; color: var(--muted); font-size: .85rem; }
 
-.g-toolbar { display: flex; align-items: center; gap: 10px; padding: 8px 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .g-iconbtn { width: 34px; height: 34px; flex: none; border-radius: 50%; border: 1px solid var(--border); background: var(--panel); color: var(--text); font-size: 1rem; line-height: 1; cursor: pointer; }
 .g-iconbtn:hover, .g-iconbtn[aria-expanded="true"] { border-color: var(--accent); }
 .g-count { margin-left: auto; }
-.g-searchbar { padding: 8px 16px; border-bottom: 1px solid var(--border); }
-.g-searchbar[hidden], .g-panel[hidden] { display: none; }
+.g-searchbar { display: flex; flex-direction: column; gap: 10px; padding: 8px 16px 12px; border-bottom: 1px solid var(--border); }
+.g-searchbar[hidden] { display: none; }
+.g-filterrow { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.g-iconbtn { position: relative; }
+.g-iconbtn.active::after { content: ''; position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.g-typerow { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 2px 8px; width: 100%; padding: 6px 4px; border: 0; border-radius: 8px; background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.g-typerow:hover { background: rgba(255, 255, 255, .05); }
+.g-typerow small { grid-column: 2; color: var(--muted); font-size: .8rem; }
+.g-typerow.off { opacity: .4; }
+.g-panel[hidden] { display: none; }
 #graphSearch { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); font: inherit; }
 .g-legend { display: flex; gap: 6px; flex-wrap: wrap; }
 .g-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; font-size: .8rem; cursor: pointer; }

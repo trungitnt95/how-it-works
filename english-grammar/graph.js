@@ -83,7 +83,7 @@
     // state
     let selected = null, hovered = null, query = '', helpOpen = false;
     const hiddenCats = new Set(), hiddenTypes = new Set();
-    let depth = 5;
+    let depth = 2;   // hops shown around a chosen node (5 = everything)
 
     const isEnd = (l, id) => l.source.id === id || l.target.id === id;
 
@@ -120,6 +120,8 @@
             .classed('hl', d => focus && isEnd(d, focus));
         elabelSel.classed('hidden', d => !(focus && isEnd(d, focus) && vis.has(d.source.id) && vis.has(d.target.id) && !hiddenTypes.has(d.type)));
         const shown = links.filter(l => vis.has(l.source.id) && vis.has(l.target.id) && !hiddenTypes.has(l.type)).length;
+        document.getElementById('graphSearchBtn').classList.toggle('active', hiddenCats.size > 0);
+        document.getElementById('graphHelpBtn').classList.toggle('active', hiddenTypes.size > 0);
         document.getElementById('graphCount').textContent = `${vis.size} khái niệm · ${shown} liên kết`;
     }
 
@@ -135,12 +137,18 @@
     }
 
     // help text lives in the same overlay as node details; closed by default
-    const helpHtml = `<div class="g-help"><h2>Hướng dẫn</h2><ul>
+    const helpHtml = () => `<div class="g-help"><h2>Hướng dẫn</h2><ul>
         <li>Rê chuột (hoặc chạm) vào một nút để làm nổi các nút liên quan; nhấn để xem chi tiết và mở bài học.</li>
-        <li>Mũi tên <em>A → B</em> đọc là “A [nhãn] B”. Kiểu nét và màu cho biết loại liên kết (xem chú giải phía trên); bấm vào chú giải để ẩn/hiện loại đó.</li>
-        <li>Chọn một nút rồi giảm <em>Độ sâu</em> để chỉ xem các nút ở gần nó.</li>
+        <li>Mũi tên <em>A → B</em> đọc là “A [nhãn] B”. Kiểu nét và màu cho biết loại liên kết (bảng bên dưới); bấm vào một loại để ẩn/hiện nó.</li>
+        <li>Nhóm khái niệm, <em>Độ sâu</em> và <em>Đặt lại</em> nằm sau nút 🔍. Khi chọn một nút, đồ thị chỉ hiện các nút trong phạm vi <em>Độ sâu</em> (mặc định 2 bước).</li>
         <li>Kéo để di chuyển, cuộn hoặc chụm hai ngón để phóng to; <em>Đặt lại</em> để về bố cục ban đầu.</li>
-    </ul></div>`;
+    </ul><h3>Loại liên kết</h3><div class="g-types">${typeRows()}</div></div>`;
+    // link-type legend lives in the help panel: stroke sample + meaning, click to hide/show a type
+    const typeRows = () => Object.entries(types).map(([key, t]) =>
+        `<button type="button" class="g-typerow${hiddenTypes.has(key) ? ' off' : ''}" data-type="${key}" aria-pressed="${!hiddenTypes.has(key)}">
+            <svg width="40" height="12" aria-hidden="true"><line x1="${t.both ? 8 : 1}" y1="6" x2="31" y2="6" stroke="${t.color}" stroke-width="${t.width + .5}" ${t.dash ? `stroke-dasharray="${t.dash}"` : ''}/>`
+        + (t.both ? `<path d="M8,6l5,-3.5v7z" fill="${t.color}"/>` : '') + `<path d="M32,6l-5,-3.5v7z" fill="${t.color}"/></svg>
+            <span><b>${esc(t.label)}</b></span><small>${esc(t.hint)}</small></button>`).join('');
     const closeBtn = '<button type="button" class="g-close" aria-label="Đóng">×</button>';
 
     function renderPanel() {
@@ -151,9 +159,16 @@
         panel.classList.toggle('wide', !!(n && n.table));
         panel.hidden = !n && !helpOpen;
         if (!n) {
-            panel.innerHTML = helpOpen ? closeBtn + helpHtml : '';
+            panel.innerHTML = helpOpen ? closeBtn + helpHtml() : '';
             const x = panel.querySelector('.g-close');
             if (x) x.addEventListener('click', () => { helpOpen = false; renderPanel(); });
+            panel.querySelectorAll('.g-typerow').forEach(b => b.addEventListener('click', () => {
+                const key = b.dataset.type, off = !hiddenTypes.has(key);
+                off ? hiddenTypes.add(key) : hiddenTypes.delete(key);
+                b.classList.toggle('off', off);
+                b.setAttribute('aria-pressed', String(!off));
+                render();
+            }));
             return;
         }
         const nbs = links.filter(l => isEnd(l, n.id)).map(l => {
@@ -204,26 +219,6 @@
         legend.appendChild(b);
     });
 
-    // legend (link-type filters): a sample of the stroke + its meaning
-    const typeLegend = document.getElementById('graphTypes');
-    Object.entries(types).forEach(([key, t]) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'g-chip g-type';
-        b.setAttribute('aria-pressed', 'true');
-        b.title = t.hint;
-        b.innerHTML = `<svg width="34" height="10" aria-hidden="true"><line x1="${t.both ? 7 : 1}" y1="5" x2="${t.both ? 27 : 27}" y2="5" stroke="${t.color}" stroke-width="${t.width + .5}" ${t.dash ? `stroke-dasharray="${t.dash}"` : ''}/>`
-            + (t.both ? `<path d="M7,5l5,-3.5v7z" fill="${t.color}"/>` : '') + `<path d="M28,5l-5,-3.5v7z" fill="${t.color}"/></svg>${esc(t.label)}`;
-        b.addEventListener('click', () => {
-            const off = !hiddenTypes.has(key);
-            off ? hiddenTypes.add(key) : hiddenTypes.delete(key);
-            b.classList.toggle('off', off);
-            b.setAttribute('aria-pressed', String(!off));
-            render();
-        });
-        typeLegend.appendChild(b);
-    });
-
     // search box and help are tucked behind header icons so the graph keeps the screen
     const searchBar = document.getElementById('graphSearchBar'), searchInput = document.getElementById('graphSearch'), searchBtn = document.getElementById('graphSearchBtn');
     function setSearch(open) {
@@ -248,11 +243,11 @@
         render();
     });
     document.getElementById('graphReset').addEventListener('click', () => {
-        selected = null; hovered = null; query = ''; depth = 5; hiddenCats.clear(); hiddenTypes.clear();
-        setSearch(false);
+        selected = null; hovered = null; query = ''; depth = 2; hiddenCats.clear(); hiddenTypes.clear();
+        searchInput.value = '';
         helpOpen = false;
-        depthInput.value = 5;
-        document.getElementById('graphDepthVal').textContent = 'tất cả';
+        depthInput.value = 2;
+        document.getElementById('graphDepthVal').textContent = '2 bước';
         document.querySelectorAll('.g-legend .g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
         nodes.forEach(n => { n.fx = null; n.fy = null; });
         userMoved = false;
