@@ -195,7 +195,7 @@
             <h3>Liên quan (${n.degree})</h3>
             <div class="g-nb">${nbs}</div>
             ${n.topic ? `<a class="g-lesson" href="english-grammar.html?topic=${encodeURIComponent(n.topic)}">Mở bài học →</a>` : ''}
-            ${(n.more || []).map(([id, label]) => `<a class="g-more" href="english-grammar.html?topic=${encodeURIComponent(id)}">Nâng cao: ${esc(label)} →</a>`).join('')}`;
+            ${n.more && n.more.length ? `<h3>Bài liên quan</h3>${n.more.map(([id, label]) => `<a class="g-more" href="english-grammar.html?topic=${encodeURIComponent(id)}">${esc(label)} →</a>`).join('')}` : ''}`;
         panel.querySelectorAll('.g-nb button').forEach(b => b.addEventListener('click', () => select(b.dataset.id)));
         panel.querySelector('.g-close').addEventListener('click', () => select(n.id));
     }
