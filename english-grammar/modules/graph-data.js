@@ -111,6 +111,7 @@ const grammarGraphData = {
         { id: 'pronoun-reference', label: 'Pronoun reference', vi: 'Quy chiếu đại từ', cat: 'agreement', topic: 'pronoun-reference', desc: 'Đại từ phải rõ thay cho danh từ nào.' },
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
+    // Link labels: write quantity as "1/nhiều" (one or many), not "≥ 1".
     links: [
         ['adverb', 'manner-adverb', 'gồm', 'is'], ['adverb', 'frequency-adverb', 'gồm', 'is'], ['adverb', 'degree-adverb', 'gồm', 'is'], ['adverb', 'linking-adverb', 'gồm', 'is'],
         ['manner-adverb', 'verb', 'đứng sau', 'opt'], ['frequency-adverb', 'verb', 'đứng trước động từ thường, sau be', 'opt'], ['degree-adverb', 'adjective', 'bổ nghĩa', 'opt'],
@@ -154,8 +155,8 @@ const grammarGraphData = {
         ['mood', 'conditional', 'dùng trong', 'opt'], ['conditional', 'tense', 'phối hợp', 'req'], ['conditional', 'modal', 'dùng', 'opt'], ['conditional', 'adverbial-clause', 'là', 'is'],
         ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
 
-        ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['clause', 'phrase', 'cấu tạo từ ≥ 1', 'req'],
-        ['clause', 'subject', 'thường có', 'opt'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'cấu tạo gồm ≥ 1', 'req'],
+        ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['clause', 'phrase', 'cấu tạo từ 1/nhiều', 'req'],
+        ['clause', 'subject', 'thường có', 'opt'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'cấu tạo gồm 1/nhiều', 'req'],
         ['dependent', 'relative-clause', 'gồm', 'is'], ['dependent', 'noun-clause', 'gồm', 'is'], ['dependent', 'adverbial-clause', 'gồm', 'is'],
         ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'relative-pronoun', 'mở đầu bằng', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
         ['reported-speech', 'tense', 'lùi thì', 'opt'], ['reported-speech', 'pronoun', 'đổi', 'opt'], ['noun-phrase', 'determiner', 'chứa', 'opt'], ['noun-phrase', 'adjective', 'chứa', 'opt'],
