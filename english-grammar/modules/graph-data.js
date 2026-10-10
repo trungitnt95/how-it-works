@@ -17,6 +17,19 @@ const grammarGraphLinkTypes = {
     sym: { label: 'Đối xứng / so sánh', hint: 'A và B đi cùng hoặc đối chiếu nhau', color: '#bc8cff', dash: '', width: 1, both: true }
 };
 
+// Lộ trình học theo khái niệm: thứ tự các giai đoạn và các node thuộc từng giai đoạn (mỗi node đúng một giai đoạn).
+// 'after' ghi các giai đoạn nên có trước; văn bản trong bảng lấy nhãn từ chính các node.
+const grammarGraphRoadmap = [
+    { id: 'g1', title: 'Khung câu', after: '', nodes: ['sentence', 'subject', 'predicate', 'verb'] },
+    { id: 'g2', title: 'Từ loại cốt lõi', after: '1', nodes: ['noun', 'pronoun', 'adjective', 'adverb', 'preposition', 'conjunction', 'determiner', 'article'] },
+    { id: 'g3', title: 'Thành phần câu & loại động từ', after: '1–2', nodes: ['object', 'direct-object', 'indirect-object', 'complement', 'adverbial', 'transitive', 'intransitive', 'linking'] },
+    { id: 'g4', title: 'Loại câu', after: '1–3', nodes: ['sentence-type', 'statement', 'question', 'negation', 'imperative', 'exclamation', 'expletive', 'auxiliary', 'interrogative-pronoun'] },
+    { id: 'g5', title: 'Thì & dạng động từ', after: '3–4', nodes: ['tense', 'stative', 'modal', 'voice', 'infinitive', 'gerund', 'participle', 'phrasal-verb'] },
+    { id: 'g6', title: 'Danh từ & đại từ chi tiết', after: '2, 5', nodes: ['countable', 'number', 'quantifier', 'possessive', 'demonstrative', 'reflexive', 'indefinite', 'pronoun-reference', 'sv-agreement'] },
+    { id: 'g7', title: 'Cụm từ & mệnh đề', after: '3–6', nodes: ['phrase', 'noun-phrase', 'verb-phrase', 'prep-phrase', 'clause', 'independent', 'dependent', 'coordinating', 'subordinating', 'correlative', 'relative-clause', 'relative-pronoun', 'noun-clause', 'adverbial-clause'] },
+    { id: 'g8', title: 'Nâng cao & sắc thái', after: '5–7', nodes: ['conditional', 'mood', 'reported-speech', 'comparison', 'parallelism', 'manner-adverb', 'frequency-adverb', 'degree-adverb', 'linking-adverb'] }
+];
+
 const grammarGraphData = {
     nodes: [
         // Sentence parts

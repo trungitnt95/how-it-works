@@ -28,6 +28,13 @@ body {
 .g-count { margin-left: auto; }
 .g-searchbar { display: flex; flex-direction: column; gap: 10px; padding: 8px 16px 12px; border-bottom: 1px solid var(--border); }
 .g-searchbar[hidden] { display: none; }
+.g-stage { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); }
+.g-stage select { flex: 1; min-width: 0; padding: 7px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); font: inherit; }
+.g-road { width: 100%; border-collapse: collapse; margin: 6px 0 0; font-size: .74rem; table-layout: fixed; }
+.g-road th, .g-road td { border: 1px solid var(--border); padding: 5px 6px; text-align: left; vertical-align: top; line-height: 1.4; }
+.g-road thead th { color: var(--muted); font-size: .66rem; }
+.g-road tbody th { color: var(--text); font-weight: 600; }
+.g-road td { color: var(--muted); }
 .g-filterrow { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .g-iconbtn { position: relative; }
 .g-iconbtn.active::after { content: ''; position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
@@ -58,7 +65,7 @@ body {
 .g-help ul { margin: 0; padding-left: 1.1em; color: var(--muted); font-size: .9rem; line-height: 1.55; }
 .g-help li { margin-bottom: 6px; }
 .g-help em { color: var(--text); }
-.g-panel.wide { width: 380px; }
+.g-panel.wide, .g-panel.help { width: 420px; max-width: 100%; }
 .g-hint { color: var(--muted); font-size: .9rem; line-height: 1.5; margin: 0; }
 .g-panel h2 { margin: 0 0 2px; font-size: 1.2rem; }
 .g-panel .g-vi { color: var(--muted); margin: 0 0 10px; }
@@ -92,6 +99,6 @@ body {
 .hidden { display: none; }
 
 @media (max-width: 720px) {
-    .g-panel, .g-panel.wide { top: auto; left: 0; width: 100%; height: 42%; border-left: 0; border-top: 1px solid var(--border); box-shadow: 0 -6px 18px rgba(0, 0, 0, .35); }
+    .g-panel, .g-panel.wide, .g-panel.help { top: auto; left: 0; width: 100%; height: 42%; border-left: 0; border-top: 1px solid var(--border); box-shadow: 0 -6px 18px rgba(0, 0, 0, .35); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
