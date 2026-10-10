@@ -64,8 +64,8 @@ const grammarGraphData = {
         { id: 'coordinating', label: 'Coordinating conjunction', vi: 'Liên từ đẳng lập', cat: 'wordclass', topic: 'conjunctions', desc: 'for, and, nor, but, or, yet, so (FANBOYS): nối hai phần ngang hàng. Ví dụ: <em>I was tired, <b>but</b> I finished.</em>' },
         { id: 'subordinating', label: 'Subordinating conjunction', vi: 'Liên từ phụ thuộc', cat: 'wordclass', topic: 'conjunctions', desc: 'because, although, if, when, while, since…: mở đầu mệnh đề phụ thuộc. Ví dụ: <em><b>Although</b> he was late, he joined.</em>' },
         { id: 'correlative', label: 'Correlative conjunction', vi: 'Liên từ tương quan', cat: 'wordclass', topic: 'conjunctions', desc: 'Cặp liên từ both…and, either…or, neither…nor, not only…but also; hai vế phải cùng dạng. Ví dụ: <em>She likes <b>both</b> reading <b>and</b> writing.</em>' },
-        { id: 'determiner', label: 'Determiner', vi: 'Từ hạn định', cat: 'wordclass', topic: 'articles-determiners', desc: 'Đứng trước danh từ để xác định. Ví dụ: <em>the, a, this, my, some.</em>' },
-        { id: 'article', label: 'Article', vi: 'Mạo từ', cat: 'wordclass', topic: 'articles-determiners', desc: 'Loại từ hạn định: <em>a, an, the.</em>' },
+        { id: 'determiner', label: 'Determiner', vi: 'Từ hạn định', cat: 'wordclass', topic: 'articles-determiners', desc: 'Đứng trước danh từ để xác định. Ví dụ: <em>the, a, this, my, some.</em>', more: [['determiner-system', 'Determiner System (C2)']] },
+        { id: 'article', label: 'Article', vi: 'Mạo từ', cat: 'wordclass', topic: 'articles-determiners', desc: 'Loại từ hạn định: <em>a, an, the.</em>', more: [['advanced-article-system', 'Advanced Article System (C2)']] },
         { id: 'quantifier', label: 'Quantifier', vi: 'Từ chỉ số lượng', cat: 'wordclass', topic: 'quantifiers', desc: 'Chỉ lượng. Ví dụ: <em>much, many, few, a little.</em>' },
         { id: 'possessive', label: 'Possessive', vi: 'Sở hữu', cat: 'wordclass', topic: 'pronouns-possessives', desc: 'Chỉ sự sở hữu. Ví dụ: <em>my book, the book is mine.</em>' },
         { id: 'reflexive', label: 'Reflexive pronoun', vi: 'Đại từ phản thân / tương hỗ', cat: 'wordclass', topic: 'reflexive-reciprocal', desc: 'Hành động quay lại chính chủ ngữ, hoặc qua lại giữa các bên. Ví dụ: <em>She taught <b>herself</b>. They help <b>each other</b>.</em>' },
@@ -111,6 +111,7 @@ const grammarGraphData = {
         { id: 'pronoun-reference', label: 'Pronoun reference', vi: 'Quy chiếu đại từ', cat: 'agreement', topic: 'pronoun-reference', desc: 'Đại từ phải rõ thay cho danh từ nào.' },
         { id: 'parallelism', label: 'Parallel structure', vi: 'Cấu trúc song song', cat: 'agreement', topic: 'parallel-structure', desc: 'Ví dụ: <em>She likes <b>reading</b>, <b>writing</b>, and <b>swimming</b>.</em>' }
     ],
+    // Node field 'more': optional extra lessons, [lessonId, label], shown under the main "Mở bài học" button.
     // Link labels: write quantity as "1/nhiều" (one or many), not "≥ 1".
     links: [
         ['adverb', 'manner-adverb', 'gồm', 'is'], ['adverb', 'frequency-adverb', 'gồm', 'is'], ['adverb', 'degree-adverb', 'gồm', 'is'], ['adverb', 'linking-adverb', 'gồm', 'is'],
