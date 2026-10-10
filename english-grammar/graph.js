@@ -3,6 +3,7 @@
     const nodes = grammarGraphData.nodes.map(n => ({ ...n }));
     const byId = new Map(nodes.map(n => [n.id, n]));
     const types = grammarGraphLinkTypes;
+    const roadmap = grammarGraphRoadmap;
     const links = grammarGraphData.links
         .filter(([s, t]) => byId.has(s) && byId.has(t))
         .map(([source, target, label, type]) => ({ source, target, label, type }));
@@ -62,17 +63,18 @@
     const zoom = d3.zoom().scaleExtent([0.3, 4]).on('zoom', e => { layer.attr('transform', e.transform); if (e.sourceEvent) userMoved = true; });
     svg.call(zoom).on('dblclick.zoom', null);
     // centre and scale the whole graph into the viewport (called again once the layout has settled)
-    function resetView() {
+    function resetView(subset) {
         const { width, height } = svg.node().getBoundingClientRect();
-        const xs = nodes.map(n => n.x || 0), ys = nodes.map(n => n.y || 0);
+        const pool = subset ? nodes.filter(n => subset.has(n.id)) : nodes;
+        const xs = pool.map(n => n.x || 0), ys = pool.map(n => n.y || 0);
         const bw = Math.max(...xs) - Math.min(...xs) + 140, bh = Math.max(...ys) - Math.min(...ys) + 100;
-        const k = Math.max(0.3, Math.min(1.1, Math.min(width / bw, height / bh)));
+        const k = Math.max(0.3, Math.min(subset ? 1.5 : 1.1, Math.min(width / bw, height / bh)));
         const cx = (Math.max(...xs) + Math.min(...xs)) / 2, cy = (Math.max(...ys) + Math.min(...ys)) / 2;
         svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2 - cx * k, height / 2 - cy * k).scale(k));
     }
     resetView();
     sim.on('end.fit', () => { if (!userMoved) resetView(); });
-    window.addEventListener('resize', resetView);
+    window.addEventListener('resize', () => resetView(stage ? new Set(roadmap.find(st => st.id === stage).nodes) : undefined));
 
     // drag
     nodeSel.call(d3.drag()
@@ -81,7 +83,7 @@
         .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
 
     // state
-    let selected = null, hovered = null, query = '', helpOpen = false;
+    let selected = null, hovered = null, query = '', helpOpen = false, stage = '';
     const hiddenCats = new Set(), hiddenTypes = new Set();
     let depth = 2;   // hops shown around a chosen node (5 = everything)
 
@@ -106,21 +108,22 @@
         const vis = visibleSet();
         const focus = hovered || selected;
         const near = focus ? new Set([focus, ...adj.get(focus)]) : null;
+        const stageNodes = stage ? new Set(roadmap.find(st => st.id === stage).nodes) : null;
         const q = query.trim().toLowerCase();
         const matches = q ? new Set(nodes.filter(n => (n.label + ' ' + n.vi).toLowerCase().includes(q)).map(n => n.id)) : null;
 
         nodeSel
             .classed('hidden', d => !vis.has(d.id))
-            .classed('dim', d => (near && !near.has(d.id)) || (matches && !matches.has(d.id)))
+            .classed('dim', d => (near && !near.has(d.id)) || (matches && !matches.has(d.id)) || (stageNodes && !stageNodes.has(d.id)))
             .classed('sel', d => d.id === selected)
             .classed('match', d => !!matches && matches.has(d.id));
         linkSel
             .classed('hidden', d => !vis.has(d.source.id) || !vis.has(d.target.id) || hiddenTypes.has(d.type))
-            .classed('dim', d => (near && !isEnd(d, focus)) || !!matches)
+            .classed('dim', d => (near && !isEnd(d, focus)) || !!matches || (stageNodes && !(stageNodes.has(d.source.id) && stageNodes.has(d.target.id))))
             .classed('hl', d => focus && isEnd(d, focus));
         elabelSel.classed('hidden', d => !(focus && isEnd(d, focus) && vis.has(d.source.id) && vis.has(d.target.id) && !hiddenTypes.has(d.type)));
         const shown = links.filter(l => vis.has(l.source.id) && vis.has(l.target.id) && !hiddenTypes.has(l.type)).length;
-        document.getElementById('graphSearchBtn').classList.toggle('active', hiddenCats.size > 0);
+        document.getElementById('graphSearchBtn').classList.toggle('active', hiddenCats.size > 0 || !!stage);
         document.getElementById('graphHelpBtn').classList.toggle('active', hiddenTypes.size > 0);
         document.getElementById('graphCount').textContent = `${vis.size} khái niệm · ${shown} liên kết`;
     }
@@ -142,13 +145,19 @@
         <li>Mũi tên <em>A → B</em> đọc là “A [nhãn] B”. Kiểu nét và màu cho biết loại liên kết (bảng bên dưới); bấm vào một loại để ẩn/hiện nó.</li>
         <li>Nhóm khái niệm, <em>Độ sâu</em> và <em>Đặt lại</em> nằm sau nút 🔍. Khi chọn một nút, đồ thị chỉ hiện các nút trong phạm vi <em>Độ sâu</em> (mặc định 2 bước).</li>
         <li>Kéo để di chuyển, cuộn hoặc chụm hai ngón để phóng to; <em>Đặt lại</em> để về bố cục ban đầu.</li>
-    </ul><h3>Loại liên kết</h3><div class="g-types">${typeRows()}</div></div>`;
+    </ul><h3>Loại liên kết</h3><div class="g-types">${typeRows()}</div>${roadmapHtml()}</div>`;
     // link-type legend lives in the help panel: stroke sample + meaning, click to hide/show a type
     const typeRows = () => Object.entries(types).map(([key, t]) =>
         `<button type="button" class="g-typerow${hiddenTypes.has(key) ? ' off' : ''}" data-type="${key}" aria-pressed="${!hiddenTypes.has(key)}">
             <svg width="40" height="12" aria-hidden="true"><line x1="${t.both ? 8 : 1}" y1="6" x2="31" y2="6" stroke="${t.color}" stroke-width="${t.width + .5}" ${t.dash ? `stroke-dasharray="${t.dash}"` : ''}/>`
         + (t.both ? `<path d="M8,6l5,-3.5v7z" fill="${t.color}"/>` : '') + `<path d="M32,6l-5,-3.5v7z" fill="${t.color}"/></svg>
             <span><b>${esc(t.label)}</b></span><small>${esc(t.hint)}</small></button>`).join('');
+    // roadmap table (text only): stage, its concepts (labels taken from the nodes), and what to know first
+    const roadmapHtml = () => `<h3>Lộ trình học</h3>
+        <p class="g-hint">Học theo thứ tự các giai đoạn; mỗi giai đoạn dựa trên các giai đoạn trước. Chọn một giai đoạn ở nút 🔍 để làm nổi các khái niệm của nó trên đồ thị.</p>
+        <table class="g-road"><colgroup><col style="width:27%"><col style="width:51%"><col style="width:22%"></colgroup>
+        <thead><tr><th>Giai đoạn</th><th>Khái niệm</th><th>Cần có trước</th></tr></thead>
+        <tbody>${roadmap.map((st, i) => `<tr><th scope="row">${i + 1}. ${esc(st.title)}</th><td>${st.nodes.map(id => esc(byId.get(id).label)).join(', ')}</td><td>${st.after ? 'Giai đoạn ' + esc(st.after) : '—'}</td></tr>`).join('')}</tbody></table>`;
     const closeBtn = '<button type="button" class="g-close" aria-label="Đóng">×</button>';
 
     function renderPanel() {
@@ -157,6 +166,7 @@
         const helpBtn = document.getElementById('graphHelpBtn');
         helpBtn.setAttribute('aria-expanded', String(helpOpen && !n));
         panel.classList.toggle('wide', !!(n && n.table));
+        panel.classList.toggle('help', !n && helpOpen);
         panel.hidden = !n && !helpOpen;
         if (!n) {
             panel.innerHTML = helpOpen ? closeBtn + helpHtml() : '';
@@ -230,6 +240,15 @@
     searchBtn.addEventListener('click', () => setSearch(searchBar.hidden));
     searchInput.addEventListener('keydown', e => { if (e.key === 'Escape') setSearch(false); });
     searchInput.addEventListener('input', e => { query = e.target.value; render(); });
+    const stageSel = document.getElementById('graphStage');
+    roadmap.forEach((st, i) => stageSel.add(new Option(`${i + 1}. ${st.title}`, st.id)));
+    stageSel.addEventListener('change', () => {
+        stage = stageSel.value;
+        // zoom to the chosen stage (or back to the whole graph) so it is readable even when the filter panel shrinks the canvas
+        if (stage) { userMoved = true; resetView(new Set(roadmap.find(st => st.id === stage).nodes)); }
+        else { userMoved = false; resetView(); }
+        render();
+    });
     document.getElementById('graphHelpBtn').addEventListener('click', () => {
         helpOpen = !helpOpen;
         if (helpOpen) selected = null;
@@ -243,7 +262,7 @@
         render();
     });
     document.getElementById('graphReset').addEventListener('click', () => {
-        selected = null; hovered = null; query = ''; depth = 2; hiddenCats.clear(); hiddenTypes.clear();
+        selected = null; hovered = null; query = ''; stage = ''; stageSel.value = ''; depth = 2; hiddenCats.clear(); hiddenTypes.clear();
         searchInput.value = '';
         helpOpen = false;
         depthInput.value = 2;
