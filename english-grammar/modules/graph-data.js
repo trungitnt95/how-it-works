@@ -93,11 +93,11 @@ const grammarGraphData = {
         { id: 'phrasal-verb', label: 'Phrasal verb', vi: 'Cụm động từ', cat: 'verb', topic: 'phrasal-verbs', desc: 'Động từ + tiểu từ. Ví dụ: <em>give up, look after.</em>' },
 
         // Phrases & clauses
-        { id: 'phrase', label: 'Phrase', vi: 'Cụm từ', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Nhóm từ không có cặp chủ–vị. Ví dụ: <em>the old house.</em>' },
+        { id: 'phrase', label: 'Phrase', vi: 'Cụm từ', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Nhóm từ <b>không</b> có cặp chủ ngữ + động từ chia thì, nên không tự đứng thành câu. Là bộ phận cấu tạo nên mệnh đề: chủ ngữ thường là cụm danh từ, vị ngữ chứa cụm động từ, trạng ngữ có thể là cụm giới từ. Khác mệnh đề (Clause) ở chỗ thiếu cặp chủ–vị. Ví dụ: <em>the old house.</em>' },
         { id: 'noun-phrase', label: 'Noun phrase', vi: 'Cụm danh từ', cat: 'clause', topic: 'noun-phrase-architecture', desc: 'Danh từ + từ bổ nghĩa. Ví dụ: <em><b>the tall man in black</b>.</em>' },
         { id: 'verb-phrase', label: 'Verb phrase', vi: 'Cụm động từ (chức năng)', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Trợ động từ + động từ chính. Ví dụ: <em>has been waiting.</em>' },
         { id: 'prep-phrase', label: 'Prepositional phrase', vi: 'Cụm giới từ', cat: 'clause', topic: 'prepositional-phrases', desc: 'Giới từ + tân ngữ. Ví dụ: <em>in the garden.</em>' },
-        { id: 'clause', label: 'Clause', vi: 'Mệnh đề', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Nhóm từ có chủ ngữ và động từ chia thì. Ví dụ: <em>because she left.</em>' },
+        { id: 'clause', label: 'Clause', vi: 'Mệnh đề', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Nhóm từ có chủ ngữ và động từ chia thì. Câu cấu tạo từ một hoặc nhiều mệnh đề, còn mệnh đề cấu tạo từ các cụm từ (Phrase). Khác cụm từ ở chỗ có cặp chủ–vị. Ví dụ: <em>because she left.</em>' },
         { id: 'independent', label: 'Independent clause', vi: 'Mệnh đề độc lập', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Đứng một mình thành câu. Ví dụ: <em>I stayed.</em>' },
         { id: 'dependent', label: 'Dependent clause', vi: 'Mệnh đề phụ thuộc', cat: 'clause', topic: 'phrases-vs-clauses', desc: 'Không đứng một mình. Ví dụ: <em>…although it was late.</em>' },
         { id: 'relative-clause', label: 'Relative clause', vi: 'Mệnh đề quan hệ', cat: 'clause', topic: 'relative-clauses', desc: 'Bổ nghĩa cho danh từ. Ví dụ: <em>the man <b>who called</b>.</em>' },
@@ -154,7 +154,7 @@ const grammarGraphData = {
         ['mood', 'conditional', 'dùng trong', 'opt'], ['conditional', 'tense', 'phối hợp', 'req'], ['conditional', 'modal', 'dùng', 'opt'], ['conditional', 'adverbial-clause', 'là', 'is'],
         ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
 
-        ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['phrase', 'clause', 'khác', 'sym'],
+        ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['clause', 'phrase', 'cấu tạo từ ≥ 1', 'req'],
         ['clause', 'subject', 'thường có', 'opt'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'cấu tạo gồm ≥ 1', 'req'],
         ['dependent', 'relative-clause', 'gồm', 'is'], ['dependent', 'noun-clause', 'gồm', 'is'], ['dependent', 'adverbial-clause', 'gồm', 'is'],
         ['relative-clause', 'noun', 'bổ nghĩa', 'req'], ['relative-clause', 'relative-pronoun', 'mở đầu bằng', 'req'], ['noun-clause', 'reported-speech', 'dùng trong', 'opt'],
