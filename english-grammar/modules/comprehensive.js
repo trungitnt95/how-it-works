@@ -673,11 +673,26 @@ const grammarComprehensiveData = {
             uses: [
                 ['Thứ tự cuối câu', 'manner + place + time', 'She sang beautifully at the concert last night.'],
                 ['Đưa trạng ngữ lên đầu', 'đóng khung bối cảnh (framing) hoặc tạo đối lập', 'Last night, she sang beautifully.'],
-                ['Focusing adverbs', 'only, even, just, almost – đặt sát phần được nhấn, vì vị trí đổi phạm vi nghĩa', '']
-            ]
+                [
+                    'Focusing adverbs (only, even, just, almost)',
+                    'đặt sát ngay trước phần muốn nhấn; đổi vị trí là đổi nghĩa',
+                    'Only Lan reads books at night. (không ai khác) / Lan reads only books at night. (không đọc loại khác) / Lan reads books only at night. (không đọc lúc khác)'
+                ],
+                ['Không chen vào giữa động từ và tân ngữ', 'tân ngữ đứng ngay sau động từ, trạng từ lùi ra sau', 'She speaks English fluently. (không nói <em>speaks fluently English</em>)']
+            ],
+            compare: [
+                ['hard vs hardly', '<em>hard</em> = chăm chỉ, mạnh (<em>She works hard.</em>); <em>hardly</em> = hầu như không (<em>She hardly works.</em>)'],
+                ['late vs lately', '<em>late</em> = muộn (<em>He came late.</em>); <em>lately</em> = gần đây (<em>I haven’t seen him lately.</em>)'],
+                ['very vs very much', '<em>very</em> bổ nghĩa tính từ/trạng từ (<em>very good</em>); với động từ dùng <em>very much</em> (<em>I like it very much.</em>)']
+            ],
+            mistakes: [
+                ['She speaks fluently English.', 'She speaks English fluently.', 'Không chen trạng từ giữa động từ và tân ngữ.'],
+                ['He goes always to school.', 'He always goes to school.', 'Trạng từ tần suất đứng trước động từ thường (sau be).'],
+                ['I very like this song.', 'I like this song very much.', '<em>very</em> không bổ nghĩa trực tiếp cho động từ.']
+            ],
+            tip: 'Câu có nhiều trạng ngữ cuối câu: nhớ thứ tự <strong>cách thức → nơi chốn → thời gian</strong>. Muốn nhấn mạnh phần nào, đặt <em>only / even / just</em> sát ngay trước phần đó.'
         }
     },
-
     'preposition-system': {
         icon: '📍', title: 'Preposition System (Hệ Thống Giới Từ) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['prepositions', 'prepositional-phrases', 'phrasal-prepositions', 'time-prepositions-deep'],
@@ -1887,9 +1902,10 @@ const grammarComprehensiveData = {
         icon: '🎯', title: 'Adverb Placement & Focus (Vị Trí Trạng Từ & Trọng Tâm) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['adjectives-adverbs', 'information-flow', 'fronting', 'hedges-boosters'],
         theory: {
-            overview: 'Ở trình độ cao, vị trí trạng từ <strong>điều khiển tiêu điểm</strong> của câu, đặc biệt với <em>only, even, just, almost, already, still, too</em>. Đổi chỗ trạng từ là đổi điểm nhấn: <em>Only John apologized. / John only apologized. / John apologized only after the meeting.</em>',
+            overview: 'Ở trình độ cao, vị trí trạng từ <strong>điều khiển điểm nhấn</strong> của câu: cùng một trạng từ, đặt ở chỗ khác thì nghĩa khác. Nhóm quan trọng nhất là <strong>trạng từ nhấn mạnh (focusing adverbs)</strong>: <em>only, just, merely, even, also, almost, nearly</em>. Chúng tác động lên phần đứng ngay sau (đôi khi ngay trước) chúng: <em>Only John apologized. / John only apologized. / John apologized only after the meeting.</em>',
             tables: [
                 {
+                    title: '📌 Vị trí trong câu',
                     head: ['Vị trí', 'Loại thường gặp', 'Ví dụ'],
                     rows: [
                         ['Đầu câu', 'linking, stance, framing', '<em>Frankly, I disagree. However, …</em>'],
@@ -1900,6 +1916,16 @@ const grammarComprehensiveData = {
                             '<em>She spoke quietly in the hallway yesterday.</em>'
                         ]
                     ]
+                },
+                {
+                    title: '🎯 Ba nhóm trạng từ nhấn mạnh',
+                    head: ['Nhóm', 'Từ', 'Ý nghĩa', 'Ví dụ'],
+                    rows: [
+                        ['Giới hạn (restrictive)', 'only, just, merely, simply', 'chỉ, không hơn', '<em>Only John passed.</em> (không ai khác)'],
+                        ['Thêm vào (additive)', 'also, too, as well, even', 'cũng; thậm chí (bất ngờ)', '<em>Even John passed.</em> (ngay cả người không ai ngờ)'],
+                        ['Xấp xỉ (approximating)', 'almost, nearly, just about', 'gần như', '<em>I almost told everyone.</em> (suýt kể)']
+                    ],
+                    note: '<em>Already, still, yet</em> và <em>too</em> (quá) <strong>không</strong> thuộc nhóm này: chúng là trạng từ thời gian / mức độ.'
                 }
             ],
             sections: [
@@ -1908,19 +1934,47 @@ const grammarComprehensiveData = {
                     items: [
                         'Không có trợ động từ: trước động từ chính – <em>She probably knows.</em>',
                         'Có be: sau be – <em>She is probably ready.</em>',
-                        'Có trợ động từ: sau trợ động từ đầu tiên – <em>She has probably forgotten.</em>'
+                        'Có trợ động từ: sau trợ động từ đầu tiên – <em>She has probably forgotten. / She would probably have left.</em>',
+                        'Câu phủ định: <em>still</em> đứng trước trợ động từ phủ định – <em>She still hasn’t called.</em>; <em>yet</em> đứng cuối – <em>She hasn’t called yet.</em>'
+                    ]
+                },
+                {
+                    title: '🔬 Đổi vị trí của only, đổi nghĩa',
+                    items: [
+                        ['Only Lan reads books at night.', 'chỉ Lan đọc, người khác thì không'],
+                        ['Lan only reads books at night.', 'Lan chỉ đọc, không làm gì khác với sách'],
+                        ['Lan reads only books at night.', 'Lan chỉ đọc sách, không đọc loại khác'],
+                        ['Lan reads books only at night.', 'chỉ đọc vào ban đêm, không đọc lúc khác']
                     ]
                 }
             ],
             compare: [
-                ['I almost told everyone vs I told almost everyone', 'suýt kể – kể gần hết'],
-                ['I only asked for help vs I asked only for help', 'phạm vi của only khác nhau'],
-                ['Even John passed', 'even đưa yếu tố bất ngờ vào điểm nhấn: ngay cả John cũng đỗ']
+                ['I almost told everyone vs I told almost everyone', 'suýt kể (chưa kể) – đã kể cho gần hết mọi người'],
+                ['Only John passed vs Even John passed', '<em>only</em>: không ai khác ngoài John; <em>even</em>: ngay cả John (người ít ai nghĩ sẽ đỗ) cũng đỗ'],
+                ['only vs just', '<em>only</em> = chỉ; <em>just</em> = vừa mới (<em>He just left.</em>) hoặc chỉ là (<em>He is just a child.</em>)'],
+                ['still hasn’t vs hasn’t … yet vs already', '<em>still hasn’t</em>: vẫn chưa (sốt ruột); <em>hasn’t … yet</em>: chưa (trung tính); <em>already</em>: đã rồi (sớm hơn dự kiến)']
             ],
-            advanced: ['Ở C2, vị trí trạng từ gắn trực tiếp với thiết kế diễn ngôn, không chỉ là một quy tắc vị trí cứng.']
+            mistakes: [
+                ['She speaks fluently English.', 'She speaks English fluently.', 'Không chen trạng từ giữa động từ và tân ngữ ngắn.'],
+                ['She hasn’t still called.', 'She still hasn’t called. / She hasn’t called yet.', '<em>still</em> đứng trước trợ động từ phủ định.'],
+                [
+                    'The manager said on Monday he would resign.',
+                    'On Monday the manager said he would resign. / The manager said he would resign on Monday.',
+                    '<em>on Monday</em> có thể gắn với <em>said</em> hoặc với <em>resign</em>. Đặt lại để chỉ còn một cách hiểu.'
+                ],
+                'Đặt <em>only</em> trước động từ trong văn viết trang trọng khi thật ra muốn nhấn một thành phần khác – dễ gây hiểu sai.'
+            ],
+            advanced: [
+                '<strong>Trọng âm thay vị trí khi nói.</strong> Người bản ngữ thường đặt <em>only</em> trước động từ (<em>She only reads books</em>) và dùng trọng âm để chỉ phần được nhấn. Khi viết không có trọng âm, nên đặt <em>only</em> sát ngay trước phần cần nhấn.',
+                '<strong><em>Also</em> và <em>too / as well</em> không đổi chỗ như nhau.</strong> <em>Also</em> đứng giữa câu và nhấn phần theo sau (<em>She also speaks French.</em>); <em>too / as well</em> đứng cuối và nhấn phần đứng ngay trước (<em>She speaks French too.</em>). Dễ mơ hồ nếu thiếu ngữ cảnh.',
+                '<strong>Trạng từ "nhìn hai hướng" (squinting).</strong> Một trạng từ đứng giữa hai thành phần có thể gắn với cả hai (<em>Students who study rarely pass</em>). Sửa bằng cách đổi chỗ hoặc tách câu.',
+                '<strong>End-weight.</strong> Thường đặt tân ngữ ngắn trước trạng ngữ dài, nhưng khi tân ngữ rất dài thì trạng ngữ ngắn có thể đứng trước nó để câu không "nặng đầu": <em>She explained to the committee the entire sequence of events that had led to the failure.</em>',
+                '<strong>Trạng từ giới hạn đưa lên đầu thì đảo ngữ.</strong> <em>Only after the meeting did he apologize.</em> (so với <em>He apologized only after the meeting.</em>). Cùng nguyên tắc với <em>Never have I seen…</em>, xem bài Inversion.',
+                '<strong>Hedge và booster đứng giữa câu</strong> để chỉnh độ chắc chắn: <em>It is arguably the best result. / She definitely knew.</em> Chọn vị trí và từ là một lựa chọn về lập trường của người viết (xem bài Hedges & Boosters).'
+            ],
+            tip: 'Trước khi đặt trạng từ nhấn mạnh, tự hỏi: <strong>"Tôi muốn nhấn phần nào?"</strong> rồi đặt trạng từ sát ngay trước phần đó. Đọc to câu; nếu có hai cách hiểu, đổi chỗ hoặc tách câu.'
         }
     },
-
     'advanced-adverbial-clauses': {
         icon: '🪜', title: 'Advanced Adverbial Clauses (Mệnh Đề Trạng Ngữ Nâng Cao) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
         connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses'],
