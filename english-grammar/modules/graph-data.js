@@ -103,14 +103,14 @@ const grammarGraphData = {
         ['manner-adverb', 'verb', 'đứng sau', 'opt'], ['frequency-adverb', 'verb', 'đứng trước động từ thường, sau be', 'opt'], ['degree-adverb', 'adjective', 'bổ nghĩa', 'opt'],
         ['conjunction', 'linking-adverb', 'đối chiếu', 'sym'],
 
-        ['statement', 'negation', 'có dạng phủ định', 'opt'], ['exclamation', 'noun-phrase', 'khung What +', 'opt'], ['exclamation', 'adjective', 'khung How +', 'opt'], ['exclamation', 'adverb', 'khung How +', 'opt'],
-        ['imperative', 'verb', 'dùng V nguyên mẫu', 'req'], ['imperative', 'negation', 'phủ định bằng Don\'t', 'opt'], ['imperative', 'modal', 'đề nghị lịch sự', 'opt'],
+        ['statement', 'subject', 'cần', 'req'], ['statement', 'predicate', 'cần', 'req'], ['statement', 'negation', 'có dạng phủ định', 'opt'], ['exclamation', 'subject', 'có thể có', 'opt'], ['exclamation', 'verb', 'có thể có', 'opt'], ['exclamation', 'noun-phrase', 'khung What +', 'opt'], ['exclamation', 'adjective', 'khung How +', 'opt'], ['exclamation', 'adverb', 'khung How +', 'opt'],
+        ['imperative', 'predicate', 'chỉ có', 'req'], ['imperative', 'verb', 'dùng V nguyên mẫu', 'req'], ['imperative', 'negation', 'phủ định bằng Don\'t', 'opt'], ['imperative', 'modal', 'đề nghị lịch sự', 'opt'],
         ['pronoun', 'reflexive', 'gồm', 'is'], ['pronoun', 'indefinite', 'gồm', 'is'], ['pronoun', 'demonstrative', 'gồm', 'is'], ['pronoun', 'relative-pronoun', 'gồm', 'is'], ['pronoun', 'interrogative-pronoun', 'gồm', 'is'],
         ['indefinite', 'sv-agreement', 'chia số ít', 'req'], ['indefinite', 'quantifier', 'ghép từ', 'opt'], ['demonstrative', 'determiner', 'cũng là', 'is'], ['question', 'interrogative-pronoun', 'có thể mở đầu bằng', 'opt'],
 
-        ['sentence', 'subject', 'gồm', 'req'], ['sentence', 'predicate', 'gồm', 'req'],
+        
         ['sentence', 'sentence-type', 'phân loại', 'is'], ['sentence-type', 'question', 'gồm', 'is'], ['sentence-type', 'imperative', 'gồm', 'is'], ['sentence-type', 'statement', 'gồm', 'is'], ['sentence-type', 'exclamation', 'gồm', 'is'],
-        ['question', 'auxiliary', 'đảo', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'lược bỏ', 'opt'],
+        ['question', 'auxiliary', 'đảo lên trước chủ ngữ', 'req'], ['question', 'subject', 'đứng sau trợ động từ', 'req'], ['question', 'verb', 'cần', 'req'], ['negation', 'auxiliary', 'dùng', 'req'], ['imperative', 'subject', 'ẩn (you)', 'opt'],
         ['expletive', 'subject', 'đóng vai', 'is'],
 
         ['subject', 'noun', 'là', 'is'], ['subject', 'pronoun', 'là', 'is'], ['subject', 'noun-phrase', 'là', 'is'], ['subject', 'noun-clause', 'là', 'is'],
