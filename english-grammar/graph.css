@@ -76,7 +76,7 @@ body {
 .g-nb button { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; font-size: .82rem; cursor: pointer; }
 .g-nb button:hover { border-color: var(--accent); }
 .g-nb small { color: var(--muted); margin-left: 4px; }
-.g-more { display: block; margin-top: 10px; color: var(--accent); font-size: .88rem; text-decoration: none; }
+.g-more { display: block; margin-top: 6px; color: var(--accent); font-size: .88rem; text-decoration: none; }
 .g-more:hover { text-decoration: underline; }
 .g-lesson { display: inline-block; margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: var(--accent); color: #0d1117; text-decoration: none; font-weight: 600; font-size: .9rem; }
 
