@@ -315,14 +315,22 @@ const grammarFoundationsData = {
             overview: '<strong>Clause</strong> (mệnh đề) có chủ ngữ + động từ chia thì (finite verb); <strong>phrase</strong> (cụm từ) thì không. Đây là nền tảng để biết cụm nào tự đứng thành câu được, và để tránh lỗi fragment/run-on.',
             tables: [
                 {
+                    title: 'Cụm từ (Phrase): không có động từ chia thì',
                     head: ['Loại', 'Ví dụ', 'Vai trò'],
                     rows: [
                         ['Noun phrase', '<em>the tall boy</em>', 'làm chủ ngữ / tân ngữ; nén thông tin quanh danh từ'],
                         ['Verb phrase', '<em>has been working</em>', 'cụm động từ'],
-                        ['Prepositional phrase', '<em>on the desk, in the room</em>', 'bổ nghĩa'],
+                        ['Prepositional phrase', '<em>on the desk, in the room</em>', 'bổ nghĩa']
+                    ]
+                },
+                {
+                    title: 'Mệnh đề (Clause): có chủ ngữ + động từ chia thì',
+                    head: ['Loại', 'Ví dụ', 'Vai trò'],
+                    rows: [
                         ['Independent clause', '<em>She smiled.</em>', 'tự đứng thành câu'],
                         ['Dependent clause', '<em>because she smiled</em>', 'cần mệnh đề chính']
-                    ]
+                    ],
+                    note: 'Mệnh đề phụ thuộc gồm 3 loại: relative, noun và adverbial clause (xem mục Cách dùng).'
                 }
             ],
             uses: [
