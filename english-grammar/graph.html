@@ -12,24 +12,29 @@
         <a href="english-grammar.html" class="back-btn">← Ngữ pháp tiếng Anh</a>
         <h1>🕸️ Đồ Thị Ngữ Pháp</h1>
         <span class="g-count" id="graphCount"></span>
+        <button type="button" class="g-iconbtn" id="graphSearchBtn" aria-label="Tìm khái niệm" aria-expanded="false" aria-controls="graphSearchBar" title="Tìm khái niệm">🔍</button>
+        <button type="button" class="g-iconbtn" id="graphHelpBtn" aria-label="Hướng dẫn" aria-expanded="false" aria-controls="graphPanel" title="Hướng dẫn">❓</button>
     </header>
 
-    <div class="g-toolbar">
+    <div class="g-searchbar" id="graphSearchBar" hidden>
         <label class="visually-hidden" for="graphSearch">Tìm khái niệm</label>
-        <input type="search" id="graphSearch" placeholder="🔍 Tìm khái niệm (Subject, Chủ ngữ...)" autocomplete="off">
+        <input type="search" id="graphSearch" placeholder="Tìm khái niệm (Subject, Chủ ngữ...)" autocomplete="off">
         <div class="g-legend" id="graphLegend" role="group" aria-label="Lọc theo nhóm"></div>
-        <label class="g-depth" for="graphDepth">Độ sâu
-            <input type="range" id="graphDepth" min="1" max="5" value="5" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
-            <span id="graphDepthVal">tất cả</span>
+        <label class="g-stage" for="graphStage">Giai đoạn lộ trình
+            <select id="graphStage"><option value="">Tất cả</option></select>
         </label>
-        <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+        <div class="g-filterrow">
+            <label class="g-depth" for="graphDepth">Độ sâu
+                <input type="range" id="graphDepth" min="1" max="5" value="2" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
+                <span id="graphDepthVal">2 bước</span>
+            </label>
+            <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+        </div>
     </div>
 
     <main class="g-main">
         <svg id="graph" role="img" aria-label="Đồ thị các khái niệm ngữ pháp"></svg>
-        <aside class="g-panel" id="graphPanel" aria-live="polite">
-            <p class="g-hint">Rê chuột vào một nút để làm nổi các nút liên quan. Mũi tên chỉ hướng: <em>A → B</em> đọc là “A [nhãn] B”. Nhấn để xem chi tiết. Kéo để di chuyển, cuộn để phóng to.</p>
-        </aside>
+        <aside class="g-panel" id="graphPanel" aria-live="polite" hidden></aside>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
