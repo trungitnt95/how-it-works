@@ -538,21 +538,22 @@ const grammarComprehensiveData = {
         icon: '⚙️', title: 'Verb Types & Transitivity (Loại Động Từ & Ngoại Động/Nội Động) - Intermediate', category: 'foundations', level: 'intermediate',
         connections: ['verbs-overview', 'direct-indirect-objects', 'sentence-patterns-complements', 'verb-complementation'],
         theory: {
-            overview: 'Mỗi động từ có <strong>valency</strong> – số thành phần nó cần để câu đủ nghĩa: <em>sleep</em> cần 0 tân ngữ, <em>open</em> cần 1, <em>give</em> thường cần 2.',
+            overview: 'Mỗi động từ có <strong>valency</strong> – số thành phần nó cần để câu đủ nghĩa: <em>sleep</em> cần 0 tân ngữ, <em>open</em> cần 1, <em>give</em> thường cần 2. Cách phân loại này dựa vào <strong>cấu trúc câu</strong>. Một trục khác dựa vào <strong>nghĩa</strong>: stative (trạng thái, như <em>know</em>) và dynamic (hành động); một động từ thuộc cả hai trục, ví dụ <em>seem</em> vừa là linking vừa là stative.',
             tables: [
                 {
                     head: ['Loại', 'Mẫu', 'Ví dụ'],
                     rows: [
                         ['Intransitive', 'S + V', '<em>The child laughed. The baby slept.</em>'],
                         ['Transitive', 'S + V + O', '<em>She wrote a letter.</em>'],
-                        ['Ditransitive', 'S + V + IO + DO', '<em>They sent us an email.</em>'],
+                        ['Ditransitive (kiểu con của transitive)', 'S + V + IO + DO', '<em>They sent us an email.</em>'],
                         ['Linking', 'S + V + bổ ngữ chủ ngữ (không phải tân ngữ)', '<em>The soup tastes good.</em>'],
-                        ['Complex transitive', 'S + V + O + bổ ngữ tân ngữ', '<em>They elected him president.</em> (president mô tả him)']
+                        ['Complex transitive (kiểu con của transitive)', 'S + V + O + bổ ngữ tân ngữ', '<em>They elected him president.</em> (president mô tả him)']
                     ]
                 }
             ],
             uses: [
                 ['Ambitransitive', 'dùng được cả có và không có tân ngữ', 'She opened the door. / The door opened.'],
+                ['Stative vs dynamic', 'phân loại theo nghĩa, khác trục với bảng trên; stative thường không dùng tiếp diễn', 'I know the answer. (stative) / I am running. (dynamic)'],
                 ['Đổi nghĩa khi đổi transitivity', '', 'run a company (điều hành) vs run fast (chạy)']
             ],
             advanced: [
