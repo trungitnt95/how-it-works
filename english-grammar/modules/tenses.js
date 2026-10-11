@@ -40,7 +40,7 @@ const grammarTensesData = {
                 ['Kể chuyện sinh động (historical / narrative present)', '', 'He walks in and says nothing.']
             ],
             signals: [
-                'Trạng từ tần suất: <strong>always, usually, often, sometimes, never</strong>',
+                'Trạng từ tần suất: <strong>always, usually, often, sometimes, never, ...</strong>',
                 'Cụm lặp lại: <strong>every day, on Mondays, twice a week</strong>'
             ],
             compare: [
@@ -88,7 +88,7 @@ const grammarTensesData = {
                 ['Hành vi tạm thời với be', '', 'You are being unfair. He is being rude.']
             ],
             signals: [
-                '<strong>now, right now, at the moment, today, this week</strong>',
+                '<strong>now, right now, at the moment, today, this week, ...</strong>',
                 'Câu gây chú ý theo tình huống: <strong>Look! Listen!</strong>'
             ],
             compare: [
@@ -102,7 +102,7 @@ const grammarTensesData = {
                 [
                     'I am knowing the answer.',
                     'I know the answer.',
-                    'Stative verbs (know, understand, want, need, love, own, believe) thường không dùng tiếp diễn.'
+                    'Stative verbs (know, understand, want, need, love, own, believe, ...) thường không dùng tiếp diễn.'
                 ],
                 [
                     'I am going to school every day.',
@@ -247,7 +247,7 @@ const grammarTensesData = {
                 ]
             ],
             signals: [
-                '<strong>already, yet, just, ever, never</strong>',
+                '<strong>already, yet, just, ever, never, ...</strong>',
                 '<strong>since</strong> + mốc thời gian (since 2020, since Monday); <strong>for</strong> + khoảng thời gian (for five years)',
                 'Khoảng chưa kết thúc: <strong>today, this week</strong>'
             ],
@@ -300,7 +300,7 @@ const grammarTensesData = {
             ],
             signals: [
                 '<strong>for</strong> + khoảng thời gian, <strong>since</strong> + mốc: <em>I have been waiting for two hours / since 9 a.m.</em>',
-                '<strong>all morning, all week, lately, recently</strong>'
+                '<strong>all morning, all week, lately, recently, ...</strong>'
             ],
             compare: [
                 [
@@ -519,7 +519,7 @@ const grammarTensesData = {
                 ['Deadline, milestone, timeline dự án', '', 'By June, we’ll have launched.'],
                 ['Suy luận việc chắc đã hoàn tất', '', 'They’ll have arrived by now.']
             ],
-            signals: ['<strong>by, by the time, before, by next week</strong> + mốc tương lai'],
+            signals: ['<strong>by, by the time, before, by next week, ...</strong> + mốc tương lai'],
             compare: [
                 [
                     'will + V vs will have + V3',

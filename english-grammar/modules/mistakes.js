@@ -30,13 +30,13 @@ const grammarMistakesData = {
             uses: [
                 [
                     'Chuyển động',
-                    'to (hướng tới), into (vào trong), onto (lên trên), across, through, along',
+                    'to (hướng tới), into (vào trong), onto (lên trên), across, through, along, ...',
                     'go to school, walk into the room, jump onto the table'
                 ],
                 ['arrive at vs arrive in', 'at + địa điểm cụ thể; in + thành phố / quốc gia', 'arrive at the airport / arrive in Hanoi'],
                 ['by vs until (thời hạn)', 'by = hạn chót; until = kéo dài đến mốc', 'Finish it by Friday. I waited until 6 o’clock.'],
-                ['Nguyên nhân, phương tiện, tác nhân', 'because of, by, with', ''],
-                ['Collocation cố định', 'tính từ / động từ / danh từ + giới từ', 'interested in, good at, depend on, reason for'],
+                ['Nguyên nhân, phương tiện, tác nhân', 'because of, by, with, ...', ''],
+                ['Collocation cố định', 'tính từ / động từ / danh từ + giới từ', 'interested in, good at, depend on, reason for, ...'],
                 ['Sau giới từ dùng danh từ hoặc V-ing', '', 'good at solving problems, interested in learning'],
                 [
                     'Giới từ cuối câu hỏi / mệnh đề quan hệ (văn nói)',
@@ -51,7 +51,7 @@ const grammarMistakesData = {
                 }
             ],
             mistakes: [
-                ['discuss about the plan', 'discuss the plan', 'Một số động từ không cần giới từ: discuss, enter, marry, reach.'],
+                ['discuss about the plan', 'discuss the plan', 'Một số động từ không cần giới từ: discuss, enter, marry, reach, ...'],
                 ['interested in learn', 'interested in learning', 'Sau giới từ không dùng động từ nguyên mẫu.'],
                 'Dịch từng giới từ từ tiếng Việt sang.'
             ],
@@ -72,15 +72,15 @@ const grammarMistakesData = {
                     rows: [
                         [
                             'V-ing',
-                            'enjoy, avoid, finish, keep, suggest; sau giới từ; làm chủ ngữ',
+                            'enjoy, avoid, finish, keep, suggest, ...; sau giới từ; làm chủ ngữ',
                             '<em>I enjoy reading. I suggest taking a break. Swimming is relaxing. interested in learning</em>'
                         ],
                         [
                             'to V',
-                            'want, decide, hope, plan, promise; sau tính từ; chỉ mục đích',
+                            'want, decide, hope, plan, promise, ...; sau tính từ; chỉ mục đích',
                             '<em>She wants to study abroad. happy to help, easy to understand. I came to help.</em>'
                         ],
-                        ['O + to V', 'ask, tell, advise, encourage, allow', '<em>She asked me to wait.</em>'],
+                        ['O + to V', 'ask, tell, advise, encourage, allow, ...', '<em>She asked me to wait.</em>'],
                         [
                             'V nguyên mẫu (bare)',
                             'modal, make / let, động từ tri giác',
@@ -119,7 +119,7 @@ const grammarMistakesData = {
                 {
                     head: ['Lượng từ', 'Dùng với', 'Sắc thái / ví dụ'],
                     rows: [
-                        ['many, several, a number of', 'đếm được số nhiều', '<em>many books</em>'],
+                        ['many, several, a number of, ...', 'đếm được số nhiều', '<em>many books</em>'],
                         [
                             'much, a great deal of',
                             'không đếm được',
@@ -278,7 +278,7 @@ const grammarMistakesData = {
             uses: [
                 ['Đặt modifier sát từ nó bổ nghĩa', 'và đảm bảo cụm mở đầu khớp với chủ ngữ', ''],
                 [
-                    'only, almost, nearly, just',
+                    'only, almost, nearly, just, ...',
                     'đặc biệt nhạy với vị trí – đặt ngay trước phần được giới hạn',
                     'Only she said he lied (chỉ mình cô ấy nói) ≠ She only said he lied (cô ấy chỉ nói)'
                 ],
@@ -295,7 +295,7 @@ const grammarMistakesData = {
         level: 'advanced',
         connections: ['pronouns-possessives', 'relative-clauses', 'reported-speech', 'modifier-errors'],
         theory: {
-            overview: 'Đại từ (<em>he, she, it, they, this, that</em>) phải chỉ <strong>rõ một đối tượng</strong>. Nếu người đọc không biết nó chỉ ai/cái gì, câu mơ hồ: <em>When Nam met Long, he was nervous.</em> – ai nervous?',
+            overview: 'Đại từ (<em>he, she, it, they, this, that, ...</em>) phải chỉ <strong>rõ một đối tượng</strong>. Nếu người đọc không biết nó chỉ ai/cái gì, câu mơ hồ: <em>When Nam met Long, he was nervous.</em> – ai nervous?',
             tables: [
                 {
                     head: ['Kiểu mơ hồ', 'Ví dụ', 'Cách sửa'],

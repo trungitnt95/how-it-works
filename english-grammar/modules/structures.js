@@ -194,7 +194,7 @@ const grammarStructuresData = {
                 [
                     'The train was arrived.',
                     'The train arrived.',
-                    'Nội động từ (arrive, die, sleep, happen) không có tân ngữ nên không có bị động.'
+                    'Nội động từ (arrive, die, sleep, happen, ...) không có tân ngữ nên không có bị động.'
                 ],
                 ['The report finished yesterday.', 'The report was finished yesterday.', 'Không quên be + V3.'],
                 'Dùng bị động khi người thực hiện quan trọng, hoặc khi câu chủ động ngắn và rõ hơn.'
@@ -229,7 +229,7 @@ const grammarStructuresData = {
                 ['Chủ ngữ', '', 'What he said surprised me. What matters most is consistency.'],
                 [
                     'Tân ngữ sau động từ tư duy / nói / tri giác',
-                    'know, think, believe, say, explain, wonder',
+                    'know, think, believe, say, explain, wonder, ...',
                     'I know that she is busy. I wonder where he lives.'
                 ],
                 ['Bổ ngữ sau be', '', 'The problem is that we are late.'],

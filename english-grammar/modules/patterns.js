@@ -73,14 +73,14 @@ const grammarPatternsData = {
             ],
             uses: [
                 ['no + noun', 'phủ định mạnh, gọn', 'no time, no reason, I have no money.'],
-                ['never, nobody, nothing, nowhere, neither', 'tự mang nghĩa phủ định, không thêm not', 'Nobody came.'],
+                ['never, nobody, nothing, nowhere, neither, ...', 'tự mang nghĩa phủ định, không thêm not', 'Nobody came.'],
                 [
                     'not + any-words',
                     'sau don’t / isn’t / can’t dùng anything, anyone, anywhere',
                     'I can’t find anyone. She didn’t go anywhere.'
                 ],
                 [
-                    'hardly, barely, rarely, scarcely',
+                    'hardly, barely, rarely, scarcely, ...',
                     'gần phủ định; đầu câu có thể gây đảo ngữ trang trọng',
                     'I can hardly hear you. Rarely have I seen such beauty.'
                 ],
@@ -129,7 +129,7 @@ const grammarPatternsData = {
                         ['Coordinating (FANBOYS)', 'for, and, nor, but, or, yet, so', 'nối hai phần ngang hàng về ngữ pháp'],
                         [
                             'Subordinating',
-                            'because, although, if, when, while, since, as',
+                            'because, although, if, when, while, since, as, ...',
                             'tạo mệnh đề phụ thuộc; mệnh đề phụ đứng trước hoặc sau'
                         ],
                         ['Correlative', 'both…and, either…or, neither…nor, not only…but also', 'cặp đôi, đòi hỏi cấu trúc song song']
@@ -168,7 +168,7 @@ const grammarPatternsData = {
                 ['both reading and to write', 'both reading and writing', 'Không phá cấu trúc song song sau cặp correlative.']
             ],
             advanced: [
-                'Writing học thuật cần thêm connectors như <em>however, therefore, whereas, moreover, nevertheless</em> (xem Discourse Markers).'
+                'Writing học thuật cần thêm connectors như <em>however, therefore, whereas, moreover, nevertheless, ...</em> (xem Discourse Markers).'
             ],
             tip: 'Tự hỏi: <strong>"Ý sau đang bổ sung, phản bác, giải thích hay đặt điều kiện cho ý trước?"</strong> rồi mới chọn liên từ.'
         }
@@ -217,7 +217,7 @@ const grammarPatternsData = {
             uses: [
                 [
                     'Tăng / giảm mức độ so sánh hơn',
-                    'đặt <em>much, far, a lot, a bit, a little</em> trước comparative (không dùng <em>very</em>)',
+                    'đặt <em>much, far, a lot, a bit, a little, ...</em> trước comparative (không dùng <em>very</em>)',
                     'This road is far busier. It’s a bit cheaper.'
                 ]
             ],

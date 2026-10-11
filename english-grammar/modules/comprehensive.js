@@ -14,25 +14,25 @@ const grammarComprehensiveData = {
                     title: 'Lượng từ theo loại danh từ',
                     head: ['Loại', 'Lượng từ', 'Ví dụ'],
                     rows: [
-                        ['Đếm được', 'many, few, a few, several, a number of', '<em>many ideas, a few books</em>'],
-                        ['Không đếm được', 'much, little, a little, a great deal of', '<em>much water, a little time</em>'],
-                        ['Cả hai', 'some, any, all, most, no, plenty of, a lot of, enough', '<em>some apples, some milk</em>']
+                        ['Đếm được', 'many, few, a few, several, a number of, ...', '<em>many ideas, a few books</em>'],
+                        ['Không đếm được', 'much, little, a little, a great deal of, ...', '<em>much water, a little time</em>'],
+                        ['Cả hai', 'some, any, all, most, no, plenty of, a lot of, enough, ...', '<em>some apples, some milk</em>']
                     ]
                 },
                 {
                     title: 'Đơn vị để "đếm" danh từ không đếm được',
                     head: ['Đơn vị', 'Ví dụ'],
                     rows: [
-                        ['a piece of', 'advice, news, information, furniture, evidence – <em>two pieces of advice</em>'],
-                        ['a glass / cup / slice of', 'water, coffee, bread'],
-                        ['a bit / sheet / kilo of', 'luck, paper, rice']
+                        ['a piece of', 'advice, news, information, furniture, evidence, ... – <em>two pieces of advice</em>'],
+                        ['a glass / cup / slice of', 'water, coffee, bread, ...'],
+                        ['a bit / sheet / kilo of', 'luck, paper, rice, ...']
                     ]
                 }
             ],
             uses: [
                 [
                     'Luôn không đếm được (người Việt hay nhầm)',
-                    'advice, information, news, furniture, luggage, equipment, homework, traffic, money, bread',
+                    'advice, information, news, furniture, luggage, equipment, homework, traffic, money, bread, ...',
                     ''
                 ],
                 ['Chia động từ số ít', '', 'The information is useful. The news is good.'],
@@ -259,8 +259,8 @@ const grammarComprehensiveData = {
                         ['Viết lại ở số nhiều', 'Each customer should check his receipt.', 'Customers should check their receipts.'],
                         [
                             'Danh từ nghề nghiệp trung tính',
-                            'chairman, fireman, policeman, stewardess',
-                            'chair / chairperson, firefighter, police officer, flight attendant'
+                            'chairman, fireman, policeman, stewardess, ...',
+                            'chair / chairperson, firefighter, police officer, flight attendant, ...'
                         ]
                     ]
                 }
@@ -315,13 +315,13 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Phủ định',
-                            'un-, in-/im-/il-/ir-, dis-, non-, mis-',
-                            'unhappy, impossible, illegal, irregular, dislike, non-stop, misunderstand'
+                            'un-, in-/im-/il-/ir-, dis-, non-, mis-, ...',
+                            'unhappy, impossible, illegal, irregular, dislike, non-stop, misunderstand, ...'
                         ],
-                        ['Số', 'mono-, bi-, tri-, multi-', 'bilingual, multinational'],
-                        ['Mức độ', 'over-, under-, super-, hyper-', 'overwork, underpaid'],
-                        ['Thời gian', 'pre- (trước), post- (sau), re- (lại)', 'preview, postwar, rewrite'],
-                        ['Vị trí', 'sub-, inter-, trans-, ex-', 'subway, international']
+                        ['Số', 'mono-, bi-, tri-, multi-, ...', 'bilingual, multinational, ...'],
+                        ['Mức độ', 'over-, under-, super-, hyper-, ...', 'overwork, underpaid, ...'],
+                        ['Thời gian', 'pre- (trước), post- (sau), re- (lại), ...', 'preview, postwar, rewrite, ...'],
+                        ['Vị trí', 'sub-, inter-, trans-, ex-, ...', 'subway, international, ...']
                     ]
                 },
                 {
@@ -330,16 +330,16 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Danh từ',
-                            '-tion, -ment, -ness, -ity, -er/-or, -ist, -ism',
-                            'education, development, happiness, ability, teacher, artist'
+                            '-tion, -ment, -ness, -ity, -er/-or, -ist, -ism, ...',
+                            'education, development, happiness, ability, teacher, artist, ...'
                         ],
-                        ['Động từ', '-ize, -ify, -en, -ate', 'modernize, simplify, widen, activate'],
+                        ['Động từ', '-ize, -ify, -en, -ate, ...', 'modernize, simplify, widen, activate, ...'],
                         [
                             'Tính từ',
-                            '-able, -ful, -less, -ous, -ive, -ish, -al',
-                            'readable, useful, careless, famous, active, childish, natural'
+                            '-able, -ful, -less, -ous, -ive, -ish, -al, ...',
+                            'readable, useful, careless, famous, active, childish, natural, ...'
                         ],
-                        ['Trạng từ', '-ly, -ward(s), -wise', 'quickly, backwards']
+                        ['Trạng từ', '-ly, -ward(s), -wise, ...', 'quickly, backwards, ...']
                     ]
                 },
                 {
@@ -385,8 +385,8 @@ const grammarComprehensiveData = {
                     head: ['make (tạo ra, sản sinh)', 'do (công việc, nhiệm vụ)'],
                     rows: [
                         [
-                            'a decision, a mistake, noise, an effort, money, coffee, dinner, the bed, friends, a plan',
-                            'homework, the laundry, the dishes, business, exercise, the shopping, a favor, your best'
+                            'a decision, a mistake, noise, an effort, money, coffee, dinner, the bed, friends, a plan, ...',
+                            'homework, the laundry, the dishes, business, exercise, the shopping, a favor, your best, ...'
                         ]
                     ]
                 },
@@ -599,12 +599,12 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Subject complement',
-                            'linking verbs: be, become, seem, appear, look, sound, smell, taste, feel, remain, grow, turn',
+                            'linking verbs: be, become, seem, appear, look, sound, smell, taste, feel, remain, grow, turn, ...',
                             'tính từ, cụm danh từ, cụm giới từ: <em>She is ready / a doctor / in trouble. The milk turned sour.</em>'
                         ],
                         [
                             'Object complement',
-                            'make, keep, find, call, consider, elect, paint, leave',
+                            'make, keep, find, call, consider, elect, paint, leave, ...',
                             'V + O + C: <em>They elected her president. leave the door open, keep me informed, find it difficult</em>'
                         ]
                     ]
@@ -630,7 +630,7 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Adj + giới từ + N / V-ing',
-                            '<em>interested in music, interested in learning; responsible for, capable of, keen on, aware of</em>'
+                            '<em>interested in music, interested in learning; responsible for, capable of, keen on, aware of, ...</em>'
                         ],
                         ['Adj + to V', '<em>ready to start, likely to fail, easy to understand, eager to help</em>'],
                         ['Adj + that-clause', '<em>sure that he is right, aware that it changed</em>'],
@@ -702,19 +702,19 @@ const grammarComprehensiveData = {
                 {
                     head: ['Nhóm', 'Giới từ', 'Ví dụ'],
                     rows: [
-                        ['Nơi chốn', 'at, in, on, under, between', '<em>at the station</em>'],
+                        ['Nơi chốn', 'at, in, on, under, between, ...', '<em>at the station</em>'],
                         [
                             'Thời gian (mốc / khoảng)',
-                            'at, on, in, by, until, since, for',
+                            'at, on, in, by, until, since, for, ...',
                             '<em>at 5, on Monday, in June, by Friday, until noon, since 2020, for two days</em>'
                         ],
                         [
                             'Hướng, đường đi',
-                            'to, into, onto, through, across',
+                            'to, into, onto, through, across, ...',
                             '<em>walk into the room, go across the street, through the tunnel</em>'
                         ],
-                        ['Nguyên nhân', 'because of, due to, from', '<em>because of rain</em>'],
-                        ['Phương tiện, tác nhân, công cụ', 'by, with', '<em>by train, written by Tom, cut with a knife</em>']
+                        ['Nguyên nhân', 'because of, due to, from, ...', '<em>because of rain</em>'],
+                        ['Phương tiện, tác nhân, công cụ', 'by, with, ...', '<em>by train, written by Tom, cut with a knife</em>']
                     ]
                 }
             ],
@@ -803,13 +803,13 @@ const grammarComprehensiveData = {
                     title: '4 nhóm stative',
                     head: ['Nhóm', 'Động từ'],
                     rows: [
-                        ['Cảm xúc, suy nghĩ', 'love, like, hate, want, need, prefer, believe, know, understand, remember, forget, mean'],
+                        ['Cảm xúc, suy nghĩ', 'love, like, hate, want, need, prefer, believe, know, understand, remember, forget, mean, ...'],
                         [
                             'Sở hữu, tồn tại',
-                            'have (sở hữu), own, possess, belong, contain, consist, exist – <em>The box contains books. This belongs to me.</em>'
+                            'have (sở hữu), own, possess, belong, contain, consist, exist, ... – <em>The box contains books. This belongs to me.</em>'
                         ],
-                        ['Giác quan', 'see, hear, smell, taste, feel'],
-                        ['Đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure']
+                        ['Giác quan', 'see, hear, smell, taste, feel, ...'],
+                        ['Đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, ...']
                     ]
                 }
             ],
@@ -1046,7 +1046,7 @@ const grammarComprehensiveData = {
                 }
             ],
             uses: [
-                ['Cụm dẫn thường gặp', 'ask, wonder, want to know, Can you tell me, Do you know, I’m not sure', ''],
+                ['Cụm dẫn thường gặp', 'ask, wonder, want to know, Can you tell me, Do you know, I’m not sure, ...', ''],
                 [
                     'Làm mềm câu hỏi trực tiếp',
                     '',
@@ -1078,12 +1078,12 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Hedges',
-                            'perhaps, probably, may, might, somewhat, rather, relatively, tend to, seem to, appear to',
+                            'perhaps, probably, may, might, somewhat, rather, relatively, tend to, seem to, appear to, ...',
                             'giảm độ tuyệt đối: <em>It is somewhat difficult to measure.</em>'
                         ],
                         [
                             'Boosters',
-                            'clearly, definitely, certainly, indeed, undoubtedly, extremely, highly',
+                            'clearly, definitely, certainly, indeed, undoubtedly, extremely, highly, ...',
                             'nhấn chắc chắn: <em>This clearly shows a trend.</em>'
                         ]
                     ]
@@ -1137,7 +1137,7 @@ const grammarComprehensiveData = {
                         ['Modal quá khứ', 'could, would, might tạo "khoảng cách" lịch sự so với can, will'],
                         ['Câu hỏi gián tiếp', '<em>Could you tell me…? Do you happen to know…?</em>'],
                         ['Quá khứ tiếp diễn / ý định quá khứ', '<em>I was wondering if… I wanted to ask whether…</em>'],
-                        ['Downtoners', 'a bit, just, possibly làm nhẹ yêu cầu hoặc lời góp ý: <em>Could you just check this for me?</em>'],
+                        ['Downtoners', 'a bit, just, possibly, ... làm nhẹ yêu cầu hoặc lời góp ý: <em>Could you just check this for me?</em>'],
                         ['Would you mind + V-ing', '<em>Would you mind closing the door?</em>'],
                         ['Từ chối gián tiếp (giữ thể diện)', '<em>I’m afraid… I’m not sure that’s possible. I’d rather not.</em>']
                     ]
@@ -1163,7 +1163,7 @@ const grammarComprehensiveData = {
                     rows: [
                         ['not sau aux / be / modal', '', '<em>don’t, isn’t, can’t, haven’t</em>'],
                         ['no + N', 'mạnh hơn not any', '<em>I have no money / I don’t have any money. There’s no time.</em>'],
-                        ['none, nobody, nothing, never, nowhere', 'đi với động từ khẳng định', '<em>Nobody came. I know nothing.</em>'],
+                        ['none, nobody, nothing, never, nowhere, ...', 'đi với động từ khẳng định', '<em>Nobody came. I know nothing.</em>'],
                         [
                             'hardly, scarcely, barely',
                             'gần như không; tag khẳng định',
@@ -1171,7 +1171,7 @@ const grammarComprehensiveData = {
                         ],
                         [
                             'Transferred negation',
-                            'think, believe, suppose, expect, imagine, feel',
+                            'think, believe, suppose, expect, imagine, feel, ...',
                             '<em>I don’t think she will come.</em> (tự nhiên hơn <em>I think she won’t come</em>)'
                         ],
                         [
@@ -1313,12 +1313,12 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Into / out of / down / up + nơi chốn',
-                            'come, go, walk, run, roll',
+                            'come, go, walk, run, roll, ...',
                             '<em>Into the room walked the man we had been waiting for. Down the hill rolled the cart.</em>'
                         ],
                         [
                             'On / in / at + nơi chốn',
-                            'stand, sit, lie, hang, remain',
+                            'stand, sit, lie, hang, remain, ...',
                             '<em>On the wall hung a portrait of her grandfather.</em>'
                         ],
                         ['Such / So + bổ ngữ', 'be, seem – sắc thái trang trọng', '<em>Such was his fame that…</em>']
@@ -1661,8 +1661,8 @@ const grammarComprehensiveData = {
                     rows: [
                         ['-tion, -sion, -ic, -ical, -ity', 'âm tiết ngay trước hậu tố', 'naTION, ecoNOmic, cuRIosity'],
                         ['-ate, -ize, -fy (động từ)', 'lùi khoảng hai âm tiết từ cuối', 'COMmunicate, ORganize, IDentify'],
-                        ['-ee, -eer, -ese, -oo, -oon', 'rơi vào chính hậu tố', 'employEE, engiNEER, ChiNESE'],
-                        ['-ous, -ful, -ly, -ness, -ment', 'không đổi trọng âm gốc', 'HAPpy → HAPpiness']
+                        ['-ee, -eer, -ese, -oo, -oon, ...', 'rơi vào chính hậu tố', 'employEE, engiNEER, ChiNESE'],
+                        ['-ous, -ful, -ly, -ness, -ment, ...', 'không đổi trọng âm gốc', 'HAPpy → HAPpiness']
                     ]
                 },
                 {
@@ -1768,8 +1768,8 @@ const grammarComprehensiveData = {
                             'all, both, half, double, such, what',
                             'đứng ngoài cùng, thêm sắc thái lượng hoặc nhấn mạnh; có thể đứng trước mạo từ: <em>all the time, both the answers, half a loaf, half an hour</em>'
                         ],
-                        ['Central determiner', 'a/an, the, this, my, each, every, some, any, no', 'lớp trung tâm – chỉ chọn một'],
-                        ['Post-determiner', 'one, two, first, many, several, few', 'số lượng, thứ tự: <em>many books, several ideas</em>']
+                        ['Central determiner', 'a/an, the, this, my, each, every, some, any, no, ...', 'lớp trung tâm – chỉ chọn một'],
+                        ['Post-determiner', 'one, two, first, many, several, few, ...', 'số lượng, thứ tự: <em>many books, several ideas</em>']
                     ]
                 }
             ],
@@ -1921,9 +1921,9 @@ const grammarComprehensiveData = {
                     title: '🎯 Ba nhóm trạng từ nhấn mạnh',
                     head: ['Nhóm', 'Từ', 'Ý nghĩa', 'Ví dụ'],
                     rows: [
-                        ['Giới hạn (restrictive)', 'only, just, merely, simply', 'chỉ, không hơn', '<em>Only John passed.</em> (không ai khác)'],
-                        ['Thêm vào (additive)', 'also, too, as well, even', 'cũng; thậm chí (bất ngờ)', '<em>Even John passed.</em> (ngay cả người không ai ngờ)'],
-                        ['Xấp xỉ (approximating)', 'almost, nearly, just about', 'gần như', '<em>I almost told everyone.</em> (suýt kể)']
+                        ['Giới hạn (restrictive)', 'only, just, merely, simply, ...', 'chỉ, không hơn', '<em>Only John passed.</em> (không ai khác)'],
+                        ['Thêm vào (additive)', 'also, too, as well, even, ...', 'cũng; thậm chí (bất ngờ)', '<em>Even John passed.</em> (ngay cả người không ai ngờ)'],
+                        ['Xấp xỉ (approximating)', 'almost, nearly, just about, ...', 'gần như', '<em>I almost told everyone.</em> (suýt kể)']
                     ],
                     note: '<em>Already, still, yet</em> và <em>too</em> (quá) <strong>không</strong> thuộc nhóm này: chúng là trạng từ thời gian / mức độ.'
                 }
@@ -1986,15 +1986,15 @@ const grammarComprehensiveData = {
                     rows: [
                         [
                             'Điều kiện có ràng buộc',
-                            'provided (that), providing (that), as long as, unless',
+                            'provided (that), providing (that), as long as, unless, ...',
                             '<em>We will support the plan provided that the budget is revised.</em>'
                         ],
                         [
                             'Nhượng bộ, đối chiếu',
-                            'although, even though, while, whereas, much as',
+                            'although, even though, while, whereas, much as, ...',
                             '<em>Much as I admire her, I cannot agree.</em>'
                         ],
-                        ['Cách thức, so sánh giả định', 'as if, as though, as', '<em>He talks as if he knew everything.</em>'],
+                        ['Cách thức, so sánh giả định', 'as if, as though, as, ...', '<em>He talks as if he knew everything.</em>'],
                         [
                             'Giới hạn mức độ đúng',
                             'insofar as, to the extent that',
@@ -2002,7 +2002,7 @@ const grammarComprehensiveData = {
                         ],
                         [
                             'Thời gian tinh tế',
-                            'the moment, by the time, once, now that',
+                            'the moment, by the time, once, now that, ...',
                             '<em>The moment she arrived, we started. Now that you’re here, …</em>'
                         ]
                     ]
@@ -2030,14 +2030,14 @@ const grammarComprehensiveData = {
                 {
                     head: ['Danh từ', 'Bổ ngữ đi cùng', 'Ví dụ'],
                     rows: [
-                        ['fact, claim, belief, assumption', 'that-clause', '<em>the claim that the data were manipulated</em>'],
-                        ['question, issue, uncertainty', 'whether / wh-clause', '<em>the question whether we should proceed</em>'],
+                        ['fact, claim, belief, assumption, ...', 'that-clause', '<em>the claim that the data were manipulated</em>'],
+                        ['question, issue, uncertainty, ...', 'whether / wh-clause', '<em>the question whether we should proceed</em>'],
                         [
-                            'decision, attempt, plan, ability, tendency',
+                            'decision, attempt, plan, ability, tendency, ...',
                             'to V',
                             '<em>their decision to withdraw; the decision to postpone the launch</em>'
                         ],
-                        ['possibility, chance, risk', 'of + V-ing / that-clause', '<em>the possibility of being ignored</em>']
+                        ['possibility, chance, risk, ...', 'of + V-ing / that-clause', '<em>the possibility of being ignored</em>']
                     ]
                 }
             ],

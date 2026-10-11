@@ -35,7 +35,7 @@ const grammarUsageDeepDiveData = {
             'Hành vi tạm thời với be: You are being unfair.'
         ],
         avoid: [
-            'Không dùng máy móc với stative verbs như know, own, believe, need.',
+            'Không dùng máy móc với stative verbs như know, own, believe, need, ...',
             'Không dùng cho thói quen ổn định nếu không có sắc thái tạm thời hoặc phàn nàn.',
             'Không quên auxiliary am/is/are.'
         ],
@@ -303,7 +303,7 @@ const grammarUsageDeepDiveData = {
             'The khi người nghe biết rõ đối tượng hoặc đã nhắc trước.',
             'The cho thực thể duy nhất trong ngữ cảnh: the sun, the manager.',
             'Zero article cho plural/uncountable nouns khi nói chung.',
-            'Determiners sở hữu/chỉ định/lượng hóa: my, this, some, each.',
+            'Determiners sở hữu/chỉ định/lượng hóa: my, this, some, each, ...',
             'Institutional zero article: go to school, be in prison.',
             'Generic reference: a tiger / the tiger / tigers.'
         ],
@@ -329,7 +329,7 @@ const grammarUsageDeepDiveData = {
             'Tránh plural sai với advice/information/equipment.'
         ],
         avoid: [
-            'Không thêm -s cho advice, information, furniture, equipment.',
+            'Không thêm -s cho advice, information, furniture, equipment, ...',
             'Không dùng many với uncountable nouns.',
             'Không dùng a/an trực tiếp trước uncountable noun.'
         ],
@@ -383,9 +383,9 @@ const grammarUsageDeepDiveData = {
     'prepositions': {
         category: 'mistakes', cefr: 'A2', title: 'Prepositions',
         uses: [
-            'Time: at 7, on Monday, in June, by Friday, until tomorrow.',
+            'Time: at 7, on Monday, in June, by Friday, until tomorrow, ...',
             'Place: at a point, on a surface, in an enclosed/large area.',
-            'Movement: to, into, onto, across, through, along.',
+            'Movement: to, into, onto, across, through, along, ...',
             'Cause/means/agent: because of, by, with.',
             'Fixed adjective/verb/noun patterns: interested in, depend on, reason for.',
             'Preposition stranding in speech: Who are you talking to?',
@@ -539,7 +539,7 @@ const grammarUsageDeepDiveData = {
             'Academic/scientific/process writing.',
             'News/reporting khi agent chưa rõ hoặc cần khách quan.',
             'Formal notices/rules: Smoking is prohibited.',
-            'Các thì phổ biến ở bị động: present simple, past simple, present continuous, present perfect, future simple.',
+            'Các thì phổ biến ở bị động: present simple, past simple, present continuous, present perfect, future simple, ...',
             'Modal passive: must be completed, can be seen.',
             'Get-passive khi muốn nhấn sự việc xảy ra hoặc kết quả bất ngờ: He got injured.',
             'Causative passive-like: have something done.'
@@ -562,9 +562,9 @@ const grammarUsageDeepDiveData = {
         uses: [
             'Gerund làm subject/object: Swimming is relaxing.',
             'Sau prepositions: interested in learning.',
-            'Sau verbs cố định: enjoy, avoid, finish, suggest + V-ing.',
+            'Sau verbs cố định: enjoy, avoid, finish, suggest, ... + V-ing.',
             'To-infinitive cho mục đích: I came to help.',
-            'Sau verbs cố định: decide, hope, plan, promise + to V.',
+            'Sau verbs cố định: decide, hope, plan, promise, ... + to V.',
             'Object + to V sau ask/tell/advise/allow/encourage.',
             'Bare infinitive sau modals, make/let, perception verbs.'
         ],
@@ -672,8 +672,8 @@ const grammarUsageDeepDiveData = {
             'Email công việc cần lịch sự, rõ, ít slang.',
             'Academic writing cần hedging, nominalization, precision.',
             'Spoken English dùng ellipsis, chunks, discourse markers.',
-            'Legal/formal prose dùng shall, hereby, inversion, archaisms.',
-            'BrE/AmE khác ở agreement, prepositions, subjunctive, vocabulary.',
+            'Legal/formal prose dùng shall, hereby, inversion, archaisms, ...',
+            'BrE/AmE khác ở agreement, prepositions, subjunctive, vocabulary, ...',
             'Chuyển register khi cùng một ý xuất hiện trong nói, email, essay.'
         ],
         avoid: [
@@ -867,10 +867,10 @@ Object.assign(grammarUsageDeepDiveData, {
     'word-formation': {
         category: 'foundations', cefr: 'B1', title: 'Word Formation',
         uses: [
-            'Tạo noun bằng -tion, -ment, -ness, -ity.',
-            'Tạo adjective bằng -ful, -less, -ous, -ive, -able.',
-            'Tạo verb bằng -ize, -ify, -en, -ate.',
-            'Tạo negative bằng un-, in-/im-/il-/ir-, dis-, non-.',
+            'Tạo noun bằng -tion, -ment, -ness, -ity, ...',
+            'Tạo adjective bằng -ful, -less, -ous, -ive, -able, ...',
+            'Tạo verb bằng -ize, -ify, -en, -ate, ...',
+            'Tạo negative bằng un-, in-/im-/il-/ir-, dis-, non-, ...',
             'Dùng conversion khi một noun thành verb: email, text, Google.',
             'Dùng compounds để nén nghĩa: climate-change policy.'
         ],
@@ -951,8 +951,8 @@ Object.assign(grammarUsageDeepDiveData, {
     'conjunctions': {
         category: 'patterns', cefr: 'B1', title: 'Conjunctions',
         uses: [
-            'Coordinating conjunctions nối phần ngang hàng: and, but, or, so.',
-            'Subordinating conjunctions tạo clause phụ: because, although, if, when.',
+            'Coordinating conjunctions nối phần ngang hàng: and, but, or, so, ...',
+            'Subordinating conjunctions tạo clause phụ: because, although, if, when, ...',
             'Correlative pairs tạo cấu trúc song song: both…and, either…or.',
             'Dùng although/while/whereas cho nhượng bộ hoặc đối chiếu.',
             'Dùng because/since/as cho nguyên nhân với sắc thái khác nhau.',
@@ -977,7 +977,7 @@ Object.assign(grammarUsageDeepDiveData, {
             'The more..., the more... diễn tả quan hệ tăng dần giữa hai vế.',
             'The same as / different from / similar to là mẫu cố định cần nhớ.',
             'Much / far / a lot / a bit / a little đứng trước comparative để tăng hoặc giảm mức độ.',
-            'Irregular comparisons: good-better-best, bad-worse-worst, far-farther/further, little-less-least.',
+            'Irregular comparisons: good-better-best, bad-worse-worst, far-farther/further, little-less-least, ...',
             'So sánh phải cùng loại đối tượng: người với người, vật với vật, số liệu với số liệu.'
         ],
         avoid: [
@@ -1068,7 +1068,7 @@ Object.assign(grammarUsageDeepDiveData, {
     'hedges-boosters': {
         category: 'patterns', cefr: 'C1', title: 'Hedges & Boosters',
         uses: [
-            'Hedges giảm độ tuyệt đối: may, might, appears to, tends to.',
+            'Hedges giảm độ tuyệt đối: may, might, appears to, tends to, ...',
             'Boosters tăng sức khẳng định: clearly, definitely, undoubtedly.',
             'Academic writing dùng hedges để tránh overclaim.',
             'Business communication dùng hedges để góp ý mềm hơn.',
@@ -1106,7 +1106,7 @@ Object.assign(grammarUsageDeepDiveData, {
             'Kết quả: therefore, as a result, consequently.',
             'Ví dụ: for example, for instance.',
             'Chuyển chủ đề trong speaking: anyway, by the way.',
-            'Tổ chức lập luận: first, next, finally, in conclusion.',
+            'Tổ chức lập luận: first, next, finally, in conclusion, ...',
             'Thường đứng đầu câu hoặc giữa câu với dấu phẩy.'
         ],
         avoid: [
@@ -1140,14 +1140,14 @@ Object.assign(grammarUsageDeepDiveData, {
     'verb-patterns': {
         category: 'structures', cefr: 'B1', title: 'Verb Patterns',
         uses: [
-            'V + V-ing sau enjoy, avoid, finish, suggest.',
-            'V + to V sau decide, hope, plan, promise.',
-            'V + object + to V sau ask, tell, advise, allow.',
+            'V + V-ing sau enjoy, avoid, finish, suggest, ...',
+            'V + to V sau decide, hope, plan, promise, ...',
+            'V + object + to V sau ask, tell, advise, allow, ...',
             'V + object + bare V sau make/let/perception verbs.',
-            'V + preposition + V-ing sau insist on, succeed in, think about, look forward to.',
-            'That-clauses sau think, believe, suggest, insist.',
-            'Wh-clauses sau know, ask, wonder, decide.',
-            'Meaning-change verbs: stop, remember, forget, try, regret.',
+            'V + preposition + V-ing sau insist on, succeed in, think about, look forward to, ...',
+            'That-clauses sau think, believe, suggest, insist, ...',
+            'Wh-clauses sau know, ask, wonder, decide, ...',
+            'Meaning-change verbs: stop, remember, forget, try, regret, ...',
             'Một số verb đổi pattern nhưng đổi cả nghĩa: stop to do vs stop doing, remember to do vs remember doing.'
         ],
         avoid: [
@@ -1234,8 +1234,8 @@ Object.assign(grammarUsageDeepDiveData, {
     'subjunctive': {
         category: 'structures', cefr: 'C1', title: 'Subjunctive',
         uses: [
-            'That + subject + bare verb sau demand, insist, suggest, recommend.',
-            'Sau adjectives: essential, vital, important, necessary.',
+            'That + subject + bare verb sau demand, insist, suggest, recommend, ...',
+            'Sau adjectives: essential, vital, important, necessary, ...',
             'Fixed formulas: God save the King, so be it, come what may.',
             'Were-subjunctive trong unreal condition: If I were you.',
             'Formal/legal/AmE style dùng subjunctive nhiều hơn.',
@@ -1699,7 +1699,7 @@ Object.assign(grammarUsageDeepDiveData, {
     'inversion-negative': {
         category: 'structures', cefr: 'C1', title: 'Negative Inversion',
         uses: [
-            'Sau never, rarely, seldom, little.',
+            'Sau never, rarely, seldom, little, ...',
             'Sau hardly/scarcely...when, no sooner...than.',
             'Sau not only, not until, only after/when.',
             'Trong formal writing, speeches, literary style.',
@@ -1714,7 +1714,7 @@ Object.assign(grammarUsageDeepDiveData, {
             'Locative inversion sau cụm địa điểm/hướng.',
             'Dùng khi subject là noun phrase dài.',
             'Tạo hiệu ứng mô tả cảnh trong narrative.',
-            'Dùng với verbs of position/movement: stood, came, lay, hung.',
+            'Dùng với verbs of position/movement: stood, came, lay, hung, ...',
             'Dùng trong literary/journalistic prose.'
         ],
         avoid: ['Không dùng tự nhiên với pronoun subject ngắn.', 'Không lạm dụng trong conversation.'],
