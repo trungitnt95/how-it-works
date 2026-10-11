@@ -144,7 +144,7 @@ const grammarGraphData = {
         ['determiner', 'quantifier', 'gồm', 'is'], ['determiner', 'possessive', 'gồm', 'is'],
         ['pronoun', 'noun', 'thay thế', 'req'], ['pronoun', 'possessive', 'có dạng', 'is'],
         ['pronoun', 'pronoun-reference', 'cần', 'req'],
-        ['verb', 'verb-types', 'loại', 'is'], ['manner-adverb', 'verb-types', 'đứng sau', 'opt'], ['frequency-adverb', 'verb-types', 'đứng trước động từ thường, sau be', 'opt'], ['verb-types', 'transitive', 'gồm', 'is'], ['verb-types', 'intransitive', 'gồm', 'is'], ['verb-types', 'linking', 'gồm', 'is'], ['verb-types', 'stative', 'gồm', 'is'],
+        ['verb', 'verb-types', 'loại', 'is'], ['manner-adverb', 'verb', 'đứng sau', 'opt'], ['frequency-adverb', 'verb', 'đứng trước động từ thường, sau be', 'opt'], ['verb-types', 'transitive', 'gồm', 'is'], ['verb-types', 'intransitive', 'gồm', 'is'], ['verb-types', 'linking', 'gồm', 'is'], ['verb-types', 'stative', 'gồm', 'is'],
         ['verb', 'auxiliary', 'đi với', 'sym'], ['verb', 'verb-phrase', 'lõi của', 'req'], ['verb', 'adverb', 'được bổ nghĩa bởi', 'opt'],
         ['verb', 'phrasal-verb', 'tạo', 'opt'], ['transitive', 'phrasal-verb', 'có thể là', 'opt'], ['intransitive', 'phrasal-verb', 'có thể là', 'opt'], ['verb', 'voice', 'có', 'req'], ['verb', 'mood', 'có', 'req'], ['verb', 'verb-forms', 'dạng', 'is'], ['verb-forms', 'tense', 'chia', 'req'], ['verb-forms', 'infinitive', 'không chia', 'is'], ['verb-forms', 'gerund', 'không chia', 'is'], ['verb-forms', 'participle', 'không chia', 'is'],
         ['adjective', 'adverb', 'chuyển thành', 'opt'], ['adjective', 'comparison', 'có', 'opt'], ['adverb', 'comparison', 'có', 'opt'],
