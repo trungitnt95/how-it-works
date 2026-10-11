@@ -35,11 +35,11 @@ const grammarSupplementsData = {
                     head: ['Nhóm', 'Đặc điểm', 'Ví dụ'],
                     rows: [
                         ['Transitive (ngoại động từ)', 'cần tân ngữ để đủ nghĩa', '<em>build a house, write an email</em>'],
-                        ['Intransitive (nội động từ)', 'tự đủ nghĩa', '<em>arrive, sleep, smile – He arrived late.</em>'],
+                        ['Intransitive (nội động từ)', 'tự đủ nghĩa', '<em>arrive, sleep, smile, ... – He arrived late.</em>'],
                         [
                             'Linking (động từ nối)',
                             'đi với tính từ hoặc danh từ làm bổ ngữ',
-                            '<em>be, seem, become, look, feel – She became a doctor.</em>'
+                            '<em>be, seem, become, look, feel, ... – She became a doctor.</em>'
                         ],
                         [
                             'Ditransitive',
@@ -259,7 +259,7 @@ const grammarSupplementsData = {
         level: 'intermediate',
         connections: ['conjunctions', 'future-simple', 'sequence-of-tenses', 'present-perfect'],
         theory: {
-            overview: 'Mệnh đề trạng ngữ chỉ thời gian mở đầu bằng <strong>when, before, after, until, as soon as, once, since, while, by the time</strong>. Quy tắc riêng quan trọng nhất: <strong>không dùng will</strong> trong mệnh đề thời gian dù nói về tương lai.',
+            overview: 'Mệnh đề trạng ngữ chỉ thời gian mở đầu bằng <strong>when, before, after, until, as soon as, once, since, while, by the time, ...</strong>. Quy tắc riêng quan trọng nhất: <strong>không dùng will</strong> trong mệnh đề thời gian dù nói về tương lai.',
             formula: [
                 {
                     label: 'Nói về tương lai',
@@ -1105,8 +1105,8 @@ const grammarPracticeData = {
             'Verb patterns phải học theo từng nhóm verb, không suy bằng tiếng Việt.',
             'Một số verb đổi pattern có thể đổi cả nghĩa: stop doing / stop to do.',
             'That-clause và wh-clause thường dùng để báo nội dung, câu hỏi gián tiếp hoặc giải thích.',
-            'Bare infinitive thường xuất hiện sau make, let, help, see, hear, watch, feel.',
-            'V + preposition + V-ing là vùng rất hay sai: insist on, succeed in, look forward to, prevent from.'
+            'Bare infinitive thường xuất hiện sau make, let, help, see, hear, watch, feel, ...',
+            'V + preposition + V-ing là vùng rất hay sai: insist on, succeed in, look forward to, prevent from, ...'
         ]
     },
     'comparisons': {
@@ -3610,7 +3610,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Biết khi nào phải quay về past simple vì có mốc thời gian đã đóng.',
-            'Dùng đúng since, for, just, already, yet, ever, never.',
+            'Dùng đúng since, for, just, already, yet, ever, never, ...',
             'Phân biệt được nhấn kết quả với nhấn thời điểm xảy ra.'
         ]
     },
@@ -3786,7 +3786,7 @@ const grammarPracticeData = {
         sections: [
             {
                 title: 'Chia thì trong mệnh đề thời gian',
-                instruction: 'Dùng dạng động từ đúng sau when, until, before, after, as soon as, since...',
+                instruction: 'Dùng dạng động từ đúng sau when, until, before, after, as soon as, since, ...',
                 questions: [
                     'Wait here until you (see) her.',
                     'He will wait for you when you (get) back tomorrow.',
@@ -3810,7 +3810,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Không dùng will trong time clause sau when, until, before, after, as soon as...',
+            'Không dùng will trong time clause sau when, until, before, after, as soon as, ...',
             'Biết since thường kéo mệnh đề chính về present perfect hoặc present perfect continuous.',
             'Nhận ra khi nào by the time kéo theo perfect tense ở main clause.'
         ]
@@ -4246,7 +4246,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Present continuous thường đi với now, right now, at the moment, this week, tomorrow.',
+            'Present continuous thường đi với now, right now, at the moment, this week, tomorrow, ...',
             'Không dùng cho mọi ý tương lai; chỉ dùng khi có kế hoạch hoặc sắp xếp rõ.',
             'Động từ trạng thái thường không dùng ở dạng tiếp diễn trừ khi đổi nghĩa.'
         ]
@@ -4387,7 +4387,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Stative verbs thường không dùng continuous khi nói về trạng thái, suy nghĩ, cảm xúc hoặc sở hữu.',
-            'Nhiều verb đổi nghĩa khi chuyển sang continuous: think, have, see, smell, taste, feel, look, appear, be.',
+            'Nhiều verb đổi nghĩa khi chuyển sang continuous: think, have, see, smell, taste, feel, look, appear, be, ...',
             'Nếu câu nói về hành động tạm thời, trải nghiệm, hoặc lịch hẹn, continuous có thể đúng.',
             'Khi làm bài, luôn hỏi: đây là trạng thái hay là hành động / quá trình?'
         ]
@@ -4723,7 +4723,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Past perfect rất hay đi với before, after, by the time, when, already, just, never.',
+            'Past perfect rất hay đi với before, after, by the time, when, already, just, never, ...',
             'Dùng để sắp xếp thứ tự hai sự kiện trong quá khứ.',
             'Nếu không cần phân biệt thứ tự trước-sau, past simple thường đủ.'
         ]
@@ -4806,7 +4806,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Future simple thường đi với will + V nguyên mẫu.',
-            'Dùng cho prediction, decision, promise, offer, request.',
+            'Dùng cho prediction, decision, promise, offer, request, ...',
             'Nếu ý là kế hoạch đã sắp xếp, hãy cân nhắc present continuous hoặc be going to.'
         ]
     },
@@ -4888,7 +4888,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Future perfect continuous nhấn duration up to a future point.',
-            'Thường đi với for, by, by the time, next year, next month.',
+            'Thường đi với for, by, by the time, next year, next month, ...',
             'Nếu chỉ cần nói việc sẽ xong trước mốc tương lai, future perfect gọn hơn.'
         ]
     }
@@ -4899,27 +4899,27 @@ const grammarMemoryBank = [
         title: 'Plural Nouns Phải Học Thuộc',
         note: 'Không thể suy chắc bằng quy tắc thêm -s.',
         items: [
-            'man → men, woman → women, child → children, person → people',
-            'tooth → teeth, foot → feet, goose → geese, mouse → mice',
-            'sheep → sheep, deer → deer, aircraft → aircraft'
+            'man → men, woman → women, child → children, person → people, ...',
+            'tooth → teeth, foot → feet, goose → geese, mouse → mice, ...',
+            'sheep → sheep, deer → deer, aircraft → aircraft, ...'
         ]
     },
     {
         title: 'Danh Từ Không Đếm Được Hay Sai',
         note: 'Kéo theo sai article, quantifier và verb agreement nếu quên.',
         items: [
-            'information, advice, furniture, equipment, luggage, homework',
-            'traffic, research, news, knowledge, progress, work',
-            'Cụm nên học thuộc: a piece of advice, a piece of information, an item of furniture'
+            'information, advice, furniture, equipment, luggage, homework, ...',
+            'traffic, research, news, knowledge, progress, work, ...',
+            'Cụm nên học thuộc: a piece of advice, a piece of information, an item of furniture, ...'
         ]
     },
     {
         title: 'Articles Với Tên Riêng Và Cụm Cố Định',
         note: 'Sách nhấn mạnh đây là vùng cần ghi nhớ theo nhóm.',
         items: [
-            'Dùng the: the United States, the Netherlands, the Pacific, the Alps',
-            'Không dùng the: France, Vietnam, Europe, Lake Geneva, Mount Everest',
-            'Cụm cố định: go to school, be at home, go to bed, go to church'
+            'Dùng the: the United States, the Netherlands, the Pacific, the Alps, ...',
+            'Không dùng the: France, Vietnam, Europe, Lake Geneva, Mount Everest, ...',
+            'Cụm cố định: go to school, be at home, go to bed, go to church, ...'
         ]
     },
     {
@@ -4954,11 +4954,11 @@ const grammarMemoryBank = [
         title: 'Verb Patterns Cần Flashcard',
         note: 'Không có quy tắc đủ chắc, nên học theo cụm.',
         items: [
-            'V + V-ing: enjoy, avoid, finish, keep, suggest, mind, admit, deny',
-            'V + to V: want, decide, hope, plan, promise, refuse, manage',
-            'V + object + to V: ask, tell, advise, allow, encourage, remind, warn',
-            'V + preposition + V-ing: insist on, succeed in, look forward to, prevent from',
-            'Bare V after object: make, let, help, see, hear, watch, feel',
+            'V + V-ing: enjoy, avoid, finish, keep, suggest, mind, admit, deny, ...',
+            'V + to V: want, decide, hope, plan, promise, refuse, manage, ...',
+            'V + object + to V: ask, tell, advise, allow, encourage, remind, warn, ...',
+            'V + preposition + V-ing: insist on, succeed in, look forward to, prevent from, ...',
+            'Bare V after object: make, let, help, see, hear, watch, feel, ...',
             'Cặp đổi nghĩa: stop doing / stop to do, remember doing / remember to do'
         ]
     },
@@ -4966,9 +4966,9 @@ const grammarMemoryBank = [
         title: 'Giới Từ Đi Theo Cụm',
         note: 'Học rời từng từ rất khó nhớ và dễ dịch từ tiếng Việt sang.',
         items: [
-            'interested in, good at, depend on, belong to',
-            'afraid of, proud of, responsible for, similar to',
-            'arrive in/at, listen to, wait for, apologize for'
+            'interested in, good at, depend on, belong to, ...',
+            'afraid of, proud of, responsible for, similar to, ...',
+            'arrive in/at, listen to, wait for, apologize for, ...'
         ]
     },
     {
@@ -4976,7 +4976,7 @@ const grammarMemoryBank = [
         note: 'Đây là nhóm quy tắc lẫn ngoại lệ nên cần nhớ theo mẫu.',
         items: [
             'two hundred students nhưng hundreds of students',
-            'first, second, third, fifth, twelfth',
+            'first, second, third, fifth, twelfth, ...',
             'on 21st May / May 21st / two thirds / 35 percent'
         ]
     },
@@ -5011,28 +5011,28 @@ const grammarMemoryBank = [
         title: 'Cụm Thời Gian Cố Định',
         note: 'Nên học như collocation thay vì cố suy luận từng chữ.',
         items: [
-            'at night, in the morning, on Monday, at 7 o’clock',
+            'at night, in the morning, on Monday, at 7 o’clock, ...',
             'in time / on time, at the weekend / on the weekend',
-            'for two hours, since 2022, by Friday, until tomorrow'
+            'for two hours, since 2022, by Friday, until tomorrow, ...'
         ]
     },
     {
         title: 'Stative Verbs Cần Nhận Diện Nhanh',
         note: 'Nhiều động từ có nghĩa trạng thái nên thường không dùng continuous.',
         items: [
-            'know, understand, believe, remember, forget, realize, mean',
-            'love, hate, like, prefer, want, need, wish',
-            'own, belong, contain, consist, exist, seem, appear',
-            'Các verb đổi nghĩa: think, have, see, taste, smell, feel, be'
+            'know, understand, believe, remember, forget, realize, mean, ...',
+            'love, hate, like, prefer, want, need, wish, ...',
+            'own, belong, contain, consist, exist, seem, appear, ...',
+            'Các verb đổi nghĩa: think, have, see, taste, smell, feel, be, ...'
         ]
     },
     {
         title: 'Verb + Preposition Fixed Patterns',
         note: 'Đây là vùng phải học như cụm hoàn chỉnh.',
         items: [
-            'apologize to sb for sth, blame sb for sth, accuse sb of sth',
-            'congratulate sb on sth, provide sb with sth, prevent sb from V-ing',
-            'depend on, rely on, insist on, object to, succeed in, participate in',
+            'apologize to sb for sth, blame sb for sth, accuse sb of sth, ...',
+            'congratulate sb on sth, provide sb with sth, prevent sb from V-ing, ...',
+            'depend on, rely on, insist on, object to, succeed in, participate in, ...',
             'arrive at a place nhỏ, arrive in a city/country'
         ]
     },
@@ -5051,90 +5051,90 @@ const grammarMemoryBank = [
         title: 'Noun + Preposition Fixed Patterns',
         note: 'Rất hay xuất hiện trong writing và academic English.',
         items: [
-            'reason for, solution to, answer to, key to, access to',
+            'reason for, solution to, answer to, key to, access to, ...',
             'increase/decrease/rise/fall in, effect/impact/influence on',
-            'advantage/disadvantage of, demand/need for, relationship with/between',
-            'evidence of/for, exception to, attitude to/towards'
+            'advantage/disadvantage of, demand/need for, relationship with/between, ...',
+            'evidence of/for, exception to, attitude to/towards, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Daily Actions',
         note: 'Nhóm này xuất hiện rất thường xuyên trong giao tiếp hằng ngày.',
         items: [
-            'wake up, get up, sit down, stand up, lie down',
-            'go out, come back, come in, go back, come over',
-            'run out of, fill in, fill out, hand in, hand out',
-            'turn on, turn off, turn up, turn down, set off',
-            'pick up, drop off, put away, clean up, take off',
-            'take up, put on, put off, give up, calm down'
+            'wake up, get up, sit down, stand up, lie down, ...',
+            'go out, come back, come in, go back, come over, ...',
+            'run out of, fill in, fill out, hand in, hand out, ...',
+            'turn on, turn off, turn up, turn down, set off, ...',
+            'pick up, drop off, put away, clean up, take off, ...',
+            'take up, put on, put off, give up, calm down, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Study & Work',
         note: 'Đây là nhóm rất hay gặp trong homework, project và workplace English.',
         items: [
-            'look up, look over, go over, check out, find out',
-            'hand in, hand out, fill out, fill in, write down',
-            'carry out, set up, sort out, work out, figure out',
-            'catch up on, follow up, bring up, point out, carry on',
-            'take over, take on, turn in, get through, move on',
-            'go through, make up, pay off, come up with, read through'
+            'look up, look over, go over, check out, find out, ...',
+            'hand in, hand out, fill out, fill in, write down, ...',
+            'carry out, set up, sort out, work out, figure out, ...',
+            'catch up on, follow up, bring up, point out, carry on, ...',
+            'take over, take on, turn in, get through, move on, ...',
+            'go through, make up, pay off, come up with, read through, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Problems & Change',
         note: 'Nhóm này giúp bạn diễn tả vấn đề, phản ứng và thay đổi trạng thái.',
         items: [
-            'give up, put off, turn down, break down, calm down',
-            'break up, make up, bring up, blow up, mess up',
-            'carry on, go on, move on, get over, sort out',
-            'figure out, work out, run into, come across, deal with',
-            'take off, take over, pick up, turn up, turn out',
-            'run out of, cut down on, slow down, build up, wear off'
+            'give up, put off, turn down, break down, calm down, ...',
+            'break up, make up, bring up, blow up, mess up, ...',
+            'carry on, go on, move on, get over, sort out, ...',
+            'figure out, work out, run into, come across, deal with, ...',
+            'take off, take over, pick up, turn up, turn out, ...',
+            'run out of, cut down on, slow down, build up, wear off, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - People & Communication',
         note: 'Rất hữu ích khi nói về quan hệ, trao đổi và tương tác.',
         items: [
-            'look after, look for, look forward to, get along with, get on with',
-            'fall out with, make up with, keep in touch, call back, call off',
-            'hang out, come over, drop by, chat up, check in',
-            'talk over, bring up, point out, ask around, speak up',
-            'run into, come across, get together, meet up, reach out',
-            'hear from, get back to, fill in for, pass on, hand over'
+            'look after, look for, look forward to, get along with, get on with, ...',
+            'fall out with, make up with, keep in touch, call back, call off, ...',
+            'hang out, come over, drop by, chat up, check in, ...',
+            'talk over, bring up, point out, ask around, speak up, ...',
+            'run into, come across, get together, meet up, reach out, ...',
+            'hear from, get back to, fill in for, pass on, hand over, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Movement & Result',
         note: 'Nhóm này giúp nói về di chuyển, khởi hành và kết quả.',
         items: [
-            'set off, take off, get in, get out, get on',
-            'get off, come in, go back, come back, move in',
-            'move out, pass by, run past, drive off, pull over',
-            'pick up, drop off, turn around, head out, check out',
-            'go through, get over, carry out, carry through, turn out',
-            'end up, come out, come through, break out, build up'
+            'set off, take off, get in, get out, get on, ...',
+            'get off, come in, go back, come back, move in, ...',
+            'move out, pass by, run past, drive off, pull over, ...',
+            'pick up, drop off, turn around, head out, check out, ...',
+            'go through, get over, carry out, carry through, turn out, ...',
+            'end up, come out, come through, break out, build up, ...'
         ]
     },
     {
         title: 'Make / Do / Take / Have Collocations',
         note: 'Collocation sai làm câu nghe không tự nhiên dù đúng ngữ pháp bề mặt.',
         items: [
-            'make a decision, make a mistake, make progress, make an effort',
-            'do homework, do business, do research, do your best',
-            'take a risk, take responsibility, take notes, take a break',
-            'have breakfast, have a rest, have trouble, have an effect on'
+            'make a decision, make a mistake, make progress, make an effort, ...',
+            'do homework, do business, do research, do your best, ...',
+            'take a risk, take responsibility, take notes, take a break, ...',
+            'have breakfast, have a rest, have trouble, have an effect on, ...'
         ]
     },
     {
         title: 'Give / Pay / Keep / Catch Collocations',
         note: 'Các verb phổ thông này tạo rất nhiều cụm cố định.',
         items: [
-            'give advice, give a speech, give permission, give someone a hand',
-            'pay attention, pay a fine, pay respect, pay by card',
-            'keep calm, keep a promise, keep in touch, keep track of',
-            'catch a bus, catch a cold, catch fire, catch someone’s attention'
+            'give advice, give a speech, give permission, give someone a hand, ...',
+            'pay attention, pay a fine, pay respect, pay by card, ...',
+            'keep calm, keep a promise, keep in touch, keep track of, ...',
+            'catch a bus, catch a cold, catch fire, catch someone’s attention, ...'
         ]
     },
     {
@@ -5171,7 +5171,7 @@ const grammarMemoryBank = [
         title: 'Confusing Pairs Cần Thuộc',
         note: 'Các cặp này thường đúng chính tả nhưng sai nghĩa/chức năng.',
         items: [
-            'its / it’s, your / you’re, whose / who’s, there / their / they’re',
+            'its / it’s, your / you’re, whose / who’s, there / their / they’re, ...',
             'affect (v) / effect (n), advice (n) / advise (v), practice (n) / practise (v BrE)',
             'fewer + countable / less + uncountable, between / among',
             'beside = bên cạnh, besides = ngoài ra; then = sau đó, than = so sánh'
@@ -5181,10 +5181,10 @@ const grammarMemoryBank = [
         title: 'Fixed Article / Zero Article Expressions',
         note: 'Nhiều cụm article không nên dịch từng chữ.',
         items: [
-            'go to school, go to bed, be in hospital/prison/church, at home',
-            'by car/bus/train, on foot, by mistake, by chance, in fact',
-            'have breakfast/lunch/dinner, play football, play the piano',
-            'the same, the only, the first/last, the rich/the poor'
+            'go to school, go to bed, be in hospital/prison/church, at home, ...',
+            'by car/bus/train, on foot, by mistake, by chance, in fact, ...',
+            'have breakfast/lunch/dinner, play football, play the piano, ...',
+            'the same, the only, the first/last, the rich/the poor, ...'
         ]
     },
     {
@@ -5221,10 +5221,10 @@ const grammarMemoryBank = [
         title: 'Preposition: Place & Movement',
         note: 'Một phần có quy tắc, nhưng nhiều cụm địa điểm vẫn phải nhớ.',
         items: [
-            'at the door/station/airport, in the room/city/country, on the wall/floor/page',
-            'go to, get into/out of, jump onto/off, walk across/through/along',
-            'at work, at school, in class, on the bus/train/plane',
-            'in the picture/photo, on the screen, at the top/bottom'
+            'at the door/station/airport, in the room/city/country, on the wall/floor/page, ...',
+            'go to, get into/out of, jump onto/off, walk across/through/along, ...',
+            'at work, at school, in class, on the bus/train/plane, ...',
+            'in the picture/photo, on the screen, at the top/bottom, ...'
         ]
     },
     {

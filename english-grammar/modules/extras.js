@@ -326,12 +326,12 @@ const grammarExtrasData = {
                     rows: [
                         [
                             'Vị trí',
-                            'in front of, next to, on top of, in the middle of, far from',
+                            'in front of, next to, on top of, in the middle of, far from, ...',
                             '<em>The cat is on top of the wardrobe.</em>'
                         ],
                         [
                             'Nguyên nhân',
-                            'because of, due to, owing to, thanks to, as a result of',
+                            'because of, due to, owing to, thanks to, as a result of, ...',
                             '<em>The flight was cancelled due to fog.</em>'
                         ],
                         [
@@ -341,11 +341,11 @@ const grammarExtrasData = {
                         ],
                         [
                             'Tương phản, loại trừ',
-                            'in spite of, despite, instead of, apart from',
+                            'in spite of, despite, instead of, apart from, ...',
                             '<em>In spite of the cost, we bought it.</em>'
                         ],
-                        ['Thêm ý', 'in addition to, besides', ''],
-                        ['Mục đích', 'in order to, so as to, for the sake of', '<em>She left early in order to catch the bus.</em>']
+                        ['Thêm ý', 'in addition to, besides, ...', ''],
+                        ['Mục đích', 'in order to, so as to, for the sake of, ...', '<em>She left early in order to catch the bus.</em>']
                     ]
                 }
             ],
@@ -393,14 +393,14 @@ const grammarExtrasData = {
                 {
                     head: ['#', 'Loại', 'Ví dụ'],
                     rows: [
-                        ['1', 'Opinion (ý kiến, chủ quan)', 'nice, ugly, lovely, terrible'],
-                        ['2', 'Size', 'big, small, tiny, huge'],
-                        ['3', 'Age', 'old, young, new, ancient'],
-                        ['4', 'Shape', 'round, square, flat'],
-                        ['5', 'Colour', 'red, blue, dark'],
-                        ['6', 'Origin', 'Vietnamese, French, Asian'],
-                        ['7', 'Material', 'wooden, metal, silk'],
-                        ['8', 'Purpose / classifier – sát danh từ nhất', 'riding (boot), sleeping (bag), running (shoes)']
+                        ['1', 'Opinion (ý kiến, chủ quan)', 'nice, ugly, lovely, terrible, ...'],
+                        ['2', 'Size', 'big, small, tiny, huge, ...'],
+                        ['3', 'Age', 'old, young, new, ancient, ...'],
+                        ['4', 'Shape', 'round, square, flat, ...'],
+                        ['5', 'Colour', 'red, blue, dark, ...'],
+                        ['6', 'Origin', 'Vietnamese, French, Asian, ...'],
+                        ['7', 'Material', 'wooden, metal, silk, ...'],
+                        ['8', 'Purpose / classifier – sát danh từ nhất', 'riding (boot), sleeping (bag), running (shoes), ...']
                     ]
                 }
             ],
@@ -648,7 +648,7 @@ const grammarExtrasData = {
                     'xét khẳng định/phủ định → chọn trợ động từ của mệnh đề chính → đảo polarity; chủ ngữ trong tag là đại từ tương ứng',
                     ''
                 ],
-                ['Từ mang nghĩa phủ định', 'never, hardly, no, nothing → tag khẳng định', 'He never lies, does he?'],
+                ['Từ mang nghĩa phủ định', 'never, hardly, no, nothing, ... → tag khẳng định', 'He never lies, does he?'],
                 ['Với I think / I believe', 'tag bám theo mệnh đề nêu nội dung', 'I think he is honest, isn’t he?']
             ],
             compare: [
@@ -676,18 +676,18 @@ const grammarExtrasData = {
                 {
                     head: ['Quan hệ', 'Discourse markers'],
                     rows: [
-                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more'],
-                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast'],
+                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more, ...'],
+                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast, ...'],
                         [
                             'Kết quả',
-                            'therefore, thus, hence, consequently, as a result, accordingly – <em>He studies hard. As a result, he passed.</em>'
+                            'therefore, thus, hence, consequently, as a result, accordingly, ... – <em>He studies hard. As a result, he passed.</em>'
                         ],
-                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular'],
-                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion'],
-                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually'],
+                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular, ...'],
+                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion, ...'],
+                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually, ...'],
                         ['Diễn đạt lại', 'in other words, that is to say, i.e.'],
-                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly'],
-                        ['Văn nói', 'so, anyway, by the way, I mean, you know – chuyển chủ đề, giữ nhịp hội thoại']
+                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly, ...'],
+                        ['Văn nói', 'so, anyway, by the way, I mean, you know, ... – chuyển chủ đề, giữ nhịp hội thoại']
                     ]
                 }
             ],
@@ -877,10 +877,10 @@ const grammarExtrasData = {
                     table: {
                         head: ['Tiểu từ', 'Sắc thái', 'Ví dụ'],
                         rows: [
-                            ['up', 'hoàn tất, tăng, thu gom', 'finish up, use up, speed up, pick up'],
-                            ['out', 'lộ ra, hết, phân phát', 'find out, run out, hand out, carry out'],
-                            ['off', 'tách ra, hủy, khởi phát', 'take off, call off, cut off, set off'],
-                            ['down', 'giảm, ghi xuống, suy sụp', 'slow down, write down, break down']
+                            ['up', 'hoàn tất, tăng, thu gom', 'finish up, use up, speed up, pick up, ...'],
+                            ['out', 'lộ ra, hết, phân phát', 'find out, run out, hand out, carry out, ...'],
+                            ['off', 'tách ra, hủy, khởi phát', 'take off, call off, cut off, set off, ...'],
+                            ['down', 'giảm, ghi xuống, suy sụp', 'slow down, write down, break down, ...']
                         ]
                     }
                 },
@@ -893,17 +893,17 @@ const grammarExtrasData = {
                         ],
                         [
                             'turn / look / give',
-                            '<em>turn on/off, turn down, turn into; look up, look for, look after; give up, give in, give back, give away</em>'
+                            '<em>turn on/off, turn down, turn into; look up, look for, look after; give up, give in, give back, give away, ...</em>'
                         ],
                         [
                             'break / come',
-                            '<em>break down, break up, break out, break in; come across, come up with, come back, come over</em>'
+                            '<em>break down, break up, break out, break in; come across, come up with, come back, come over, ...</em>'
                         ],
                         [
                             'Công việc, học tập',
                             '<em>carry out a task, follow up an email, take on a role, hand in a report, go over notes, catch up on lessons</em>'
                         ],
-                        ['Quan hệ, đời sống', '<em>get along with, make up with, fall out with; wake up, set off, drop by, eat out</em>']
+                        ['Quan hệ, đời sống', '<em>get along with, make up with, fall out with; wake up, set off, drop by, eat out, ...</em>']
                     ]
                 }
             ],
@@ -934,18 +934,18 @@ const grammarExtrasData = {
                 {
                     head: ['Mẫu', 'Động từ điển hình', 'Ví dụ'],
                     rows: [
-                        ['V + to V', 'want, decide, hope, plan, agree, refuse, promise', '<em>She decided to leave. I want to go.</em>'],
-                        ['V + V-ing', 'enjoy, finish, avoid, mind, suggest, consider', '<em>I avoid eating sugar. I enjoy going.</em>'],
-                        ['V + O + to V', 'tell, ask, want, allow, force, advise', '<em>He told me to wait. They allowed us to leave.</em>'],
+                        ['V + to V', 'want, decide, hope, plan, agree, refuse, promise, ...', '<em>She decided to leave. I want to go.</em>'],
+                        ['V + V-ing', 'enjoy, finish, avoid, mind, suggest, consider, ...', '<em>I avoid eating sugar. I enjoy going.</em>'],
+                        ['V + O + to V', 'tell, ask, want, allow, force, advise, ...', '<em>He told me to wait. They allowed us to leave.</em>'],
                         ['V + O + V nguyên mẫu', 'let, make, help; see, hear, watch (tri giác)', '<em>Let her go. I saw him leave.</em>'],
                         [
                             'V + giới từ + V-ing',
-                            'insist on, succeed in, think about, look forward to',
+                            'insist on, succeed in, think about, look forward to, ...',
                             '<em>I look forward to hearing from you. She succeeded in passing.</em>'
                         ],
-                        ['V + that-clause', 'think, believe, say, know, hope, suggest', '<em>I think (that) it’s late.</em>'],
-                        ['V + wh-clause / wh + to V', 'know, ask, wonder, decide', '<em>I don’t know what to do.</em>'],
-                        ['V + O + as / to be', 'regard, consider, see', '<em>I regard her as a friend.</em>']
+                        ['V + that-clause', 'think, believe, say, know, hope, suggest, ...', '<em>I think (that) it’s late.</em>'],
+                        ['V + wh-clause / wh + to V', 'know, ask, wonder, decide, ...', '<em>I don’t know what to do.</em>'],
+                        ['V + O + as / to be', 'regard, consider, see, ...', '<em>I regard her as a friend.</em>']
                     ]
                 }
             ],
@@ -1200,8 +1200,8 @@ const grammarExtrasData = {
                     head: ['Sau động từ', 'Sau tính từ'],
                     rows: [
                         [
-                            'suggest, recommend, insist, demand, request, propose, urge, require, advise, ask, order',
-                            'essential, important, vital, necessary, crucial, imperative, advisable, desirable'
+                            'suggest, recommend, insist, demand, request, propose, urge, require, advise, ask, order, ...',
+                            'essential, important, vital, necessary, crucial, imperative, advisable, desirable, ...'
                         ]
                     ]
                 }
@@ -1345,7 +1345,7 @@ const grammarExtrasData = {
                     rows: [
                         [
                             'Cách thức',
-                            'by mistake (vô tình), on purpose, by chance, in person, in private',
+                            'by mistake (vô tình), on purpose, by chance, in person, in private, ...',
                             '<em>I took your bag by mistake. She broke the rule on purpose.</em>'
                         ],
                         [
@@ -1355,10 +1355,10 @@ const grammarExtrasData = {
                         ],
                         [
                             'Quan điểm, thái độ',
-                            'in my opinion, by all means, at least, on the whole',
+                            'in my opinion, by all means, at least, on the whole, ...',
                             '<em>On the whole, the plan works.</em>'
                         ],
-                        ['Nguyên nhân, kết quả', 'because of, due to, as a result of, in response to', '+ cụm danh từ, không + mệnh đề']
+                        ['Nguyên nhân, kết quả', 'because of, due to, as a result of, in response to, ...', '+ cụm danh từ, không + mệnh đề']
                     ]
                 }
             ],
@@ -1455,11 +1455,11 @@ const grammarExtrasData = {
                 {
                     head: ['Giới từ', 'Nghĩa', 'Động từ điển hình'],
                     rows: [
-                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw'],
+                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw, ...'],
                         [
                             'for',
                             'làm vì lợi ích ai',
-                            'buy, make, cook, get, find, build, choose, save, order – <em>She bought me a gift = She bought a gift for me.</em>'
+                            'buy, make, cook, get, find, build, choose, save, order, ... – <em>She bought me a gift = She bought a gift for me.</em>'
                         ]
                     ]
                 }
@@ -1472,7 +1472,7 @@ const grammarExtrasData = {
                 [
                     'She explained me the lesson.',
                     'She explained the lesson to me.',
-                    'explain, describe, suggest, mention, introduce, announce không dùng mẫu V + IO + DO.'
+                    'explain, describe, suggest, mention, introduce, announce, ... không dùng mẫu V + IO + DO.'
                 ],
                 'Dùng mẫu hai tân ngữ với mọi động từ.'
             ]

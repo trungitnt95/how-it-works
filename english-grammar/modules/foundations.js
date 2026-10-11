@@ -78,9 +78,9 @@ const grammarFoundationsData = {
                             'Như thế nào / đến mức nào? – miêu tả động từ, tính từ, trạng từ, cả câu',
                             'carefully, extremely'
                         ],
-                        ['Pronoun (đại từ)', 'thay cho danh từ đã nhắc', 'he, they, which'],
-                        ['Preposition (giới từ)', 'nêu quan hệ (nơi chốn, thời gian…)', 'in, on, with'],
-                        ['Conjunction (liên từ)', 'nối từ, cụm, mệnh đề', 'and, although, because']
+                        ['Pronoun (đại từ)', 'thay cho danh từ đã nhắc', 'he, they, which, ...'],
+                        ['Preposition (giới từ)', 'nêu quan hệ (nơi chốn, thời gian…)', 'in, on, with, ...'],
+                        ['Conjunction (liên từ)', 'nối từ, cụm, mệnh đề', 'and, although, because, ...']
                     ]
                 }
             ],
@@ -102,8 +102,8 @@ const grammarFoundationsData = {
                 {
                     title: '🔤 Dấu hiệu hình thức (hậu tố)',
                     items: [
-                        ['Danh từ', '-tion, -ment, -ness, -ity: <em>information, movement, kindness, ability</em>'],
-                        ['Tính từ', '-ful, -ous, -able, -ive: <em>useful, famous, readable, active</em>'],
+                        ['Danh từ', '-tion, -ment, -ness, -ity, ...: <em>information, movement, kindness, ability, ...</em>'],
+                        ['Tính từ', '-ful, -ous, -able, -ive, ...: <em>useful, famous, readable, active, ...</em>'],
                         ['Trạng từ', '-ly thường là trạng từ, nhưng có ngoại lệ là tính từ: <em>friendly, lovely, lonely</em>']
                     ]
                 }
@@ -161,7 +161,7 @@ const grammarFoundationsData = {
                 [
                     'Zero article kiểu institutional',
                     'cụm cố định nhấn chức năng/hoạt động',
-                    'go to school, be at home, go to bed, be in prison'
+                    'go to school, be at home, go to bed, be in prison, ...'
                 ],
                 ['Nói khái quát về một loài', 'ba cách đều được', 'A tiger is… / The tiger is… / Tigers are…'],
                 [
@@ -441,7 +441,7 @@ const grammarFoundationsData = {
                     head: ['Chủ ngữ', 'Động từ', 'Ví dụ'],
                     rows: [
                         [
-                            'each, every, everyone, somebody, nobody, either, neither',
+                            'each, every, everyone, somebody, nobody, either, neither, ...',
                             'số ít',
                             '<em>Each student has a card. Everyone is here.</em>'
                         ],
