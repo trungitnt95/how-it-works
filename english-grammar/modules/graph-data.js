@@ -117,7 +117,7 @@ const grammarGraphData = {
     // Link labels: write quantity as "1/nhiều" (one or many), not "≥ 1".
     links: [
         ['adverb', 'manner-adverb', 'gồm', 'is'], ['adverb', 'frequency-adverb', 'gồm', 'is'], ['adverb', 'degree-adverb', 'gồm', 'is'], ['adverb', 'linking-adverb', 'gồm', 'is'],
-        ['manner-adverb', 'verb', 'đứng sau', 'opt'], ['frequency-adverb', 'verb', 'đứng trước động từ thường, sau be', 'opt'], ['degree-adverb', 'adjective', 'bổ nghĩa', 'opt'],
+        ['degree-adverb', 'adjective', 'bổ nghĩa', 'opt'],
         ['conjunction', 'linking-adverb', 'đối chiếu', 'sym'],
 
         ['statement', 'subject', 'cần', 'req'], ['statement', 'predicate', 'cần', 'req'], ['statement', 'negation', 'có dạng phủ định', 'opt'], ['exclamation', 'subject', 'có thể có', 'opt'], ['exclamation', 'verb', 'có thể có', 'opt'], ['exclamation', 'noun-phrase', 'khung What +', 'opt'], ['exclamation', 'adjective', 'khung How +', 'opt'], ['exclamation', 'adverb', 'khung How +', 'opt'],
@@ -131,7 +131,7 @@ const grammarGraphData = {
         ['expletive', 'subject', 'đóng vai', 'is'],
 
         ['subject', 'noun', 'là', 'is'], ['subject', 'pronoun', 'là', 'is'], ['subject', 'noun-phrase', 'là', 'is'], ['subject', 'noun-clause', 'là', 'is'],
-        ['subject', 'verb', 'hòa hợp với', 'req'], ['subject', 'sv-agreement', 'quy tắc', 'req'], ['subject', 'gerund', 'là', 'is'],
+        ['subject', 'sv-agreement', 'quy tắc', 'req'], ['subject', 'gerund', 'là', 'is'],
         ['predicate', 'verb', 'chứa', 'req'], ['predicate', 'object', 'có thể có', 'opt'], ['predicate', 'complement', 'có thể có', 'opt'], ['predicate', 'adverbial', 'có thể có', 'opt'],
         ['object', 'direct-object', 'gồm', 'is'], ['object', 'indirect-object', 'gồm', 'is'], ['object', 'noun', 'là', 'is'], ['object', 'pronoun', 'là', 'is'],
         ['object', 'noun-phrase', 'là', 'is'], ['object', 'noun-clause', 'là', 'is'], ['object', 'gerund', 'là', 'is'],
