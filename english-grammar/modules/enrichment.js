@@ -7,7 +7,7 @@ const grammarSupplementsData = {
         level: 'beginner',
         connections: ['parts-of-speech', 'sentence-order', 'subject-verb-agreement', 'gerunds-infinitives'],
         theory: {
-            overview: 'Động từ là lõi của câu. Theo cách kết hợp, có ba nhóm chính: <strong>transitive</strong> (cần tân ngữ), <strong>intransitive</strong> (tự đủ nghĩa) và <strong>linking</strong> (nối chủ ngữ với bổ ngữ).',
+            overview: 'Động từ là lõi của câu. Theo cách kết hợp trong câu, có ba nhóm chính: <strong>transitive</strong> (cần tân ngữ; <em>ditransitive</em> là kiểu transitive nhận hai tân ngữ), <strong>intransitive</strong> (tự đủ nghĩa) và <strong>linking</strong> (nối chủ ngữ với bổ ngữ). Ngoài ra còn một cách phân loại khác, theo nghĩa: <strong>stative</strong> (trạng thái, như <em>know, own</em>) và <strong>dynamic</strong> (hành động).',
             formula: [
                 {
                     label: 'Nội động từ',
@@ -42,7 +42,7 @@ const grammarSupplementsData = {
                             '<em>be, seem, become, look, feel, ... – She became a doctor.</em>'
                         ],
                         [
-                            'Ditransitive',
+                            'Ditransitive (kiểu con của transitive)',
                             'hai tân ngữ: gián tiếp (người nhận) + trực tiếp',
                             '<em>give, send, tell – They gave me (IO) a gift (DO).</em>'
                         ]
@@ -50,6 +50,7 @@ const grammarSupplementsData = {
                 }
             ],
             uses: [
+                ['Stative vs dynamic', 'phân loại theo nghĩa, khác trục với transitive / intransitive / linking; stative thường không dùng tiếp diễn', 'I know the answer. (stative) / I am running. (dynamic)'],
                 ['Vừa transitive vừa intransitive', 'tùy ngữ cảnh', 'She opened the door. / The door opened. (open, change, move)'],
                 [
                     'Main verb vs auxiliary',
