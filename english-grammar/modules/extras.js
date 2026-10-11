@@ -853,13 +853,13 @@ const grammarExtrasData = {
             overview: 'Phrasal verb là <strong>động từ + tiểu từ</strong> (giới từ / trạng từ) tạo nghĩa mới, thường không đoán được từ từng từ: <em>look</em> = nhìn, nhưng <em>look after</em> = chăm sóc, <em>look up</em> = tra cứu, <em>look for</em> = tìm. Một phrasal verb có thể có nhiều nghĩa: <em>take off</em> = cất cánh / cởi ra / thành công nhanh / nghỉ làm.',
             tables: [
                 {
-                    title: '4 loại phrasal verb',
+                    title: '4 nhóm phrasal verb (theo tân ngữ, vị trí tiểu từ và độ dài)',
                     head: ['Loại', 'Đặc điểm', 'Ví dụ'],
                     rows: [
                         ['Nội động', 'không có tân ngữ', '<em>break down, get up, take off (máy bay)</em>'],
                         [
                             'Tách được',
-                            'tân ngữ danh từ ở giữa hoặc cuối; tân ngữ <strong>đại từ bắt buộc ở giữa</strong>',
+                            'tân ngữ danh từ ở giữa hoặc cuối (tân ngữ dài thường để sau tiểu từ); tân ngữ <strong>đại từ bắt buộc ở giữa</strong>',
                             '<em>turn the light off / turn off the light / turn it off</em> (✗ turn off it)'
                         ],
                         ['Không tách được', 'tiểu từ luôn đứng ngay sau động từ', '<em>look after the kids / look after them</em>'],
@@ -872,6 +872,17 @@ const grammarExtrasData = {
                 }
             ],
             sections: [
+                {
+                    title: '📍 Dùng ở đâu?',
+                    table: {
+                        head: ['Ngữ cảnh', 'Mức dùng', 'Ví dụ'],
+                        rows: [
+                            ['Hội thoại hằng ngày, phim, podcast, nghe hiểu', 'rất nhiều, gần như không tránh được', 'Can you pick me up? Let’s hang out.'],
+                            ['Công việc, email thân mật, họp', 'nhiều', 'Let’s follow up on this. I’ll look into it.'],
+                            ['Văn học thuật, văn bản trang trọng', 'hạn chế, thường thay bằng động từ đơn', 'put off → postpone, find out → discover']
+                        ]
+                    }
+                },
                 {
                     title: '🧲 Sắc thái của tiểu từ – giúp đoán nghĩa',
                     table: {
@@ -901,13 +912,21 @@ const grammarExtrasData = {
                         ],
                         [
                             'Công việc, học tập',
-                            '<em>carry out a task, follow up an email, take on a role, hand in a report, go over notes, catch up on lessons</em>'
+                            '<em>carry out a task, follow up an email, take on a role, hand in a report, go over notes, catch up on lessons, ...</em>'
                         ],
                         ['Quan hệ, đời sống', '<em>get along with, make up with, fall out with; wake up, set off, drop by, eat out, ...</em>']
                     ]
                 }
             ],
             compare: [
+                [
+                    'Chức năng trong câu',
+                    'cả cụm làm <strong>một động từ</strong>: chia thì ở động từ (<em>gave up, has given up</em>) và bị động được nếu là ngoại động từ (<em>The meeting was called off.</em>)'
+                ],
+                [
+                    'Phrasal verb vs prepositional verb',
+                    'phrasal verb có tiểu từ là trạng từ (<em>give up, turn off</em>, thường tách được); prepositional verb là động từ + giới từ (<em>look after, depend on</em>, không tách). Cả hai cùng thuộc nhóm <strong>multi-word verb</strong> và bài này học chung'
+                ],
                 [
                     'Phrasal verb vs động từ đơn trang trọng',
                     'văn nói dùng phrasal verb rất nhiều; văn học thuật thay bằng động từ đơn: <em>put off → postpone, find out → discover, give up → abandon, carry on → continue, put up with → tolerate</em>'
