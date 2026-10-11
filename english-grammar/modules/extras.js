@@ -845,12 +845,12 @@ const grammarExtrasData = {
 
     'phrasal-verbs': {
         icon: '🧩',
-        title: 'Phrasal Verbs (Cụm Động Từ) - Intermediate',
+        title: 'Phrasal Verbs (Động Từ Nhiều Từ) - Intermediate',
         category: 'structures',
         level: 'intermediate',
         connections: ['verbs-overview', 'prepositions', 'gerunds-infinitives', 'word-formation'],
         theory: {
-            overview: 'Phrasal verb là <strong>động từ + tiểu từ</strong> (giới từ / trạng từ) tạo nghĩa mới, thường không đoán được từ từng từ: <em>look</em> = nhìn, nhưng <em>look after</em> = chăm sóc, <em>look up</em> = tra cứu, <em>look for</em> = tìm. Một phrasal verb có thể có nhiều nghĩa: <em>take off</em> = cất cánh / cởi ra / thành công nhanh / nghỉ làm.',
+            overview: 'Phrasal verb (động từ nhiều từ) là <strong>một động từ gồm động từ + tiểu từ</strong> (giới từ / trạng từ). Cả cụm <strong>làm một động từ trọn vẹn trong câu</strong> và tạo nghĩa mới, thường không đoán được từ từng từ: <em>look</em> = nhìn, nhưng <em>look after</em> = chăm sóc, <em>look up</em> = tra cứu, <em>look for</em> = tìm. Một phrasal verb có thể có nhiều nghĩa: <em>take off</em> = cất cánh / cởi ra / thành công nhanh / nghỉ làm. Phrasal verb dùng nhiều nhất trong văn nói và giao tiếp hằng ngày.',
             tables: [
                 {
                     title: '4 nhóm phrasal verb (theo tân ngữ, vị trí tiểu từ và độ dài)',
