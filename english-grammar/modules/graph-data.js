@@ -156,7 +156,7 @@ const grammarGraphData = {
         ['tense', 'auxiliary', 'tạo bởi', 'opt'], ['tense', 'participle', 'dùng', 'opt'], ['tense', 'stative', 'hạn chế', 'opt'],
         ['modal', 'auxiliary', 'là', 'is'], ['modal', 'infinitive', 'theo sau', 'req'], ['voice', 'auxiliary', 'dùng be', 'req'], ['voice', 'participle', 'dùng V3', 'req'], ['voice', 'transitive', 'cần', 'req'],
         ['mood', 'conditional', 'dùng trong', 'opt'], ['conditional', 'tense', 'phối hợp', 'req'], ['conditional', 'modal', 'dùng', 'opt'], ['conditional', 'adverbial-clause', 'là', 'is'],
-        ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
+        ['infinitive', 'gerund', 'đối chiếu', 'sym'], ['infinitive', 'adverbial', 'làm trạng ngữ', 'opt'], ['infinitive', 'noun', 'bổ nghĩa', 'opt'], ['infinitive', 'adjective', 'bổ nghĩa', 'opt'], ['infinitive', 'subject', 'có thể là', 'opt'], ['infinitive', 'complement', 'có thể là', 'opt'], ['participle', 'adjective', 'làm', 'is'], ['gerund', 'noun', 'làm', 'is'],
 
         ['phrase', 'noun-phrase', 'gồm', 'is'], ['phrase', 'verb-phrase', 'gồm', 'is'], ['phrase', 'prep-phrase', 'gồm', 'is'], ['clause', 'phrase', 'cấu tạo từ 1/nhiều', 'req'],
         ['clause', 'subject', 'thường có', 'opt'], ['clause', 'verb', 'cần', 'req'], ['clause', 'independent', 'gồm', 'is'], ['clause', 'dependent', 'gồm', 'is'], ['sentence', 'clause', 'cấu tạo gồm 1/nhiều', 'req'],
