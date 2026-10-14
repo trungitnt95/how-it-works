@@ -205,6 +205,17 @@
         if (selected) helpOpen = false;
         renderPanel();
         render();
+        if (selected) revealSelected();
+    }
+
+    // desktop: the side panel overlays the right part of the graph, so slide the view left if it would hide the selected node
+    function revealSelected() {
+        const panel = document.getElementById('graphPanel'), n = byId.get(selected);
+        if (!n || panel.hidden || window.innerWidth <= 720) return;
+        const t = d3.zoomTransform(svg.node());
+        const limit = svg.node().getBoundingClientRect().width - panel.offsetWidth - 40;
+        const sx = t.applyX(n.x || 0);
+        if (sx > limit) svg.transition().duration(300).call(zoom.translateBy, (limit - sx) / t.k, 0);
     }
 
     nodeSel.on('mouseenter', (e, d) => { hovered = d.id; render(); })

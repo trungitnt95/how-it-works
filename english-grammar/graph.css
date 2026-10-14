@@ -65,7 +65,8 @@ body {
 .g-help ul { margin: 0; padding-left: 1.1em; color: var(--muted); font-size: .9rem; line-height: 1.55; }
 .g-help li { margin-bottom: 6px; }
 .g-help em { color: var(--text); }
-.g-panel.wide, .g-panel.help { width: 420px; max-width: 100%; }
+.g-panel.help { width: 420px; max-width: 100%; }
+.g-panel, .g-panel.wide { width: min(600px, 55vw); }
 .g-hint { color: var(--muted); font-size: .9rem; line-height: 1.5; margin: 0; }
 .g-panel h2 { margin: 0 0 2px; font-size: 1.2rem; }
 .g-panel .g-vi { color: var(--muted); margin: 0 0 10px; }
