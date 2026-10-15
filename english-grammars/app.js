@@ -157,9 +157,7 @@ function injectMasterySection(root = document) {
                                         <span class="acc-arrow">▼</span>
                                     </div>
                                     <div class="accordion-body"><div class="acc-content">
-                                        ${component.simple || ''}
-                                        ${component.detail || ''}
-                                        ${component.advanced || ''}
+                                        ${renderGrammarTheory(component.theory)}
                                     </div></div>
                                 </div>
                             `).join('')}
@@ -339,7 +337,8 @@ function mergeUsageIntoExistingAccordions(root = document) {
     if (typeof grammarUsageDeepDiveData === 'undefined' || typeof renderGrammarUsageDeepDive !== 'function') return;
 
     root.querySelectorAll('.accordion-item').forEach(item => {
-        if (item.querySelector('.usage-deep-dive')) return;
+        // Topics rendered from component.theory already include their usage notes.
+        if (item.querySelector('.usage-deep-dive, .grammar-theory')) return;
         const usageId = resolveUsageIdForAccordion(item);
         const usage = grammarUsageDeepDiveData[usageId];
         const content = item.querySelector('.acc-content');

@@ -6,48 +6,70 @@ const grammarSupplementsData = {
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'sentence-order', 'subject-verb-agreement', 'gerunds-infinitives'],
-        simple: `
-            <h3>⚙️ Động từ là lõi của câu tiếng Anh</h3>
-            <p>Sau khi rà lại sách, đây là một chương nên có node riêng: sách tách riêng <strong>transitive verbs, intransitive verbs, linking verbs</strong> và vai trò của bổ ngữ/tân ngữ.</p>
-            <div class="formula-box">S + V | S + V + O | S + linking verb + complement</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>The baby cried.</em> = intransitive<br>
-                • <em>She opened the window.</em> = transitive<br>
-                • <em>The soup tastes good.</em> = linking verb
-            </div>
-            <ul>
-                <li><strong>Transitive verb:</strong> cần tân ngữ</li>
-                <li><strong>Intransitive verb:</strong> không cần tân ngữ</li>
-                <li><strong>Linking verb:</strong> nối chủ ngữ với bổ ngữ</li>
-            </ul>
-        `,
-        detail: `
-            <h3>📚 Ba nhóm chính trong sách</h3>
-            <table>
-                <tr><th>Nhóm</th><th>Đặc điểm</th><th>Ví dụ</th></tr>
-                <tr><td>Transitive</td><td>đi với object</td><td>build a house, write an email</td></tr>
-                <tr><td>Intransitive</td><td>tự đủ nghĩa</td><td>arrive, sleep, smile</td></tr>
-                <tr><td>Linking</td><td>đi với complement</td><td>be, seem, become, look, feel</td></tr>
-            </table>
-            <h4>Điểm hay gặp trong bài học</h4>
-            <ul>
-                <li>Một số động từ có thể vừa transitive vừa intransitive tùy ngữ cảnh: <em>open</em>, <em>change</em>, <em>move</em>.</li>
-                <li>Linking verbs thường đi với <strong>adjective</strong> hoặc noun complement, không đi với adverb: <em>She looks tired</em>.</li>
-                <li>Auxiliary verbs như <em>be, do, have</em> và modal verbs giúp tạo thì, phủ định, nghi vấn nhưng không phải lúc nào cũng là main verb.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Chỗ dễ nhầm</h3>
-            <ul>
-                <li>Nhiều người thấy sau động từ là một từ miêu tả liền dùng adverb, trong khi linking verbs cần adjective: <em>The idea sounds good</em>.</li>
-                <li>Động từ có hai tân ngữ như <em>give, send, tell</em> tạo mẫu <strong>S + V + indirect object + direct object</strong>.</li>
-                <li>Khi học một động từ mới, nên học luôn nó thuộc nhóm nào và có đi với preposition/object/complement nào không.</li>
-            </ul>
-            <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Nếu câu nghe thiếu một "đối tượng bị tác động", hãy kiểm tra xem động từ đó có phải là transitive verb đang thiếu object hay không.
-            </div>
-        `
+        theory: {
+            overview: 'Động từ là lõi của câu. Theo cách kết hợp trong câu, có ba nhóm chính: <strong>transitive</strong> (cần tân ngữ; <em>ditransitive</em> là kiểu transitive nhận hai tân ngữ), <strong>intransitive</strong> (tự đủ nghĩa) và <strong>linking</strong> (nối chủ ngữ với bổ ngữ). Ngoài ra còn một cách phân loại khác, theo nghĩa: <strong>stative</strong> (trạng thái, như <em>know, own</em>) và <strong>dynamic</strong> (hành động).',
+            formula: [
+                {
+                    label: 'Nội động từ',
+                    pattern: 'S + V',
+                    example: 'The baby cried.'
+                },
+                {
+                    label: 'Ngoại động từ',
+                    pattern: 'S + V + O',
+                    example: 'She opened the window.'
+                },
+                {
+                    label: 'Động từ nối',
+                    pattern: 'S + linking verb + complement',
+                    example: 'The soup tastes good.'
+                },
+                {
+                    label: 'Hai tân ngữ',
+                    pattern: 'S + V + IO + DO',
+                    example: 'They gave me a gift.'
+                }
+            ],
+            tables: [
+                {
+                    head: ['Nhóm', 'Đặc điểm', 'Ví dụ'],
+                    rows: [
+                        ['Transitive (ngoại động từ)', 'cần tân ngữ để đủ nghĩa', '<em>build a house, write an email</em>'],
+                        ['Intransitive (nội động từ)', 'tự đủ nghĩa', '<em>arrive, sleep, smile, ... – He arrived late.</em>'],
+                        [
+                            'Linking (động từ nối)',
+                            'đi với tính từ hoặc danh từ làm bổ ngữ',
+                            '<em>be, seem, become, look, feel, ... – She became a doctor.</em>'
+                        ],
+                        [
+                            'Ditransitive (kiểu con của transitive)',
+                            'hai tân ngữ: gián tiếp (người nhận) + trực tiếp',
+                            '<em>give, send, tell – They gave me (IO) a gift (DO).</em>'
+                        ]
+                    ]
+                }
+            ],
+            uses: [
+                ['Stative vs dynamic', 'phân loại theo nghĩa, khác trục với transitive / intransitive / linking; stative thường không dùng tiếp diễn', 'I know the answer. (stative) / I am running. (dynamic)'],
+                ['Vừa transitive vừa intransitive', 'tùy ngữ cảnh', 'She opened the door. / The door opened. (open, change, move)'],
+                [
+                    'Main verb vs auxiliary',
+                    'trợ động từ be, do, have và modal tạo thì, phủ định, nghi vấn, bị động – không phải lúc nào cũng mang nghĩa chính',
+                    'She has finished. / Does he know?'
+                ]
+            ],
+            compare: [
+                [
+                    'She looks careful vs She looks carefully',
+                    'trông cẩn thận – nhìn cẩn thận: <em>look</em> là linking verb (+ tính từ) khi nghĩa "trông có vẻ"; là action verb (+ trạng từ) khi nghĩa "nhìn"'
+                ]
+            ],
+            mistakes: [
+                ['The idea sounds well.', 'The idea sounds good.', 'Sau linking verb cần tính từ, không dùng trạng từ.'],
+                ['She opened.', 'She opened the window.', 'Không bỏ tân ngữ của ngoại động từ khi nghĩa chưa đủ.']
+            ],
+            tip: 'Học động từ mới kèm nhóm của nó và nó đi với tân ngữ / giới từ / bổ ngữ nào. Câu nghe thiếu "đối tượng bị tác động" → kiểm tra xem có phải transitive verb đang thiếu tân ngữ.'
+        }
     },
     'nouns-plurals': {
         icon: '🧺',
@@ -55,49 +77,42 @@ const grammarSupplementsData = {
         category: 'foundations',
         level: 'beginner',
         connections: ['parts-of-speech', 'articles-determiners', 'countable-uncountable', 'subject-verb-agreement'],
-        simple: `
-            <h3>🧺 Danh từ là trung tâm của nhiều lỗi ngữ pháp</h3>
-            <p>Bạn cần biết danh từ đang ở dạng <strong>số ít hay số nhiều</strong>, <strong>đếm được hay không đếm được</strong>, và có đang đi với lượng từ / mạo từ phù hợp hay không.</p>
-            <div class="formula-box">one noun | two nouns | a number of + plural noun | the number of + plural noun</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>one student</em> / <em>two students</em><br>
-                • <em>a child</em> / <em>many children</em>
-            </div>
-            <ul>
-                <li><strong>Regular plural:</strong> thêm <em>-s/-es</em></li>
-                <li><strong>Irregular plural:</strong> phải học thuộc như <em>man → men</em></li>
-                <li><strong>Zero plural:</strong> một số từ giữ nguyên như <em>sheep</em>, <em>deer</em></li>
-            </ul>
-        `,
-        detail: `
-            <h3>📚 Các mẫu đổi số nhiều quan trọng</h3>
-            <table>
-                <tr><th>Mẫu</th><th>Ví dụ</th><th>Ghi nhớ</th></tr>
-                <tr><td>noun + s</td><td>book → books</td><td>mẫu phổ biến nhất</td></tr>
-                <tr><td>noun + es</td><td>bus → buses, watch → watches</td><td>s, x, z, ch, sh</td></tr>
-                <tr><td>y → ies</td><td>city → cities</td><td>khi trước <em>y</em> là phụ âm</td></tr>
-                <tr><td>f/fe → ves</td><td>leaf → leaves</td><td>không áp dụng cho mọi từ</td></tr>
-                <tr><td>irregular</td><td>tooth → teeth</td><td>không suy ra bằng quy tắc</td></tr>
-            </table>
-            <h4>Điểm hay đi kèm</h4>
-            <ul>
-                <li><strong>a number of + plural noun + plural verb</strong></li>
-                <li><strong>the number of + plural noun + singular verb</strong></li>
-                <li>Một số danh từ luôn số nhiều trong hình thức: <em>scissors, trousers, jeans</em>.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Các bẫy trong bài thi</h3>
-            <ul>
-                <li><strong>news</strong>, <strong>mathematics</strong>, <strong>physics</strong> có hình thức giống số nhiều nhưng thường đi với động từ số ít.</li>
-                <li><strong>people</strong> là số nhiều của <em>person</em> trong cách dùng thường gặp, nhưng <em>peoples</em> lại mang nghĩa các dân tộc.</li>
-                <li>Compound nouns có cách đổi số nhiều khác nhau: <em>passers-by</em>, <em>mothers-in-law</em>.</li>
-            </ul>
-            <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Thêm <em>s</em> máy móc vào mọi danh từ, hoặc quên đổi động từ theo số ít/số nhiều của danh từ.
-            </div>
-        `
+        theory: {
+            overview: 'Với mỗi danh từ cần biết: <strong>số ít hay số nhiều</strong>, <strong>đếm được hay không</strong>, và nó đi với mạo từ / lượng từ / động từ nào. Danh từ đếm được số ít không đứng trần: cần <em>a/the/my…</em>',
+            tables: [
+                {
+                    title: 'Cách tạo số nhiều',
+                    head: ['Mẫu', 'Ví dụ', 'Ghi nhớ'],
+                    rows: [
+                        ['+ s', 'book → books, student → students', 'phổ biến nhất'],
+                        ['+ es', 'bus → buses, box → boxes, watch → watches', 'tận cùng s, x, z, ch, sh'],
+                        ['phụ âm + y → đổi y thành ies', 'city → cities', 'nguyên âm + y chỉ thêm s: day → days'],
+                        ['f / fe → ves', 'leaf → leaves, knife → knives', 'có ngoại lệ: roof → roofs, chef → chefs'],
+                        ['Bất quy tắc', 'man → men, tooth → teeth, child → children', 'phải học thuộc'],
+                        ['Zero plural', 'one sheep / two sheep, deer, fish', '<em>fishes</em> chỉ dùng khi nói nhiều loài cá'],
+                        ['Từ ghép', 'passer-by → passers-by, mother-in-law → mothers-in-law', 'thêm vào danh từ chính']
+                    ]
+                }
+            ],
+            uses: [
+                ['Số nhiều cho nghĩa chung', '', 'Books are useful.'],
+                ['Luôn số nhiều về hình thức', 'dùng a pair of để đếm', 'My jeans are new. a pair of scissors, trousers, clothes'],
+                ['Hình thức số nhiều nhưng chia số ít', '', 'The news is good. Mathematics / Physics is…'],
+                [
+                    'Chia động từ theo số',
+                    '<em>a number of</em> + N số nhiều + V số nhiều; <em>the number of</em> + N số nhiều + V số ít',
+                    ''
+                ]
+            ],
+            compare: [
+                ['people vs peoples', 'nhiều người (số nhiều của person) – các dân tộc: <em>the peoples of Asia</em>']
+            ],
+            mistakes: [
+                ['I bought book.', 'I bought a book / the book / two books.', 'Danh từ đếm được số ít cần từ hạn định.'],
+                ['informations, advices', 'information, advice', 'Không thêm -s vào danh từ không đếm được.'],
+                'Thêm s máy móc, hoặc quên chia động từ theo số của danh từ.'
+            ]
+        }
     },
     numerals: {
         icon: '🔢',
@@ -105,94 +120,42 @@ const grammarSupplementsData = {
         category: 'foundations',
         level: 'intermediate',
         connections: ['articles-determiners', 'quantifiers', 'nouns-plurals', 'sentence-order'],
-        simple: `
-            <h3>🔢 Numerals không chỉ là đếm số</h3>
-            <p>Sách có tách riêng phần <strong>cardinal numbers, ordinal numbers, dates, fractions, percentages</strong> vì đây là vùng lỗi rất thường gặp trong đọc, nói và viết.</p>
-            <div class="formula-box">two hundred students | the third chapter | two thirds | 35 percent of students</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>two hundred students</em><br>
-                • <em>the third chapter</em><br>
-                • <em>3.5 percent</em>
-            </div>
-            <ul>
-                <li><strong>Cardinal:</strong> one, two, three...</li>
-                <li><strong>Ordinal:</strong> first, second, third...</li>
-                <li><strong>Fraction:</strong> one half, two thirds...</li>
-            </ul>
-        `,
-        detail: `
-            <h3>📚 Khung cần thuộc</h3>
-            <table>
-                <tr><th>Dạng</th><th>Mẫu</th><th>Ví dụ</th></tr>
-                <tr><td>Hàng trăm/nghìn</td><td>two hundred / five thousand</td><td>không có <em>s</em> khi có số cụ thể</td></tr>
-                <tr><td>Số lượng không cụ thể</td><td>hundreds of / dozens of</td><td>có <em>s</em> và đi với <em>of</em></td></tr>
-                <tr><td>Ngày tháng</td><td>on 21st May / May 21st</td><td>dùng ordinal khi đọc ngày</td></tr>
-                <tr><td>Tỷ lệ</td><td>25 percent of students</td><td>động từ phụ thuộc vào noun sau <em>of</em></td></tr>
-            </table>
-            <h4>Điểm hay nhầm</h4>
-            <ul>
-                <li><em>two hundred pages</em> nhưng <em>hundreds of pages</em></li>
-                <li><em>a one-day trip</em> giữ nguyên dạng số ít khi làm tính từ ghép</li>
-                <li><em>first, second, third</em> là các ordinal bất quy tắc phải nhớ riêng</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Chỗ dễ trượt điểm</h3>
-            <ul>
-                <li>Viết số trong academic writing cần thống nhất: cùng một đoạn không nên đổi qua lại bừa bãi giữa chữ và số.</li>
-                <li><strong>percent</strong> trong tiếng Anh hiện đại không thêm <em>s</em> sau số: <em>10 percent</em>.</li>
-                <li>Số đo và tuổi khi đứng trước danh từ thường thành tính từ ghép: <em>a ten-year-old boy</em>.</li>
-            </ul>
-            <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Hễ thấy số + danh từ, hãy kiểm tra ngay có đang dùng cụm đo lường, ordinal, hay số lượng không xác định.
-            </div>
-        `
-    },
-    'word-formation': {
-        icon: '🧱',
-        title: 'Word Form (Dạng Từ) - Intermediate',
-        category: 'foundations',
-        level: 'intermediate',
-        connections: ['parts-of-speech', 'adjectives-adverbs', 'comparisons', 'countable-uncountable'],
-        simple: `
-            <h3>🧱 Word form là phần dễ mất điểm dù hiểu nghĩa</h3>
-            <p>Trong nhiều câu, đáp án không nằm ở từ vựng mà ở việc chọn đúng <strong>danh từ, động từ, tính từ hay trạng từ</strong> của cùng một họ từ.</p>
-            <div class="formula-box">noun | verb | adjective | adverb</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>success</em> / <em>succeed</em> / <em>successful</em> / <em>successfully</em><br>
-                • <em>beauty</em> / <em>beautiful</em> / <em>beautifully</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Cách đoán từ loại bằng vị trí</h3>
-            <table>
-                <tr><th>Vị trí</th><th>Thường cần</th><th>Ví dụ</th></tr>
-                <tr><td>Sau mạo từ</td><td>danh từ / adjective + noun</td><td>a decision, an effective plan</td></tr>
-                <tr><td>Sau động từ nối</td><td>adjective</td><td>seems useful</td></tr>
-                <tr><td>Sau auxiliary</td><td>verb</td><td>has improved</td></tr>
-                <tr><td>Bổ nghĩa động từ</td><td>adverb</td><td>worked efficiently</td></tr>
-            </table>
-            <h4>Đuôi từ thường gặp</h4>
-            <ul>
-                <li><strong>Nouns:</strong> -tion, -ment, -ness, -ity</li>
-                <li><strong>Adjectives:</strong> -ful, -ive, -ous, -able</li>
-                <li><strong>Adverbs:</strong> -ly</li>
-                <li><strong>Verbs:</strong> -ize, -ify, -en</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Điểm cần cảnh giác</h3>
-            <ul>
-                <li>Không phải cứ có <em>-ly</em> là trạng từ: <em>friendly, lively, costly</em> là tính từ.</li>
-                <li>Nhiều bài word form còn kiểm tra <strong>negative prefixes</strong> như <em>un-, in-, im-, dis-</em>.</li>
-                <li>Nếu câu có chỗ trống sau một linking verb như <em>be, seem, become</em>, đáp án thường là adjective chứ không phải adverb.</li>
-            </ul>
-            <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Biết nghĩa từ nhưng điền sai từ loại, khiến cả câu mất cấu trúc chuẩn.
-            </div>
-        `
+        theory: {
+            overview: 'Số từ không chỉ là đếm: gồm <strong>số đếm</strong> (cardinal – số lượng), <strong>số thứ tự</strong> (ordinal – thứ tự, ngày tháng, xếp hạng), <strong>phân số, số thập phân, phần trăm</strong>. Đây là vùng lỗi rất thường gặp khi đọc, nói, viết.',
+            tables: [
+                {
+                    head: ['Dạng', 'Mẫu', 'Ví dụ / ghi chú'],
+                    rows: [
+                        ['Cardinal', 'one, two, three…', '<em>two hundred students</em>'],
+                        ['Ordinal', 'first, second, third, fourth…', '<em>the third chapter</em> – first, second, third là bất quy tắc'],
+                        ['Hàng trăm / nghìn cụ thể', 'two hundred / five thousand', 'không thêm s'],
+                        ['Số lượng không xác định', 'hundreds of / dozens of', 'có s và đi với of: <em>hundreds of pages</em>'],
+                        ['Ngày tháng', 'on 21st May / May 21st', 'đọc bằng ordinal: <em>the twenty-first of May</em>'],
+                        ['Phân số', 'one half, two thirds', ''],
+                        ['Thập phân', '3.5 = three point five', 'dấu chấm, không dùng dấu phẩy'],
+                        [
+                            'Phần trăm',
+                            '10 percent, 35 percent of students',
+                            'percent không thêm s; động từ chia theo danh từ sau of: <em>25 percent of students are… / 25 percent of the water is…</em>'
+                        ]
+                    ]
+                }
+            ],
+            uses: [
+                [
+                    'Số + danh từ làm tính từ ghép',
+                    'dùng gạch nối, danh từ giữ số ít',
+                    'a one-day trip, a five-year plan, a ten-year-old boy'
+                ]
+            ],
+            mistakes: [
+                ['two hundreds people', 'two hundred people', 'Có số cụ thể thì không thêm s.'],
+                ['a five-years-old boy', 'a five-year-old boy', 'Tính từ ghép không thêm s.'],
+                ['3,5 percents', '3.5 percent', '']
+            ],
+            advanced: ['Trong academic writing, viết số <strong>thống nhất</strong>: cùng một đoạn không đổi qua lại bừa bãi giữa chữ và số.'],
+            tip: 'Thấy số + danh từ, kiểm tra ngay: đang là số lượng cụ thể, số lượng không xác định, số thứ tự hay tính từ ghép?'
+        }
     },
     'near-future': {
         icon: '🛫',
@@ -200,44 +163,45 @@ const grammarSupplementsData = {
         category: 'tenses',
         level: 'intermediate',
         connections: ['future-simple', 'present-continuous', 'present-simple', 'conditionals'],
-        simple: `
-            <h3>🛫 Tương lai gần không chỉ có <em>will</em></h3>
-            <p>Trong sách, phần <strong>Near Future</strong> tách riêng vì người học rất hay lẫn <em>be going to</em>, <em>present continuous</em> và <em>will</em>.</p>
-            <div class="formula-box">be going to + V / am-is-are + V-ing / present simple</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>Look at the clouds. It is going to rain.</em><br>
-                • <em>We are meeting the client tomorrow.</em><br>
-                • <em>The train leaves at 6:30.</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Cách chọn nhanh</h3>
-            <table>
-                <tr><th>Cấu trúc</th><th>Dùng khi</th><th>Ví dụ</th></tr>
-                <tr><td>be going to</td><td>đã có ý định hoặc có dấu hiệu rõ</td><td>She is going to study abroad.</td></tr>
-                <tr><td>present continuous</td><td>đã sắp xếp, đã lên kế hoạch</td><td>I am seeing the dentist on Friday.</td></tr>
-                <tr><td>present simple</td><td>lịch trình, timetable</td><td>The film starts at 8.</td></tr>
-                <tr><td>will</td><td>quyết định tức thì, dự đoán, lời hứa</td><td>I'll answer the phone.</td></tr>
-            </table>
-            <h4>Điểm sách nhấn mạnh</h4>
-            <ul>
-                <li><em>be going to</em> thường mang sắc thái dự định đã có trước.</li>
-                <li><em>present continuous</em> hay đi với thời gian cụ thể: tomorrow, tonight, next Sunday...</li>
-                <li>Không dùng mọi câu tương lai với <em>will</em>.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Vùng dễ nhầm</h3>
-            <ul>
-                <li><em>I'm going to leave</em> và <em>I'm leaving</em> gần nhau, nhưng câu sau thường nghe như kế hoạch đã chốt hơn.</li>
-                <li><em>will</em> tự nhiên hơn trong lời đề nghị, lời hứa, quyết định lúc nói: <em>I'll carry that for you.</em></li>
-                <li>Trong mệnh đề thời gian sau <em>when, until, before</em>, phần tương lai gần vẫn thường quay về hiện tại đơn hoặc hiện tại hoàn thành thay vì <em>will</em>.</li>
-            </ul>
-            <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Hãy hỏi: đây là ý định có sẵn, lịch đã chốt, bằng chứng trước mắt, hay quyết định vừa nảy ra?
-            </div>
-        `
+        theory: {
+            overview: 'Tương lai không chỉ có <em>will</em>. Chọn dạng theo <strong>bản chất</strong> của sự việc: ý định có sẵn, lịch đã chốt, bằng chứng trước mắt, lịch trình cố định hay quyết định vừa nảy ra.',
+            tables: [
+                {
+                    head: ['Cấu trúc', 'Dùng khi', 'Ví dụ'],
+                    rows: [
+                        [
+                            'be going to + V',
+                            'dự định có trước; dự đoán có dấu hiệu hiện tại',
+                            '<em>She is going to study abroad. Look at the clouds. It is going to rain.</em>'
+                        ],
+                        [
+                            'present continuous',
+                            'kế hoạch đã sắp xếp, đã hẹn – thường kèm mốc cụ thể (tomorrow, tonight, next Sunday)',
+                            '<em>I am seeing the dentist on Friday. We are meeting the client tomorrow.</em>'
+                        ],
+                        ['present simple', 'lịch trình, timetable', '<em>The film starts at 8. The train leaves at 6:30.</em>'],
+                        [
+                            'will + V',
+                            'quyết định tức thì, dự đoán, lời hứa, đề nghị',
+                            '<em>I’ll answer the phone. I’ll carry that for you.</em>'
+                        ],
+                        ['be about to + V', 'sắp xảy ra ngay lập tức', '<em>The train is about to leave.</em>'],
+                        ['be due to + V', 'lịch dự kiến chính thức', '<em>The plane is due to land at 5.</em>'],
+                        ['be to + V', 'kế hoạch / mệnh lệnh trang trọng', '<em>The President is to visit Hanoi next week.</em>']
+                    ]
+                }
+            ],
+            compare: [
+                ['I’m going to meet him vs I’m meeting him', 'tôi có dự định – đã sắp xếp lịch hẹn (nghe như kế hoạch đã chốt hơn)']
+            ],
+            mistakes: [
+                'Dùng will cho mọi ý tương lai.',
+                'Dùng present continuous khi chưa có sắp xếp cụ thể.',
+                'Dùng going to cho quyết định vừa nảy ra lúc nói – will tự nhiên hơn.',
+                ['Call me when you will arrive.', 'Call me when you arrive.', 'Mệnh đề thời gian (when, until, before) dùng hiện tại.']
+            ],
+            tip: 'Ý định / bằng chứng → going to; lịch đã chốt → present continuous; timetable → present simple; quyết định tức thì → will.'
+        }
     },
     'sequence-of-tenses': {
         icon: '🧭',
@@ -245,55 +209,49 @@ const grammarSupplementsData = {
         category: 'tenses',
         level: 'advanced',
         connections: ['reported-speech', 'past-perfect', 'adverbial-time-clauses', 'present-perfect'],
-        simple: `
-            <h3>🧭 Sequence of tenses là sự phối hợp thì trong câu phức</h3>
-            <p>Khi một câu có mệnh đề chính và mệnh đề phụ, hai vế không phải lúc nào cũng chia thì độc lập. Sách dành riêng phần này vì đây là nguồn lỗi rất phổ biến trong reported speech và complex sentences.</p>
-            <div class="formula-box">present main clause → flexible tense | past main clause → past / past perfect / would</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>She said that she was tired.</em><br>
-                • <em>I know that he lives here.</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Quy tắc lõi</h3>
-            <table>
-                <tr><th>Main clause</th><th>Subordinate clause thường đi với</th></tr>
-                <tr><td>Present tense</td><td>present, present perfect, future theo ngữ cảnh</td></tr>
-                <tr><td>Past tense</td><td>past, past perfect, would / was-were going to</td></tr>
-                <tr><td>Present perfect</td><td>thường theo ngữ cảnh hiện tại</td></tr>
-            </table>
-            <h4>Ngoại lệ cần nhớ</h4>
-            <ul>
-                <li>Nếu mệnh đề phụ là <strong>chân lý / sự thật hiển nhiên</strong>, ta có thể giữ hiện tại: <em>My teacher said that the sun rises in the East.</em></li>
-                <li>Reported speech hay có hiện tượng <strong>backshift</strong>: <em>am/is → was</em>, <em>will → would</em>, <em>have done → had done</em>.</li>
-                <li>Nếu ý vẫn còn đúng ở hiện tại, trong tiếng Anh hiện đại đôi khi có thể không lùi thì, nhưng trong bài thi chuẩn nên bám logic đề.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Chỗ hay nhầm với mệnh đề thời gian</h3>
-            <ul>
-                <li>Sequence of tenses trong reported speech khác với quy tắc không dùng <em>will</em> ở mệnh đề thời gian.</li>
-                <li>Đừng lùi thì máy móc nếu câu đang nói về chân lý, lịch trình cố định hoặc định nghĩa.</li>
-                <li>Khi đọc câu dài, hãy xác định <strong>mốc thời gian gốc</strong> của người nói trước rồi mới chia thì các mệnh đề còn lại.</li>
-            </ul>
-            <h4>📚 Logic trong câu phức nhiều tầng</h4>
-            <ul>
-                <li><em>She said that she had realized that the data were incomplete.</em> → động từ tường thuật ở quá khứ kéo mệnh đề sau lùi theo từng lớp.</li>
-                <li><em>The professor explained that water boils at 100°C.</em> → chân lý giữ hiện tại dù reporting verb ở quá khứ.</li>
-                <li><em>I knew that he would call when he arrived.</em> → <em>would</em> cho tương lai nhìn từ quá khứ, nhưng mệnh đề thời gian vẫn là <em>arrived</em>, không dùng <em>would arrive</em>.</li>
-            </ul>
-            <h4>Khung quyết định nhanh</h4>
-            <ol>
-                <li>Xác định thời điểm gốc: hiện tại hay một mốc quá khứ.</li>
-                <li>Kiểm tra mệnh đề phụ nói về sự thật chung hay một sự kiện lệ thuộc mốc gốc.</li>
-                <li>Nếu là tương lai nhìn từ quá khứ, cân nhắc <em>would / was going to</em>.</li>
-                <li>Nếu là time clause, áp quy tắc riêng của time clause trước.</li>
-            </ol>
-            <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Thấy động từ chính ở quá khứ là lùi mọi thứ về quá khứ, kể cả chân lý hoặc sự kiện vẫn đang đúng.
-            </div>
-        `
+        theory: {
+            overview: 'Phối hợp thì: trong câu phức, thì của mệnh đề phụ thường <strong>phụ thuộc mốc thời gian của mệnh đề chính</strong>. Đây là nguồn lỗi phổ biến trong câu tường thuật và câu nhiều tầng.',
+            tables: [
+                {
+                    head: ['Mệnh đề chính', 'Mệnh đề phụ thường dùng', 'Ví dụ'],
+                    rows: [
+                        ['Hiện tại', 'linh hoạt theo nghĩa thực tế', '<em>I know that he lives here / he has left / he will come.</em>'],
+                        ['Quá khứ', 'past, past perfect, would, was/were going to', '<em>She said that she was tired.</em>'],
+                        ['Present perfect', 'thường theo ngữ cảnh hiện tại', '']
+                    ]
+                }
+            ],
+            uses: [
+                [
+                    'Backshift trong câu tường thuật',
+                    'am/is → was, will → would, have done → had done',
+                    'He said he would call me the next day.'
+                ],
+                ['Tương lai nhìn từ quá khứ', 'would / was going to + V', 'She was going to leave.'],
+                [
+                    'Nhiều tầng',
+                    'động từ tường thuật quá khứ kéo các mệnh đề sau lùi theo từng lớp',
+                    'She said that she had realized that the data were incomplete.'
+                ],
+                ['Chân lý giữ hiện tại', 'kể cả khi động từ tường thuật ở quá khứ', 'The professor explained that water boils at 100°C.']
+            ],
+            sections: [
+                {
+                    title: '🧭 Khung quyết định nhanh',
+                    items: [
+                        '1. Xác định <strong>mốc gốc</strong>: hiện tại hay một mốc quá khứ.',
+                        '2. Mệnh đề phụ nói sự thật chung / vẫn đúng, hay sự kiện lệ thuộc mốc gốc?',
+                        '3. Tương lai nhìn từ quá khứ → would / was going to.',
+                        '4. Là mệnh đề thời gian → áp quy tắc riêng: không dùng will/would. <em>I knew that he would call when he arrived</em> (không phải <em>would arrive</em>).'
+                    ]
+                }
+            ],
+            mistakes: [
+                'Thấy động từ chính ở quá khứ là lùi thì <strong>máy móc</strong> mọi mệnh đề, kể cả chân lý, định nghĩa, lịch trình cố định.',
+                'Trộn mốc hiện tại và quá khứ khi không có lý do.'
+            ],
+            advanced: ['Tiếng Anh hiện đại đôi khi không lùi thì nếu ý vẫn còn đúng, nhưng trong bài thi chuẩn nên bám logic đề.']
+        }
     },
     'adverbial-time-clauses': {
         icon: '⏱️',
@@ -301,44 +259,49 @@ const grammarSupplementsData = {
         category: 'patterns',
         level: 'intermediate',
         connections: ['conjunctions', 'future-simple', 'sequence-of-tenses', 'present-perfect'],
-        simple: `
-            <h3>⏱️ Mệnh đề trạng ngữ chỉ thời gian có quy tắc thì riêng</h3>
-            <p>Sau các liên từ như <strong>when, before, after, until, as soon as, once</strong>, tiếng Anh thường không dùng <em>will</em> dù ý nghĩa nói về tương lai.</p>
-            <div class="formula-box">future main clause + present time clause | present perfect + since + simple past</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>I'll call you when I arrive.</em><br>
-                • <em>Wait here until she comes back.</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Các liên từ thời gian quan trọng</h3>
-            <table>
-                <tr><th>Liên từ</th><th>Nghĩa</th><th>Ví dụ</th></tr>
-                <tr><td>when</td><td>khi</td><td>Call me when you get home.</td></tr>
-                <tr><td>before / after</td><td>trước / sau khi</td><td>Finish this before you go out.</td></tr>
-                <tr><td>until / till</td><td>cho đến khi</td><td>Stay here until I return.</td></tr>
-                <tr><td>as soon as / once</td><td>ngay khi</td><td>I'll email you as soon as I finish.</td></tr>
-                <tr><td>since</td><td>kể từ khi</td><td>She has lived here since she graduated.</td></tr>
-            </table>
-            <h4>Quy tắc cần nhớ</h4>
-            <ul>
-                <li><strong>Main clause future</strong> + <strong>time clause present</strong></li>
-                <li>Sau <strong>since</strong>, mệnh đề chính thường ở present perfect / present perfect continuous.</li>
-                <li><strong>while</strong> nhấn hành động kéo dài; <strong>during</strong> là giới từ, không đi với mệnh đề.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Biến thể nâng cao</h3>
-            <ul>
-                <li><strong>by the time</strong> thường kéo theo perfect tenses để nhấn một hành động hoàn tất trước mốc khác.</li>
-                <li><strong>no sooner ... than</strong>, <strong>hardly/scarcely ... when</strong> thường dùng trong văn trang trọng và có đảo ngữ.</li>
-                <li>Các time clauses rất hay đi cùng Near Future và Sequence of Tenses, nên cần nhìn cả cụm câu chứ không chia từng vế riêng lẻ.</li>
-            </ul>
-            <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Hễ gặp <em>when / before / after / until / as soon as</em>, hãy tự kiểm tra xem mình có vừa viết <em>will</em> sai chỗ không.
-            </div>
-        `
+        theory: {
+            overview: 'Mệnh đề trạng ngữ chỉ thời gian mở đầu bằng <strong>when, before, after, until, as soon as, once, since, while, by the time, ...</strong>. Quy tắc riêng quan trọng nhất: <strong>không dùng will</strong> trong mệnh đề thời gian dù nói về tương lai.',
+            formula: [
+                {
+                    label: 'Nói về tương lai',
+                    pattern: 'Mệnh đề chính (tương lai) + mệnh đề thời gian (hiện tại)',
+                    example: 'I’ll call you when I arrive.'
+                },
+                {
+                    label: 'Với since',
+                    pattern: 'Present perfect + since + quá khứ đơn',
+                    example: 'She has lived here since she graduated.'
+                }
+            ],
+            tables: [
+                {
+                    head: ['Liên từ', 'Nghĩa', 'Ví dụ'],
+                    rows: [
+                        ['when', 'khi', '<em>Call me when you get home.</em>'],
+                        ['before / after', 'trước / sau khi', '<em>Finish this before you go out.</em>'],
+                        ['until / till', 'cho đến khi', '<em>Stay here until I return. Wait here until she comes back.</em>'],
+                        ['as soon as / once', 'ngay khi', '<em>I’ll email you as soon as I finish.</em>'],
+                        ['since', 'kể từ khi', '<em>She has lived here since she graduated.</em>'],
+                        ['while / as', 'trong khi – hai việc cùng diễn ra, nền kéo dài', '<em>While I was cooking, he was cleaning.</em>'],
+                        [
+                            'by the time',
+                            'trước lúc – kéo theo thì hoàn thành ở mệnh đề chính',
+                            '<em>By the time she arrives, we will have finished. By the time he came, we had left.</em>'
+                        ]
+                    ]
+                }
+            ],
+            compare: [
+                ['while vs during', 'while + mệnh đề (<em>while I was sleeping</em>); during + danh từ (<em>during the storm</em>)']
+            ],
+            mistakes: [
+                ['I’ll call you when I will arrive.', 'I’ll call you when I arrive.', '']
+            ],
+            advanced: [
+                '<em>No sooner … than</em>, <em>Hardly / Scarcely … when</em>: trang trọng, có đảo ngữ, nghĩa "vừa mới… thì…": <em>No sooner had I arrived than it started to rain.</em>'
+            ],
+            tip: 'Gặp <em>when / before / after / until / as soon as</em>, kiểm tra ngay xem mình có vừa viết will sai chỗ không.'
+        }
     },
     'relative-pronouns-adverbs': {
         icon: '🧷',
@@ -346,46 +309,68 @@ const grammarSupplementsData = {
         category: 'patterns',
         level: 'beginner',
         connections: ['relative-clauses', 'pronouns-possessives', 'conjunctions', 'sentence-order'],
-        simple: `
-            <h3>🧷 Đây là phần nhập môn để chọn từ quan hệ đúng</h3>
-            <p>Mục này không dạy ghép câu dài. Nó chỉ giúp bạn nhận ra khi nào dùng <strong>who, whom, whose, which, that, where, when, why</strong> trong câu ngắn và câu mẫu cơ bản.</p>
-            <div class="formula-box">person → who/whom/whose | thing → which/that | place → where | time → when | reason → why</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>The man who called me is my uncle.</em><br>
-                • <em>The house where I was born is still there.</em><br>
-                • <em>The reason why I called is important.</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Chọn từ nào trong tình huống nào</h3>
-            <table>
-                <tr><th>Từ</th><th>Dùng cho</th><th>Ví dụ</th></tr>
-                <tr><td>who</td><td>người làm chủ ngữ</td><td>the man who called me</td></tr>
-                <tr><td>whom</td><td>người làm tân ngữ, thường trang trọng hơn</td><td>the girl whom I met</td></tr>
-                <tr><td>whose</td><td>sở hữu</td><td>the writer whose book won</td></tr>
-                <tr><td>which</td><td>vật hoặc ý</td><td>the car which he bought</td></tr>
-                <tr><td>that</td><td>người hoặc vật trong mệnh đề xác định</td><td>the song that I like</td></tr>
-                <tr><td>where / when / why</td><td>nơi chốn / thời gian / lý do</td><td>the town where I grew up</td></tr>
-            </table>
-            <h4>Nhận diện nhanh</h4>
-            <ul>
-                <li>Nhìn danh từ ngay trước chỗ trống để biết đang nói về người, vật, nơi chốn, thời gian hay lý do.</li>
-                <li><strong>where/when/why</strong> là cách rất thường gặp ở mức cơ bản.</li>
-                <li>Mục này chỉ giúp chọn từ đúng; phần ghép câu đầy đủ nằm ở Relative Clauses.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Điều cần tránh nhầm với Relative Clauses</h3>
-            <ul>
-                <li><strong>Relative Pronouns & Adverbs</strong> là phần chọn từ; <strong>Relative Clauses</strong> là phần ghép câu và bổ nghĩa cho danh từ.</li>
-                <li>Trong writing trang trọng, <strong>whom</strong> và <strong>preposition + which</strong> vẫn hữu ích.</li>
-                <li><strong>whose</strong> có thể dùng cho cả vật trong văn viết: <em>a company whose profits fell</em>.</li>
-            </ul>
-            <div class="warning-box">
-                <strong>⚠️ Lỗi phổ biến:</strong> Học thuộc công thức rời rạc nhưng không biết từ nào dùng cho người, vật, nơi chốn hay thời gian.
-            </div>
-        `
+        theory: {
+            overview: 'Phần nhập môn giúp <strong>chọn đúng từ quan hệ</strong> (who, whom, whose, which, that, where, when, why) trong câu ngắn. Cách ghép hai câu thành mệnh đề quan hệ hoàn chỉnh học ở chủ điểm Relative Clauses.',
+            formula: [
+                {
+                    label: 'Người',
+                    pattern: 'who / whom / whose'
+                },
+                {
+                    label: 'Vật, ý',
+                    pattern: 'which / that'
+                },
+                {
+                    label: 'Nơi chốn',
+                    pattern: 'where'
+                },
+                {
+                    label: 'Thời gian',
+                    pattern: 'when'
+                },
+                {
+                    label: 'Lý do',
+                    pattern: 'why'
+                }
+            ],
+            tables: [
+                {
+                    head: ['Từ', 'Dùng cho', 'Ví dụ'],
+                    rows: [
+                        ['who', 'người làm chủ ngữ', '<em>the man who called me</em>'],
+                        ['whom', 'người làm tân ngữ, trang trọng hơn', '<em>the girl whom I met</em>'],
+                        [
+                            'whose',
+                            'sở hữu (người; cả vật trong văn viết)',
+                            '<em>the writer whose book won; a company whose profits fell</em>'
+                        ],
+                        ['which', 'vật hoặc ý', '<em>the car which he bought</em>'],
+                        [
+                            'that',
+                            'người hoặc vật, thay who/which trong mệnh đề xác định',
+                            '<em>the song that I like; the man that helped me</em>'
+                        ],
+                        [
+                            'where / when / why',
+                            'nơi chốn / thời gian / lý do',
+                            '<em>the town where I grew up; the day when we met; the reason why I called</em>'
+                        ]
+                    ]
+                }
+            ],
+            uses: [
+                [
+                    'Giới từ + which / whom (trang trọng)',
+                    'sau giới từ chỉ dùng which/whom, không dùng that/who',
+                    'the person to whom I spoke'
+                ]
+            ],
+            mistakes: [
+                'Chọn where/when/why chỉ vì có chỗ trống mà không xét mệnh đề sau có đủ thành phần không.',
+                'Dùng that sau dấu phẩy (mệnh đề không xác định).'
+            ],
+            tip: 'Nhìn <strong>danh từ ngay trước chỗ trống</strong>: người, vật, nơi chốn, thời gian hay lý do?'
+        }
     },
     'result-structures': {
         icon: '🎯',
@@ -393,48 +378,49 @@ const grammarSupplementsData = {
         category: 'patterns',
         level: 'intermediate',
         connections: ['conjunctions', 'comparisons', 'adjectives-adverbs', 'sentence-order'],
-        simple: `
-            <h3>🎯 Dùng để nói một việc dẫn đến kết quả</h3>
-            <p>Phần này nên học theo công thức trước, vì mỗi mẫu có vị trí riêng và không thể thay bừa cho nhau.</p>
-            <div class="formula-box">so + adj/adv + that + clause | such + (a/an) + adj + noun + that + clause | too + adj/adv + to V | adj/adv + enough + to V | enough + noun</div>
-            <div class="example-box">
-                <strong>Ví dụ:</strong><br>
-                • <em>It was so cold that we stayed inside.</em><br>
-                • <em>She was too tired to drive.</em><br>
-                • <em>The room was large enough to hold fifty people.</em><br>
-                • <em>It was such a noisy room that nobody could sleep.</em>
-            </div>
-        `,
-        detail: `
-            <h3>📚 Mẫu dùng nhanh</h3>
-            <table>
-                <tr><th>Cấu trúc</th><th>Công thức</th><th>Ví dụ</th></tr>
-                <tr><td>so ... that</td><td>so + adj/adv + that + clause</td><td>so difficult that I gave up</td></tr>
-                <tr><td>such ... that</td><td>such + (a/an) + adj + noun + that + clause</td><td>such a long meeting that we left early</td></tr>
-                <tr><td>too ... to</td><td>too + adj/adv + to V</td><td>too weak to lift it</td></tr>
-                <tr><td>adj/adv + enough</td><td>adj/adv + enough + to V</td><td>strong enough to continue</td></tr>
-                <tr><td>enough + noun</td><td>enough + noun</td><td>enough time / enough money</td></tr>
-            </table>
-            <h4>Điểm dễ lẫn</h4>
-            <ul>
-                <li><strong>so</strong> đi với adjective/adverb; <strong>such</strong> đi với noun phrase.</li>
-                <li><strong>too ... to</strong> mang nghĩa quá... đến mức không thể.</li>
-                <li><strong>enough</strong> đứng sau adjective/adverb nhưng đứng trước noun.</li>
-                <li><strong>so many/few</strong> đi với danh từ đếm được số nhiều; <strong>so much/little</strong> đi với danh từ không đếm được.</li>
-            </ul>
-        `,
-        advanced: `
-            <h3>🎯 Chỗ đổi câu hay ra đề</h3>
-            <ul>
-                <li>Các câu <em>too ... to</em> có thể đổi sang <em>so ... that ... not</em> hoặc <em>not ... enough to</em> tùy nghĩa.</li>
-                <li><strong>such</strong> đi với noun phrase, còn <strong>so</strong> đi trực tiếp với adjective/adverb.</li>
-                <li>Đây là nhóm cấu trúc rất hay xuất hiện trong rewrite sentence và sentence transformation.</li>
-                <li>Đừng nhầm result với purpose: ở đây trọng tâm là hệ quả trực tiếp, không phải mục đích.</li>
-            </ul>
-            <div class="tip-box">
-                <strong>💡 Mẹo:</strong> Trước khi chọn <em>so</em> hay <em>such</em>, hãy nhìn từ đứng ngay sau nó là adjective hay noun phrase.
-            </div>
-        `
+        theory: {
+            overview: 'Các cấu trúc chỉ <strong>kết quả</strong> nói một việc dẫn đến hệ quả trực tiếp. Mỗi mẫu có vị trí riêng, không thay bừa cho nhau.',
+            tables: [
+                {
+                    head: ['Cấu trúc', 'Công thức', 'Ví dụ'],
+                    rows: [
+                        ['so … that', 'so + adj/adv + that + mệnh đề', '<em>It was so cold that we stayed inside.</em>'],
+                        [
+                            'such … that',
+                            'such + (a/an) + adj + N + that + mệnh đề',
+                            '<em>It was such a noisy room that nobody could sleep.</em>'
+                        ],
+                        [
+                            'so many / few / much / little',
+                            'so many/few + N đếm được; so much/little + N không đếm được',
+                            '<em>so many people that…; so much noise that…</em>'
+                        ],
+                        ['too … to', 'too + adj/adv + to V = quá… đến mức không thể', '<em>She was too tired to drive.</em>'],
+                        ['… enough to', 'adj/adv + enough + to V', '<em>The room was large enough to hold fifty people.</em>'],
+                        ['enough + N', 'enough đứng trước danh từ', '<em>enough time, enough money</em>']
+                    ]
+                }
+            ],
+            sections: [
+                {
+                    title: '🔁 Viết lại câu tương đương',
+                    items: ['<em>too weak to lift it</em> = <em>so weak that he couldn’t lift it</em> = <em>not strong enough to lift it</em>']
+                }
+            ],
+            compare: [
+                ['so vs such', 'so + tính từ / trạng từ (<em>so difficult</em>); such + cụm danh từ (<em>such a difficult test</em>)'],
+                [
+                    'Result vs purpose',
+                    'hệ quả trực tiếp (<em>so cold that we stayed inside</em>) – mục đích, ý định (<em>left early in order to catch the bus</em>)'
+                ]
+            ],
+            mistakes: [
+                ['enough large', 'large enough', 'enough đứng sau tính từ/trạng từ nhưng trước danh từ.'],
+                ['so a cold day', 'such a cold day', 'Trước cụm danh từ dùng such.'],
+                'Nhầm <em>too … to</em> với <em>enough … to</em>; quên <em>that</em> trong so/such … that.'
+            ],
+            tip: 'Nhìn từ đứng ngay sau: tính từ / trạng từ → <strong>so</strong>; cụm danh từ → <strong>such</strong>.'
+        }
     }
 };
 
@@ -1120,8 +1106,8 @@ const grammarPracticeData = {
             'Verb patterns phải học theo từng nhóm verb, không suy bằng tiếng Việt.',
             'Một số verb đổi pattern có thể đổi cả nghĩa: stop doing / stop to do.',
             'That-clause và wh-clause thường dùng để báo nội dung, câu hỏi gián tiếp hoặc giải thích.',
-            'Bare infinitive thường xuất hiện sau make, let, help, see, hear, watch, feel.',
-            'V + preposition + V-ing là vùng rất hay sai: insist on, succeed in, look forward to, prevent from.'
+            'Bare infinitive thường xuất hiện sau make, let, help, see, hear, watch, feel, ...',
+            'V + preposition + V-ing là vùng rất hay sai: insist on, succeed in, look forward to, prevent from, ...'
         ]
     },
     'comparisons': {
@@ -3625,7 +3611,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Biết khi nào phải quay về past simple vì có mốc thời gian đã đóng.',
-            'Dùng đúng since, for, just, already, yet, ever, never.',
+            'Dùng đúng since, for, just, already, yet, ever, never, ...',
             'Phân biệt được nhấn kết quả với nhấn thời điểm xảy ra.'
         ]
     },
@@ -3801,7 +3787,7 @@ const grammarPracticeData = {
         sections: [
             {
                 title: 'Chia thì trong mệnh đề thời gian',
-                instruction: 'Dùng dạng động từ đúng sau when, until, before, after, as soon as, since...',
+                instruction: 'Dùng dạng động từ đúng sau when, until, before, after, as soon as, since, ...',
                 questions: [
                     'Wait here until you (see) her.',
                     'He will wait for you when you (get) back tomorrow.',
@@ -3825,7 +3811,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Không dùng will trong time clause sau when, until, before, after, as soon as...',
+            'Không dùng will trong time clause sau when, until, before, after, as soon as, ...',
             'Biết since thường kéo mệnh đề chính về present perfect hoặc present perfect continuous.',
             'Nhận ra khi nào by the time kéo theo perfect tense ở main clause.'
         ]
@@ -4261,7 +4247,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Present continuous thường đi với now, right now, at the moment, this week, tomorrow.',
+            'Present continuous thường đi với now, right now, at the moment, this week, tomorrow, ...',
             'Không dùng cho mọi ý tương lai; chỉ dùng khi có kế hoạch hoặc sắp xếp rõ.',
             'Động từ trạng thái thường không dùng ở dạng tiếp diễn trừ khi đổi nghĩa.'
         ]
@@ -4402,7 +4388,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Stative verbs thường không dùng continuous khi nói về trạng thái, suy nghĩ, cảm xúc hoặc sở hữu.',
-            'Nhiều verb đổi nghĩa khi chuyển sang continuous: think, have, see, smell, taste, feel, look, appear, be.',
+            'Nhiều verb đổi nghĩa khi chuyển sang continuous: think, have, see, smell, taste, feel, look, appear, be, ...',
             'Nếu câu nói về hành động tạm thời, trải nghiệm, hoặc lịch hẹn, continuous có thể đúng.',
             'Khi làm bài, luôn hỏi: đây là trạng thái hay là hành động / quá trình?'
         ]
@@ -4738,7 +4724,7 @@ const grammarPracticeData = {
             }
         ],
         checkpoint: [
-            'Past perfect rất hay đi với before, after, by the time, when, already, just, never.',
+            'Past perfect rất hay đi với before, after, by the time, when, already, just, never, ...',
             'Dùng để sắp xếp thứ tự hai sự kiện trong quá khứ.',
             'Nếu không cần phân biệt thứ tự trước-sau, past simple thường đủ.'
         ]
@@ -4821,7 +4807,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Future simple thường đi với will + V nguyên mẫu.',
-            'Dùng cho prediction, decision, promise, offer, request.',
+            'Dùng cho prediction, decision, promise, offer, request, ...',
             'Nếu ý là kế hoạch đã sắp xếp, hãy cân nhắc present continuous hoặc be going to.'
         ]
     },
@@ -4903,7 +4889,7 @@ const grammarPracticeData = {
         ],
         checkpoint: [
             'Future perfect continuous nhấn duration up to a future point.',
-            'Thường đi với for, by, by the time, next year, next month.',
+            'Thường đi với for, by, by the time, next year, next month, ...',
             'Nếu chỉ cần nói việc sẽ xong trước mốc tương lai, future perfect gọn hơn.'
         ]
     }
@@ -4914,27 +4900,27 @@ const grammarMemoryBank = [
         title: 'Plural Nouns Phải Học Thuộc',
         note: 'Không thể suy chắc bằng quy tắc thêm -s.',
         items: [
-            'man → men, woman → women, child → children, person → people',
-            'tooth → teeth, foot → feet, goose → geese, mouse → mice',
-            'sheep → sheep, deer → deer, aircraft → aircraft'
+            'man → men, woman → women, child → children, person → people, ...',
+            'tooth → teeth, foot → feet, goose → geese, mouse → mice, ...',
+            'sheep → sheep, deer → deer, aircraft → aircraft, ...'
         ]
     },
     {
         title: 'Danh Từ Không Đếm Được Hay Sai',
         note: 'Kéo theo sai article, quantifier và verb agreement nếu quên.',
         items: [
-            'information, advice, furniture, equipment, luggage, homework',
-            'traffic, research, news, knowledge, progress, work',
-            'Cụm nên học thuộc: a piece of advice, a piece of information, an item of furniture'
+            'information, advice, furniture, equipment, luggage, homework, ...',
+            'traffic, research, news, knowledge, progress, work, ...',
+            'Cụm nên học thuộc: a piece of advice, a piece of information, an item of furniture, ...'
         ]
     },
     {
         title: 'Articles Với Tên Riêng Và Cụm Cố Định',
         note: 'Sách nhấn mạnh đây là vùng cần ghi nhớ theo nhóm.',
         items: [
-            'Dùng the: the United States, the Netherlands, the Pacific, the Alps',
-            'Không dùng the: France, Vietnam, Europe, Lake Geneva, Mount Everest',
-            'Cụm cố định: go to school, be at home, go to bed, go to church'
+            'Dùng the: the United States, the Netherlands, the Pacific, the Alps, ...',
+            'Không dùng the: France, Vietnam, Europe, Lake Geneva, Mount Everest, ...',
+            'Cụm cố định: go to school, be at home, go to bed, go to church, ...'
         ]
     },
     {
@@ -4969,11 +4955,11 @@ const grammarMemoryBank = [
         title: 'Verb Patterns Cần Flashcard',
         note: 'Không có quy tắc đủ chắc, nên học theo cụm.',
         items: [
-            'V + V-ing: enjoy, avoid, finish, keep, suggest, mind, admit, deny',
-            'V + to V: want, decide, hope, plan, promise, refuse, manage',
-            'V + object + to V: ask, tell, advise, allow, encourage, remind, warn',
-            'V + preposition + V-ing: insist on, succeed in, look forward to, prevent from',
-            'Bare V after object: make, let, help, see, hear, watch, feel',
+            'V + V-ing: enjoy, avoid, finish, keep, suggest, mind, admit, deny, ...',
+            'V + to V: want, decide, hope, plan, promise, refuse, manage, ...',
+            'V + object + to V: ask, tell, advise, allow, encourage, remind, warn, ...',
+            'V + preposition + V-ing: insist on, succeed in, look forward to, prevent from, ...',
+            'Bare V after object: make, let, help, see, hear, watch, feel, ...',
             'Cặp đổi nghĩa: stop doing / stop to do, remember doing / remember to do'
         ]
     },
@@ -4981,9 +4967,9 @@ const grammarMemoryBank = [
         title: 'Giới Từ Đi Theo Cụm',
         note: 'Học rời từng từ rất khó nhớ và dễ dịch từ tiếng Việt sang.',
         items: [
-            'interested in, good at, depend on, belong to',
-            'afraid of, proud of, responsible for, similar to',
-            'arrive in/at, listen to, wait for, apologize for'
+            'interested in, good at, depend on, belong to, ...',
+            'afraid of, proud of, responsible for, similar to, ...',
+            'arrive in/at, listen to, wait for, apologize for, ...'
         ]
     },
     {
@@ -4991,7 +4977,7 @@ const grammarMemoryBank = [
         note: 'Đây là nhóm quy tắc lẫn ngoại lệ nên cần nhớ theo mẫu.',
         items: [
             'two hundred students nhưng hundreds of students',
-            'first, second, third, fifth, twelfth',
+            'first, second, third, fifth, twelfth, ...',
             'on 21st May / May 21st / two thirds / 35 percent'
         ]
     },
@@ -5026,28 +5012,28 @@ const grammarMemoryBank = [
         title: 'Cụm Thời Gian Cố Định',
         note: 'Nên học như collocation thay vì cố suy luận từng chữ.',
         items: [
-            'at night, in the morning, on Monday, at 7 o’clock',
+            'at night, in the morning, on Monday, at 7 o’clock, ...',
             'in time / on time, at the weekend / on the weekend',
-            'for two hours, since 2022, by Friday, until tomorrow'
+            'for two hours, since 2022, by Friday, until tomorrow, ...'
         ]
     },
     {
         title: 'Stative Verbs Cần Nhận Diện Nhanh',
         note: 'Nhiều động từ có nghĩa trạng thái nên thường không dùng continuous.',
         items: [
-            'know, understand, believe, remember, forget, realize, mean',
-            'love, hate, like, prefer, want, need, wish',
-            'own, belong, contain, consist, exist, seem, appear',
-            'Các verb đổi nghĩa: think, have, see, taste, smell, feel, be'
+            'know, understand, believe, remember, forget, realize, mean, ...',
+            'love, hate, like, prefer, want, need, wish, ...',
+            'own, belong, contain, consist, exist, seem, appear, ...',
+            'Các verb đổi nghĩa: think, have, see, taste, smell, feel, be, ...'
         ]
     },
     {
         title: 'Verb + Preposition Fixed Patterns',
         note: 'Đây là vùng phải học như cụm hoàn chỉnh.',
         items: [
-            'apologize to sb for sth, blame sb for sth, accuse sb of sth',
-            'congratulate sb on sth, provide sb with sth, prevent sb from V-ing',
-            'depend on, rely on, insist on, object to, succeed in, participate in',
+            'apologize to sb for sth, blame sb for sth, accuse sb of sth, ...',
+            'congratulate sb on sth, provide sb with sth, prevent sb from V-ing, ...',
+            'depend on, rely on, insist on, object to, succeed in, participate in, ...',
             'arrive at a place nhỏ, arrive in a city/country'
         ]
     },
@@ -5066,90 +5052,90 @@ const grammarMemoryBank = [
         title: 'Noun + Preposition Fixed Patterns',
         note: 'Rất hay xuất hiện trong writing và academic English.',
         items: [
-            'reason for, solution to, answer to, key to, access to',
+            'reason for, solution to, answer to, key to, access to, ...',
             'increase/decrease/rise/fall in, effect/impact/influence on',
-            'advantage/disadvantage of, demand/need for, relationship with/between',
-            'evidence of/for, exception to, attitude to/towards'
+            'advantage/disadvantage of, demand/need for, relationship with/between, ...',
+            'evidence of/for, exception to, attitude to/towards, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Daily Actions',
         note: 'Nhóm này xuất hiện rất thường xuyên trong giao tiếp hằng ngày.',
         items: [
-            'wake up, get up, sit down, stand up, lie down',
-            'go out, come back, come in, go back, come over',
-            'run out of, fill in, fill out, hand in, hand out',
-            'turn on, turn off, turn up, turn down, set off',
-            'pick up, drop off, put away, clean up, take off',
-            'take up, put on, put off, give up, calm down'
+            'wake up, get up, sit down, stand up, lie down, ...',
+            'go out, come back, come in, go back, come over, ...',
+            'run out of, fill in, fill out, hand in, hand out, ...',
+            'turn on, turn off, turn up, turn down, set off, ...',
+            'pick up, drop off, put away, clean up, take off, ...',
+            'take up, put on, put off, give up, calm down, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Study & Work',
         note: 'Đây là nhóm rất hay gặp trong homework, project và workplace English.',
         items: [
-            'look up, look over, go over, check out, find out',
-            'hand in, hand out, fill out, fill in, write down',
-            'carry out, set up, sort out, work out, figure out',
-            'catch up on, follow up, bring up, point out, carry on',
-            'take over, take on, turn in, get through, move on',
-            'go through, make up, pay off, come up with, read through'
+            'look up, look over, go over, check out, find out, ...',
+            'hand in, hand out, fill out, fill in, write down, ...',
+            'carry out, set up, sort out, work out, figure out, ...',
+            'catch up on, follow up, bring up, point out, carry on, ...',
+            'take over, take on, turn in, get through, move on, ...',
+            'go through, make up, pay off, come up with, read through, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Problems & Change',
         note: 'Nhóm này giúp bạn diễn tả vấn đề, phản ứng và thay đổi trạng thái.',
         items: [
-            'give up, put off, turn down, break down, calm down',
-            'break up, make up, bring up, blow up, mess up',
-            'carry on, go on, move on, get over, sort out',
-            'figure out, work out, run into, come across, deal with',
-            'take off, take over, pick up, turn up, turn out',
-            'run out of, cut down on, slow down, build up, wear off'
+            'give up, put off, turn down, break down, calm down, ...',
+            'break up, make up, bring up, blow up, mess up, ...',
+            'carry on, go on, move on, get over, sort out, ...',
+            'figure out, work out, run into, come across, deal with, ...',
+            'take off, take over, pick up, turn up, turn out, ...',
+            'run out of, cut down on, slow down, build up, wear off, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - People & Communication',
         note: 'Rất hữu ích khi nói về quan hệ, trao đổi và tương tác.',
         items: [
-            'look after, look for, look forward to, get along with, get on with',
-            'fall out with, make up with, keep in touch, call back, call off',
-            'hang out, come over, drop by, chat up, check in',
-            'talk over, bring up, point out, ask around, speak up',
-            'run into, come across, get together, meet up, reach out',
-            'hear from, get back to, fill in for, pass on, hand over'
+            'look after, look for, look forward to, get along with, get on with, ...',
+            'fall out with, make up with, keep in touch, call back, call off, ...',
+            'hang out, come over, drop by, chat up, check in, ...',
+            'talk over, bring up, point out, ask around, speak up, ...',
+            'run into, come across, get together, meet up, reach out, ...',
+            'hear from, get back to, fill in for, pass on, hand over, ...'
         ]
     },
     {
         title: 'Phrasal Verbs - Movement & Result',
         note: 'Nhóm này giúp nói về di chuyển, khởi hành và kết quả.',
         items: [
-            'set off, take off, get in, get out, get on',
-            'get off, come in, go back, come back, move in',
-            'move out, pass by, run past, drive off, pull over',
-            'pick up, drop off, turn around, head out, check out',
-            'go through, get over, carry out, carry through, turn out',
-            'end up, come out, come through, break out, build up'
+            'set off, take off, get in, get out, get on, ...',
+            'get off, come in, go back, come back, move in, ...',
+            'move out, pass by, run past, drive off, pull over, ...',
+            'pick up, drop off, turn around, head out, check out, ...',
+            'go through, get over, carry out, carry through, turn out, ...',
+            'end up, come out, come through, break out, build up, ...'
         ]
     },
     {
         title: 'Make / Do / Take / Have Collocations',
         note: 'Collocation sai làm câu nghe không tự nhiên dù đúng ngữ pháp bề mặt.',
         items: [
-            'make a decision, make a mistake, make progress, make an effort',
-            'do homework, do business, do research, do your best',
-            'take a risk, take responsibility, take notes, take a break',
-            'have breakfast, have a rest, have trouble, have an effect on'
+            'make a decision, make a mistake, make progress, make an effort, ...',
+            'do homework, do business, do research, do your best, ...',
+            'take a risk, take responsibility, take notes, take a break, ...',
+            'have breakfast, have a rest, have trouble, have an effect on, ...'
         ]
     },
     {
         title: 'Give / Pay / Keep / Catch Collocations',
         note: 'Các verb phổ thông này tạo rất nhiều cụm cố định.',
         items: [
-            'give advice, give a speech, give permission, give someone a hand',
-            'pay attention, pay a fine, pay respect, pay by card',
-            'keep calm, keep a promise, keep in touch, keep track of',
-            'catch a bus, catch a cold, catch fire, catch someone’s attention'
+            'give advice, give a speech, give permission, give someone a hand, ...',
+            'pay attention, pay a fine, pay respect, pay by card, ...',
+            'keep calm, keep a promise, keep in touch, keep track of, ...',
+            'catch a bus, catch a cold, catch fire, catch someone’s attention, ...'
         ]
     },
     {
@@ -5186,7 +5172,7 @@ const grammarMemoryBank = [
         title: 'Confusing Pairs Cần Thuộc',
         note: 'Các cặp này thường đúng chính tả nhưng sai nghĩa/chức năng.',
         items: [
-            'its / it’s, your / you’re, whose / who’s, there / their / they’re',
+            'its / it’s, your / you’re, whose / who’s, there / their / they’re, ...',
             'affect (v) / effect (n), advice (n) / advise (v), practice (n) / practise (v BrE)',
             'fewer + countable / less + uncountable, between / among',
             'beside = bên cạnh, besides = ngoài ra; then = sau đó, than = so sánh'
@@ -5196,10 +5182,10 @@ const grammarMemoryBank = [
         title: 'Fixed Article / Zero Article Expressions',
         note: 'Nhiều cụm article không nên dịch từng chữ.',
         items: [
-            'go to school, go to bed, be in hospital/prison/church, at home',
-            'by car/bus/train, on foot, by mistake, by chance, in fact',
-            'have breakfast/lunch/dinner, play football, play the piano',
-            'the same, the only, the first/last, the rich/the poor'
+            'go to school, go to bed, be in hospital/prison/church, at home, ...',
+            'by car/bus/train, on foot, by mistake, by chance, in fact, ...',
+            'have breakfast/lunch/dinner, play football, play the piano, ...',
+            'the same, the only, the first/last, the rich/the poor, ...'
         ]
     },
     {
@@ -5236,10 +5222,10 @@ const grammarMemoryBank = [
         title: 'Preposition: Place & Movement',
         note: 'Một phần có quy tắc, nhưng nhiều cụm địa điểm vẫn phải nhớ.',
         items: [
-            'at the door/station/airport, in the room/city/country, on the wall/floor/page',
-            'go to, get into/out of, jump onto/off, walk across/through/along',
-            'at work, at school, in class, on the bus/train/plane',
-            'in the picture/photo, on the screen, at the top/bottom'
+            'at the door/station/airport, in the room/city/country, on the wall/floor/page, ...',
+            'go to, get into/out of, jump onto/off, walk across/through/along, ...',
+            'at work, at school, in class, on the bus/train/plane, ...',
+            'in the picture/photo, on the screen, at the top/bottom, ...'
         ]
     },
     {

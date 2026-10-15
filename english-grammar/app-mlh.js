@@ -161,9 +161,7 @@ function injectMasterySection(root = document) {
                                         <span class="acc-arrow">▼</span>
                                     </div>
                                     <div class="accordion-body"><div class="acc-content">
-                                        ${component.simple || ''}
-                                        ${component.detail || ''}
-                                        ${component.advanced || ''}
+                                        ${renderGrammarTheory(component.theory)}
                                     </div></div>
                                 </div>
                             `).join('')}
@@ -343,7 +341,8 @@ function mergeUsageIntoExistingAccordions(root = document) {
     if (typeof grammarUsageDeepDiveData === 'undefined' || typeof renderGrammarUsageDeepDive !== 'function') return;
 
     root.querySelectorAll('.accordion-item').forEach(item => {
-        if (item.querySelector('.usage-deep-dive')) return;
+        // Topics rendered from component.theory already include their usage notes.
+        if (item.querySelector('.usage-deep-dive, .grammar-theory')) return;
         const usageId = resolveUsageIdForAccordion(item);
         const usage = grammarUsageDeepDiveData[usageId];
         const content = item.querySelector('.acc-content');
@@ -563,7 +562,9 @@ function initVersionSwitcher() {
     const vMlh = document.getElementById('ver-mlh');
     let mlhLoaded = false;
 
-    const saved = localStorage.getItem('grammarVersion') || 'ai';
+    // A ?topic= link targets an AI-version lesson, so show that version.
+    const wantsTopic = new URLSearchParams(window.location.search).has('topic');
+    const saved = wantsTopic ? 'ai' : (localStorage.getItem('grammarVersion') || 'ai');
     switchVersion(saved);
     btns.forEach(btn => btn.addEventListener('click', () => switchVersion(btn.dataset.ver)));
 

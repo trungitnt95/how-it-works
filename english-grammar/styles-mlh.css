@@ -858,3 +858,29 @@
 
 /* Ẩn tiêu đề trang trong thanh header cố định để đỡ chiếm không gian */
 header h1 { display: none !important; }
+
+/* AI topics shown in "Complete Coverage" (rendered by modules/theory.js) */
+.v-mlh .grammar-theory table{ width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+.v-mlh .grammar-theory th,
+.v-mlh .grammar-theory td{ border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+.v-mlh .grammar-theory th{ background: rgba(88,166,255,0.1); }
+.v-mlh .grammar-theory li{ line-height: 1.65; margin-bottom: 0.4rem; }
+.v-mlh .grammar-theory ul,
+.v-mlh .grammar-theory ol{ padding-left: 1.4rem; }
+.v-mlh .grammar-theory .theory-wrong{ color: #ff7b72; text-decoration: line-through; }
+.v-mlh .grammar-theory .theory-right{ color: var(--accent-green); }
+.v-mlh .grammar-theory .theory-mistakes small,
+.v-mlh .grammar-theory .theory-note{ color: var(--text-muted); font-size: 0.85rem; }
+
+/* Formula rows (rendered by english-grammar/modules/theory.js) */
+.v-mlh .grammar-theory .formula-list{ margin: 0.75rem 0 1rem; }
+.v-mlh .grammar-theory .formula-row{ padding: 0.7rem 0.9rem; margin: 0.5rem 0; background: rgba(88,166,255,0.07); border: 1px solid rgba(88,166,255,0.3); border-left: 4px solid var(--accent-blue); border-radius: 8px; }
+.v-mlh .grammar-theory .formula-label{ display: inline-block; margin-bottom: 0.35rem; padding: 0.1rem 0.55rem; font-size: 0.78rem; font-weight: 600; color: var(--accent-blue); background: rgba(88,166,255,0.15); border-radius: 999px; }
+.v-mlh .grammar-theory .formula-pattern{ display: block; font-family: 'Courier New', monospace; font-size: 0.98rem; line-height: 1.7; color: #ffa657; overflow-wrap: anywhere; }
+.v-mlh .grammar-theory .formula-pattern.inline{ display: inline; font-size: 0.85rem; }
+.v-mlh .grammar-theory .formula-pattern .slot{ padding: 0.05em 0.35em; font-weight: 700; color: var(--accent-blue); background: rgba(88,166,255,0.16); border-radius: 4px; }
+.v-mlh .grammar-theory .formula-example{ margin-top: 0.3rem; color: var(--accent-green); font-style: italic; }
+.v-mlh .grammar-theory .formula-remark{ margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-muted); }
+.v-mlh .grammar-theory .formula-remark::before{ content: '↳ '; }
+.v-mlh .grammar-theory .formula-row > .formula-note:only-child{ margin-top: 0; }
+.v-mlh .grammar-theory .formula-pattern .nb { white-space: nowrap; }
