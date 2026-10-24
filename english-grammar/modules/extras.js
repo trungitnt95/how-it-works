@@ -669,29 +669,59 @@ const grammarExtrasData = {
         title: 'Linking Words & Discourse Markers (Từ Nối & Từ Liên Kết Diễn Ngôn) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
-        connections: ['conjunctions', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
+        connections: ['conjunctions', 'concession-contrast', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
         theory: {
-            overview: 'Từ liên kết diễn ngôn giúp văn bản mạch lạc. Khác với liên từ (and, but, so) nối <strong>trong câu</strong>, chúng thường nối <strong>giữa các câu, các đoạn</strong> và có dấu câu riêng: <em>The price is high. However, the quality is excellent.</em>',
+            overview: 'Hai nhóm từ gần nhau giúp văn bản và lời nói mạch lạc. <strong>Linking words</strong> (từ nối) nối <strong>ý logic</strong>: thêm ý, đối lập, nguyên nhân, kết quả, ví dụ. <strong>Discourse markers</strong> (từ liên kết diễn ngôn, nghĩa hẹp) <strong>điều phối cuộc nói</strong>: mở đầu, chuyển chủ đề, thể hiện thái độ, giữ nhịp hội thoại. Hai nhóm giao nhau (<em>so, then, actually</em> có thể là cả hai). Bài này tập trung vào linking words đứng <strong>giữa các câu, các đoạn</strong> và có dấu câu riêng: <em>The price is high. However, the quality is excellent.</em> Liên từ nối trong câu (<em>and, but, because, although</em>) xem bài Conjunctions.',
             tables: [
                 {
-                    head: ['Quan hệ', 'Discourse markers'],
+                    title: 'Linking words vs Discourse markers',
+                    head: ['', 'Linking words', 'Discourse markers (nghĩa hẹp)'],
                     rows: [
-                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more, ...'],
-                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast, ...'],
+                        ['Chức năng', 'nối ý logic: thêm ý, đối lập, nguyên nhân, kết quả, ví dụ', 'điều phối cuộc nói: chuyển chủ đề, thể hiện thái độ, giữ nhịp'],
+                        ['Ví dụ', 'and, but, because, although, however, therefore, for example', 'well, so, anyway, by the way, I mean, you know'],
+                        ['Thường gặp', 'văn viết và văn nói', 'chủ yếu văn nói, thân mật'],
+                        ['Bỏ đi thì', 'quan hệ giữa các ý bị mờ', 'ý chính vẫn nguyên, chỉ kém tự nhiên']
+                    ]
+                },
+                {
+                    title: 'Ba loại linking words theo ngữ pháp',
+                    head: ['Loại', 'Ví dụ', 'Đi với'],
+                    rows: [
+                        ['Liên từ', 'and, but, so, because, although, while', 'nối hai mệnh đề trong một câu'],
+                        ['Trạng từ liên kết', 'however, therefore, moreover, nevertheless, for example', 'mở câu mới hoặc sau chấm phẩy, có dấu phẩy riêng'],
+                        ['Giới từ', 'despite, in spite of, because of, due to', 'danh từ / V-ing']
+                    ]
+                },
+                {
+                    title: 'Linking words theo ý nghĩa (nối giữa các câu)',
+                    head: ['Quan hệ', 'Từ / cụm từ', 'Loại'],
+                    rows: [
+                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more, ...', 'Linking word'],
+                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast, ...', 'Linking word'],
                         [
                             'Kết quả',
-                            'therefore, thus, hence, consequently, as a result, accordingly, ... – <em>He studies hard. As a result, he passed.</em>'
+                            'therefore, thus, hence, consequently, as a result, accordingly, ... – <em>He studies hard. As a result, he passed.</em>',
+                            'Linking word'
                         ],
-                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular, ...'],
-                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion, ...'],
-                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually, ...'],
-                        ['Diễn đạt lại', 'in other words, that is to say, i.e.'],
-                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly, ...'],
-                        ['Văn nói', 'so, anyway, by the way, I mean, you know, ... – chuyển chủ đề, giữ nhịp hội thoại']
+                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular, ...', 'Linking word'],
+                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion, ...', 'Linking word'],
+                        ['Diễn đạt lại', 'in other words, that is to say, i.e.', 'Linking word'],
+                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually, ...', 'Cả hai, tuỳ ngữ cảnh'],
+                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly, ...', 'Cả hai, tuỳ ngữ cảnh'],
+                        ['Văn nói', 'so, anyway, by the way, I mean, you know, ... – chuyển chủ đề, giữ nhịp hội thoại', 'Discourse marker']
                     ]
                 }
             ],
             sections: [
+                {
+                    title: '🔎 Cách phân biệt nhanh',
+                    items: [
+                        'Hỏi: <strong>từ này nối ý logic hay điều phối cuộc nói?</strong> Nối ý (đối lập, kết quả, ví dụ) → linking word; điều phối (chuyển chủ đề, mở lời, giữ nhịp) → discourse marker.',
+                        '<em>The price is high. <strong>However</strong>, the quality is excellent.</em> → linking word (đối lập).',
+                        '<em><strong>Anyway</strong>, let’s get back to work.</em> → discourse marker (chuyển chủ đề).',
+                        '<em><strong>So</strong>, what do you think?</em> (mở lời, văn nói) khác với <em>It was late, <strong>so</strong> we left.</em> (liên từ chỉ kết quả).'
+                    ]
+                },
                 {
                     title: '✒️ Vị trí và dấu câu của however',
                     items: [
@@ -702,13 +732,16 @@ const grammarExtrasData = {
                 }
             ],
             compare: [
-                ['but vs however', 'but là liên từ nối mệnh đề trong câu; however nối câu / ý với dấu câu riêng']
+                ['but vs however', 'but là liên từ nối mệnh đề trong câu; however nối câu / ý với dấu câu riêng'],
+                ['linking word vs discourse marker', 'linking word nối ý logic; discourse marker điều phối cuộc nói. <em>so</em> có thể là cả hai: liên từ kết quả hoặc từ mở lời']
             ],
             mistakes: [
                 ['I was tired however I worked.', 'I was tired. However, I worked.', 'Dùng however như liên từ.'],
                 'Nhồi marker vào mọi câu hoặc lặp một marker liên tục – mỗi đoạn 1–2 marker là đủ.',
-                'Dùng marker trang trọng trong chat thân mật khi không cần.'
-            ]
+                'Dùng marker trang trọng trong chat thân mật khi không cần.',
+                'Dùng discourse marker văn nói (<em>you know, I mean</em>) trong văn viết trang trọng.'
+            ],
+            tip: 'Văn viết trang trọng: dùng linking words (<em>however, therefore, moreover</em>). Văn nói thân mật: có thể thêm discourse markers (<em>well, anyway, you know</em>).'
         }
     },
 
