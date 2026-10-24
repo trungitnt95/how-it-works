@@ -1544,6 +1544,17 @@ Object.assign(grammarUsageDeepDiveData, {
         avoid: ['Không dùng will trong time clause tương lai chuẩn.', 'Không nhầm while với during.'],
         compare: ['I’ll call when I arrive, không phải when I will arrive.']
     },
+    'concession-contrast': {
+        category: 'patterns', cefr: 'B1', title: 'Concession & Contrast',
+        uses: [
+            'Although / though / even though + clause cho nhượng bộ: Although it rained, we went out.',
+            'Despite / in spite of + noun/V-ing cho nhượng bộ rút gọn: Despite the rain, we went out.',
+            'However / nevertheless nối hai câu: It rained. However, we went out.',
+            'Whereas / while đối chiếu hai vế khác nhau: Tom is tall, whereas his brother is short.'
+        ],
+        avoid: ['Không dùng although và but cùng một quan hệ.', 'Không dùng despite of hay even although.', 'Không nối hai mệnh đề bằng however và dấu phẩy.'],
+        compare: ['Although it rained; despite the rain; despite the fact that it rained.']
+    },
     'result-structures': {
         category: 'patterns', cefr: 'B1', title: 'Result Structures',
         uses: [

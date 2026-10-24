@@ -317,7 +317,7 @@ const grammarExtrasData = {
         title: 'Phrasal Prepositions (Cụm Giới Từ Kép) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
-        connections: ['prepositions', 'conjunctions', 'discourse-markers'],
+        connections: ['prepositions', 'conjunctions', 'discourse-markers', 'concession-contrast'],
         theory: {
             overview: 'Ngoài giới từ đơn, tiếng Anh có nhiều <strong>cụm giới từ</strong> 2–3 từ chỉ vị trí, nguyên nhân, tham chiếu, tương phản. Sau cụm giới từ luôn là <strong>danh từ / V-ing</strong>, không phải mệnh đề.',
             tables: [

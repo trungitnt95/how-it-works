@@ -108,7 +108,7 @@ const grammarPatternsData = {
         title: 'Conjunctions (Liên Từ) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
-        connections: ['sentence-order', 'relative-clauses', 'conditionals', 'reported-speech'],
+        connections: ['sentence-order', 'relative-clauses', 'conditionals', 'reported-speech', 'concession-contrast'],
         theory: {
             overview: 'Liên từ nối ý và cho biết <strong>quan hệ logic</strong> giữa chúng: thêm ý, đối lập, nguyên nhân, kết quả, điều kiện, mục đích…',
             formula: [
@@ -171,6 +171,124 @@ const grammarPatternsData = {
                 'Writing học thuật cần thêm connectors như <em>however, therefore, whereas, moreover, nevertheless, ...</em> (xem Discourse Markers).'
             ],
             tip: 'Tự hỏi: <strong>"Ý sau đang bổ sung, phản bác, giải thích hay đặt điều kiện cho ý trước?"</strong> rồi mới chọn liên từ.'
+        }
+    },
+    'concession-contrast': {
+        icon: '⚖️',
+        title: 'Concession & Contrast (Nhượng Bộ & Tương Phản) - Intermediate',
+        category: 'patterns',
+        level: 'intermediate',
+        connections: ['conjunctions', 'phrasal-prepositions', 'discourse-markers', 'advanced-adverbial-clauses'],
+        theory: {
+            overview: 'Hai ý "ngược hướng" có thể là <strong>nhượng bộ</strong> (ý chính vẫn đúng <em>dù có</em> trở ngại: <em>Although it rained, we went out.</em>) hoặc <strong>tương phản</strong> (hai ý đối lập nhau, không có quan hệ "dù… vẫn…": <em>Tom is tall, whereas his brother is short.</em>).',
+            formula: [
+                {
+                    label: 'Liên từ + mệnh đề',
+                    pattern: 'although / though / even though + S + V, main clause',
+                    example: 'Although it was late, we kept working.'
+                },
+                {
+                    label: 'Giới từ + danh từ / V-ing',
+                    pattern: 'despite / in spite of + N / V-ing, main clause',
+                    example: 'Despite the rain, we went out. · In spite of being tired, she stayed.'
+                },
+                {
+                    label: 'Giới từ + mệnh đề',
+                    pattern: 'despite / in spite of the fact that + S + V',
+                    example: 'Despite the fact that it was late, we kept working.'
+                },
+                {
+                    label: 'Nối ngang hàng',
+                    pattern: 'Clause, but / yet + clause',
+                    example: 'It was late, but we kept working.'
+                },
+                {
+                    label: 'Nối hai câu',
+                    pattern: 'Clause. However / Nevertheless, clause',
+                    example: 'It was late. However, we kept working.'
+                },
+                {
+                    label: 'Đối chiếu',
+                    pattern: 'Clause, while / whereas + clause',
+                    example: 'Tom is tall, whereas his brother is short.'
+                }
+            ],
+            tables: [
+                {
+                    head: ['Nhóm', 'Từ', 'Đi với', 'Ví dụ'],
+                    rows: [
+                        ['Liên từ phụ thuộc', 'although, though, even though', 'mệnh đề (S + V)', 'Although he is rich, he lives simply.'],
+                        ['Giới từ', 'despite, in spite of', 'danh từ / V-ing', 'Despite his wealth, he lives simply.'],
+                        ['Liên từ đẳng lập', 'but, yet', 'mệnh đề, đứng giữa hai mệnh đề', 'He is rich, yet he lives simply.'],
+                        [
+                            'Trạng từ liên kết',
+                            'however, nevertheless, nonetheless, still',
+                            'đứng đầu câu mới hoặc sau dấu chấm phẩy, theo sau là dấu phẩy',
+                            'He is rich. Nevertheless, he lives simply.'
+                        ],
+                        ['Đối chiếu', 'while, whereas', 'mệnh đề; nhấn sự khác biệt giữa hai vế', 'Some like tea, whereas others like coffee.']
+                    ]
+                }
+            ],
+            uses: [
+                [
+                    'although / though / even though',
+                    '<em>although</em> trung tính; <em>though</em> thân mật hơn và có thể đứng cuối câu; <em>even though</em> mạnh hơn, nhấn sự bất ngờ',
+                    'Even though he studied hard, he failed. · It was late. We kept working, though.'
+                ],
+                [
+                    'despite / in spite of',
+                    'nghĩa giống nhau; <em>despite</em> ngắn hơn, hay dùng trong văn viết',
+                    'Despite the cost, we bought it. · In spite of the cost, we bought it.'
+                ],
+                [
+                    'while / whereas',
+                    '<em>whereas</em> thiên văn viết, đối chiếu rõ ràng; <em>while</em> còn mang nghĩa thời gian nên dễ nhầm',
+                    'Some like tea, whereas others like coffee.'
+                ],
+                [
+                    'however / nevertheless',
+                    'nối <strong>hai câu</strong>; <em>nevertheless</em> trang trọng hơn <em>however</em>',
+                    'It rained all day. However, the match went ahead.'
+                ],
+                [
+                    'but / yet',
+                    '<em>yet</em> nhấn sự bất ngờ hơn <em>but</em>, hay dùng trong văn viết',
+                    'He is rich, yet he lives simply.'
+                ]
+            ],
+            compare: [
+                ['although vs despite', 'although + mệnh đề; despite + danh từ / V-ing'],
+                ['although vs but', 'cùng diễn tả đối lập nên chỉ dùng một trong hai trong cùng câu'],
+                ['while (thời gian) vs while (tương phản)', '<em>While I was cooking, he called.</em> (thời gian) / <em>While I like tea, he prefers coffee.</em> (tương phản)'],
+                ['however vs but', 'but nối mệnh đề trong một câu; however mở câu mới và có dấu phẩy phía sau']
+            ],
+            mistakes: [
+                [
+                    'Although it rained, but we went out.',
+                    'Although it rained, we went out. / It rained, but we went out.',
+                    'although và but diễn tả cùng một quan hệ – chỉ chọn một.'
+                ],
+                ['Despite of the rain, we went out.', 'Despite the rain, we went out. / In spite of the rain, we went out.', 'Không có <em>despite of</em>.'],
+                [
+                    'Despite it rained, we went out.',
+                    'Although it rained, we went out. / Despite the fact that it rained, we went out.',
+                    'despite không đi trực tiếp với mệnh đề.'
+                ],
+                ['Although the rain, we went out.', 'Despite the rain, we went out.', 'although cần mệnh đề đầy đủ (S + V).'],
+                [
+                    'It rained, however we went out.',
+                    'It rained; however, we went out. / It rained. However, we went out. / It rained, but we went out.',
+                    'however không nối hai mệnh đề chỉ bằng dấu phẩy (comma splice).'
+                ],
+                ['Even although he was tired, he worked.', 'Even though he was tired, he worked. / Although he was tired, he worked.', 'Không có <em>even although</em>.']
+            ],
+            advanced: [
+                '<em>Tired as he was, he kept going.</em> / <em>Much as I admire her, I cannot agree.</em> (đảo "adj + as + S + V", trang trọng – xem Advanced Adverbial Clauses).',
+                '<em>However hard he tried, he failed.</em> / <em>Whatever you say, I will go.</em> (nhượng bộ không điều kiện: "dù thế nào"); <em>no matter how / what</em> tương đương.',
+                'Rút gọn khi cùng chủ ngữ: <em>Although tired, she stayed.</em> (bỏ S + be).'
+            ],
+            tip: 'Tự hỏi: <strong>"Sau chỗ này là một mệnh đề (S + V) hay chỉ là danh từ / V-ing?"</strong> Mệnh đề → <em>although / even though</em>; danh từ / V-ing → <em>despite / in spite of</em>. Nếu đang nối hai câu → <em>however / nevertheless</em>.'
         }
     },
     'comparisons': {

@@ -3967,6 +3967,115 @@ const grammarPracticeData = {
             'Không dùng that trong non-defining clauses có dấu phẩy.'
         ]
     },
+    'concession-contrast': {
+        source: '16 câu luyện Concession & Contrast bao phủ although / even though, despite / in spite of, however / nevertheless, whereas / while và các lỗi thường gặp.',
+        sections: [
+            {
+                title: 'Nhóm 1: Điền từ đúng',
+                instruction: 'Điền although, even though, despite / in spite of, however hoặc whereas khi phù hợp.',
+                items: [
+                    {
+                        prompt: 'It was cold ___ we went swimming.<br><em>Nghĩa: Trời lạnh nhưng chúng tôi vẫn đi bơi.</em>',
+                        answer: 'although (even though)',
+                        explanation: 'although / even though + mệnh đề (S + V).'
+                    },
+                    {
+                        prompt: '___ the noise, she fell asleep.<br><em>Nghĩa: Bất chấp tiếng ồn, cô ấy vẫn ngủ thiếp đi.</em>',
+                        answer: 'Despite (In spite of)',
+                        explanation: 'despite / in spite of + danh từ.'
+                    },
+                    {
+                        prompt: 'He passed the test ___ not studying.<br><em>Nghĩa: Anh ấy đỗ bài kiểm tra dù không học.</em>',
+                        answer: 'despite (in spite of)',
+                        explanation: 'despite / in spite of + V-ing (not studying).'
+                    },
+                    {
+                        prompt: 'It was a hard week. ___, we finished the project.<br><em>Nghĩa: Đó là một tuần khó khăn. Tuy nhiên, chúng tôi vẫn hoàn thành dự án.</em>',
+                        answer: 'However (Nevertheless)',
+                        explanation: 'However / Nevertheless mở câu mới và có dấu phẩy phía sau.'
+                    },
+                    {
+                        prompt: 'I like tea, ___ my sister prefers coffee.<br><em>Nghĩa: Tôi thích trà, còn chị tôi thì thích cà phê hơn.</em>',
+                        answer: 'whereas (while)',
+                        explanation: 'whereas / while đối chiếu hai vế khác nhau.'
+                    },
+                    {
+                        prompt: '___ he studied hard, he failed.<br><em>Nghĩa: Dù học chăm chỉ, anh ấy vẫn trượt. (nhấn mạnh sự bất ngờ)</em>',
+                        answer: 'Even though',
+                        explanation: 'even though mạnh hơn although, nhấn mạnh sự bất ngờ; không dùng even although.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 2: Sửa lỗi',
+                instruction: 'Sửa các lỗi thường gặp với although, despite và however.',
+                items: [
+                    {
+                        prompt: 'Sửa lỗi: Although it rained, but we went out.',
+                        answer: 'Although it rained, we went out. / It rained, but we went out.',
+                        explanation: 'although và but cùng diễn tả đối lập, chỉ dùng một.'
+                    },
+                    {
+                        prompt: 'Sửa lỗi: Despite of the rain, we stayed home.',
+                        answer: 'Despite the rain, we stayed home. / In spite of the rain, we stayed home.',
+                        explanation: 'Không có despite of.'
+                    },
+                    {
+                        prompt: 'Sửa lỗi: Despite it was late, we kept working.',
+                        answer: 'Although it was late, we kept working. / Despite the fact that it was late, we kept working.',
+                        explanation: 'despite không đi trực tiếp với mệnh đề.'
+                    },
+                    {
+                        prompt: 'Sửa lỗi: Although the rain, we went out.',
+                        answer: 'Despite the rain, we went out. / Although it rained, we went out.',
+                        explanation: 'although cần mệnh đề đầy đủ; danh từ đi với despite.'
+                    },
+                    {
+                        prompt: 'Sửa lỗi: It was late, however we kept working.',
+                        answer: 'It was late; however, we kept working. / It was late. However, we kept working.',
+                        explanation: 'however không nối hai mệnh đề chỉ bằng dấu phẩy.'
+                    },
+                    {
+                        prompt: 'Sửa lỗi: Even although he was tired, he worked.',
+                        answer: 'Even though he was tired, he worked. / Although he was tired, he worked.',
+                        explanation: 'Không có even although.'
+                    }
+                ]
+            },
+            {
+                title: 'Nhóm 3: Viết lại',
+                instruction: 'Viết lại câu theo từ gợi ý, giữ nguyên nghĩa.',
+                items: [
+                    {
+                        prompt: 'Viết lại với despite: Although it was cold, we went swimming.',
+                        answer: 'Despite the cold, we went swimming.',
+                        explanation: 'although + mệnh đề → despite + danh từ.'
+                    },
+                    {
+                        prompt: 'Viết lại với although: Despite the traffic, we arrived on time.',
+                        answer: 'Although there was traffic, we arrived on time.',
+                        explanation: 'despite + danh từ → although + mệnh đề.'
+                    },
+                    {
+                        prompt: 'Viết lại với in spite of: Although she was ill, she went to work.',
+                        answer: 'In spite of being ill, she went to work.',
+                        explanation: 'although + S + be → in spite of + V-ing.'
+                    },
+                    {
+                        prompt: 'Viết lại với however: He is rich, but he lives simply.',
+                        answer: 'He is rich. However, he lives simply.',
+                        explanation: 'but → However mở câu mới, có dấu phẩy phía sau.'
+                    }
+                ]
+            }
+        ],
+        checkpoint: [
+            'although / even though + mệnh đề; despite / in spite of + danh từ / V-ing.',
+            'although và but không dùng cùng nhau; không có despite of hay even although.',
+            'however / nevertheless nối hai câu: đứng đầu câu mới và có dấu phẩy phía sau.',
+            'whereas / while dùng để đối chiếu hai vế khác nhau.'
+        ]
+    },
     'result-structures': {
         source: '24 câu luyện Phrases & Clauses of Result bao phủ so...that, such...that, too...to, enough to và các mẫu đổi câu cơ bản.',
         sections: [
@@ -5206,6 +5315,16 @@ const grammarMemoryBank = [
             'suggest/recommend/insist/demand that S + bare V',
             'If I were you; as if/as though S + past/past perfect',
             'It is time S + past; lest S should V / lest S V'
+        ]
+    },
+    {
+        title: 'Nhượng Bộ & Tương Phản: Pattern Cố Định',
+        note: 'Chọn từ theo thứ đứng sau: mệnh đề, danh từ / V-ing hay một câu mới.',
+        items: [
+            'although / even though + S + V; despite / in spite of + N / V-ing',
+            'despite / in spite of the fact that + S + V',
+            'However, Nevertheless, ... mở câu mới; không nối hai mệnh đề chỉ bằng dấu phẩy',
+            'whereas / while: đối chiếu hai vế (Tom is tall, whereas his brother is short)'
         ]
     },
     {

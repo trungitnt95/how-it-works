@@ -52,6 +52,7 @@
         'subject-verb-agreement': 'B1',
         'comparisons': 'B1',
         'conjunctions': 'B1',
+        'concession-contrast': 'B1',
         'modal-verbs': 'B1',
         'present-perfect': 'B1',
         'past-continuous': 'B1',

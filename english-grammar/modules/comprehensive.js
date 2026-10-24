@@ -1978,7 +1978,7 @@ const grammarComprehensiveData = {
     },
     'advanced-adverbial-clauses': {
         icon: '🪜', title: 'Advanced Adverbial Clauses (Mệnh Đề Trạng Ngữ Nâng Cao) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
-        connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses'],
+        connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses', 'concession-contrast'],
         theory: {
             overview: 'Ở trình độ cao, mệnh đề trạng ngữ vượt khỏi because / when / if: cần xử lý tốt quan hệ <strong>điều kiện, nhượng bộ, cách thức, mức độ</strong> và khung thời gian tinh tế, với connector đúng register.',
             tables: [
