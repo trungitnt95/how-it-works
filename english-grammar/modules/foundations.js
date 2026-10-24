@@ -310,7 +310,7 @@ const grammarFoundationsData = {
         title: 'Phrase vs Clause (Cụm Từ và Mệnh Đề) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
-        connections: ['sentence-order', 'noun-clauses', 'relative-clauses', 'fragments-run-ons'],
+        connections: ['sentence-order', 'noun-clauses', 'relative-clauses', 'fragments-runons'],
         theory: {
             overview: '<strong>Clause</strong> (mệnh đề) có chủ ngữ + động từ chia thì (finite verb); <strong>phrase</strong> (cụm từ) thì không. Đây là nền tảng để biết cụm nào tự đứng thành câu được, và để tránh lỗi fragment/run-on.',
             tables: [
@@ -358,7 +358,7 @@ const grammarFoundationsData = {
         title: 'Sentence Types (Các Loại Câu) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
-        connections: ['sentence-order', 'question-forms', 'imperatives-requests', 'fragments-run-ons'],
+        connections: ['sentence-order', 'question-forms', 'imperatives-requests', 'fragments-runons'],
         theory: {
             overview: 'Câu được phân loại theo hai cách: theo <strong>chức năng</strong> (câu dùng để làm gì) và theo <strong>cấu trúc</strong> (có bao nhiêu mệnh đề, loại nào). Biết loại câu giúp chọn đúng dấu câu, ngữ điệu và nhịp viết.',
             tables: [

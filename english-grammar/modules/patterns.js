@@ -52,7 +52,7 @@ const grammarPatternsData = {
         title: 'Negatives (Câu Phủ Định) - Beginner',
         category: 'patterns',
         level: 'beginner',
-        connections: ['question-forms', 'present-simple', 'present-continuous', 'fragments-run-ons'],
+        connections: ['question-forms', 'present-simple', 'present-continuous', 'fragments-runons'],
         theory: {
             overview: 'Phủ định không phải thêm "not" ở đâu cũng được: vị trí của <strong>not</strong> phụ thuộc động từ chính và thì. Câu chuẩn chỉ cần <strong>một</strong> yếu tố phủ định.',
             tables: [
@@ -526,7 +526,7 @@ const grammarPatternsData = {
         title: 'Parallel Structure (Cấu Trúc Song Song) - Advanced',
         category: 'patterns',
         level: 'advanced',
-        connections: ['comparisons', 'conjunctions', 'gerunds-infinitives', 'fragments-run-ons'],
+        connections: ['comparisons', 'conjunctions', 'gerunds-infinitives', 'fragments-runons'],
         theory: {
             overview: 'Cấu trúc song song là giữ các phần tương đương <strong>ở cùng một dạng ngữ pháp</strong>: danh từ với danh từ, V-ing với V-ing, to V với to V. <em>She likes reading, writing, and speaking.</em>',
             tables: [

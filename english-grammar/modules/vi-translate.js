@@ -1629,7 +1629,7 @@ const grammarViTranslateData = {
     ]
   },
   "causatives": {
-    "instruction": "Dịch các câu sau bằng đúng cấu trúc causative (make/let/have + O + V, get + O + to V, have/get + O + V3), phân biệt ép buộc, cho phép và nhờ dịch vụ.",
+    "instruction": "Dịch các câu sau bằng đúng cấu trúc causative (make/let/have + O + V, get + O + to V, have/get + O + V3, help), phân biệt ép buộc, cho phép, nhờ vả và dịch vụ, kể cả thể bị động tương ứng.",
     "items": [
       {
         "vi": "Giáo viên bắt chúng tôi ở lại.",
@@ -1675,6 +1675,61 @@ const grammarViTranslateData = {
         "vi": "Tôi đã cho sửa laptop hôm qua.",
         "en": "I had my laptop repaired yesterday.",
         "point": "Causative have + O + V3 (nhờ sửa chữa)"
+      },
+      {
+        "vi": "Tôi đã nhờ John sửa xe cho tôi.",
+        "en": "I had John fix my car.",
+        "point": "'have + O + V nguyên mẫu' - nhờ ai đó làm"
+      },
+      {
+        "vi": "Tôi đã thuyết phục được anh ấy sửa nó.",
+        "en": "I got him to fix it.",
+        "point": "'get + O + to-V' - thuyết phục ai làm"
+      },
+      {
+        "vi": "Tôi vừa cắt tóc xong (nhờ thợ).",
+        "en": "I had my hair cut.",
+        "point": "'have + O + V3' - nhờ làm cho mình"
+      },
+      {
+        "vi": "Cô ấy đã bắt tôi khóc.",
+        "en": "She made me cry.",
+        "point": "'make + O + V nguyên mẫu' - bắt buộc"
+      },
+      {
+        "vi": "Hãy để tôi đi.",
+        "en": "Let me go.",
+        "point": "'let + O + V nguyên mẫu' - cho phép"
+      },
+      {
+        "vi": "Anh ấy đã giúp tôi hoàn thành bài tập.",
+        "en": "He helped me (to) finish the homework.",
+        "point": "'help + O + (to)-V'"
+      },
+      {
+        "vi": "Cô ấy đã bị bắt phải xin lỗi.",
+        "en": "She was made to apologize.",
+        "point": "thể bị động của 'make' cần thêm 'to'"
+      },
+      {
+        "vi": "Tôi đã nhờ thợ sửa xe của mình.",
+        "en": "I had my car repaired.",
+        "point": "'have + O + V3' nghĩa nhờ làm (chủ động nhờ vả)"
+      },
+      {
+        "vi": "Xe của tôi đã bị trộm mất.",
+        "en": "I had my car stolen.",
+        "point": "'have + O + V3' nghĩa bị tai nạn/mất mát"
+      },
+      {
+        "vi": "Ngày mai tôi sẽ đi cắt tóc.",
+        "en": "I'll get my hair cut tomorrow.",
+        "point": "'get + O + V3' ở thì tương lai, ít trang trọng hơn 'have'"
+      },
+      {
+        "vi": "Anh ấy không được phép rời khỏi phòng.",
+        "en": "He wasn't allowed to leave the room.",
+        "point": "'let' không có dạng bị động, dùng 'be allowed to'"
       }
     ]
   },
@@ -1988,48 +2043,8 @@ const grammarViTranslateData = {
       }
     ]
   },
-  "fragments-run-ons": {
-    "instruction": "Dịch các câu sau thành câu hoàn chỉnh, tránh để mệnh đề phụ đứng một mình (fragment) và nối hai mệnh đề độc lập đúng cách (dấu phẩy + liên từ, dấu chấm phẩy, hoặc câu riêng).",
-    "items": [
-      {
-        "vi": "Vì tôi mệt, tôi đã về nhà.",
-        "en": "Because I was tired, I went home.",
-        "point": "Mệnh đề phụ gắn với mệnh đề chính, tránh fragment"
-      },
-      {
-        "vi": "Tôi mệt, vì vậy tôi về nhà.",
-        "en": "I was tired, so I went home.",
-        "point": "Nối hai mệnh đề độc lập bằng dấu phẩy + so"
-      },
-      {
-        "vi": "Tôi mệt. Tôi về nhà.",
-        "en": "I was tired. I went home.",
-        "point": "Tách thành hai câu riêng để tránh run-on"
-      },
-      {
-        "vi": "Trời đang mưa; chúng tôi vẫn ở trong nhà.",
-        "en": "It was raining; we stayed indoors.",
-        "point": "Nối hai mệnh đề độc lập bằng dấu chấm phẩy"
-      },
-      {
-        "vi": "Mặc dù trời mưa, chúng tôi vẫn ra ngoài.",
-        "en": "Although it was raining, we still went out.",
-        "point": "Mệnh đề phụ đứng đầu câu có mệnh đề chính đi kèm"
-      },
-      {
-        "vi": "Cô ấy học chăm chỉ vì cô ấy muốn đỗ kỳ thi.",
-        "en": "She studied hard because she wanted to pass the exam.",
-        "point": "Câu hoàn chỉnh gồm mệnh đề chính và mệnh đề phụ"
-      },
-      {
-        "vi": "Chúng tôi đã hoàn thành dự án đúng hạn; mọi người đều vui.",
-        "en": "We finished the project on time; everyone was happy.",
-        "point": "Tránh comma splice bằng dấu chấm phẩy"
-      }
-    ]
-  },
   "punctuation-capitalization": {
-    "instruction": "Dịch các câu sau, viết hoa đúng chỗ (tên riêng, ngôn ngữ) và dùng đúng dấu câu: phẩy sau mệnh đề mở đầu, nháy đơn sở hữu, hai chấm, chấm phẩy.",
+    "instruction": "Dịch các câu sau, viết hoa đúng chỗ (đầu câu, tên riêng, ngôn ngữ, quốc tịch, ngày tháng; không viết hoa mùa, hướng, môn học chung) và dùng đúng dấu câu: dấu phẩy, chấm phẩy, hai chấm, gạch ngang, nháy đơn sở hữu.",
     "items": [
       {
         "vi": "Tên tôi là Linh.",
@@ -2075,6 +2090,116 @@ const grammarViTranslateData = {
         "vi": "Đã đến giờ rồi.",
         "en": "It's time.",
         "point": "It's là dạng viết tắt của it is"
+      },
+      {
+        "vi": "Tôi thích màu đỏ, trắng và xanh dương.",
+        "en": "I like red, white, and blue.",
+        "point": "dấu phẩy liệt kê 3 mục trở lên (Oxford comma)"
+      },
+      {
+        "vi": "Khi tôi đến nơi, mọi người đã ở đó rồi.",
+        "en": "When I arrived, everyone was already there.",
+        "point": "dấu phẩy sau mệnh đề trạng ngữ đứng đầu câu"
+      },
+      {
+        "vi": "Tôi đến, và tôi đã thấy điều đó.",
+        "en": "I came, and I saw it.",
+        "point": "dấu phẩy trước FANBOYS nối hai mệnh đề độc lập"
+      },
+      {
+        "vi": "Anh trai tôi, người sống ở New York, sắp về thăm nhà.",
+        "en": "My brother, who lives in New York, is coming home soon.",
+        "point": "dấu phẩy bao quanh mệnh đề quan hệ không xác định"
+      },
+      {
+        "vi": "Cuốn sách đó, tuy nhiên, lại rất hay.",
+        "en": "The book, however, was great.",
+        "point": "dấu phẩy chêm xen từ nối 'however'"
+      },
+      {
+        "vi": "Bill Gates, người sáng lập Microsoft, đã nói như vậy.",
+        "en": "Bill Gates, founder of Microsoft, said so.",
+        "point": "dấu phẩy quanh apposition không xác định"
+      },
+      {
+        "vi": "Tôi đến; tôi thấy; tôi chinh phục.",
+        "en": "I came; I saw; I conquered.",
+        "point": "dấu chấm phẩy nối các mệnh đề độc lập có liên quan"
+      },
+      {
+        "vi": "Tôi cần ba thứ: bút, giấy và mực.",
+        "en": "I need three things: a pen, paper, and ink.",
+        "point": "dấu hai chấm giới thiệu danh sách liệt kê"
+      },
+      {
+        "vi": "Cô ấy nói với tôi—và tôi đã tin cô ấy—rằng anh ta có tội.",
+        "en": "She told me—and I believed her—that he was guilty.",
+        "point": "dấu gạch ngang chêm xen mạnh"
+      },
+      {
+        "vi": "Tôi đến. Tôi thấy.",
+        "en": "I came. I saw.",
+        "point": "sửa lỗi run-on bằng cách tách thành hai câu riêng"
+      },
+      {
+        "vi": "Tuy nhiên, kế hoạch đã thay đổi.",
+        "en": "However, the plan has changed.",
+        "point": "dấu phẩy bắt buộc sau 'however' đứng đầu câu"
+      },
+      {
+        "vi": "Tôi thích đọc sách vào mùa đông.",
+        "en": "I like reading books in winter.",
+        "point": "không viết hoa tên mùa ('winter')"
+      },
+      {
+        "vi": "Cô ấy nói: \"Tôi sẽ đến vào ngày mai.\"",
+        "en": "She said, \"I will come tomorrow.\"",
+        "point": "viết hoa chữ đầu câu trích dẫn trực tiếp"
+      },
+      {
+        "vi": "Tôi là người Việt Nam và tôi nói tiếng Anh khá tốt.",
+        "en": "I am Vietnamese, and I speak English quite well.",
+        "point": "viết hoa quốc tịch và tên ngôn ngữ"
+      },
+      {
+        "vi": "Chúng tôi sẽ gặp nhau vào thứ Hai, ngày đầu tháng Giêng.",
+        "en": "We will meet on Monday, the first day of January.",
+        "point": "viết hoa tên ngày trong tuần và tên tháng"
+      },
+      {
+        "vi": "Tổng thống Biden sẽ phát biểu vào chiều nay.",
+        "en": "President Biden will speak this afternoon.",
+        "point": "viết hoa chức danh khi đứng trước tên riêng"
+      },
+      {
+        "vi": "Vị tổng thống sẽ phát biểu vào chiều nay.",
+        "en": "The president will speak this afternoon.",
+        "point": "không viết hoa chức danh khi dùng chung chung"
+      },
+      {
+        "vi": "Tôi giỏi môn toán nhưng yếu môn tiếng Pháp.",
+        "en": "I am good at math but weak in French.",
+        "point": "không viết hoa môn học chung, viết hoa tên ngôn ngữ"
+      },
+      {
+        "vi": "Chúng tôi đang lái xe về phía nam.",
+        "en": "We are driving south.",
+        "point": "không viết hoa hướng khi chỉ phương hướng chung"
+      },
+      {
+        "vi": "Cuốn tiểu thuyết 'Chúa tể những chiếc nhẫn' rất nổi tiếng.",
+        "en": "The novel 'The Lord of the Rings' is very famous.",
+        "point": "viết hoa từ chính theo Title Case, không viết hoa 'of the'"
+      },
+      {
+        "vi": "Cô Lan làm việc ở công ty Apple.",
+        "en": "Ms. Lan works at Apple.",
+        "point": "viết hoa tên riêng của công ty/thương hiệu"
+      },
+      {
+        "vi": "Miền Nam nước Mỹ nổi tiếng với ẩm thực đặc trưng.",
+        "en": "The South is known for its distinctive cuisine.",
+        "point": "viết hoa hướng khi chỉ một vùng miền cụ thể"
       }
     ]
   },
@@ -2265,56 +2390,6 @@ const grammarViTranslateData = {
         "vi": "Rất nhiều người đã tham dự buổi lễ.",
         "en": "Many people attended the ceremony.",
         "point": "people là số nhiều của person"
-      }
-    ]
-  },
-  "numerals": {
-    "instruction": "Hãy dùng đúng số đếm, số thứ tự, phân số, tỷ lệ phần trăm và các cụm số ghép theo đúng quy tắc tiếng Anh.",
-    "items": [
-      {
-        "vi": "Có hai trăm sinh viên trong hội trường.",
-        "en": "There are two hundred students in the hall.",
-        "point": "hundred không thêm s khi có số cụ thể"
-      },
-      {
-        "vi": "Hàng trăm người đã xem buổi biểu diễn.",
-        "en": "Hundreds of people watched the performance.",
-        "point": "hundreds of + danh từ số nhiều"
-      },
-      {
-        "vi": "Đây là lần thứ ba tôi đến Hà Nội.",
-        "en": "This is the third time I have come to Hanoi.",
-        "point": "số thứ tự ordinal number"
-      },
-      {
-        "vi": "Cuộc họp sẽ diễn ra vào ngày 21 tháng 5.",
-        "en": "The meeting will take place on May 21st.",
-        "point": "dùng ordinal number khi đọc ngày tháng"
-      },
-      {
-        "vi": "Hai phần ba lớp học đã hoàn thành bài tập.",
-        "en": "Two thirds of the class have finished the assignment.",
-        "point": "cách đọc phân số two thirds"
-      },
-      {
-        "vi": "25 phần trăm sinh viên đạt điểm giỏi.",
-        "en": "25 percent of the students are excellent.",
-        "point": "động từ chia theo danh từ sau of trong cụm percent"
-      },
-      {
-        "vi": "Giá đã giảm mười phần trăm.",
-        "en": "The price has dropped by ten percent.",
-        "point": "percent không thêm s sau số"
-      },
-      {
-        "vi": "Đó là một cậu bé mười tuổi.",
-        "en": "He is a ten-year-old boy.",
-        "point": "tính từ ghép chỉ tuổi giữ dạng số ít"
-      },
-      {
-        "vi": "Chúng tôi đã có một chuyến đi một ngày đến biển.",
-        "en": "We had a one-day trip to the beach.",
-        "point": "cụm số ghép danh từ giữ dạng số ít"
       }
     ]
   },
@@ -5903,126 +5978,6 @@ const grammarViTranslateData = {
       }
     ]
   },
-  "causative-have-get": {
-    "instruction": "Chọn đúng cấu trúc nhờ vả/sai khiến (have/get + O + V, make, let, help) và thể bị động tương ứng khi dịch.",
-    "items": [
-      {
-        "vi": "Tôi đã nhờ John sửa xe cho tôi.",
-        "en": "I had John fix my car.",
-        "point": "'have + O + V nguyên mẫu' - nhờ ai đó làm"
-      },
-      {
-        "vi": "Tôi đã thuyết phục được anh ấy sửa nó.",
-        "en": "I got him to fix it.",
-        "point": "'get + O + to-V' - thuyết phục ai làm"
-      },
-      {
-        "vi": "Tôi vừa cắt tóc xong (nhờ thợ).",
-        "en": "I had my hair cut.",
-        "point": "'have + O + V3' - nhờ làm cho mình"
-      },
-      {
-        "vi": "Cô ấy đã bắt tôi khóc.",
-        "en": "She made me cry.",
-        "point": "'make + O + V nguyên mẫu' - bắt buộc"
-      },
-      {
-        "vi": "Hãy để tôi đi.",
-        "en": "Let me go.",
-        "point": "'let + O + V nguyên mẫu' - cho phép"
-      },
-      {
-        "vi": "Anh ấy đã giúp tôi hoàn thành bài tập.",
-        "en": "He helped me (to) finish the homework.",
-        "point": "'help + O + (to)-V'"
-      },
-      {
-        "vi": "Cô ấy đã bị bắt phải xin lỗi.",
-        "en": "She was made to apologize.",
-        "point": "thể bị động của 'make' cần thêm 'to'"
-      },
-      {
-        "vi": "Tôi đã nhờ thợ sửa xe của mình.",
-        "en": "I had my car repaired.",
-        "point": "'have + O + V3' nghĩa nhờ làm (chủ động nhờ vả)"
-      },
-      {
-        "vi": "Xe của tôi đã bị trộm mất.",
-        "en": "I had my car stolen.",
-        "point": "'have + O + V3' nghĩa bị tai nạn/mất mát"
-      },
-      {
-        "vi": "Ngày mai tôi sẽ đi cắt tóc.",
-        "en": "I'll get my hair cut tomorrow.",
-        "point": "'get + O + V3' ở thì tương lai, ít trang trọng hơn 'have'"
-      },
-      {
-        "vi": "Anh ấy không được phép rời khỏi phòng.",
-        "en": "He wasn't allowed to leave the room.",
-        "point": "'let' không có dạng bị động, dùng 'be allowed to'"
-      }
-    ]
-  },
-  "punctuation-deep": {
-    "instruction": "Dịch đúng nội dung và tái hiện đúng dấu câu tiếng Anh (dấu phẩy, chấm phẩy, hai chấm, gạch ngang) theo đúng quy tắc đang được kiểm tra.",
-    "items": [
-      {
-        "vi": "Tôi thích màu đỏ, trắng và xanh dương.",
-        "en": "I like red, white, and blue.",
-        "point": "dấu phẩy liệt kê 3 mục trở lên (Oxford comma)"
-      },
-      {
-        "vi": "Khi tôi đến nơi, mọi người đã ở đó rồi.",
-        "en": "When I arrived, everyone was already there.",
-        "point": "dấu phẩy sau mệnh đề trạng ngữ đứng đầu câu"
-      },
-      {
-        "vi": "Tôi đến, và tôi đã thấy điều đó.",
-        "en": "I came, and I saw it.",
-        "point": "dấu phẩy trước FANBOYS nối hai mệnh đề độc lập"
-      },
-      {
-        "vi": "Anh trai tôi, người sống ở New York, sắp về thăm nhà.",
-        "en": "My brother, who lives in New York, is coming home soon.",
-        "point": "dấu phẩy bao quanh mệnh đề quan hệ không xác định"
-      },
-      {
-        "vi": "Cuốn sách đó, tuy nhiên, lại rất hay.",
-        "en": "The book, however, was great.",
-        "point": "dấu phẩy chêm xen từ nối 'however'"
-      },
-      {
-        "vi": "Bill Gates, người sáng lập Microsoft, đã nói như vậy.",
-        "en": "Bill Gates, founder of Microsoft, said so.",
-        "point": "dấu phẩy quanh apposition không xác định"
-      },
-      {
-        "vi": "Tôi đến; tôi thấy; tôi chinh phục.",
-        "en": "I came; I saw; I conquered.",
-        "point": "dấu chấm phẩy nối các mệnh đề độc lập có liên quan"
-      },
-      {
-        "vi": "Tôi cần ba thứ: bút, giấy và mực.",
-        "en": "I need three things: a pen, paper, and ink.",
-        "point": "dấu hai chấm giới thiệu danh sách liệt kê"
-      },
-      {
-        "vi": "Cô ấy nói với tôi—và tôi đã tin cô ấy—rằng anh ta có tội.",
-        "en": "She told me—and I believed her—that he was guilty.",
-        "point": "dấu gạch ngang chêm xen mạnh"
-      },
-      {
-        "vi": "Tôi đến. Tôi thấy.",
-        "en": "I came. I saw.",
-        "point": "sửa lỗi run-on bằng cách tách thành hai câu riêng"
-      },
-      {
-        "vi": "Tuy nhiên, kế hoạch đã thay đổi.",
-        "en": "However, the plan has changed.",
-        "point": "dấu phẩy bắt buộc sau 'however' đứng đầu câu"
-      }
-    ]
-  },
   "apostrophe-rules": {
     "instruction": "Chú ý dùng dấu nháy đơn (') đúng chỗ cho sở hữu cách và viết tắt, không dùng cho số nhiều thường hoặc đại từ sở hữu.",
     "items": [
@@ -6083,68 +6038,8 @@ const grammarViTranslateData = {
       }
     ]
   },
-  "capitalization-rules": {
-    "instruction": "Viết hoa đúng những từ cần viết hoa (đầu câu, tên riêng, ngày tháng, quốc tịch...) và không viết hoa những từ chung chung (mùa, hướng, môn học...).",
-    "items": [
-      {
-        "vi": "Tôi thích đọc sách vào mùa đông.",
-        "en": "I like reading books in winter.",
-        "point": "không viết hoa tên mùa ('winter')"
-      },
-      {
-        "vi": "Cô ấy nói: \"Tôi sẽ đến vào ngày mai.\"",
-        "en": "She said, \"I will come tomorrow.\"",
-        "point": "viết hoa chữ đầu câu trích dẫn trực tiếp"
-      },
-      {
-        "vi": "Tôi là người Việt Nam và tôi nói tiếng Anh khá tốt.",
-        "en": "I am Vietnamese, and I speak English quite well.",
-        "point": "viết hoa quốc tịch và tên ngôn ngữ"
-      },
-      {
-        "vi": "Chúng tôi sẽ gặp nhau vào thứ Hai, ngày đầu tháng Giêng.",
-        "en": "We will meet on Monday, the first day of January.",
-        "point": "viết hoa tên ngày trong tuần và tên tháng"
-      },
-      {
-        "vi": "Tổng thống Biden sẽ phát biểu vào chiều nay.",
-        "en": "President Biden will speak this afternoon.",
-        "point": "viết hoa chức danh khi đứng trước tên riêng"
-      },
-      {
-        "vi": "Vị tổng thống sẽ phát biểu vào chiều nay.",
-        "en": "The president will speak this afternoon.",
-        "point": "không viết hoa chức danh khi dùng chung chung"
-      },
-      {
-        "vi": "Tôi giỏi môn toán nhưng yếu môn tiếng Pháp.",
-        "en": "I am good at math but weak in French.",
-        "point": "không viết hoa môn học chung, viết hoa tên ngôn ngữ"
-      },
-      {
-        "vi": "Chúng tôi đang lái xe về phía nam.",
-        "en": "We are driving south.",
-        "point": "không viết hoa hướng khi chỉ phương hướng chung"
-      },
-      {
-        "vi": "Cuốn tiểu thuyết 'Chúa tể những chiếc nhẫn' rất nổi tiếng.",
-        "en": "The novel 'The Lord of the Rings' is very famous.",
-        "point": "viết hoa từ chính theo Title Case, không viết hoa 'of the'"
-      },
-      {
-        "vi": "Cô Lan làm việc ở công ty Apple.",
-        "en": "Ms. Lan works at Apple.",
-        "point": "viết hoa tên riêng của công ty/thương hiệu"
-      },
-      {
-        "vi": "Miền Nam nước Mỹ nổi tiếng với ẩm thực đặc trưng.",
-        "en": "The South is known for its distinctive cuisine.",
-        "point": "viết hoa hướng khi chỉ một vùng miền cụ thể"
-      }
-    ]
-  },
   "numbers-dates": {
-    "instruction": "Viết đúng định dạng số đếm, số thứ tự, phân số, thập phân, phần trăm, ngày tháng và tuổi bằng tiếng Anh chuẩn.",
+    "instruction": "Viết đúng số đếm, số thứ tự, phân số, thập phân, phần trăm, ngày tháng, tuổi và các cụm số ghép (a five-year plan, hundreds of people) bằng tiếng Anh chuẩn.",
     "items": [
       {
         "vi": "Tôi có hai mươi mốt quyển sách.",
@@ -6205,11 +6100,56 @@ const grammarViTranslateData = {
         "vi": "Đó là một đứa bé năm tuổi.",
         "en": "That is a five-year-old child.",
         "point": "tính từ ghép chỉ tuổi không thêm 's'"
+      },
+      {
+        "vi": "Có hai trăm sinh viên trong hội trường.",
+        "en": "There are two hundred students in the hall.",
+        "point": "hundred không thêm s khi có số cụ thể"
+      },
+      {
+        "vi": "Hàng trăm người đã xem buổi biểu diễn.",
+        "en": "Hundreds of people watched the performance.",
+        "point": "hundreds of + danh từ số nhiều"
+      },
+      {
+        "vi": "Đây là lần thứ ba tôi đến Hà Nội.",
+        "en": "This is the third time I have come to Hanoi.",
+        "point": "số thứ tự ordinal number"
+      },
+      {
+        "vi": "Cuộc họp sẽ diễn ra vào ngày 21 tháng 5.",
+        "en": "The meeting will take place on May 21st.",
+        "point": "dùng ordinal number khi đọc ngày tháng"
+      },
+      {
+        "vi": "Hai phần ba lớp học đã hoàn thành bài tập.",
+        "en": "Two thirds of the class have finished the assignment.",
+        "point": "cách đọc phân số two thirds"
+      },
+      {
+        "vi": "25 phần trăm sinh viên đạt điểm giỏi.",
+        "en": "25 percent of the students are excellent.",
+        "point": "động từ chia theo danh từ sau of trong cụm percent"
+      },
+      {
+        "vi": "Giá đã giảm mười phần trăm.",
+        "en": "The price has dropped by ten percent.",
+        "point": "percent không thêm s sau số"
+      },
+      {
+        "vi": "Đó là một cậu bé mười tuổi.",
+        "en": "He is a ten-year-old boy.",
+        "point": "tính từ ghép chỉ tuổi giữ dạng số ít"
+      },
+      {
+        "vi": "Chúng tôi đã có một chuyến đi một ngày đến biển.",
+        "en": "We had a one-day trip to the beach.",
+        "point": "cụm số ghép danh từ giữ dạng số ít"
       }
     ]
   },
   "fragments-runons": {
-    "instruction": "Dịch thành câu tiếng Anh hoàn chỉnh, nối hai mệnh đề độc lập đúng cách (dấu chấm, dấu chấm phẩy, FANBOYS, hoặc mệnh đề phụ thuộc) để tránh run-on/comma splice.",
+    "instruction": "Dịch thành câu tiếng Anh hoàn chỉnh: tránh để mệnh đề phụ đứng một mình (fragment) và nối hai mệnh đề độc lập đúng cách (dấu chấm, dấu chấm phẩy, dấu phẩy + FANBOYS, hoặc mệnh đề phụ thuộc) để tránh run-on / comma splice.",
     "items": [
       {
         "vi": "Tôi đã đến. Tôi đã thấy.",
@@ -6250,6 +6190,41 @@ const grammarViTranslateData = {
         "vi": "Cô ấy đang đi bộ trên phố thì trời bắt đầu mưa.",
         "en": "She was walking down the street when it started to rain.",
         "point": "câu hoàn chỉnh có đủ chủ ngữ và động từ, tránh fragment"
+      },
+      {
+        "vi": "Vì tôi mệt, tôi đã về nhà.",
+        "en": "Because I was tired, I went home.",
+        "point": "Mệnh đề phụ gắn với mệnh đề chính, tránh fragment"
+      },
+      {
+        "vi": "Tôi mệt, vì vậy tôi về nhà.",
+        "en": "I was tired, so I went home.",
+        "point": "Nối hai mệnh đề độc lập bằng dấu phẩy + so"
+      },
+      {
+        "vi": "Tôi mệt. Tôi về nhà.",
+        "en": "I was tired. I went home.",
+        "point": "Tách thành hai câu riêng để tránh run-on"
+      },
+      {
+        "vi": "Trời đang mưa; chúng tôi vẫn ở trong nhà.",
+        "en": "It was raining; we stayed indoors.",
+        "point": "Nối hai mệnh đề độc lập bằng dấu chấm phẩy"
+      },
+      {
+        "vi": "Mặc dù trời mưa, chúng tôi vẫn ra ngoài.",
+        "en": "Although it was raining, we still went out.",
+        "point": "Mệnh đề phụ đứng đầu câu có mệnh đề chính đi kèm"
+      },
+      {
+        "vi": "Cô ấy học chăm chỉ vì cô ấy muốn đỗ kỳ thi.",
+        "en": "She studied hard because she wanted to pass the exam.",
+        "point": "Câu hoàn chỉnh gồm mệnh đề chính và mệnh đề phụ"
+      },
+      {
+        "vi": "Chúng tôi đã hoàn thành dự án đúng hạn; mọi người đều vui.",
+        "en": "We finished the project on time; everyone was happy.",
+        "point": "Tránh comma splice bằng dấu chấm phẩy"
       }
     ]
   },

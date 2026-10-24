@@ -687,27 +687,6 @@ const grammarUsageDeepDiveData = {
             'I would appreciate it if you could send the file = formal.'
         ]
     },
-    'punctuation-deep': {
-        category: 'mistakes', cefr: 'B1', title: 'Punctuation',
-        uses: [
-            'Comma sau introductory clause/phrase dài.',
-            'Comma trước FANBOYS nối hai independent clauses.',
-            'Comma cho non-defining clauses và apposition.',
-            'Semicolon nối hai independent clauses rất gần ý.',
-            'Colon giới thiệu danh sách/giải thích.',
-            'Dash tạo chêm xen mạnh hoặc đổi nhịp.',
-            'Apostrophe cho possession và contractions.'
-        ],
-        avoid: [
-            'Tránh comma splice.',
-            'Không tách subject và verb bằng comma nếu không có chêm xen.',
-            'Không dùng apostrophe cho plural thường.'
-        ],
-        compare: [
-            'I came, I saw = comma splice.',
-            'I came; I saw = đúng nếu muốn nối hai mệnh đề độc lập.'
-        ]
-    }
 };
 
 Object.assign(grammarUsageDeepDiveData, {
@@ -846,23 +825,6 @@ Object.assign(grammarUsageDeepDiveData, {
             'Không nhầm people với persons/peoples trong ngữ cảnh thường.'
         ],
         compare: ['A fish/two fish có thể zero plural; fishes dùng khi nói nhiều loài cá.']
-    },
-    'numerals': {
-        category: 'foundations', cefr: 'A2', title: 'Numerals',
-        uses: [
-            'Cardinal numbers cho số lượng.',
-            'Ordinal numbers cho thứ tự, ngày tháng, xếp hạng.',
-            'Fractions, decimals, percentages trong data/academic writing.',
-            'Compound adjectives với số: a five-year plan.',
-            'Hundred/thousand không thêm -s khi có số cụ thể.',
-            'Hundreds/thousands of khi lượng không xác định.'
-        ],
-        avoid: [
-            'Không viết two hundreds people.',
-            'Không thêm -s trong five-year-old khi làm adjective.',
-            'Không đọc decimal bằng comma trong English.'
-        ],
-        compare: ['Two hundred people; hundreds of people.']
     },
     'word-formation': {
         category: 'foundations', cefr: 'B1', title: 'Word Formation',
@@ -1164,7 +1126,9 @@ Object.assign(grammarUsageDeepDiveData, {
         ]
     },
     'causatives': {
-        category: 'structures', cefr: 'B2', title: 'Causatives',
+        category: 'structures',
+        cefr: 'B2',
+        title: 'Causatives',
         uses: [
             'Make + O + V cho ép buộc.',
             'Let + O + V cho cho phép.',
@@ -1172,15 +1136,25 @@ Object.assign(grammarUsageDeepDiveData, {
             'Get + O + to V cho thuyết phục/nhờ được.',
             'Have/get + O + V3 cho thuê/nhờ dịch vụ.',
             'Passive của make là be made to V; passive gần nghĩa của let thường là be allowed to V.',
-            'Dùng khi chủ ngữ không trực tiếp thực hiện hành động.'
+            'Dùng khi chủ ngữ không trực tiếp thực hiện hành động.',
+            'Have/get + object + V3 khi thuê/nhờ dịch vụ.',
+            'Diễn tả chuyện không may xảy đến: had my wallet stolen.',
+            'Get thường informal hơn have.',
+            'Dùng cho sửa chữa, cắt tóc, kiểm tra, thiết kế.',
+            'Dùng khi kết quả quan trọng hơn người làm.'
         ],
         avoid: [
             'Không dùng to sau make/let ở active voice.',
             'Trong passive của make cần to: was made to apologize.',
             'Không nhầm make + object + bare V với have/get + object + V3.',
-            'Không nhầm have something done với tự làm.'
+            'Không nhầm have something done với tự làm.',
+            'Không nhầm với tự làm hành động.',
+            'Không dùng V-ing/V bare sau object trong mẫu passive causative.'
         ],
-        compare: ['I cut my hair = tôi tự cắt; I had my hair cut = tôi đi cắt tóc; I was made to leave = tôi bị bắt phải rời đi.']
+        compare: [
+            'I cut my hair = tôi tự cắt; I had my hair cut = tôi đi cắt tóc; I was made to leave = tôi bị bắt phải rời đi.',
+            'I repaired my phone = tự sửa; I had my phone repaired = nhờ/sửa dịch vụ.'
+        ]
     },
     'wish-if-only': {
         category: 'structures', cefr: 'B2', title: 'Wish / If Only',
@@ -1349,20 +1323,34 @@ Object.assign(grammarUsageDeepDiveData, {
         compare: ['Only she said he lied khác She only said he lied.']
     },
     'fragments-runons': {
-        category: 'mistakes', cefr: 'B1', title: 'Fragments & Run-ons',
+        category: 'mistakes',
+        cefr: 'B1',
+        title: 'Fragments & Run-ons',
         uses: [
             'Nhận diện fragment thiếu main clause.',
             'Nhận diện run-on khi hai independent clauses dính nhau.',
             'Sửa bằng period, semicolon, FANBOYS, hoặc subordination.',
             'Dùng fragment có chủ ý trong advertising/fiction, không phải academic writing.',
-            'Dùng punctuation để thể hiện quan hệ logic rõ.'
+            'Dùng punctuation để thể hiện quan hệ logic rõ.',
+            'Nhận diện sentence fragment khi thiếu subject, finite verb hoặc main clause.',
+            'Nhận diện run-on khi hai independent clauses dính nhau không dấu/từ nối.',
+            'Nhận diện comma splice khi chỉ dùng dấu phẩy nối hai câu độc lập.',
+            'Sửa bằng period, semicolon, FANBOYS + comma hoặc subordinating conjunction.',
+            'Dùng fragment có chủ ý trong slogan/fiction, nhưng tránh trong formal writing.'
         ],
         avoid: [
             'Không nối hai câu độc lập chỉ bằng comma.',
             'Không để because/although clause đứng một mình trong formal writing.',
-            'Không kéo câu dài mà không xác định main verb.'
+            'Không kéo câu dài mà không xác định main verb.',
+            'Không để because/although/when clause đứng một mình trong bài viết chuẩn.',
+            'Không nối hai independent clauses bằng mỗi dấu phẩy.',
+            'Không kéo câu dài chỉ bằng and/and/and nếu logic không rõ.'
         ],
-        compare: ['Although he was tired. = fragment; Although he was tired, he worked. = complete.']
+        compare: [
+            'Although he was tired. = fragment; Although he was tired, he worked. = complete.',
+            'I was tired, I slept = comma splice.',
+            'I was tired, so I slept / I was tired. I slept = đúng.'
+        ]
     },
     'apostrophe-rules': {
         category: 'mistakes', cefr: 'A2', title: 'Apostrophes',
@@ -1381,21 +1369,32 @@ Object.assign(grammarUsageDeepDiveData, {
         compare: ['The dog’s tail = một con chó; the dogs’ tails = nhiều con chó.']
     },
     'numbers-dates': {
-        category: 'mistakes', cefr: 'A2', title: 'Numbers & Dates',
+        category: 'foundations',
+        cefr: 'A2',
+        title: 'Numbers & Dates',
         uses: [
             'Cardinal cho số lượng, ordinal cho thứ tự/ngày.',
             'BrE dates: 5 May; AmE dates: May 5.',
             'Fractions: one third, two thirds.',
             'Decimals đọc bằng point.',
             'Percent không thêm s sau số.',
-            'Years đọc theo nhóm: nineteen ninety-nine, twenty twenty-six.'
+            'Years đọc theo nhóm: nineteen ninety-nine, twenty twenty-six.',
+            'Cardinal numbers cho số lượng.',
+            'Ordinal numbers cho thứ tự, ngày tháng, xếp hạng.',
+            'Fractions, decimals, percentages trong data/academic writing.',
+            'Compound adjectives với số: a five-year plan.',
+            'Hundred/thousand không thêm -s khi có số cụ thể.',
+            'Hundreds/thousands of khi lượng không xác định.'
         ],
         avoid: [
             'Không dùng comma để đọc decimal trong English.',
             'Không thêm s vào percent sau số.',
-            'Không quên hyphen trong compound adjectives: a two-hour meeting.'
+            'Không quên hyphen trong compound adjectives: a two-hour meeting.',
+            'Không viết two hundreds people.',
+            'Không thêm -s trong five-year-old khi làm adjective.',
+            'Không đọc decimal bằng comma trong English.'
         ],
-        compare: ['In 2026 = năm; on 25 April 2026 = ngày cụ thể.']
+        compare: ['In 2026 = năm; on 25 April 2026 = ngày cụ thể.', 'Two hundred people; hundreds of people.']
     },
     'word-stress': {
         category: 'pronunciation', cefr: 'B1', title: 'Word Stress',
@@ -1695,18 +1694,6 @@ Object.assign(grammarUsageDeepDiveData, {
         avoid: ['Không dùng do-emphasis nếu không có lý do nhấn mạnh.', 'Không quên main verb bare sau do.'],
         compare: ['I agree = trung tính; I do agree = nhấn mạnh/đối lập.']
     },
-    'causative-have-get': {
-        category: 'structures', cefr: 'B2', title: 'Have/Get Something Done',
-        uses: [
-            'Have/get + object + V3 khi thuê/nhờ dịch vụ.',
-            'Diễn tả chuyện không may xảy đến: had my wallet stolen.',
-            'Get thường informal hơn have.',
-            'Dùng cho sửa chữa, cắt tóc, kiểm tra, thiết kế.',
-            'Dùng khi kết quả quan trọng hơn người làm.'
-        ],
-        avoid: ['Không nhầm với tự làm hành động.', 'Không dùng V-ing/V bare sau object trong mẫu passive causative.'],
-        compare: ['I repaired my phone = tự sửa; I had my phone repaired = nhờ/sửa dịch vụ.']
-    },
     'inversion-negative': {
         category: 'structures', cefr: 'C1', title: 'Negative Inversion',
         uses: [
@@ -1925,28 +1912,43 @@ Object.assign(grammarUsageDeepDiveData, {
         compare: ['Plan → planned nhưng open → opened vì stress khác.']
     },
     'punctuation-capitalization': {
-        category: 'mistakes', cefr: 'A2', title: 'Punctuation & Capitalization',
+        category: 'mistakes',
+        cefr: 'A2',
+        title: 'Punctuation & Capitalization',
         uses: [
             'Capital letters cho đầu câu, I, proper nouns.',
             'Comma cho lists, introductory clauses, nonessential information.',
             'Period cho câu hoàn chỉnh.',
             'Question mark cho direct questions.',
-            'Capitalization cho days, months, languages, nationalities.'
-        ],
-        avoid: ['Không viết hoa seasons/môn học chung nếu không phải language/proper noun.', 'Không dùng comma thay period giữa hai câu độc lập.'],
-        compare: ['english sai khi là ngôn ngữ; English đúng.']
-    },
-    'capitalization-rules': {
-        category: 'mistakes', cefr: 'A2', title: 'Capitalization',
-        uses: [
+            'Capitalization cho days, months, languages, nationalities.',
+            'Comma sau introductory clause/phrase dài.',
+            'Comma trước FANBOYS nối hai independent clauses.',
+            'Comma cho non-defining clauses và apposition.',
+            'Semicolon nối hai independent clauses rất gần ý.',
+            'Colon giới thiệu danh sách/giải thích.',
+            'Dash tạo chêm xen mạnh hoặc đổi nhịp.',
+            'Apostrophe cho possession và contractions.',
             'Viết hoa proper nouns, I, days/months/holidays.',
             'Viết hoa languages, nationalities, religions.',
             'Title Case cho tiêu đề theo style guide.',
             'Viết hoa chức danh khi đi với tên riêng.',
             'Viết hoa regions khi là tên vùng văn hóa/chính trị.'
         ],
-        avoid: ['Không viết hoa president khi dùng chung.', 'Không viết hoa seasons trừ tên riêng/nhân hóa.'],
-        compare: ['the president; President Lincoln.']
+        avoid: [
+            'Không viết hoa seasons/môn học chung nếu không phải language/proper noun.',
+            'Không dùng comma thay period giữa hai câu độc lập.',
+            'Tránh comma splice.',
+            'Không tách subject và verb bằng comma nếu không có chêm xen.',
+            'Không dùng apostrophe cho plural thường.',
+            'Không viết hoa president khi dùng chung.',
+            'Không viết hoa seasons trừ tên riêng/nhân hóa.'
+        ],
+        compare: [
+            'english sai khi là ngôn ngữ; English đúng.',
+            'I came, I saw = comma splice.',
+            'I came; I saw = đúng nếu muốn nối hai mệnh đề độc lập.',
+            'the president; President Lincoln.'
+        ]
     },
     'pronoun-reference': {
         category: 'mistakes', cefr: 'B2', title: 'Pronoun Reference',
@@ -2043,25 +2045,6 @@ Object.assign(grammarUsageDeepDiveData, {
             'Most students = học sinh nói chung; most of the students = nhóm học sinh cụ thể.'
         ]
     },
-    'fragments-run-ons': {
-        category: 'mistakes', cefr: 'B1', title: 'Fragments & Run-ons',
-        uses: [
-            'Nhận diện sentence fragment khi thiếu subject, finite verb hoặc main clause.',
-            'Nhận diện run-on khi hai independent clauses dính nhau không dấu/từ nối.',
-            'Nhận diện comma splice khi chỉ dùng dấu phẩy nối hai câu độc lập.',
-            'Sửa bằng period, semicolon, FANBOYS + comma hoặc subordinating conjunction.',
-            'Dùng fragment có chủ ý trong slogan/fiction, nhưng tránh trong formal writing.'
-        ],
-        avoid: [
-            'Không để because/although/when clause đứng một mình trong bài viết chuẩn.',
-            'Không nối hai independent clauses bằng mỗi dấu phẩy.',
-            'Không kéo câu dài chỉ bằng and/and/and nếu logic không rõ.'
-        ],
-        compare: [
-            'I was tired, I slept = comma splice.',
-            'I was tired, so I slept / I was tired. I slept = đúng.'
-        ]
-    }
 });
 
 function renderGrammarUsageDeepDive(entry) {
