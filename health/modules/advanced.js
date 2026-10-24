@@ -341,7 +341,7 @@ window.HEALTH_TOPICS.push({
 });
 
 window.HEALTH_TOPICS.push({
-    id: 'diets', order: 29, section: 'advanced', icon: '🍽️',
+    id: 'diets', order: 29, updated: '10/2026', section: 'advanced', icon: '🍽️',
     title: 'Nhịn ăn gián đoạn, keto và các chế độ ăn thịnh hành',
     summary: 'Bằng chứng khoa học về nhịn ăn gián đoạn, low-carb, keto, chay, Địa Trung Hải, detox; thuốc giảm cân và cách đánh giá một chế độ ăn.',
     keywords: 'nhịn ăn gián đoạn 16:8 keto low-carb ăn chay thuần chay địa trung hải dash paleo gluten detox thanh lọc giảm cân thuốc giảm cân semaglutide phẫu thuật giảm béo',

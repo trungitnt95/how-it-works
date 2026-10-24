@@ -20,6 +20,7 @@ Kiến thức y khoa cho người bình thường, từ cơ bản đến nâng c
 - Sức khỏe phụ nữ, nam giới, trẻ em, người cao tuổi, sức khỏe tình dục
 - Đọc xét nghiệm, sức khỏe tinh thần, vi sinh đường ruột, chế độ ăn, thực phẩm chức năng, nhận diện tin y khoa sai lệch
 - Ảnh nhúng trực tiếp từ Wikimedia Commons; mỗi ảnh ghi rõ tác giả và giấy phép; nội dung mang tính giáo dục, không thay thế tư vấn của bác sĩ
+- [Đồ thị sức khỏe](./health/graph.html): 92 khái niệm và 196 liên kết giữa bệnh, yếu tố nguy cơ, ăn uống, vận động, giấc ngủ, xét nghiệm và dấu hiệu nguy hiểm; dữ liệu cập nhật theo hướng dẫn 2025–2026
 
 ### 🔜 Coming Soon
 

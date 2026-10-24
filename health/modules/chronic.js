@@ -2,7 +2,7 @@
 window.HEALTH_TOPICS = window.HEALTH_TOPICS || [];
 
 window.HEALTH_TOPICS.push({
-    id: 'cardiovascular', order: 14, section: 'chronic', icon: '❤️',
+    id: 'cardiovascular', order: 14, updated: '10/2026', section: 'chronic', icon: '❤️',
     title: 'Tim mạch: huyết áp, mỡ máu, đột quỵ',
     summary: 'Tăng huyết áp, cholesterol, xơ vữa động mạch, bệnh mạch vành, suy tim, rung nhĩ, đột quỵ và cách giảm nguy cơ.',
     keywords: 'tim mạch tăng huyết áp cholesterol mỡ máu ldl hdl triglyceride xơ vữa mạch vành nhồi máu suy tim rung nhĩ statin đột quỵ',
@@ -238,7 +238,7 @@ window.HEALTH_TOPICS.push({
 });
 
 window.HEALTH_TOPICS.push({
-    id: 'cancer', order: 16, section: 'chronic', icon: '🎗️',
+    id: 'cancer', order: 16, updated: '10/2026', section: 'chronic', icon: '🎗️',
     title: 'Ung thư: phòng ngừa và tầm soát',
     summary: 'Ung thư là gì, nguyên nhân, cách giảm nguy cơ, tầm soát ung thư cổ tử cung, vú, đại trực tràng, phổi, gan, dấu hiệu cảnh báo và hiểu lầm.',
     keywords: 'ung thư tầm soát ung thư vú cổ tử cung đại tràng phổi gan dạ dày tuyến tiền liệt da u hắc tố hpv dấu hiệu cảnh báo hóa trị xạ trị',

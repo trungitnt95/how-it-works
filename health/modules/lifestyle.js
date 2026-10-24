@@ -2,7 +2,7 @@
 window.HEALTH_TOPICS = window.HEALTH_TOPICS || [];
 
 window.HEALTH_TOPICS.push({
-    id: 'nutrition', order: 3, section: 'lifestyle', icon: '🥗',
+    id: 'nutrition', order: 3, updated: '10/2026', section: 'lifestyle', icon: '🥗',
     title: 'Dinh dưỡng cơ bản',
     summary: 'Đạm, đường, béo, chất xơ, vi chất, muối, nước; cách ăn cân bằng, đọc nhãn thực phẩm và hiểu về calo.',
     keywords: 'dinh dưỡng ăn uống calo protein carbohydrate chất béo chất xơ vitamin khoáng chất muối đường nhãn thực phẩm giảm cân',
@@ -205,7 +205,7 @@ window.HEALTH_TOPICS.push({
 });
 
 window.HEALTH_TOPICS.push({
-    id: 'exercise', order: 5, section: 'lifestyle', icon: '🏃',
+    id: 'exercise', order: 5, updated: '10/2026', section: 'lifestyle', icon: '🏃',
     title: 'Vận động và tập luyện',
     summary: 'Bao nhiêu vận động là đủ, bốn loại bài tập, cường độ, chấn thương thường gặp và khi nào nên dừng.',
     keywords: 'tập thể dục vận động đi bộ chạy bộ tạ cardio sức mạnh giãn cơ nhịp tim bước chân ngồi nhiều',
@@ -288,7 +288,7 @@ window.HEALTH_TOPICS.push({
 });
 
 window.HEALTH_TOPICS.push({
-    id: 'water-sun-vitd', order: 6, section: 'lifestyle', icon: '☀️',
+    id: 'water-sun-vitd', order: 6, updated: '10/2026', section: 'lifestyle', icon: '☀️',
     title: 'Nước, ánh nắng và vitamin D',
     summary: 'Cơ thể cần bao nhiêu nước, tia UV vừa có lợi vừa có hại, cách chống nắng đúng và vitamin D.',
     keywords: 'uống nước mất nước chống nắng kem chống nắng uv vitamin d còi xương say nắng nước tiểu',

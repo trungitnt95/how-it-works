@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ Thị Sức Khỏe - Sức Khỏe</title>
+    <meta name="description" content="Đồ thị tương tác: mối liên hệ giữa bệnh, yếu tố nguy cơ, ăn uống, vận động, giấc ngủ, xét nghiệm và dấu hiệu nguy hiểm.">
+    <link rel="stylesheet" href="../shared/graph.css">
+</head>
+<body>
+    <header class="g-header">
+        <a href="health.html" class="back-btn">← Sức khỏe</a>
+        <h1>🕸️ Đồ Thị Sức Khỏe</h1>
+        <span class="g-count" id="graphCount"></span>
+        <button type="button" class="g-iconbtn" id="graphSearchBtn" aria-label="Tìm và lọc" aria-expanded="false" aria-controls="graphSearchBar" title="Tìm và lọc">🔍</button>
+        <button type="button" class="g-iconbtn" id="graphHelpBtn" aria-label="Hướng dẫn" aria-expanded="false" aria-controls="graphPanel" title="Hướng dẫn">❓</button>
+    </header>
+    <p class="g-notice"><b>Lưu ý:</b> đồ thị chỉ minh họa mối liên hệ để hiểu và phòng bệnh, không thay thế chẩn đoán hay tư vấn của bác sĩ. "Làm tăng nguy cơ" là liên quan thống kê, không có nghĩa chắc chắn sẽ xảy ra. Trường hợp khẩn cấp, gọi 115.</p>
+
+    <div class="g-searchbar" id="graphSearchBar" hidden>
+        <label class="visually-hidden" for="graphSearch">Tìm nút</label>
+        <input type="search" id="graphSearch" placeholder="Tìm bệnh, yếu tố, xét nghiệm (huyết áp, muối, HbA1c...)" autocomplete="off">
+        <div class="g-legend" id="graphLegend" role="group" aria-label="Lọc theo nhóm"></div>
+        <label class="g-stage" for="graphStage">Lối vào
+            <select id="graphStage"><option value="">Tất cả</option></select>
+        </label>
+        <div class="g-filterrow">
+            <label class="g-depth" for="graphDepth">Độ sâu
+                <input type="range" id="graphDepth" min="1" max="5" value="2" title="Với một nút đang chọn: chỉ hiện các nút trong phạm vi này">
+                <span id="graphDepthVal">2 bước</span>
+            </label>
+            <button type="button" class="g-btn" id="graphReset">Đặt lại</button>
+        </div>
+    </div>
+
+    <main class="g-main">
+        <svg id="graph" role="img" aria-label="Đồ thị mối liên hệ giữa bệnh, yếu tố nguy cơ, lối sống và xét nghiệm"></svg>
+        <aside class="g-panel" id="graphPanel" aria-live="polite" hidden></aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="modules/graph-data.js"></script>
+    <script src="../shared/graph-engine.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>

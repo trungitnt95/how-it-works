@@ -351,7 +351,7 @@ window.HEALTH_TOPICS.push({
 });
 
 window.HEALTH_TOPICS.push({
-    id: 'checkups', order: 20, section: 'chronic', icon: '📋',
+    id: 'checkups', order: 20, updated: '10/2026', section: 'chronic', icon: '📋',
     title: 'Khám sức khỏe định kỳ và tầm soát',
     summary: 'Nên khám gì ở mỗi độ tuổi, cách chuẩn bị, hiểu giới hạn của tầm soát và những gói "khám tổng quát".',
     keywords: 'khám sức khỏe định kỳ tầm soát xét nghiệm tổng quát chuẩn bị nhịn ăn độ tuổi lịch khám gói khám tiền sử gia đình sổ sức khỏe',

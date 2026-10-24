@@ -115,3 +115,6 @@ body {
 .g-ev { color: var(--muted); }
 .g-panel .g-src { color: var(--muted); font-size: .8rem; margin-top: 16px; }
 .link.ev-moderate { stroke-opacity: .3; }
+.g-foot { margin-top: 14px !important; padding-top: 10px; border-top: 1px solid var(--border); }
+.g-notice { margin: 0; padding: 6px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 200, 87, .07); color: var(--muted); font-size: .74rem; line-height: 1.45; }
+.g-notice b { color: #ffc857; font-weight: 600; }

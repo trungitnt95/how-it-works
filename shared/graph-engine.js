@@ -11,6 +11,8 @@
 //   topicUrl(id) -> href of a lesson
 //   text:   optional overrides of the UI strings below
 //   groupNeighbors: true groups the panel's related nodes by link type and direction
+//   depth: hops shown around a selected node by default (2); layout: { charge, distance, linkStrength, collide, anchor };
+//   anchors: { group: [x, y] } or (node) => [x, y] pulls nodes towards their own spot so a large graph reads as clusters
 //   evidence: { key: { label, mark } }
 // })
 (function () {
@@ -29,6 +31,7 @@
             'Nhóm khái niệm, <em>Độ sâu</em> và <em>Đặt lại</em> nằm sau nút 🔍. Khi chọn một nút, đồ thị chỉ hiện các nút trong phạm vi <em>Độ sâu</em> (mặc định 2 bước).',
             'Kéo để di chuyển, cuộn hoặc chụm hai ngón để phóng to; <em>Đặt lại</em> để về bố cục ban đầu.'
         ],
+        helpFooter: '',
         typesTitle: 'Loại liên kết',
         stageTitle: 'Lộ trình học',
         stageHint: 'Học theo thứ tự các giai đoạn; mỗi giai đoạn dựa trên các giai đoạn trước. Chọn một giai đoạn ở nút 🔍 để làm nổi các khái niệm của nó trên đồ thị.',
@@ -99,12 +102,16 @@
             nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
         }
 
+        const layout = { charge: -900, distance: 120, linkStrength: 0.4, collide: 22, anchor: 0.08, ...(cfg.layout || {}) };
+        const anchors = cfg.anchors;
+        // anchors: { group: [x, y] } or a function (node) => [x, y]
+        const anchorOf = (d, i) => ((typeof anchors === 'function' ? anchors(d) : anchors[d.cat]) || [0, 0])[i];
         const sim = d3.forceSimulation(nodes)
-            .force('link', d3.forceLink(links).id(d => d.id).distance(120).strength(0.4))
-            .force('charge', d3.forceManyBody().strength(-900).distanceMax(700))
-            .force('collide', d3.forceCollide().radius(d => radius(d) + 22))
-            .force('x', d3.forceX().strength(0.012))
-            .force('y', d3.forceY().strength(0.09))
+            .force('link', d3.forceLink(links).id(d => d.id).distance(layout.distance).strength(layout.linkStrength))
+            .force('charge', d3.forceManyBody().strength(layout.charge).distanceMax(700))
+            .force('collide', d3.forceCollide().radius(d => radius(d) + layout.collide))
+            .force('x', anchors ? d3.forceX(d => anchorOf(d, 0)).strength(layout.anchor) : d3.forceX().strength(0.012))
+            .force('y', anchors ? d3.forceY(d => anchorOf(d, 1)).strength(layout.anchor) : d3.forceY().strength(0.09))
             .on('tick', ticked);
 
         // with reduced motion, settle the layout up front instead of animating it
@@ -138,7 +145,8 @@
         // state
         let selected = null, hovered = null, query = '', helpOpen = false, stage = '';
         const hiddenCats = new Set(), hiddenTypes = new Set();
-        let depth = 2;   // hops shown around a chosen node (5 = everything)
+        const defaultDepth = cfg.depth || 2;
+        let depth = defaultDepth;   // hops shown around a chosen node (5 = everything)
 
         const isEnd = (l, id) => l.source.id === id || l.target.id === id;
 
@@ -195,7 +203,7 @@
         // help text lives in the same overlay as node details; closed by default
         const helpHtml = () => `<div class="g-help"><h2>${esc(text.helpTitle)}</h2><ul>
         ${text.helpItems.map(i => `<li>${i}</li>`).join('\n        ')}
-    </ul><h3>${esc(text.typesTitle)}</h3><div class="g-types">${typeRows()}</div>${roadmapHtml()}</div>`;
+    </ul><h3>${esc(text.typesTitle)}</h3><div class="g-types">${typeRows()}</div>${roadmapHtml()}${text.helpFooter ? `<p class="g-hint g-foot">${text.helpFooter}</p>` : ''}</div>`;
         // link-type legend lives in the help panel: stroke sample + meaning, click to hide/show a type
         const typeRows = () => Object.entries(types).map(([key, t]) =>
             `<button type="button" class="g-typerow${hiddenTypes.has(key) ? ' off' : ''}" data-type="${key}" aria-pressed="${!hiddenTypes.has(key)}">
@@ -353,16 +361,18 @@
         });
         const depthInput = document.getElementById('graphDepth');
         const depthLabel = () => document.getElementById('graphDepthVal').textContent = depth >= 5 ? text.depthAll : `${depth} ${text.depthStep}`;
+        depthInput.value = depth;
+        depthLabel();
         depthInput.addEventListener('input', () => {
             depth = +depthInput.value;
             depthLabel();
             render();
         });
         document.getElementById('graphReset').addEventListener('click', () => {
-            selected = null; hovered = null; query = ''; stage = ''; stageSel.value = ''; depth = 2; hiddenCats.clear(); hiddenTypes.clear();
+            selected = null; hovered = null; query = ''; stage = ''; stageSel.value = ''; depth = defaultDepth; hiddenCats.clear(); hiddenTypes.clear();
             searchInput.value = '';
             helpOpen = false;
-            depthInput.value = 2;
+            depthInput.value = depth;
             depthLabel();
             document.querySelectorAll('.g-legend .g-chip').forEach(b => { b.classList.remove('off'); b.setAttribute('aria-pressed', 'true'); });
             nodes.forEach(n => { n.fx = null; n.fy = null; });
