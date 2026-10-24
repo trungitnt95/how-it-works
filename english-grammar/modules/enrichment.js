@@ -114,49 +114,6 @@ const grammarSupplementsData = {
             ]
         }
     },
-    numerals: {
-        icon: '🔢',
-        title: 'Numerals (Số Từ) - Intermediate',
-        category: 'foundations',
-        level: 'intermediate',
-        connections: ['articles-determiners', 'quantifiers', 'nouns-plurals', 'sentence-order'],
-        theory: {
-            overview: 'Số từ không chỉ là đếm: gồm <strong>số đếm</strong> (cardinal – số lượng), <strong>số thứ tự</strong> (ordinal – thứ tự, ngày tháng, xếp hạng), <strong>phân số, số thập phân, phần trăm</strong>. Đây là vùng lỗi rất thường gặp khi đọc, nói, viết.',
-            tables: [
-                {
-                    head: ['Dạng', 'Mẫu', 'Ví dụ / ghi chú'],
-                    rows: [
-                        ['Cardinal', 'one, two, three…', '<em>two hundred students</em>'],
-                        ['Ordinal', 'first, second, third, fourth…', '<em>the third chapter</em> – first, second, third là bất quy tắc'],
-                        ['Hàng trăm / nghìn cụ thể', 'two hundred / five thousand', 'không thêm s'],
-                        ['Số lượng không xác định', 'hundreds of / dozens of', 'có s và đi với of: <em>hundreds of pages</em>'],
-                        ['Ngày tháng', 'on 21st May / May 21st', 'đọc bằng ordinal: <em>the twenty-first of May</em>'],
-                        ['Phân số', 'one half, two thirds', ''],
-                        ['Thập phân', '3.5 = three point five', 'dấu chấm, không dùng dấu phẩy'],
-                        [
-                            'Phần trăm',
-                            '10 percent, 35 percent of students',
-                            'percent không thêm s; động từ chia theo danh từ sau of: <em>25 percent of students are… / 25 percent of the water is…</em>'
-                        ]
-                    ]
-                }
-            ],
-            uses: [
-                [
-                    'Số + danh từ làm tính từ ghép',
-                    'dùng gạch nối, danh từ giữ số ít',
-                    'a one-day trip, a five-year plan, a ten-year-old boy'
-                ]
-            ],
-            mistakes: [
-                ['two hundreds people', 'two hundred people', 'Có số cụ thể thì không thêm s.'],
-                ['a five-years-old boy', 'a five-year-old boy', 'Tính từ ghép không thêm s.'],
-                ['3,5 percents', '3.5 percent', '']
-            ],
-            advanced: ['Trong academic writing, viết số <strong>thống nhất</strong>: cùng một đoạn không đổi qua lại bừa bãi giữa chữ và số.'],
-            tip: 'Thấy số + danh từ, kiểm tra ngay: đang là số lượng cụ thể, số lượng không xác định, số thứ tự hay tính từ ghép?'
-        }
-    },
     'near-future': {
         icon: '🛫',
         title: 'Near Future (Tương Lai Gần) - Intermediate',
@@ -2555,7 +2512,7 @@ const grammarPracticeData = {
             'Kiểm tra lại subject-verb agreement sau khi đổi singular/plural.'
         ]
     },
-    numerals: {
+    'numbers-dates': {
         source: 'Bài luyện ngắn theo phần numerals trong sách.',
         sections: [
             {

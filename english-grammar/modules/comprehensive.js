@@ -206,7 +206,7 @@ const grammarComprehensiveData = {
 
     'apposition': {
         icon: '🪢', title: 'Apposition (Đồng Vị Ngữ) - Intermediate', category: 'foundations', level: 'intermediate',
-        connections: ['relative-clauses', 'punctuation-deep'],
+        connections: ['relative-clauses', 'punctuation-capitalization'],
         theory: {
             overview: 'Đồng vị ngữ là <strong>hai cụm danh từ đứng cạnh nhau cùng chỉ một đối tượng</strong>: <em>My brother Tom is here. Robert Frost, the famous poet, wrote…</em>',
             tables: [
@@ -1396,106 +1396,11 @@ const grammarComprehensiveData = {
         }
     },
 
-    'causative-have-get': {
-        icon: '🔧', title: 'Causative (Câu Sai Khiến Với Have/Get) - Intermediate', category: 'structures', level: 'intermediate',
-        connections: ['passive-voice', 'verb-patterns', 'modal-verbs'],
-        theory: {
-            overview: 'Câu sai khiến với <strong>have / get</strong>: nhờ, giao việc, thuyết phục ai làm, hoặc có việc được làm cho mình (dịch vụ). Dùng khi kết quả quan trọng hơn người làm. (Tổng quan cả nhóm make / let / have / get: xem Causatives.)',
-            tables: [
-                {
-                    head: ['Mẫu', 'Nghĩa', 'Ví dụ'],
-                    rows: [
-                        ['have + O + V', 'nhờ, giao việc', '<em>I had John fix my car.</em>'],
-                        ['get + O + to V', 'thuyết phục', '<em>I got him to fix it.</em>'],
-                        [
-                            'have / get + O + V3',
-                            'nhờ / thuê làm cho mình',
-                            '<em>I had my car repaired. I had my hair cut. I’ll get my hair cut tomorrow.</em>'
-                        ],
-                        ['have / get + O + V3', 'gặp chuyện xui', '<em>I had my car stolen. I had my wallet stolen.</em>'],
-                        ['make / let + O + V', 'bắt / cho phép', '<em>She made me cry. Let me go.</em>'],
-                        ['help + O + (to) V', 'giúp', '<em>He helped me (to) finish.</em>']
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '🔄 Bị động',
-                    items: [
-                        ['make', 'be made <strong>to</strong> + V: <em>She was made to apologize.</em>'],
-                        ['let', 'không có bị động trực tiếp – dùng be allowed to: <em>They let us in → We were allowed to go in.</em>']
-                    ]
-                }
-            ],
-            compare: [
-                ['I repaired my phone vs I had my phone repaired', 'tự sửa – nhờ / dịch vụ sửa'],
-                [
-                    'have vs get + O + V3',
-                    'have trang trọng hơn (<em>I had the report checked</em>); get thân mật hơn (<em>I got it checked</em>)'
-                ]
-            ],
-            mistakes: [
-                ['I had my car repair.', 'I had my car repaired.', 'Mẫu này dùng V3 sau tân ngữ, không dùng V nguyên mẫu hay V-ing.']
-            ]
-        }
-    },
-
     /* ========== MISTAKES & MECHANICS ========== */
-
-    'punctuation-deep': {
-        icon: '✏️', title: 'Punctuation Rules (Quy Tắc Dấu Câu) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-capitalization', 'fragments-runons', 'apostrophe-rules'],
-        theory: {
-            overview: 'Dấu câu giúp người đọc thấy đúng cấu trúc và nhịp câu. Chủ điểm này đi sâu vào <strong>dấu phẩy, chấm phẩy, hai chấm và gạch ngang dài</strong>.',
-            tables: [
-                {
-                    title: 'Dấu phẩy',
-                    head: ['Dùng khi', 'Ví dụ'],
-                    rows: [
-                        ['Liệt kê 3+ mục (dấu phẩy trước and cuối = Oxford comma, tùy chọn)', '<em>red, white, and blue</em>'],
-                        ['Sau trạng ngữ / mệnh đề đứng đầu câu', '<em>When I arrived, the meeting had started.</em>'],
-                        [
-                            'Trước FANBOYS nối hai mệnh đề độc lập (không cần khi nối hai từ)',
-                            '<em>I came, and I saw.</em> nhưng <em>bread and butter</em>'
-                        ],
-                        [
-                            'Bao mệnh đề không xác định, đồng vị ngữ, phần chêm',
-                            '<em>My brother, who lives in NY, … Bill Gates, founder of Microsoft, said… The book, however, was great.</em>'
-                        ]
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '➗ Chấm phẩy, hai chấm, gạch ngang',
-                    items: [
-                        ['; (semicolon)', 'nối hai mệnh đề độc lập rất gần ý: <em>I came; I saw; I conquered.</em>'],
-                        [': (colon)', 'giới thiệu danh sách, giải thích, trích dẫn: <em>I need three things: pen, paper, ink.</em>'],
-                        ['— (dash)', 'chêm xen mạnh hoặc đổi nhịp: <em>She told me—and I believed her—that he was guilty.</em>'],
-                        [
-                            'however nối hai mệnh đề',
-                            '<em>I was tired; however, I worked.</em> hoặc <em>I was tired. However, I worked.</em>'
-                        ]
-                    ]
-                }
-            ],
-            mistakes: [
-                ['I came, I saw.', 'I came; I saw. / I came, and I saw.', 'Comma splice: hai mệnh đề độc lập nối chỉ bằng dấu phẩy.'],
-                ['I came I saw.', 'I came. I saw.', 'Run-on: viết liền không dấu.'],
-                [
-                    'The man in the red coat, is my uncle.',
-                    'The man in the red coat is my uncle.',
-                    'Không đặt dấu phẩy giữa chủ ngữ và động từ khi không có phần chêm.'
-                ],
-                'Dùng apostrophe để tạo số nhiều thông thường.'
-            ],
-            tip: 'Sửa comma splice / run-on: thêm dấu chấm, thêm chấm phẩy, thêm liên từ, hoặc đổi một vế thành mệnh đề phụ.'
-        }
-    },
 
     'apostrophe-rules': {
         icon: '✒️', title: 'Apostrophe (Dấu Phẩy Trên) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-deep', 'compound-nouns-possessives'],
+        connections: ['punctuation-capitalization', 'compound-nouns-possessives'],
         theory: {
             overview: 'Dấu nháy đơn (apostrophe) có ba chức năng: <strong>sở hữu số ít</strong> (<em>John’s car</em>), <strong>sở hữu số nhiều</strong> (<em>the boys’ room</em>) và <strong>viết tắt</strong> (<em>don’t, it’s, ’90s, o’clock</em>).',
             tables: [
@@ -1525,57 +1430,44 @@ const grammarComprehensiveData = {
         }
     },
 
-    'capitalization-rules': {
-        icon: '🔠', title: 'Capitalization Rules (Quy Tắc Viết Hoa) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-deep'],
-        theory: {
-            overview: 'Viết hoa: <strong>đầu câu, đại từ I, tên riêng</strong> (người, địa danh, công ty, thương hiệu), <strong>quốc tịch, ngôn ngữ, tôn giáo</strong>, <strong>ngày trong tuần, tháng, ngày lễ</strong>, và các từ chính trong tiêu đề.',
-            tables: [
-                {
-                    head: ['Viết hoa', 'Không viết hoa'],
-                    rows: [
-                        ['Monday, January, Christmas', 'spring, summer, fall/autumn, winter (trừ khi nhân hóa)'],
-                        ['Vietnamese, English, Buddhism', 'math, history, biology (môn học chung – trừ ngôn ngữ)'],
-                        ['President Lincoln (chức danh + tên)', 'the president (chức danh chung)'],
-                        ['the South (tên vùng)', 'drive north (hướng)']
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '📰 Title Case',
-                    items: [
-                        'Viết hoa từ đầu, từ cuối và mọi từ chính (danh, động, tính, trạng từ, đại từ).',
-                        'Không viết hoa (trừ khi đứng đầu / cuối): a, an, the, liên từ ngắn (and, but, or), giới từ ngắn (in, on, of): <em>The Lord of the Rings; How to Win Friends and Influence People</em>.'
-                    ]
-                }
-            ]
-        }
-    },
-
     'numbers-dates': {
-        icon: '🔢', title: 'Numbers & Dates (Số Đếm, Số Thứ Tự & Ngày Tháng) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['numerals'],
+        icon: '🔢',
+        title: 'Numbers & Dates (Số Từ, Số Thứ Tự & Ngày Tháng) - Beginner',
+        category: 'foundations',
+        level: 'beginner',
+        connections: ['articles-determiners', 'quantifiers', 'nouns-plurals', 'sentence-order'],
         theory: {
-            overview: 'Cách viết và đọc <strong>số đếm, số thứ tự, phân số, thập phân, phần trăm, ngày tháng, năm, giờ</strong> – nhiều điểm khác tiếng Việt và khác nhau giữa Anh-Anh, Anh-Mỹ.',
+            overview: 'Số từ không chỉ là đếm: gồm <strong>số đếm</strong> (cardinal – số lượng), <strong>số thứ tự</strong> (ordinal – thứ tự, ngày tháng, xếp hạng), <strong>phân số, số thập phân, phần trăm</strong>, cùng cách viết và đọc <strong>ngày tháng, năm, giờ</strong>. Nhiều điểm khác tiếng Việt và khác nhau giữa Anh-Anh, Anh-Mỹ; đây là vùng lỗi rất thường gặp khi đọc, nói, viết.',
             tables: [
                 {
                     head: ['Loại', 'Viết / đọc'],
                     rows: [
                         [
                             'Số đếm / số thứ tự',
-                            'one, twenty-one, one hundred / first (1st), second (2nd), third (3rd), twenty-first (21st)'
+                            'one, twenty-one, one hundred / first (1st), second (2nd), third (3rd), twenty-first (21st) – first, second, third là bất quy tắc'
                         ],
                         [
                             'Phân số',
                             'tử số là số đếm, mẫu số là số thứ tự (thêm s khi tử > 1): 1/2 = a half, 1/3 = a third, 3/4 = three-quarters, 2/5 = two-fifths'
                         ],
-                        ['Thập phân', 'đọc bằng point: 0.5 = point five, 3.14 = three point one four'],
-                        ['Phần trăm', '25% = twenty-five percent (không thêm s)'],
-                        ['Năm', '1999 = nineteen ninety-nine; 2024 = twenty twenty-four / two thousand and twenty-four'],
+                        [
+                            'Thập phân',
+                            'đọc bằng point: 0.5 = point five, 3.14 = three point one four (dấu chấm, không dùng dấu phẩy)'
+                        ],
+                        [
+                            'Phần trăm',
+                            '25% = twenty-five percent (không thêm s); động từ chia theo danh từ sau of: <em>25 percent of students are… / 25 percent of the water is…</em>'
+                        ],
+                        [
+                            'Năm',
+                            '1999 = nineteen ninety-nine; 2024 = twenty twenty-four / two thousand and twenty-four'
+                        ],
                         ['Thập kỷ, tuổi', 'the 1990s / the ’90s = the nineties; in his twenties = khoảng 20–29 tuổi'],
                         ['Giờ', '7:30 = half past seven / seven thirty'],
-                        ['Số điện thoại', 'đọc từng chữ số, 0 có thể đọc "oh": 555-1234 = five-five-five, one-two-three-four'],
+                        [
+                            'Số điện thoại',
+                            'đọc từng chữ số, 0 có thể đọc "oh": 555-1234 = five-five-five, one-two-three-four'
+                        ],
                         ['Phép tính', '2 + 3 = 5 → Two plus three equals five']
                     ]
                 },
@@ -1586,34 +1478,91 @@ const grammarComprehensiveData = {
                         ['Anh-Anh', '5(th) May 2024', 'the fifth of May'],
                         ['Anh-Mỹ', 'May 5(th), 2024', 'May fifth']
                     ]
+                },
+                {
+                    title: 'Số lượng cụ thể và không xác định',
+                    head: ['Dạng', 'Mẫu', 'Ví dụ / ghi chú'],
+                    rows: [
+                        [
+                            'Hàng trăm / nghìn cụ thể',
+                            'two hundred / five thousand',
+                            'không thêm s: <em>two hundred students</em>'
+                        ],
+                        [
+                            'Số lượng không xác định',
+                            'hundreds of / dozens of',
+                            'có s và đi với of: <em>hundreds of pages</em>'
+                        ],
+                        [
+                            'Số + danh từ làm tính từ ghép',
+                            'a five-year plan, a ten-year-old boy',
+                            'dùng gạch nối, danh từ giữ số ít'
+                        ],
+                        ['Ngày tháng bằng ordinal', 'on 21st May / May 21st', 'đọc: <em>the twenty-first of May</em>']
+                    ]
                 }
             ],
+            uses: [
+                [
+                    'Số + danh từ làm tính từ ghép',
+                    'dùng gạch nối, danh từ giữ số ít',
+                    'a one-day trip, a five-year plan, a ten-year-old boy'
+                ]
+            ],
             compare: [
-                ['in 2026 vs on 25 April 2026', 'in + năm; on + ngày cụ thể']
+                ['in 2026 vs on 25 April 2026', 'in + năm; on + ngày cụ thể'],
+                [
+                    'two hundred people vs hundreds of people',
+                    'số cụ thể không thêm s; số lượng không xác định có s và đi với of'
+                ]
             ],
             mistakes: [
-                ['3,5 (đọc "three comma five")', '3.5 (three point five)', ''],
-                ['a two-hours meeting, a 5-years-old', 'a two-hour meeting, a 5-year-old', 'Tính từ ghép với số không thêm s.']
-            ]
+                ['two hundreds people', 'two hundred people', 'Có số cụ thể thì không thêm s.'],
+                [
+                    'a five-years-old boy, a two-hours meeting',
+                    'a five-year-old boy, a two-hour meeting',
+                    'Tính từ ghép với số không thêm s.'
+                ],
+                [
+                    '3,5 percents / 3,5 (đọc "three comma five")',
+                    '3.5 percent / 3.5 (three point five)',
+                    'Thập phân dùng dấu chấm; percent không thêm s.'
+                ]
+            ],
+            advanced: [
+                'Trong academic writing, viết số <strong>thống nhất</strong>: cùng một đoạn không đổi qua lại bừa bãi giữa chữ và số.'
+            ],
+            tip: 'Thấy số + danh từ, kiểm tra ngay: đang là số lượng cụ thể, số lượng không xác định, số thứ tự hay tính từ ghép?'
         }
     },
 
     'fragments-runons': {
-        icon: '⚠️', title: 'Fragments, Run-ons & Comma Splice (Câu Thiếu, Câu Dính & Lỗi Dấu Phẩy) - Intermediate', category: 'mistakes', level: 'intermediate',
-        connections: ['punctuation-deep', 'sentence-types', 'parallel-structure'],
+        icon: '⚠️',
+        title: 'Fragments, Run-ons & Comma Splice (Câu Thiếu, Câu Dính & Lỗi Dấu Phẩy) - Intermediate',
+        category: 'mistakes',
+        level: 'intermediate',
+        connections: ['punctuation-capitalization', 'sentence-order', 'conjunctions', 'sentence-types', 'parallel-structure', 'noun-clauses'],
         theory: {
-            overview: 'Ba lỗi cấu trúc câu cốt lõi: <strong>fragment</strong> (thiếu chủ ngữ, động từ hoặc mệnh đề chính), <strong>run-on</strong> (hai mệnh đề viết liền không dấu, không từ nối) và <strong>comma splice</strong> (hai mệnh đề nối chỉ bằng dấu phẩy). (Xem thêm Fragments & Run-ons.)',
+            overview: 'Một câu hoàn chỉnh cần <strong>ít nhất một mệnh đề độc lập</strong>. Ba lỗi cấu trúc câu cốt lõi: <strong>fragment</strong> (câu thiếu: thiếu chủ ngữ, động từ chia thì hoặc mệnh đề chính), <strong>run-on</strong> (hai mệnh đề độc lập viết liền, không dấu, không từ nối) và <strong>comma splice</strong> (hai mệnh đề độc lập nối chỉ bằng dấu phẩy).',
             tables: [
                 {
-                    head: ['Lỗi', 'Ví dụ sai', 'Sửa'],
+                    head: ['Lỗi', 'Ví dụ sai', 'Mô tả và cách sửa'],
                     rows: [
                         [
                             'Fragment',
-                            '<em>Walking down the street.</em> / <em>Although he was tired.</em>',
-                            '<em>Although he was tired, he worked.</em> (câu hoàn chỉnh)'
+                            '<em>Because I was tired.</em> / <em>Walking down the street.</em>',
+                            'thiếu chủ ngữ, động từ chia thì hoặc mệnh đề chính → ghép với mệnh đề chính: <em>Because I was tired, I went home.</em>'
                         ],
-                        ['Run-on', '<em>I came I saw.</em>', 'xem 4 cách sửa bên dưới'],
-                        ['Comma splice', '<em>I came, I saw.</em>', 'xem 4 cách sửa bên dưới']
+                        [
+                            'Run-on',
+                            '<em>I was tired I went home.</em>',
+                            'hai mệnh đề độc lập dính liền, không dấu, không từ nối → xem 4 cách sửa bên dưới'
+                        ],
+                        [
+                            'Comma splice',
+                            '<em>I was tired, I slept.</em>',
+                            'nối hai mệnh đề độc lập chỉ bằng dấu phẩy → xem 4 cách sửa bên dưới'
+                        ]
                     ]
                 }
             ],
@@ -1630,12 +1579,34 @@ const grammarComprehensiveData = {
             ],
             uses: [
                 [
+                    'Sửa fragment',
+                    'ghép với mệnh đề chính hoặc bổ sung chủ ngữ và động từ',
+                    'Because I was tired, I went home.'
+                ],
+                [
+                    'Sửa run-on / comma splice',
+                    'dấu chấm, chấm phẩy, dấu phẩy + FANBOYS, hoặc liên từ phụ thuộc',
+                    'I was tired. I went home. / I was tired; I went home. / I was tired, so I went home.'
+                ],
+                [
                     'Fragment có chủ ý',
-                    'tạo nhịp, nhấn mạnh trong quảng cáo, văn học, báo chí – không dùng trong văn học thuật',
+                    'tạo nhịp, nhấn mạnh trong quảng cáo, văn học, báo chí – không dùng trong văn học thuật và formal writing',
                     'Best service. Lowest price. Anywhere. / And then? Silence.'
                 ]
             ],
-            mistakes: ['Để mệnh đề because / although đứng một mình trong văn trang trọng.', 'Kéo câu dài mà không xác định được động từ chính.']
+            mistakes: [
+                [
+                    'It was late, however we kept working.',
+                    'It was late; however, we kept working. / It was late. However, we kept working.',
+                    'however là trạng từ liên kết, không nối hai mệnh đề chỉ bằng dấu phẩy (comma splice).'
+                ],
+                'Để mệnh đề <em>because / although / when</em> đứng một mình trong văn trang trọng (quên mệnh đề chính).',
+                'Sửa comma splice bằng cách… thêm một dấu phẩy nữa.',
+                'Kéo câu dài bằng <em>and… and… and…</em> khi quan hệ logic giữa các ý không rõ, hoặc kéo câu dài mà không xác định được động từ chính.'
+            ],
+            advanced: [
+                'Trong IELTS/TOEFL và academic writing, fragment và comma splice là <strong>lỗi cấu trúc</strong> nghiêm trọng. Câu dài để "trông học thuật" mà nối sai mệnh đề vẫn bị trừ điểm – câu tốt cần logic rõ, không cần dài.'
+            ]
         }
     },
 
@@ -2056,7 +2027,7 @@ const grammarComprehensiveData = {
 
     'advanced-relative-clauses': {
         icon: '🧬', title: 'Advanced Relative Clauses (Mệnh Đề Quan Hệ Nâng Cao) - Advanced', category: 'structures', level: 'advanced', cefr: 'C2',
-        connections: ['relative-clauses', 'reduced-relatives', 'noun-phrase-architecture', 'punctuation-deep'],
+        connections: ['relative-clauses', 'reduced-relatives', 'noun-phrase-architecture', 'punctuation-capitalization'],
         theory: {
             overview: 'Ở trình độ C2, mệnh đề quan hệ không dừng ở who / which / that: cần đọc và viết được <strong>giới từ + đại từ quan hệ, quantifier + of whom/which, sentential which, mệnh đề rút gọn, whose cho vật</strong>.',
             tables: [
@@ -2096,7 +2067,7 @@ const grammarComprehensiveData = {
 
     'verb-complementation': {
         icon: '🎛️', title: 'Verb Complementation (Bổ Ngữ Của Động Từ) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
-        connections: ['gerunds-infinitives', 'causative-have-get', 'subjunctive', 'noun-clauses'],
+        connections: ['gerunds-infinitives', 'causatives', 'subjunctive', 'noun-clauses'],
         theory: {
             overview: 'Verb complementation là hệ thống bổ ngữ đi sau từng động từ: to V, V-ing, V nguyên mẫu, that-clause, wh-clause, O + to V, O + phân từ… Ở C2 cần hiểu <strong>vì sao</strong> mỗi kiểu biểu hiện một quan hệ nghĩa khác nhau. <em>She agreed to leave. She enjoyed reading. We saw him cross the street. They expected him to win.</em>',
             tables: [

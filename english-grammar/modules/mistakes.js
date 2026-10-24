@@ -166,51 +166,14 @@ const grammarMistakesData = {
             ]
         }
     },
-    'fragments-run-ons': {
-        icon: '🧵',
-        title: 'Fragments & Run-ons (Câu Thiếu & Câu Dính) - Advanced',
-        category: 'mistakes',
-        level: 'advanced',
-        connections: ['sentence-order', 'conjunctions', 'punctuation-capitalization', 'noun-clauses'],
-        theory: {
-            overview: 'Một câu hoàn chỉnh cần <strong>ít nhất một mệnh đề độc lập</strong>. Thiếu mệnh đề độc lập → <strong>fragment</strong> (câu thiếu); nối hai mệnh đề độc lập sai cách → <strong>run-on / comma splice</strong> (câu dính).',
-            tables: [
-                {
-                    head: ['Lỗi', 'Ví dụ sai', 'Mô tả'],
-                    rows: [
-                        ['Fragment', '<em>Because I was tired.</em>', 'thiếu chủ ngữ, động từ chia thì hoặc mệnh đề chính'],
-                        ['Run-on', '<em>I was tired I went home.</em>', 'hai mệnh đề độc lập dính liền, không dấu, không từ nối'],
-                        ['Comma splice', '<em>I was tired, I slept.</em>', 'nối hai mệnh đề độc lập chỉ bằng dấu phẩy']
-                    ]
-                }
-            ],
-            uses: [
-                ['Sửa fragment', 'ghép với mệnh đề chính hoặc bổ sung chủ–vị', 'Because I was tired, I went home.'],
-                [
-                    'Sửa run-on / comma splice',
-                    'dấu chấm, chấm phẩy, dấu phẩy + FANBOYS, hoặc liên từ phụ thuộc',
-                    'I was tired. I went home. / I was tired; I went home. / I was tired, so I went home.'
-                ],
-                ['Fragment có chủ ý', 'chấp nhận trong slogan, quảng cáo, văn học – không dùng trong formal writing', '']
-            ],
-            mistakes: [
-                'Thêm <em>because, although, when</em> vào đầu câu rồi quên mệnh đề chính.',
-                'Sửa comma splice bằng cách… thêm một dấu phẩy nữa.',
-                'Kéo câu dài bằng <em>and… and… and…</em> khi quan hệ logic giữa các ý không rõ.'
-            ],
-            advanced: [
-                'Trong IELTS/TOEFL và academic writing, fragment và comma splice là <strong>lỗi cấu trúc</strong> nghiêm trọng. Câu dài để "trông học thuật" mà nối sai mệnh đề vẫn bị trừ điểm – câu tốt cần logic rõ, không cần dài.'
-            ]
-        }
-    },
     'punctuation-capitalization': {
         icon: '✍️',
         title: 'Punctuation & Capitalization (Dấu Câu & Viết Hoa) - Beginner',
         category: 'mistakes',
         level: 'beginner',
-        connections: ['conjunctions', 'fragments-run-ons', 'reported-speech', 'relative-clauses'],
+        connections: ['conjunctions', 'fragments-runons', 'reported-speech', 'relative-clauses', 'apostrophe-rules'],
         theory: {
-            overview: 'Dấu câu và viết hoa là phần nhỏ nhưng ảnh hưởng mạnh tới độ rõ ràng: nhiều câu đúng ngữ pháp vẫn khó đọc vì dấu câu, viết hoa không chuẩn.',
+            overview: 'Dấu câu và viết hoa là phần nhỏ nhưng ảnh hưởng mạnh tới độ rõ ràng: nhiều câu đúng ngữ pháp vẫn khó đọc vì dấu câu, viết hoa không chuẩn. Chủ điểm gồm <strong>dấu phẩy, chấm phẩy, hai chấm, gạch ngang</strong> và <strong>quy tắc viết hoa</strong>; dấu nháy đơn xem bài Apostrophe.',
             tables: [
                 {
                     head: ['Dấu', 'Chức năng', 'Ví dụ'],
@@ -226,14 +189,68 @@ const grammarMistakesData = {
                         ['?', 'câu hỏi trực tiếp', ''],
                         ['’ (apostrophe)', 'sở hữu', '<em>Lan’s book, students’ projects</em>']
                     ]
+                },
+                {
+                    title: 'Dấu phẩy',
+                    head: ['Dùng khi', 'Ví dụ'],
+                    rows: [
+                        [
+                            'Liệt kê 3+ mục (dấu phẩy trước and cuối = Oxford comma, tùy chọn)',
+                            '<em>red, white, and blue</em>'
+                        ],
+                        ['Sau trạng ngữ / mệnh đề đứng đầu câu', '<em>When I arrived, the meeting had started.</em>'],
+                        [
+                            'Trước FANBOYS nối hai mệnh đề độc lập (không cần khi nối hai từ)',
+                            '<em>I came, and I saw.</em> nhưng <em>bread and butter</em>'
+                        ],
+                        [
+                            'Bao mệnh đề không xác định, đồng vị ngữ, phần chêm',
+                            '<em>My brother, who lives in NY, … Bill Gates, founder of Microsoft, said… The book, however, was great.</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Viết hoa',
+                    head: ['Viết hoa', 'Không viết hoa'],
+                    rows: [
+                        ['Monday, January, Christmas', 'spring, summer, fall/autumn, winter (trừ khi nhân hóa)'],
+                        ['Vietnamese, English, Buddhism', 'math, history, biology (môn học chung – trừ ngôn ngữ)'],
+                        ['President Lincoln (chức danh + tên)', 'the president (chức danh chung)'],
+                        ['the South (tên vùng)', 'drive north (hướng)']
+                    ]
                 }
             ],
             sections: [
                 {
                     title: '🔠 Viết hoa',
                     items: [
-                        'Viết hoa: đầu câu, <em>I</em>, tên riêng, quốc gia, <strong>ngôn ngữ</strong>, quốc tịch, ngày trong tuần, tháng, ngày lễ.',
+                        'Viết hoa: đầu câu, <em>I</em>, <strong>tên riêng</strong> (người, địa danh, công ty, thương hiệu), quốc gia, <strong>ngôn ngữ</strong>, quốc tịch, tôn giáo, ngày trong tuần, tháng, ngày lễ.',
                         'Thường không viết hoa: mùa và môn học chung – <em>I study math and English in spring.</em>'
+                    ]
+                },
+                {
+                    title: '📰 Title Case',
+                    items: [
+                        'Viết hoa từ đầu, từ cuối và mọi từ chính (danh, động, tính, trạng từ, đại từ).',
+                        'Không viết hoa (trừ khi đứng đầu / cuối): a, an, the, liên từ ngắn (and, but, or), giới từ ngắn (in, on, of): <em>The Lord of the Rings; How to Win Friends and Influence People</em>.'
+                    ]
+                },
+                {
+                    title: '➗ Chấm phẩy, hai chấm, gạch ngang',
+                    items: [
+                        ['; (semicolon)', 'nối hai mệnh đề độc lập rất gần ý: <em>I came; I saw; I conquered.</em>'],
+                        [
+                            ': (colon)',
+                            'giới thiệu danh sách, giải thích, trích dẫn: <em>I need three things: pen, paper, ink.</em>'
+                        ],
+                        [
+                            '— (dash)',
+                            'chêm xen mạnh hoặc đổi nhịp: <em>She told me—and I believed her—that he was guilty.</em>'
+                        ],
+                        [
+                            'however nối hai mệnh đề',
+                            '<em>I was tired; however, I worked.</em> hoặc <em>I was tired. However, I worked.</em>'
+                        ]
                     ]
                 }
             ],
@@ -243,11 +260,22 @@ const grammarMistakesData = {
                     'It was late. We went home. / It was late; we went home.',
                     'Dùng dấu phẩy thay dấu chấm giữa hai câu độc lập (comma splice).'
                 ],
+                ['I came I saw.', 'I came. I saw.', 'Run-on: viết liền không dấu.'],
+                [
+                    'The man in the red coat, is my uncle.',
+                    'The man in the red coat is my uncle.',
+                    'Không đặt dấu phẩy giữa chủ ngữ và động từ khi không có phần chêm.'
+                ],
                 ['english', 'English', 'Ngôn ngữ luôn viết hoa.'],
-                ['The dog wagged it’s tail.', 'The dog wagged its tail.', '<em>it’s</em> = it is; <em>its</em> = của nó.'],
-                'Quá nhiều dấu phẩy trong câu ngắn, hoặc bỏ hẳn dấu phẩy ở câu dài có mệnh đề phụ.'
+                [
+                    'The dog wagged it’s tail.',
+                    'The dog wagged its tail.',
+                    '<em>it’s</em> = it is; <em>its</em> = của nó.'
+                ],
+                'Quá nhiều dấu phẩy trong câu ngắn, hoặc bỏ hẳn dấu phẩy ở câu dài có mệnh đề phụ.',
+                'Dùng apostrophe để tạo số nhiều thông thường.'
             ],
-            tip: 'Khi rà bài, kiểm tra <strong>riêng một lượt</strong> chỉ cho dấu câu. Chi tiết: Punctuation, Apostrophe, Capitalization.'
+            tip: 'Khi rà bài, kiểm tra <strong>riêng một lượt</strong> chỉ cho dấu câu. Sửa comma splice / run-on: thêm dấu chấm, thêm chấm phẩy, thêm liên từ, hoặc đổi một vế thành mệnh đề phụ. Chi tiết dấu nháy đơn: Apostrophe.'
         }
     },
     'modifier-errors': {
