@@ -355,7 +355,7 @@ window.HEALTH_TOPICS.push({
     title: 'Khám sức khỏe định kỳ và tầm soát',
     summary: 'Nên khám gì ở mỗi độ tuổi, cách chuẩn bị, hiểu giới hạn của tầm soát và những gói "khám tổng quát".',
     keywords: 'khám sức khỏe định kỳ tầm soát xét nghiệm tổng quát chuẩn bị nhịn ăn độ tuổi lịch khám gói khám tiền sử gia đình sổ sức khỏe',
-    sources: ['US Preventive Services Task Force (USPSTF) - A and B recommendations', 'WHO - Screening programmes; Package of Essential NCD interventions (PEN)', 'Canadian Task Force on Preventive Health Care; NICE', 'Bộ Y tế Việt Nam - Quy định và hướng dẫn khám sức khỏe định kỳ; chương trình quản lý bệnh không lây nhiễm'],
+    sources: ['US Preventive Services Task Force (USPSTF) - A and B recommendations', 'WHO - Screening programmes; Package of Essential NCD interventions (PEN)', 'Canadian Task Force on Preventive Health Care; NICE', 'Bộ Y tế Việt Nam - Quy định và hướng dẫn khám sức khỏe định kỳ; chương trình quản lý bệnh không lây nhiễm', 'ACS - cập nhật hướng dẫn tầm soát ung thư đại - trực tràng (5/2026) và cổ tử cung (12/2025); ACC/AHA Dyslipidemia 2026'],
     html: `
 <p>Khám sức khỏe định kỳ không có nghĩa là làm thật nhiều xét nghiệm, mà là <strong>làm đúng xét nghiệm, đúng người, đúng thời điểm</strong>. Mục đích là phát hiện sớm bệnh âm thầm (tăng huyết áp, tiểu đường, bệnh thận, ung thư), đánh giá nguy cơ, cập nhật tiêm chủng, và tư vấn lối sống. Nội dung dưới đây mang tính hướng dẫn chung cho người không có triệu chứng; bác sĩ sẽ điều chỉnh theo bệnh sử, gia đình và nguy cơ của từng người.</p>
 
@@ -399,15 +399,15 @@ window.HEALTH_TOPICS.push({
 </ul>
 <h3>30–39 tuổi</h3>
 <ul>
-<li>Thêm: đường huyết (nếu thừa cân/BMI từ 23 và có yếu tố nguy cơ), mỡ máu (ít nhất một lần).</li>
-<li>Phụ nữ: tầm soát cổ tử cung mỗi 3–5 năm; khám vú; thai kỳ theo lịch khám thai.</li>
+<li>Thêm: đường huyết (nếu thừa cân/BMI từ 23 và có yếu tố nguy cơ), mỡ máu (ít nhất một lần; hướng dẫn Hoa Kỳ 2026 còn khuyến cáo đo Lp(a) một lần trong đời).</li>
+<li>Phụ nữ: tầm soát cổ tử cung mỗi 3–5 năm (xét nghiệm HPV mỗi 5 năm; nơi có thể tự lấy mẫu, xem bài Ung thư); khám vú; thai kỳ theo lịch khám thai.</li>
 <li>Xét nghiệm viêm gan B nếu chưa biết tình trạng.</li>
 </ul>
 <h3>40–49 tuổi</h3>
 <ul>
 <li>Huyết áp hằng năm; đường huyết mỗi 3 năm (hoặc hằng năm nếu nguy cơ); mỡ máu mỗi 1–5 năm theo nguy cơ; đánh giá nguy cơ tim mạch 10 năm.</li>
 <li><strong>Tầm soát ung thư vú bằng chụp nhũ ảnh</strong> bắt đầu từ 40–45 tuổi (tuỳ nguy cơ, hướng dẫn).</li>
-<li><strong>Tầm soát ung thư đại - trực tràng</strong> từ 45 tuổi (hoặc 50 tuổi theo hướng dẫn địa phương).</li>
+<li><strong>Tầm soát ung thư đại - trực tràng</strong> từ 45 tuổi (hoặc 50 tuổi theo hướng dẫn địa phương). Có nhiều lựa chọn (xét nghiệm phân tại nhà hoặc nội soi), xem bài Ung thư.</li>
 <li>Kiểm tra mắt, thính lực, thị lực; hỏi về triệu chứng mãn kinh (nữ).</li>
 </ul>
 <h3>50–64 tuổi</h3>

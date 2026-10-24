@@ -6,7 +6,7 @@ window.HEALTH_TOPICS.push({
     title: 'Dinh dưỡng cơ bản',
     summary: 'Đạm, đường, béo, chất xơ, vi chất, muối, nước; cách ăn cân bằng, đọc nhãn thực phẩm và hiểu về calo.',
     keywords: 'dinh dưỡng ăn uống calo protein carbohydrate chất béo chất xơ vitamin khoáng chất muối đường nhãn thực phẩm giảm cân',
-    sources: ['WHO - Healthy diet fact sheet (2020)', 'WHO - Guideline: Sugars intake for adults and children; Sodium intake for adults and children', 'Viện Dinh dưỡng Quốc gia Việt Nam - Nhu cầu dinh dưỡng khuyến nghị và Tháp dinh dưỡng', 'Dietary Guidelines for Americans 2020-2025 / Harvard T.H. Chan School of Public Health - The Nutrition Source'],
+    sources: ['WHO - Healthy diet fact sheet (2020)', 'WHO - Guideline: Sugars intake for adults and children; Sodium intake for adults and children', 'Viện Dinh dưỡng Quốc gia Việt Nam - Nhu cầu dinh dưỡng khuyến nghị và Tháp dinh dưỡng', 'Dietary Guidelines for Americans 2020-2025 / Harvard T.H. Chan School of Public Health - The Nutrition Source', 'Monteiro CA et al. Ultra-processed foods and human health: the main thesis and the evidence. The Lancet 2025 (loạt bài về thực phẩm siêu chế biến)'],
     html: `
 <p>Thức ăn cung cấp <strong>năng lượng</strong> (tính bằng kilocalo, kcal) và các <strong>chất dinh dưỡng</strong> để xây dựng, sửa chữa và vận hành cơ thể. Ăn uống hợp lý là một trong những yếu tố ảnh hưởng mạnh nhất đến nguy cơ béo phì, tiểu đường type 2, bệnh tim mạch và một số loại ung thư.</p>
 
@@ -92,7 +92,7 @@ window.HEALTH_TOPICS.push({
 </ol>
 
 <h2>Thực phẩm siêu chế biến</h2>
-<p>Thực phẩm siêu chế biến (phân loại NOVA nhóm 4) là các sản phẩm công nghiệp chứa nhiều chất phụ gia, đường, muối, chất béo tinh luyện: nước ngọt, snack, mì ăn liền, xúc xích, bánh kẹo, ngũ cốc ăn sáng nhiều đường, đồ ăn nhanh. Chúng dễ ăn quá nhiều, nghèo chất xơ và vi chất. Nhiều nghiên cứu quan sát liên kết việc ăn nhiều nhóm này với béo phì, tiểu đường, bệnh tim mạch và tử vong sớm. Nguyên tắc dễ nhớ: <em>ăn thực phẩm nguyên bản là chính, thực phẩm đóng gói là phụ</em>.</p>
+<p>Thực phẩm siêu chế biến (phân loại NOVA nhóm 4) là các sản phẩm công nghiệp chứa nhiều chất phụ gia, đường, muối, chất béo tinh luyện: nước ngọt, snack, mì ăn liền, xúc xích, bánh kẹo, ngũ cốc ăn sáng nhiều đường, đồ ăn nhanh. Chúng dễ ăn quá nhiều, nghèo chất xơ và vi chất. Nhiều nghiên cứu quan sát liên kết việc ăn nhiều nhóm này với béo phì, tiểu đường, bệnh tim mạch và tử vong sớm; loạt ba bài trên <em>The Lancet</em> (11/2025) tổng hợp bằng chứng này và dẫn cả thử nghiệm cho ăn có kiểm soát cho thấy chế độ ăn nhiều siêu chế biến khiến người ta nạp nhiều năng lượng hơn và tăng cân. Phần lớn bằng chứng vẫn là nghiên cứu quan sát và còn tranh luận khoa học về cơ chế. Nguyên tắc dễ nhớ: <em>ăn thực phẩm nguyên bản là chính, thực phẩm đóng gói là phụ</em>.</p>
 
 <h2>Rượu bia</h2>
 <p>WHO nhận định <strong>không có mức uống rượu bia nào hoàn toàn an toàn</strong> cho sức khỏe: rượu là chất gây ung thư (miệng, họng, thực quản, gan, đại tràng, vú), hại gan, tim, thần kinh và là nguyên nhân của nhiều tai nạn, bạo lực. Nếu vẫn uống, nên ít nhất có thể, có những ngày không uống, và không uống khi lái xe, mang thai, dùng một số thuốc, hoặc tuổi dưới 18.</p>
@@ -209,7 +209,7 @@ window.HEALTH_TOPICS.push({
     title: 'Vận động và tập luyện',
     summary: 'Bao nhiêu vận động là đủ, bốn loại bài tập, cường độ, chấn thương thường gặp và khi nào nên dừng.',
     keywords: 'tập thể dục vận động đi bộ chạy bộ tạ cardio sức mạnh giãn cơ nhịp tim bước chân ngồi nhiều',
-    sources: ['WHO Guidelines on Physical Activity and Sedentary Behaviour (2020)', 'US Physical Activity Guidelines for Americans, 2nd edition (2018)', 'ACSM - Guidelines for Exercise Testing and Prescription', 'Paluch AE et al. - Daily steps and all-cause mortality: a meta-analysis (Lancet Public Health 2022; Lancet 2025)'],
+    sources: ['WHO Guidelines on Physical Activity and Sedentary Behaviour (2020)', 'US Physical Activity Guidelines for Americans, 2nd edition (2018)', 'ACSM - Guidelines for Exercise Testing and Prescription', 'Paluch AE et al. - Daily steps and all-cause mortality: a meta-analysis (Lancet Public Health 2022; Lancet 2025)', 'Ding D et al. Daily steps and health outcomes in adults: a systematic review and dose-response meta-analysis. Lancet Public Health 2025;10(8):e668-e681'],
     html: `
 <p>Nếu vận động có thể đóng gói thành một viên thuốc, nó sẽ là loại thuốc được kê nhiều nhất thế giới. Vận động đều đặn giảm nguy cơ tử vong sớm, bệnh tim mạch, tiểu đường type 2, đột quỵ, một số ung thư (đại tràng, vú, nội mạc tử cung), loãng xương, trầm cảm, sa sút trí tuệ, đồng thời cải thiện giấc ngủ và chất lượng cuộc sống. Theo WHO, khoảng 1/4 người trưởng thành trên thế giới không vận động đủ.</p>
 
@@ -232,7 +232,7 @@ window.HEALTH_TOPICS.push({
 <li><strong>Mạnh:</strong> thở gấp, chỉ nói được vài từ mỗi lần. Ví dụ: chạy bộ, đạp xe nhanh, bơi nhanh, cầu lông đôi/đơn, bóng đá, leo núi, HIIT.</li>
 <li><strong>Nhịp tim tối đa ước tính:</strong> khoảng <strong>220 - tuổi</strong> (chỉ là ước lượng, sai số khoảng ±10 nhịp). Vận động vừa khoảng 50–70% nhịp tim tối đa, mạnh khoảng 70–85%.</li>
 <li>Người đang dùng thuốc hạ nhịp tim (như chẹn beta) không nên dùng nhịp tim để ước lượng cường độ; dùng "thang mức gắng sức" hoặc "test nói chuyện".</li>
-<li>Đếm bước chân: nghiên cứu tổng hợp cho thấy lợi ích tăng rõ đến khoảng <strong>7.000–8.000 bước mỗi ngày</strong> và tăng thêm ít hơn sau đó. Con số 10.000 bước là mục tiêu tiếp thị chứ không phải ngưỡng khoa học cứng.</li>
+<li>Đếm bước chân: phân tích gộp trên <em>The Lancet Public Health</em> (2025) cho thấy so với 2.000 bước mỗi ngày, <strong>khoảng 7.000 bước</strong> liên quan đến giảm khoảng 47% tử vong chung, 25% bệnh tim mạch và 38% sa sút trí tuệ; với nhiều kết cục, lợi ích tăng rõ ở khoảng 5.000–7.000 bước rồi chậm lại (đây là nghiên cứu quan sát nên còn yếu tố gây nhiễu). Con số 10.000 bước là mục tiêu tiếp thị chứ không phải ngưỡng khoa học cứng.</li>
 </ul>
 
 <h2>Bốn loại vận động cần có</h2>
@@ -292,7 +292,7 @@ window.HEALTH_TOPICS.push({
     title: 'Nước, ánh nắng và vitamin D',
     summary: 'Cơ thể cần bao nhiêu nước, tia UV vừa có lợi vừa có hại, cách chống nắng đúng và vitamin D.',
     keywords: 'uống nước mất nước chống nắng kem chống nắng uv vitamin d còi xương say nắng nước tiểu',
-    sources: ['EFSA - Dietary Reference Values for water (2010)', 'US National Academies - Dietary Reference Intakes for Water (2005) và Vitamin D (2011)', 'WHO - Ultraviolet radiation và Global Solar UV Index', 'NIH Office of Dietary Supplements - Vitamin D Fact Sheet'],
+    sources: ['EFSA - Dietary Reference Values for water (2010)', 'US National Academies - Dietary Reference Intakes for Water (2005) và Vitamin D (2011)', 'WHO - Ultraviolet radiation và Global Solar UV Index', 'NIH Office of Dietary Supplements - Vitamin D Fact Sheet', 'Endocrine Society - Vitamin D for the Prevention of Disease: Clinical Practice Guideline (2024, cập nhật 2025)'],
     html: `
 <h2>Nước: nhu cầu thực tế</h2>
 <p>Nước chiếm khoảng 50–60% trọng lượng cơ thể người lớn. Nó là môi trường cho mọi phản ứng hóa học, vận chuyển chất dinh dưỡng, điều hòa thân nhiệt (qua mồ hôi), bôi trơn khớp và thải chất cặn bã qua thận.</p>
@@ -361,7 +361,8 @@ window.HEALTH_TOPICS.push({
 <li><strong>Ánh nắng</strong> là nguồn chính. Thời gian cần thiết phụ thuộc màu da, giờ, mùa, vĩ độ; thông thường cho da tay chân tiếp xúc nắng khoảng 10–20 phút vài lần mỗi tuần vào buổi sáng sớm hoặc chiều muộn là đủ cho đa số người da sáng và vừa. Không cần phơi đến đỏ da; phơi lâu không tạo thêm vitamin D mà chỉ tăng nguy cơ ung thư da.</li>
 <li><strong>Thực phẩm:</strong> cá béo (cá hồi, cá thu, cá mòi), lòng đỏ trứng, gan, nấm phơi nắng, sữa và ngũ cốc tăng cường vitamin D. Khó đạt đủ chỉ bằng thức ăn.</li>
 <li><strong>Nhu cầu khuyến nghị:</strong> khoảng 600 IU (15 µg) mỗi ngày cho người lớn đến 70 tuổi, 800 IU (20 µg) cho người trên 70 tuổi; trẻ bú mẹ thường cần bổ sung 400 IU (10 µg) mỗi ngày từ những ngày đầu đời theo khuyến cáo của nhi khoa.</li>
-<li><strong>Xét nghiệm 25(OH)D:</strong> dưới 20 ng/mL (50 nmol/L) coi là thiếu theo nhiều hướng dẫn; không cần xét nghiệm thường quy cho mọi người.</li>
+<li><strong>Xét nghiệm 25(OH)D:</strong> dưới 20 ng/mL (50 nmol/L) từng được nhiều hướng dẫn coi là thiếu, nhưng Hiệp hội Nội tiết Hoa Kỳ (Endocrine Society, 2024) nhận định <strong>chưa có ngưỡng mục tiêu nào được chứng minh bằng thử nghiệm</strong> và khuyến cáo <strong>không xét nghiệm thường quy</strong> ở trẻ em và người lớn khỏe mạnh. Xét nghiệm khi có chỉ định cụ thể như hạ canxi máu, hội chứng kém hấp thu (cắt đoạn ruột, nối tắt dạ dày, viêm ruột), mất vitamin D qua thận hoặc dùng một số thuốc.</li>
+<li><strong>Ai nên bổ sung?</strong> Cũng theo Endocrine Society: nên cân nhắc bổ sung vitamin D (không cần xét nghiệm trước) cho <strong>trẻ 1–18 tuổi</strong> (phòng còi xương), <strong>phụ nữ mang thai</strong>, <strong>người tiền tiểu đường</strong> và <strong>người từ 75 tuổi trở lên</strong>; còn với người khỏe mạnh 19–74 tuổi thì không khuyến cáo bổ sung thường quy. Nếu bổ sung, nên dùng <strong>liều thấp hằng ngày</strong> hơn là liều cao cách quãng. Mức 600–800 IU ở trên là nhu cầu tổng từ mọi nguồn (nắng, thức ăn, viên uống), không có nghĩa ai cũng cần uống viên. Khuyến cáo này nhằm phòng bệnh ở người khỏe; người có bệnh xương, thận, kém hấp thu hay đang điều trị thì làm theo chỉ định của bác sĩ.</li>
 </ul>
 <div class="box warn"><b>Bổ sung vitamin D: dùng đúng liều</b>
 <p>Vitamin D tan trong mỡ và tích lũy trong cơ thể. Dùng liều rất cao kéo dài (thường trên 4.000 IU mỗi ngày mà không có chỉ định) có thể gây tăng canxi máu, buồn nôn, khát, đi tiểu nhiều, sỏi thận, tổn thương thận. Hãy dùng theo khuyến cáo của bác sĩ, đặc biệt với liều "sốc" hàng tuần hoặc hàng tháng.</p></div>
