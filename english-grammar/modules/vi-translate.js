@@ -1048,6 +1048,51 @@ const grammarViTranslateData = {
       }
     ]
   },
+  "concession-contrast": {
+    "instruction": "Dịch các câu sau, chọn đúng although / despite / however / whereas và chú ý từ loại đi sau (mệnh đề hay danh từ / V-ing).",
+    "items": [
+      {
+        "vi": "Mặc dù trời mưa, chúng tôi vẫn ra ngoài.",
+        "en": "Although it rained, we went out.",
+        "point": "although + mệnh đề"
+      },
+      {
+        "vi": "Bất chấp cơn mưa, chúng tôi vẫn ra ngoài.",
+        "en": "Despite the rain, we went out.",
+        "point": "despite + danh từ"
+      },
+      {
+        "vi": "Cô ấy đi làm dù đang ốm.",
+        "en": "She went to work in spite of feeling ill.",
+        "point": "in spite of + V-ing"
+      },
+      {
+        "vi": "Dù thực tế là anh ấy đã mệt, anh ấy vẫn làm việc.",
+        "en": "Despite the fact that he was tired, he kept working.",
+        "point": "despite the fact that + mệnh đề"
+      },
+      {
+        "vi": "Trời mưa cả ngày. Tuy nhiên, trận đấu vẫn diễn ra.",
+        "en": "It rained all day. However, the match went ahead.",
+        "point": "However nối hai câu, có dấu phẩy phía sau"
+      },
+      {
+        "vi": "Tom cao, còn em trai anh ấy thì thấp.",
+        "en": "Tom is tall, whereas his brother is short.",
+        "point": "whereas đối chiếu hai vế"
+      },
+      {
+        "vi": "Dù đã học chăm chỉ, anh ấy vẫn trượt.",
+        "en": "Even though he studied hard, he failed.",
+        "point": "even though nhấn sự bất ngờ"
+      },
+      {
+        "vi": "Dù mệt, cô ấy vẫn ở lại.",
+        "en": "Although tired, she stayed.",
+        "point": "rút gọn although + adj khi cùng chủ ngữ"
+      }
+    ]
+  },
   "conjunctions": {
     "instruction": "Dịch các câu sau, chọn đúng liên từ coordinating hoặc subordinating phù hợp với quan hệ ý nghĩa (thêm ý, đối lập, nguyên nhân, kết quả) và đặt dấu phẩy đúng chỗ.",
     "items": [
