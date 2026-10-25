@@ -1507,12 +1507,82 @@ const grammarExtrasData = {
                 {
                     head: ['Giới từ', 'Nghĩa', 'Động từ điển hình'],
                     rows: [
-                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw, ...'],
+                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw, ... (danh sách đầy đủ ở các bảng Tra cứu bên dưới)'],
                         [
                             'for',
                             'làm vì lợi ích ai',
-                            'buy, make, cook, get, find, build, choose, save, order, ... – <em>She bought me a gift = She bought a gift for me.</em>'
+                            'buy, make, cook, get, find, build, choose, save, order, ... – <em>She bought me a gift = She bought a gift for me.</em> (danh sách đầy đủ ở các bảng Tra cứu bên dưới)'
                         ]
+                    ]
+                },
+                {
+                    title: 'Tra cứu 1: động từ dùng với to (V + IO + DO = V + DO + to + IO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'give, tell, show, send, bring', '<em>She gave me a book. = She gave a book to me. / He told me the truth. = He told the truth to me.</em>'],
+                        ['Thông dụng', 'offer, teach, pass, sell, lend, pay, take', '<em>Can you pass me the salt? = Can you pass the salt to me? / The bank lent him money.</em>'],
+                        ['Khá thông dụng', 'email, text, mail, hand, owe, promise, throw, post, forward', '<em>Email me the file. = Email the file to me. / He owes me $10.</em>'],
+                        ['Ít gặp', 'rent, loan, serve, feed, toss, award, grant, assign, deliver', '<em>The court awarded her damages. = The court awarded damages to her. / She served the guests dinner.</em>'],
+                        ['Trang trọng, văn viết', 'bequeath, lease, wire, fax, allocate, extend', '<em>He bequeathed his daughter the house. = He bequeathed the house to his daughter.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 2: động từ dùng với for (V + IO + DO = V + DO + for + IO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'get, buy, make, find, cook', '<em>I bought her a gift. = I bought a gift for her. / Can you get me some water?</em>'],
+                        ['Thông dụng', 'leave, save, order, build, choose, fix, keep, book', '<em>Please book us a table. = Please book a table for us. / Save me a seat.</em>'],
+                        ['Khá thông dụng', 'pour, draw, pick, prepare, bake, grab, fetch, call, hold, reserve', '<em>Pour me a drink. / Call me a taxi. = Call a taxi for me. / Fetch me my coat.</em>'],
+                        ['Ít gặp', 'paint, design, knit, sew, mix, cut, win, earn, do (a favour)', '<em>She knitted him a scarf. = She knitted a scarf for him. / Do me a favour.</em>'],
+                        ['Trang trọng, văn viết', 'secure, compose, procure, arrange', '<em>She secured him a job. = She secured a job for him.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 3: động từ dùng được cả to và for (nghĩa khác nhau)',
+                    head: ['Động từ', 'Với to (người nhận)', 'Với for (làm thay / vì lợi ích)'],
+                    rows: [
+                        ['write', '<em>write a letter to Mum</em> (gửi cho mẹ)', '<em>write a letter for Mum</em> (viết hộ mẹ)'],
+                        ['read', '<em>read a story to the kids</em> (đọc cho các em nghe)', '<em>read a story for the kids</em> (đọc vì các em; đọc hộ)'],
+                        ['sell', '<em>sell a car to him</em> (bán xe cho anh ấy)', '<em>sell a car for him</em> (bán hộ anh ấy)'],
+                        ['pay', '<em>pay $10 to him</em> (trả anh ấy 10 đô)', '<em>pay $10 for him</em> (trả thay anh ấy)'],
+                        ['sing', '<em>sing a song to her</em> (hát cho cô ấy nghe)', '<em>sing a song for her</em> (hát tặng cô ấy)'],
+                        ['play', '<em>play a song to the class</em> (mở / chơi nhạc cho lớp nghe)', '<em>play a song for the class</em> (chơi nhạc vì lớp)']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 4: động từ chỉ dùng V + IO + DO (không chuyển sang giới từ), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'take (thời gian), cost, ask, wish', '<em>It took me an hour. / It cost me $50. / Can I ask you a question? / I wish you luck.</em>'],
+                        ['Thông dụng', 'charge, cause, do (good / harm), bet, save (a trip)', '<em>They charged me $20. / The delay caused us problems. / The walk will do you good.</em>'],
+                        ['Ít gặp', 'fine, envy, forgive, spare, refuse, deny, begrudge, grudge', '<em>Spare me the details. / He denied her entry. / I envy you your talent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 5: động từ chỉ dùng V + DO + to + IO (không dùng V + IO + DO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ sai → đúng'],
+                    rows: [
+                        ['Rất thông dụng', 'say, explain, describe, suggest, mention', '<em>She explained me the rule. → She explained the rule to me. / He suggested me a plan. → He suggested a plan to me.</em>'],
+                        ['Thông dụng', 'introduce, announce, report, propose, recommend, repeat', '<em>She introduced me her sister. → She introduced her sister to me.</em> (<em>recommend me a hotel</em> đôi khi gặp trong văn nói, nhưng viết chuẩn dùng <em>recommend a hotel to me</em>)'],
+                        ['Ít gặp', 'admit, confess, reveal, prove, demonstrate, translate, dictate, donate', '<em>He confessed the crime to the police. / She donated money to the school.</em>'],
+                        ['Trang trọng, hiếm', 'convey, disclose, divulge, transmit', '<em>He conveyed the message to the board.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 6: động từ chỉ dùng V + DO + for + IO (không dùng V + IO + DO)',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ sai → đúng'],
+                    rows: [
+                        ['Thông dụng', 'open, close, carry, answer, hold (the door)', '<em>He opened me the door. → He opened the door for me. / Can you carry me this bag? → Can you carry this bag for me?</em>'],
+                        ['Ít gặp', 'spell, pronounce, cash', '<em>Please spell me your name. → Please spell your name for me.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 7: mẫu dùng giới từ khác',
+                    head: ['Mẫu', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['V + DO + on + IO', 'play (a trick / a joke)', '<em>He played a trick on me.</em>'],
+                        ['V + DO + of + IO (trang trọng)', 'ask (a favour), beg (a favour)', '<em>I have a favour to ask of you.</em>'],
+                        ['V + IO + with + DO', 'provide, supply, present, entrust', '<em>They provided us with food. = They provided food for us. / The firm supplies schools with computers. = ... supplies computers to schools.</em>']
                     ]
                 }
             ],
