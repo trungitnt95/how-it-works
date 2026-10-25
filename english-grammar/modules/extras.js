@@ -1228,7 +1228,7 @@ const grammarExtrasData = {
         level: 'advanced',
         connections: ['noun-clauses', 'wish-if-only', 'conditionals', 'modal-verbs'],
         theory: {
-            overview: 'Thức giả định (mandative subjunctive) dùng <strong>V nguyên mẫu cho mọi ngôi</strong> trong that-clause sau các động từ / tính từ chỉ yêu cầu, đề nghị, tầm quan trọng. Phổ biến ở Anh-Mỹ và văn trang trọng, pháp lý.',
+            overview: 'Thức giả định (mandative subjunctive) dùng <strong>V nguyên mẫu cho mọi ngôi</strong> trong that-clause sau các động từ / tính từ chỉ yêu cầu, đề nghị, tầm quan trọng. Phổ biến ở Anh-Mỹ và văn trang trọng, pháp lý. Ngoài ra còn <strong>were-subjunctive</strong> (were / quá khứ cho điều không có thật) dùng sau <em>if, wish, as if / as though</em>.',
             formula: [
                 {
                     label: 'Sau động từ',
@@ -1245,6 +1245,18 @@ const grammarExtrasData = {
                     label: 'Phủ định',
                     pattern: 'not + V',
                     example: 'I suggest he not leave yet.'
+                },
+                {
+                    label: 'As if / as though (không thật)',
+                    pattern: 'as if / as though + S + were / V2 (hiện tại) · had + V3 (quá khứ)',
+                    example: 'He talks as though he were the boss. · She looked as if she had seen a ghost.',
+                    note: 'were cho mọi ngôi; văn nói thân mật hay dùng was'
+                },
+                {
+                    label: 'As if / as though (thật hoặc có khả năng)',
+                    pattern: 'as if / as though + S + V (thì bình thường)',
+                    example: 'It looks as if it is going to rain.',
+                    note: 'người nói tin là thật hoặc có thể thật'
                 }
             ],
             tables: [
@@ -1256,6 +1268,25 @@ const grammarExtrasData = {
                             'essential, important, vital, necessary, crucial, imperative, advisable, desirable, ...'
                         ]
                     ]
+                },
+                {
+                    title: 'Were-subjunctive: dạng quá khứ cho điều không có thật',
+                    head: ['Cấu trúc', 'Ý nghĩa', 'Ví dụ'],
+                    rows: [
+                        ['If I were you', 'điều kiện không thật ở hiện tại', '<em>If I were you, I would apologise.</em>'],
+                        ['wish / if only + were / V2', 'ước điều trái với hiện tại', '<em>I wish I were taller. If only he were here.</em>'],
+                        ['as if / as though + were / V2', 'so sánh với điều không có thật', '<em>He talks as though he were the boss.</em> (thực tế: anh ta không phải)'],
+                        ['it’s (high) time / would rather + S + V2', 'đề nghị, mong muốn về hiện tại', '<em>It’s time you went to bed. I’d rather you stayed.</em>']
+                    ]
+                },
+                {
+                    title: 'As if / as though: thật hay không thật?',
+                    head: ['Tình huống', 'Dạng động từ', 'Ví dụ'],
+                    rows: [
+                        ['Không thật ở hiện tại', 'were / V2', '<em>He talks as though he were the boss.</em> (thực tế: không phải)'],
+                        ['Không thật ở quá khứ', 'had + V3', '<em>She looked as if she had seen a ghost.</em> (thực tế: không thấy gì)'],
+                        ['Thật hoặc có khả năng', 'thì bình thường', '<em>He talks as though he is the boss.</em> (người nói tin là vậy) <em>It looks as if it is going to rain.</em>']
+                    ]
                 }
             ],
             uses: [
@@ -1264,18 +1295,40 @@ const grammarExtrasData = {
                     'không lạm dụng trong văn thường',
                     'God save the Queen! Long live the king! So be it. Come what may. Be that as it may…'
                 ],
-                ['Were-subjunctive', 'were cho mọi ngôi trong điều kiện không thật', 'If I were you, …']
+                ['Were-subjunctive', 'were cho mọi ngôi trong điều kiện không thật', 'If I were you, …'],
+                [
+                    'As if / as though',
+                    'không thật → were / quá khứ; thật hoặc có khả năng → thì bình thường',
+                    'He acts as if he owned the place. (không phải của anh ta) / He acts as if he is in charge. (người nói tin vậy)'
+                ]
             ],
             compare: [
                 [
                     'Anh-Mỹ vs Anh-Anh',
                     'AmE giữ V nguyên mẫu: <em>I insist that he go</em>; BrE hay dùng should + V: <em>I insist that he should go</em>. Chọn một và nhất quán'
                 ],
-                ['They insisted that he leave vs They insisted that he left', 'yêu cầu anh ta phải đi – khẳng định anh ta đã đi']
+                ['They insisted that he leave vs They insisted that he left', 'yêu cầu anh ta phải đi – khẳng định anh ta đã đi'],
+                [
+                    'as though he were the boss vs as though he is the boss',
+                    'were: người nói cho là không thật; is: người nói cho là thật hoặc có thể thật – ngữ cảnh quyết định'
+                ],
+                [
+                    'were vs was',
+                    'were là dạng chuẩn, trang trọng cho mọi ngôi; <em>was</em> thường gặp trong văn nói thân mật (<em>as if he was the boss</em>). Với <em>If I were you</em> nên dùng were.'
+                ]
             ],
             mistakes: [
                 ['I suggest that he goes.', 'I suggest that he go.', 'Không thêm -s cho ngôi thứ ba.'],
-                ['I suggest he doesn’t leave.', 'I suggest he not leave.', 'Không dùng do/does trong phủ định.']
+                ['I suggest he doesn’t leave.', 'I suggest he not leave.', 'Không dùng do/does trong phủ định.'],
+                [
+                    'He talks as though he is the boss. (thực tế: chỉ là thực tập sinh)',
+                    'He talks as though he were the boss.',
+                    'Điều không có thật ở hiện tại thì lùi thì: were / V2, không dùng is.'
+                ]
+            ],
+            advanced: [
+                'Rút gọn sau as if khi cùng chủ ngữ: <em>He looked at me as if to say sorry. She smiled as if embarrassed.</em>',
+                'Cùng hệ were-subjunctive: <em>were I you, … (= If I were you)</em>, <em>Were it not for your help, … (= If it were not for your help)</em> – xem Inversion và Conditionals.'
             ]
         }
     },

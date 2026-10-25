@@ -369,7 +369,9 @@ const grammarExerciseBank = (function () {
         q('subjunctive', 'Thức giả định', 'C1', 'It is important that she ___ on time.', ['be', 'is', 'was', 'will be'], 0, 'Giả định sau tính từ mệnh lệnh (important, essential, vital) dùng V nguyên mẫu.'),
         q('subjunctive', 'Thức giả định', 'C1', 'I suggest that he ___ more carefully.', ['work', 'works', 'worked', 'working'], 0, 'Sau suggest/recommend/insist/demand + that + S + V nguyên mẫu (bỏ -s).'),
         q('subjunctive', 'Thức giả định', 'C1', 'The doctor insisted that the patient ___ in bed.', ['stay', 'stays', 'stayed', 'staying'], 0, 'Giả định hiện tại: động từ giữ nguyên mẫu cho mọi ngôi.'),
-        q('subjunctive', 'Thức giả định', 'C2', 'He talks as though he ___ the boss.', ['were', 'is', 'was being', 'has been'], 0, '"as though/as if" trái thực tế → dùng "were" cho mọi ngôi.'),
+        q('subjunctive', 'Thức giả định', 'C2', 'He talks as though he ___ the boss, but he is only an intern.', ['were', 'is', 'will be', 'has been'], 0, 'Thực tế anh ta chỉ là thực tập sinh nên so sánh không có thật → "as though" + were (cho mọi ngôi; văn nói thân mật hay dùng was).'),
+        q('subjunctive', 'Thức giả định', 'C1', 'She looked as if she ___ a ghost. (thực tế: cô ấy không thấy gì)', ['had seen', 'has seen', 'sees', 'would see'], 0, 'Điều không có thật ở quá khứ sau as if / as though → had + V3.'),
+        q('subjunctive', 'Thức giả định', 'C1', 'The sky is dark. It looks as if it ___ rain soon. (người nói tin là sắp mưa thật)', ['is going to', 'were going to', 'had been going to', 'would have gone to'], 0, 'Điều có thật hoặc có khả năng thật sau as if / as though → dùng thì bình thường, không lùi thì.'),
 
         // ==================== TỪ VỰNG NGỮ PHÁP & LỖI THƯỜNG GẶP ====================
         q('phrasal-verbs', 'Phrasal Verbs', 'B1', 'Please ___ the lights before leaving.', ['turn off', 'turn on', 'turn up', 'turn into'], 0, 'turn off = tắt thiết bị.'),
