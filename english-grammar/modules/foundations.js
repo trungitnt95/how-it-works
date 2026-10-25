@@ -187,7 +187,7 @@ const grammarFoundationsData = {
         title: 'Pronouns & Possessives (Đại Từ & Sở Hữu) - Beginner',
         category: 'foundations',
         level: 'beginner',
-        connections: ['parts-of-speech', 'articles-determiners', 'relative-clauses', 'question-forms'],
+        connections: ['parts-of-speech', 'articles-determiners', 'relative-clauses', 'question-forms', 'dummy-it'],
         theory: {
             overview: 'Đại từ thay cho danh từ đã nhắc để tránh lặp lại: <em>Anna has a laptop. She uses it every day.</em> Mỗi nhóm đại từ có một vị trí riêng: làm chủ ngữ, làm tân ngữ, đứng trước danh từ hay đứng một mình.',
             tables: [
@@ -218,7 +218,11 @@ const grammarFoundationsData = {
                     'khi không rõ giới tính hoặc muốn trung tính; vẫn đi với động từ số nhiều',
                     'Everyone should bring their own laptop.'
                 ],
-                ['it', 'chỉ đồ vật, động vật, tình huống, thời tiết, thời gian', 'It is raining. It is 5 o’clock.'],
+                [
+                    'it',
+                    'chỉ đồ vật, động vật, tình huống; với thời tiết, thời gian thì <em>it</em> không thay cho danh từ nào (chủ ngữ giả, xem Dummy "It")',
+                    'It is raining. It is 5 o’clock.'
+                ],
                 ['one / ones', 'thay danh từ đếm được đã nhắc để tránh lặp', 'The red one is cheaper. I prefer the blue ones.'],
                 ['Chủ ngữ ghép', 'dùng subject pronoun và thường nêu người khác trước', 'John and I went to the market.']
             ],
