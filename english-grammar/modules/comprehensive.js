@@ -801,20 +801,26 @@ const grammarComprehensiveData = {
             overview: '<strong>Stative verbs</strong> mô tả trạng thái tĩnh, không "đang diễn ra", nên thường <strong>không dùng dạng tiếp diễn</strong>: <em>I love this song</em> (không phải <em>I am loving</em>). <strong>Dynamic verbs</strong> mô tả hành động và dùng tiếp diễn bình thường.',
             tables: [
                 {
-                    title: '4 nhóm stative',
-                    head: ['Nhóm', 'Động từ'],
+                    title: '6 nhóm stative',
+                    head: ['Nhóm', 'Động từ', 'Ví dụ'],
                     rows: [
-                        ['Cảm xúc, suy nghĩ', 'love, like, hate, want, need, prefer, believe, know, understand, remember, forget, mean, ...'],
-                        [
-                            'Sở hữu, tồn tại',
-                            'have (sở hữu), own, possess, belong, contain, consist, exist, ... – <em>The box contains books. This belongs to me.</em>'
-                        ],
-                        ['Giác quan', 'see, hear, smell, taste, feel, ...'],
-                        ['Đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, ...']
+                        ['Cảm xúc, yêu ghét', 'love, like, dislike, hate, adore, detest, prefer, want, need, wish, desire, fear, envy, mind, care, appreciate, admire, respect, ...', '<em>I hate waiting. She adores her grandmother.</em>'],
+                        ['Suy nghĩ, nhận thức', 'know, believe, understand, remember, forget, realize, recognize, doubt, suppose, assume, suspect, imagine, guess, agree, disagree, recall, mean, ...', '<em>I know the answer. I don’t remember his name.</em>'],
+                        ['Sở hữu, tồn tại, thuộc về', 'have (sở hữu), own, possess, belong, contain, include, comprise, consist of, exist, lack, owe, deserve, involve, depend, matter, hold (chứa), ...', '<em>The box contains books. This belongs to me.</em>'],
+                        ['Giác quan, tri giác', 'see, hear, smell, taste, feel, notice, ...', '<em>I can see the sea. The soup tastes great.</em>'],
+                        ['Hình thức, đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, resemble, ...', '<em>This bag weighs five kilos. She seems tired.</em>'],
+                        ['Quan hệ, so sánh', 'be, remain, equal, differ, fit, suit, ...', '<em>Two plus two equals four. The blue shirt suits you.</em>']
                     ]
                 }
             ],
             sections: [
+                {
+                    title: '👂 Giác quan: dùng can thay cho tiếp diễn',
+                    items: [
+                        'see, hear, smell, taste, feel ở nghĩa tri giác thường đi với <em>can</em>: <em>I can see the sea. I can hear music.</em> (không dùng <em>I am seeing the sea</em>).',
+                        'Khi đổi sang nghĩa hành động thì dùng tiếp diễn được: <em>I’m seeing the dentist tomorrow.</em> (bảng bên dưới)'
+                    ]
+                },
                 {
                     title: '🔄 Khi stative verb dùng được ở tiếp diễn (đổi nghĩa)',
                     table: {
