@@ -73,7 +73,7 @@ const grammarExerciseBank = (function () {
         q('quantifiers', 'Lượng từ', 'B1', '___ of the students has his own locker.', ['Each', 'All', 'Both', 'Several'], 0, '"Each of + danh từ số nhiều" luôn đi với động từ số ít: has.'),
         q('quantifiers', 'Lượng từ', 'B1', 'I have ___ money, so I can\'t buy it.', ['hardly any', 'hardly no', 'not any hardly', 'hardly some'], 0, '"hardly any" = gần như không có. Không dùng "hardly" với "no" (phủ định kép).'),
         q('quantifiers', 'Lượng từ', 'B2', '___ the two answers is correct.', ['Neither of', 'None of', 'Either of them are', 'Both of'], 0, 'Nói về HAI đối tượng và cả hai đều không đúng → "Neither of" + động từ số ít.'),
-        q('quantifiers', 'Lượng từ', 'B2', 'She has ___ friends that she never feels lonely.', ['so many', 'so much', 'such many', 'too many'], 0, 'so + many + danh từ đếm được + that: cấu trúc chỉ mức độ dẫn tới kết quả.'),
+        q('result-structures', 'Cấu trúc kết quả', 'B1', 'She has ___ friends that she never feels lonely.', ['so many', 'so much', 'such many', 'too many'], 0, 'so many + danh từ đếm được số nhiều + that: mức độ cao dẫn tới kết quả (so much + danh từ không đếm được).'),
 
         // ==================== ĐẠI TỪ, TÍNH TỪ, TRẠNG TỪ, SO SÁNH ====================
         q('pronouns-possessives', 'Đại từ', 'A1', 'She told ___ that she would come.', ['me', 'I', 'my', 'mine'], 0, 'Sau động từ cần đại từ tân ngữ: me, you, him, her, us, them.'),

@@ -112,7 +112,7 @@ const grammarMistakesData = {
         title: 'Quantifiers (Lượng Từ) - Intermediate',
         category: 'mistakes',
         level: 'intermediate',
-        connections: ['countable-uncountable', 'articles-determiners', 'subject-verb-agreement', 'comparisons'],
+        connections: ['countable-uncountable', 'articles-determiners', 'subject-verb-agreement', 'comparisons', 'result-structures'],
         theory: {
             overview: 'Lượng từ (<strong>some, any, much, many, few, little, a lot of…</strong>) nói về số lượng và phải khớp loại danh từ. Bước đầu tiên luôn là xác định danh từ <strong>đếm được hay không đếm được</strong>.',
             tables: [
@@ -145,7 +145,12 @@ const grammarMistakesData = {
                             'cả hai loại',
                             'some: khẳng định, lời mời / đề nghị (<em>Would you like some coffee?</em>); any: phủ định, câu hỏi thường'
                         ],
-                        ['each / every', 'danh từ số ít + động từ số ít', '<em>every student is…</em>']
+                        ['each / every', 'danh từ số ít + động từ số ít', '<em>every student is…</em>'],
+                        [
+                            'so many / so much … that',
+                            'so many + đếm được số nhiều; so much + không đếm được; chỉ mức độ cao dẫn tới kết quả',
+                            '<em>She has so many friends that she never feels lonely. There was so much noise that I couldn’t sleep.</em> (xem Phrases & Clauses of Result)'
+                        ]
                     ]
                 }
             ],
