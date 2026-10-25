@@ -811,6 +811,60 @@ const grammarComprehensiveData = {
                         ['Hình thức, đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, resemble, ...', '<em>This bag weighs five kilos. She seems tired.</em>'],
                         ['Quan hệ, so sánh', 'be, remain, equal, differ, fit, suit, ...', '<em>Two plus two equals four. The blue shirt suits you.</em>']
                     ]
+                },
+                {
+                    title: 'Tra cứu 1: cảm xúc, yêu ghét',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'love (yêu), like (thích), hate (ghét), want (muốn), need (cần), prefer (thích hơn)', '<em>I love this song. She prefers tea to coffee.</em>'],
+                        ['Thông dụng', 'dislike (không thích), wish (ước), fear (sợ), mind (phiền), care (quan tâm), appreciate (đánh giá cao, biết ơn), respect (tôn trọng), trust (tin tưởng), admire (ngưỡng mộ)', '<em>I don’t mind waiting. We appreciate your help.</em>'],
+                        ['Ít gặp', 'adore (rất yêu), detest (ghét cay ghét đắng), loathe (ghê tởm), despise (khinh thường), desire (khao khát), envy (ghen tị), cherish (trân trọng), resent (bực bội), pity (thương hại), value (coi trọng)', '<em>She adores her grandmother. I envy your talent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 2: suy nghĩ, nhận thức',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'know (biết), believe (tin), understand (hiểu), remember (nhớ), forget (quên), think (cho rằng), mean (có nghĩa), agree (đồng ý)', '<em>I know the answer. I don’t remember his name.</em>'],
+                        ['Thông dụng', 'realize (nhận ra), recognize (nhận ra, công nhận), doubt (nghi ngờ), suppose (cho rằng), assume (giả định), imagine (tưởng tượng), guess (đoán), disagree (không đồng ý), recall (nhớ lại), expect (cho rằng)', '<em>I doubt he’ll come. I assume you’re ready.</em>'],
+                        ['Ít gặp', 'suspect (nghi ngờ, ngờ rằng), presume (cho là), comprehend (lĩnh hội), deny (phủ nhận), perceive (nhận thức)', '<em>I suspect he is lying. She denies everything.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 3: sở hữu, tồn tại, thuộc về',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'have (có, sở hữu), own (sở hữu), belong (thuộc về), contain (chứa), include (bao gồm)', '<em>She has two cars. The price includes tax.</em>'],
+                        ['Thông dụng', 'possess (sở hữu), consist of (gồm có), exist (tồn tại), lack (thiếu), owe (nợ), deserve (xứng đáng), involve (liên quan, kéo theo), depend (phụ thuộc), matter (quan trọng)', '<em>Ghosts don’t exist. It depends on the weather. Your opinion matters.</em>'],
+                        ['Ít gặp', 'comprise (bao gồm), hold (chứa được), require (đòi hỏi), concern (liên quan), entail (kéo theo), merit (đáng được)', '<em>The hall holds 500 people. The job requires patience.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 4: giác quan, tri giác (thường dùng với can)',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'see (thấy), hear (nghe thấy), feel (cảm thấy), taste (có vị), smell (có mùi)', '<em>I can see the sea. The soup tastes great. It smells good.</em>'],
+                        ['Thông dụng', 'notice (nhận thấy)', '<em>I noticed a mistake in the report.</em>'],
+                        ['Ít gặp', 'perceive (nhận thấy, cảm nhận)', '<em>Dogs perceive sounds that humans can’t.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 5: hình thức, đo lường, đánh giá',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'seem (có vẻ), look (trông), sound (nghe có vẻ), cost (có giá), weigh (nặng)', '<em>She seems tired. That sounds great. It costs $20.</em>'],
+                        ['Thông dụng', 'appear (có vẻ), measure (có kích thước)', '<em>He appears nervous. The room measures four metres.</em>'],
+                        ['Ít gặp', 'represent (đại diện), signify (biểu thị), indicate (cho thấy), imply (hàm ý)', '<em>The results indicate a clear trend. Silence implies consent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 6: quan hệ, so sánh',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'be (là), remain (vẫn là), differ (khác), equal (bằng)', '<em>Two plus two equals four. They remain friends.</em>'],
+                        ['Thông dụng', 'fit (vừa), suit (hợp), resemble (giống), match (khớp)', '<em>The blue shirt suits you. She resembles her mother.</em>'],
+                        ['Ít gặp', 'exceed (vượt quá), surpass (vượt trội), outnumber (đông hơn)', '<em>Demand exceeds supply. Women outnumber men here.</em>']
+                    ]
                 }
             ],
             sections: [
@@ -834,9 +888,24 @@ const grammarComprehensiveData = {
                                 'có vị / mùi – <em>The soup tastes great.</em>',
                                 'nếm / ngửi / sờ – <em>I’m tasting the soup.</em>'
                             ],
-                            ['be', 'bản chất – <em>He is rude.</em>', 'hành vi tạm thời – <em>He is being rude. You’re being silly.</em>']
+                            ['be', 'bản chất – <em>He is rude.</em>', 'hành vi tạm thời – <em>He is being rude. You’re being silly.</em>'],
+                            ['look', 'trông có vẻ – <em>She looks tired.</em>', 'nhìn – <em>I’m looking at the map.</em>'],
+                            ['appear', 'có vẻ – <em>He appears nervous.</em>', 'xuất hiện, biểu diễn – <em>She is appearing in a new film.</em>'],
+                            ['weigh', 'nặng – <em>This bag weighs five kilos.</em>', 'cân – <em>She is weighing the fruit.</em>'],
+                            ['measure', 'có kích thước – <em>The room measures four metres.</em>', 'đo – <em>He is measuring the room.</em>'],
+                            ['expect', 'cho rằng – <em>I expect he’ll be late.</em>', 'đang chờ đợi – <em>I’m expecting a parcel.</em>'],
+                            ['consider', 'cho rằng – <em>I consider him a friend.</em>', 'đang cân nhắc – <em>I’m considering a new job.</em>']
                         ]
                     }
+                },
+                {
+                    title: '↔️ Dùng được cả hai dạng (nghĩa gần như không đổi)',
+                    items: [
+                        ['feel', '<em>I feel tired. / I’m feeling tired.</em> (cảm giác thể chất, cảm xúc)'],
+                        ['hurt, ache, itch', '<em>My back hurts. / My back is hurting.</em>'],
+                        ['hope, wonder', '<em>I hope to see you. / I’m hoping to see you.</em> (tiếp diễn nghe mềm, lịch sự hơn)'],
+                        ['love, like (khẩu ngữ)', '<em>I’m loving this course.</em> – nhấn cảm xúc tạm thời, phổ biến trong khẩu ngữ, quảng cáo; không phải mẫu an toàn cho bài thi.']
+                    ]
                 }
             ],
             mistakes: [
