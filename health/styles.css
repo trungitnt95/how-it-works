@@ -201,3 +201,13 @@ figure.fig figcaption .credit a { color: rgba(56,189,248,0.85); }
     article > h1 { font-size: 1.6rem; }
     .hero h1 { font-size: 1.7rem; }
 }
+
+.header-right { display: flex; align-items: center; gap: 0.6rem; }
+.graph-btn {
+    color: var(--muted); text-decoration: none; font-size: 0.9rem; white-space: nowrap;
+    padding: 0.4rem 0.9rem; border-radius: 6px; background: rgba(255,255,255,0.05);
+}
+.graph-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+.graph-link { color: var(--accent2); text-decoration: none; }
+.graph-link:hover { text-decoration: underline; }
+@media (max-width: 720px) { .graph-btn span { display: none; } }

@@ -105,3 +105,16 @@ body {
     .g-panel, .g-panel.wide, .g-panel.help { top: auto; left: 0; width: 100%; height: 42%; border-left: 0; border-top: 1px solid var(--border); box-shadow: 0 -6px 18px rgba(0, 0, 0, .35); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* grouped neighbours, facts, evidence marks (health graph; harmless for the grammar graph) */
+.g-panel .g-grp { margin: 14px 0 6px; padding-left: 8px; border-left: 3px solid var(--border); font-size: .82rem; font-weight: 600; color: var(--text); }
+.g-facts { margin: 0; display: grid; gap: 6px; }
+.g-facts div { display: flex; justify-content: space-between; gap: 10px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 8px; font-size: .85rem; line-height: 1.4; }
+.g-facts dt { color: var(--muted); }
+.g-facts dd { margin: 0; text-align: right; font-weight: 600; }
+.g-ev { color: var(--muted); }
+.g-panel .g-src { color: var(--muted); font-size: .8rem; margin-top: 16px; }
+.link.ev-moderate { stroke-opacity: .3; }
+.g-foot { margin-top: 14px !important; padding-top: 10px; border-top: 1px solid var(--border); }
+.g-notice { margin: 0; padding: 6px 16px; border-bottom: 1px solid var(--border); background: rgba(255, 200, 87, .07); color: var(--muted); font-size: .74rem; line-height: 1.45; }
+.g-notice b { color: #ffc857; font-weight: 600; }

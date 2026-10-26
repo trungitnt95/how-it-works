@@ -8,6 +8,13 @@
     const order = SECTIONS.map(s => s.id);
     TOPICS.sort((a, b) => (a.order || 0) - (b.order || 0));
 
+    // lesson -> entry point of graph.html (ids of healthGraphStages) so a lesson can open the graph on its own area
+    const GRAPH_ENTRY = {
+        'vital-signs': 'metabolic', nutrition: 'levers', exercise: 'levers', 'water-sun-vitd': 'levers', sleep: 'mind',
+        'red-flags': 'urgent', cardiovascular: 'heart', diabetes: 'metabolic', cancer: 'cancer', 'liver-kidney-gi': 'organs',
+        'bones-joints': 'bone', respiratory: 'mind', checkups: 'cancer', 'mental-health': 'mind', diets: 'metabolic'
+    };
+
     const $ = (id) => document.getElementById(id);
     const main = $('main');
     const sidebar = $('sidebar');
@@ -110,7 +117,7 @@
             <div class="crumb"><a href="#/">Trang chủ</a> › ${sec.icon || ''} ${esc(sec.title)}</div>
             <h1>${t.icon} ${t.order}. ${esc(t.title)}</h1>
             <p class="lead">${esc(t.summary)}</p>
-            <div class="meta">Cập nhật: ${esc(t.updated || '09/2026')}</div>
+            <div class="meta">Cập nhật: ${esc(t.updated || '09/2026')}${GRAPH_ENTRY[t.id] ? ` · <a class="graph-link" href="graph.html?stage=${GRAPH_ENTRY[t.id]}">🕸️ Xem trong đồ thị</a>` : ''}</div>
             ${toc}
             <div class="content">${tmp.innerHTML}</div>
             <div class="notice"><strong>Lưu ý:</strong> ${DISCLAIMER}</div>
