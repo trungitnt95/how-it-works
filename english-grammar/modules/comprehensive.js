@@ -206,7 +206,7 @@ const grammarComprehensiveData = {
 
     'apposition': {
         icon: '🪢', title: 'Apposition (Đồng Vị Ngữ) - Intermediate', category: 'foundations', level: 'intermediate',
-        connections: ['relative-clauses', 'punctuation-deep'],
+        connections: ['relative-clauses', 'punctuation-capitalization'],
         theory: {
             overview: 'Đồng vị ngữ là <strong>hai cụm danh từ đứng cạnh nhau cùng chỉ một đối tượng</strong>: <em>My brother Tom is here. Robert Frost, the famous poet, wrote…</em>',
             tables: [
@@ -375,65 +375,596 @@ const grammarComprehensiveData = {
     },
 
     'collocations-pairs': {
-        icon: '🤝', title: 'Collocations & Confusing Pairs (Kết Hợp Từ & Cặp Từ Dễ Nhầm) - Intermediate', category: 'foundations', level: 'intermediate',
-        connections: ['word-formation', 'phrasal-verbs', 'verb-patterns'],
+        icon: '🤝',
+        title: 'Collocations & Confusing Pairs (Kết Hợp Từ & Cặp Từ Dễ Nhầm) - Intermediate',
+        category: 'foundations',
+        level: 'intermediate',
+        connections: ['word-formation', 'phrasal-verbs', 'verb-patterns', 'prepositions', 'preposition-system'],
         theory: {
-            overview: '<strong>Collocation</strong> là sự kết hợp từ tự nhiên, quen dùng (<em>make a decision, heavy traffic, strong coffee</em>). Học theo cụm (chunk) giúp nói và viết tự nhiên hơn học từng từ lẻ; không thay từ đồng nghĩa vào collocation tùy ý.',
+            overview: '<strong>Collocation</strong> là sự kết hợp từ tự nhiên, quen dùng (<em>make a decision, heavy traffic, strong coffee</em>). Học theo cụm (chunk) giúp nói và viết tự nhiên hơn học từng từ lẻ; không thay từ đồng nghĩa vào collocation tùy ý. Bài gồm hai phần: <strong>(1) collocation</strong> – từ nào đi với từ nào; <strong>(2) cặp từ dễ nhầm</strong> – giống nhau về cách viết, cách đọc hoặc nghĩa.',
             tables: [
                 {
-                    title: 'make vs do',
-                    head: ['make (tạo ra, sản sinh)', 'do (công việc, nhiệm vụ)'],
+                    title: 'Phần 1.1 – Động từ thường gặp + danh từ (make, do, have, take, get, give, ...)',
+                    head: ['Động từ', 'Collocation thường gặp', 'Ví dụ'],
                     rows: [
                         [
-                            'a decision, a mistake, noise, an effort, money, coffee, dinner, the bed, friends, a plan, ...',
-                            'homework, the laundry, the dishes, business, exercise, the shopping, a favor, your best, ...'
+                            'make (tạo ra, kết quả)',
+                            'a decision, a mistake, a plan, an effort, an appointment, a suggestion, a phone call, progress, a difference, money, a profit, noise, a mess, friends, peace, a speech, a promise, an excuse, a choice, the bed, coffee, dinner, ...',
+                            '<em>She made a good decision. We’re making progress.</em>'
+                        ],
+                        [
+                            'do (công việc, hoạt động)',
+                            'homework, housework, the laundry, the dishes, the shopping, business, research, exercise, a favour, your best, damage, harm, good, a job, a course, ...',
+                            '<em>I do exercise every morning. Could you do me a favour?</em>'
+                        ],
+                        [
+                            'have (trải nghiệm, ăn uống)',
+                            'a shower, a bath, a break, a rest, a nap, a look, a chat, a drink, breakfast / lunch / dinner, a good time, fun, a party, an accident, a problem, a headache, ...',
+                            '<em>Let’s have a break. We had a great time.</em>'
+                        ],
+                        [
+                            'take (lấy, thực hiện, đi bằng)',
+                            'a photo, a break, a bus / train, a seat, a chance, a look, a risk, medicine, notes, an exam, responsibility, place, care of, advantage of, time, ...',
+                            '<em>Can I take a photo of you? It takes two hours.</em>'
+                        ],
+                        [
+                            'get (nhận được, trở nên)',
+                            'a job, a ticket, a degree, permission, a result, the point, home, ready, dressed, married, lost, better, tired, angry, ...',
+                            '<em>I got a new job. It’s getting dark.</em>'
+                        ],
+                        [
+                            'give (đưa ra, trao)',
+                            'advice, a speech, a talk, a presentation, a lecture, a hand, a warning, an answer, an example, a chance, permission, birth, a smile, ...',
+                            '<em>She gave a presentation. Can you give me a hand?</em>'
+                        ],
+                        [
+                            'keep (giữ)',
+                            'a promise, a secret, a diary, a record, calm, quiet, in touch, fit, the change, an eye on, ...',
+                            '<em>Keep calm. Let’s keep in touch.</em>'
+                        ],
+                        [
+                            'pay (trả, dành cho)',
+                            'attention, a visit, a compliment, the bill, a fine, rent, a price, respect, by card / in cash, ...',
+                            '<em>Please pay attention. She paid me a compliment.</em>'
+                        ],
+                        [
+                            'set (đặt)',
+                            'an example, a goal, a record, a target, a deadline, the table, an alarm, a trend, ...',
+                            '<em>He set a new world record. Set the alarm for six.</em>'
+                        ],
+                        [
+                            'break (phá vỡ)',
+                            'a record, the law, a rule, a promise, a habit, the ice, a leg, the news, silence, even, ...',
+                            '<em>He broke his promise. Let’s break the ice.</em>'
+                        ],
+                        [
+                            'catch (bắt, mắc)',
+                            'a bus / train / plane, a cold, the flu, a ball, a thief, fire, sight of, someone’s eye, ...',
+                            '<em>I caught a cold. We caught the last bus.</em>'
+                        ],
+                        [
+                            'run (điều hành, gặp phải)',
+                            'a business, a company, a risk, a test, an errand, late, out of (time / money), a fever, ...',
+                            '<em>She runs a small business. We’re running late.</em>'
+                        ],
+                        [
+                            'hold (tổ chức, giữ)',
+                            'a meeting, a party, an opinion, a conversation, a grudge, your breath, the line, hands, ...',
+                            '<em>They held a meeting. Hold the line, please.</em>'
+                        ],
+                        [
+                            'save (tiết kiệm, cứu)',
+                            'money, time, energy, a seat, a file, a life, ...',
+                            '<em>Save me a seat. This will save you time.</em>'
                         ]
                     ]
                 },
                 {
-                    title: 'Cặp từ dễ nhầm',
+                    title: 'Phần 1.2 – Tính từ + danh từ hay nhầm',
+                    head: ['Tính từ', 'Đi với', 'Dễ nói sai'],
+                    rows: [
+                        [
+                            'heavy',
+                            'rain, traffic, snow, smoker, drinker, burden, sleep',
+                            '<em>strong rain, big traffic</em>'
+                        ],
+                        [
+                            'strong',
+                            'coffee, tea, wind, accent, evidence, opinion, smell, relationship',
+                            '<em>powerful coffee, heavy coffee</em>'
+                        ],
+                        ['powerful', 'engine, weapon, speech, leader, computer', '<em>powerful tea</em>'],
+                        [
+                            'high',
+                            'price, speed, standard, temperature, hopes, risk, quality, mountain',
+                            '<em>tall price, tall speed</em>'
+                        ],
+                        ['tall', 'building, tree, person, tower', '<em>high person</em>'],
+                        [
+                            'big',
+                            'mistake, problem, surprise, brother, difference',
+                            '<em>large brother, large surprise</em>'
+                        ],
+                        ['great', 'deal, pleasure, importance, success, care, hope', '<em>big pleasure</em>'],
+                        ['large', 'number, amount, quantity, scale, population', '<em>large surprise</em>'],
+                        ['fast', 'food, car, train, speed, growth', '<em>quick food</em>'],
+                        ['quick', 'shower, look, meal, answer, question, glance, learner', '<em>fast shower</em>'],
+                        [
+                            'deep',
+                            'sleep, breath, voice, trouble, thought, water, regret',
+                            '<em>high sleep, strong breath</em>'
+                        ],
+                        [
+                            'wide / broad',
+                            'wide range / variety / selection / gap / open; broad shoulders / agreement / daylight / outline / spectrum',
+                            '<em>big range, wide daylight</em>'
+                        ],
+                        [
+                            'severe / serious',
+                            'severe weather, severe pain, serious illness, serious injury, serious mistake',
+                            '<em>heavy illness</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Phần 1.3 – Trạng từ + tính từ / động từ',
+                    head: ['Trạng từ', 'Đi với', 'Ví dụ'],
+                    rows: [
+                        [
+                            'highly',
+                            'recommended, likely, unlikely, successful, skilled, effective, competitive',
+                            '<em>a highly recommended hotel</em>'
+                        ],
+                        [
+                            'deeply',
+                            'sorry, concerned, grateful, shocked, moved, rooted, regret',
+                            '<em>I’m deeply sorry.</em>'
+                        ],
+                        [
+                            'fully',
+                            'aware, understand, loaded, booked, qualified',
+                            '<em>She is fully aware of the risks.</em>'
+                        ],
+                        [
+                            'completely / totally',
+                            'different, wrong, forgotten, unaware, satisfied',
+                            '<em>It’s completely different.</em>'
+                        ],
+                        ['perfectly', 'clear, normal, happy, fine, safe', '<em>That’s perfectly normal.</em>'],
+                        [
+                            'utterly / extremely',
+                            'ridiculous, impossible, useless / important, difficult, kind',
+                            '<em>It was utterly ridiculous.</em>'
+                        ],
+                        [
+                            'seriously / badly',
+                            'ill, injured, damaged / needed, wrong, hurt',
+                            '<em>He was seriously injured.</em>'
+                        ],
+                        [
+                            'bitterly / widely',
+                            'disappointed, cold, ashamed / known, believed, available, used',
+                            '<em>She was bitterly disappointed.</em>'
+                        ],
+                        [
+                            'heavily',
+                            'rain, snow, rely, depend, drink',
+                            '<em>It rained heavily. We rely heavily on tourism.</em>'
+                        ],
+                        ['deeply', 'breathe, regret, care, respect', '<em>He deeply regrets it. Breathe deeply.</em>'],
+                        [
+                            'soundly',
+                            'sleep, beat, defeat',
+                            '<em>The baby slept soundly. They were soundly beaten.</em>'
+                        ],
+                        [
+                            'hard',
+                            'work, try, study, think, fall',
+                            '<em>She works hard. Think hard before you answer.</em>'
+                        ],
+                        [
+                            'strongly',
+                            'recommend, agree, disagree, believe, urge, oppose',
+                            '<em>I strongly agree. I strongly recommend it.</em>'
+                        ],
+                        ['sincerely / profusely', 'apologize, thank', '<em>He apologized profusely.</em>']
+                    ]
+                },
+                {
+                    title: 'Phần 1.4 – Động từ + giới từ cố định',
+                    head: ['Giới từ', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        [
+                            'on',
+                            'depend (phụ thuộc), rely (dựa vào), focus / concentrate (tập trung), insist (khăng khăng), count (trông cậy), comment (bình luận), agree (thống nhất về)',
+                            '<em>It depends on the weather. Focus on the task.</em>'
+                        ],
+                        [
+                            'to',
+                            'listen, belong, refer, respond, reply, object, react, adapt, lead (dẫn tới), contribute, happen (xảy đến với), apologize (xin lỗi ai)',
+                            '<em>Listen to me. This belongs to Tom. It led to a conflict.</em>'
+                        ],
+                        [
+                            'for',
+                            'wait, ask, look (tìm), search, apply, pay, prepare, hope, vote, account (giải thích cho), apologize (vì), blame (sb for sth), thank (sb for sth)',
+                            '<em>I’m waiting for a bus. She applied for the job.</em>'
+                        ],
+                        [
+                            'with',
+                            'agree, disagree, deal, cope, argue (với ai), compare, provide (sb with sth), help (sb with sth), interfere, cooperate',
+                            '<em>I agree with you. How do you cope with stress?</em>'
+                        ],
+                        [
+                            'about',
+                            'complain, worry, care, talk, think, argue (về), forget, ask, hear, know',
+                            '<em>Don’t worry about it. They complained about the noise.</em>'
+                        ],
+                        [
+                            'from',
+                            'suffer, recover, result (xuất phát từ), benefit, differ, graduate, escape, prevent (sb from), protect (sb from)',
+                            '<em>He suffers from asthma. She graduated from Harvard.</em>'
+                        ],
+                        [
+                            'in',
+                            'participate, succeed, believe, specialize, invest, involve, result (dẫn đến), engage',
+                            '<em>I believe in you. The plan resulted in failure.</em>'
+                        ],
+                        [
+                            'of',
+                            'consist, think, approve, accuse, remind (sb of), smell / taste (có mùi / vị), die, dream, boast',
+                            '<em>The team consists of five people. He was accused of theft.</em>'
+                        ],
+                        [
+                            'at',
+                            'look, laugh, aim, stare, glance, point, shout (giận dữ), arrive (nơi nhỏ)',
+                            '<em>Look at this! Don’t laugh at him.</em>'
+                        ],
+                        [
+                            'into',
+                            'turn, break, run (tình cờ gặp), crash, divide, translate, look (điều tra), bump',
+                            '<em>Water turns into ice. I ran into an old friend.</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Phần 1.5 – Tính từ + giới từ cố định',
+                    head: ['Giới từ', 'Tính từ', 'Ví dụ'],
+                    rows: [
+                        [
+                            'at',
+                            'good, bad, excellent, brilliant, surprised, angry (về việc), skilled',
+                            '<em>She is good at maths.</em>'
+                        ],
+                        [
+                            'in',
+                            'interested, involved, successful, disappointed (vì ai), rich',
+                            '<em>I’m interested in music.</em>'
+                        ],
+                        [
+                            'of',
+                            'afraid, scared, proud, jealous, aware, capable, fond, tired, full, typical',
+                            '<em>He is afraid of dogs. I’m tired of waiting.</em>'
+                        ],
+                        [
+                            'about',
+                            'worried, excited, nervous, serious, happy, upset, angry (về), careful',
+                            '<em>She is excited about the trip.</em>'
+                        ],
+                        [
+                            'with',
+                            'pleased, satisfied, bored, familiar, busy, crowded, angry (với ai), happy',
+                            '<em>I’m familiar with this software.</em>'
+                        ],
+                        [
+                            'for',
+                            'famous, responsible, ready, sorry, late, known, grateful, suitable',
+                            '<em>Paris is famous for its food.</em>'
+                        ],
+                        [
+                            'from',
+                            'different, absent, safe, free, far, tired (mệt vì)',
+                            '<em>This is different from that.</em>'
+                        ],
+                        [
+                            'to',
+                            'married, similar, kind, rude, polite, allergic, related, used, addicted, grateful (với ai), engaged',
+                            '<em>She is married to a doctor. I’m allergic to cats.</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Phần 2.1 – Cặp dễ nhầm vì đọc hoặc viết giống nhau',
                     head: ['Cặp', 'Phân biệt', 'Ví dụ'],
                     rows: [
                         ['its / it’s', 'sở hữu / it is, it has', '<em>The dog wagged its tail. It’s raining.</em>'],
-                        ['than / then', 'so sánh / sau đó', '<em>better than</em>'],
+                        [
+                            'their / there / they’re',
+                            'của họ / ở đó, có / they are',
+                            '<em>Their car is there. They’re late.</em>'
+                        ],
+                        ['your / you’re', 'của bạn / you are', '<em>Your bag is here. You’re right.</em>'],
+                        ['whose / who’s', 'của ai / who is, who has', '<em>Whose book is this? Who’s that?</em>'],
+                        [
+                            'to / too / two',
+                            'tới, để / quá, cũng / số hai',
+                            '<em>I went to the shop too. Two apples are too many.</em>'
+                        ],
+                        ['than / then', 'so sánh / sau đó', '<em>She is taller than me. First wash, then dry.</em>'],
+                        ['lose / loose', 'mất, thua / lỏng', '<em>lose money, a loose shirt</em>'],
                         [
                             'affect / effect',
                             'thường là động từ / thường là danh từ',
                             '<em>The weather affects my mood. The weather has an effect on my mood.</em>'
                         ],
-                        ['lose / loose', 'mất, thua / lỏng', '<em>lose money, a loose shirt</em>'],
+                        ['accept / except', 'chấp nhận / ngoại trừ', '<em>I accept all cards except Amex.</em>'],
+                        [
+                            'advice / advise',
+                            'lời khuyên (danh từ) / khuyên (động từ)',
+                            '<em>She gave me advice. I advise you to wait.</em>'
+                        ],
+                        [
+                            'principal / principle',
+                            'hiệu trưởng, chính / nguyên tắc',
+                            '<em>the school principal; a moral principle</em>'
+                        ],
+                        [
+                            'stationary / stationery',
+                            'đứng yên / văn phòng phẩm',
+                            '<em>a stationary car; buy stationery</em>'
+                        ],
+                        ['quiet / quite', 'yên lặng / khá, hoàn toàn', '<em>a quiet room; quite good</em>'],
+                        [
+                            'later / latter',
+                            'muộn hơn / cái thứ hai (trong hai)',
+                            '<em>See you later. Of the two, I prefer the latter.</em>'
+                        ],
+                        [
+                            'weather / whether',
+                            'thời tiết / liệu (có) hay không',
+                            '<em>nice weather; I don’t know whether he will come</em>'
+                        ],
+                        [
+                            'passed / past',
+                            'quá khứ của pass / quá khứ, đi qua',
+                            '<em>She passed the test. in the past; walk past the bank</em>'
+                        ],
+                        [
+                            'breath / breathe',
+                            'hơi thở (danh từ) / thở (động từ)',
+                            '<em>Take a deep breath. Breathe slowly.</em>'
+                        ],
+                        [
+                            'compliment / complement',
+                            'lời khen / bổ sung, hợp nhau',
+                            '<em>a compliment; a complement to the main course</em>'
+                        ],
+                        [
+                            'desert / dessert',
+                            'sa mạc / món tráng miệng',
+                            '<em>the Sahara desert; chocolate dessert</em>'
+                        ],
+                        [
+                            'practice / practise',
+                            'danh từ / động từ (BrE); AmE dùng practice cho cả hai',
+                            '<em>piano practice; practise the piano</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Phần 2.2 – Cặp động từ dễ nhầm nghĩa',
+                    head: ['Cặp', 'Phân biệt', 'Ví dụ'],
+                    rows: [
+                        [
+                            'say / tell / speak / talk',
+                            'say + lời nói; tell + người + nội dung; speak + ngôn ngữ, phát biểu; talk + trò chuyện',
+                            '<em>She said hello. He told me a story. I speak English. We talked for an hour.</em>'
+                        ],
+                        [
+                            'borrow / lend',
+                            'mượn (từ ai) / cho mượn',
+                            '<em>Can I borrow your pen? Can you lend me your pen?</em>'
+                        ],
+                        [
+                            'bring / take',
+                            'mang đến chỗ người nói / mang đi nơi khác',
+                            '<em>Bring it here. Take it there.</em>'
+                        ],
+                        [
+                            'look / see / watch',
+                            'cố nhìn / thấy / xem (có diễn tiến)',
+                            '<em>Look at that! I can see a bird. We watched a film.</em>'
+                        ],
+                        [
+                            'hear / listen',
+                            'nghe thấy (vô tình) / lắng nghe (chủ ý)',
+                            '<em>I heard a noise. Listen to the teacher.</em>'
+                        ],
+                        [
+                            'rob / steal',
+                            'cướp (người, nơi) / ăn trộm (đồ vật)',
+                            '<em>They robbed a bank. Someone stole my phone.</em>'
+                        ],
+                        [
+                            'wear / put on',
+                            'mặc (trạng thái) / mặc vào (hành động)',
+                            '<em>She wears glasses. Put on your coat.</em>'
+                        ],
+                        ['remember / remind', 'nhớ / nhắc ai nhớ', '<em>I remember him. Remind me to call her.</em>'],
+                        [
+                            'learn / teach / study',
+                            'học / dạy / học, nghiên cứu',
+                            '<em>I learn English. She teaches maths. He studies law.</em>'
+                        ],
+                        [
+                            'raise / rise',
+                            'nâng lên (cần tân ngữ) / tăng lên (tự nó)',
+                            '<em>They raised prices. Prices rose.</em>'
+                        ],
+                        [
+                            'lay / lie',
+                            'đặt, để (lay – laid) / nằm (lie – lay – lain)',
+                            '<em>Lay the book on the table. Lie on the bed.</em>'
+                        ],
+                        [
+                            'win / beat',
+                            'thắng (trận đấu, giải) / đánh bại (người, đội)',
+                            '<em>We won the game. We beat them 3–0.</em>'
+                        ],
+                        ['miss / lose', 'lỡ, nhớ / mất, thua', '<em>I missed the bus. I lost my keys.</em>'],
+                        [
+                            'fit / suit / match',
+                            'vừa / hợp (hợp với ai) / khớp, hợp màu',
+                            '<em>It fits me. Blue suits you. The tie matches your shirt.</em>'
+                        ]
+                    ]
+                },
+                {
+                    title: 'Phần 2.3 – Cặp tính từ, trạng từ dễ nhầm nghĩa',
+                    head: ['Cặp', 'Phân biệt', 'Ví dụ'],
+                    rows: [
+                        [
+                            'alone / lonely',
+                            'một mình (trung tính) / cô đơn (buồn)',
+                            '<em>She lives alone but isn’t lonely.</em>'
+                        ],
+                        [
+                            'fun / funny',
+                            'vui, thú vị / hài hước, buồn cười',
+                            '<em>The party was fun. The joke was funny.</em>'
+                        ],
+                        [
+                            'economic / economical',
+                            'thuộc kinh tế / tiết kiệm',
+                            '<em>economic growth; an economical car</em>'
+                        ],
+                        [
+                            'historic / historical',
+                            'có ý nghĩa lịch sử / thuộc về lịch sử',
+                            '<em>a historic victory; historical records</em>'
+                        ],
+                        [
+                            'sensible / sensitive',
+                            'biết điều, hợp lý / nhạy cảm',
+                            '<em>a sensible choice; sensitive skin</em>'
+                        ],
+                        [
+                            'hard / hardly',
+                            'chăm chỉ, khó / hầu như không',
+                            '<em>work hard; I can hardly hear you</em>'
+                        ],
+                        ['late / lately', 'muộn / gần đây', '<em>arrive late; I’ve been tired lately</em>'],
+                        ['high / highly', 'cao (vị trí) / rất, hết sức', '<em>jump high; highly recommended</em>'],
+                        ['near / nearly', 'gần / gần như', '<em>sit near me; nearly finished</em>']
+                    ]
+                },
+                {
+                    title: 'Phần 2.4 – Cặp dễ nhầm về cấu trúc',
+                    head: ['Cặp', 'Phân biệt', 'Ví dụ'],
+                    rows: [
+                        ['fewer / less', '+ đếm được / + không đếm được', '<em>fewer books, less water</em>'],
                         ['between / among', '2 đối tượng / 3+ đối tượng', '<em>between you and me, among us all</em>'],
-                        ['fewer / less', '+ đếm được / + không đếm được', '<em>fewer books, less water</em>']
+                        [
+                            'beside / besides',
+                            'bên cạnh / ngoài ra, hơn nữa',
+                            '<em>sit beside me; besides, it’s late</em>'
+                        ],
+                        [
+                            'as / like',
+                            'với vai trò / giống như',
+                            '<em>She works as a teacher. She sings like a bird.</em>'
+                        ],
+                        ['since / for', 'mốc thời gian / khoảng thời gian', '<em>since 2020; for five years</em>'],
+                        [
+                            'other / another',
+                            'khác (số nhiều, xác định) / một cái khác',
+                            '<em>the other books; another book</em>'
+                        ]
                     ]
                 }
-            ],
-            uses: [
-                ['Adj + N', '', 'heavy traffic, strong coffee, heavy rain'],
-                [
-                    'Adv + Adj (trạng từ + tính từ)',
-                    'hay gặp trong văn viết',
-                    'highly recommended, highly likely, deeply sorry, fully aware'
-                ],
-                ['V + Adv', '', 'rain heavily, work hard'],
-                ['V + giới từ cố định', '', 'depend on, listen to, wait for, agree with, apologize for, complain about'],
-                ['V + N (idiom)', '', 'take a chance, break a record, set an example, raise concerns']
             ],
             sections: [
                 {
                     title: '🗂️ Collocation theo chủ đề',
                     items: [
-                        ['Writing học thuật', 'conduct research, draw a conclusion, reach a consensus, pose a threat, play a crucial role'],
-                        ['Công việc', 'meet a deadline, take responsibility, gain experience, launch a project, hold a meeting'],
-                        ['Đời sống', 'make friends, catch a bus, have a nap, get dressed, pay by card'],
-                        ['Vấn đề xã hội', 'raise awareness, tackle poverty, reduce emissions, break the law']
+                        [
+                            'Writing học thuật',
+                            'conduct research, draw a conclusion, reach a consensus, pose a threat, play a crucial role, raise a question, provide evidence, address an issue'
+                        ],
+                        [
+                            'Công việc',
+                            'meet a deadline, take responsibility, gain experience, launch a project, hold a meeting, make a profit, run a business, reach a target'
+                        ],
+                        [
+                            'Đời sống',
+                            'make friends, catch a bus, have a nap, get dressed, pay by card, do the shopping, take a shower, miss the train'
+                        ],
+                        [
+                            'Vấn đề xã hội',
+                            'raise awareness, tackle poverty, reduce emissions, break the law, protect the environment, face a challenge'
+                        ],
+                        [
+                            'Sức khỏe',
+                            'catch a cold, take medicine, suffer from stress, have a check-up, lose weight, gain weight, follow a diet, keep fit, run a fever'
+                        ],
+                        [
+                            'Công nghệ',
+                            'download a file, install an app, run a program, back up data, log in / log out, send an email, connect to Wi-Fi, reset the password, store data'
+                        ],
+                        [
+                            'Giáo dục',
+                            'take an exam, pass / fail an exam, write an essay, hand in homework, attend a lecture, get a degree, learn by heart, give a presentation'
+                        ],
+                        [
+                            'Du lịch',
+                            'book a flight, make a reservation, catch a train, miss a flight, pack a suitcase, check in, take a trip, go sightseeing, travel light'
+                        ],
+                        [
+                            'Tài chính',
+                            'save money, spend money, earn a living, pay a bill, make a profit, take out a loan, open an account, cut costs, balance the budget, raise funds'
+                        ],
+                        [
+                            'Cảm xúc',
+                            'burst into tears, lose your temper, keep calm, express concern, show respect, take offence, fall in love, hold a grudge'
+                        ],
+                        [
+                            'Thời gian',
+                            'waste time, save time, spare time, kill time, take your time, run out of time, pass the time, meet a deadline'
+                        ],
+                        [
+                            'Thời tiết',
+                            'heavy rain, light rain, torrential rain, strong wind, thick fog, scorching heat, bitterly cold, clear sky'
+                        ]
                     ]
                 }
             ],
             mistakes: [
                 ['do a decision, make homework', 'make a decision, do homework', ''],
-                ['powerful coffee', 'strong coffee', 'Không thay từ đồng nghĩa vào collocation nếu chưa chắc.']
+                ['powerful coffee', 'strong coffee', 'Không thay từ đồng nghĩa vào collocation nếu chưa chắc.'],
+                ['make a photo', 'take a photo', 'Chụp ảnh dùng take, không dùng make.'],
+                ['discuss about the issue', 'discuss the issue', 'discuss là ngoại động từ, không cần giới từ.'],
+                [
+                    'marry with her, enter into the room',
+                    'marry her, enter the room',
+                    'marry và enter đi thẳng với tân ngữ.'
+                ],
+                [
+                    'listen the music, look the picture',
+                    'listen to the music, look at the picture',
+                    'Giới từ đi kèm là một phần của collocation.'
+                ],
+                ['depend of the weather', 'depend on the weather', 'Giới từ cố định: depend on.'],
+                [
+                    'say me the truth, borrow me your pen',
+                    'tell me the truth, lend me your pen',
+                    'tell và lend đi với người nhận; say và borrow thì không.'
+                ]
             ],
-            tip: 'Học nguyên chunk: nhớ <em>take responsibility for</em>, không chỉ nhớ <em>responsibility</em>.'
+            advanced: [
+                '<strong>Delexical verbs</strong> (have, take, make, give + danh từ) thay cho một động từ đơn khá thường gặp trong văn nói: <em>have a look = look, take a shower = shower, make a suggestion = suggest</em>. Dùng để nói tự nhiên hơn, nhưng văn học thuật thường chọn động từ đơn cho gọn.',
+                '<strong>Binomials</strong> (cặp từ cố định, không đổi thứ tự): <em>pros and cons, black and white, ladies and gentlemen, bread and butter, back and forth</em>.',
+                '<strong>Mức độ trang trọng:</strong> <em>carry out research</em> (trang trọng) – <em>do research</em> (trung tính); <em>take a decision</em> (BrE) – <em>make a decision</em> (AmE, phổ biến nhất).'
+            ],
+            tip: 'Học nguyên chunk: nhớ <em>take responsibility for</em>, không chỉ nhớ <em>responsibility</em>. Khi gặp từ mới, ghi cả 2–3 từ hay đi cùng nó. Với cặp từ dễ nhầm, học theo cặp kèm một câu ví dụ để nhớ khác biệt.'
         }
     },
 
@@ -801,20 +1332,80 @@ const grammarComprehensiveData = {
             overview: '<strong>Stative verbs</strong> mô tả trạng thái tĩnh, không "đang diễn ra", nên thường <strong>không dùng dạng tiếp diễn</strong>: <em>I love this song</em> (không phải <em>I am loving</em>). <strong>Dynamic verbs</strong> mô tả hành động và dùng tiếp diễn bình thường.',
             tables: [
                 {
-                    title: '4 nhóm stative',
-                    head: ['Nhóm', 'Động từ'],
+                    title: '6 nhóm stative',
+                    head: ['Nhóm', 'Động từ', 'Ví dụ'],
                     rows: [
-                        ['Cảm xúc, suy nghĩ', 'love, like, hate, want, need, prefer, believe, know, understand, remember, forget, mean, ...'],
-                        [
-                            'Sở hữu, tồn tại',
-                            'have (sở hữu), own, possess, belong, contain, consist, exist, ... – <em>The box contains books. This belongs to me.</em>'
-                        ],
-                        ['Giác quan', 'see, hear, smell, taste, feel, ...'],
-                        ['Đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, ...']
+                        ['Cảm xúc, yêu ghét', 'love, like, dislike, hate, adore, detest, prefer, want, need, wish, desire, fear, envy, mind, care, appreciate, admire, respect, ...', '<em>I hate waiting. She adores her grandmother.</em>'],
+                        ['Suy nghĩ, nhận thức', 'know, believe, understand, remember, forget, realize, recognize, doubt, suppose, assume, suspect, imagine, guess, agree, disagree, recall, mean, ...', '<em>I know the answer. I don’t remember his name.</em>'],
+                        ['Sở hữu, tồn tại, thuộc về', 'have (sở hữu), own, possess, belong, contain, include, comprise, consist of, exist, lack, owe, deserve, involve, depend, matter, hold (chứa), ...', '<em>The box contains books. This belongs to me.</em>'],
+                        ['Giác quan, tri giác', 'see, hear, smell, taste, feel, notice, ...', '<em>I can see the sea. The soup tastes great.</em>'],
+                        ['Hình thức, đo lường, đánh giá', 'seem, appear, look, sound, weigh, cost, measure, resemble, ...', '<em>This bag weighs five kilos. She seems tired.</em>'],
+                        ['Quan hệ, so sánh', 'be, remain, equal, differ, fit, suit, ...', '<em>Two plus two equals four. The blue shirt suits you.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 1: cảm xúc, yêu ghét',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'love (yêu), like (thích), hate (ghét), want (muốn), need (cần), prefer (thích hơn)', '<em>I love this song. She prefers tea to coffee.</em>'],
+                        ['Thông dụng', 'dislike (không thích), wish (ước), fear (sợ), mind (phiền), care (quan tâm), appreciate (đánh giá cao, biết ơn), respect (tôn trọng), trust (tin tưởng), admire (ngưỡng mộ)', '<em>I don’t mind waiting. We appreciate your help.</em>'],
+                        ['Ít gặp', 'adore (rất yêu), detest (ghét cay ghét đắng), loathe (ghê tởm), despise (khinh thường), desire (khao khát), envy (ghen tị), cherish (trân trọng), resent (bực bội), pity (thương hại), value (coi trọng)', '<em>She adores her grandmother. I envy your talent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 2: suy nghĩ, nhận thức',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'know (biết), believe (tin), understand (hiểu), remember (nhớ), forget (quên), think (cho rằng), mean (có nghĩa), agree (đồng ý)', '<em>I know the answer. I don’t remember his name.</em>'],
+                        ['Thông dụng', 'realize (nhận ra), recognize (nhận ra, công nhận), doubt (nghi ngờ), suppose (cho rằng), assume (giả định), imagine (tưởng tượng), guess (đoán), disagree (không đồng ý), recall (nhớ lại), expect (cho rằng)', '<em>I doubt he’ll come. I assume you’re ready.</em>'],
+                        ['Ít gặp', 'suspect (nghi ngờ, ngờ rằng), presume (cho là), comprehend (lĩnh hội), deny (phủ nhận), perceive (nhận thức)', '<em>I suspect he is lying. She denies everything.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 3: sở hữu, tồn tại, thuộc về',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'have (có, sở hữu), own (sở hữu), belong (thuộc về), contain (chứa), include (bao gồm)', '<em>She has two cars. The price includes tax.</em>'],
+                        ['Thông dụng', 'possess (sở hữu), consist of (gồm có), exist (tồn tại), lack (thiếu), owe (nợ), deserve (xứng đáng), involve (liên quan, kéo theo), depend (phụ thuộc), matter (quan trọng)', '<em>Ghosts don’t exist. It depends on the weather. Your opinion matters.</em>'],
+                        ['Ít gặp', 'comprise (bao gồm), hold (chứa được), require (đòi hỏi), concern (liên quan), entail (kéo theo), merit (đáng được)', '<em>The hall holds 500 people. The job requires patience.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 4: giác quan, tri giác (thường dùng với can)',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'see (thấy), hear (nghe thấy), feel (cảm thấy), taste (có vị), smell (có mùi)', '<em>I can see the sea. The soup tastes great. It smells good.</em>'],
+                        ['Thông dụng', 'notice (nhận thấy)', '<em>I noticed a mistake in the report.</em>'],
+                        ['Ít gặp', 'perceive (nhận thấy, cảm nhận)', '<em>Dogs perceive sounds that humans can’t.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 5: hình thức, đo lường, đánh giá',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'seem (có vẻ), look (trông), sound (nghe có vẻ), cost (có giá), weigh (nặng)', '<em>She seems tired. That sounds great. It costs $20.</em>'],
+                        ['Thông dụng', 'appear (có vẻ), measure (có kích thước)', '<em>He appears nervous. The room measures four metres.</em>'],
+                        ['Ít gặp', 'represent (đại diện), signify (biểu thị), indicate (cho thấy), imply (hàm ý)', '<em>The results indicate a clear trend. Silence implies consent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 6: quan hệ, so sánh',
+                    head: ['Mức thông dụng', 'Động từ (nghĩa)', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'be (là), remain (vẫn là), differ (khác), equal (bằng)', '<em>Two plus two equals four. They remain friends.</em>'],
+                        ['Thông dụng', 'fit (vừa), suit (hợp), resemble (giống), match (khớp)', '<em>The blue shirt suits you. She resembles her mother.</em>'],
+                        ['Ít gặp', 'exceed (vượt quá), surpass (vượt trội), outnumber (đông hơn)', '<em>Demand exceeds supply. Women outnumber men here.</em>']
                     ]
                 }
             ],
             sections: [
+                {
+                    title: '👂 Giác quan: dùng can thay cho tiếp diễn',
+                    items: [
+                        'see, hear, smell, taste, feel ở nghĩa tri giác thường đi với <em>can</em>: <em>I can see the sea. I can hear music.</em> (không dùng <em>I am seeing the sea</em>).',
+                        'Khi đổi sang nghĩa hành động thì dùng tiếp diễn được: <em>I’m seeing the dentist tomorrow.</em> (bảng bên dưới)'
+                    ]
+                },
                 {
                     title: '🔄 Khi stative verb dùng được ở tiếp diễn (đổi nghĩa)',
                     table: {
@@ -828,9 +1419,24 @@ const grammarComprehensiveData = {
                                 'có vị / mùi – <em>The soup tastes great.</em>',
                                 'nếm / ngửi / sờ – <em>I’m tasting the soup.</em>'
                             ],
-                            ['be', 'bản chất – <em>He is rude.</em>', 'hành vi tạm thời – <em>He is being rude. You’re being silly.</em>']
+                            ['be', 'bản chất – <em>He is rude.</em>', 'hành vi tạm thời – <em>He is being rude. You’re being silly.</em>'],
+                            ['look', 'trông có vẻ – <em>She looks tired.</em>', 'nhìn – <em>I’m looking at the map.</em>'],
+                            ['appear', 'có vẻ – <em>He appears nervous.</em>', 'xuất hiện, biểu diễn – <em>She is appearing in a new film.</em>'],
+                            ['weigh', 'nặng – <em>This bag weighs five kilos.</em>', 'cân – <em>She is weighing the fruit.</em>'],
+                            ['measure', 'có kích thước – <em>The room measures four metres.</em>', 'đo – <em>He is measuring the room.</em>'],
+                            ['expect', 'cho rằng – <em>I expect he’ll be late.</em>', 'đang chờ đợi – <em>I’m expecting a parcel.</em>'],
+                            ['consider', 'cho rằng – <em>I consider him a friend.</em>', 'đang cân nhắc – <em>I’m considering a new job.</em>']
                         ]
                     }
+                },
+                {
+                    title: '↔️ Dùng được cả hai dạng (nghĩa gần như không đổi)',
+                    items: [
+                        ['feel', '<em>I feel tired. / I’m feeling tired.</em> (cảm giác thể chất, cảm xúc)'],
+                        ['hurt, ache, itch', '<em>My back hurts. / My back is hurting.</em>'],
+                        ['hope, wonder', '<em>I hope to see you. / I’m hoping to see you.</em> (tiếp diễn nghe mềm, lịch sự hơn)'],
+                        ['love, like (khẩu ngữ)', '<em>I’m loving this course.</em> – nhấn cảm xúc tạm thời, phổ biến trong khẩu ngữ, quảng cáo; không phải mẫu an toàn cho bài thi.']
+                    ]
                 }
             ],
             mistakes: [
@@ -1396,106 +2002,11 @@ const grammarComprehensiveData = {
         }
     },
 
-    'causative-have-get': {
-        icon: '🔧', title: 'Causative (Câu Sai Khiến Với Have/Get) - Intermediate', category: 'structures', level: 'intermediate',
-        connections: ['passive-voice', 'verb-patterns', 'modal-verbs'],
-        theory: {
-            overview: 'Câu sai khiến với <strong>have / get</strong>: nhờ, giao việc, thuyết phục ai làm, hoặc có việc được làm cho mình (dịch vụ). Dùng khi kết quả quan trọng hơn người làm. (Tổng quan cả nhóm make / let / have / get: xem Causatives.)',
-            tables: [
-                {
-                    head: ['Mẫu', 'Nghĩa', 'Ví dụ'],
-                    rows: [
-                        ['have + O + V', 'nhờ, giao việc', '<em>I had John fix my car.</em>'],
-                        ['get + O + to V', 'thuyết phục', '<em>I got him to fix it.</em>'],
-                        [
-                            'have / get + O + V3',
-                            'nhờ / thuê làm cho mình',
-                            '<em>I had my car repaired. I had my hair cut. I’ll get my hair cut tomorrow.</em>'
-                        ],
-                        ['have / get + O + V3', 'gặp chuyện xui', '<em>I had my car stolen. I had my wallet stolen.</em>'],
-                        ['make / let + O + V', 'bắt / cho phép', '<em>She made me cry. Let me go.</em>'],
-                        ['help + O + (to) V', 'giúp', '<em>He helped me (to) finish.</em>']
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '🔄 Bị động',
-                    items: [
-                        ['make', 'be made <strong>to</strong> + V: <em>She was made to apologize.</em>'],
-                        ['let', 'không có bị động trực tiếp – dùng be allowed to: <em>They let us in → We were allowed to go in.</em>']
-                    ]
-                }
-            ],
-            compare: [
-                ['I repaired my phone vs I had my phone repaired', 'tự sửa – nhờ / dịch vụ sửa'],
-                [
-                    'have vs get + O + V3',
-                    'have trang trọng hơn (<em>I had the report checked</em>); get thân mật hơn (<em>I got it checked</em>)'
-                ]
-            ],
-            mistakes: [
-                ['I had my car repair.', 'I had my car repaired.', 'Mẫu này dùng V3 sau tân ngữ, không dùng V nguyên mẫu hay V-ing.']
-            ]
-        }
-    },
-
     /* ========== MISTAKES & MECHANICS ========== */
-
-    'punctuation-deep': {
-        icon: '✏️', title: 'Punctuation Rules (Quy Tắc Dấu Câu) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-capitalization', 'fragments-runons', 'apostrophe-rules'],
-        theory: {
-            overview: 'Dấu câu giúp người đọc thấy đúng cấu trúc và nhịp câu. Chủ điểm này đi sâu vào <strong>dấu phẩy, chấm phẩy, hai chấm và gạch ngang dài</strong>.',
-            tables: [
-                {
-                    title: 'Dấu phẩy',
-                    head: ['Dùng khi', 'Ví dụ'],
-                    rows: [
-                        ['Liệt kê 3+ mục (dấu phẩy trước and cuối = Oxford comma, tùy chọn)', '<em>red, white, and blue</em>'],
-                        ['Sau trạng ngữ / mệnh đề đứng đầu câu', '<em>When I arrived, the meeting had started.</em>'],
-                        [
-                            'Trước FANBOYS nối hai mệnh đề độc lập (không cần khi nối hai từ)',
-                            '<em>I came, and I saw.</em> nhưng <em>bread and butter</em>'
-                        ],
-                        [
-                            'Bao mệnh đề không xác định, đồng vị ngữ, phần chêm',
-                            '<em>My brother, who lives in NY, … Bill Gates, founder of Microsoft, said… The book, however, was great.</em>'
-                        ]
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '➗ Chấm phẩy, hai chấm, gạch ngang',
-                    items: [
-                        ['; (semicolon)', 'nối hai mệnh đề độc lập rất gần ý: <em>I came; I saw; I conquered.</em>'],
-                        [': (colon)', 'giới thiệu danh sách, giải thích, trích dẫn: <em>I need three things: pen, paper, ink.</em>'],
-                        ['— (dash)', 'chêm xen mạnh hoặc đổi nhịp: <em>She told me—and I believed her—that he was guilty.</em>'],
-                        [
-                            'however nối hai mệnh đề',
-                            '<em>I was tired; however, I worked.</em> hoặc <em>I was tired. However, I worked.</em>'
-                        ]
-                    ]
-                }
-            ],
-            mistakes: [
-                ['I came, I saw.', 'I came; I saw. / I came, and I saw.', 'Comma splice: hai mệnh đề độc lập nối chỉ bằng dấu phẩy.'],
-                ['I came I saw.', 'I came. I saw.', 'Run-on: viết liền không dấu.'],
-                [
-                    'The man in the red coat, is my uncle.',
-                    'The man in the red coat is my uncle.',
-                    'Không đặt dấu phẩy giữa chủ ngữ và động từ khi không có phần chêm.'
-                ],
-                'Dùng apostrophe để tạo số nhiều thông thường.'
-            ],
-            tip: 'Sửa comma splice / run-on: thêm dấu chấm, thêm chấm phẩy, thêm liên từ, hoặc đổi một vế thành mệnh đề phụ.'
-        }
-    },
 
     'apostrophe-rules': {
         icon: '✒️', title: 'Apostrophe (Dấu Phẩy Trên) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-deep', 'compound-nouns-possessives'],
+        connections: ['punctuation-capitalization', 'compound-nouns-possessives'],
         theory: {
             overview: 'Dấu nháy đơn (apostrophe) có ba chức năng: <strong>sở hữu số ít</strong> (<em>John’s car</em>), <strong>sở hữu số nhiều</strong> (<em>the boys’ room</em>) và <strong>viết tắt</strong> (<em>don’t, it’s, ’90s, o’clock</em>).',
             tables: [
@@ -1525,57 +2036,44 @@ const grammarComprehensiveData = {
         }
     },
 
-    'capitalization-rules': {
-        icon: '🔠', title: 'Capitalization Rules (Quy Tắc Viết Hoa) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['punctuation-deep'],
-        theory: {
-            overview: 'Viết hoa: <strong>đầu câu, đại từ I, tên riêng</strong> (người, địa danh, công ty, thương hiệu), <strong>quốc tịch, ngôn ngữ, tôn giáo</strong>, <strong>ngày trong tuần, tháng, ngày lễ</strong>, và các từ chính trong tiêu đề.',
-            tables: [
-                {
-                    head: ['Viết hoa', 'Không viết hoa'],
-                    rows: [
-                        ['Monday, January, Christmas', 'spring, summer, fall/autumn, winter (trừ khi nhân hóa)'],
-                        ['Vietnamese, English, Buddhism', 'math, history, biology (môn học chung – trừ ngôn ngữ)'],
-                        ['President Lincoln (chức danh + tên)', 'the president (chức danh chung)'],
-                        ['the South (tên vùng)', 'drive north (hướng)']
-                    ]
-                }
-            ],
-            sections: [
-                {
-                    title: '📰 Title Case',
-                    items: [
-                        'Viết hoa từ đầu, từ cuối và mọi từ chính (danh, động, tính, trạng từ, đại từ).',
-                        'Không viết hoa (trừ khi đứng đầu / cuối): a, an, the, liên từ ngắn (and, but, or), giới từ ngắn (in, on, of): <em>The Lord of the Rings; How to Win Friends and Influence People</em>.'
-                    ]
-                }
-            ]
-        }
-    },
-
     'numbers-dates': {
-        icon: '🔢', title: 'Numbers & Dates (Số Đếm, Số Thứ Tự & Ngày Tháng) - Beginner', category: 'mistakes', level: 'beginner',
-        connections: ['numerals'],
+        icon: '🔢',
+        title: 'Numbers & Dates (Số Từ, Số Thứ Tự & Ngày Tháng) - Beginner',
+        category: 'foundations',
+        level: 'beginner',
+        connections: ['articles-determiners', 'quantifiers', 'nouns-plurals', 'sentence-order'],
         theory: {
-            overview: 'Cách viết và đọc <strong>số đếm, số thứ tự, phân số, thập phân, phần trăm, ngày tháng, năm, giờ</strong> – nhiều điểm khác tiếng Việt và khác nhau giữa Anh-Anh, Anh-Mỹ.',
+            overview: 'Số từ không chỉ là đếm: gồm <strong>số đếm</strong> (cardinal – số lượng), <strong>số thứ tự</strong> (ordinal – thứ tự, ngày tháng, xếp hạng), <strong>phân số, số thập phân, phần trăm</strong>, cùng cách viết và đọc <strong>ngày tháng, năm, giờ</strong>. Nhiều điểm khác tiếng Việt và khác nhau giữa Anh-Anh, Anh-Mỹ; đây là vùng lỗi rất thường gặp khi đọc, nói, viết.',
             tables: [
                 {
                     head: ['Loại', 'Viết / đọc'],
                     rows: [
                         [
                             'Số đếm / số thứ tự',
-                            'one, twenty-one, one hundred / first (1st), second (2nd), third (3rd), twenty-first (21st)'
+                            'one, twenty-one, one hundred / first (1st), second (2nd), third (3rd), twenty-first (21st) – first, second, third là bất quy tắc'
                         ],
                         [
                             'Phân số',
                             'tử số là số đếm, mẫu số là số thứ tự (thêm s khi tử > 1): 1/2 = a half, 1/3 = a third, 3/4 = three-quarters, 2/5 = two-fifths'
                         ],
-                        ['Thập phân', 'đọc bằng point: 0.5 = point five, 3.14 = three point one four'],
-                        ['Phần trăm', '25% = twenty-five percent (không thêm s)'],
-                        ['Năm', '1999 = nineteen ninety-nine; 2024 = twenty twenty-four / two thousand and twenty-four'],
+                        [
+                            'Thập phân',
+                            'đọc bằng point: 0.5 = point five, 3.14 = three point one four (dấu chấm, không dùng dấu phẩy)'
+                        ],
+                        [
+                            'Phần trăm',
+                            '25% = twenty-five percent (không thêm s); động từ chia theo danh từ sau of: <em>25 percent of students are… / 25 percent of the water is…</em>'
+                        ],
+                        [
+                            'Năm',
+                            '1999 = nineteen ninety-nine; 2024 = twenty twenty-four / two thousand and twenty-four'
+                        ],
                         ['Thập kỷ, tuổi', 'the 1990s / the ’90s = the nineties; in his twenties = khoảng 20–29 tuổi'],
                         ['Giờ', '7:30 = half past seven / seven thirty'],
-                        ['Số điện thoại', 'đọc từng chữ số, 0 có thể đọc "oh": 555-1234 = five-five-five, one-two-three-four'],
+                        [
+                            'Số điện thoại',
+                            'đọc từng chữ số, 0 có thể đọc "oh": 555-1234 = five-five-five, one-two-three-four'
+                        ],
                         ['Phép tính', '2 + 3 = 5 → Two plus three equals five']
                     ]
                 },
@@ -1586,34 +2084,91 @@ const grammarComprehensiveData = {
                         ['Anh-Anh', '5(th) May 2024', 'the fifth of May'],
                         ['Anh-Mỹ', 'May 5(th), 2024', 'May fifth']
                     ]
+                },
+                {
+                    title: 'Số lượng cụ thể và không xác định',
+                    head: ['Dạng', 'Mẫu', 'Ví dụ / ghi chú'],
+                    rows: [
+                        [
+                            'Hàng trăm / nghìn cụ thể',
+                            'two hundred / five thousand',
+                            'không thêm s: <em>two hundred students</em>'
+                        ],
+                        [
+                            'Số lượng không xác định',
+                            'hundreds of / dozens of',
+                            'có s và đi với of: <em>hundreds of pages</em>'
+                        ],
+                        [
+                            'Số + danh từ làm tính từ ghép',
+                            'a five-year plan, a ten-year-old boy',
+                            'dùng gạch nối, danh từ giữ số ít'
+                        ],
+                        ['Ngày tháng bằng ordinal', 'on 21st May / May 21st', 'đọc: <em>the twenty-first of May</em>']
+                    ]
                 }
             ],
+            uses: [
+                [
+                    'Số + danh từ làm tính từ ghép',
+                    'dùng gạch nối, danh từ giữ số ít',
+                    'a one-day trip, a five-year plan, a ten-year-old boy'
+                ]
+            ],
             compare: [
-                ['in 2026 vs on 25 April 2026', 'in + năm; on + ngày cụ thể']
+                ['in 2026 vs on 25 April 2026', 'in + năm; on + ngày cụ thể'],
+                [
+                    'two hundred people vs hundreds of people',
+                    'số cụ thể không thêm s; số lượng không xác định có s và đi với of'
+                ]
             ],
             mistakes: [
-                ['3,5 (đọc "three comma five")', '3.5 (three point five)', ''],
-                ['a two-hours meeting, a 5-years-old', 'a two-hour meeting, a 5-year-old', 'Tính từ ghép với số không thêm s.']
-            ]
+                ['two hundreds people', 'two hundred people', 'Có số cụ thể thì không thêm s.'],
+                [
+                    'a five-years-old boy, a two-hours meeting',
+                    'a five-year-old boy, a two-hour meeting',
+                    'Tính từ ghép với số không thêm s.'
+                ],
+                [
+                    '3,5 percents / 3,5 (đọc "three comma five")',
+                    '3.5 percent / 3.5 (three point five)',
+                    'Thập phân dùng dấu chấm; percent không thêm s.'
+                ]
+            ],
+            advanced: [
+                'Trong academic writing, viết số <strong>thống nhất</strong>: cùng một đoạn không đổi qua lại bừa bãi giữa chữ và số.'
+            ],
+            tip: 'Thấy số + danh từ, kiểm tra ngay: đang là số lượng cụ thể, số lượng không xác định, số thứ tự hay tính từ ghép?'
         }
     },
 
     'fragments-runons': {
-        icon: '⚠️', title: 'Fragments, Run-ons & Comma Splice (Câu Thiếu, Câu Dính & Lỗi Dấu Phẩy) - Intermediate', category: 'mistakes', level: 'intermediate',
-        connections: ['punctuation-deep', 'sentence-types', 'parallel-structure'],
+        icon: '⚠️',
+        title: 'Fragments, Run-ons & Comma Splice (Câu Thiếu, Câu Dính & Lỗi Dấu Phẩy) - Intermediate',
+        category: 'mistakes',
+        level: 'intermediate',
+        connections: ['punctuation-capitalization', 'sentence-order', 'conjunctions', 'sentence-types', 'parallel-structure', 'noun-clauses'],
         theory: {
-            overview: 'Ba lỗi cấu trúc câu cốt lõi: <strong>fragment</strong> (thiếu chủ ngữ, động từ hoặc mệnh đề chính), <strong>run-on</strong> (hai mệnh đề viết liền không dấu, không từ nối) và <strong>comma splice</strong> (hai mệnh đề nối chỉ bằng dấu phẩy). (Xem thêm Fragments & Run-ons.)',
+            overview: 'Một câu hoàn chỉnh cần <strong>ít nhất một mệnh đề độc lập</strong>. Ba lỗi cấu trúc câu cốt lõi: <strong>fragment</strong> (câu thiếu: thiếu chủ ngữ, động từ chia thì hoặc mệnh đề chính), <strong>run-on</strong> (hai mệnh đề độc lập viết liền, không dấu, không từ nối) và <strong>comma splice</strong> (hai mệnh đề độc lập nối chỉ bằng dấu phẩy).',
             tables: [
                 {
-                    head: ['Lỗi', 'Ví dụ sai', 'Sửa'],
+                    head: ['Lỗi', 'Ví dụ sai', 'Mô tả và cách sửa'],
                     rows: [
                         [
                             'Fragment',
-                            '<em>Walking down the street.</em> / <em>Although he was tired.</em>',
-                            '<em>Although he was tired, he worked.</em> (câu hoàn chỉnh)'
+                            '<em>Because I was tired.</em> / <em>Walking down the street.</em>',
+                            'thiếu chủ ngữ, động từ chia thì hoặc mệnh đề chính → ghép với mệnh đề chính: <em>Because I was tired, I went home.</em>'
                         ],
-                        ['Run-on', '<em>I came I saw.</em>', 'xem 4 cách sửa bên dưới'],
-                        ['Comma splice', '<em>I came, I saw.</em>', 'xem 4 cách sửa bên dưới']
+                        [
+                            'Run-on',
+                            '<em>I was tired I went home.</em>',
+                            'hai mệnh đề độc lập dính liền, không dấu, không từ nối → xem 4 cách sửa bên dưới'
+                        ],
+                        [
+                            'Comma splice',
+                            '<em>I was tired, I slept.</em>',
+                            'nối hai mệnh đề độc lập chỉ bằng dấu phẩy → xem 4 cách sửa bên dưới'
+                        ]
                     ]
                 }
             ],
@@ -1630,12 +2185,34 @@ const grammarComprehensiveData = {
             ],
             uses: [
                 [
+                    'Sửa fragment',
+                    'ghép với mệnh đề chính hoặc bổ sung chủ ngữ và động từ',
+                    'Because I was tired, I went home.'
+                ],
+                [
+                    'Sửa run-on / comma splice',
+                    'dấu chấm, chấm phẩy, dấu phẩy + FANBOYS, hoặc liên từ phụ thuộc',
+                    'I was tired. I went home. / I was tired; I went home. / I was tired, so I went home.'
+                ],
+                [
                     'Fragment có chủ ý',
-                    'tạo nhịp, nhấn mạnh trong quảng cáo, văn học, báo chí – không dùng trong văn học thuật',
+                    'tạo nhịp, nhấn mạnh trong quảng cáo, văn học, báo chí – không dùng trong văn học thuật và formal writing',
                     'Best service. Lowest price. Anywhere. / And then? Silence.'
                 ]
             ],
-            mistakes: ['Để mệnh đề because / although đứng một mình trong văn trang trọng.', 'Kéo câu dài mà không xác định được động từ chính.']
+            mistakes: [
+                [
+                    'It was late, however we kept working.',
+                    'It was late; however, we kept working. / It was late. However, we kept working.',
+                    'however là trạng từ liên kết, không nối hai mệnh đề chỉ bằng dấu phẩy (comma splice).'
+                ],
+                'Để mệnh đề <em>because / although / when</em> đứng một mình trong văn trang trọng (quên mệnh đề chính).',
+                'Sửa comma splice bằng cách… thêm một dấu phẩy nữa.',
+                'Kéo câu dài bằng <em>and… and… and…</em> khi quan hệ logic giữa các ý không rõ, hoặc kéo câu dài mà không xác định được động từ chính.'
+            ],
+            advanced: [
+                'Trong IELTS/TOEFL và academic writing, fragment và comma splice là <strong>lỗi cấu trúc</strong> nghiêm trọng. Câu dài để "trông học thuật" mà nối sai mệnh đề vẫn bị trừ điểm – câu tốt cần logic rõ, không cần dài.'
+            ]
         }
     },
 
@@ -1978,7 +2555,7 @@ const grammarComprehensiveData = {
     },
     'advanced-adverbial-clauses': {
         icon: '🪜', title: 'Advanced Adverbial Clauses (Mệnh Đề Trạng Ngữ Nâng Cao) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
-        connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses'],
+        connections: ['conjunctions', 'conditionals', 'participle-clauses', 'sequence-of-tenses', 'concession-contrast'],
         theory: {
             overview: 'Ở trình độ cao, mệnh đề trạng ngữ vượt khỏi because / when / if: cần xử lý tốt quan hệ <strong>điều kiện, nhượng bộ, cách thức, mức độ</strong> và khung thời gian tinh tế, với connector đúng register.',
             tables: [
@@ -2056,7 +2633,7 @@ const grammarComprehensiveData = {
 
     'advanced-relative-clauses': {
         icon: '🧬', title: 'Advanced Relative Clauses (Mệnh Đề Quan Hệ Nâng Cao) - Advanced', category: 'structures', level: 'advanced', cefr: 'C2',
-        connections: ['relative-clauses', 'reduced-relatives', 'noun-phrase-architecture', 'punctuation-deep'],
+        connections: ['relative-clauses', 'reduced-relatives', 'noun-phrase-architecture', 'punctuation-capitalization'],
         theory: {
             overview: 'Ở trình độ C2, mệnh đề quan hệ không dừng ở who / which / that: cần đọc và viết được <strong>giới từ + đại từ quan hệ, quantifier + of whom/which, sentential which, mệnh đề rút gọn, whose cho vật</strong>.',
             tables: [
@@ -2096,7 +2673,7 @@ const grammarComprehensiveData = {
 
     'verb-complementation': {
         icon: '🎛️', title: 'Verb Complementation (Bổ Ngữ Của Động Từ) - Advanced', category: 'patterns', level: 'advanced', cefr: 'C2',
-        connections: ['gerunds-infinitives', 'causative-have-get', 'subjunctive', 'noun-clauses'],
+        connections: ['gerunds-infinitives', 'causatives', 'subjunctive', 'noun-clauses'],
         theory: {
             overview: 'Verb complementation là hệ thống bổ ngữ đi sau từng động từ: to V, V-ing, V nguyên mẫu, that-clause, wh-clause, O + to V, O + phân từ… Ở C2 cần hiểu <strong>vì sao</strong> mỗi kiểu biểu hiện một quan hệ nghĩa khác nhau. <em>She agreed to leave. She enjoyed reading. We saw him cross the street. They expected him to win.</em>',
             tables: [

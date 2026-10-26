@@ -254,25 +254,43 @@ const grammarStructuresData = {
     },
     'causatives': {
         icon: '⚙️',
-        title: 'Causatives (Câu Sai Khiến) - Advanced',
+        title: 'Causatives (Câu Sai Khiến) - Intermediate',
         category: 'structures',
-        level: 'advanced',
-        connections: ['passive-voice', 'modal-verbs', 'gerunds-infinitives', 'sentence-order'],
+        level: 'intermediate',
+        connections: ['passive-voice', 'modal-verbs', 'gerunds-infinitives', 'verb-patterns', 'sentence-order'],
         theory: {
-            overview: 'Cấu trúc sai khiến dùng khi <strong>chủ ngữ không tự làm</strong> mà khiến, cho phép, thuyết phục hoặc thuê người khác làm. Có hai nhánh: <strong>make/let/have/get + người + làm</strong> và <strong>have/get + vật + V3</strong>.',
+            overview: 'Cấu trúc sai khiến dùng khi <strong>chủ ngữ không tự làm</strong> mà khiến, cho phép, thuyết phục, thuê người khác làm, hoặc có việc được làm cho mình. Có hai nhánh: <strong>make / let / have / get + người + làm</strong> và <strong>have / get + vật + V3</strong>. Dùng <em>have / get</em> khi kết quả quan trọng hơn người làm.',
             tables: [
                 {
                     head: ['Mẫu', 'Ý nghĩa', 'Ví dụ'],
                     rows: [
-                        ['make + O + V', 'bắt, ép', '<em>My boss made me rewrite the report. The teacher made us stay.</em>'],
+                        [
+                            'make + O + V',
+                            'bắt, ép',
+                            '<em>My boss made me rewrite the report. The teacher made us stay.</em>'
+                        ],
                         ['let + O + V', 'cho phép', '<em>They let him leave early.</em>'],
-                        ['have + O + V', 'giao việc, nhờ ai làm', '<em>I’ll have Tom check it.</em>'],
-                        ['get + O + to V', 'thuyết phục / nhờ được ai làm', '<em>She got him to apologize.</em>'],
+                        [
+                            'have + O + V',
+                            'giao việc, nhờ ai làm',
+                            '<em>I’ll have Tom check it. I had John fix my car.</em>'
+                        ],
+                        [
+                            'get + O + to V',
+                            'thuyết phục / nhờ được ai làm',
+                            '<em>She got him to apologize. I got him to fix it.</em>'
+                        ],
                         [
                             'have / get + O + V3',
                             'thuê, nhờ làm một việc (dịch vụ)',
                             '<em>I had my laptop repaired yesterday. We had the car washed. I get my hair cut every month.</em>'
-                        ]
+                        ],
+                        [
+                            'have / get + O + V3',
+                            'gặp chuyện xui (việc xảy đến với mình)',
+                            '<em>I had my car stolen. I had my wallet stolen.</em>'
+                        ],
+                        ['help + O + (to) V', 'giúp', '<em>He helped me (to) finish.</em>']
                     ]
                 }
             ],
@@ -286,17 +304,29 @@ const grammarStructuresData = {
                         ],
                         [
                             'let',
-                            'dùng be allowed to + V: <em>They let us use dictionaries.</em> → <em>We were allowed to use dictionaries.</em>'
+                            'không có bị động trực tiếp – dùng be allowed to + V: <em>They let us use dictionaries.</em> → <em>We were allowed to use dictionaries.</em>'
                         ]
                     ]
                 }
             ],
             compare: [
-                ['make vs get', 'ép buộc – thuyết phục được: <em>She made him apologize / She got him to apologize</em>'],
-                ['I cut my hair vs I had my hair cut', 'tự cắt – đi cắt tóc (người khác cắt)']
+                [
+                    'make vs get',
+                    'ép buộc – thuyết phục được: <em>She made him apologize / She got him to apologize</em>'
+                ],
+                ['I cut my hair vs I had my hair cut', 'tự cắt – đi cắt tóc (người khác cắt)'],
+                [
+                    'have vs get + O + V3',
+                    'have trang trọng hơn (<em>I had the report checked</em>); get thân mật hơn (<em>I got it checked</em>)'
+                ]
             ],
             mistakes: [
                 ['The news made her to cry.', 'The news made her cry.', 'Không dùng to sau make/let ở thể chủ động.'],
+                [
+                    'I had my car repair.',
+                    'I had my car repaired.',
+                    'Mẫu have / get + O + V3 dùng V3 sau tân ngữ, không dùng V nguyên mẫu hay V-ing.'
+                ],
                 'Nhầm <em>make + O + V</em> với <em>have/get + O + V3</em>.'
             ],
             tip: 'Hay dùng khi sửa chữa, kiểm tra, thiết kế, cắt tóc. Tự hỏi: đang nói về <strong>một người được thuyết phục</strong> hay <strong>một dịch vụ được thuê</strong>?'
