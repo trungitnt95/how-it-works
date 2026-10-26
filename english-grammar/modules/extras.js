@@ -317,7 +317,7 @@ const grammarExtrasData = {
         title: 'Phrasal Prepositions (Cụm Giới Từ Kép) - Intermediate',
         category: 'foundations',
         level: 'intermediate',
-        connections: ['prepositions', 'conjunctions', 'discourse-markers'],
+        connections: ['prepositions', 'conjunctions', 'discourse-markers', 'concession-contrast'],
         theory: {
             overview: 'Ngoài giới từ đơn, tiếng Anh có nhiều <strong>cụm giới từ</strong> 2–3 từ chỉ vị trí, nguyên nhân, tham chiếu, tương phản. Sau cụm giới từ luôn là <strong>danh từ / V-ing</strong>, không phải mệnh đề.',
             tables: [
@@ -669,29 +669,59 @@ const grammarExtrasData = {
         title: 'Linking Words & Discourse Markers (Từ Nối & Từ Liên Kết Diễn Ngôn) - Intermediate',
         category: 'patterns',
         level: 'intermediate',
-        connections: ['conjunctions', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
+        connections: ['conjunctions', 'concession-contrast', 'phrasal-prepositions', 'parallel-structure', 'result-structures'],
         theory: {
-            overview: 'Từ liên kết diễn ngôn giúp văn bản mạch lạc. Khác với liên từ (and, but, so) nối <strong>trong câu</strong>, chúng thường nối <strong>giữa các câu, các đoạn</strong> và có dấu câu riêng: <em>The price is high. However, the quality is excellent.</em>',
+            overview: 'Hai nhóm từ gần nhau giúp văn bản và lời nói mạch lạc. <strong>Linking words</strong> (từ nối) nối <strong>ý logic</strong>: thêm ý, đối lập, nguyên nhân, kết quả, ví dụ. <strong>Discourse markers</strong> (từ liên kết diễn ngôn, nghĩa hẹp) <strong>điều phối cuộc nói</strong>: mở đầu, chuyển chủ đề, thể hiện thái độ, giữ nhịp hội thoại. Hai nhóm giao nhau (<em>so, then, actually</em> có thể là cả hai). Bài này tập trung vào linking words đứng <strong>giữa các câu, các đoạn</strong> và có dấu câu riêng: <em>The price is high. However, the quality is excellent.</em> Liên từ nối trong câu (<em>and, but, because, although</em>) xem bài Conjunctions.',
             tables: [
                 {
-                    head: ['Quan hệ', 'Discourse markers'],
+                    title: 'Linking words vs Discourse markers',
+                    head: ['', 'Linking words', 'Discourse markers (nghĩa hẹp)'],
                     rows: [
-                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more, ...'],
-                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast, ...'],
+                        ['Chức năng', 'nối ý logic: thêm ý, đối lập, nguyên nhân, kết quả, ví dụ', 'điều phối cuộc nói: chuyển chủ đề, thể hiện thái độ, giữ nhịp'],
+                        ['Ví dụ', 'and, but, because, although, however, therefore, for example', 'well, so, anyway, by the way, I mean, you know'],
+                        ['Thường gặp', 'văn viết và văn nói', 'chủ yếu văn nói, thân mật'],
+                        ['Bỏ đi thì', 'quan hệ giữa các ý bị mờ', 'ý chính vẫn nguyên, chỉ kém tự nhiên']
+                    ]
+                },
+                {
+                    title: 'Ba loại linking words theo ngữ pháp',
+                    head: ['Loại', 'Ví dụ', 'Đi với'],
+                    rows: [
+                        ['Liên từ', 'and, but, so, because, although, while', 'nối hai mệnh đề trong một câu'],
+                        ['Trạng từ liên kết', 'however, therefore, moreover, nevertheless, for example', 'mở câu mới hoặc sau chấm phẩy, có dấu phẩy riêng'],
+                        ['Giới từ', 'despite, in spite of, because of, due to', 'danh từ / V-ing']
+                    ]
+                },
+                {
+                    title: 'Linking words theo ý nghĩa (nối giữa các câu)',
+                    head: ['Quan hệ', 'Từ / cụm từ', 'Loại'],
+                    rows: [
+                        ['Bổ sung', 'moreover, furthermore, in addition, besides, also, what’s more, ...', 'Linking word'],
+                        ['Tương phản', 'however, nevertheless, nonetheless, on the other hand, in contrast, ...', 'Linking word'],
                         [
                             'Kết quả',
-                            'therefore, thus, hence, consequently, as a result, accordingly, ... – <em>He studies hard. As a result, he passed.</em>'
+                            'therefore, thus, hence, consequently, as a result, accordingly, ... – <em>He studies hard. As a result, he passed.</em>',
+                            'Linking word'
                         ],
-                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular, ...'],
-                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion, ...'],
-                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually, ...'],
-                        ['Diễn đạt lại', 'in other words, that is to say, i.e.'],
-                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly, ...'],
-                        ['Văn nói', 'so, anyway, by the way, I mean, you know, ... – chuyển chủ đề, giữ nhịp hội thoại']
+                        ['Ví dụ, cụ thể', 'for example, for instance, namely, in particular, ...', 'Linking word'],
+                        ['Tóm tắt, kết luận', 'in short, in summary, to sum up, overall, in conclusion, ...', 'Linking word'],
+                        ['Diễn đạt lại', 'in other words, that is to say, i.e.', 'Linking word'],
+                        ['Trình tự', 'first(ly), then, next, after that, finally, eventually, ...', 'Cả hai, tuỳ ngữ cảnh'],
+                        ['Nhấn mạnh', 'indeed, in fact, actually, certainly, ...', 'Cả hai, tuỳ ngữ cảnh'],
+                        ['Văn nói', 'so, anyway, by the way, I mean, you know, ... – chuyển chủ đề, giữ nhịp hội thoại', 'Discourse marker']
                     ]
                 }
             ],
             sections: [
+                {
+                    title: '🔎 Cách phân biệt nhanh',
+                    items: [
+                        'Hỏi: <strong>từ này nối ý logic hay điều phối cuộc nói?</strong> Nối ý (đối lập, kết quả, ví dụ) → linking word; điều phối (chuyển chủ đề, mở lời, giữ nhịp) → discourse marker.',
+                        '<em>The price is high. <strong>However</strong>, the quality is excellent.</em> → linking word (đối lập).',
+                        '<em><strong>Anyway</strong>, let’s get back to work.</em> → discourse marker (chuyển chủ đề).',
+                        '<em><strong>So</strong>, what do you think?</em> (mở lời, văn nói) khác với <em>It was late, <strong>so</strong> we left.</em> (liên từ chỉ kết quả).'
+                    ]
+                },
                 {
                     title: '✒️ Vị trí và dấu câu của however',
                     items: [
@@ -702,13 +732,16 @@ const grammarExtrasData = {
                 }
             ],
             compare: [
-                ['but vs however', 'but là liên từ nối mệnh đề trong câu; however nối câu / ý với dấu câu riêng']
+                ['but vs however', 'but là liên từ nối mệnh đề trong câu; however nối câu / ý với dấu câu riêng'],
+                ['linking word vs discourse marker', 'linking word nối ý logic; discourse marker điều phối cuộc nói. <em>so</em> có thể là cả hai: liên từ kết quả hoặc từ mở lời']
             ],
             mistakes: [
                 ['I was tired however I worked.', 'I was tired. However, I worked.', 'Dùng however như liên từ.'],
                 'Nhồi marker vào mọi câu hoặc lặp một marker liên tục – mỗi đoạn 1–2 marker là đủ.',
-                'Dùng marker trang trọng trong chat thân mật khi không cần.'
-            ]
+                'Dùng marker trang trọng trong chat thân mật khi không cần.',
+                'Dùng discourse marker văn nói (<em>you know, I mean</em>) trong văn viết trang trọng.'
+            ],
+            tip: 'Văn viết trang trọng: dùng linking words (<em>however, therefore, moreover</em>). Văn nói thân mật: có thể thêm discourse markers (<em>well, anyway, you know</em>).'
         }
     },
 
@@ -1195,7 +1228,7 @@ const grammarExtrasData = {
         level: 'advanced',
         connections: ['noun-clauses', 'wish-if-only', 'conditionals', 'modal-verbs'],
         theory: {
-            overview: 'Thức giả định (mandative subjunctive) dùng <strong>V nguyên mẫu cho mọi ngôi</strong> trong that-clause sau các động từ / tính từ chỉ yêu cầu, đề nghị, tầm quan trọng. Phổ biến ở Anh-Mỹ và văn trang trọng, pháp lý.',
+            overview: 'Thức giả định (mandative subjunctive) dùng <strong>V nguyên mẫu cho mọi ngôi</strong> trong that-clause sau các động từ / tính từ chỉ yêu cầu, đề nghị, tầm quan trọng. Phổ biến ở Anh-Mỹ và văn trang trọng, pháp lý. Ngoài ra còn <strong>were-subjunctive</strong> (were / quá khứ cho điều không có thật) dùng sau <em>if, wish, as if / as though</em>.',
             formula: [
                 {
                     label: 'Sau động từ',
@@ -1212,6 +1245,18 @@ const grammarExtrasData = {
                     label: 'Phủ định',
                     pattern: 'not + V',
                     example: 'I suggest he not leave yet.'
+                },
+                {
+                    label: 'As if / as though (không thật)',
+                    pattern: 'as if / as though + S + were / V2 (hiện tại) · had + V3 (quá khứ)',
+                    example: 'He talks as though he were the boss. · She looked as if she had seen a ghost.',
+                    note: 'were cho mọi ngôi; văn nói thân mật hay dùng was'
+                },
+                {
+                    label: 'As if / as though (thật hoặc có khả năng)',
+                    pattern: 'as if / as though + S + V (thì bình thường)',
+                    example: 'It looks as if it is going to rain.',
+                    note: 'người nói tin là thật hoặc có thể thật'
                 }
             ],
             tables: [
@@ -1223,6 +1268,25 @@ const grammarExtrasData = {
                             'essential, important, vital, necessary, crucial, imperative, advisable, desirable, ...'
                         ]
                     ]
+                },
+                {
+                    title: 'Were-subjunctive: dạng quá khứ cho điều không có thật',
+                    head: ['Cấu trúc', 'Ý nghĩa', 'Ví dụ'],
+                    rows: [
+                        ['If I were you', 'điều kiện không thật ở hiện tại', '<em>If I were you, I would apologise.</em>'],
+                        ['wish / if only + were / V2', 'ước điều trái với hiện tại', '<em>I wish I were taller. If only he were here.</em>'],
+                        ['as if / as though + were / V2', 'so sánh với điều không có thật', '<em>He talks as though he were the boss.</em> (thực tế: anh ta không phải)'],
+                        ['it’s (high) time / would rather + S + V2', 'đề nghị, mong muốn về hiện tại', '<em>It’s time you went to bed. I’d rather you stayed.</em>']
+                    ]
+                },
+                {
+                    title: 'As if / as though: thật hay không thật?',
+                    head: ['Tình huống', 'Dạng động từ', 'Ví dụ'],
+                    rows: [
+                        ['Không thật ở hiện tại', 'were / V2', '<em>He talks as though he were the boss.</em> (thực tế: không phải)'],
+                        ['Không thật ở quá khứ', 'had + V3', '<em>She looked as if she had seen a ghost.</em> (thực tế: không thấy gì)'],
+                        ['Thật hoặc có khả năng', 'thì bình thường', '<em>He talks as though he is the boss.</em> (người nói tin là vậy) <em>It looks as if it is going to rain.</em>']
+                    ]
                 }
             ],
             uses: [
@@ -1231,18 +1295,40 @@ const grammarExtrasData = {
                     'không lạm dụng trong văn thường',
                     'God save the Queen! Long live the king! So be it. Come what may. Be that as it may…'
                 ],
-                ['Were-subjunctive', 'were cho mọi ngôi trong điều kiện không thật', 'If I were you, …']
+                ['Were-subjunctive', 'were cho mọi ngôi trong điều kiện không thật', 'If I were you, …'],
+                [
+                    'As if / as though',
+                    'không thật → were / quá khứ; thật hoặc có khả năng → thì bình thường',
+                    'He acts as if he owned the place. (không phải của anh ta) / He acts as if he is in charge. (người nói tin vậy)'
+                ]
             ],
             compare: [
                 [
                     'Anh-Mỹ vs Anh-Anh',
                     'AmE giữ V nguyên mẫu: <em>I insist that he go</em>; BrE hay dùng should + V: <em>I insist that he should go</em>. Chọn một và nhất quán'
                 ],
-                ['They insisted that he leave vs They insisted that he left', 'yêu cầu anh ta phải đi – khẳng định anh ta đã đi']
+                ['They insisted that he leave vs They insisted that he left', 'yêu cầu anh ta phải đi – khẳng định anh ta đã đi'],
+                [
+                    'as though he were the boss vs as though he is the boss',
+                    'were: người nói cho là không thật; is: người nói cho là thật hoặc có thể thật – ngữ cảnh quyết định'
+                ],
+                [
+                    'were vs was',
+                    'were là dạng chuẩn, trang trọng cho mọi ngôi; <em>was</em> thường gặp trong văn nói thân mật (<em>as if he was the boss</em>). Với <em>If I were you</em> nên dùng were.'
+                ]
             ],
             mistakes: [
                 ['I suggest that he goes.', 'I suggest that he go.', 'Không thêm -s cho ngôi thứ ba.'],
-                ['I suggest he doesn’t leave.', 'I suggest he not leave.', 'Không dùng do/does trong phủ định.']
+                ['I suggest he doesn’t leave.', 'I suggest he not leave.', 'Không dùng do/does trong phủ định.'],
+                [
+                    'He talks as though he is the boss. (thực tế: chỉ là thực tập sinh)',
+                    'He talks as though he were the boss.',
+                    'Điều không có thật ở hiện tại thì lùi thì: were / V2, không dùng is.'
+                ]
+            ],
+            advanced: [
+                'Rút gọn sau as if khi cùng chủ ngữ: <em>He looked at me as if to say sorry. She smiled as if embarrassed.</em>',
+                'Cùng hệ were-subjunctive: <em>were I you, … (= If I were you)</em>, <em>Were it not for your help, … (= If it were not for your help)</em> – xem Inversion và Conditionals.'
             ]
         }
     },
@@ -1474,12 +1560,82 @@ const grammarExtrasData = {
                 {
                     head: ['Giới từ', 'Nghĩa', 'Động từ điển hình'],
                     rows: [
-                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw, ...'],
+                        ['to', 'chuyển giao, đích đến', 'give, send, tell, show, lend, offer, pass, write, teach, sell, throw, ... (danh sách đầy đủ ở các bảng Tra cứu bên dưới)'],
                         [
                             'for',
                             'làm vì lợi ích ai',
-                            'buy, make, cook, get, find, build, choose, save, order, ... – <em>She bought me a gift = She bought a gift for me.</em>'
+                            'buy, make, cook, get, find, build, choose, save, order, ... – <em>She bought me a gift = She bought a gift for me.</em> (danh sách đầy đủ ở các bảng Tra cứu bên dưới)'
                         ]
+                    ]
+                },
+                {
+                    title: 'Tra cứu 1: động từ dùng với to (V + IO + DO = V + DO + to + IO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'give, tell, show, send, bring', '<em>She gave me a book. = She gave a book to me. / He told me the truth. = He told the truth to me.</em>'],
+                        ['Thông dụng', 'offer, teach, pass, sell, lend, pay, take', '<em>Can you pass me the salt? = Can you pass the salt to me? / The bank lent him money.</em>'],
+                        ['Khá thông dụng', 'email, text, mail, hand, owe, promise, throw, post, forward', '<em>Email me the file. = Email the file to me. / He owes me $10.</em>'],
+                        ['Ít gặp', 'rent, loan, serve, feed, toss, award, grant, assign, deliver', '<em>The court awarded her damages. = The court awarded damages to her. / She served the guests dinner.</em>'],
+                        ['Trang trọng, văn viết', 'bequeath, lease, wire, fax, allocate, extend', '<em>He bequeathed his daughter the house. = He bequeathed the house to his daughter.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 2: động từ dùng với for (V + IO + DO = V + DO + for + IO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'get, buy, make, find, cook', '<em>I bought her a gift. = I bought a gift for her. / Can you get me some water?</em>'],
+                        ['Thông dụng', 'leave, save, order, build, choose, fix, keep, book', '<em>Please book us a table. = Please book a table for us. / Save me a seat.</em>'],
+                        ['Khá thông dụng', 'pour, draw, pick, prepare, bake, grab, fetch, call, hold, reserve', '<em>Pour me a drink. / Call me a taxi. = Call a taxi for me. / Fetch me my coat.</em>'],
+                        ['Ít gặp', 'paint, design, knit, sew, mix, cut, win, earn, do (a favour)', '<em>She knitted him a scarf. = She knitted a scarf for him. / Do me a favour.</em>'],
+                        ['Trang trọng, văn viết', 'secure, compose, procure, arrange', '<em>She secured him a job. = She secured a job for him.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 3: động từ dùng được cả to và for (nghĩa khác nhau)',
+                    head: ['Động từ', 'Với to (người nhận)', 'Với for (làm thay / vì lợi ích)'],
+                    rows: [
+                        ['write', '<em>write a letter to Mum</em> (gửi cho mẹ)', '<em>write a letter for Mum</em> (viết hộ mẹ)'],
+                        ['read', '<em>read a story to the kids</em> (đọc cho các em nghe)', '<em>read a story for the kids</em> (đọc vì các em; đọc hộ)'],
+                        ['sell', '<em>sell a car to him</em> (bán xe cho anh ấy)', '<em>sell a car for him</em> (bán hộ anh ấy)'],
+                        ['pay', '<em>pay $10 to him</em> (trả anh ấy 10 đô)', '<em>pay $10 for him</em> (trả thay anh ấy)'],
+                        ['sing', '<em>sing a song to her</em> (hát cho cô ấy nghe)', '<em>sing a song for her</em> (hát tặng cô ấy)'],
+                        ['play', '<em>play a song to the class</em> (mở / chơi nhạc cho lớp nghe)', '<em>play a song for the class</em> (chơi nhạc vì lớp)']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 4: động từ chỉ dùng V + IO + DO (không chuyển sang giới từ), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['Rất thông dụng', 'take (thời gian), cost, ask, wish', '<em>It took me an hour. / It cost me $50. / Can I ask you a question? / I wish you luck.</em>'],
+                        ['Thông dụng', 'charge, cause, do (good / harm), bet, save (a trip)', '<em>They charged me $20. / The delay caused us problems. / The walk will do you good.</em>'],
+                        ['Ít gặp', 'fine, envy, forgive, spare, refuse, deny, begrudge, grudge', '<em>Spare me the details. / He denied her entry. / I envy you your talent.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 5: động từ chỉ dùng V + DO + to + IO (không dùng V + IO + DO), từ thông dụng đến ít gặp',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ sai → đúng'],
+                    rows: [
+                        ['Rất thông dụng', 'say, explain, describe, suggest, mention', '<em>She explained me the rule. → She explained the rule to me. / He suggested me a plan. → He suggested a plan to me.</em>'],
+                        ['Thông dụng', 'introduce, announce, report, propose, recommend, repeat', '<em>She introduced me her sister. → She introduced her sister to me.</em> (<em>recommend me a hotel</em> đôi khi gặp trong văn nói, nhưng viết chuẩn dùng <em>recommend a hotel to me</em>)'],
+                        ['Ít gặp', 'admit, confess, reveal, prove, demonstrate, translate, dictate, donate', '<em>He confessed the crime to the police. / She donated money to the school.</em>'],
+                        ['Trang trọng, hiếm', 'convey, disclose, divulge, transmit', '<em>He conveyed the message to the board.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 6: động từ chỉ dùng V + DO + for + IO (không dùng V + IO + DO)',
+                    head: ['Mức thông dụng', 'Động từ', 'Ví dụ sai → đúng'],
+                    rows: [
+                        ['Thông dụng', 'open, close, carry, answer, hold (the door)', '<em>He opened me the door. → He opened the door for me. / Can you carry me this bag? → Can you carry this bag for me?</em>'],
+                        ['Ít gặp', 'spell, pronounce, cash', '<em>Please spell me your name. → Please spell your name for me.</em>']
+                    ]
+                },
+                {
+                    title: 'Tra cứu 7: mẫu dùng giới từ khác',
+                    head: ['Mẫu', 'Động từ', 'Ví dụ'],
+                    rows: [
+                        ['V + DO + on + IO', 'play (a trick / a joke)', '<em>He played a trick on me.</em>'],
+                        ['V + DO + of + IO (trang trọng)', 'ask (a favour), beg (a favour)', '<em>I have a favour to ask of you.</em>'],
+                        ['V + IO + with + DO', 'provide, supply, present, entrust', '<em>They provided us with food. = They provided food for us. / The firm supplies schools with computers. = ... supplies computers to schools.</em>']
                     ]
                 }
             ],
