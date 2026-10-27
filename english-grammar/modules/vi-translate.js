@@ -265,7 +265,43 @@ const grammarViTranslateData = {
         "vi": "Anh ấy giải thích rõ ràng.",
         "en": "He explains clearly.",
         "point": "trạng từ bổ nghĩa cho động từ"
+      },
+      {
+        "vi": "Anh ấy lái xe nhanh.",
+        "en": "He drives fast.",
+        "point": "fast: cùng dạng tính từ và trạng từ"
+      },
+      {
+        "vi": "Gần đây tôi rất mệt.",
+        "en": "I’ve been very tired lately.",
+        "point": "lately = gần đây"
+      },
+      {
+        "vi": "Cô ấy hầu như không ăn gì.",
+        "en": "She hardly eats anything.",
+        "point": "hardly = hầu như không"
+      },
+      {
+        "vi": "Đó là một khách sạn rất đáng giới thiệu.",
+        "en": "It is a highly recommended hotel.",
+        "point": "highly = rất"
+      },
+      {
+        "vi": "Cô ấy mỉm cười thân thiện.",
+        "en": "She smiled in a friendly way.",
+        "point": "friendly là tính từ: dùng in a friendly way"
+      },
+      {
+        "vi": "Tờ báo được phát hành hằng ngày.",
+        "en": "The newspaper is published daily.",
+        "point": "daily: cùng dạng tính từ và trạng từ"
+      },
+      {
+        "vi": "Tôi gần như xong rồi.",
+        "en": "I’m nearly finished.",
+        "point": "nearly = gần như"
       }
+
     ]
   },
   "phrases-vs-clauses": {

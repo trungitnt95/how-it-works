@@ -1362,6 +1362,16 @@
         t('concession-contrast', 'Nhượng bộ & Tương phản', 'B2', 'Làm thế nào để dùng despite với một mệnh đề?', ['despite the fact that + S + V', 'despite of + S + V', 'despite + S + V trực tiếp', 'despite + to V'], 0, 'Thêm the fact that sau despite / in spite of để đưa mệnh đề vào.'),
         t('concession-contrast', 'Nhượng bộ & Tương phản', 'C1', '"Tired as he was, he kept going" thuộc dạng nào?', ['nhượng bộ trang trọng, đảo adj + as + S + V', 'câu so sánh bằng', 'mệnh đề thời gian', 'câu điều kiện loại 1'], 0, 'adj + as + S + V mang nghĩa "dù… vẫn…".'),
 
+        t('parts-of-speech', 'Từ loại', 'A2', 'Quy tắc "tận cùng -ly là trạng từ" có đúng tuyệt đối không?', ['không: có tính từ tận cùng -ly như friendly, lovely, lonely', 'có, luôn luôn đúng', 'chỉ sai với friendly', 'chỉ đúng với động từ'], 0, 'friendly, lovely, lonely, lively, costly là tính từ dù có -ly.'),
+        t('parts-of-speech', 'Từ loại', 'A2', 'Muốn nói theo kiểu trạng từ với tính từ "friendly" thì làm thế nào?', ['dùng cụm in a friendly way', 'bắt buộc phải thêm -ly lần nữa', 'đổi thành danh từ', 'không thể diễn đạt được'], 0, 'She smiled in a friendly way.'),
+        t('parts-of-speech', 'Từ loại', 'A2', 'Từ nào sau đây là trạng từ nhưng KHÔNG có đuôi -ly?', ['often, very, soon', 'lovely, friendly', 'quickly, slowly', 'carefully, clearly'], 0, 'often, very, soon là trạng từ không có -ly.'),
+        t('parts-of-speech', 'Từ loại', 'A2', 'fast, hard, late khác quickly, slowly ở điểm nào?', ['cùng một dạng cho cả tính từ và trạng từ', 'chỉ là tính từ', 'chỉ là danh từ', 'phải thêm -ly mới là trạng từ'], 0, 'a fast car (tính từ) / drive fast (trạng từ).'),
+        t('parts-of-speech', 'Từ loại', 'A2', '"hard" và "hardly" khác nhau thế nào?', ['hard: chăm chỉ, mạnh; hardly: hầu như không', 'hai từ giống hệt nhau', 'hardly là dạng so sánh của hard', 'hard là tính từ, hardly là danh từ'], 0, 'She works hard. / She hardly works.'),
+        t('parts-of-speech', 'Từ loại', 'A2', '"late" và "lately" khác nhau thế nào?', ['late: muộn; lately: gần đây', 'late: gần đây; lately: muộn', 'hai từ giống hệt nhau', 'late là danh từ'], 0, 'He arrived late. / I’ve been tired lately.'),
+        t('adjectives-adverbs', 'Tính từ và trạng từ', 'B1', 'Trạng từ của "happy" là gì (chính tả)?', ['happily', 'happyly', 'happly', 'happyily'], 0, 'Tính từ tận cùng -y đổi y → i rồi thêm -ly.'),
+        t('adjectives-adverbs', 'Tính từ và trạng từ', 'B1', 'Trạng từ của "true" là gì (chính tả)?', ['truly', 'truely', 'trulyy', 'trueily'], 0, 'true → truly (bỏ e).'),
+        t('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'Thêm -ly vào near, high, most thì nghĩa thay đổi thế nào?', ['đổi nghĩa: nearly = gần như, highly = rất, mostly = chủ yếu', 'giữ nguyên nghĩa', 'thành danh từ', 'thành động từ'], 0, 'near – nearly; high – highly; most – mostly.'),
+
         // ==================== CONDITIONALS: UNLESS ====================
         t('conditionals', 'Conditionals', 'B2', 'Câu nào đúng khi kết quả là phản ứng (cảm xúc) trước việc điều kiện không xảy ra?', ['I’ll be sad if you don’t come.', 'I’ll be sad unless you come.', 'I’ll be sad if you won’t come.', 'I’ll be sad unless you don’t come.'], 0, 'Nỗi buồn là phản ứng trước việc bạn không đến nên dùng if … not; unless chỉ nêu ngoại lệ duy nhất, như I’ll go unless it rains.')
     );

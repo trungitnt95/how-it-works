@@ -82,6 +82,17 @@ const grammarFoundationsData = {
                         ['Preposition (giới từ)', 'nêu quan hệ (nơi chốn, thời gian…)', 'in, on, with, ...'],
                         ['Conjunction (liên từ)', 'nối từ, cụm, mệnh đề', 'and, although, because, ...']
                     ]
+                },
+                {
+                    title: 'Trạng từ và đuôi -ly: các ngoại lệ',
+                    head: ['Nhóm', 'Từ', 'Ví dụ'],
+                    rows: [
+                        ['Tính từ tận cùng -ly (không phải trạng từ)', 'friendly, lovely, lonely, lively, costly, elderly, likely, silly, ugly, deadly, ...', '<em>She is friendly. It was a lovely day.</em> (nói kiểu trạng từ: <em>in a friendly way</em>)'],
+                        ['Trạng từ không có -ly', 'very, too, so, often, always, never, soon, now, here, there, still, just, already, well, ...', '<em>She often comes here. He speaks English well.</em>'],
+                        ['Cùng một dạng cho tính từ và trạng từ', 'fast, hard, late, early, high, low, long, far, near, straight, daily, weekly, ...', '<em>a fast car / He drives fast.</em>'],
+                        ['Thêm -ly sẽ đổi nghĩa', 'hard – hardly, late – lately, near – nearly, high – highly, ...', '<em>She works hard. / She hardly works.</em>'],
+                        ['Chính tả khi thêm -ly', 'happy → happily, true → truly, full → fully, gentle → gently, public → publicly', '<em>She smiled happily.</em>']
+                    ]
                 }
             ],
             uses: [
@@ -104,12 +115,14 @@ const grammarFoundationsData = {
                     items: [
                         ['Danh từ', '-tion, -ment, -ness, -ity, ...: <em>information, movement, kindness, ability, ...</em>'],
                         ['Tính từ', '-ful, -ous, -able, -ive, ...: <em>useful, famous, readable, active, ...</em>'],
-                        ['Trạng từ', '-ly thường là trạng từ, nhưng có ngoại lệ là tính từ: <em>friendly, lovely, lonely</em>']
+                        ['Trạng từ', '-ly thường là trạng từ, nhưng có ngoại lệ là tính từ: <em>friendly, lovely, lonely, lively, costly</em>. Ngược lại, có trạng từ không có -ly (<em>very, often, soon, fast, hard</em>) – xem bảng ngoại lệ bên trên']
                     ]
                 }
             ],
             mistakes: [
                 ['She speaks fluent.', 'She speaks fluently.', 'Bổ nghĩa cho động từ cần trạng từ, không dùng tính từ.'],
+                ['She works hardly.', 'She works hard.', '<em>hardly</em> = hầu như không; chăm chỉ là <em>hard</em> (trạng từ không có -ly).'],
+                ['She is a friendly-ly girl. / She speaks friendly.', 'She is friendly. / She speaks in a friendly way.', '<em>friendly</em> là tính từ nên không thêm -ly; muốn nói kiểu trạng từ dùng cụm <em>in a friendly way</em>.'],
                 'Chọn từ loại theo nghĩa tiếng Việt thay vì theo vị trí trong câu.',
                 'Nghĩ một từ chỉ có một từ loại: <em>book</em> là danh từ, nhưng <em>book a ticket</em> là động từ.'
             ],
@@ -278,6 +291,35 @@ const grammarFoundationsData = {
                         ['Adverb of manner', 'sau động từ hoặc sau tân ngữ', '<em>He speaks clearly. She opened the door slowly.</em>'],
                         ['Adverb of frequency', 'trước động từ thường, sau be', '<em>She often reads. She is often late.</em>'],
                         ['Degree adverb', 'trước tính từ / trạng từ', '<em>very useful, quite slowly</em>']
+                    ]
+                }
+            ,
+                {
+                    title: 'Trạng từ và -ly: tra cứu đầy đủ',
+                    head: ['Nhóm', 'Từ', 'Ví dụ'],
+                    rows: [
+                        ['Tính từ tận cùng -ly', 'friendly, lovely, lonely, lively, costly, elderly, likely / unlikely, silly, ugly, deadly, cowardly, curly, jolly, motherly, brotherly, neighbourly, scholarly, heavenly, ...', '<em>a friendly smile; a costly mistake; the elderly</em>'],
+                        ['Tính từ và trạng từ cùng dạng (thời gian)', 'daily, weekly, monthly, yearly, hourly, early, ...', '<em>a daily newspaper / It is published daily.</em>'],
+                        ['Trạng từ không có -ly', 'very, quite, too, so, just, still, already, always, never, often, soon, now, then, here, there, almost, also, ever, yet, ...', '<em>I have already seen it. She never lies.</em>'],
+                        ['Trạng từ hướng, nơi chốn', 'home, back, away, up, down, forward(s), ahead, abroad, ...', '<em>Go home. Look ahead.</em>'],
+                        ['Trạng từ bất quy tắc của tính từ', 'good → well', '<em>a good singer / She sings well.</em>'],
+                        ['Cùng dạng tính từ (flat adverbs)', 'fast, hard, late, early, high, low, deep, long, far, near, straight, right, wrong, loud, slow, cheap, tight, wide, ...', '<em>a fast train / The train goes fast. Hold on tight.</em>']
+                    ]
+                },
+                {
+                    title: 'Thêm -ly đổi nghĩa',
+                    head: ['Không -ly', 'Có -ly', 'Ví dụ'],
+                    rows: [
+                        ['hard (chăm chỉ, mạnh)', 'hardly (hầu như không)', '<em>She works hard. / She hardly works.</em>'],
+                        ['late (muộn)', 'lately (gần đây)', '<em>He arrived late. / I’ve been tired lately.</em>'],
+                        ['high (cao)', 'highly (rất, đánh giá cao)', '<em>The bird flew high. / a highly recommended hotel</em>'],
+                        ['near (gần)', 'nearly (gần như)', '<em>Sit near me. / I’m nearly finished.</em>'],
+                        ['most (nhất)', 'mostly (chủ yếu)', '<em>What do you like most? / The guests were mostly students.</em>'],
+                        ['deep (sâu)', 'deeply (hết sức, sâu sắc)', '<em>dig deep / deeply sorry</em>'],
+                        ['wide (rộng)', 'widely (rộng rãi)', '<em>open wide / a widely used method</em>'],
+                        ['short (đột ngột)', 'shortly (chẳng bao lâu)', '<em>He stopped short. / She’ll be here shortly.</em>'],
+                        ['direct (thẳng)', 'directly (trực tiếp, ngay)', '<em>fly direct to Paris / Call me directly.</em>'],
+                        ['fair (công bằng)', 'fairly (khá)', '<em>play fair / fairly good</em>']
                     ]
                 }
             ],
