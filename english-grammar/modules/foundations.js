@@ -82,6 +82,17 @@ const grammarFoundationsData = {
                         ['Preposition (giới từ)', 'nêu quan hệ (nơi chốn, thời gian…)', 'in, on, with, ...'],
                         ['Conjunction (liên từ)', 'nối từ, cụm, mệnh đề', 'and, although, because, ...']
                     ]
+                },
+                {
+                    title: 'Trạng từ và đuôi -ly: các ngoại lệ',
+                    head: ['Nhóm', 'Từ', 'Ví dụ'],
+                    rows: [
+                        ['Tính từ tận cùng -ly (không phải trạng từ)', 'friendly, lovely, lonely, lively, costly, elderly, likely, silly, ugly, deadly, ...', '<em>She is friendly. It was a lovely day.</em> (nói kiểu trạng từ: <em>in a friendly way</em>)'],
+                        ['Trạng từ không có -ly', 'very, too, so, often, always, never, soon, now, here, there, still, just, already, well, ...', '<em>She often comes here. He speaks English well.</em>'],
+                        ['Cùng một dạng cho tính từ và trạng từ', 'fast, hard, late, early, high, low, long, far, near, straight, daily, weekly, ...', '<em>a fast car / He drives fast.</em>'],
+                        ['Thêm -ly sẽ đổi nghĩa', 'hard – hardly, late – lately, near – nearly, high – highly, ...', '<em>She works hard. / She hardly works.</em>'],
+                        ['Chính tả khi thêm -ly', 'happy → happily, true → truly, full → fully, gentle → gently, public → publicly', '<em>She smiled happily.</em>']
+                    ]
                 }
             ],
             uses: [
@@ -104,12 +115,14 @@ const grammarFoundationsData = {
                     items: [
                         ['Danh từ', '-tion, -ment, -ness, -ity, ...: <em>information, movement, kindness, ability, ...</em>'],
                         ['Tính từ', '-ful, -ous, -able, -ive, ...: <em>useful, famous, readable, active, ...</em>'],
-                        ['Trạng từ', '-ly thường là trạng từ, nhưng có ngoại lệ là tính từ: <em>friendly, lovely, lonely</em>']
+                        ['Trạng từ', '-ly thường là trạng từ, nhưng có ngoại lệ là tính từ: <em>friendly, lovely, lonely, lively, costly</em>. Ngược lại, có trạng từ không có -ly (<em>very, often, soon, fast, hard</em>) – xem bảng ngoại lệ bên trên']
                     ]
                 }
             ],
             mistakes: [
                 ['She speaks fluent.', 'She speaks fluently.', 'Bổ nghĩa cho động từ cần trạng từ, không dùng tính từ.'],
+                ['She works hardly.', 'She works hard.', '<em>hardly</em> = hầu như không; chăm chỉ là <em>hard</em> (trạng từ không có -ly).'],
+                ['She is a friendly-ly girl. / She speaks friendly.', 'She is friendly. / She speaks in a friendly way.', '<em>friendly</em> là tính từ nên không thêm -ly; muốn nói kiểu trạng từ dùng cụm <em>in a friendly way</em>.'],
                 'Chọn từ loại theo nghĩa tiếng Việt thay vì theo vị trí trong câu.',
                 'Nghĩ một từ chỉ có một từ loại: <em>book</em> là danh từ, nhưng <em>book a ticket</em> là động từ.'
             ],
@@ -166,8 +179,18 @@ const grammarFoundationsData = {
                 ['Nói khái quát về một loài', 'ba cách đều được', 'A tiger is… / The tiger is… / Tigers are…'],
                 [
                     'Các determiners khác',
-                    'chỉ định <em>this/that/these/those</em>; sở hữu <em>my/your/our</em>; lượng hóa <em>some/any/each/every/much/many</em>',
+                    'chỉ định <em>this/that/these/those</em>; sở hữu <em>my/your/our</em> (còn gọi là possessive adjectives – tính từ sở hữu, xem bài Pronouns & Possessives); lượng hóa <em>some/any/each/every/much/many</em>',
                     ''
+                ],
+                [
+                    'Chỉ dùng MỘT từ trong nhóm mạo từ / chỉ định / sở hữu',
+                    'không đặt hai từ này cạnh nhau trước danh từ; cần cả hai ý thì dùng cấu trúc <em>... of mine / yours</em>',
+                    '✗ the my book, ✗ this my book → ✓ my book / the book; ✓ a book of mine, this book of mine'
+                ],
+                [
+                    'Determiner và possessive adjective',
+                    '<em>determiner</em> là họ lớn (mạo từ, chỉ định, sở hữu, lượng từ); <em>possessive adjective</em> là tên gọi truyền thống của nhóm sở hữu (my, your, ...) trong họ đó',
+                    'my book: <em>my</em> vừa là determiner vừa là possessive adjective'
                 ]
             ],
             compare: [
@@ -176,7 +199,7 @@ const grammarFoundationsData = {
             ],
             mistakes: [
                 ['an information', 'some information / a piece of information', 'Không dùng a/an với danh từ không đếm được.'],
-                ['the my book', 'my book / the book', 'Không dùng hai central determiners (mạo từ, sở hữu, chỉ định) cùng lúc.'],
+                ['the my book', 'my book / the book', 'Chỉ dùng một từ trong nhóm mạo từ / sở hữu / chỉ định; dùng hai từ cùng lúc là sai (thuật ngữ: hai central determiners, xem bài Determiner System).'],
                 'Dịch "cái/sự" của tiếng Việt thành <em>the</em> một cách máy móc.'
             ],
             tip: 'Trước khi viết danh từ, tự hỏi 3 câu: <strong>đếm được không? số ít hay số nhiều? người đọc đã biết nó là gì chưa?</strong> → quyết định a/an, the hay Ø.'
@@ -201,8 +224,8 @@ const grammarFoundationsData = {
                             'me, you, him, her, it, us, them',
                             'làm tân ngữ, sau động từ/giới từ: <em>She told me. Look at them.</em>'
                         ],
-                        ['Possessive determiners', 'my, your, his, her, its, our, their', 'đứng trước danh từ: <em>This is my bag.</em>'],
-                        ['Possessive pronouns', 'mine, yours, his, hers, ours, theirs', 'đứng một mình: <em>This bag is mine.</em>'],
+                        ['Possessive adjectives / determiners (tính từ sở hữu)', 'my, your, his, her, its, our, their', 'là tính từ, đứng trước danh từ: <em>This is my bag.</em>'],
+                        ['Possessive pronouns (đại từ sở hữu)', 'mine, yours, his, hers, ours, theirs', 'là đại từ, đứng một mình, thay cho cả cụm "tính từ sở hữu + danh từ": <em>This bag is mine.</em> (= my bag)'],
                         [
                             'Reflexive pronouns',
                             'myself, yourself, herself…',
@@ -227,7 +250,7 @@ const grammarFoundationsData = {
                 ['Chủ ngữ ghép', 'dùng subject pronoun và thường nêu người khác trước', 'John and I went to the market.']
             ],
             compare: [
-                ['my vs mine', '<em>my</em> + danh từ; <em>mine</em> đứng một mình']
+                ['my vs mine', '<em>my</em> là tính từ sở hữu, đứng trước danh từ (<em>my bag</em>); <em>mine</em> là đại từ sở hữu, đứng một mình (<em>The bag is mine.</em>)']
             ],
             mistakes: [
                 ['your’s, her’s, their’s', 'yours, hers, theirs', 'Possessive pronouns không bao giờ có apostrophe (kể cả <em>its</em>).'],
@@ -278,6 +301,35 @@ const grammarFoundationsData = {
                         ['Adverb of manner', 'sau động từ hoặc sau tân ngữ', '<em>He speaks clearly. She opened the door slowly.</em>'],
                         ['Adverb of frequency', 'trước động từ thường, sau be', '<em>She often reads. She is often late.</em>'],
                         ['Degree adverb', 'trước tính từ / trạng từ', '<em>very useful, quite slowly</em>']
+                    ]
+                }
+            ,
+                {
+                    title: 'Trạng từ và -ly: tra cứu đầy đủ',
+                    head: ['Nhóm', 'Từ', 'Ví dụ'],
+                    rows: [
+                        ['Tính từ tận cùng -ly', 'friendly, lovely, lonely, lively, costly, elderly, likely / unlikely, silly, ugly, deadly, cowardly, curly, jolly, motherly, brotherly, neighbourly, scholarly, heavenly, ...', '<em>a friendly smile; a costly mistake; the elderly</em>'],
+                        ['Tính từ và trạng từ cùng dạng (thời gian)', 'daily, weekly, monthly, yearly, hourly, early, ...', '<em>a daily newspaper / It is published daily.</em>'],
+                        ['Trạng từ không có -ly', 'very, quite, too, so, just, still, already, always, never, often, soon, now, then, here, there, almost, also, ever, yet, ...', '<em>I have already seen it. She never lies.</em>'],
+                        ['Trạng từ hướng, nơi chốn', 'home, back, away, up, down, forward(s), ahead, abroad, ...', '<em>Go home. Look ahead.</em>'],
+                        ['Trạng từ bất quy tắc của tính từ', 'good → well', '<em>a good singer / She sings well.</em>'],
+                        ['Cùng dạng tính từ (flat adverbs)', 'fast, hard, late, early, high, low, deep, long, far, near, straight, right, wrong, loud, slow, cheap, tight, wide, ...', '<em>a fast train / The train goes fast. Hold on tight.</em>']
+                    ]
+                },
+                {
+                    title: 'Thêm -ly đổi nghĩa',
+                    head: ['Không -ly', 'Có -ly', 'Ví dụ'],
+                    rows: [
+                        ['hard (chăm chỉ, mạnh)', 'hardly (hầu như không)', '<em>She works hard. / She hardly works.</em>'],
+                        ['late (muộn)', 'lately (gần đây)', '<em>He arrived late. / I’ve been tired lately.</em>'],
+                        ['high (cao)', 'highly (rất, đánh giá cao)', '<em>The bird flew high. / a highly recommended hotel</em>'],
+                        ['near (gần)', 'nearly (gần như)', '<em>Sit near me. / I’m nearly finished.</em>'],
+                        ['most (nhất)', 'mostly (chủ yếu)', '<em>What do you like most? / The guests were mostly students.</em>'],
+                        ['deep (sâu)', 'deeply (hết sức, sâu sắc)', '<em>dig deep / deeply sorry</em>'],
+                        ['wide (rộng)', 'widely (rộng rãi)', '<em>open wide / a widely used method</em>'],
+                        ['short (đột ngột)', 'shortly (chẳng bao lâu)', '<em>He stopped short. / She’ll be here shortly.</em>'],
+                        ['direct (thẳng)', 'directly (trực tiếp, ngay)', '<em>fly direct to Paris / Call me directly.</em>'],
+                        ['fair (công bằng)', 'fairly (khá)', '<em>play fair / fairly good</em>']
                     ]
                 }
             ],

@@ -1040,6 +1040,23 @@ const grammarExerciseBank = (function () {
         q('concession-contrast', 'Nhượng bộ & Tương phản', 'B2', 'Câu nào mắc lỗi (comma splice)?', ['It rained, however we went out.', 'It rained; however, we went out.', 'It rained. However, we went out.', 'It rained, but we went out.'], 0, 'however không nối hai mệnh đề chỉ bằng dấu phẩy; dùng dấu chấm phẩy hoặc dấu chấm trước however, hoặc dùng but.'),
         q('concession-contrast', 'Nhượng bộ & Tương phản', 'B2', 'Chọn từ đúng: "Even ___ he studied hard, he failed."', ['though', 'although', 'despite', 'however'], 0, 'even đi với though (even though); không dùng even although; despite và however không đi với mệnh đề theo cách này.'),
         q('concession-contrast', 'Nhượng bộ & Tương phản', 'C1', 'Chọn dạng đảo nhượng bộ trang trọng: "___ as he was, he kept going."', ['Tired', 'Being', 'Despite', 'Although'], 0, 'Cấu trúc adj + as + S + V mang nghĩa "dù… vẫn…" (nhượng bộ trang trọng).'),
+
+        // ==================== -LY ADVERBS & EXCEPTIONS ====================
+        q('parts-of-speech', 'Từ loại', 'A1', 'Từ nào là TÍNH TỪ?', ['lovely', 'quickly', 'slowly', 'carefully'], 0, 'lovely tận cùng -ly nhưng là tính từ (a lovely day); quickly, slowly, carefully là trạng từ.'),
+        q('parts-of-speech', 'Từ loại', 'A1', 'Chọn từ đúng: "She is very ___."', ['friendly', 'friendlily', 'friendlyly', 'friend'], 0, 'Sau be cần tính từ: friendly là tính từ (dù có -ly).'),
+        q('parts-of-speech', 'Từ loại', 'A2', 'Chọn từ đúng: "He drives ___."', ['fast', 'fastly', 'fastily', 'fasts'], 0, 'fast vừa là tính từ vừa là trạng từ nên không thêm -ly.'),
+        q('parts-of-speech', 'Từ loại', 'A2', 'Trong "She works hard.", từ "hard" thuộc từ loại nào?', ['adverb (trạng từ)', 'adjective (tính từ)', 'noun (danh từ)', 'preposition (giới từ)'], 0, 'hard bổ nghĩa cho động từ works nên là trạng từ (hard không có -ly).'),
+        q('parts-of-speech', 'Từ loại', 'A2', 'Từ nào KHÔNG tận cùng -ly nhưng là trạng từ?', ['often', 'lovely', 'friendly', 'lonely'], 0, 'often là trạng từ tần suất; lovely, friendly, lonely là tính từ.'),
+        q('parts-of-speech', 'Từ loại', 'A2', 'Chọn câu đúng:', ['She works hard.', 'She works hardly.', 'She works hardily.', 'She working hard.'], 0, 'Chăm chỉ là hard; hardly nghĩa là "hầu như không".'),
+        q('parts-of-speech', 'Từ loại', 'A2', '"She hardly works." nghĩa là gì?', ['Cô ấy hầu như không làm việc', 'Cô ấy làm việc chăm chỉ', 'Cô ấy làm việc muộn', 'Cô ấy làm việc gần đây'], 0, 'hardly = hầu như không; hard = chăm chỉ.'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B1', 'We haven’t seen him ___. (gần đây)', ['lately', 'late', 'latest', 'lateish'], 0, 'lately = gần đây; late = muộn.'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B1', 'The plane landed ___. (muộn hơn dự kiến)', ['late', 'lately', 'latest', 'lateish'], 0, 'Trạng từ chỉ cách thức "muộn" là late; lately chỉ "gần đây".'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B1', 'The hotel is ___ recommended. (rất được khuyên dùng)', ['highly', 'high', 'heightly', 'hardly'], 0, 'highly = rất, ở mức cao; high = cao (vị trí).'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'Câu nào đúng?', ['The bird flew high above the trees.', 'The bird flew highly above the trees.', 'The bird flew heightly above the trees.', 'The bird flew hightly above the trees.'], 0, 'Nói về vị trí cao dùng high (trạng từ cùng dạng tính từ), không dùng highly.'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'Từ nào dùng được vừa là tính từ vừa là trạng từ với cùng một dạng?', ['fast', 'quickly', 'slowly', 'carefully'], 0, 'fast: a fast car (tính từ) / drive fast (trạng từ).'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'I’m ___ finished. (gần như xong)', ['nearly', 'near', 'nearby', 'nearer'], 0, 'nearly = gần như; near = gần.'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'Chọn cách nói đúng cho "Cô ấy mỉm cười một cách thân thiện":', ['She smiled in a friendly way.', 'She smiled friendlyly.', 'She smiled friendlying.', 'She smiled friendish.'], 0, 'friendly là tính từ nên dùng cụm in a friendly way để nói kiểu trạng từ.'),
+        q('adjectives-adverbs', 'Tính từ và trạng từ', 'B2', 'Chọn dạng đúng: "The newspaper is published ___."', ['daily', 'dailly', 'dailyly', 'day'], 0, 'daily vừa là tính từ vừa là trạng từ (cùng một dạng).'),
     ];
 })();
 
