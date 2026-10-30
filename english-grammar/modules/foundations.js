@@ -179,8 +179,18 @@ const grammarFoundationsData = {
                 ['Nói khái quát về một loài', 'ba cách đều được', 'A tiger is… / The tiger is… / Tigers are…'],
                 [
                     'Các determiners khác',
-                    'chỉ định <em>this/that/these/those</em>; sở hữu <em>my/your/our</em>; lượng hóa <em>some/any/each/every/much/many</em>',
+                    'chỉ định <em>this/that/these/those</em>; sở hữu <em>my/your/our</em> (còn gọi là possessive adjectives – tính từ sở hữu, xem bài Pronouns & Possessives); lượng hóa <em>some/any/each/every/much/many</em>',
                     ''
+                ],
+                [
+                    'Chỉ dùng MỘT từ trong nhóm mạo từ / chỉ định / sở hữu',
+                    'không đặt hai từ này cạnh nhau trước danh từ; cần cả hai ý thì dùng cấu trúc <em>... of mine / yours</em>',
+                    '✗ the my book, ✗ this my book → ✓ my book / the book; ✓ a book of mine, this book of mine'
+                ],
+                [
+                    'Determiner và possessive adjective',
+                    '<em>determiner</em> là họ lớn (mạo từ, chỉ định, sở hữu, lượng từ); <em>possessive adjective</em> là tên gọi truyền thống của nhóm sở hữu (my, your, ...) trong họ đó',
+                    'my book: <em>my</em> vừa là determiner vừa là possessive adjective'
                 ]
             ],
             compare: [
@@ -189,7 +199,7 @@ const grammarFoundationsData = {
             ],
             mistakes: [
                 ['an information', 'some information / a piece of information', 'Không dùng a/an với danh từ không đếm được.'],
-                ['the my book', 'my book / the book', 'Không dùng hai central determiners (mạo từ, sở hữu, chỉ định) cùng lúc.'],
+                ['the my book', 'my book / the book', 'Chỉ dùng một từ trong nhóm mạo từ / sở hữu / chỉ định; dùng hai từ cùng lúc là sai (thuật ngữ: hai central determiners, xem bài Determiner System).'],
                 'Dịch "cái/sự" của tiếng Việt thành <em>the</em> một cách máy móc.'
             ],
             tip: 'Trước khi viết danh từ, tự hỏi 3 câu: <strong>đếm được không? số ít hay số nhiều? người đọc đã biết nó là gì chưa?</strong> → quyết định a/an, the hay Ø.'
