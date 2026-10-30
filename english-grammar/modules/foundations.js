@@ -214,8 +214,8 @@ const grammarFoundationsData = {
                             'me, you, him, her, it, us, them',
                             'làm tân ngữ, sau động từ/giới từ: <em>She told me. Look at them.</em>'
                         ],
-                        ['Possessive determiners', 'my, your, his, her, its, our, their', 'đứng trước danh từ: <em>This is my bag.</em>'],
-                        ['Possessive pronouns', 'mine, yours, his, hers, ours, theirs', 'đứng một mình: <em>This bag is mine.</em>'],
+                        ['Possessive adjectives / determiners (tính từ sở hữu)', 'my, your, his, her, its, our, their', 'là tính từ, đứng trước danh từ: <em>This is my bag.</em>'],
+                        ['Possessive pronouns (đại từ sở hữu)', 'mine, yours, his, hers, ours, theirs', 'là đại từ, đứng một mình, thay cho cả cụm "tính từ sở hữu + danh từ": <em>This bag is mine.</em> (= my bag)'],
                         [
                             'Reflexive pronouns',
                             'myself, yourself, herself…',
@@ -240,7 +240,7 @@ const grammarFoundationsData = {
                 ['Chủ ngữ ghép', 'dùng subject pronoun và thường nêu người khác trước', 'John and I went to the market.']
             ],
             compare: [
-                ['my vs mine', '<em>my</em> + danh từ; <em>mine</em> đứng một mình']
+                ['my vs mine', '<em>my</em> là tính từ sở hữu, đứng trước danh từ (<em>my bag</em>); <em>mine</em> là đại từ sở hữu, đứng một mình (<em>The bag is mine.</em>)']
             ],
             mistakes: [
                 ['your’s, her’s, their’s', 'yours, hers, theirs', 'Possessive pronouns không bao giờ có apostrophe (kể cả <em>its</em>).'],
