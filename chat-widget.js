@@ -5,26 +5,24 @@
 
     window.__HIW_CHAT_WIDGET_INITIALIZED__ = true;
 
-    const API_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
-    const API_VERSION = '2026-03-10';
-    const DEFAULT_MODEL = 'gpt-4.1';
+    const DEFAULT_MODEL = 'gemini-2.5-flash';
     const AVAILABLE_MODELS = [
         {
-            label: 'gpt-4o',
-            ids: ['openai/gpt-4o']
+            label: 'gemini-2.5-flash',
+            id: 'gemini-2.5-flash'
         },
         {
-            label: 'gpt-4.1',
-            ids: ['openai/gpt-4.1']
+            label: 'gemini-2.0-flash',
+            id: 'gemini-2.0-flash'
         },
         {
-            label: 'gpt-5-mini',
-            ids: ['openai/gpt-5-mini', 'openai/gpt-5-mini']
+            label: 'gemini-1.5-pro',
+            id: 'gemini-1.5-pro'
         }
     ];
     const STORAGE_KEYS = {
-        token: 'hiw_copilot_token',
-        model: 'hiw_copilot_model',
+        token: 'hiw_google_api_key',
+        model: 'hiw_gemini_model',
         notes: 'hiw_notes_data'
     };
     const MAX_PAGE_CONTEXT = 3600;
@@ -95,7 +93,7 @@
             '    <aside class="hiw-chat-panel" hidden>',
             '        <div class="hiw-chat-header">',
             '            <div class="hiw-chat-title-group">',
-            '                <p class="hiw-chat-eyebrow">GitHub Models</p>',
+            '                <p class="hiw-chat-eyebrow">Google AI</p>',
             '                <h2 class="hiw-chat-title">Trợ lý theo ngữ cảnh trang</h2>',
             '            </div>',
             '            <div class="hiw-chat-header-right">',
@@ -104,7 +102,7 @@
             '                    <select id="hiw-chat-model-select"></select>',
             '                </label>',
             '                <div class="hiw-chat-actions">',
-            '                    <button class="hiw-chat-icon-button" type="button" data-action="settings" aria-label="Cài đặt token">⚙</button>',
+            '                    <button class="hiw-chat-icon-button" type="button" data-action="settings" aria-label="Cài đặt API key">⚙</button>',
             '                    <button class="hiw-chat-icon-button" type="button" data-action="clear" aria-label="Xóa hội thoại">↺</button>',
             '                    <button class="hiw-chat-icon-button" type="button" data-action="close" aria-label="Đóng chat">✕</button>',
             '                </div>',
@@ -124,20 +122,20 @@
             '            <div class="hiw-chat-settings-head">',
             '                <div>',
             '                    <p class="hiw-chat-eyebrow">Cấu hình</p>',
-            '                    <h3 id="hiw-chat-settings-title">GitHub Models Chat</h3>',
+            '                    <h3 id="hiw-chat-settings-title">Google AI Chat</h3>',
             '                </div>',
             '                <button class="hiw-chat-icon-button" type="button" data-action="close-settings" aria-label="Đóng cài đặt">✕</button>',
             '            </div>',
             '            <p class="hiw-chat-settings-message"></p>',
             '            <label class="hiw-chat-field">',
-            '                <span>GitHub PAT</span>',
-            '                <input class="hiw-chat-token-input" type="password" placeholder="ghp_... hoặc github_pat_..." autocomplete="off">',
+            '                <span>Google API Key</span>',
+            '                <input class="hiw-chat-token-input" type="password" placeholder="AIza..." autocomplete="off">',
             '            </label>',
             '            <label class="hiw-chat-field">',
             '                <span>Model mặc định</span>',
             '                <select class="hiw-chat-settings-model"></select>',
             '            </label>',
-            '            <p class="hiw-chat-settings-note">PAT cần có quyền models:read. Nhãn model trong UI sẽ được map sang model ID GitHub Models tương ứng.</p>',
+            '            <p class="hiw-chat-settings-note">Lấy API key miễn phí tại <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>. Key được lưu trên thiết bị này.</p>',
             '            <div class="hiw-chat-settings-actions">',
             '                <button class="hiw-chat-secondary-button" type="button" data-action="close-settings">Để sau</button>',
             '                <button class="hiw-chat-primary-button" type="button" data-action="save-settings">Lưu cấu hình</button>',
@@ -231,7 +229,7 @@
 
     function getModelConfig(modelLabel) {
         const normalizedLabel = normalizeStoredModel(modelLabel);
-        return AVAILABLE_MODELS.find((model) => model.label === normalizedLabel) || AVAILABLE_MODELS[AVAILABLE_MODELS.length - 1];
+        return AVAILABLE_MODELS.find((model) => model.label === normalizedLabel) || AVAILABLE_MODELS[0];
     }
 
     function syncModelControls() {
@@ -271,7 +269,7 @@
 
         if (action === 'settings') {
             openSettings({
-                message: 'PAT được lưu trên thiết bị này và dùng để gọi GitHub Models API bằng quyền models:read.'
+                message: 'API key được lưu trên thiết bị này và dùng để gọi Google Gemini API.'
             });
             return;
         }
@@ -332,7 +330,7 @@
         if (!state.token) {
             openSettings({
                 force: true,
-                message: 'Bạn cần nhập GitHub PAT có quyền models:read trước khi gửi câu hỏi đầu tiên.'
+                message: 'Bạn cần nhập Google API Key trước khi gửi câu hỏi đầu tiên. Lấy key miễn phí tại aistudio.google.com.'
             });
         }
 
@@ -349,7 +347,7 @@
         const config = options || {};
         state.elements.settings.removeAttribute('hidden');
         state.elements.settings.dataset.force = config.force ? 'true' : 'false';
-        state.elements.settingsMessage.textContent = config.message || 'Nhập GitHub PAT và chọn model mặc định cho chat widget.';
+        state.elements.settingsMessage.textContent = config.message || 'Nhập Google API Key và chọn model mặc định cho chat widget.';
         state.elements.tokenInput.value = state.token;
         syncModelControls();
         window.requestAnimationFrame(() => state.elements.tokenInput.focus());
@@ -357,7 +355,7 @@
 
     function closeSettings() {
         if (state.elements.settings.dataset.force === 'true' && !state.token) {
-            updateStatus('Chat chưa hoạt động vì chưa có GitHub PAT.', 'warning');
+            updateStatus('Chat chưa hoạt động vì chưa có Google API Key.', 'warning');
         }
 
         state.elements.settings.setAttribute('hidden', 'hidden');
@@ -371,7 +369,7 @@
 
         if (!nextToken) {
             state.elements.tokenInput.focus();
-            updateStatus('GitHub PAT không được để trống.', 'error');
+            updateStatus('Google API Key không được để trống.', 'error');
             return;
         }
 
@@ -382,7 +380,7 @@
         syncModelControls();
         closeSettings();
         openPanel();
-        updateStatus('Đã lưu GitHub PAT và model ' + state.model + '.', 'success');
+        updateStatus('Đã lưu Google API Key và model ' + state.model + '.', 'success');
     }
 
     function clearConversation() {
@@ -397,7 +395,7 @@
             'Mình có thể hỗ trợ theo nội dung của trang này.',
             'Trang đang xem: ' + state.pageContext.title,
             'Bạn có thể đổi model ngay ở phía trên.',
-            'Widget hiện dùng GitHub Models API với GitHub PAT có quyền models:read.'
+            'Widget hiện dùng Google Gemini API với Google API Key.'
         ].join('\n'));
     }
 
@@ -425,7 +423,7 @@
         if (!state.token) {
             openSettings({
                 force: true,
-                message: 'Cần GitHub PAT có quyền models:read để gửi câu hỏi.'
+                message: 'Cần Google API Key để gửi câu hỏi. Lấy miễn phí tại aistudio.google.com.'
             });
             return;
         }
@@ -438,18 +436,15 @@
         autoResizeInput();
 
         const assistantMessage = createMessageElement('assistant');
-        assistantMessage.content.textContent = 'Đang kết nối tới GitHub Models...';
+        assistantMessage.content.textContent = 'Đang kết nối tới Google Gemini...';
         state.elements.messages.appendChild(assistantMessage.wrapper);
         scrollMessagesToBottom();
 
         setPending(true);
-        updateStatus('Đang hỏi bằng ' + state.model + ' qua GitHub Models...', 'neutral');
+        updateStatus('Đang hỏi bằng ' + state.model + ' qua Google Gemini...', 'neutral');
 
         try {
-            const assistantReply = await requestAssistantReply((chunkText) => {
-                assistantMessage.content.textContent = chunkText || 'Đang chờ dữ liệu từ model...';
-                scrollMessagesToBottom();
-            });
+            const assistantReply = await requestAssistantReply();
             const assistantText = assistantReply.text;
 
             assistantMessage.content.textContent = assistantText || 'Không nhận được nội dung trả lời.';
@@ -457,7 +452,7 @@
                 state.history.push({ role: 'assistant', content: assistantText });
                 state.history = state.history.slice(-MAX_HISTORY_MESSAGES);
             }
-            updateStatus('Đã trả lời bằng ' + state.model + ' qua ' + assistantReply.modelId + '.', 'success');
+            updateStatus('Đã trả lời bằng ' + assistantReply.modelId + '.', 'success');
         } catch (error) {
             assistantMessage.wrapper.classList.add('hiw-chat-message-error');
             assistantMessage.content.textContent = formatRequestError(error);
@@ -468,42 +463,31 @@
         }
     }
 
-    async function requestAssistantReply(onUpdate) {
+    async function requestAssistantReply() {
         const modelConfig = getModelConfig(state.model);
-        let lastError = null;
-
-        for (const modelId of modelConfig.ids) {
-            try {
-                const text = await sendInferenceRequest(modelId, onUpdate);
-                return {
-                    text,
-                    modelId
-                };
-            } catch (error) {
-                lastError = error;
-
-                if (!isRetryableModelError(error)) {
-                    throw error;
-                }
-            }
-        }
-
-        throw lastError || new Error('Không resolve được model đã chọn trên GitHub Models.');
+        const text = await sendGeminiRequest(modelConfig.id);
+        return { text, modelId: modelConfig.id };
     }
 
-    async function sendInferenceRequest(modelId, onUpdate) {
-        const response = await fetch(API_ENDPOINT, {
+    async function sendGeminiRequest(modelId) {
+        const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/' + modelId + ':generateContent?key=' + encodeURIComponent(state.token);
+
+        const contents = buildGeminiContents();
+
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + state.token,
-                'Content-Type': 'application/json',
-                'Accept': 'application/vnd.github+json, text/event-stream, application/json',
-                'X-GitHub-Api-Version': API_VERSION
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: modelId,
-                messages: buildPayloadMessages(),
-                stream: true
+                system_instruction: {
+                    parts: [{ text: buildSystemPrompt() }]
+                },
+                contents: contents,
+                generationConfig: {
+                    temperature: 0.7,
+                    maxOutputTokens: 2048
+                }
             })
         });
 
@@ -511,35 +495,23 @@
             throw await createHttpError(response);
         }
 
-        const contentType = (response.headers.get('content-type') || '').toLowerCase();
+        const data = await response.json();
 
-        if (contentType.includes('text/event-stream') && response.body) {
-            return readEventStream(response.body, onUpdate);
+        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+            return data.candidates[0].content.parts.map(function (part) { return part.text || ''; }).join('');
         }
 
-        if (contentType.includes('application/json')) {
-            const data = await response.json();
-            const text = extractTextFromPayload(data.choices && data.choices[0] ? data.choices[0].message && data.choices[0].message.content : data.message);
-            onUpdate(text);
-            return text;
+        if (data.error) {
+            const err = new Error(data.error.message || 'Google Gemini API trả về lỗi.');
+            err.status = data.error.code;
+            throw err;
         }
 
-        const text = await response.text();
-        onUpdate(text);
-        return text;
+        return '';
     }
 
-    function isRetryableModelError(error) {
-        const message = error && error.message ? error.message.toLowerCase() : '';
-        return Boolean(
-            error &&
-            [400, 404, 422].includes(error.status) &&
-            /model|unsupported|not found|unknown|invalid/i.test(message)
-        );
-    }
-
-    function buildPayloadMessages() {
-        const systemPrompt = [
+    function buildSystemPrompt() {
+        return [
             'Bạn là trợ lý AI cho website kiến thức "How it works".',
             'Ưu tiên tuyệt đối nội dung của trang hiện tại khi trả lời.',
             'Nếu người dùng hỏi vượt quá context của trang, hãy nói rõ giới hạn đó trước khi bổ sung kiến thức chung.',
@@ -551,113 +523,17 @@
             'Headings: ' + (state.pageContext.headings || 'Không có'),
             'Nội dung trích xuất: ' + state.pageContext.content
         ].join('\n');
-
-        return [{ role: 'system', content: systemPrompt }].concat(state.history);
     }
 
-    async function readEventStream(stream, onUpdate) {
-        const reader = stream.getReader();
-        const decoder = new TextDecoder();
-        let buffer = '';
-        let fullText = '';
-
-        while (true) {
-            const chunk = await reader.read();
-
-            if (chunk.done) {
-                buffer += decoder.decode();
-                buffer = normalizeEventBuffer(buffer);
-                const finalParse = consumeEventBuffer(buffer, fullText, onUpdate);
-                buffer = finalParse.buffer;
-                fullText = finalParse.fullText;
-
-                if (!finalParse.done && buffer.trim()) {
-                    const trailingEvent = parseEventBlock(buffer.trim());
-
-                    if (trailingEvent.text) {
-                        fullText += trailingEvent.text;
-                        onUpdate(fullText);
-                    }
-                }
-
-                break;
-            }
-
-            buffer += decoder.decode(chunk.value, { stream: true });
-            buffer = normalizeEventBuffer(buffer);
-            const parsed = consumeEventBuffer(buffer, fullText, onUpdate);
-            buffer = parsed.buffer;
-            fullText = parsed.fullText;
-
-            if (parsed.done) {
-                break;
-            }
-        }
-
-        return fullText;
-    }
-
-    function consumeEventBuffer(buffer, currentText, onUpdate) {
-        let workingBuffer = buffer;
-        let fullText = currentText;
-        let done = false;
-        let boundaryIndex = workingBuffer.indexOf('\n\n');
-
-        while (boundaryIndex !== -1) {
-            const rawEvent = workingBuffer.slice(0, boundaryIndex);
-            workingBuffer = workingBuffer.slice(boundaryIndex + 2);
-            const parsed = parseEventBlock(rawEvent);
-
-            if (parsed.done) {
-                done = true;
-                break;
-            }
-
-            if (parsed.text) {
-                fullText += parsed.text;
-                onUpdate(fullText);
-            }
-
-            boundaryIndex = workingBuffer.indexOf('\n\n');
-        }
-
-        return {
-            buffer: workingBuffer,
-            fullText,
-            done
-        };
-    }
-
-    function normalizeEventBuffer(buffer) {
-        return buffer.replace(/\r\n/g, '\n');
-    }
-
-    function parseEventBlock(block) {
-        const dataLines = block
-            .split('\n')
-            .filter((line) => line.startsWith('data:'))
-            .map((line) => line.slice(5).trim())
-            .filter(Boolean);
-
-        if (!dataLines.length) {
-            return { text: '' };
-        }
-
-        const data = dataLines.join('\n');
-
-        if (data === '[DONE]') {
-            return { done: true, text: '' };
-        }
-
-        try {
-            const payload = JSON.parse(data);
-            const choice = payload.choices && payload.choices[0] ? payload.choices[0] : {};
-            const delta = choice.delta ? choice.delta.content : '';
-            const message = choice.message ? choice.message.content : '';
-            return { text: extractTextFromPayload(delta || message) };
-        } catch (error) {
-            return { text: '' };
-        }
+    function buildGeminiContents() {
+        // Convert chat history to Gemini format
+        // Gemini uses 'user' and 'model' roles (not 'assistant')
+        return state.history.map(function (msg) {
+            return {
+                role: msg.role === 'assistant' ? 'model' : 'user',
+                parts: [{ text: msg.content }]
+            };
+        });
     }
 
     async function createHttpError(response) {
@@ -681,36 +557,36 @@
             ? payload
             : payload && (payload.error && payload.error.message ? payload.error.message : payload.message);
 
-        if (rawMessage && /personal access tokens are not supported for this endpoint/i.test(rawMessage)) {
-            return 'Endpoint Copilot cũ không nhận PAT. Hãy tải lại trang để widget dùng GitHub Models endpoint với PAT có quyền models:read.';
-        }
-
-        if (status === 400 && rawMessage && /model/i.test(rawMessage)) {
-            return 'Model ' + state.model + ' chưa được GitHub Models chấp nhận. Hãy thử gpt-4o hoặc gpt-4.1.';
+        if (status === 400) {
+            return 'Request không hợp lệ. ' + (rawMessage || 'Kiểm tra lại model hoặc nội dung gửi đi.');
         }
 
         if (status === 401 || status === 403) {
-            return 'PAT không hợp lệ hoặc thiếu quyền models:read trên GitHub Models.';
+            return 'Google API Key không hợp lệ hoặc không có quyền truy cập. Kiểm tra lại key tại aistudio.google.com.';
         }
 
-        if (status === 422) {
-            return 'Request bị GitHub Models từ chối. Kiểm tra model hiện tại hoặc giới hạn input/output của tài khoản.';
+        if (status === 404) {
+            return 'Model ' + state.model + ' không tìm thấy. Hãy thử model khác.';
         }
 
         if (status === 429) {
             return 'API đang bị rate limit. Hãy thử lại sau.';
         }
 
+        if (status === 500 || status === 503) {
+            return 'Google Gemini API đang gặp sự cố. Hãy thử lại sau.';
+        }
+
         if (rawMessage) {
             return String(rawMessage).trim();
         }
 
-        return 'GitHub Models API trả về lỗi HTTP ' + status + '.';
+        return 'Google Gemini API trả về lỗi HTTP ' + status + '.';
     }
 
     function formatRequestError(error) {
         if (error instanceof TypeError) {
-            return 'Không gọi được GitHub Models API từ trình duyệt. Nếu đây là lỗi CORS hoặc mạng, bạn sẽ cần một proxy mỏng ở server.';
+            return 'Không gọi được Google Gemini API từ trình duyệt. Kiểm tra kết nối mạng hoặc lỗi CORS.';
         }
 
         return error && error.message ? error.message : 'Có lỗi xảy ra khi gửi câu hỏi.';
@@ -722,7 +598,7 @@
 
         const label = document.createElement('p');
         label.className = 'hiw-chat-message-label';
-        label.textContent = role === 'user' ? 'Bạn' : 'Copilot';
+        label.textContent = role === 'user' ? 'Bạn' : 'Gemini';
 
         const content = document.createElement('div');
         content.className = 'hiw-chat-message-content';
@@ -812,40 +688,14 @@
         }
 
         const matchedModel = AVAILABLE_MODELS.find((model) => {
-            return model.label.toLowerCase() === rawValue || model.ids.some((id) => id.toLowerCase() === rawValue);
+            return model.label.toLowerCase() === rawValue || model.id.toLowerCase() === rawValue;
         });
 
         if (matchedModel) {
             return matchedModel.label;
         }
 
-        if (rawValue === 'gpt-5-mini' || rawValue === 'gpt 5 mini') {
-            return 'gpt-5-mini';
-        }
-
         return DEFAULT_MODEL;
-    }
-
-    function extractTextFromPayload(payload) {
-        if (typeof payload === 'string') {
-            return payload;
-        }
-
-        if (Array.isArray(payload)) {
-            return payload.map(extractTextFromPayload).join('');
-        }
-
-        if (payload && typeof payload === 'object') {
-            if (typeof payload.text === 'string') {
-                return payload.text;
-            }
-
-            if (typeof payload.content === 'string') {
-                return payload.content;
-            }
-        }
-
-        return '';
     }
 
     function loadSetting(key, fallbackValue) {
