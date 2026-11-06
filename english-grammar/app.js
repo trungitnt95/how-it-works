@@ -898,10 +898,6 @@
         elements.closeExercise.addEventListener('click', closeExerciseModal);
         elements.closeSummaryBtn.addEventListener('click', closeExerciseModal);
 
-        elements.exerciseModal.addEventListener('click', event => {
-            if (event.target === elements.exerciseModal) closeExerciseModal();
-        });
-
         elements.setupScope.querySelectorAll('.setup-btn').forEach(btn => {
             btn.addEventListener('click', () => setScope(btn.dataset.scope));
         });
